@@ -10,31 +10,63 @@ Use the links below to begin navigating these docs.  If you can’t find somethi
 
 If you need any support please reach out to us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app window, or ping us on our Discord.
 
-## Getting Started
+## Introduction
 
-Whether you're new to BugSplat, or simply setting up a new project, our getting started resources make the process straightforward.  \(SDK docs, sample applications, third-party tool integration tutorials, and more\) 
+Whether you're new to BugSplat, or simply setting up a new project, our getting started resources make the process straightforward. 
 
-{% page-ref page="getting-started/introduction/" %}
+{% page-ref page="introduction/getting-started/" %}
 
-## How-to
+{% page-ref page="introduction/development/" %}
 
-Get the most out BugSplat with tutorials and guides covering useful tools and advanced use cases. \(Guide to symbols, searching crash data, custom support response, subkeying, and more\)
+{% page-ref page="introduction/production/" %}
 
-{% page-ref page="how-to/untitled-1.md" %}
 
-## Reference
 
-Documentation covering Webservices \(API\), account management, security & privacy, FAQ's, and plans and pricing.
+## About
 
-## **Background**
+Information that covers the who, what, when, where, and why's of BugSplat.
 
-Information helpful for understanding and using BugSplat
+{% page-ref page="about/what-is-bugsplat.md" %}
 
-{% page-ref page="getting-started/introduction/" %}
+{% page-ref page="about/introduction.md" %}
 
-## Changelog
+{% page-ref page="about/who-is-bugsplat/" %}
+
+## Administration
+
+Documentation covering user management, account management, billing, and upgrades.
+
+{% page-ref page="administration/introduction/" %}
+
+{% page-ref page="administration/account-managment/" %}
+
+{% page-ref page="administration/plans-and-pricing-1/" %}
+
+{% page-ref page="administration/paid-plans-and-upgrades/" %}
+
+{% page-ref page="administration/contact-us.md" %}
+
+
+
+## **Education**
+
+Information helpful for understanding and using BugSplat, FAQ's, and answers to common questions.
+
+{% page-ref page="education/bugsplat-dictionary.md" %}
+
+{% page-ref page="education/untitled-1/" %}
+
+{% page-ref page="education/faq/" %}
+
+{% page-ref page="education/faq/common-end-user-questions/" %}
+
+## Updates
 
 Updates to the BugSplat web app, various SDK's, and other aspects of our services.
+
+{% page-ref page="updates/changelog.md" %}
+
+
 
 
 

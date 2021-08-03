@@ -1,0 +1,8 @@
+# Migrating Crashes
+
+If you are trying out BugSplat and would like to migrate crashes from your old solution you can do so by using the handy [Migrate](https://app.bugsplat.com/v2/migrate) page.
+
+Note that you will need to make sure you've uploaded the corresponding symbols on the [Symbols](https://app.bugsplat.com/v2/symbols?database=Fred) page.
+
+![](../../.gitbook/assets/migrate-page.png)
+
