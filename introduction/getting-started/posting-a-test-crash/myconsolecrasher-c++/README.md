@@ -32,3 +32,9 @@ mpSender = new MiniDmpSender(L"Fred", L"myConsoleCrasher", L"1.0", NULL);
 
 Finally, experiment with other features of the library by examining the `myConsoleCrasher` source code and supplying different command-line arguments.
 
+### Further Information
+
+{% page-ref page="address-sanitizer-reports.md" %}
+
+
+
