@@ -93,9 +93,9 @@ void HeapCorruption() {
 
 Calling HeapCorruption \(or your own memory error code\) will generate the Address Sanitizer report and send a crash report to BugSplat. 
 
-## Crash Report
+## Crash Report Result
 
-You'll see the Asan crash report show up just like other crash exceptions.  Here's what our modified version of the myConsoleCrasher sample program produced:
+You'll see the crash report show up just like other crash exceptions.  Here's what our modified version of the myConsoleCrasher sample program produced:
 
 ![](../../../../.gitbook/assets/screen-shot-2021-08-04-at-6.23.13-am.png)
 
