@@ -1,6 +1,6 @@
 # Address Sanitizer Reports
 
-BugSplat integrates with the Windows Address Sanitizer complier option allowing you to capture memory error reports and send them to your BugSplat database.  Here are some instructions for modifying myConsoleCrasher \(or your application\) so that it captures Address Sanitizer exceptions.
+BugSplat integrates with the Windows Address Sanitizer \(Asan\) complier option allowing you to capture memory error reports and send them to your BugSplat database.  Here are some instructions for modifying myConsoleCrasher \(or your application\) so that it captures Address Sanitizer exceptions.
 
 ## Modify Visual Studio Compiler Options
 
@@ -92,4 +92,10 @@ void HeapCorruption() {
 ```
 
 Calling HeapCorruption \(or your own memory error code\) will generate the Address Sanitizer report and send a crash report to BugSplat. 
+
+## Crash Report
+
+You'll see the Asan crash report show up just like other crash exceptions.  Here's what our modified version of the myConsoleCrasher sample program produced:
+
+![](../../../../.gitbook/assets/screen-shot-2021-08-04-at-6.23.13-am.png)
 
