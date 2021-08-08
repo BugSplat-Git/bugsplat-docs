@@ -233,6 +233,7 @@ Add a `symbols` script to your `package.json`.
   "scripts": {
     "symbols": "node ./scripts/symbols.js"
   },
+}
 ```
 
 For best results, please upload source maps for every released version of your application.
