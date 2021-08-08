@@ -1,4 +1,0 @@
-# React Native
-
-TODO BG
-
