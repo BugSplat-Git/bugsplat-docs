@@ -1,6 +1,6 @@
 # Using the App
 
-The BugSplat web application consists of three main pages the Dashboard, Crashes, and Summary.  These pages sort and organize an application's crash data, helping users to quickly and simply navigate to the information they need.
+The BugSplat web application consists of three main pages the [Dashboard](https://app.bugsplat.com/v2/dashboard), [Crashes](https://app.bugsplat.com/v2/crashes), and [Summary](https://app.bugsplat.com/v2/summary).  These pages sort and organize an application's crash data, helping users quickly and simply navigate to the information they need.
 
 Each of the main pages has sub-pages that provide more detail on individual [crashes](../../education/bugsplat-dictionary.md#crash-report), errors, [stack keys](../../education/bugsplat-dictionary.md#stack-key), and other important data.
 

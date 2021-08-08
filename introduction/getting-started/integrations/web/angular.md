@@ -2,8 +2,6 @@
 
 ## Introduction
 
-#### Introduction <a id="intro"></a>
-
 Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account

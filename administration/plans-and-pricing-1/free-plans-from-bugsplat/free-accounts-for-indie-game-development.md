@@ -24,7 +24,7 @@ First off, it's very nice that you're thinking of us - we're touched.
 
 There is absolutely no responsibility on your part to help us in exchange for getting free crash reporting.  
 
-If you're determined to be super nice - how dare you - you could mention us positively to your friends and coworkers and include a link to our website on your documentation.
+If you're determined to be super nice - how dare you - you could mention us positively to your friends and coworkers.  Please also consider including a link to our website in your documentation.
 
 BugSplat is a [bootstrapped startup](https://www.bugsplat.com/about/) and we grow largely on the back of positive word of mouth from our users.
 
