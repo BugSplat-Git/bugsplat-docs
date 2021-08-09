@@ -16,7 +16,7 @@ Modify the Visual Studio Include Directories so that the Address Sanitizer heade
 
 To hook into the Address Sanitizer you will call **\_\_asan\_set\_error\_report\_callback** __with the BugSplat **createAssanReport** method.  To do this, we'll need a global instance of the BugSplat MiniDmpSender object and a new asanCallback function. See below for how you would modify our myConsoleCrasher sample program:
 
-```text
+```cpp
 ...
 #include "sanitizer/asan_interface.h"
 ...
@@ -39,7 +39,7 @@ int wmain(int argc, wchar_t** argv)
 	__asan_set_error_report_callback(asanCallback);
 	
 	...
-
+}
 ```
 
 ## Create Memory Corruption Test 
