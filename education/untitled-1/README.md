@@ -2,7 +2,7 @@
 
 The How-To segment covers guides and tutorials for common stumbling blocks, best practices, feature overviews, and more. 
 
-These resources are meant to help new users get the most out of BugSplat following completion of the [Getting Started]() resources, or to help current users find resources that can help them further customize their BugSplat account.
+These resources are meant to help new users get the most out of BugSplat following completion of the [Getting Started ](../../introduction/getting-started/)resources, or to help current users find resources that can help them further customize their BugSplat account.
 
 ## BugSplat Basics 
 

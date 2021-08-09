@@ -50,7 +50,7 @@ The reports page allows for users to get information critical for understanding 
 
 The user details modal contains high-level and 'human' information about a crash.  Use it to find out who crashed, when they crashed, and where they crashed \(IP address\).  This information is sometimes [obfuscated to protect user info](../production/security-privacy-and-compliance/gdpr.md) - like it is in the image below.
 
-![](../../.gitbook/assets/user-details-modal.png)
+![](../../.gitbook/assets/screen-shot-2021-07-16-at-3.08.42-pm.png)
 
 ### Crash Details 
 
@@ -76,7 +76,7 @@ The report page includes valuable information like crash time, environment, corr
 
 All data covered to this point on the Report page are found under the `Crash Overview` tab. To access additional information about crashes like the `Other Threads`, `Registers`, `Modules`, `Debugger Output`, and `Attachements`  use the tabs found above the User Details module.
 
-![](../../.gitbook/assets/viewing-tabs-crashreport%20%281%29.gif)
+![](../../.gitbook/assets/viewing-tabs-crashreport%20%281%29%20%281%29.gif)
 
 ## Summary 
 
@@ -92,7 +92,7 @@ The Summary page allows for similar table navigation as the [Crashes](using-the-
 
 The Summary page has a line chart at the top of the page which shows the top stack key by default, although you can select multiple stack keys to display on the chart.
 
-![](../../.gitbook/assets/charting-stack-keys%20%281%29.gif)
+![](../../.gitbook/assets/charting-stack-keys%20%283%29%20%281%29.gif)
 
 
 
