@@ -6,7 +6,7 @@ To register an account with BugSplat, visit the [Sign Up](https://app.bugsplat.c
 
 Once you've hit `Sign Up` you'll be a registered user of BugSplat.  
 
-Next you'll be presented with a screen welcoming you to BugSplat.  Here you can either go through a guided onboarding which aids in quickly configiruing new accoungs, or you can skip the onboarding and go directly to the Dashboard page.
+Next, you'll be presented with a screen welcoming you to BugSplat.  Here you can either go through a guided onboarding which aids in quickly configuring new accounts, or you can skip the onboarding and go directly to the Dashboard page.
 
 ![](../../.gitbook/assets/welcome-to-bugsplat.png)
 

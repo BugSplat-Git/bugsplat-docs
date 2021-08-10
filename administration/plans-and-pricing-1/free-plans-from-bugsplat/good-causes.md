@@ -1,16 +1,16 @@
-# Open-Source
+# Good Causes
 
 ### Overview
 
-We're committed to supporting those who are giving back, working hard to learn, or hacking together something fun.
+We're committed to supporting those who are giving back and making a real difference in important fields. 
 
-Because of that, BugSplat has an extended free tier plan for nonprofit open-source projects that are helping to build and grow the fabric of the internet. 
+Because of that, BugSplat has an extended free tier plan for anyone working on Human Rights, World Poverty, Environmental Sustainability, or Underrepresentation in Tech.
 
 ### Here are the rules:
 
-If you're a contributor or moderator of a nonprofit, open-source project that could benefit from crash or error reporting, you likely qualify for our extended free tier plan.
+If you're a member of a company or organization that you believe might fit the above criteria and benefit from crash or error reporting, you likely qualify for our extended free tier plan.
 
-For users and teams that qualify, you'll get annual 75,000 free annual crashes plus integrations with defect trackers.
+For users and teams that qualify, you'll get annual 500,000 free annual crashes plus integrations with defect trackers.
 
 If you're wondering if you qualify but are not sure, please send an email to our product manager Joey \(joey@bugsplat.com\) and tell him a little bit about yourself and your project or community.
 

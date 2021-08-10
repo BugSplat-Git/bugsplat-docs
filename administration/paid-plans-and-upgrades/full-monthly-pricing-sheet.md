@@ -1,4 +1,4 @@
-# Full monthly pricing sheet
+# Monthly pricing sheet
 
 
 

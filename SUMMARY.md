@@ -118,7 +118,8 @@
     * [Standard Free Plan](administration/plans-and-pricing-1/free-plans-from-bugsplat/standard-free-plan.md)
     * [Indie Game Development](administration/plans-and-pricing-1/free-plans-from-bugsplat/free-accounts-for-indie-game-development.md)
     * [Education](administration/plans-and-pricing-1/free-plans-from-bugsplat/bugsplat-free-accounts-for-students-and-teachers.md)
-    * [Open-source](administration/plans-and-pricing-1/free-plans-from-bugsplat/bugsplat-free-accounts-for-not-for-profit-open-source-projects.md)
+    * [Open-Source](administration/plans-and-pricing-1/free-plans-from-bugsplat/bugsplat-free-accounts-for-not-for-profit-open-source-projects.md)
+    * [Good Causes](administration/plans-and-pricing-1/free-plans-from-bugsplat/good-causes.md)
   * [Billing and Plan Management](administration/plans-and-pricing-1/billing-and-plan-managment/README.md)
     * [Viewing Billing History and Past Invoices](administration/plans-and-pricing-1/billing-and-plan-managment/viewing-billing-history-and-past-invoices.md)
     * [Add or Update Billing Address for BugSplat Accounts](administration/plans-and-pricing-1/billing-and-plan-managment/add-or-update-billing-address-for-bugsplat-accounts.md)
@@ -126,7 +127,7 @@
     * [Updating Credit Card Associated with Account](administration/plans-and-pricing-1/billing-and-plan-managment/updating-credit-card-associated-with-account.md)
 * [Upgrades](administration/paid-plans-and-upgrades/README.md)
   * [Everything your need to know about plan upgrades](administration/paid-plans-and-upgrades/everything-your-need-to-know-about-plan-upgrades.md)
-  * [Full monthly pricing sheet](administration/paid-plans-and-upgrades/full-monthly-pricing-sheet.md)
+  * [Monthly pricing sheet](administration/paid-plans-and-upgrades/full-monthly-pricing-sheet.md)
   * [Everything you need to know about the BugSplat fair-refund policy](administration/paid-plans-and-upgrades/everything-you-need-to-know-about-the-bugsplat-fair-refund-policy.md)
 * [Contact us](administration/contact-us.md)
 
