@@ -2,7 +2,7 @@
 
 BugSplat is the developer's go-to toolbox for finding, understanding, and fixing crashes.  With BugSplat, developers know exactly which issues are causing their end-users to experience crashes while using their product.  
 
-When a crash event occurs, BugSplat captures data critical for understanding the underlying defect.  This data is presented in a familiar 'debugger-like' view which allows developers to triage crashes as if the crash was captured locally on their own machine.  
+When a crash event occurs, BugSplat captures data critical for understanding the underlying defect.  This data is presented in a familiar 'debugger' view which allows developers to triage crashes as if the crash was captured locally on their own machine.  
 
 With BugSplat, developers can identify more issues during testing, monitor the quality of their shipped applications, and also improve their workflow around development and support.  
 

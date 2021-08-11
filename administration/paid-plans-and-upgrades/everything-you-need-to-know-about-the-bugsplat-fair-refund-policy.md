@@ -1,4 +1,4 @@
-# Everything you need to know about the BugSplat fair-refund policy
+# Fair-Refund Policy
 
 Bad refund policies stink. You shouldn't get run around when you're asking for a refund you deserve. We encourage you to reach out to us when you're unhappy with your account. Please contact our [support team](mailto:support@bugsplat.com) for any reason, and we will take care of you.
 

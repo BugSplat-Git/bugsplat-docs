@@ -1,6 +1,6 @@
 # Mobile
 
-Mobile is the most popular software development platform and continues to grow. In a ruthlessly competitive environment your team cannot ship buggy code. Your mobile developers need a crash reporting solution in order to ensure the utmost quality in your application. BugSplat has you covered for all your mobile crash reporting needs.
+Mobile is the most popular software development platform and continues to grow. In a ruthlessly competitive environment, your team cannot ship buggy code. Your mobile developers need a crash reporting solution in order to ensure the utmost quality in your application. BugSplat has you covered for all your mobile crash reporting needs.
 
 {% page-ref page="android.md" %}
 

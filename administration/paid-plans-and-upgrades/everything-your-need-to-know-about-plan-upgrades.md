@@ -1,4 +1,4 @@
-# Everything your need to know about plan upgrades
+# Plan Upgrades
 
 If you have exceeded your plan limits - database, users, or annual allotted crash volume - then you will be automatically upgraded to a plan which covers your usage.
 

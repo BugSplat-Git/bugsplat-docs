@@ -16,7 +16,7 @@ Unfortunately, at the time, there wasn't a self-service crash reporting tool ava
 
 Because Microsoft was the only option at the time, it meant that you had to build and maintain a crash reporter in-house if you wanted to get crash data on your own applications.
 
-For larger companies - like the ones where Dave and the gang first really encounteres crash reporters - this wasn't an issue because they could afford to dedicate a team to building a crash reporter.  
+For larger companies - like the ones where Dave and the gang first really encounters crash reporters - this wasn't an issue because they could afford to dedicate a team to building a crash reporter.  
 
 However… what if you weren't a billion-dollar company? How could you dedicate six or eight people to doing this? 
 
