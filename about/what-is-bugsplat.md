@@ -4,9 +4,9 @@ BugSplat is the developer's go-to toolbox for finding, understanding, and fixing
 
 When a crash event occurs, BugSplat captures data critical for understanding the underlying defect.  This data is presented in a familiar 'debugger' view which allows developers to triage crashes as if the crash was captured locally on their own machine.  
 
-With BugSplat, developers can identify more issues during testing, monitor the quality of their shipped applications, and also improve their workflow around development and support.  
+With BugSplat, developers can identify more issues during testing, monitor the quality of their shipped applications, and also improve their workflow around support and development.  
 
-Overall, applications that use BugSplat are more stable, crash less, and are cheaper and easier to support.
+Overall, applications that use BugSplat crash less, are more stable, and are cheaper and easier to support.
 
 BugSplat is built on AWS’s scalable infrastructure which provides a secure and reliable service to developers and their end-users.
 
