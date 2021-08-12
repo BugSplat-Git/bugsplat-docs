@@ -2,7 +2,7 @@
 
 ### Built to scale
 
-BugSplat is built entirely on AWS and is scalable to any application size or crash submission rate.  We process crashes for over 300+ installed applications around the world and have a 99.99% application uptime. 
+BugSplat is built entirely on AWS and is scalable to any application size or crash submission rate.  We process crashes for over 350+ installed applications around the world and have a [99.99%](http://stats.bugsplat.com/) application uptime. 
 
 ### How users handle crashes at scale inside the app
 
