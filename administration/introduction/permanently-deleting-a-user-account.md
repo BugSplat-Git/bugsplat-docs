@@ -1,4 +1,4 @@
-# Permanently Deleting a User Account
+# Deleting a User
 
 Currently, there is no way to manually delete your BugSplat account permanently through the app. 
 

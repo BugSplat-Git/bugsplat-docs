@@ -1,4 +1,4 @@
-# Permanently Deleting a Company Account
+# Deleting a Company Account
 
 Currently, there is no way to manually delete a company's BugSplat account permanently through the app. 
 

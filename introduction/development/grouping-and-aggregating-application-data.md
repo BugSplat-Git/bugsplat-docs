@@ -18,12 +18,14 @@ Want to find a certain range of crash id's?  Need to isolate all crashes that ha
 
 There are four types of attributes. Each has different filters:
 
+TODO Bobby - is this section accurate and appropriate?
+
 * **Text:** 'is equal to', ''is not equal to', 'contains', 'does not contain', 'is empty', 'is not empty', 'starts with', 'ends with'.
 * **Numbers:** 'is equal to', ''is not equal to', 'contains', 'does not contain', 'is empty', 'is not empty', 'starts with', 'ends with'.
 * **Mixed:** 'is equal to', 'is not equal to', 'contains', 'does not contain', 'is empty', 'is not empty,s tarts with', 'ends with', 'is less than', 'is greater than'.
 * **Date:** ‘is on or before',  'is on or after'.
 
-**Note on special filters**
+\*\*\*\*
 
 ### Basic use cases
 

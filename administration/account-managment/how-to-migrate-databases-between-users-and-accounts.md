@@ -1,4 +1,4 @@
-# How to Migrate Databases Between Users and Accounts
+# Migrating Databases
 
 Databases are owned by companies. To transfer ownership of a database to another company, use the ‘Transfer Database Ownership’ option on the Database section of the [Options](https://app.bugsplat.com/v2/options) page.
 

@@ -1,10 +1,10 @@
 # Standard Free Plan
 
-BugSplat wants to help all hackers, do-it-yourselfers, and those just getting started have access to world-class crash reporting.  Because of that, we provide a Free plan which covers 1 user, 1 database, up to 2,000 annual crashes, and all of the features of a paid account.  
+BugSplat wants to help all hackers, those getting started, and do-it-yourselfers to have access to world-class crash reporting. Because of that, we provide a Standard Free Plan which covers one user, one database, up to 2,000 annual crashes, and all of the features of a paid account. 
 
 #### How long does the free plan last?
 
-The Free Plan is free forever.  If you need more users, databases, or crashes then you might consider upgrading to a paid plan.
+The Standard Free Plan is free forever. If you need more users, databases, or crashes, consider upgrading to a paid plan.
 
 #### Are there other free plans? 
 
@@ -12,11 +12,11 @@ Yup!  If you're an [indie game dev](free-accounts-for-indie-game-development.md)
 
 ### How to get started
 
-To get started with the Free plan follow the below steps: 
+To get started with the Standard Free Plan, follow the below steps: 
 
-1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up)
-2. Follow the [Gettings Started](../../../introduction/getting-started/) docs to set up your account
-3. Use BugSplat normally and stay within the guidelines of the plan \(1 user, 1 database, and less than 2,000 annual crashes\)
+1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up).
+2. Follow the [Gettings Started](../../../introduction/getting-started/) docs to set up your account.
+3. Use BugSplat normally and stay within the guidelines of the plan \(1 user, 1 database, and less than 2,000 annual crashes\).
 
 
 

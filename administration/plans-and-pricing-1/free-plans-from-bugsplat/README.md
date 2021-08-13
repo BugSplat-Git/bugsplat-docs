@@ -1,6 +1,6 @@
 # Free and Discounted Plans
 
-In addition to our standard Free Plan, BugSplat provides discounted and free plans for several awesome causes that are near and dear to our hearts.  
+In addition to our Standard Free Plan, BugSplat provides discounted and free plans for several awesome causes that are near and dear to our hearts.  
 
 It's our way of supporting the community and giving back to people doing great things online.
 

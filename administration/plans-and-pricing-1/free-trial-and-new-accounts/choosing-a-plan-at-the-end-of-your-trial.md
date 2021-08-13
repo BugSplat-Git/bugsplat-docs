@@ -1,4 +1,4 @@
-# Choosing a plan at the end of your trial
+# Choosing a Plan
 
 Picking a plan at the end of your trial is seamless. When your trial is up, choose the plan that is right for you. You can see more about our plans on the [pricing](https://www.bugsplat.com/pricing) page.
 

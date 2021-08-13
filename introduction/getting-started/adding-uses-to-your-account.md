@@ -12,7 +12,7 @@ Only need to add a team member to a specific subset of databases? Navigate to th
 
 ![adding team members](https://www.bugsplat.com/assets/img/docs/adding_users_bugsplat-1.png)
 
-Once you've selected the right database, click the **Add User** button. This will prompt you to insert an email address of your team member. Once invited, they will receive an email allowing them to set up their account.
+Once you've selected the right database, click the `Add User` button. This will prompt you to insert an email address of your team member. Once invited, they will receive an email allowing them to set up their account.
 
 Repeat this process for all desired databases.
 
@@ -22,9 +22,9 @@ If your team or company already has an account with BugSplat, you can request ac
 
 BugSplat has a tool that allows you to [Request Access](https://app.bugsplat.com/v2/sign-up/team-access/) to join an account from a team member who already has access to your team's account.
 
-Note that for security reasons, there will be no warning if the email you send to a team member isn't received. If you do not receive an email granting you access that you double-check to make sure you submitted the right email and try again.
+Note that, for security reasons, there will be no warning if the email you send to a team member isn't received. If you do not receive an email granting you access that you double-check to make sure you submitted the right email and try again.
 
 {% hint style="info" %}
-**Managing User Permissions**:  Looking for a doc about limiting team member's permissions inside of a BugSplat account?  Click [here](../../administration/introduction/user-permissions.md).
+**Managing User Permissions**:  Looking for a doc about limiting a team member's permissions inside of a BugSplat account?  Click [here](../../administration/introduction/user-permissions.md).
 {% endhint %}
 

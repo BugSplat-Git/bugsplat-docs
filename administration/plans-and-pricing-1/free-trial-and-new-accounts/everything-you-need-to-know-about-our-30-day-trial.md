@@ -1,4 +1,4 @@
-# Everything you need to know about our 15-day trial
+# 30-day Trial
 
 Just [sign up](https://app.bugsplat.com/v2/sign-up) for an account and start using BugSplat as a regular user.
 

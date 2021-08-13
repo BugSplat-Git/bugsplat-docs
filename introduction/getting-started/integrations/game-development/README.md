@@ -1,6 +1,6 @@
 # Game Development
 
-Game engines are some of the largest and most complicated codebases that developers will encounter in their careers. Your team needs BugSplat in order to reduce the cost and confusion of navigating large codebases in search of crashes. BugSplat is easy to integrate in your platform of choice and will drastically reduce the headaches caused by chasing user-reported crashes.
+Game engines are some of the largest and most complicated codebases that developers encounter in their careers. Your team needs BugSplat to reduce the cost and confusion of navigating large codebases in search of crashes. BugSplat is easy to integrate in your platform of choice and will drastically reduce the headaches caused by chasing user-reported crashes.
 
 ### Game Engines
 
