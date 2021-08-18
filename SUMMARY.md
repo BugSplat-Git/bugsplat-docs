@@ -172,7 +172,7 @@
     * [Is BugSplat an example of malware?](education/faq/common-end-user-questions/is-bugsplat-an-example-of-malware.md)
     * [How to remove BugSplat from Windows?](education/faq/common-end-user-questions/how-to-remove-bugsplat-from-windows.md)
     * [My software just crashed. Should I contact BugSplat for help?](education/faq/common-end-user-questions/my-software-just-crashed.-should-i-contact-bugsplat-for-help.md)
-    * [How to fix 'BugSplat's](education/faq/common-end-user-questions/how-to-fix-bugsplats.md)
+    * [How to fix 'BugSplat's'](education/faq/common-end-user-questions/how-to-fix-bugsplats.md)
 
 ## Updates
 

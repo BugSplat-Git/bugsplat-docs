@@ -6,10 +6,42 @@ Worried that BugSplat might be a virus or some other type of malicious piece of 
 
 The Common [End-User](../../bugsplat-dictionary.md#end-users) Questions section covers: 
 
-1. What is BugSplat? 
-2. Is BugSplat malicious? 
-3. How can I fix the cause behind an application crash?
-4. And lots more!
+1. [What is BugSplat?](../../../about/what-is-bugsplat.md) 
+2. [How to fix 'BugSplat's'.](how-to-fix-bugsplats.md)
+3. [Is BugSplat malicious? ](is-bugsplat-a-computer-virus.md)
+4. [How can I fix the cause behind an application crash?](how-to-fix-bugsplats-when-your-video-game-is-crashing.md)
+5. [How can I fix the cause behind my game crashing?](fixing-game-crashes-bugsplats-in-league-of-legends.md)
+6. And lots more!
+
+
+
+### Topics 
+
+{% page-ref page="what-is-a-crash-reporter.md" %}
+
+{% page-ref page="how-to-fix-bugsplats.md" %}
+
+{% page-ref page="does-bugsplat-cause-crashes.md" %}
+
+{% page-ref page="what-is-bssndrpt.exe.md" %}
+
+{% page-ref page="how-to-fix-bugsplats-when-your-video-game-is-crashing.md" %}
+
+{% page-ref page="why-did-i-get-a-bugsplat.md" %}
+
+{% page-ref page="how-to-remove-bugsplat.md" %}
+
+{% page-ref page="is-bugsplat-a-computer-virus.md" %}
+
+{% page-ref page="is-bugsplat-an-example-of-malware.md" %}
+
+{% page-ref page="is-bugsplat-a-trojan.md" %}
+
+{% page-ref page="how-to-remove-bugsplat-from-windows.md" %}
+
+{% page-ref page="my-software-just-crashed.-should-i-contact-bugsplat-for-help.md" %}
+
+{% page-ref page="fixing-game-crashes-bugsplats-in-league-of-legends.md" %}
 
 
 

@@ -1,4 +1,4 @@
-# How to fix 'BugSplat's
+# How to fix 'BugSplat's'
 
 If you see the BugSplat crash dialog it means that the program you were running crashed.
 
