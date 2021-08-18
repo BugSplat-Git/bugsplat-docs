@@ -40,7 +40,7 @@ Documentation covering user management, account management, billing, and upgrade
 
 {% page-ref page="administration/account-managment/" %}
 
-{% page-ref page="administration/plans-and-pricing-1/" %}
+{% page-ref page="administration/plans-and-pricing/" %}
 
 {% page-ref page="administration/paid-plans-and-upgrades/" %}
 

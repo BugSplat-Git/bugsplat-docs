@@ -18,7 +18,7 @@ BugSplat has our headquarters in Boulder, CO, where we onboard team members and 
 
 ### We give back
 
-BugSplat gives 1% of annual profits to charitable causes that support fighting the climate crisis and promoting inclusion and diversity in the tech industry.  If your organization is working on making an impact here, [we’d love to help](../../administration/plans-and-pricing-1/free-plans-from-bugsplat/good-causes.md)!
+BugSplat gives 1% of annual profits to charitable causes that support fighting the climate crisis and promoting inclusion and diversity in the tech industry.  If your organization is working on making an impact here, [we’d love to help](../../administration/plans-and-pricing/free-plans-from-bugsplat/good-causes.md)!
 
 ### We believe in work-life balance 🚵 🏂 ☕ 💻 
 
