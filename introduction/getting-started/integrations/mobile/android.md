@@ -1,26 +1,26 @@
 # Android
 
-#### Introduction <a id="intro"></a>
+## Introduction
 
-Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
+The Android NDK is a set of tools for building native C++ applications for Android. BugSplat recommends using Crashpad to handle native crashes in Android NDK applications. Before integrating your application with BugSplat, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
 * Create a new [database](https://app.bugsplat.com/v2/company) for your application
 
+Please also review the [AndroidCrasher](https://github.com/BugSplat-Git/AndroidCrasher) application to see an example BugSplat integration.
+
+{% hint style="info" %}
 Need any further help? Check out the full BugSplat documentation [here](https://www.bugsplat.com/docs), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
+{% endhint %}
 
-#### Overview
-
-The Android NDK is a set of tools for building native C++ applications for Android. BugSplat recommends using Crashpad to handle native crashes in Android NDK applications. Before getting started with this tutorial, please review the [AndroidCrasher](https://github.com/BugSplat-Git/AndroidCrasher) application to see an example BugSplat integration.
-
-#### Building Crashpad
+## Building Crashpad
 
 BugSplat leverages Crashpad to provide crash reporting for Android NDK applications. This tutorial provides a quick overview of how to build Crashpad. For an in depth guide that discusses how to build Crashpad, please see this [article](https://www.bugsplat.com/docs/sdk/crashpad/building/).
 
 To build crashpad you'll first need to download a copy of the Chromium [depot\_tools](https://dev.chromium.org/developers/how-tos/install-depot-tools). Once you have downloaded `depot_tools`, you'll need to add the parent folder to your system's `PATH` environment variable. After adding `depot_tools` to your systems `PATH`, run the following commands to download the Crashpad repository:
 
-```text
+```bash
 mkdir ~/crashpad
 cd ~/crashpad
 fetch crashpad
@@ -29,11 +29,11 @@ cd crashpad
 
 Next you'll need to generate Crashpad build configurations for each Android ABI your application supports. You can view the source of [gyp\_crashpad\_android.py](https://github.com/chromium/crashpad/blob/f9549d1ffefe00f5e3dbabc6aff9e1a7ff619089/build/gyp_crashpad_android.py#L51) to see a list of supported ABIs. Take note of the `--api-level` value you use here as you'll need this information when configuring your project. The following command will create a Crashpad Android config for the `x86` ABI:
 
-```text
+```bash
 ninja -C out/android_x86_api21/out/Debug all
 ```
 
-#### Integrating Crashpad
+## Integrating Crashpad
 
 Once Crashpad has been built you'll need to add the relevant include directories to your project. Copy all of the Crashpad `.h` files to the directory `app/src/main/cpp/crashpad/include`. Next, add the include directories your project's `CMakeLists.txt` file:
 
@@ -59,7 +59,8 @@ set_property(TARGET crashpad_util PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DI
 add_library(base STATIC IMPORTED)
 set_property(TARGET base PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/crashpad/lib/${ANDROID_ABI}/base/libbase.a)
 
-target_link_libraries(  # Specifies the target library
+# Specifies the target library
+target_link_libraries(  
     native-lib
     crashpad_client
     crashpad_util
@@ -75,11 +76,11 @@ add_library(crashpad_handler SHARED IMPORTED)
 set_property(TARGET crashpad_handler PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/crashpad/lib/${ANDROID_ABI}/libcrashpad_handler.so)
 ```
 
-#### Configuring Crashpad
+## Configuring Crashpad
 
 To enable Crashpad in your application you'll need to configure the Crashpad handler with your BugSplat database, application name and application version.  The following snippet will configure the Crashpad handler:
 
-```text
+```cpp
 #include <jni.h>
 #include <string>
 #include <unistd.h>
@@ -144,7 +145,7 @@ Java_com_example_androidcrasher_MainActivity_initializeCrashpad(
 
 Be sure to update the values for `database`, `appName`, `appVersion` and `packageName`to values specific to your application. Next add a call to `initializeCrashpad` at the entry point of your application. The following example defines `initializeCrashpad` as a native C++ function and calls it using Kotlin from MainActivity:
 
-```text
+```kotlin
 // MainActivity entry point
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -160,7 +161,7 @@ external fun initializeCrashpad(): Boolean
 
 To test the attachments feature, use Java or Kotlin to write a text file. The following is a Kotlin snippet that creates a file `attachment.txt`:
 
-```text
+```kotlin
 // MainActivity entry point
 override fun onCreate(savedInstanceState: Bundle?) {
     writeLogFile()
@@ -183,7 +184,7 @@ private fun writeLogFile() {
 }
 ```
 
-#### Symbols
+### Symbols
 
 To ensure that your crash reports contain function names and line numbers you'll need to add an option to your build configuration that prevents symbolic information from being stripped. To prevent symbols from being stripped, add the following to your `build.gradle` file:
 
@@ -204,7 +205,7 @@ Next, you will need to generate and upload `.sym` files to BugSplat. To generate
 
 Once you've built `dump_syms` on a Linux system, run `dump_syms` on a Linux machine passing it the path to your Android library:
 
-```text
+```bash
 ./dump_syms path/to/app/build/intermediates/merged_native_libs/debug/out/lib/x86/my-lib.so > /my-lib.so.sym
 ```
 
@@ -212,7 +213,7 @@ You can also run the Linux version of `dump_syms` using compatible Linux emulato
 
 If you're developing on an OS X or Linux system, build the Breakpad tool `symupload` on your local system. Upload the generated `.sym` file by running `symupload`. Be sure to replace the `{{database}}`, `{{application}}` and `{{version}}` with the values you used in the Configuring Crashpad section:
 
-```text
+```bash
 symupload "/path/to/my-lib.so.sym" "https://{{database}}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={{application}}&appVer={{version}}"
 ```
 
@@ -220,15 +221,15 @@ If you're developing on Windows, `symupload` will not upload your Android `.sym`
 
 After each release build you'll need to generate and upload `.sym` files making sure to increment the version number each time. The version number from the Configuring Crashpad section must match the version number in your upload URL.
 
-#### Generating a Crash Report
+### Generating a Crash Report
 
 Force a crash in your application after Crashpad has been initialized:
 
-```text
+```cpp
 *(volatile int *)0 = 0;
 ```
 
 After you've submitted a crash report, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes?database=Fred&c0=appName&f0=CONTAINS&v0=AndroidCrasher) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `AndroidCrasher` application:
 
-![BugSplat android ndk crash](https://www.bugsplat.com/assets/img/docs/android-crash.png)
+![BugSplat Android NDK Crash](https://www.bugsplat.com/assets/img/docs/android-crash.png)
 

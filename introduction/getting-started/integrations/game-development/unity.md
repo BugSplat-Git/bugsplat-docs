@@ -2,23 +2,19 @@
 
 ## Introduction
 
-Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
+BugSplat's `com.bugsplat.unity` package provides crash and exception reporting for Unity projects. BugSplat provides you with invaluable insight into the issues tripping up your users. Our Unity integration collects screenshots, log files, exceptions, and Windows minidumps so that you can fix bugs and deliver a better user experience. 
+
+Before integrating your application with BugSplat, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
 * Create a new [database](https://app.bugsplat.com/v2/company) for your application
 
+Additionally, you can check out our [my-unity-crasher](https://github.com/BugSplat-Git/my-unity-crasher) sample that demonstrates how to use `com.bugsplat.unity`.
+
 {% hint style="info" %}
 **Need any further help?** Check out the full BugSplat documentation [here](https://www.bugsplat.com/docs), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
 {% endhint %}
-
-## Overview
-
-BugSplat's `com.bugsplat.unity` package provides crash and exception reporting for Unity projects. BugSplat provides you with invaluable insight into the issues tripping up your users. Our Unity integration collects screenshots, log files, exceptions, and Windows minidumps so that you can fix bugs and deliver a better user experience.
-
-## Prerequisites
-
-Additionally, you can check out our [my-unity-crasher](https://github.com/BugSplat-Git/my-unity-crasher) sample that demonstrates how to use `com.bugsplat.unity`.
 
 ## Installation
 
@@ -40,19 +36,19 @@ Information on adding a Unity package via a git URL can be found [here](https://
 
 BugSplat's Unity integration is flexible and can be used in a variety of ways. The easiest way to get started is to create new script and attach it to a GameObject. In your script, add a using statement that aliases `BugSplatUnity.BugSplat` as `BugSplat`.
 
-```text
+```csharp
 using BugSplat = BugSplatUnity.BugSplat;
 ```
 
 Next, create a new instance of `BugSplat` passing it your `database`, `application`, and `version`. Use `Application.productName`, and `Application.version` for application and version respectively.
 
-```text
+```csharp
 var bugsplat = new BugSplat(database, Application.productName, Application.version);
 ```
 
-You can set the defaults for a variety of properties on the `BugSplat` instance. These default values will be used in exception and crash posts. Additionally, you can tell BugSplat to capture a screenshot, include the Player.log file, and include the Editor.log file when an exception is recorded.
+You can set the defaults for a variety of properties on the `BugSplat` instance. These default values will be used in exception and crash posts. Additionally, you can tell BugSplat to capture a screenshot, include the Player.log file, and include the `Editor.log` file when an exception is recorded.
 
-```text
+```csharp
 bugsplat.Attachments.Add(new FileInfo("/path/to/attachment.txt"));
 bugsplat.Description = "description!";
 bugsplat.Email = "fred@bugsplat.com";
@@ -65,7 +61,7 @@ bugsplat.CaptureScreenshots = true;
 
 You can send exceptions to BugSplat in a try/catch block by calling `Post`.
 
-```text
+```csharp
 try
 {
     throw new Exception("BugSplat rocks!");
@@ -78,7 +74,7 @@ catch (Exception ex)
 
 The default values specified on the instance of `BugSplat` can be overridden in the call to `Post`. Additionally, you can provide a `callback` to `Post` that will be invoked with the result once the upload is complete.
 
-```text
+```csharp
 var options = new ExceptionPostOptions()
 {
     Description = "a new description",
@@ -101,7 +97,7 @@ StartCoroutine(bugsplat.Post(ex, options, callback));
 
 You can also configure a global `LogMessageRecieved` callback. When the BugSplat instance recieves a logging event where the type is `Exception` it will upload the exception.
 
-```text
+```csharp
 Application.logMessageReceived += bugsplat.LogMessageReceived;
 ```
 
@@ -109,14 +105,14 @@ BugSplat can be configured to upload Windows minidumps created by the `UnityCras
 
 Each of the methods that post crashes to BugSplat also accept a `MinidumpPostOptions` parameter and a callback. The usage of `MinidumpPostOptions` and `callback` are nearly identically to the `ExceptionPostOptions` example listed above.
 
-```text
+```csharp
 Utils.ForceCrash(ForcedCrashCategory.Abort);
 Utils.ForceCrash(ForcedCrashCategory.AccessViolation);
 Utils.ForceCrash(ForcedCrashCategory.FatalError);
 Utils.ForceCrash(ForcedCrashCategory.PureVirtualFunction);
 ```
 
-Once you've posted an exception or a minidump to BugSplat click the link in the ID column on either the [Dashboard](https://app.bugsplat.com/v2/dashboard) or [Crashes](https://app.bugsplat.com/v2/crashes) pages to see details about your crash.
+Once you've posted an exception or a minidump to BugSplat click the link in the **ID** column on either the [Dashboard](https://app.bugsplat.com/v2/dashboard) or [Crashes](https://app.bugsplat.com/v2/crashes) pages to see details about your crash.
 
 ![Unity crash reports](https://www.bugsplat.com/assets/img/docs/unity-crash-99572.png)
 
