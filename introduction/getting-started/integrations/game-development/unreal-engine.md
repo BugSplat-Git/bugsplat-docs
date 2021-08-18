@@ -34,7 +34,7 @@ Replace {database}, {appName}, and {appVersion} with the names of your BugSplat 
 
 Package your game, check that the **Include Crash Reporter** and **Include Debug Files** options are selected in your build configuration:
 
-![Integrating Unreal with BugSplat](https://www.bugsplat.com/assets/img/docs/unreal2.png) 
+![Integrating Unreal with BugSplat](https://www.bugsplat.com/assets/img/docs/unreal2.png)
 
 ![UE4\_PackagingSetttings](https://www.bugsplat.com/assets/img/docs/UE4_PackagingSetttings.png)
 
@@ -42,7 +42,7 @@ Package your game, check that the **Include Crash Reporter** and **Include Debug
 
 To create symbolic call stacks on Windows platforms you will need to upload symbol and executable files. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download_item.php?item=sendpdbs) or via the [SendPDBs](https://www.bugsplat.com/docs/faq/sendpdbs) doc. Run it from your build folder using the following commands.
 
-```text
+```bash
 cd {your build folder}
 SendPdbs.exe /u {username} /p {password} /b {database} /a {appName} /v {appVersion} /s /f "*.pdb;*.dll;*.exe"
 ```
@@ -64,5 +64,5 @@ Special instructions for Linux servers:
 
 ## Forwarding Crashes to Epic Games
 
-If you'd like to forward crashes to the original DataRouterUrl specified in DefaultEngine.ini you can enable the "Forward Crashes" option under the Privacy tab on the [Options](https://app.bugsplat.com/v2/options?tab=privacy) page. Forwarding crash reports to Epic is useful when a crash in your game is caused by the underlying engine and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes that were successfully forwarded to Epic.
+If you'd like to forward crashes to the original `DataRouterUrl` specified in `DefaultEngine.ini` you can enable the **Forward Crashes** option under the Privacy tab on the [Options](https://app.bugsplat.com/v2/options?tab=privacy) page. Forwarding crash reports to Epic is useful when a crash in your game is caused by the underlying engine and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes that were successfully forwarded to Epic.
 
