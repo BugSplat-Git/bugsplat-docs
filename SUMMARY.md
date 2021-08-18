@@ -61,7 +61,7 @@
     * [Source Maps](introduction/development/working-with-symbol-files/source-maps.md)
     * [How to Manually Upload Symbols](introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md)
     * [Working with Symbol Files in Windows Environments](introduction/development/working-with-symbol-files/working-with-windows-symbols-in-bugsplat.md)
-  * [Filtering](introduction/development/grouping-and-aggregating-application-data.md)
+  * [Filtering](introduction/development/search-filtering.md)
   * [Grouping](introduction/development/grouping.md)
   * [Subkeying](introduction/development/using-subkeying-to-find-difficult-crashes.md)
   * [Commenting](introduction/development/commenting.md)
