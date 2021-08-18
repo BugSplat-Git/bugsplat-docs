@@ -54,7 +54,7 @@ electron.crashReporter.start({
 
 Generate a crash in one of the Electron processes to test your BugSplat integration:
 
-```text
+```typescript
 process.crash()
 ```
 
@@ -80,25 +80,25 @@ To configure your Breakpad crashes to be processed by our Windows backend, creat
 
 To collect Node.js errors in your application, run the following command in terminal or cmd at the root of your project to install BugSplat’s [npm package](https://www.npmjs.com/package/bugsplat-node):
 
-```text
+```bash
 npm i bugsplat-node --save
 ```
 
 Require bugsplat-node at the entry point of your application \(usually main.js\) by adding the following code snippet:
 
-```text
-const BugSplat = require("bugsplat-node");
+```typescript
+const BugSplat = require('bugsplat-node');
 ```
 
-Create a new instance of the BugSplat class being sure to replace DatabaseName, AppName and the version number with the correct values for your application:
+Create a new instance of the BugSplat class being sure to replace database, application and the version number with the correct values for your application:
 
-```text
-const bugsplat = new BugSplat("DatabaseName", "AppName", "1.0.0.0");
+```typescript
+const bugsplat = new BugSplat(database, application, version);
 ```
 
 Create an error handler for uncaughtExceptions and unhandledPromise rejections. We recommend you quit your application in the event of an uncaughtException or unhandledPromiseRejection. You may also want to add code to display a message to your user here:
 
-```text
+```typescript
 const javaScriptErrorHandler = async (error) => {
   await bugsplat.post(error);
   app.quit();
@@ -107,7 +107,7 @@ const javaScriptErrorHandler = async (error) => {
 
 Add the error handler created above to uncaughtException and unhandledPromiseRejection events:
 
-```text
+```typescript
 process.on('unhandledRejection', javaScriptErrorHandler)
 process.on('uncaughtException', javaScriptErrorHandler)
 ```
@@ -118,7 +118,7 @@ Sometimes it is desirable to reload or quit the application when an error occurs
 
 [renderer.js](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/renderer.js)
 
-```text
+```typescript
 window.onerror = async (messageOrEvent, source, lineno, colno, error) => {
 await bugsplat.post(error)
   ipcRenderer.send('rendererCrash')
@@ -127,7 +127,7 @@ await bugsplat.post(error)
 
 [main.js](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/main.js)
 
-```text
+```typescript
 const electron = require('electron')
 const ipcMain = electron.ipcMain
 ipcMain.on('rendererCrash', function () {
@@ -137,7 +137,7 @@ ipcMain.on('rendererCrash', function () {
 
 Test BugSplat by throwing a new error in either the main or renderer process:
 
-```text
+```typescript
 throw new Error("BugSplat!");
 ```
 
@@ -146,7 +146,6 @@ Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat 
 ![Integrating BugSplat with Electron](https://www.bugsplat.com/assets/img/docs/electron-node-js-crashes.png)
 
 ![](../../../../.gitbook/assets/electron-node-js-crash%20%281%29.png)
-
  
 
 That’s it! Your Electron application is now configured to post crash reports to BugSplat.
@@ -155,7 +154,7 @@ That’s it! Your Electron application is now configured to post crash reports t
 
 In addition to the configuration demonstrated above, there are a few public methods that can be used to customize your BugSplat integration:
 
-```text
+```typescript
 bugsplat.setDefaultAppKey(appKey); // Additional metadata that can be queried via BugSplat's web application
 bugsplat.setDefaultUser(user); // The name or id of your user
 bugsplat.setDefaultEmail(email); // The email of your user 
