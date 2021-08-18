@@ -18,7 +18,7 @@ BugSplatMac supports multiple methods for installing the library in a project.
 
 ### Requirements
 
-* BugSplatMac supports OS X 10.7 and later.
+* BugSplatMac supports macOS 10.7 and later.
 * BugSplatMac supports x86\_64 and Apple Silicon applications
 
 ### Installation with CocoaPods
