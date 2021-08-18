@@ -2,7 +2,7 @@
 
 Developing a single solution for multiple platforms is challenging enough. BugSplat provides simple-yet-powerful solutions for crash reporting across all the platforms you care about. Adding BugSplat to your cross-platform application as easy is following the documentation links below. Soon enough you'll be reporting crashes like a pro in about the amount of time as it takes to drink a [large mug](https://shop.spacex.com/collections/accessories/products/occupy-mars-heat-sensitive-terraforming-mug-new) of coffee.
 
-{% page-ref page=".net-standard.md" %}
+{% page-ref page="dot-net-standard.md" %}
 
 {% page-ref page="breakpad-1.md" %}
 
