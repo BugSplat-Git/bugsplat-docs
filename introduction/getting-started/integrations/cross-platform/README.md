@@ -4,7 +4,7 @@ Developing a single solution for multiple platforms is challenging enough. BugSp
 
 {% page-ref page="dot-net-standard.md" %}
 
-{% page-ref page="breakpad-1.md" %}
+{% page-ref page="breakpad.md" %}
 
 {% page-ref page="crashpad/" %}
 
