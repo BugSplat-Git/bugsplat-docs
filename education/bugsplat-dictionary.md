@@ -4,7 +4,7 @@
 
 The **Crash Dialogue** box is the end-user, customer-facing aspect of BugSplat. This box appears when an application configured to send crash data to BugSplat runs into a crash defect while in use. At this point, the dialogue box prompts the end user to provide an account of the events leading up to the crash as well as their name and email address. 
 
-* [Adding your company or project's custom branding to the crash dialogue box](untitled-1/customize-the-crash-dialog.md).
+* [Adding your company or project's custom branding to the crash dialogue box](how-tos/customize-the-crash-dialog.md).
 * [Avoid collecting personally identifiable information through the crash dialogue box](../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md).
 
 ### Crash Report

@@ -135,12 +135,12 @@
 ## Education
 
 * [BugSplat Dictionary](education/bugsplat-dictionary.md)
-* [How-Tos](education/untitled-1/README.md)
-  * [Contacting End-Users](education/untitled-1/contacting-users.md)
-  * [Custom Branding](education/untitled-1/customize-the-crash-dialog.md)
-  * [Creating Defects](education/untitled-1/creating-a-defect.md)
-  * [Send Feedback](education/untitled-1/sending-feedback.md)
-  * [Reprocess Crashes](education/untitled-1/reprocessing-crashes.md)
+* [How-Tos](education/how-tos/README.md)
+  * [Contacting End-Users](education/how-tos/contacting-users.md)
+  * [Custom Branding](education/how-tos/customize-the-crash-dialog.md)
+  * [Creating Defects](education/how-tos/creating-a-defect.md)
+  * [Send Feedback](education/how-tos/sending-feedback.md)
+  * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
 * [FAQs](education/faq/README.md)
   * [Crash Details Active Thread](education/faq/crash-details-active-thread.md)
   * [How BugSplat handles large crash volumes](education/faq/how-bugsplat-handles-large-crash-volumes.md)

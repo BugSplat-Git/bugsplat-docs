@@ -54,7 +54,7 @@ Information helpful for understanding and using BugSplat, FAQ's, and answers to 
 
 {% page-ref page="education/bugsplat-dictionary.md" %}
 
-{% page-ref page="education/untitled-1/" %}
+{% page-ref page="education/how-tos/" %}
 
 {% page-ref page="education/faq/" %}
 
