@@ -1,6 +1,6 @@
 # Python
 
-#### Introduction <a id="intro"></a>
+## Introduction
 
 Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
 
@@ -20,7 +20,7 @@ A BugSplat integration for reporting Unhandled Exceptions in Python.
 
 Install the bugsplat package using pip
 
-```text
+```bash
 pip install bugsplat
 ```
 
@@ -28,19 +28,19 @@ pip install bugsplat
 
 Import the BugSplat class
 
-```text
+```python
 from bugsplat import BugSplat
 ```
 
-Create a new BugSplat instance passing it the name of your BugSplat database, application and version
+Create a new BugSplat instance passing it the name of your BugSplat database, application, and version
 
-```text
+```python
 bugsplat = BugSplat(database, application, version)
 ```
 
-Optionally, you set default values for appKey, description, email, user and additionaFilePaths
+Optionally, you set default values for key, description, email, user, and additionaFilePaths
 
-```text
+```python
 bugsplat.setDefaultAppKey('key!')
 bugsplat.setDefaultDescription('description!')
 bugsplat.setDefaultEmail('fred@bugsplat.com')
@@ -51,9 +51,9 @@ bugsplat.setDefaultAdditionalFilePaths([
 ])
 ```
 
-Wrap your application code in a try except block. In the except block call post. You can override any of the default properties that were set in step 3
+Wrap your application code in a try/except block. In the except block call post. You can override any of the default properties that were set in step 3
 
-```text
+```python
 try:
     crash()
 except Exception as e:

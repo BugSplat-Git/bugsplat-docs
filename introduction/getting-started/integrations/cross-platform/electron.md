@@ -47,7 +47,7 @@ electron.crashReporter.start({
     'email': '<<user email>>',
     'comments': '<<comment>>'
   }
-}) 
+})
 ```
 
 #### Step 4
@@ -62,11 +62,7 @@ process.crash()
 
 Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for your application. Click the link in the Id column to see details about your crash on the [Crash](https://app.bugsplat.com/v2/crash?id=1) page:
 
-
-
 ![Integrating BugSplat with Electron](https://www.bugsplat.com/assets/img/docs/electron-crash-reporter-crashes.png)
-
- 
 
 ![](../../../../.gitbook/assets/electron-crash-reporter-crash.png)
 
@@ -76,27 +72,13 @@ BugSplat can process Breakpad crashes reported from Windows operating systems wi
 
 To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload .pdb, .dll and .exe files \(rather than .sym files\). The presence of .pdb, .dll or .exe files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs).
 
-### Node.js Configuration
+## Node.js Configuration
 
-To collect Node.js errors in your application, run the following command in terminal or cmd at the root of your project to install BugSplat’s [npm package](https://www.npmjs.com/package/bugsplat-node):
+To configure reporting of JavaScript or TypeScript errors in your main and renderer processes please see our Node.js documentation to install and configure bugsplat-node.
 
-```bash
-npm i bugsplat-node --save
-```
+{% page-ref page="node.js.md" %}
 
-Require bugsplat-node at the entry point of your application \(usually main.js\) by adding the following code snippet:
-
-```typescript
-const BugSplat = require('bugsplat-node');
-```
-
-Create a new instance of the BugSplat class being sure to replace database, application and the version number with the correct values for your application:
-
-```typescript
-const bugsplat = new BugSplat(database, application, version);
-```
-
-Create an error handler for uncaughtExceptions and unhandledPromise rejections. We recommend you quit your application in the event of an uncaughtException or unhandledPromiseRejection. You may also want to add code to display a message to your user here:
+Once you've installed bugsplat-node, create an error handler for uncaughtExceptions and unhandledPromise rejections. We recommend you quit your application in the event of an uncaughtException or unhandledPromiseRejection. You may also want to add code to display a message to your user here:
 
 ```typescript
 const javaScriptErrorHandler = async (error) => {
@@ -146,11 +128,10 @@ Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat 
 ![Integrating BugSplat with Electron](https://www.bugsplat.com/assets/img/docs/electron-node-js-crashes.png)
 
 ![](../../../../.gitbook/assets/electron-node-js-crash%20%281%29.png)
- 
 
 That’s it! Your Electron application is now configured to post crash reports to BugSplat.
 
-## Node.js API
+### Node.js API
 
 In addition to the configuration demonstrated above, there are a few public methods that can be used to customize your BugSplat integration:
 
@@ -164,8 +145,13 @@ bugsplat.postAndExit(error, options); // Wrapper for post that calls process.exi
 bugsplat.post(error, options); // Aysnc function that posts an arbitrary Error object to BugSplat
 // If the values options.appKey, options.user, options.email, options.description, options.additionalFilePaths are set the corresponding default values will be overwritten
 // Returns a promise that resolves with properties: error (if there was an error posting to BugSplat), response (the response from the BugSplat crash post API), and original (the error passed by bugsplat.post)
-view rawbugsplat-node-api.js hosted with ❤ by GitHub
 ```
+
+### Source Maps
+
+BugSplat has the ability to map uglified and minified JavaScript function names, file names, and line numbers back to their original values via source maps. For information on how to configure your application to upload source maps to BugSplat, please see the link below.
+
+{% page-ref page="../../../development/working-with-symbol-files/source-maps.md" %}
 
 ## Contributing
 
