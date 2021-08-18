@@ -2,17 +2,15 @@
 
 ## Introduction
 
-Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
+Enable BugSplat crash reporting in your CRYENGINE game with a few easy steps and leverage the most in-depth crash data on the market. Before integrating your application with BugSplat, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
 * Create a new [database](https://app.bugsplat.com/v2/company) for your application
 
+{% hint style="info" %}
 Need any further help? Check out the full BugSplat documentation [here](https://www.bugsplat.com/docs), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-
-## Overview
-
-Enable BugSplat crash reporting in your CRYENGINE game with a few easy steps and leverage the most in-depth crash data on the market.
+{% endhint %}
 
 ## Building CRYENGINE
 
@@ -24,7 +22,7 @@ Next, upload all of the `.pdb`, `.dll` and `.exe` files in the `bin` folder usin
 
 In order to point the CRYENGINE crash reporter at BugSplat you'll need to make a few modifications to the `.cryproject` file for your project. Open the `.cryproject` file in a text editor and add the following snippet of JSON:
 
-```text
+```javascript
 {
     ...
     "console_variables": {
