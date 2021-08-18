@@ -253,9 +253,5 @@ For best results, please upload source maps for every released version of your a
 
 ## Contributing
 
-BugSplat loves open source software! If you have suggestions on how we can improve this integration, please reach out to support@bugsplat.com, create an [issue](https://github.com/BugSplat-Git/bugsplat-ng/issues) in our [GitHub repo](https://github.com/BugSplat-Git/bugsplat-ng) or send us a [pull request](https://github.com/BugSplat-Git/bugsplat-ng/pulls).
-
-With :heart:,
-
-The BugSplat Team
+BugSplat loves open source software! If you have suggestions on how we can improve this integration, please reach out to [support@bugsplat.com](mailto:support@bugsplat.com), create an [issue](https://github.com/BugSplat-Git/bugsplat-ng/issues) in our [GitHub repo](https://github.com/BugSplat-Git/bugsplat-ng) or send us a [pull request](https://github.com/BugSplat-Git/bugsplat-ng/pulls).
 
