@@ -24,7 +24,7 @@ BugSplat supports JavaScript and TypeScript error reporting in a variety of envi
 
 {% page-ref page="../cross-platform/node.js.md" %}
 
-If a platform or framework your team is leveraging is not listed above, never fear! You can leverage our bugsplat [npm package](https://www.npmjs.com/package/bugsplat) to add error reporting to any browser-based app or bugsplat-node to add error reporting to any Node.js based app.
+If a platform or framework your team is leveraging is not listed above, never fear! You can leverage our bugsplat [npm package](https://www.npmjs.com/package/bugsplat) to add error reporting to any browser-based app or [bugsplat-node](https://www.npmjs.com/package/bugsplat-node) to add error reporting to any Node.js based app.
 
 {% hint style="info" %}
 BugSplat supports unwinding uglified and minified JavaScript stack traces via source maps. More information about configuring your application to upload source maps to BugSplat is available [here](../../../development/working-with-symbol-files/source-maps.md).
