@@ -2,7 +2,7 @@
 
 BugSplat works in a wide range of environments and languages to give developers the best possible data on their application defects—no matter where they are occurring. 
 
-![BugSplat works on an ever growing list of Platforms and Langues](../../../.gitbook/assets/screen-shot-2021-08-18-at-9.27.57-am.png)
+![Click links below to find SDK docs](../../../.gitbook/assets/bs-platforms-aug-18-21.png)
 
 **Use the links below** for guides that will help you configure your application to send crash or error data to BugSplat across various languages and platforms.
 
