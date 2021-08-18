@@ -89,8 +89,8 @@
     * [GDPR](introduction/production/security-privacy-and-compliance/gdpr.md)
     * [SOC-2](introduction/production/security-privacy-and-compliance/soc-2.md)
     * [Avoid Collecting Personally Identifiable Information \(PII\)](introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md)
-    * [Terms](https://www.bugsplat.com/terms/)
-    * [Privacy Policy](https://www.bugsplat.com/privacy/)
+    * [Terms](introduction/production/security-privacy-and-compliance/terms.md)
+    * [Privacy Policy](introduction/production/security-privacy-and-compliance/privacy-policy.md)
 
 ## About
 
