@@ -58,7 +58,7 @@ Our crash box is the consumer-facing portion of our crash reporting tool. As suc
 
 Some monthly plans require that you use our standard crash box \(see below\).
 
-![Standard BugSplat Crash Dialogue](http://localhost:3000/assets/img/brands/crash-dialogs/bugsplat-dialog.png)
+![](../../.gitbook/assets/bugsplat-dialog-3.png)
 
 Most implementations of BugSplat do not require you to use our branded crash dialog shown above. That said, we love and appreciate when our users keep our crash dialog or give us a 'shoutout' somewhere on the box.
 
@@ -70,11 +70,11 @@ Be sure to send us an image of your customized crash box. If it's really cool, w
 
 ### **Wall of Fame**
 
-![League of Legends](http://localhost:3000/assets/img/brands/crash-dialogs/league_of_legends_crash_box.png)
+![](../../.gitbook/assets/league_of_legends_crash_box-3.png)
 
-\*\*\*\*
+![](../../.gitbook/assets/bugsplat-crash-dialog-windows%20%281%29.png)
 
-![Moonman](http://localhost:3000/assets/img/brands/crash-dialogs/moonman_crash_box.png)
+![](../../.gitbook/assets/moonman_crash_box-2.png)
 
-![Sketchup](http://localhost:3000/assets/img/brands/crash-dialogs/sketchup-crash-dialog.png)
+![](../../.gitbook/assets/sketchup-crash-dialog.png)
 
