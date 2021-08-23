@@ -112,8 +112,8 @@
   * [Deleting a Company Account](administration/account-managment/permanently-deleting-a-company-account.md)
 * [Billing](administration/plans-and-pricing/README.md)
   * [Free Trial and New Accounts](administration/plans-and-pricing/free-trial-and-new-accounts/README.md)
-    * [30-day Trial](administration/plans-and-pricing/free-trial-and-new-accounts/everything-you-need-to-know-about-our-30-day-trial.md)
-    * [Choosing a Plan](administration/plans-and-pricing/free-trial-and-new-accounts/choosing-a-plan-at-the-end-of-your-trial.md)
+    * [30-day Trial](administration/plans-and-pricing/free-trial-and-new-accounts/free-trial.md)
+    * [Choosing a Plan](administration/plans-and-pricing/free-trial-and-new-accounts/choosing-a-plan.md)
   * [Free and Discounted Plans](administration/plans-and-pricing/free-plans-from-bugsplat/README.md)
     * [Standard Free Plan](administration/plans-and-pricing/free-plans-from-bugsplat/standard-free-plan.md)
     * [Indie Game Development](administration/plans-and-pricing/free-plans-from-bugsplat/free-accounts-for-indie-game-development.md)
@@ -128,8 +128,8 @@
     * [Adding Billing Address for VAT Purposes](administration/plans-and-pricing/billing-and-plan-managment/adding-billing-address-for-vat-purposes.md)
     * [Updating Credit Card Associated with Account](administration/plans-and-pricing/billing-and-plan-managment/updating-credit-card-associated-with-account.md)
 * [Upgrades](administration/paid-plans-and-upgrades/README.md)
-  * [Plan Upgrades](administration/paid-plans-and-upgrades/everything-your-need-to-know-about-plan-upgrades.md)
-  * [Fair-Refund Policy](administration/paid-plans-and-upgrades/everything-you-need-to-know-about-the-bugsplat-fair-refund-policy.md)
+  * [Plan Upgrades](administration/paid-plans-and-upgrades/upgrade-policy.md)
+  * [Fair-Refund Policy](administration/paid-plans-and-upgrades/refund-policy.md)
 * [Contact us](administration/contact-us.md)
 
 ## Education
