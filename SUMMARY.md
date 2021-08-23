@@ -23,7 +23,7 @@
       * [Linux](introduction/getting-started/integrations/desktop/linux.md)
       * [macOS](introduction/getting-started/integrations/desktop/os-x.md)
       * [Windows \(Native C++\)](introduction/getting-started/integrations/desktop/cplusplus/README.md)
-        * [Windows \(Native C++\) Dependencies](introduction/getting-started/integrations/desktop/cplusplus/windows-native-c++-dependencies.md)
+        * [Windows \(Native C++\) Dependencies](introduction/getting-started/integrations/desktop/cplusplus/dependencies.md)
       * [Windows \(.NET Framework\)](introduction/getting-started/integrations/desktop/windows-dot-net-framework.md)
     * [Game Development](introduction/getting-started/integrations/game-development/README.md)
       * [CRYENGINE](introduction/getting-started/integrations/game-development/cryengine.md)
