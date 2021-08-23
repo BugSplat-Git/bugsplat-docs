@@ -15,7 +15,7 @@ BugSplat supports all kinds of [platforms and languages ](../introduction/gettin
 If you're not sure if BugSplat is right for your application or game, please send us a note so we can understand your needs better!
 
 * [Email us](mailto:hi@bugsplat.com)
-* [Join our Discord](https://discord.bugsplat.com)
+* [Join our Discord](https://discord.gg/K4KjjRV5ve)
 
 To get started with BugSplat, sign up for a free BugSplat account at [https://app.bugsplat.com/v2/sign-up](https://app.bugsplat.com/v2/sign-up).
 
