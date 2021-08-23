@@ -8,7 +8,7 @@ In these documents, you’ll find everything you need to get fully up to speed w
 
 Use the links below to begin navigating these docs.  If you can’t find something use the left-hand menu or the handy search bar in the top right.
 
-If you need any support please reach out to us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app window, or ping us on our Discord.
+If you need any support please reach out to us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app window, or ping us on our [Discord](https://discord.gg/K4KjjRV5ve).
 
 ## Introduction
 
