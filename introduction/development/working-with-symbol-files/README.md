@@ -24,6 +24,8 @@ For TypeScript and [JavaScript](../../getting-started/integrations/web/javascrip
 
 ## Additional Resources
 
+{% page-ref page="source-maps.md" %}
+
 {% page-ref page="how-to-manually-upload-symbols.md" %}
 
 {% page-ref page="working-with-windows-symbols-in-bugsplat.md" %}
