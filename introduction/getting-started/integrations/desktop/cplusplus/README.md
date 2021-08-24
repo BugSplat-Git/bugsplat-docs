@@ -61,9 +61,9 @@ Close the properties menu and right click the project again. This time choose th
 
 ## Further options
 
-Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box](https://www.bugsplat.com/docs/faq/customize-crash-dialog/) page.
+Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box ](../../../../../education/how-tos/customize-the-crash-dialog.md)page.
 
 ## Dependencies
 
-See technology dependencies at our [dependencies page](https://www.bugsplat.com/docs/sdk/cplusplus/dependencies/).
+See technology dependencies at our [dependencies page](dependencies.md).
 
