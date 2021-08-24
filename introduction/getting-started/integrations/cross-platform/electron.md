@@ -8,7 +8,9 @@ Before integrating a new BugSplat SDK with your application, make sure to review
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
 * Create a new [database](https://app.bugsplat.com/v2/company) for your application
 
-Need any further help? Check out the full BugSplat documentation [here](https://www.bugsplat.com/docs), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
+{% hint style="info" %}
+Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
+{% endhint %}
 
 ## Overview
 

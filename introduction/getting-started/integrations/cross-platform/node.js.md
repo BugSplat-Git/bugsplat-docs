@@ -9,7 +9,7 @@ BugSplat's [bugsplat-node](https://www.npmjs.com/package/bugsplat-node) package 
 * Create a new [database](https://app.bugsplat.com/v2/company) for your application
 
 {% hint style="info" %}
-**Need any further help?** Check out the full BugSplat documentation [here](https://www.bugsplat.com/docs), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
+Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
 {% endhint %}
 
 ## Configuration

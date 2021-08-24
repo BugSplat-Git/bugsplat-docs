@@ -10,7 +10,7 @@ Qt is a powerful cross-platform C++ app development platform. With a few easy st
 * Review the [myQtCrasher application](https://github.com/BugSplat-Git/myQtCrasher) to see an example BugSplat integration
 
 {% hint style="info" %}
-**Need any further help?** Check out the full BugSplat documentation [here](https://www.bugsplat.com/docs), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
+Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
 {% endhint %}
 
 ## Building Crashpad
