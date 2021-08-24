@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The BugSplat macOS framework enables posting crash reports from Cocoa applications to BugSplat. This allows for your team to process macOS crash reports with BugSplat. Before integrating your application with BugSplat, make sure to review the [Getting Started](https://www.bugsplat.com/resources/bugsplat-101/) resources and complete the simple startup tasks listed below.
+The BugSplat macOS framework enables posting crash reports from Cocoa applications to BugSplat. This allows for your team to process macOS crash reports with BugSplat. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
