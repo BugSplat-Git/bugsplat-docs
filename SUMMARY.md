@@ -135,7 +135,7 @@
 
 ## Education
 
-* [BugSplat Dictionary](education/bugsplat-dictionary.md)
+* [BugSplat Terminology](education/bugsplat-terminology.md)
 * [How-Tos](education/how-tos/README.md)
   * [Contacting End-Users](education/how-tos/contacting-users.md)
   * [Custom Branding](education/how-tos/customize-the-crash-dialog.md)

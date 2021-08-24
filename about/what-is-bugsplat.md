@@ -1,6 +1,6 @@
 # What is BugSplat?
 
-BugSplat is the developer's go-to toolbox for finding, understanding, and fixing crashes. With BugSplat, developers know exactly which issues are causing their [end-users](../education/bugsplat-dictionary.md#end-users) to experience crashes while using their product. 
+BugSplat is the developer's go-to toolbox for finding, understanding, and fixing crashes. With BugSplat, developers know exactly which issues are causing their [end-users](../education/bugsplat-terminology.md#end-users) to experience crashes while using their product. 
 
 When a crash event occurs, BugSplat captures data critical for understanding the underlying defect. This data is presented in a familiar “debugger” view which allows developers to triage crashes as if the crash was captured locally on their own machine. 
 

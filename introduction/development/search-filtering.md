@@ -2,7 +2,7 @@
 
 ## Overview
 
-Searching to find information about a specific crash or [stack key](../../education/bugsplat-dictionary.md#stack-key) is a critical part of the BugSplat workflow. BugSplat uses filtering to allow users to build customizable and powerful searches and crash groups.
+Searching to find information about a specific crash or [stack key](../../education/bugsplat-terminology.md#stack-key) is a critical part of the BugSplat workflow. BugSplat uses filtering to allow users to build customizable and powerful searches and crash groups.
 
 Users can further filter their data using the Group By tools which allow for custom views of application data based on a host of different filter types.
 

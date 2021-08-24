@@ -1,6 +1,6 @@
 # Subkeying
 
-Subkeying is a way to group a set of crashes at some level other than the top level of the call stack. At BugSplat, crashes are grouped by a [stack key](../../education/bugsplat-dictionary.md#stack-key) and groups of crashes can be found on the Summary page.
+Subkeying is a way to group a set of crashes at some level other than the top level of the call stack. At BugSplat, crashes are grouped by a [stack key](../../education/bugsplat-terminology.md#stack-key) and groups of crashes can be found on the Summary page.
 
 By Default, BugSplat groups crashes using the topmost level of a call stack. A **subkey** is created when crashes are grouped at a level other than the top level of a call stack. Subkeying is useful when the default grouping contains a large number of crash reports with multiple code paths leading to a common crashing function.
 
@@ -18,7 +18,7 @@ In our example application mySubkeyCrasher, Widget, Gizmo and Doohickey are all 
 
 In this example Widget, Gizmo and Doohickey inherit from an abstract class \(we’ll call this class “Thingy”\) that requires them to provide overrides for the **`void Save(LPCWSTR fileName)`** function. They each do things slightly differently before saving their edits but ultimately end up calling a common function **`void FileSystemUtils::Save(LPCWSTR fileName, char buffer[])`**. The common function ultimately throws an exception triggering a program crash.
 
-When crashes from **mySubkeyCrasher** are processed by BugSplat, the top of the call stack, or the primary [stack key](../../education/bugsplat-dictionary.md#stack-key), shows up as **`KernelBase!RaiseException+0x69`**. In this case the primary stack key is not useful as it doesn’t tell us much about why the crash actually occurred.
+When crashes from **mySubkeyCrasher** are processed by BugSplat, the top of the call stack, or the primary [stack key](../../education/bugsplat-terminology.md#stack-key), shows up as **`KernelBase!RaiseException+0x69`**. In this case the primary stack key is not useful as it doesn’t tell us much about why the crash actually occurred.
 
 #### Next Steps
 

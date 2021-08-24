@@ -2,7 +2,7 @@
 
 The BugSplat web application consists of three main pages: [Dashboard](https://app.bugsplat.com/v2/dashboard), [Crashes](https://app.bugsplat.com/v2/crashes), and [Summary](https://app.bugsplat.com/v2/summary).  These pages sort and organize an application's crash data, helping users quickly and simply navigate to the information they need.
 
-Each of the main pages has subpages that provide more detail on individual [crashes](../../education/bugsplat-dictionary.md#crash-report), errors, [stack keys](../../education/bugsplat-dictionary.md#stack-key), and other important data.
+Each of the main pages has subpages that provide more detail on individual [crashes](../../education/bugsplat-terminology.md#crash-report), errors, [stack keys](../../education/bugsplat-terminology.md#stack-key), and other important data.
 
 ## Dashboard
 
@@ -54,7 +54,7 @@ The **User Details** modal contains high-level and 'human' information about a c
 
 ### Crash Details 
 
-The Crash Details modal provides information critical to understanding and triaging the crash.  Information like **Platform**, **Environment**, **Function Name and Line Number**, containing [**Stack Key**](../../education/bugsplat-dictionary.md#stack-key), and more.
+The Crash Details modal provides information critical to understanding and triaging the crash.  Information like **Platform**, **Environment**, **Function Name and Line Number**, containing [**Stack Key**](../../education/bugsplat-terminology.md#stack-key), and more.
 
 ![](../../.gitbook/assets/crash-details-modal.png)
 
@@ -70,7 +70,7 @@ The **Row Details** view will display the **Group Stacks** button that will allo
 
 Additionally, for [Windows Native](https://www.bugsplat.com/docs/faq/crash-details-active-thread) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments.](https://www.bugsplat.com/resources/development/local-variables-function-arguments/)
 
-The report page includes valuable information like crash time, environment, corresponding function name and line number, containing [stack key](../../education/bugsplat-dictionary.md#stack-key), and much more.
+The report page includes valuable information like crash time, environment, corresponding function name and line number, containing [stack key](../../education/bugsplat-terminology.md#stack-key), and much more.
 
 ### Additional data
 
@@ -96,7 +96,7 @@ The Summary page has a line chart at the top of the page which shows the top sta
 
 ## Stack Key
 
-The Stack Key page shows a more in-depth view of all crashes found in an individual [stack key](../../education/bugsplat-dictionary.md#stack-key). 
+The Stack Key page shows a more in-depth view of all crashes found in an individual [stack key](../../education/bugsplat-terminology.md#stack-key). 
 
 The Stack Key page allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more. 
 

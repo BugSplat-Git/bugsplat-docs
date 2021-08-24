@@ -32,7 +32,7 @@ The Diving Into Defect Data includes tutorials and docs outlining features usefu
 
 ## Supporting Application Users
 
-The documents in the Supporting Application Users section covers issues critical to providing the best possible experience for [end-users](../bugsplat-dictionary.md#end-users) when they run into crashes and errors in a live application.
+The documents in the Supporting Application Users section covers issues critical to providing the best possible experience for [end-users](../bugsplat-terminology.md#end-users) when they run into crashes and errors in a live application.
 
 {% page-ref page="../../introduction/production/setting-up-custom-support-responses.md" %}
 

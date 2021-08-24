@@ -12,7 +12,7 @@ The support response can also provide a default message used in the absence of a
 
 ### Creating a Crash-specific Support Response
 
-Navigate to the desired “Key Crash” page by clicking a [stack key](../../education/bugsplat-dictionary.md#stack-key) link from any crash report or from the “Summary” page.
+Navigate to the desired “Key Crash” page by clicking a [stack key](../../education/bugsplat-terminology.md#stack-key) link from any crash report or from the “Summary” page.
 
 Once on the desired “Key Crash” page, click the "Support Response" button. This will bring you to the “Support Response” page. Here you can craft your crash-specific support response.  
 
@@ -38,7 +38,7 @@ For more information about how to localize your support response, please see thi
 
 ### Setting the default response
 
-The default support response is displayed if there is no [stack key](../../education/bugsplat-dictionary.md#stack-key)-specific message for a given crash report.‌
+The default support response is displayed if there is no [stack key](../../education/bugsplat-terminology.md#stack-key)-specific message for a given crash report.‌
 
 To configure the default response, click the "Edit Default Response" button found on the “Support Response” page.‌
 

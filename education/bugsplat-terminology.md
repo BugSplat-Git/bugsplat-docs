@@ -1,4 +1,4 @@
-# BugSplat Dictionary
+# BugSplat Terminology
 
 ### Crash Dialogue
 

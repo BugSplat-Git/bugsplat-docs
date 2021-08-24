@@ -52,7 +52,7 @@ Documentation covering user management, account management, billing, and upgrade
 
 Information helpful for understanding and using BugSplat, FAQ's, and answers to common questions.
 
-{% page-ref page="education/bugsplat-dictionary.md" %}
+{% page-ref page="education/bugsplat-terminology.md" %}
 
 {% page-ref page="education/how-tos/" %}
 

@@ -4,7 +4,7 @@ Wondering why you just got a BugSplat while using a software application or play
 
 Worried that BugSplat might be a virus or some other type of malicious piece of software?
 
-The Common [End-User](../../bugsplat-dictionary.md#end-users) Questions section covers: 
+The Common [End-User](../../bugsplat-terminology.md#end-users) Questions section covers: 
 
 1. [What is BugSplat?](../../../about/what-is-bugsplat.md) 
 2. [How to fix 'BugSplat's'.](how-to-fix-bugsplats.md)
