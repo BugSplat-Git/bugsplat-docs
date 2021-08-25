@@ -2,7 +2,7 @@
 
 ### We listen closely to our users
 
-It sounds obvious, but we really pride ourselves on how we interact with our users. Everyone on the team handles support—full stop. We’ve never lost track of the fact that, as a bootstrapped software business our customers are our biggest supporters. They’ve put lots of trust in us to do the best job possible. We do our best to give back every time we interact with one of our users.
+It sounds obvious, but we really pride ourselves on how we interact with our customers. Everyone on the team handles support—full stop. We’ve never lost track of the fact that, as a bootstrapped software business our customers are our biggest supporters. They’ve put lots of trust in us to do the best job possible. We do our best to give back every time we interact with them.
 
 ### We actively own multiple roles
 
