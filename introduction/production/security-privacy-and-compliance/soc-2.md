@@ -9,7 +9,7 @@ BugSplat has created a Systems Description \(or Section 3\), conducted an annual
 
 BugSplat has partnered with [Strike Graph](https://www.strikegraph.com/) to implement our security framework. Additional supporting documents regarding the BugSplat SOC 2 program, including a letter of attestation from Strike Graph, are available to customers and curious parties under NDA.
 
-Please contact [support@bugsplat.com](mailto:support@bugsplat.com) for follow up questions.
+Please contact [support@bugsplat.com](mailto:support@bugsplat.com) for follow-up questions.
 
 
 
