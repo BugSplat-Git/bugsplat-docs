@@ -16,7 +16,7 @@ This **Development** section includes articles that are useful for using BugSpla
 
 [**3rd Party Tools**](integrating-with-tools/) ****- compliment your workflow by integrating BugSplat with your issue tracker, messaging app, or another tool.
 
-[**API**](webserices-api/) – is an overview of the BugSplat API.
+[**API**](web-services/) – is an overview of the BugSplat API.
 
 
 
