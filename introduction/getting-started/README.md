@@ -4,12 +4,12 @@ Getting up and running with BugSplat is a well-documented and straightforward pr
 
 ## The BugSplat 6-Step Checklist
 
-1. [ ] [Sign up for a BugSplat account ](signing-up-for-an-account-with-bugsplat.md)
-2. [ ] [Create a database](create-a-new-database-in-bugsplat.md)
-3. [ ] [Integrate with your application](integrations/)
-4. [ ] [Submit a sample crash ](posting-a-test-crash/)
-5. [ ] [Add your team members](adding-uses-to-your-account.md)
-6. [ ] [Learn to use the app](../development/)
+1. [Sign up for a BugSplat account ](signing-up-for-an-account-with-bugsplat.md)
+2. [Create a database](create-a-new-database-in-bugsplat.md)
+3. [Integrate with your application](integrations/)
+4. [Submit a sample crash ](posting-a-test-crash/)
+5. [Add your team members](adding-uses-to-your-account.md)
+6. [Learn to use the app](../development/)
 
 ## More Details
 
