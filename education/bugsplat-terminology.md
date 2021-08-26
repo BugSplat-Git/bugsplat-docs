@@ -1,6 +1,6 @@
 # BugSplat Terminology
 
-### Crash Dialogue
+Crash Dialogue
 
 The **Crash Dialogue** box is the end-user, customer-facing aspect of BugSplat. This box appears when an application configured to send crash data to BugSplat runs into a crash defect while in use. At this point, the dialogue box prompts the end user to provide an account of the events leading up to the crash as well as their name and email address. 
 

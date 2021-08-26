@@ -10,7 +10,7 @@ The BugSplat Basics section covers important features and skills needed for usin
 
 {% page-ref page="../../introduction/development/using-the-app.md" %}
 
-{% page-ref page="../../introduction/development/search-filtering.md" %}
+{% page-ref page="../../introduction/development/search.md" %}
 
 {% page-ref page="../../introduction/development/commenting.md" %}
 
