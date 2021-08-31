@@ -1,11 +1,11 @@
 # BugSplat Terminology
 
-Crash Dialogue
+### Crash Dialog
 
-The **Crash Dialogue** box is the end-user, customer-facing aspect of BugSplat. This box appears when an application configured to send crash data to BugSplat runs into a crash defect while in use. At this point, the dialogue box prompts the end user to provide an account of the events leading up to the crash as well as their name and email address. 
+The **Crash Dialog** box is the end-user, customer-facing aspect of BugSplat. This box appears when an application configured to send crash data to BugSplat runs into a crash defect while in use. At this point, the dialog box prompts the end-user to provide an account of the events leading up to the crash as well as their name and email address. 
 
-* [Adding your company or project's custom branding to the crash dialogue box](how-tos/customize-the-crash-dialog.md).
-* [Avoid collecting personally identifiable information through the crash dialogue box](../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md).
+* [Adding your company or project's custom branding to the crash dialog box](how-tos/customize-the-crash-dialog.md).
+* [Avoid collecting personally identifiable information through the crash dialog box](../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md).
 
 ### Crash Report
 
@@ -27,7 +27,7 @@ End-users are the people who experience and report crashes and errors. They have
 
 ### Error Handler
 
-This is the logic to mitigate an error scenario and resume program execution or to capture forensic data for post-mortem analysis and exit program.
+This is the logic to mitigate an error scenario and resume program execution or to capture forensic data for post-mortem analysis and exit the program.
 
 ### Exception
 
@@ -63,7 +63,7 @@ Users are the developers, QA professionals, support engineers, and others who us
 
 ### Unhandled Exception
 
-This is the unexpected exception where the surrounding code does not have logic to handle the scenario and can put the program into an unknown state.
+This is the unexpected exception where the surrounding code does not have the logic to handle the scenario and can put the program into an unknown state.
 
 ### Version
 

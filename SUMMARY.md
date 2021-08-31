@@ -138,7 +138,7 @@
 * [BugSplat Terminology](education/bugsplat-terminology.md)
 * [How-Tos](education/how-tos/README.md)
   * [Contacting End-Users](education/how-tos/contacting-users.md)
-  * [Custom Branding](education/how-tos/customize-the-crash-dialog.md)
+  * [Crash Dialog Branding](education/how-tos/customize-the-crash-dialog.md)
   * [Creating Defects](education/how-tos/creating-a-defect.md)
   * [Send Feedback](education/how-tos/sending-feedback.md)
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
