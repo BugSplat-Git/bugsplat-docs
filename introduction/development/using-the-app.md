@@ -90,7 +90,7 @@ The **Summary** page allows for similar table navigation as the [Crashes](using-
 
 The Summary page has a line chart at the top of the page which shows the top stack key by default, although you can select multiple stack keys to display on the chart.
 
-![](../../.gitbook/assets/charting-stack-keys%20%283%29%20%283%29%20%283%29%20%281%29.gif)
+![](../../.gitbook/assets/charting-stack-keys%20%283%29%20%283%29%20%283%29%20%283%29%20%281%29.gif)
 
 
 

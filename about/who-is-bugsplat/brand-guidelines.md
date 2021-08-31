@@ -10,15 +10,13 @@ Is your team getting ready to ship your software with BugSplat crash reporting b
 
 That's great! We just have a few small guidelines that we ask you to follow.
 
-These guidelines were inspired by Bootstrap's [Brand Assets](https://getbootstrap.com/about/#team) which follow a similar post by [MailChimp](https://styleguide.mailchimp.com/). 
-
-
+These guidelines were inspired by Bootstrap's [Brand Assets](https://getbootstrap.com/about/#team) which follow a similar post by [MailChimp](https://styleguide.mailchimp.com/).
 
 ## **Logo**
 
 Below are the acceptable iterations of our logo for light and dark backgrounds.
 
-![](../../.gitbook/assets/new-full-logo-color%20%281%29.png)
+![](../../.gitbook/assets/new-full-logo-color%20%282%29.png)
 
 ![](../../.gitbook/assets/logo-brand-usage-2021.png)
 
@@ -29,7 +27,6 @@ Below are the acceptable iterations of our logo for light and dark backgrounds.
 We love our Bug. It's been seen millions of times by computer users around the planet in connection with our brand. However, it is certain that not everyone will be familiar with it and that's why we ask for consistency.
 
 Many people will see our brand for the first time because of your interaction with BugSplat. If you are using our brand in a setting where the audience may not be familiar with BugSplat, please use full logo shown in the section above.
-
 
 ![](../../.gitbook/assets/current-logo-bs-guidlines-2021.png)
 
@@ -42,7 +39,7 @@ Our company and crash reporting tool should always be referred to as **BugSplat*
 | Spelling | Correct? |
 | :--- | :--- |
 | BugSplat | ✅ |
-| Bug Splat  | ❌ |
+| Bug Splat | ❌ |
 | bugsplat | ❌ |
 | Bugsplat | ❌ |
 
