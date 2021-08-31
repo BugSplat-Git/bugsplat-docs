@@ -28,7 +28,7 @@ Below are the acceptable iterations of our logo for light and dark backgrounds.
 
 We love our Bug. It's been seen millions of times by computer users around the planet in connection with our brand. However, it is certain that not everyone will be familiar with it and that's why we ask for consistency.
 
-Many people will see our brand for the first time because of your interaction with BugSplat. If you are using our brand in a setting where the audience may not be familiar with BugSplat, please use full logo shown in the section above.![BugSplat](http://localhost:3000/assets/img/logo/logo-icon.svg)  
+Many people will see our brand for the first time because of your interaction with BugSplat. If you are using our brand in a setting where the audience may not be familiar with BugSplat, please use full logo shown in the section above.
 
 
 ![](../../.gitbook/assets/current-logo-bs-guidlines-2021.png)
