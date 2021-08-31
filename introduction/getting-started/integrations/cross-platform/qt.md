@@ -191,7 +191,7 @@ bool initializeCrashpad(QString dbName, QString appName, QString appVersion)
     vector<FilePath> attachments;
     FilePath attachment(Paths::getPlatformString(crashpadPaths.getAttachmentPath()));
 #if defined(Q_OS_WINDOWS) || defined(Q_OS_LINUX)
-    // Crashpad hasn't implemented attachments on OS X yet
+    // Crashpad hasn't implemented attachments on macOS yet
     attachments.push_back(attachment);
 #endif
 

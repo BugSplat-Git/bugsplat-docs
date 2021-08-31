@@ -832,7 +832,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 * Fixing loading of Intercom on V2 pages
 
-## 8-April-2019 -OS X SDK Updates
+## 8-April-2019 -macOS SDK Updates
 
 * Ability to display a support response after submitting a crash.
 * Ability to persist user's name and email so they are pre-filled next time the crash dialog appears.
@@ -1060,7 +1060,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 13-Jan-2018: Website Update
 
-* Fixed a bug on our backend that was preventing OS X console application crashes from calculating correctly.
+* Fixed a bug on our backend that was preventing macOS console application crashes from calculating correctly.
 
 ## 04-Jan-2018: Amazon ELB Outage
 

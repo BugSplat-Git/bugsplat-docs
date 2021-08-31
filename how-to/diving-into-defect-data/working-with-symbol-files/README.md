@@ -14,7 +14,7 @@ For Windows [C++](https://www.bugsplat.com/docs/sdk/cplusplus) and [.NET](https:
 
 For [Crashpad](https://www.bugsplat.com/docs/sdk/crashpad) applications, symbols are files with **.sym** extensions and can be uploaded automatically via symupload.
 
-For [OS X](https://www.bugsplat.com/docs/sdk/os-x) applications, symbols are files with **.app** and **.dSYM** extensions and can be uploaded automatically in a post-archive build action.
+For [macOS](https://www.bugsplat.com/docs/sdk/os-x) applications, symbols are files with **.app** and **.dSYM** extensions and can be uploaded automatically in a post-archive build action.
 
 ![](../../../.gitbook/assets/screen-shot-2021-07-14-at-4.39.12-pm.png)
 
