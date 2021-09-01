@@ -17,9 +17,9 @@ If any of the above partnerships are interesting to you, or if you have somethin
 
 ### **Charitable Giving**
 
-At BugSplat we want our positive impact [extends past the tools and services we provide](../who-is-bugsplat/charitable-giving.md) our customers. If you are looking for sponsorships, donations, or for a collaboration with our team, please contact us.
+At BugSplat our positive impact [extends past the tools and services we provide](../who-is-bugsplat/charitable-giving.md) our customers. If you are looking for sponsorships, donations, or for a collaboration with our team, please contact us.
 
-We're especially interested in causes around environmentalism, closing the gender gap for women in technology, and providing opportunities to young developers and entrepreneurs.
+We're especially interested in causes involving environmentalism, closing the gender gap for women in technology, and providing opportunities to young developers and entrepreneurs.
 
 
 
