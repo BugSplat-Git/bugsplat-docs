@@ -16,7 +16,7 @@ These guidelines were inspired by Bootstrap's [Brand Assets](https://getbootstra
 
 Below are the acceptable iterations of our logo for light and dark backgrounds.
 
-![](../../.gitbook/assets/new-full-logo-color%20%282%29%20%282%29.png)
+![](../../.gitbook/assets/new-full-logo-color%20%282%29%20%282%29%20%282%29.png)
 
 ![](../../.gitbook/assets/logo-brand-usage-2021.png)
 
@@ -69,7 +69,7 @@ Be sure to send us an image of your customized crash box. If it's really cool, w
 
 ![](../../.gitbook/assets/league_of_legends_crash_box-3.png)
 
-![](../../.gitbook/assets/bugsplat-crash-dialog-windows%20%281%29%20%281%29.png)
+![](../../.gitbook/assets/bugsplat-crash-dialog-windows%20%281%29%20%281%29%20%281%29.png)
 
 ![](../../.gitbook/assets/moonman_crash_box-2.png)
 

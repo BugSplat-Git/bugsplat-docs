@@ -102,8 +102,8 @@
   * [Charitable Giving](about/who-is-bugsplat/charitable-giving.md)
   * [Brand Guidelines](about/who-is-bugsplat/brand-guidelines.md)
 * [Partnerships](about/partnerships/README.md)
-  * [EQU8](about/partnerships/equ8.md)
   * [LootLocker](about/partnerships/lootlocker.md)
+  * [EQU8](about/partnerships/equ8.md)
 
 ## Administration
 
