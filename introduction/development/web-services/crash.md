@@ -15,7 +15,7 @@ Uploads an Xbox crash report and optional metadata
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="{{database}}" type="string" required=true %}
-Replace the subdomain value {{database}} with the value of your BugSplat database
+Replace the subdomain value  with the value of your BugSplat database
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
@@ -60,8 +60,12 @@ Optional username for the user that crashed
 
 {% endapi-method-response-example-description %}
 
-```
-
+```text
+{
+    "status": "success",
+    "crashId": 1,
+    "techSupportUrl": "https://app.bugsplat.com/browse/crashInfo.php?vendor=fred&version=1.0&key=key&id=99999999&row=1"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -81,7 +85,7 @@ Uploads a Playstation crash report and optional metadata
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="{{database}}" type="string" required=true %}
-Replace the subdomain value {{database}} with the value of your BugSplat database
+Replace the subdomain value  with the value of your BugSplat database
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
@@ -126,8 +130,12 @@ Optional username for the user that crashed
 
 {% endapi-method-response-example-description %}
 
-```
-
+```text
+{
+    "status": "success",
+    "crashId": 1,
+    "techSupportUrl": "https://app.bugsplat.com/browse/crashInfo.php?vendor=fred&version=1.0&key=key&id=99999999&row=1"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
