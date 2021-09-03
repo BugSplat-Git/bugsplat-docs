@@ -53,6 +53,7 @@
     * [my-ts-node-crasher](https://github.com/BugSplat-Git/my-ts-node-crasher)
     * [my-react-crasher](https://github.com/BugSplat-Git/my-react-crasher)
     * [my-android-crasher](https://github.com/BugSplat-Git/my-android-crasher)
+    * [my-angular-crasher](https://github.com/BugSplat-Git/bugsplat-ng)
   * [Inviting Team Members](introduction/getting-started/adding-uses-to-your-account.md)
   * [Migrating Crashes](introduction/getting-started/migrating-crashes-from-another-tool.md)
   * [Troubleshooting](introduction/getting-started/troubleshooting.md)
