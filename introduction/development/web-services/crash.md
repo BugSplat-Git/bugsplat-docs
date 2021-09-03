@@ -142,3 +142,14 @@ Optional username for the user that crashed
 {% endapi-method-spec %}
 {% endapi-method %}
 
+### Example
+
+The following is an example that uses curl to demonstrate posting a crash to BugSplat. Be sure to update the value of `{{database}}` with the value of your BugSplat database.
+
+```text
+curl --request POST 'https://{{database}}.bugsplat.com/post/xbox/crash' \
+--form 'appName="my-xbox-crasher"' \
+--form 'appVersion="1.0.0"' \
+--form 'minidump=@"/path/to/minidump.dmp"'
+```
+

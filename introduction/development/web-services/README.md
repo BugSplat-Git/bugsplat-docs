@@ -6,7 +6,7 @@ We try hard to keep this documentation up to date, however, if you find any issu
 
 {% page-ref page="api.md" %}
 
+{% page-ref page="crash.md" %}
+
 {% page-ref page="paging-filtering-and-grouping.md" %}
-
-
 
