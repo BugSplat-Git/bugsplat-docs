@@ -20,6 +20,30 @@ Replace the subdomain value {{database}} with the value of your BugSplat databas
 {% endapi-method-path-parameters %}
 
 {% api-method-form-data-parameters %}
+{% api-method-parameter name="minidump" type="object" required=true %}
+The minidump file to be uploaded
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="appName" type="string" required=true %}
+Name of the crashing application. **IMPORTANT** this value must match the value used to upload symbols.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="appVersion" type="string" required=true %}
+Crashing application's version. **IMPORTANT** this value must match the value used to upload symbols
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="appKey" type="string" required=false %}
+Optional application identifier that provides extra data for searching and grouping
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="description" type="string" required=false %}
+Optional description of why the crash occurred
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="email" type="string" required=false %}
+Optional email address for the user that crashed
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="ipAddress" type="string" required=false %}
 Optional IP address of the crashing user
 {% endapi-method-parameter %}
@@ -27,33 +51,7 @@ Optional IP address of the crashing user
 {% api-method-parameter name="user" type="string" required=false %}
 Optional username for the user that crashed
 {% endapi-method-parameter %}
-
-{% api-method-parameter name="email" type="string" required=false %}
-Optional email address for the user that crashed
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="description" type="string" required=false %}
-Optional description of why the crash occurred
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="appKey" type="string" required=false %}
-Optional application identifier that provides extra data for searching and grouping
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="appVersion" type="string" required=true %}
-Crashing application's version. **IMPORTANT** this value must match the value used to upload symbols
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="appName" type="string" required=true %}
-Name of the crashing application. **IMPORTANT** this value must match the value used to upload symbols.
-{% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
-
-{% api-method-body-parameters %}
-{% api-method-parameter name="minidump" type="object" required=true %}
-A .dmp file with the extension removed so that the full file name is "minidump"
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -88,6 +86,30 @@ Replace the subdomain value {{database}} with the value of your BugSplat databas
 {% endapi-method-path-parameters %}
 
 {% api-method-form-data-parameters %}
+{% api-method-parameter name="core" type="object" required=true %}
+The core dump file to be uploaded
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="appName" type="string" required=true %}
+Name of the crashing application. **IMPORTANT** this value must match the value used to upload symbols.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="appVersion" type="string" required=true %}
+Crashing application's version. **IMPORTANT** this value must match the value used to upload symbols
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="appKey" type="string" required=false %}
+Optional application identifier that provides extra data for searching and grouping
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="description" type="string" required=false %}
+Optional description of why the crash occurred
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="email" type="string" required=false %}
+Optional email address for the user that crashed
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="ipAddress" type="string" required=false %}
 Optional IP address of the crashing user
 {% endapi-method-parameter %}
@@ -95,33 +117,7 @@ Optional IP address of the crashing user
 {% api-method-parameter name="user" type="string" required=false %}
 Optional username for the user that crashed
 {% endapi-method-parameter %}
-
-{% api-method-parameter name="email" type="string" required=false %}
-Optional email address for the user that crashed
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="description" type="string" required=false %}
-Optional description of why the crash occurred
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="appKey" type="string" required=false %}
-Optional application identifier that provides extra data for searching and grouping
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="appVersion" type="string" required=true %}
-Crashing application's version. **IMPORTANT** this value must match the value used to upload symbols
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="appName" type="string" required=true %}
-Name of the crashing application. **IMPORTANT** this value must match the value used to upload symbols.
-{% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
-
-{% api-method-body-parameters %}
-{% api-method-parameter name="core" type="object" required=true %}
-A core dump file with the file name "core" with no extension
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
