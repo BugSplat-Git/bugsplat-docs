@@ -69,7 +69,7 @@ Be sure to send us an image of your customized crash box. If it's really cool, w
 
 ![](../../.gitbook/assets/league_of_legends_crash_box-3.png)
 
-![](../../.gitbook/assets/bugsplat-crash-dialog-windows%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![](../../.gitbook/assets/bugsplat-crash-dialog-windows%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 ![](../../.gitbook/assets/moonman_crash_box-2.png)
 
