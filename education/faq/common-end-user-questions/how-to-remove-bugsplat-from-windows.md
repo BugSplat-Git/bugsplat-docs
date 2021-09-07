@@ -11,11 +11,11 @@ Hello internet friend.
 
 Have you've recently encountered the BugSplat pop-up and don't know what to do next? If so then you're in the right place!
 
-First off, [BugSplat](http://localhost:3000/) is a type of tool called a ‘Crash Reporter’. That means it’s job is to appear when application crashes occur. If you’ve seen the BugSplat pop-up it’s because a software application on your computer which utilizes BugSplat for crash reporting has recently crashed.
+First off, [BugSplat](https://bugsplat.com) is a type of tool called a ‘Crash Reporter’. That means it’s job is to appear when application crashes occur. If you’ve seen the BugSplat pop-up it’s because a software application on your computer which utilizes BugSplat for crash reporting has recently crashed.
 
 That means that the best way to remove BugSplat is to simply fix the problem causing your application to crash in the first place.
 
-Importantly, BugSplat is a safe program built by a reputable software company called BugSplat Software \([that’s us!](http://localhost:3000/about)\). BugSplat is trusted by many developers \(people who build and maintain software programs\) to find and fix bugs that cause crashes in their applications. BugSplat is not a virus, trojan, or any kind of malware.
+Importantly, BugSplat is a safe program built by a reputable software company called BugSplat Software \([that’s us!](https://bugsplat.com/about)\). BugSplat is trusted by many developers \(people who build and maintain software programs\) to find and fix bugs that cause crashes in their applications. BugSplat is not a virus, trojan, or any kind of malware.
 
 **In the guide below we’ll cover:**
 
