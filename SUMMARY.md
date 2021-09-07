@@ -174,6 +174,7 @@
     * [How to fix BugSplats when your video game is crashing](education/faq/common-end-user-questions/how-to-fix-bugsplats-when-your-video-game-is-crashing.md)
     * [Why did I get a BugSplat?](education/faq/common-end-user-questions/why-did-i-get-a-bugsplat.md)
     * [How to remove BugSplat?](education/faq/common-end-user-questions/how-to-remove-bugsplat.md)
+    * [What should I do if I get a BugSplat?](education/faq/common-end-user-questions/what-should-i-do-if-i-get-a-bugsplat.md)
     * [Is BugSplat a computer virus?](education/faq/common-end-user-questions/is-bugsplat-a-computer-virus.md)
     * [Is BugSplat a trojan?](education/faq/common-end-user-questions/is-bugsplat-a-trojan.md)
     * [Is BugSplat an example of malware?](education/faq/common-end-user-questions/is-bugsplat-an-example-of-malware.md)
