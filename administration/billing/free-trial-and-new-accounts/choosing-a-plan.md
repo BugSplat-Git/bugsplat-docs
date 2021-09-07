@@ -8,8 +8,6 @@ To choose a plan navigate to the [Account](https://app.bugsplat.com/v2/account) 
 
 You can also pay for plans annually - to learn more about payment options visit here. 
 
-![Choose a plan at end of BugSplat trial](https://www.bugsplat.com/assets/img/docs/choose-a-plan.png)
-
 You may be qualified for our [Free Tier](../free-plans-from-bugsplat/) plan. In that case, you won't need to sign up for a paid plan.
 
 To learn more please visit our [Pricing](https://bugsplat.com/pricing) page.
