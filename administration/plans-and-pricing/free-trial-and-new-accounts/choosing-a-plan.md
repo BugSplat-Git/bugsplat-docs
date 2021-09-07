@@ -1,6 +1,6 @@
 # Choosing a Plan
 
-Picking a plan at the end of your trial is seamless. When your trial is up, choose the plan that is right for you. You can see more about our plans on the [pricing](https://www.bugsplat.com/pricing) page.
+Picking a plan at the end of your trial is seamless. When your trial is up, choose the plan that is right for you. You can see more about our plans on the [Pricing](https://www.bugsplat.com/pricing) page.
 
 All of your databases and crashes will stay put for you and be there when you have signed up for an account.
 
@@ -10,7 +10,7 @@ You can also pay for plans annually - to learn more about payment options visit 
 
 ![Choose a plan at end of BugSplat trial](https://www.bugsplat.com/assets/img/docs/choose-a-plan.png)
 
-You may be qualified for our [Free Tier plan](https://www.bugsplat.com/docs/payments/free-plan). In that case, you won't need to sign up for a paid plan.
+You may be qualified for our [Free Tier](../free-plans-from-bugsplat/) plan. In that case, you won't need to sign up for a paid plan.
 
-To learn more please visit our [pricing page](https://www.bugsplat.com/pricing).
+To learn more please visit our [Pricing](https://bugsplat.com/pricing) page.
 
