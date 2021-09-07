@@ -2,7 +2,7 @@
 
 If you have exceeded your plan limits - database, users, or annual allotted crash volume - then you will be automatically upgraded to a plan which covers your usage.
 
-You can see your usage on the [Company page](https://www.bugsplat.com/docs/plans/upgrades/). If anything is in 'red' then it means that you're over your limit.
+You can see your usage on the [Company](https://app.bugsplat.com/v2/company) page. If anything is in 'red' then it means that you're over your limit.
 
 ![Company plan usage limits](https://www.bugsplat.com/assets/img/docs/plan-company-usage.png)
 
