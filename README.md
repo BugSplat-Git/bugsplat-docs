@@ -20,8 +20,6 @@ Whether you're new to BugSplat, or simply setting up a new project, our getting 
 
 {% page-ref page="introduction/production/" %}
 
-
-
 ## About
 
 Information that covers the who, what, when, where, and why's of BugSplat.
@@ -46,8 +44,6 @@ Documentation covering user management, account management, billing, and upgrade
 
 {% page-ref page="administration/contact-us.md" %}
 
-
-
 ## **Education**
 
 Information helpful for understanding and using BugSplat, FAQ's, and answers to common questions.
@@ -65,8 +61,4 @@ Information helpful for understanding and using BugSplat, FAQ's, and answers to 
 Updates to the BugSplat web app, various SDK's, and other aspects of our services.
 
 {% page-ref page="updates/changelog.md" %}
-
-
-
-
 
