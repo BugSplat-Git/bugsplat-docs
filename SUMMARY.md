@@ -115,6 +115,7 @@
   * [User Permissions](administration/introduction/user-permissions.md)
 * [Account](administration/account-managment/README.md)
   * [Migrating Databases](administration/account-managment/how-to-migrate-databases-between-users-and-accounts.md)
+  * [Deleting Databases](administration/account-managment/deleting-databases.md)
   * [Deleting a Company Account](administration/account-managment/permanently-deleting-a-company-account.md)
 * [Billing](administration/plans-and-pricing/README.md)
   * [Free Trial and New Accounts](administration/plans-and-pricing/free-trial-and-new-accounts/README.md)
