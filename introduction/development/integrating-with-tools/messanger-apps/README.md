@@ -10,6 +10,8 @@ These tools currently allow you to build alerts that show if your crash rate has
 
 {% page-ref page="discord.md" %}
 
+{% page-ref page="email.md" %}
+
 {% hint style="warning" %}
 BugSplat is currently building a new, more configurable, suite of alerts that will allow teams to get more granular on when and why they get notified about application performance.  
 
