@@ -3,7 +3,7 @@
 Here's a list of the top reasons our users choose BugSplat. If you agree, consider signing up [here](https://app.bugsplat.com/v2/sign-up).
 
 1. BugSplat provides our users with world-class crash reporting on [cross-platform](../introduction/getting-started/integrations/cross-platform/), [desktop](../introduction/getting-started/integrations/desktop/), [web](../introduction/getting-started/integrations/web/), [gaming](../introduction/getting-started/integrations/game-development/), and mobile platforms. 
-2. Integrating BugSplat with your application is well documented you can learn more about [here](/@bugsplat/s/docs/~/drafts/-MhPiEoWrvauo0ICpa5c/introduction/getting-started). Our team provides responsive, friendly support along the way, making getting up and running a straightforward process. 
+2. Integrating BugSplat with your application is well documented you can learn more about [here](../introduction/getting-started/). Our team provides responsive, friendly support along the way, making getting up and running a straightforward process. 
 3. BugSplat has years of experience \(15+ years to be precise\) providing crash reporting in a wide variety of applications—from hustling, individual developers to Fortune 500s with millions of users.
 4. We prioritize and build the features our users care about. With a no-nonsense, fast, easy-to-navigate UI and insanely powerful search features, we go above and beyond to build the features you ask for.
    1. Note: we take product feedback seriously. Our team reviews any feedback we receive via our [Feedback](../education/how-tos/sending-feedback.md) tool. We respond to all submitted feedback directly.
