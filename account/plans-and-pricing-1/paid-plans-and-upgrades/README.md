@@ -1,2 +1,0 @@
-# Paid Plans and Upgrades
-
