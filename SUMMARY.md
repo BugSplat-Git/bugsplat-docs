@@ -159,7 +159,7 @@
   * [Using SendPdbs to Automatically Upload Symbol Files](education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)
   * [How an why to use Sukeying](education/faq/how-an-why-to-use-sukeying.md)
   * [Uploading third-party DLLs without PDB files](education/faq/uploading-third-party-dlls-without-pdb-files.md)
-  * [Localized support responses for Windows C++, .NET and MacOS](education/faq/localized-support-responses-for-windows-c++-.net-and-macos.md)
+  * [Localized Support Responses for Windows C++, .NET, and macOS](education/faq/localized-support-responses-for-windows-c++-.net-and-macos.md)
   * [Unreal Engine Windows 10 crash reporting bug fix](education/faq/unreal-engine-windows-10-crash-reporting-bug-fix.md)
   * [BugSplat application uptime data](education/faq/bugsplat-application-uptime-data/README.md)
     * [What are the upload size considerations with BugSplat accounts.](education/faq/bugsplat-application-uptime-data/what-are-the-upload-size-considerations-with-bugsplat-accounts..md)

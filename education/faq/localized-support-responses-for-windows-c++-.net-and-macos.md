@@ -1,10 +1,10 @@
-# Localized support responses for Windows C++, .NET and MacOS
+# Localized Support Responses for Windows C++, .NET, and macOS
 
-BugSplat's Support Response feature allows developers to display a localized message to their users at the time of a crash. The Support Response feature is currently supported by our Windows C++, .NET, and Mac OS integrations and support for other platforms is coming soon. The following steps will allow you to create a localized Support Response message for all crashes in your database. These same steps can be applied to create localized [stack key specific Support Response](https://www.bugsplat.com/docs/faq/crash-specific-support-response) messages as well.
+BugSplat's Support Response feature allows developers to display a localized message to their users at the time of a crash. The Support Response feature is currently supported by our [Windows C++](../../introduction/getting-started/integrations/desktop/cplusplus/), [.NET Framework](../../introduction/getting-started/integrations/desktop/windows-dot-net-framework.md), and [macOS](../../introduction/getting-started/integrations/desktop/macos.md) integrations and support for other platforms is coming soon. The following steps will allow you to create a localized Support Response message for all crashes in your database. These same steps can be applied to create localized [stack key specific Support Response](../../introduction/production/setting-up-custom-support-responses.md#creating-a-crash-specific-support-response) messages as well.
 
 #### Step 1
 
-Log into the web application and navigate to the [Support Response](https://app.bugsplat.com/v2/support?stackKeyId=0&key=*Default*) page to edit the default support response for your database
+Log in to the web application and navigate to the [Support Response](https://app.bugsplat.com/v2/support?stackKeyId=0&key=*Default*) page to edit the default support response for your database
 
 #### Step 2
 
@@ -16,7 +16,7 @@ Enter a subject for your support message. This subject is for internal use only 
 
 #### Step 4
 
-In the code you use to initialize BugSplat provide the value you used for key from step 2.
+In the code you use to initialize BugSplat, provide the value you used for key from step 2.
 
 ![Configure Custom Support Response](https://www.bugsplat.com/assets/img/docs/configure-custom-support-response-1.png)
 
