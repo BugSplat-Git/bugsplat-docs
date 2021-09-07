@@ -8,7 +8,7 @@ It sounds obvious, but we really pride ourselves on how we interact with our cus
 
 Being a small team, we ask our team members to handle a wide range of roles. It’s a bit of a cliche at this point—but, having people owning and understanding multiple facets of the product and business leads to a huge bump in innovation, engagement, and personal growth. We wouldn’t have it any other way.
 
-### We do less, and do it better
+### We think everything's a big f**&\(\*ing deal**
 
 We have a saying here at BugSplat that everything you decide to do is a _**“Big F&\(\*ing Deal.”**_ How often has a small development task run into unseen difficulties and taken two or three times the time and effort initially predicted? The answer: All the f&\(\*ing time. That’s why we’re dedicated to doing less, better. We don’t want to get lost in the weeds trying to out-feature anyone. We build straightforward, useful, and powerful tools—not overly complicated ones.
 

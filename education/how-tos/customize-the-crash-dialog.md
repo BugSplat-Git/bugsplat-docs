@@ -1,6 +1,6 @@
 # Crash Dialog Branding
 
-Both the Windows and Mac crash report dialogs can be customized. For Mac instructions see our [macOS](../../introduction/getting-started/integrations/desktop/os-x.md) guide.
+Both the Windows and Mac crash report dialogs can be customized. For Mac instructions see our [macOS]() guide.
 
 On Windows, we provide the BugSplatRc project as part of the [Native C++](../../introduction/getting-started/integrations/desktop/cplusplus/) and [.NET Framework](../../introduction/getting-started/integrations/desktop/windows-dot-net-framework.md) downloads. This project is used to build the resource-only file BugSplatRc.dll.
 

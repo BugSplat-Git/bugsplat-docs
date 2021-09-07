@@ -40,7 +40,9 @@ Through it all we’ve maintained a laser focus on providing our users with the 
 
 Despite the industry changes we’re still 100% self-funded and have never accepted outside investment. That means we only answer to you, our customer. We're lean, profitable, growing, and supporting ourselves and our families through this business.
 
-Today BugSplat helps developers track and fix over 500 million crashes on around 350 million computers, tablets, consoles, and phones every year. We know that we have an amazing gig with BugSplat. It’s a lot of work, sure, but we work every day on interesting problems with great partners. We’re a fully remote company that emphasizes flexibility, self-responsibility, and personal and professional exploration.
+Today BugSplat helps developers track and fix over 500 million crashes on around 350 million computers, tablets, consoles, and phones every year. 
+
+We know that we have an amazing gig with BugSplat. It’s a lot of work, sure, but we work every day on interesting problems with great partners. We’re a fully remote company that emphasizes flexibility, self-responsibility, and personal and professional exploration.
 
 All of this is to say...
 

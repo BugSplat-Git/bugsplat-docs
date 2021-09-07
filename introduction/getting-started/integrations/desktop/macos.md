@@ -101,7 +101,7 @@ Add the following key to your app's `Info.plist` replacing `DATABASE_NAME` with 
 #### Step 2
 
 {% hint style="info" %}
-You must upload a `.xcarchive` or `.dSYM`  containing your app's binary and symbols to the BugSplat server in order to symbolicate crash reports.
+You must upload a `.xcarchive` or `.dSYM` containing your app's binary and symbols to the BugSplat server in order to symbolicate crash reports.
 {% endhint %}
 
 Create a `~/.bugsplat.conf` file to store your Bugsplat credentials
@@ -111,7 +111,7 @@ BUGSPLAT_USER="<username>"
 BUGSPLAT_PASS="<password>"
 ```
 
-Add the `upload-archive.sh` script located in `Bugsplat.framework/Versions/A/Resources` as an Archive **Post-action** in your build scheme. The script will be invoked when archiving completes which will upload the .xcarchive to BugSplat for processing. You can view the script output in `/tmp/bugsplat-upload.log`. To share amongst your team, mark the scheme as **Shared**. 
+Add the `upload-archive.sh` script located in `Bugsplat.framework/Versions/A/Resources` as an Archive **Post-action** in your build scheme. The script will be invoked when archiving completes which will upload the .xcarchive to BugSplat for processing. You can view the script output in `/tmp/bugsplat-upload.log`. To share amongst your team, mark the scheme as **Shared**.
 
 ![Integrating macOS with BugSplat](https://www.bugsplat.com/assets/img/docs/post-archive-script.png)
 
@@ -144,9 +144,9 @@ Set `askUserDetails` to `NO` in order to prevent the name and email fields from 
 ```objectivec
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	[BugsplatStartupManager sharedManager].delegate = self
-	[BugsplatStartupManager sharedManager].askUserDetails = NO;
-	[[BugsplatStartupManager sharedManager] start];
+    [BugsplatStartupManager sharedManager].delegate = self
+    [BugsplatStartupManager sharedManager].askUserDetails = NO;
+    [[BugsplatStartupManager sharedManager] start];
 }
 ```
 
@@ -157,9 +157,9 @@ Set `autoSubmitCrashReport` to `YES` in order to send crash reports to the serve
 ```objectivec
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	[BugsplatStartupManager sharedManager].delegate = self
-	[BugsplatStartupManager sharedManager].autoSubmitCrashReport = YES;
-	[[BugsplatStartupManager sharedManager] start];
+    [BugsplatStartupManager sharedManager].delegate = self
+    [BugsplatStartupManager sharedManager].autoSubmitCrashReport = YES;
+    [[BugsplatStartupManager sharedManager] start];
 }
 ```
 
@@ -170,9 +170,9 @@ Set `persistUserDetails` to `YES` to save and restore the user's name and email 
 ```objectivec
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	[BugsplatStartupManager sharedManager].delegate = self
-	[BugsplatStartupManager sharedManager].persistUserDetails = YES;
-	[[BugsplatStartupManager sharedManager] start];
+    [BugsplatStartupManager sharedManager].delegate = self
+    [BugsplatStartupManager sharedManager].persistUserDetails = YES;
+    [[BugsplatStartupManager sharedManager] start];
 }
 ```
 
@@ -183,9 +183,9 @@ Set `expirationTimeInterval` to a desired value \(in seconds\) whereby if the di
 ```objectivec
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	[BugsplatStartupManager sharedManager].delegate = self
-	[BugsplatStartupManager sharedManager].expirationTimeInterval = 2200;
-	[[BugsplatStartupManager sharedManager] start];
+    [BugsplatStartupManager sharedManager].delegate = self
+    [BugsplatStartupManager sharedManager].expirationTimeInterval = 2200;
+    [[BugsplatStartupManager sharedManager] start];
 }
 ```
 
@@ -198,19 +198,19 @@ Bugsplat supports uploading attachments with crash reports. There's a delegate m
 {
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"generated" withExtension:@"json"];
     NSData *data = [NSData dataWithContentsOfURL:fileURL];
-    
+
     NSMutableArray *attachments = [[NSMutableArray alloc] init];
-    
+
     for (NSUInteger i = 0; i < 4; i++)
     {
         BugsplatAttachment *attachment = [[BugsplatAttachment alloc] initWithFilename:[NSString stringWithFormat:@"generated%@.json", @(i)]
                                                                        attachmentData:data
                                                                           contentType:@"application/json"];
-        
+
         [attachments addObject:attachment];
     }
-    
-    
+
+
     return attachments;
 }
 ```
@@ -297,7 +297,7 @@ Click the link in the **ID** column to view more details about your crash.
 
 #### Step 8
 
-You will notice there are no function names or line numbers, this is because you need to upload the application's xcarchive. See the [Configuration](os-x.md#step-2) section above for more information.
+You will notice there are no function names or line numbers, this is because you need to upload the application's xcarchive. See the [Configuration](https://github.com/BugSplat-Git/bugsplat-docs/tree/0e8c731969c277b58263a18e7f213af1add2069d/introduction/getting-started/integrations/desktop/os-x.md#step-2) section above for more information.
 
 #### Step 9
 
