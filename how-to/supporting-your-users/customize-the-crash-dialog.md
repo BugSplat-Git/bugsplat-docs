@@ -1,6 +1,6 @@
 # Add Custom Branding to the Crash Dialog
 
-Both the Windows and Mac crash report dialogs can be customized. For Mac instructions see our [OS X](https://www.bugsplat.com/docs/sdk/os-x) guide.
+Both the Windows and Mac crash report dialogs can be customized. For Mac instructions see our [macOS](https://www.bugsplat.com/docs/sdk/os-x) guide.
 
 On Windows we provide the BugSplatRc project as part of the Native and .NET downloads. This project is used to build the resource-only file BugSplatRc.dll.
 

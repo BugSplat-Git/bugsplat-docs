@@ -113,7 +113,7 @@ BUGSPLAT_PASS="<password>"
 
 Add the `upload-archive.sh` script located in `Bugsplat.framework/Versions/A/Resources` as an Archive **Post-action** in your build scheme. The script will be invoked when archiving completes which will upload the .xcarchive to BugSplat for processing. You can view the script output in `/tmp/bugsplat-upload.log`. To share amongst your team, mark the scheme as **Shared**.
 
-![Integrating OS X with BugSplat](https://www.bugsplat.com/assets/img/docs/post-archive-script.png)
+![Integrating macOS with BugSplat](https://www.bugsplat.com/assets/img/docs/post-archive-script.png)
 
 ### Initialization
 

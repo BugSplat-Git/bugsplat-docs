@@ -8,7 +8,7 @@
 
 Breakpad is the predecessor of Crashpad. If you are configuring a new integration, please consider using our [Crashpad integration](https://www.bugsplat.com/docs/sdk/crashpad) instead.
 
-Google Breakpad is a crash reporting tool built by Google in C++. It allows you to submit minidumps to a configured URL as a crash happens. With Breakpad you can process crashes for [Windows](https://github.com/google/breakpad/blob/master/docs/windows_client_integration.md), [OS X](https://github.com/google/breakpad/blob/master/docs/mac_breakpad_starter_guide.md), and [Linux](https://github.com/google/breakpad/blob/master/docs/linux_starter_guide.md) applications.
+Google Breakpad is a crash reporting tool built by Google in C++. It allows you to submit minidumps to a configured URL as a crash happens. With Breakpad you can process crashes for [Windows](https://github.com/google/breakpad/blob/master/docs/windows_client_integration.md), [macOS](https://github.com/google/breakpad/blob/master/docs/mac_breakpad_starter_guide.md), and [Linux](https://github.com/google/breakpad/blob/master/docs/linux_starter_guide.md) applications.
 
 In a few simple steps, your Breakpad-enabled application can be configured to send crash reports to BugSplat. This allows you to take advantage of BugSplat's reporting mechanisms.
 
@@ -98,5 +98,5 @@ Crashes can be posted manually using our test page at `https://{database}.bugspl
 
 The BugSplat database for your crash reports is created on the [Company](https://app.bugsplat.com/v2/company) page. Typically you will create a new database for each major release of your product.
 
-If you are sending symbols from symupload on OS X there is no command line option to increase the upload timeout. We have created a [fork of symupload](https://github.com/BugSplat-Git/breakpad/commit/b823d9128884051627874a780296edef1cf6acac) with the timeout increased to 100 seconds \(from 10 seconds\). You need to use a modified version of symupload to upload files larger than 100 MB. You can download the modified archive [here](https://s3.amazonaws.com/bugsplat-public/symupload.xcarchive.zip).
+If you are sending symbols from symupload on macOS there is no command line option to increase the upload timeout. We have created a [fork of symupload](https://github.com/BugSplat-Git/breakpad/commit/b823d9128884051627874a780296edef1cf6acac) with the timeout increased to 100 seconds \(from 10 seconds\). You need to use a modified version of symupload to upload files larger than 100 MB. You can download the modified archive [here](https://s3.amazonaws.com/bugsplat-public/symupload.xcarchive.zip).
 

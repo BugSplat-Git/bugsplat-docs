@@ -209,9 +209,9 @@ Once you've built `dump_syms` on a Linux system, run `dump_syms` on a Linux mach
 ./dump_syms path/to/app/build/intermediates/merged_native_libs/debug/out/lib/x86/my-lib.so > /my-lib.so.sym
 ```
 
-You can also run the Linux version of `dump_syms` using compatible Linux emulator on [OS X](https://github.com/linux-noah/noah) or [Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Examples of how to run a Linux build of `dump_syms` on OS X and Windows can be found in the [tools](https://github.com/BugSplat-Git/AndroidCrasher/tree/master/tools) section of the AndroidCrasher repository.
+You can also run the Linux version of `dump_syms` using compatible Linux emulator on [macOS](https://github.com/linux-noah/noah) or [Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Examples of how to run a Linux build of `dump_syms` on macOS and Windows can be found in the [tools](https://github.com/BugSplat-Git/AndroidCrasher/tree/master/tools) section of the AndroidCrasher repository.
 
-If you're developing on an OS X or Linux system, build the Breakpad tool `symupload` on your local system. Upload the generated `.sym` file by running `symupload`. Be sure to replace the `{{database}}`, `{{application}}` and `{{version}}` with the values you used in the Configuring Crashpad section:
+If you're developing on an macOS or Linux system, build the Breakpad tool `symupload` on your local system. Upload the generated `.sym` file by running `symupload`. Be sure to replace the `{{database}}`, `{{application}}` and `{{version}}` with the values you used in the Configuring Crashpad section:
 
 ```bash
 symupload "/path/to/my-lib.so.sym" "https://{{database}}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={{application}}&appVer={{version}}"
