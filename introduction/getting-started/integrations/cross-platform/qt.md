@@ -128,7 +128,7 @@ linux {
 
 ## Configuring Crashpad
 
-To enable Crashpad in your application you'll need to configure the Crashpad handler with your BugSplat database, application name, and application version.  The following is a macOS, Windows, and Linux compatible snippet that will configure the Crashpad handler:
+To enable Crashpad in your application you'll need to configure the Crashpad handler with your BugSplat database, application name, and application version. The following is a macOS, Windows, and Linux compatible snippet that will configure the Crashpad handler:
 
 ```cpp
 #include <QApplication>
@@ -172,7 +172,7 @@ bool initializeCrashpad(QString dbName, QString appName, QString appVersion)
     annotations["version"] = appVersion.toStdString();  // Required: BugSplat appVersion
     annotations["key"] = "Sample key";                  // Optional: BugSplat key field
     annotations["user"] = "fred@bugsplat.com";          // Optional: BugSplat user email
-    annotations["list_annotations"] = "Sample comment";	// Optional: BugSplat crash description
+    annotations["list_annotations"] = "Sample comment";    // Optional: BugSplat crash description
 
     // Disable crashpad rate limiting so that all crashes have dmp files
     vector<string> arguments;

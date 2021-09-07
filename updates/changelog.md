@@ -267,7 +267,7 @@ Web App Update 26-March-2021
 
 ## Web App Update 09-October-2020
 
-* Added new 'Users Affected' column to [Summary](https://app.bugsplat.com/v2/summary) page. This column shows unique users who exprienced a crash associated with a Stack Key. Read more at [product updates](/resources/).
+* Added new 'Users Affected' column to [Summary](https://app.bugsplat.com/v2/summary) page. This column shows unique users who exprienced a crash associated with a Stack Key. Read more at [product updates](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/resources/README.md).
 
 ## ngb-filterable-dropdown update 08-October-2020
 
@@ -300,7 +300,7 @@ Web App Update 26-March-2021
 
 ## Web Services API 29-September-2020
 
-* Removed deprecated endpoint `crashRatePerMinute` from [Web Services API](/docs/api/webservices-api/) documentation.
+* Removed deprecated endpoint `crashRatePerMinute` from [Web Services API](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/api/webservices-api/README.md) documentation.
 
 ## Web App Updates 12-Septeber-2020
 
@@ -322,9 +322,7 @@ Web App Update 26-March-2021
 
 ## Android Update 1-August-2020
 
-* BugSplat now supports collecting [Android NDK](/docs/sdk/android-ndk) crashes viaCrashpad. If you're supporting a cross-platform C++ application, porting a C++ application to Android, or creating a new NDK library from scratch, check out our Android NDK docs and our AndroidCrasher sample application.
-
-
+* BugSplat now supports collecting [Android NDK](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/sdk/android-ndk/README.md) crashes viaCrashpad. If you're supporting a cross-platform C++ application, porting a C++ application to Android, or creating a new NDK library from scratch, check out our Android NDK docs and our AndroidCrasher sample application.
 
 ## Native, .NET, UE4, and SendPdbs downloads Update 24-July-2020
 
@@ -346,11 +344,11 @@ Web App Update 26-March-2021
 
 ## Web App Update 22-May-2020
 
-* Release of [QT](/docs/sdk/qt) Documentation
+* Release of [QT](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/sdk/qt/README.md) Documentation
 
 ## Web App Update 20-May-2020
 
-* Release of [CRYENGINE](/docs/sdk/cryengine/) Documentation
+* Release of [CRYENGINE](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/sdk/cryengine/README.md) Documentation
 
 ## Web App Update 18-May-2020
 
@@ -370,7 +368,7 @@ Web App Update 26-March-2021
 
 ## Terms Update 12-May-2020
 
-* Updated [Terms](/terms/) of Service
+* Updated [Terms](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/terms/README.md) of Service
 
 ## Web App Update 07-May-2020
 
@@ -575,8 +573,8 @@ We'll be posting updates here and on [Twitter](https://twitter.com/bugsplatco).
 
 ## 23-August-2019: Web App and Tools Integration Updates
 
-* Released integration with [GitHub Issues](/docs/apps/github-issues) issue tracker
-* Released integration with [YouTrack](/docs/apps/youtrack) issue tracker
+* Released integration with [GitHub Issues](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/apps/github-issues/README.md) issue tracker
+* Released integration with [YouTrack](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/apps/youtrack/README.md) issue tracker
 * Fixed bug where delinquent account could get around license lockout by navigating back
 * Fixed bug where Crash page would not wait long enough for additional info
 * Fixed bug where Crash page would not display modules for crash with 1 module
@@ -625,8 +623,6 @@ We'll be posting updates here and on [Twitter](https://twitter.com/bugsplatco).
 ## 30-July-2019: Web App Updates
 
 * Database selection error will now stay on the screen until user dismisses it
-
-
 
 ## 30-July-2019: Web App Updates
 
@@ -840,7 +836,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 5-April-2019: UWP / .NET Standard Beta Release
 
-* Released BugSplatDotNetStandard version 1.0.0 on NuGet which supports all .NET 2.0 standard platforms. For information on how to integrate BugSplatDotNetStandard please see our [docs](/docs/sdk/dot-net-standard).
+* Released BugSplatDotNetStandard version 1.0.0 on NuGet which supports all .NET 2.0 standard platforms. For information on how to integrate BugSplatDotNetStandard please see our [docs](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/sdk/dot-net-standard/README.md).
 
 ## 5-April-2019: BugSplat Website Update
 
@@ -892,8 +888,6 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 * Fixed splat when viewing row details on KeyCrash page
 
-
-
 ## 03-March-2019: Web Application Updates
 
 * Added ability to reset application/version/timeframe filter
@@ -910,7 +904,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 15-Feb-2019: [Auth0](https://auth0.com/) integration for login security
 
-* As part of our continuing [security program](/docs/security/program) at BugSplat, we’re switching to an authentication service called Auth0 for all of our account logins. Set via the [Password](https://app.bugsplat.com/v2/password/) page.
+* As part of our continuing [security program](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/security/program/README.md) at BugSplat, we’re switching to an authentication service called Auth0 for all of our account logins. Set via the [Password](https://app.bugsplat.com/v2/password/) page.
 * Multi-Factor Authentication \(MFA\) for two-step login protocol requiring separate verification from a mobile device to access your account
 * Federated logins via Google, Github, and Microsoft accounts
 
@@ -983,7 +977,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 14-August-2018: Unreal Upgrade
 
-* Integrating Unreal with BugSplat is now performed by configuration changes in the Unreal environment. See [Unreal Integration](/docs/sdk/unreal) for a full description. Our previous Unreal SDK package has been removed from the site.
+* Integrating Unreal with BugSplat is now performed by configuration changes in the Unreal environment. See [Unreal Integration](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/sdk/unreal/README.md) for a full description. Our previous Unreal SDK package has been removed from the site.
 
 ## 07-August-2018: Electron Crash Analysis
 
@@ -1015,7 +1009,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 25-May-2018: GDPR Compliance
 
-* Published [document](/docs/security/gdpr/) outlining the steps we've taken to be GDPR compliant. It includes details on how to enter into a DPA with BugSplat. Further updates to our [Security](/docs/security/program) page as well as our [Privacy Policy](/privacy).
+* Published [document](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/security/gdpr/README.md) outlining the steps we've taken to be GDPR compliant. It includes details on how to enter into a DPA with BugSplat. Further updates to our [Security](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/security/program/README.md) page as well as our [Privacy Policy](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/privacy/README.md).
 
 ## 02-May-2018: SendPdbs Version 2.1.0.0, BsSndRpt Version 3.6.0.2
 
@@ -1048,7 +1042,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 29-Jan-2018: Unity Update
 
-* We are happy to announce beta support for native Windows crashes in Unity and Unity Plugins! Check out our [docs](/docs/sdk/unity) page for more information regarding how to configure Unity native support.
+* We are happy to announce beta support for native Windows crashes in Unity and Unity Plugins! Check out our [docs](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/sdk/unity/README.md) page for more information regarding how to configure Unity native support.
 
 ## 22-Jan-2018: Website Update
 
@@ -1068,7 +1062,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 20-Jan-2018: Website Update
 
-* Old versions of SendPdbs have been retired as scheduled. If automated symbol uploads are not working for you, please upgrade to the latest version of SendPdbs \(version 2.0.0.1\) found in our Native and .NET downloads at [/docs/sdk/](/docs/sdk/).
+* Old versions of SendPdbs have been retired as scheduled. If automated symbol uploads are not working for you, please upgrade to the latest version of SendPdbs \(version 2.0.0.1\) found in our Native and .NET downloads at [/docs/sdk/](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/docs/sdk/README.md).
 
 ## 14-Nov-2017: Version 2.2.0
 
@@ -1170,7 +1164,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 * Upload size restriction now enforced per database. Enterprise customers can get options to upload crash reports larger than 2mb. Crash reports now post directly to S3, for improved speed and reliability.
 
-## 10-May-2017: Updates 
+## 10-May-2017: Updates
 
 * Added yjr BugSplatRc project to the .NET library in addition to the Native library where it has been for a long time. The resource-only DLL built by this project is used to define the crash dialog displayed to users by BsSndRpt.exe
 * Updated BugSplatRc project name to BugSplatRc.vcxproj

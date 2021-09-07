@@ -78,7 +78,7 @@ set_property(TARGET crashpad_handler PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE
 
 ## Configuring Crashpad
 
-To enable Crashpad in your application you'll need to configure the Crashpad handler with your BugSplat database, application name and application version.  The following snippet will configure the Crashpad handler:
+To enable Crashpad in your application you'll need to configure the Crashpad handler with your BugSplat database, application name and application version. The following snippet will configure the Crashpad handler:
 
 ```cpp
 #include <jni.h>

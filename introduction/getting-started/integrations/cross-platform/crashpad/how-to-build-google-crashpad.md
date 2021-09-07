@@ -4,7 +4,7 @@
 
 Crashpad is a cross-platform system for end-to-end crash reporting. Crashpad supports reporting of native crashes on a variety of operating systems including Windows, macOS, Linux, Android, and iOS. Crashpad also provides tools such as `dump_syms`, `symupload` and `minidump_stackwalk` that provide developers with function names, file names, and line numbers in their crash reports. Integrating with Crashpad helps software engineers find and fix program crashes in order to develop more stable applications.
 
-{% embed url="https://bugsplat.wistia.com/medias/bh4l456ydm" %}
+{% embed url="https://bugsplat.wistia.com/medias/bh4l456ydm" caption="" %}
 
 ## Installing depot\_tools
 
@@ -24,7 +24,7 @@ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 setx path "%path%;C:\path\to\depot_tools"
 ```
 
-## Getting the Crashpad Source 
+## Getting the Crashpad Source
 
 The Crashpad source code can be found [here](https://chromium.googlesource.com/crashpad/crashpad). Crashpad’s dependencies are managed by `gclient` instead of git submodules, so it is best to use `fetch` to get the source code.
 
@@ -44,7 +44,7 @@ git pull -r
 gclient sync
 ```
 
-## Building Crashpad 
+## Building Crashpad
 
 Crashpad uses `gn` to generate `ninja` build files.
 
@@ -67,7 +67,7 @@ ninja -C out/Default
 
 Building Crashpad generates several files that need to be linked with an application in order to generate crash reports.
 
-### **macOS & Linux** 
+### **macOS & Linux**
 
 At a minimum, macOS and Linux applications need to be linked with `out/Default/obj/client/libclient.a`, `out/Default/obj/util/libutil.a`, and `out/Default/obj/third_party/mini_chromium/mini_chromium/base/libbase.a`.
 
@@ -179,16 +179,16 @@ Next, implement the platform-specific `getExecutableDir` method.
 StringType getExecutableDir() {
   unsigned int bufferSize = 512;
   vector<char> buffer(bufferSize + 1);
-  
+
   if (_NSGetExecutablePath(&buffer[0], &bufferSize)) {
     buffer.resize(bufferSize);
     _NSGetExecutablePath(&buffer[0], &bufferSize);
   }
-  
+
   char *lastForwardSlash = strrchr(&buffer[0], '/');
   if (lastForwardSlash == NULL) return NULL;
   *lastForwardSlash = 0;
-  
+
   return &buffer[0];
 }
 ```
@@ -199,7 +199,7 @@ StringType getExecutableDir() {
 #include <stdio.h>
 #include <unistd.h>
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
-  
+
 StringType getExecutableDir() {
   char pBuf[FILENAME_MAX];
   int len = sizeof(pBuf);
@@ -352,6 +352,4 @@ Most issues symbolicating dump files can be traced back to mismatched module ids
 5. [https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md\#build-process-specificssymbol-generation](https://github.com/google/breakpad/blob/master/docs/getting_started_with_breakpad.md#build-process-specificssymbol-generation)
 6. [https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md\#build-process-specifics\_symbol-generation](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#build-process-specifics_symbol-generation)
 7. [https://www.chromium.org/developers/decoding-crash-dumps](https://www.chromium.org/developers/decoding-crash-dumps)
-
-
 

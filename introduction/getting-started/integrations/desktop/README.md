@@ -10,11 +10,7 @@ BugSplat provides best-in-class support for desktop applications. We support bot
 
 {% page-ref page="linux.md" %}
 
-
-
-
-
 {% hint style="info" %}
-**Not finding what you're looking for?**  Please reach out to [support@bugsplat.com](mailto:support@bugsplat.com) to request the language or environment you'd like BugSplat to integrate with next!
+**Not finding what you're looking for?** Please reach out to [support@bugsplat.com](mailto:support@bugsplat.com) to request the language or environment you'd like BugSplat to integrate with next!
 {% endhint %}
 

@@ -1,6 +1,6 @@
 # Using the App
 
-The BugSplat web application consists of three main pages: [Dashboard](https://app.bugsplat.com/v2/dashboard), [Crashes](https://app.bugsplat.com/v2/crashes), and [Summary](https://app.bugsplat.com/v2/summary).  These pages sort and organize an application's crash data, helping users quickly and simply navigate to the information they need.
+The BugSplat web application consists of three main pages: [Dashboard](https://app.bugsplat.com/v2/dashboard), [Crashes](https://app.bugsplat.com/v2/crashes), and [Summary](https://app.bugsplat.com/v2/summary). These pages sort and organize an application's crash data, helping users quickly and simply navigate to the information they need.
 
 Each of the main pages has subpages that provide more detail on individual [crashes](../../education/bugsplat-terminology.md#crash-report), errors, [stack keys](../../education/bugsplat-terminology.md#stack-key), and other important data.
 
@@ -20,15 +20,13 @@ The databases, applications, and versions controls contain searchable dropdowns 
 
 ![](../../.gitbook/assets/navigating-with-breadcrumbs.gif)
 
-
-
 ## Crashes
 
 The [Crashes](https://app.bugsplat.com/v2/crashes) page contains all an application's crashes organized with the most recent crashes at the top of the table by default.
 
 ![](../../.gitbook/assets/screen-shot-2021-07-16-at-1.03.48-pm.png)
 
-From here, users can manipulate the table in multiple ways to view specific sets of data. 
+From here, users can manipulate the table in multiple ways to view specific sets of data.
 
 First, users can filter the crashes using the [Searching](search.md) and [Grouping](grouping.md) tools to find specific crashes. The **Timeframe** filter on the top right can also choose a specific time period.
 
@@ -44,15 +42,15 @@ Finally, if a specific crash seems important and worthy of further investigation
 
 ## Crash
 
-The **Crash** page allows for users to get information critical for understanding and fixing the defect which originally caused the issue. 
+The **Crash** page allows for users to get information critical for understanding and fixing the defect which originally caused the issue.
 
 ### User Details
 
-The **User Details** component contains information about the user who experienced a crash. The User Details table will display who crashed, where they crashed \(IP address\), and the description provided by the user in the crash dialog.  This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md) — like it is in the image below.
+The **User Details** component contains information about the user who experienced a crash. The User Details table will display who crashed, where they crashed \(IP address\), and the description provided by the user in the crash dialog. This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md) — like it is in the image below.
 
 ![](../../.gitbook/assets/screen-shot-2021-07-16-at-3.08.42-pm%20%281%29.png)
 
-### Crash Details 
+### Crash Details
 
 The **Crash Details** component summarizes the details of a specific crash. The Crash Details component contains information such as the crashing function, line number where the crash occurred, information regarding what type of crash took place, when the crash happened, what OS and SDK the crashing application was running on, and more.
 
@@ -78,11 +76,11 @@ All data covered to this point on the Crash page are found under the **Crash Ove
 
 ![](../../.gitbook/assets/viewing-tabs-crashreport%20%281%29%20%281%29.gif)
 
-## Summary 
+## Summary
 
-The [Summary](https://app.bugsplat.com/v2/summary) page shows a view of an application's crash data which automatically groups crashes by the top line of the call stack, allowing users to see which defects are occurring most frequently.  
+The [Summary](https://app.bugsplat.com/v2/summary) page shows a view of an application's crash data which automatically groups crashes by the top line of the call stack, allowing users to see which defects are occurring most frequently.
 
-You can group by other levels of the call stack as well to differentiate defects using [Subkeying](using-subkeying-to-find-difficult-crashes.md). 
+You can group by other levels of the call stack as well to differentiate defects using [Subkeying](using-subkeying-to-find-difficult-crashes.md).
 
 The **Summary** page allows for similar table navigation as the [Crashes](using-the-app.md#crashes) page. Users can search, manipulate column size, alter column visibility, and expand rows.
 
@@ -92,15 +90,11 @@ The Summary page has a line chart at the top of the page which shows the top sta
 
 ![](../../.gitbook/assets/charting-stack-keys%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%281%29.gif)
 
-
-
 ## Key Crash
 
-The **Key Crash** page shows a more in-depth view of all crashes found in a [stack key](../../education/bugsplat-terminology.md#stack-key). 
+The **Key Crash** page shows a more in-depth view of all crashes found in a [stack key](../../education/bugsplat-terminology.md#stack-key).
 
-The Key Crash page allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more. 
+The Key Crash page allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more.
 
 Companies that are using BugSplat's [Windows C++ SDK](../getting-started/integrations/desktop/cplusplus/) can create [Custom Support Responses](../production/setting-up-custom-support-responses.md) to alert their end-users to known issues identified with BugSplat. Support responses are a valuable tool for communicating with end-users about known fixes or to point them toward specific helpful docs.
-
-
 
