@@ -12,5 +12,9 @@ We take security and privacy seriously at BugSplat. We also love talking about i
 
 {% page-ref page="avoid-collecting-personally-identifiable-information-pii.md" %}
 
+{% page-ref page="privacy-policy.md" %}
+
+{% page-ref page="terms.md" %}
+
 
 
