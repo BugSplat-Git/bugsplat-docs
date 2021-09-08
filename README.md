@@ -40,8 +40,6 @@ Documentation covering user management, account management, billing, and upgrade
 
 {% page-ref page="administration/billing/" %}
 
-{% page-ref page="administration/paid-plans-and-upgrades/" %}
-
 {% page-ref page="administration/contact-us.md" %}
 
 ## **Education**

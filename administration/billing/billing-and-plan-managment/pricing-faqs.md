@@ -22,7 +22,7 @@ You can sign up for a plan at any point on the [Account](https://app.bugsplat.co
 
 #### What if I change my mind?
 
-No problem. You can cancel at any time, no questions asked. You can even export your data through our API. If you’re curious, you can read our [fair-refund policy](../../paid-plans-and-upgrades/refund-policy.md).
+No problem. You can cancel at any time, no questions asked. You can even export your data through our API. If you’re curious, you can read our [fair-refund policy](../upgrades/refund-policy.md).
 
 #### Can I cancel my plan?
 
@@ -30,5 +30,5 @@ Absolutely. Just cancel your plan via the [Account](https://app.bugsplat.com/v2/
 
 #### Is there a money-back guarantee?
 
-Of course—read more about our [fair-refund-policy](../../paid-plans-and-upgrades/refund-policy.md).
+Of course—read more about our [fair-refund-policy](../upgrades/refund-policy.md).
 

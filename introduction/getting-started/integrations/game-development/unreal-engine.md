@@ -16,7 +16,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 BugSplat’s Unreal Engine integration supports most Unreal platforms including desktop computers, the Steam platform, and Linux servers. Support for additional platforms will be provided in the future.
 
-#### Step 1
+### Step 1
 
 To send crash reports to BugSplat, change the `DataRouterUrl` parameter in `/Engine/Programs/CrashReportClient/Config/NoRedist/DefaultEngine.ini` so that crash reports are posted to our back end. There are multiple DefaultEngine.ini files in your tree, make sure you edit the right one.
 
@@ -30,7 +30,7 @@ DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}"
 
 Replace {database}, {appName}, and {appVersion} with the names of your BugSplat database, application name, and version. \(You will use these exact same parameter values when uploading symbols
 
-#### Step 2
+### Step 2
 
 Package your game, check that the **Include Crash Reporter** and **Include Debug Files** options are selected in your build configuration:
 
@@ -38,7 +38,7 @@ Package your game, check that the **Include Crash Reporter** and **Include Debug
 
 ![UE4\_PackagingSetttings](../../../../.gitbook/assets/unreal-packaging-settings.png)
 
-#### Step 3
+### Step 3
 
 To create symbolic call stacks on Windows platforms you will need to upload symbol and executable files. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download_item.php?item=sendpdbs) or via the [SendPDBs](https://www.bugsplat.com/docs/faq/sendpdbs) doc. Run it from your build folder using the following commands.
 
@@ -47,15 +47,15 @@ cd {your build folder}
 SendPdbs.exe /u {username} /p {password} /b {database} /a {appName} /v {appVersion} /s /f "*.pdb;*.dll;*.exe"
 ```
 
-#### Step 4
+### Step 4
 
 Run your game. For testing, a crash can be forced from the console using the command "debug crash". After posting the crash report, login to BugSplat to view the report.
 
-#### Step 5
+### Step 5
 
 Eventually, you will want to rebuild CrashReportClient so that its user interface describes the crash reporting changes above. However, this isn't required to successfully post crash reports.
 
-#### Step 6
+### Step 6
 
 Special instructions for Linux servers:
 

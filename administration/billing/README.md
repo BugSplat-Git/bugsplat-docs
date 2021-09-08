@@ -6,8 +6,6 @@ If you would like to speak directly with someone about plans and pricing, please
 
 {% page-ref page="free-trial-and-new-accounts/" %}
 
-{% page-ref page="../paid-plans-and-upgrades/" %}
-
 {% page-ref page="free-plans-from-bugsplat/" %}
 
 {% page-ref page="billing-and-plan-managment/" %}

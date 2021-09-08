@@ -1,4 +1,4 @@
-# Free Trial and New Accounts
+# New Accounts and Plans
 
 BugSplat's 15-day free trial provides unrestricted access to new users curious about whether or not BugSplat is right for them, their app, and their team.  
 
