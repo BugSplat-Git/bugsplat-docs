@@ -8,5 +8,5 @@ If you saw a BugSplat after your software shut down unexpectedly, it means that 
 
 As part of the BugSplat program, the **BsSndRpt.exe** file is vital for getting the crash reporting tool to work correctly. Uninstalling the actual BugSplat file is not an option, as it is part of whichever program you were using that just crashed.
 
-The best way to fix a program that is crashing is to follow these instructions [here](https://www.bugsplat.com/docs/crash-help/how-to-fix-bugsplat), or contact the makers of your software program.
+The best way to fix a program that is crashing is to follow these instructions [here](how-to-fix-bugsplats.md), or contact the makers of your software program.
 

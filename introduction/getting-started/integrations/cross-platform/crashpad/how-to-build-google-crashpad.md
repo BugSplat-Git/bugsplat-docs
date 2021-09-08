@@ -348,7 +348,7 @@ Most issues symbolicating dump files can be traced back to mismatched module ids
 1. [https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot\_tools/docs/html/depot\_tools\_tutorial.html\#\_setting\_up](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)
 2. [https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md)
 3. [https://groups.google.com/a/chromium.org/forum/\#!topic/crashpad-dev/XVggc7kvlNs](https://groups.google.com/a/chromium.org/forum/#!topic/crashpad-dev/XVggc7kvlNs)
-4. [https://www.bugsplat.com/docs/sdk/crashpad/](https://www.bugsplat.com/docs/sdk/crashpad/)
+4. [https://docs.bugsplat.com/introduction/getting-started/integrations/cross-platform/crashpad](https://docs.bugsplat.com/introduction/getting-started/integrations/cross-platform/crashpad)
 5. [https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md\#build-process-specificssymbol-generation](https://github.com/google/breakpad/blob/master/docs/getting_started_with_breakpad.md#build-process-specificssymbol-generation)
 6. [https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md\#build-process-specifics\_symbol-generation](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#build-process-specifics_symbol-generation)
 7. [https://www.chromium.org/developers/decoding-crash-dumps](https://www.chromium.org/developers/decoding-crash-dumps)
