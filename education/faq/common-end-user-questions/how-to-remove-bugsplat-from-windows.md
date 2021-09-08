@@ -29,7 +29,7 @@ Importantly, BugSplat is a safe program built by a reputable software company ca
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 
-![](http://localhost:3000/assets/img/brands/crash-dialogs/bugsplat-dialog.png)
+![](../../../.gitbook/assets/bugsplat-dialog-4%20%281%29.png)
 
 That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while is use.
 
@@ -53,7 +53,7 @@ Including details about what immediately happened before the application crashed
 
 Most of the time, restarting the application that crashed will fix the issue that caused the crash and lead to you seeing the BugSplat Crash Dialogue. If you continue to get "BugSplats," then follow the steps sketched in the paragraph below.
 
-![The face you get when your software crashes.](http://localhost:3000/assets/img/blog/man-actively-getting-a-bugsplat.jpg)
+![](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1%20%281%29.jpg)
 
 ## How do I fix a BugSplat? <a id="how_to_fix_bugsplat"></a>
 
@@ -69,7 +69,7 @@ Follow the steps below to try to fix your application crashes. If none of them a
 4. **Contact the makers of your Software directly.** Most software companies will have a way to contact their support team to get technical help for their products. Find the contact information on their website, and contact them via email, chat, or phone.
 5. **Try uninstalling and reinstalling.** Uninstalling your computer application and reinstalling it can be dangerous as you could lose data, so please proceed with caution and adequately back up any valuable data that could be lost. Most applications have documents online that help with accomplishing this task safely.
 
-![The feeling once you get your software to stop crashing.](http://localhost:3000/assets/img/docs/feeling-once-software-fixed.jpg)
+![](../../../.gitbook/assets/feeling-once-software-fixed-1.jpg)
 
 ## Why you shouldn't "Remove BugSplat." <a id="how_to_fix_bugsplat"></a>
 
@@ -85,9 +85,9 @@ BugSplat is a part of your application's code - it's the part of your applicatio
 
 The best "BugSplat Removal Guide" is not to try and remove the BugSplat code - which is complicated and likely to break everything worse - it is to follow the steps I laid out above to fix the reason why your application is crashing. Most likely, making sure that you're on your application's most recent version is enough.
 
-![Would you think firefighters were the cause of a fire?](http://localhost:3000/assets/img/docs/bugsplat-is-like-a-firefighter.jpg)
+![](../../../.gitbook/assets/bugsplat-is-like-a-firefighter-1.jpg)
 
-{% hint style="info" %}
+{% hint style="danger" %}
 **Warning!!**
 
 ### Beware websites providing programs that promise to remove or uninstall BugSplat.
@@ -123,7 +123,7 @@ After the ACME team finished this process, they did a little more testing, and t
 
 Once their users had the new version of the ACME software, they used it the same as they always had.
 
-![A bunch of developers \(software nerds\) fixing their software with BugSplat.](http://localhost:3000/assets/img/docs/egg-heads-using-bugsplat.jpg)
+![](../../../.gitbook/assets/egg-heads-using-bugsplat-1%20%281%29.jpg)
 
 However, when some users started running into an issue that caused their application to quit unexpectedly, the ACME software program called the code included from BugSplat to capture the crash.
 
