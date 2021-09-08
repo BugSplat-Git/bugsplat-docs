@@ -114,7 +114,7 @@ Utils.ForceCrash(ForcedCrashCategory.PureVirtualFunction);
 
 Once you've posted an exception or a minidump to BugSplat click the link in the **ID** column on either the [Dashboard](https://app.bugsplat.com/v2/dashboard) or [Crashes](https://app.bugsplat.com/v2/crashes) pages to see details about your crash.
 
-![Unity crash reports](https://www.bugsplat.com/assets/img/docs/unity-crash-99572.png)
+![Unity crash reports](../../../../.gitbook/assets/unity-crash.png)
 
 ## Contributing
 
