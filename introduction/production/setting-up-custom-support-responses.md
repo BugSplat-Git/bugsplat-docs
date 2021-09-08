@@ -16,14 +16,13 @@ Navigate to the desired **Key Crash** page by clicking a [stack key](../../educa
 
 Once on the desired **Key Crash** page, click the **Support Response** button. This will bring you to the **Support Response** page. Here you can craft your crash-specific support response.  
 
-
-![](https://www.bugsplat.com/assets/img/docs/techresponsebugsplat1.png)
+![Support Response Button](../../.gitbook/assets/support-response-1.png)
 
 To define the message, enter a subject in addition to the message that your users will see after they submit a crash of this type.
 
 To style the message, use Markdown. If you don't remember Markdown off the top of your head, check out this [cheat sheet](https://www.markdownguide.org/cheat-sheet/).
 
-![](https://www.bugsplat.com/assets/img/docs/techresponsebugsplat2.png)
+![Support Response Editor](../../.gitbook/assets/support-response-2.png)
 
 Once you've defined your message, you can preview it using the button on the page's bottom left.
 
@@ -33,7 +32,7 @@ Note: The application key is set at runtime by your application and can be used 
 
 For more information about how to localize your support response, please see this [doc](../../education/faq/localized-support-responses-for-windows-c++-.net-and-macos.md).
 
-![](../../.gitbook/assets/screen-shot-2021-07-13-at-12.57.14-pm.png)
+![End User Support Response Page](../../.gitbook/assets/support-response-3.png)
 
 ### Setting the default response
 
@@ -43,7 +42,4 @@ To configure the default response, click the **Edit Default Response** button fo
 
 Just like other support responses, the default response also attempts to match the application key. In cases where the application key support response isn't defined, the default application key message is displayed.
 
-
-
-![](https://www.bugsplat.com/assets/img/docs/techresponsebugsplat4.png)
-
+![Edit Default Response](../../.gitbook/assets/support-response-4.png)
