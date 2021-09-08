@@ -21,9 +21,9 @@ BugSplat is a powerful tool that many companies rely on to improve their softwar
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 
-![Standard BugSplat Crash Dialogue Box](http://localhost:3000/assets/img/brands/crash-dialogs/bugsplat-dialog.png)
+![](../../../.gitbook/assets/bugsplat-dialog-4.png)
 
-That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while in use.
+That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while is use.
 
 It is only viewable at that time because BugSplat is a program called a crash reporter and it's job is to report when crashes happen.
 
@@ -35,7 +35,7 @@ Software companies that use BugSplat are hoping that knowledge of software crash
 
 Today, BugSplat is used by many companies large and small to fix bugs in all kinds of software and video games. You can learn more about how BugSplat specifically helps companies fix bugs on our [Features](http://localhost:3000/features/) page.
 
-### Why did I get a BugSplat? <a id="why_did_i_get_bugsplat"></a>
+## Why did I get a BugSplat?
 
 You will only get a "BugSplat" \(i.e. see the BugSplat Crash Dialogue\) when a software application you are currently using crashes. A crash is something that occurs when a softtware application runs into an issue or defect that causes it to break.
 
@@ -43,9 +43,9 @@ Once a crash occurs, a BugSplat crash dialogue appears to ask for feedback from 
 
 Including details about what immediately happened before the application crashes is a powerful way for developers to fix the issue you just experienced. Feel free to let the developers of your application know what happened.
 
-![The face you get when your software crashes.](http://localhost:3000/assets/img/blog/man-actively-getting-a-bugsplat.jpg)
+![The face you get when the software application you&apos;re using crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1.jpg)
 
-### How do I fix a BugSplat? <a id="how_to_fix_bugsplat"></a>
+## How do I fix a BugSplat?
 
 BugSplat doesn’t cause crashes; it only reports when crashes occur.
 
@@ -59,9 +59,11 @@ Follow the steps below to try to fix your application crashes. If none of them a
 4. **Contact the makers of your Software directly.** Most software companies will have a way to contact their support team to get technical help for their products. Find the contact information on their website, and contact them via email, chat, or phone.
 5. **Try uninstalling and reinstalling.** Uninstalling your application from your computer and reinstalling it can be dangerous as you could lose data, so please proceed with caution and adequately back up any valuable data that could be lost. Most applications have documents online that help with accomplishing this task safely.
 
-![The feeling once you get your software to stop crashing.](http://localhost:3000/assets/img/docs/feeling-once-software-fixed.jpg)
+![The feeling once you get your software to stop crashing.](../../../.gitbook/assets/feeling-once-software-fixed-1.jpg)
 
-{% hint style="info" %}
+
+
+{% hint style="danger" %}
 **Warning!!**
 
 #### Beware websites providing programs that promise to remove or uninstall BugSplat.
@@ -97,7 +99,7 @@ After the ACME team finished this process, they did a little more testing, and t
 
 Once their users had the new version of the ACME software, they used it the same as they always had.
 
-![](http://localhost:3000/assets/img/docs/egg-heads-using-bugsplat.jpg)
+![Computer nerds happy they fixed your crash using BugSplat.](../../../.gitbook/assets/egg-heads-using-bugsplat-1.jpg)
 
 However, when some users started running into an issue that caused their application to quit unexpectedly, the ACME software program called the code included from BugSplat to capture the crash.
 
