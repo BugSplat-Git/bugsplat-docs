@@ -10,11 +10,11 @@ To do this, login to BugSplat with user name ‘fred@bugsplat.com’ and passwor
 
 All the crash reports in the fred@bugsplat.com account are actual crashes created with one of our sample applications. Crash reports from the application MyJavaCrasher are mixed in with crash reports from Windows applications.
 
-To view just the Java application crashes you can filter on application name “MyJavaCrasher” on the [Crashes](https://app.bugsplat.com/v2/allcrash) page.
+To view just the Java application crashes you can filter on application name **MyJavaCrasher** on the [Crashes](https://app.bugsplat.com/v2/allcrash) page.
 
-**Testing the sample application ‘MyJavaCrasher’**
+**Testing the sample application MyJavaCrasher**
 
-Locate the MyJavaCrasher java source file from the zip that you just downloaded. Notice that there is a folder called “lib” which contains 4 libraries:
+Locate the MyJavaCrasher java source file from the zip that you just downloaded. Notice that there is a folder called **lib** which contains 4 libraries:
 
 * `activation.jar`
 * `mailapi.jar`
@@ -30,19 +30,19 @@ Many of the buttons on the dialog will cause a crash. When a crash occurs, fill 
 
 Next, we will change the sample app so that crash reports are sent to your BugSplat account.
 
-In MyJavaCrasher.java search for the following line: `BugSplat.Init(“Fred”, “MyJavaCrasher”, “1.0″);`
+In MyJavaCrasher.java search for the following line: `BugSplat.Init("Fred", "MyJavaCrasher", "1.0″);`
 
 Make the following changes:
 
-* Modify the database name string “Fred” so that it matches your BugSplat database name.
+* Modify the database name string **Fred** so that it matches your BugSplat database name.
 * The BugSplat database is created and selected on the [Company](https://app.bugsplat.com/v2/company) page.
-* Change the application name “MyJavaCrasher” to a name of your choice \(this is an arbitrary string, used to distinguish your applications across crash reports\).
-* Change the version from “1.0″ to a string of your choice. Again, this is arbitrary, but would typically match the version and build string of your application.
+* Change the application name **MyJavaCrasher** to a name of your choice \(this is an arbitrary string, used to distinguish your applications across crash reports\).
+* Change the version from "1.0" to a string of your choice. Again, this is arbitrary, but would typically match the version and build string of your application.
 * Compile the MyJavaCrasher source file.
 
-Next, launch MyJavaCrasher and select a crash button. Fill in the requested information in the crash dialog and select “Send Report”
+Next, launch MyJavaCrasher and select a crash button. Fill in the requested information in the crash dialog and select **Send Report**
 
 Finally, to verify that the report was sent, log into BugSplat as yourself \(not fred@bugsplat.com\) and verify the crash was recorded on the [Crashes](https://app.bugsplat.com/v2/allcrash) page
 
-![](https://www.bugsplat.com/assets/img/brands/crash-dialogs/bugsplat-dialog.png)
+![BugSplat Crash Dialog](../../../.gitbook/assets/bugsplat-crash-dialog.png)
 
