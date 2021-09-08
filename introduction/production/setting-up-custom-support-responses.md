@@ -1,6 +1,6 @@
 # Support Responses
 
-A custom support response is a message displayed to an end-user as a new tab in their default browser. BugSplat can be configured to display these messages automatically and their content can be based upon the type of crash submitted. The message can also be branded with your company or application logo.  
+A custom support response is a message displayed to an end-user as a new tab in their default browser. BugSplat can be configured to display these messages automatically and their content can be based upon the type of crash submitted. The message can also be branded with your company or application logo.
 
 A custom support response allows you to send targeted information to users in the moments immediately after they experience a known crash type.
 
@@ -8,13 +8,13 @@ For example, do you know a particular crash is associated with a bug fixed in a 
 
 The support response can target users who are experiencing this crash and encourage them to upgrade.
 
-The support response can also provide a default message used in the absence of a crash-type specific message. 
+The support response can also provide a default message used in the absence of a crash-type specific message.
 
-### Creating a Crash-specific Support Response
+## Creating a Crash-specific Support Response
 
 Navigate to the desired **Key Crash** page by clicking a [stack key](../../education/bugsplat-terminology.md#stack-key) link from any crash report or from the **Summary** page.
 
-Once on the desired **Key Crash** page, click the **Support Response** button. This will bring you to the **Support Response** page. Here you can craft your crash-specific support response.  
+Once on the desired **Key Crash** page, click the **Support Response** button. This will bring you to the **Support Response** page. Here you can craft your crash-specific support response.
 
 ![Support Response Button](../../.gitbook/assets/support-response-1.png)
 
@@ -28,13 +28,13 @@ Once you've defined your message, you can preview it using the button on the pag
 
 If the message or subject is left empty, the default tech support response \(if one is defined\) will be shown to users submitting crash reports.
 
-Note: The application key is set at runtime by your application and can be used to provide different messages for the same crash type. For example, the application key could be used to identify localized versions of a product and return localized versions of the support response. 
+Note: The application key is set at runtime by your application and can be used to provide different messages for the same crash type. For example, the application key could be used to identify localized versions of a product and return localized versions of the support response.
 
 For more information about how to localize your support response, please see this [doc](../../education/faq/localized-support-responses-for-windows-c++-.net-and-macos.md).
 
 ![End User Support Response Page](../../.gitbook/assets/support-response-3.png)
 
-### Setting the default response
+## Setting the default response
 
 The default support response is displayed if there is no [stack key](../../education/bugsplat-terminology.md#stack-key)-specific message for a given crash report.‌
 
@@ -43,3 +43,4 @@ To configure the default response, click the **Edit Default Response** button fo
 Just like other support responses, the default response also attempts to match the application key. In cases where the application key support response isn't defined, the default application key message is displayed.
 
 ![Edit Default Response](../../.gitbook/assets/support-response-4.png)
+
