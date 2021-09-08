@@ -34,9 +34,9 @@ Replace {database}, {appName}, and {appVersion} with the names of your BugSplat 
 
 Package your game, check that the **Include Crash Reporter** and **Include Debug Files** options are selected in your build configuration:
 
-![Integrating Unreal with BugSplat](https://www.bugsplat.com/assets/img/docs/unreal2.png)
+![Integrating Unreal with BugSplat](../../../../.gitbook/assets/unreal-package-project-menu.png)
 
-![UE4\_PackagingSetttings](https://www.bugsplat.com/assets/img/docs/UE4_PackagingSetttings.png)
+![UE4\_PackagingSetttings](../../../../.gitbook/assets/unreal-packaging-settings.png)
 
 #### Step 3
 
