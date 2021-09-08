@@ -44,7 +44,7 @@ include_directories(${PROJECT_SOURCE_DIR}/crashpad/include/ ${PROJECT_SOURCE_DIR
 
 After adding the include directories, you'll need to add the Crashpad static libraries to your project. You'll need to add a set of Crashpad libraries for each ABI your application supports. From the `/crashpad/out/Debug/{{ABI}}` directory you'll want to copy the `client`, `util` and `third_party/mini_chromium/mini_chromium/base` folders to `app/src/main/cpp/crashpad/lib/{{ABI}}`.
 
-![BugSplat crashpad android libs folders](https://www.bugsplat.com/assets/img/docs/crashpad-libs.png)
+![BugSplat Android Libs Crashpad Folders](../../../../.gitbook/assets/android-crashpad-libs.png)
 
 Once all of the Crashpad libraries have been copied to your project directory, add the following to your project's `CMakeLists.txt` file to link the Crashpad libraries:
 
@@ -231,5 +231,5 @@ Force a crash in your application after Crashpad has been initialized:
 
 After you've submitted a crash report, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes?database=Fred&c0=appName&f0=CONTAINS&v0=AndroidCrasher) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `AndroidCrasher` application:
 
-![BugSplat Android NDK Crash](https://www.bugsplat.com/assets/img/docs/android-crash.png)
+![BugSplat Android NDK Crash](../../../../.gitbook/assets/android-crash.png)
 
