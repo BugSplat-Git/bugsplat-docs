@@ -14,13 +14,13 @@ All of the crash reports in the `fred@bugsplat.com` account are actual crashes c
 
 To view just the `myConsoleCrasher` crashes, filter using the drop-down menu in the header of the application column:
 
-![](https://www.bugsplat.com/assets/img/docs/myconsolcrasher-doccrashreporthelp.png)
+![Search for Crashes Containing MyConsoleCrasher](../../../../.gitbook/assets/my-console-crasher-search.png)
 
 Next, download the BugSplat Microsoft Windows Native C++ SDK from the [Downloads](https://www.bugsplat.com/docs/sdk/) page. Once the SDK has downloaded, right click `BugSplatNative.zip` and choose and `Extract All`. Failing to extract the contents from the zip will result in numerous build failures. Once the contents of `BugSplatNative.zip` have been extracted navigate to the `samples` folder and open the `myConsoleCrasher.vcxproj` file with Visual Studio.
 
 Rebuild the project and run it outside of the Visual Studio debugger \(Ctrl+F5\). This is important since the debugger interferes with the BugSplat library’s exception handling. You should see a dialog such as that shown below \(make sure to type something describing the crash so that you can identify it on the website\):
 
-![](https://www.bugsplat.com/assets/img/brands/crash-dialogs/bugsplat-dialog.png)
+![BugSplat Crash Dialog](../../../../.gitbook/assets/bugsplat-crash-dialog.png)
 
 Click the `Send Error Report` button and voilà! The report will be sent! On the BugSplat website while logged in to the `fred@bugsplat.com` account, look for the crash report with the description you entered.
 
