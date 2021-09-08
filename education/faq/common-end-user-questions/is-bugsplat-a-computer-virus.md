@@ -43,7 +43,7 @@ Once a crash occurs, a BugSplat crash dialogue appears to ask for feedback from 
 
 Including details about what immediately happened before the application crashes is a powerful way for developers to fix the issue you just experienced. Feel free to let the developers of your application know what happened.
 
-![The face you get when the software application you&apos;re using crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1.jpg)
+![The face you get when the software application you&apos;re using crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1%20%281%29.jpg)
 
 ## How do I fix a BugSplat?
 

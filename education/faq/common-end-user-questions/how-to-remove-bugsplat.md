@@ -53,7 +53,7 @@ Including details about what immediately happened before the application crashed
 
 Most of the time, restarting the application that crashed will fix the issue that caused the crash and lead to you seeing the BugSplat Crash Dialogue. If you continue to get "BugSplats," then follow the steps sketched in the paragraph below.
 
-![The face you get when the software application you&apos;re using crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1.jpg)
+![The face you get when the software application you&apos;re using crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1%20%281%29.jpg)
 
 ## How do I fix a BugSplat? <a id="how_to_fix_bugsplat"></a>
 
