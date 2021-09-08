@@ -1,8 +1,8 @@
-# Annual Plan Upgrades
+# Annually Invoiced Plan Upgrades
 
 If your account has exceeded its plan limits - for plans paying annual only crash volume matters - then you will be automatically upgraded to a plan which covers your usage.
 
-BugSplat will only inquire about upgrading annual accounts when an account has exceeded its monthly volume limit and its annual volume limit.   
+BugSplat will only inquire about upgrading accounts that are invoiced annually when an account has exceeded its monthly volume limit and its annual volume limit.   
 
 You can see your usage on the [Company](https://app.bugsplat.com/v2/company) page. If anything is in 'red' then it means that you're over your limit.
 

@@ -123,7 +123,7 @@
     * [Choosing a Plan](administration/billing/free-trial-and-new-accounts/choosing-a-plan.md)
   * [Upgrades](administration/billing/upgrades/README.md)
     * [Monthly Plan Upgrades](administration/billing/upgrades/upgrade-policy.md)
-    * [Annual Plan Upgrades](administration/billing/upgrades/annual-plan-upgrades.md)
+    * [Annually Invoiced Plan Upgrades](administration/billing/upgrades/annual-plan-upgrades.md)
     * [Fair-Refund Policy](administration/billing/upgrades/refund-policy.md)
   * [Billing and Plan Management](administration/billing/billing-and-plan-managment/README.md)
     * [Monthly pricing sheet](administration/billing/billing-and-plan-managment/full-monthly-pricing-sheet.md)
