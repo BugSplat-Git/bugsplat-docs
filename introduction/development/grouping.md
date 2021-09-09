@@ -6,7 +6,7 @@ BugSplat's application data grouping and aggregation in search tool provides ins
 
 Group By Email or IP address to determine which customers are crashing most often. Knowing which users are crashing the most allows your team to proactively fix issues instead of waiting for users to complain or give up on your software.
 
-![Example of grouping data by IP Address](https://www.bugsplat.com/assets/img/blog/group-by-ip-address.png)
+![Example of grouping data by IP Address](../../.gitbook/assets/group-by-ip-address.png)
 
 Group By Application and Version to see which versions of your application are crashing the most. Knowing which versions are most problematic allows your team to selectively roll out updates or messaging to get users to upgrade to a stable version of your software.
 
@@ -22,5 +22,5 @@ Group By Stack Key and User to see how many unique customers see a specific cras
 
 If you want to dig deeper into a specific group of crashes, simply expand the row you're interested in. There you will find useful data on the group and several sample crashes. To load the full set of crashes that meet the criteria you're interested in exploring, just click the 'Load all results' link.
 
-![Group by multiple criteria](https://www.bugsplat.com/assets/img/blog/load-more-results-group-by.gif)
+![Group by multiple columns](../../.gitbook/assets/group-by-multiple.gif)
 
