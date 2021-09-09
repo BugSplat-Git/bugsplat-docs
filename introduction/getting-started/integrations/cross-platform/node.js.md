@@ -66,9 +66,9 @@ try {
 
 After posting an error with bugsplat-node, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
-![](https://www.bugsplat.com/assets/img/docs/electron-node-js-crashes.png)
+![Node.js Crashes](../../../../.gitbook/assets/electron-node-js-crashes.png)
 
-![](../../../../.gitbook/assets/electron-node-js-crash.png)
+![Node.js Crash](../../../../.gitbook/assets/electron-node-js-crash.png)
 
 That’s it! Your application is now configured to post crash reports to BugSplat.
 
