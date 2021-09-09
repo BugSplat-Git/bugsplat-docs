@@ -18,7 +18,7 @@ Enter a subject for your support message. This subject is for internal use only 
 
 In the code you use to initialize BugSplat, provide the value you used for key from step 2.
 
-![Configure Custom Support Response](https://www.bugsplat.com/assets/img/docs/configure-custom-support-response-1.png)
+![Support Response Editor](../../.gitbook/assets/configure-custom-support-response-1.png)
 
 **Windows C++**
 
@@ -46,5 +46,5 @@ BugSplat.CrashReporter.AppIdentifier = "es-ES";
 
 Generate a crash and ensure that the correct support response is loaded, you should see your translated message.
 
-![Configure Custom Support Response](https://www.bugsplat.com/assets/img/docs/configure-custom-support-response-2.png)
+![Support Response Page](../../.gitbook/assets/configure-custom-support-response-2.png)
 
