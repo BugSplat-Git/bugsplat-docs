@@ -8,5 +8,5 @@ Note: You must be a user on databases owned by both companies for this to work. 
 
 If you have any questions, please contact [support](mailto:support@bugsplat.com) and we can do help you with your database migration.
 
-![Migrate Database Doc](https://www.bugsplat.com/assets/img/docs/migrate-database-doc.png)
+![Transfer Database](../../.gitbook/assets/settings-transfer-database.png)
 
