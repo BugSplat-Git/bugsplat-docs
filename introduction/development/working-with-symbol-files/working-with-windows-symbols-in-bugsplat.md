@@ -4,7 +4,7 @@ A common stumbling block for new BugSplat users is properly uploading symbols fo
 
 To help make this issue easier we’ve put in a way to check if symbols have been uploaded properly.
 
-#### How it works: <a id="how-it-works"></a>
+## How it works: <a id="how-it-works"></a>
 
 At the top of the Crash page you will see a warning if you're missing symbols.
 

@@ -1,6 +1,6 @@
 # .NET Standard
 
-#### Introduction <a id="intro"></a>
+### Introduction <a id="intro"></a>
 
 Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
 
@@ -91,7 +91,4 @@ Click the link in the **ID** column to see details about the crash:
 That’s it! Your application is now configured to post crash reports to BugSplat.
 
 If you have any additional questions please reach out to our [support](mailto:support@bugsplat.com) team
-
-  
-
 

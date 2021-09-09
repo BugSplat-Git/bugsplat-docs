@@ -35,7 +35,7 @@ Add BugSplat to your application using the following steps:
 * Link your application to **`BugSplat.lib`**.
 * Add **`BsSndRpt.exe`**, **`BugSplat.dll`**, and **`BugSplatRC.dll`** to your application's installer.
 
-You should modify your build settings so that symbol files are created for release builds, e.g., 
+You should modify your build settings so that symbol files are created for release builds, e.g.,
 
 ![Microsoft Visual Studio C++ General Properties](../../../../../.gitbook/assets/microsoft-cpp-configuration-general.png)
 

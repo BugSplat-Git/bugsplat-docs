@@ -11,7 +11,7 @@ BugSplat is a powerful tool that many companies rely on to improve their softwar
 3. How do I fix a BugSplat?
 4. Why does the company that makes my software use BugSplat?
 
-### What is BugSplat?
+## What is BugSplat?
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 
@@ -21,7 +21,7 @@ That popup is called the BugSplat Crash Dialogue and it is only seen when a soft
 
 It is only viewable at that time because BugSplat is a program called a crash reporter and it's job is to report when crashes happen.
 
-As a crash reporter, BugSplat helps software companies understand how their application performs for their users by reporting on instances of crashes.  This is what the BugSplat application looks like to the development team who build and support your software application.
+As a crash reporter, BugSplat helps software companies understand how their application performs for their users by reporting on instances of crashes. This is what the BugSplat application looks like to the development team who build and support your software application.
 
 ![The BugSplat app](../../../.gitbook/assets/what-developers-see-in-bs.gif)
 
@@ -29,7 +29,7 @@ Software companies that use BugSplat are hoping that knowledge of software crash
 
 Today, BugSplat is used by many companies large and small to fix bugs in all kinds of software and video games. You can learn more about how BugSplat specifically helps companies fix bugs on our [Features](http://localhost:3000/features/) page.
 
-### Why did I get a BugSplat? <a id="why_did_i_get_bugsplat"></a>
+## Why did I get a BugSplat? <a id="why_did_i_get_bugsplat"></a>
 
 You will only get a "BugSplat" \(i.e. see the BugSplat Crash Dialogue\) when a software application you are currently using crashes. A crash is something that occurs when a softtware application runs into an issue or defect that causes it to break.
 
@@ -39,7 +39,7 @@ Including details about what immediately happened before the application crashes
 
 ![The face you get when your software crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1.jpg)
 
-### How do I fix a BugSplat? <a id="how_to_fix_bugsplat"></a>
+## How do I fix a BugSplat? <a id="how_to_fix_bugsplat"></a>
 
 BugSplat doesn’t cause crashes; it only reports when crashes occur.
 
@@ -53,12 +53,12 @@ Follow the steps below to try to fix your application crashes. If none of them a
 4. **Contact the makers of your Software directly.** Most software companies will have a way to contact their support team to get technical help for their products. Find the contact information on their website, and contact them via email, chat, or phone.
 5. **Try uninstalling and reinstalling.** Uninstalling your application from your computer and reinstalling it can be dangerous as you could lose data, so please proceed with caution and adequately back up any valuable data that could be lost. Most applications have documents online that help with accomplishing this task safely.
 
-![The feeling once you get your software to stop crashing.](../../../.gitbook/assets/feeling-once-software-fixed-1%20%281%29.jpg)
+![The feeling once you get your software to stop crashing.](../../../.gitbook/assets/feeling-once-software-fixed-1%20%281%29%20%281%29.jpg)
 
 {% hint style="danger" %}
 **Warning!!**
 
-#### Beware of websites providing programs that promise to remove or uninstall BugSplat.
+### Beware of websites providing programs that promise to remove or uninstall BugSplat.
 
 There are some sites on the internet that provide free programs for download, claiming to be able to remove BugSplat from a user's computer.
 
@@ -73,7 +73,7 @@ With that said, we would highly discourage you not to download anything from the
 At best they are trying to sell you something.
 {% endhint %}
 
-### Why does the company that makes my software use BugSplat? <a id="why_do_people_use_bugsplat"></a>
+## Why does the company that makes my software use BugSplat? <a id="why_do_people_use_bugsplat"></a>
 
 BugSplat is very useful to software companies because it lets them know how stable their software is while in use. This helps them prioritize things to fix as well as saving time fixing things overall.
 
@@ -91,7 +91,7 @@ After the ACME team finished this process, they did a little more testing, and t
 
 Once their users had the new version of the ACME software, they used it the same as they always had.
 
-![](../../../.gitbook/assets/egg-heads-using-bugsplat-1.jpg)
+![](../../../.gitbook/assets/egg-heads-using-bugsplat-1%20%282%29%20%282%29.jpg)
 
 However, when some users started running into an issue that caused their application to quit unexpectedly, the ACME software program called the code included from BugSplat to capture the crash.
 
@@ -99,6 +99,5 @@ At this point, ACME users saw the BugSplat Crash Dialogue box and were asked to 
 
 Because ACME had BugSplat included with their software, they quickly learned about the problem in their code. ACME took data collected by BugSplat to find the cause quickly. They fixed it and shipped a new version to their users that didn't crash as often.
 
-Because ACME is was now using BugSplat, they had a much better understanding of how stable their software was because they have an accurate crash count and data on what causes their worst crashes.  
-
+Because ACME is was now using BugSplat, they had a much better understanding of how stable their software was because they have an accurate crash count and data on what causes their worst crashes.
 

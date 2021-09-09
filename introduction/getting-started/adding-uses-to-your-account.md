@@ -25,6 +25,6 @@ BugSplat has a tool that allows you to [Request Access](https://app.bugsplat.com
 Note that, for security reasons, there will be no warning if the email you send to a team member isn't received. If you do not receive an email granting you access that you double-check to make sure you submitted the right email and try again.
 
 {% hint style="info" %}
-**Managing User Permissions**:  Looking for a doc about limiting a team member's permissions inside of a BugSplat account?  Click [here](../../administration/introduction/user-permissions.md).
+**Managing User Permissions**: Looking for a doc about limiting a team member's permissions inside of a BugSplat account? Click [here](../../administration/introduction/user-permissions.md).
 {% endhint %}
 
