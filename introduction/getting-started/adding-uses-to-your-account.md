@@ -2,15 +2,15 @@
 
 After signing up for a BugSplat account, it’s important to add your team members to your company so that they can access the team's crash data. Crash reporting is better with friends.
 
-## **Add team members to all company databases**
+## Add Team Members to all Company Databases
 
 To add a team member to all your company's databases, simply add them via the [Company](https://app.bugsplat.com/v2/company) page. They will receive an email providing a prompt about setting up their account.
 
-## **Adding team members to specific databases**
+## Adding Team Members to a Specific Databases
 
 Only need to add a team member to a specific subset of databases? Navigate to the [Users](https://app.bugsplat.com/v2/users) page and select the desired database from the dropdown selector.
 
-![adding team members](https://www.bugsplat.com/assets/img/docs/adding_users_bugsplat-1.png)
+![Adding Team Members](../../.gitbook/assets/help-adding-users.png)
 
 Once you've selected the right database, click the `Add User` button. This will prompt you to insert an email address of your team member. Once invited, they will receive an email allowing them to set up their account.
 
