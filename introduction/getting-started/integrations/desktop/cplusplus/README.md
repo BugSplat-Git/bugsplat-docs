@@ -37,9 +37,9 @@ Add BugSplat to your application using the following steps:
 
 You should modify your build settings so that symbol files are created for release builds, e.g., 
 
-![MyConsoleCrasher property pages image two for BugSplat crash reporting with C++](https://www.bugsplat.com/assets/img/docs/image-18.png)
+![Microsoft Visual Studio C++ General Properties](../../../../../.gitbook/assets/microsoft-cpp-configuration-general.png)
 
-![MyConsoleCrasher property pages image one for BugSplat crash reporting with C++](https://www.bugsplat.com/assets/img/docs/image-17.png)
+![Microsoft Visual Studio C++ Debugging Properties](../../../../../.gitbook/assets/microsoft-cpp-configuration-debugging.png)
 
 **Note:** To get fully detailed call stacks and variable names for each crash on the BugSplat website, every time you build a release version of your application for distribution or internal testing, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product on the [Symbols Page](https://app.bugsplat.com/v2/symbols/). Better yet, use the [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs) application as part of your build process to automate symbol upload to BugSplat.
 
@@ -55,11 +55,11 @@ The following steps are for Visual Studio 2017, other versions of Visual Studio 
 
 To update your project's toolset and platform version, right click your project in Visual Studio, then choose Properties. In the properties menu, change "Platform Toolset" to a version available in your environment and click OK to save your changes.
 
-![C++ Visual Studio Platform Toolset](https://www.bugsplat.com/assets/img/docs/cplusplus_platform_toolset.png)
+![Microsoft Visual Studio C++ Platform Toolset](../../../../../.gitbook/assets/microsoft-cpp-configuration-platform-toolset.png)
 
 Close the properties menu and right click the project again. This time choose the option to "Retarget Projects". Choose Windows SDK Version 10.\* and click OK. You should now be able to build MyConsoleCrasher.
 
-![C++ Visual Studio Retarget Projects](https://www.bugsplat.com/assets/img/docs/cplusplus_retarget_projects.png)
+![C++ Visual Studio Retarget Projects](../../../../../.gitbook/assets/microsoft-cpp-retarget-project.png)
 
 ## Further options
 
