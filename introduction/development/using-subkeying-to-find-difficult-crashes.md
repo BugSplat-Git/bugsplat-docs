@@ -24,7 +24,7 @@ When crashes from **mySubkeyCrasher** are processed by BugSplat, the top of the 
 
 BugSplat’s [Crashes](https://app.bugsplat.com/v2/crashes) page shows a list of all the crashes for our **mySubkeyCrasher** sample application. Notice that we have 3 sample crashes all with the stack key KernelBase!RaiseException+0x62 which isn’t particularly helpful.
 
-![Fig. 1 Sample crashes on the Crashes page \(click to expand image\)](../../.gitbook/assets/subkey-0%20%281%29.png)
+![Fig. 1 Sample crashes on the Crashes page \(click to expand image\)](../../.gitbook/assets/subkey-0.png)
 
 Since these 3 crashes share the same stack key they are grouped together on the [Summary](https://app.bugsplat.com/v2/summary) page.  
 
@@ -62,7 +62,7 @@ Finally, if you’ve hooked BugSplat up to your [defect tracker](integrating-wit
 
 ![Fig. 8 Key Crash page with the Create Defect button enabled \(click to expand image\)](../../.gitbook/assets/subkey-7.png)
 
-![Fig. 9 Stack Key defect created in GitHub \(click to expand image\)](https://www.bugsplat.com/assets/img/blog/subkey_image1.png)
+![Fig. 9 Stack Key defect created in GitHub \(click to expand image\)](../../.gitbook/assets/subkey-8.png)
 
 We hope you found this tutorial helpful. If you have any questions please reach out to us using the in-app chat feature, or via our support [email](mailto:support@bugsplat.com).
 
