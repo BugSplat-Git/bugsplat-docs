@@ -67,11 +67,11 @@ Be sure to send us an image of your customized crash box. If it's really cool, w
 
 ### **Wall of Fame**
 
-![](../../.gitbook/assets/league_of_legends_crash_box-3.png)
+![League of Legends](../../.gitbook/assets/league-of-legends-crash-dialog.png)
 
-![](../../.gitbook/assets/bugsplat-crash-dialog-windows%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![Isadora](../../.gitbook/assets/bugsplat-crash-dialog-windows%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
-![](../../.gitbook/assets/moonman_crash_box-2.png)
+![Moonman](../../.gitbook/assets/moonman_crash_box-2.png)
 
-![](../../.gitbook/assets/sketchup-crash-dialog.png)
+![SketchUp](../../.gitbook/assets/sketchup-crash-dialog.png)
 

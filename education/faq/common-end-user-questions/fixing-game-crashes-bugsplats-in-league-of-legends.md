@@ -11,7 +11,7 @@ While playing League of Legends, you may occasionally run into an issue that cau
 
 We know that crashes are not fun—using this document will help you get back to playing League as quickly as possible.
 
-![Standard League of Legends Crash Dialogue Box](https://www.bugsplat.com/assets/img/graphics/league_of_legends_crash_box.png)
+![League of Legends Crash Dialog](../../../.gitbook/assets/league-of-legends-crash-dialog.png)
 
 ## Actions to take when you get a BugSplat
 
