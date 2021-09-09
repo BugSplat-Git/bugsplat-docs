@@ -26,7 +26,7 @@ Configure [electron.crashReporter](https://github.com/electron/electron/blob/mas
 
 #### Step 1
 
-Use the Breakpad [symupload](https://www.bugsplat.com/docs/sdk/breakpad#symbols) utility to upload symbol files to BugSplat. For additional information on how to upload symbols to BugSplat using symupload please check out our [Breakpad](breakpad.md) documentation.
+Use the Breakpad [symupload](../../../development/working-with-symbol-files/) utility to upload symbol files to BugSplat. For additional information on how to upload symbols to BugSplat using symupload please check out our [Breakpad](breakpad.md) documentation.
 
 #### Step 2
 
