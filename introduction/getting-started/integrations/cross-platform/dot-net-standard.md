@@ -82,11 +82,11 @@ await bugsplat.Post(ex, options);
 
 Once you've generated an error, navigate to the BugSplat [Dashboard](https://app.bugsplat.com/v2/dashboard) and ensure you have to correct database selected in the dropdown menu. You should see a new crash report under the **Recent Crashes** section:
 
-![dashboard example for dot net standard](https://www.bugsplat.com/assets/img/docs/dashboard-dot-net-standard-example.png)
+![BugSplat Dashboard](../../../../.gitbook/assets/dot-net-standard-dashboard.png)
 
 Click the link in the **ID** column to see details about the crash:
 
-![crash example for dot net standard](https://www.bugsplat.com/assets/img/docs/dot-net-standard-crash.png)
+![.NET Standard Crash](../../../../.gitbook/assets/dot-net-standard-crash.png)
 
 That’s it! Your application is now configured to post crash reports to BugSplat.
 
