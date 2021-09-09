@@ -62,7 +62,7 @@ except Exception as e:
 
 Once you've posted a crash, navigate to the Crashes page and click the link in the ID column to see the crash's details
 
-![BugSplat python crash example](https://www.bugsplat.com/assets/img/docs/python-bs-crash.png)
+![BugSplat Python Crash](../../../../.gitbook/assets/python-crash.png)
 
 Thanks for using BugSplat ❤️
 
