@@ -4,7 +4,7 @@
 
 Create a symbol store on the [Symbols](https://app.bugsplat.com/v2/symbols) page.
 
-![manual symbol upload](https://www.bugsplat.com/assets/img/docs/manual-symbol-upload.png)
+![Manual Symbol Upload](../../../.gitbook/assets/manual-symbol-upload.png)
 
 #### Step 2
 
@@ -18,7 +18,7 @@ On the Symbol Details page, click the Upload Symbols button.
 
 Select all symbol files that correspond to your application. Windows symbol files have a .exe, .dll or .pdb file extension. MacOS requires uploading the entire .xcarchive file. Crashpad and Breakpad symbol files have a .sym file extension.
 
-![](https://www.bugsplat.com/assets/img/docs/symbol-details-upload.png)
+![Upload Symbols Dialog](../../../.gitbook/assets/symbol-details-upload.png)
 
 #### Step 5
 
