@@ -74,7 +74,7 @@ The Crash page includes valuable information like crash time, environment, corre
 
 All data covered to this point on the Crash page are found under the **Crash Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Debugger Output**, and **Attachments** — use the tabs found above the **User Details** module.
 
-![](../../.gitbook/assets/viewing-tabs-crashreport%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.gif)
+![](../../.gitbook/assets/viewing-tabs-crashreport%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.gif)
 
 ## Summary
 

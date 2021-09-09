@@ -151,7 +151,7 @@
   * [Send Feedback](education/how-tos/sending-feedback.md)
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
 * [FAQs](education/faq/README.md)
-  * [Crash Details Active Thread](education/faq/crash-details-active-thread.md)
+  * [Crash details 'Active Thread'](education/faq/crash-details-active-thread.md)
   * [How BugSplat handles large crash volumes](education/faq/how-bugsplat-handles-large-crash-volumes.md)
   * [Find missing crash data](education/faq/find-missing-crash-data.md)
   * [Finding missing reports](education/faq/finding-missing-reports.md)

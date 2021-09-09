@@ -1,7 +1,7 @@
 # Breakpad \(Deprecated\)
 
 {% hint style="danger" %}
-**Breakpad is the predecessor of Crashpad**. If you are configuring a new integration, please consider using our [Crashpad integration](https://www.bugsplat.com/docs/sdk/crashpad) instead.
+**Breakpad is the predecessor of Crashpad**. If you are configuring a new integration, please consider using our [Crashpad integration](crashpad/) instead.
 {% endhint %}
 
 ## Overview
