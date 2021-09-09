@@ -8,15 +8,15 @@ To help make this issue easier we’ve put in a way to check if symbols have bee
 
 At the top of the Crash page you will see a warning if you're missing symbols.
 
-![](https://www.bugsplat.com/assets/img/docs/windows-symbols-missing-symbols.png)
+![Missing Symbols Alert](../../../.gitbook/assets/windows-symbols-missing-symbols.png)
 
 Once the data is obtained the fields of Function, Location, Code, OS, and Explanation will be populated with all available information. If a crash is missing symbols, there will be various messages under the 'File' column in the 'Active Thread' tab indicating which symbols were missing. Make sure to upload the missing symbols \(as indicated by the 'Active Thread' tab\) to the symbol store for your application name and version via the [Symbols](https://app.bugsplat.com/v2/symbols) page or [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs/).
 
-![](https://www.bugsplat.com/assets/img/docs/windows-symbols-active-thread.png)
+![Missing Symbols in Active Thread](../../../.gitbook/assets/windows-symbols-active-thread.png)
 
 Additionally, you can click the 'Modules' tab to view information about all modules that were loaded on the system at crash time. In the modules table you’ll be able to view if symbols have been properly uploaded for each module by looking at the value under the 'Status' column.
 
-![](https://www.bugsplat.com/assets/img/docs/windows-symbols-modules-table.png)
+![Missing Symbols in Modules](../../../.gitbook/assets/windows-symbols-modules-table.png)
 
 The values under the status column are as follows:
 
