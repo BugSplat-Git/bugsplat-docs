@@ -4,7 +4,7 @@ Adding or updating your business address is possible through the BugSplat paymen
 
 To do so, navigate to the [Company](https://app.bugsplat.com/v2/company) page and click on the link that says 'Manage your plan.'
 
-![Upgrade CC BugSplat](https://www.bugsplat.com/assets/img/docs/manage-your-plan-1.png)
+![Update Billing Address](../../../.gitbook/assets/manage-your-plan-1.png)
 
 Next, click the link that says 'Update Information' under the title Billing information. There you can enter your billing address. Your billing information will include it on your next invoice.
 
