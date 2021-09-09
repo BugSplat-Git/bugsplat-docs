@@ -10,7 +10,7 @@ This means is that you'll have 30 days before your account is charged for the la
 
 You can see your usage on the [Company](https://app.bugsplat.com/v2/company) page. If anything is in 'red' then it means that you're over your limit.
 
-![Company plan usage limits](https://www.bugsplat.com/assets/img/docs/plan-company-usage.png)
+![Company Plan Usage](../../../.gitbook/assets/company-plan-usage.png)
 
 Have users that don't need access any longer? Delete them! Don't use an old database anymore - feel free to [retire it](../../../introduction/production/how-to-stop-reporting-versions-of-an-application.md).
 
