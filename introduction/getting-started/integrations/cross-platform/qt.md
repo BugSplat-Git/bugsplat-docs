@@ -339,5 +339,5 @@ Force a crash in your application after Crashpad has been initialized:
 
 After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `myQtCrasher` application:
 
-![BugSplat Qt crash](https://www.bugsplat.com/assets/img/docs/myQtCrasher-crash.png)
+![BugSplat Qt Crash](../../../../.gitbook/assets/qt-crash.png)
 
