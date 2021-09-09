@@ -4,7 +4,7 @@ If you have exceeded your plan limits - database, users, or annual allotted cras
 
 You can see your usage on the [Company](https://app.bugsplat.com/v2/company) page. If anything is in 'red' then it means that you're over your limit.
 
-![Company plan usage limits](https://www.bugsplat.com/assets/img/docs/plan-company-usage.png)
+![Company Plan Usage](../../.gitbook/assets/company-plan-usage.png)
 
 When this happens, you will get an email letting you know that your plan has changed. Your [Account](https://app.bugsplat.com/v2/account) page and your next invoice will both reflect this upgrade.
 
