@@ -58,7 +58,7 @@ Expand the **`Editor::Save`**row and click the Create Subkey to create a **subke
 
 ![Fig. 7 Crash page expanded to show arguments and local variables \(click to expand image\)](../../.gitbook/assets/subkey-6.png)
 
-Finally, if you’ve hooked BugSplat up to your [defect tracker](https://www.bugsplat.com/docs/apps/) you can create a defect for the group instead of for an individual crash. Navigate to the [Key Crash](https://app.bugsplat.com/v2/keycrash?database=AcmeSoftware&stackKeyId=5) page and click the Create Defect button. This will link every subkeyed defect to the issue you create in your defect tracker.
+Finally, if you’ve hooked BugSplat up to your [defect tracker](integrating-with-tools/#issue-trackers) you can create a defect for the group instead of for an individual crash. Navigate to the [Key Crash](https://app.bugsplat.com/v2/keycrash?database=AcmeSoftware&stackKeyId=5) page and click the Create Defect button. This will link every subkeyed defect to the issue you create in your defect tracker.
 
 ![Fig. 8 Key Crash page with the Create Defect button enabled \(click to expand image\)](../../.gitbook/assets/subkey-7.png)
 

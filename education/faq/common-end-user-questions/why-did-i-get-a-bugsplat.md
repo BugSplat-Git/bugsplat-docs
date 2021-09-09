@@ -14,5 +14,5 @@ We suggest you always describe the events that caused your software to crash, e.
 
  After sending in your crash report, visit your software or video game’s support forum for common fixes to the defect that just caused your crash. Most of the time it will be something simple and easy to fix.
 
-Check out our [Documents](https://www.bugsplat.com/docs) page for more information about BugSplat. You can also view this [link](https://www.bugsplat.com/docs/crash-help/what-should-i-do-when-I-get-a-bugsplat) for more help fixing the problem causing your application to BugSplat.
+Check out our [Documents](../../../) page for more information about BugSplat. You can also view this [link](how-to-fix-bugsplats.md) for more help fixing the problem causing your application to BugSplat.
 
