@@ -64,9 +64,9 @@ process.crash()
 
 Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for your application. Click the link in the Id column to see details about your crash on the [Crash](https://app.bugsplat.com/v2/crash?id=1) page:
 
-![Integrating BugSplat with Electron](https://www.bugsplat.com/assets/img/docs/electron-crash-reporter-crashes.png)
+![Crash Reporter Crashes](../../../../.gitbook/assets/electron-crash-reporter-crashes.png)
 
-![](../../../../.gitbook/assets/electron-crash-reporter-crash.png)
+![Crash Reporter Crash](../../../../.gitbook/assets/electron-crash-reporter-crash.png)
 
 ### Processing as Windows Native
 
@@ -127,9 +127,9 @@ throw new Error("BugSplat!");
 
 Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the [Crash](https://app.bugsplat.com/v2/crash?id=1) page:
 
-![Integrating BugSplat with Electron](https://www.bugsplat.com/assets/img/docs/electron-node-js-crashes.png)
+![Node.js Crashes](../../../../.gitbook/assets/electron-node-js-crashes.png)
 
-![](../../../../.gitbook/assets/electron-node-js-crash%20%281%29.png)
+![Node.js Crash](../../../../.gitbook/assets/electron-node-js-crash.png)
 
 That’s it! Your Electron application is now configured to post crash reports to BugSplat.
 
