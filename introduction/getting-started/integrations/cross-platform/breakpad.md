@@ -6,7 +6,7 @@
 
 ## Overview
 
-Breakpad is the predecessor of Crashpad. If you are configuring a new integration, please consider using our [Crashpad integration](https://www.bugsplat.com/docs/sdk/crashpad) instead.
+Breakpad is the predecessor of Crashpad. If you are configuring a new integration, please consider using our [Crashpad integration](crashpad/) instead.
 
 Google Breakpad is a crash reporting tool built by Google in C++. It allows you to submit minidumps to a configured URL as a crash happens. With Breakpad you can process crashes for [Windows](https://github.com/google/breakpad/blob/master/docs/windows_client_integration.md), [macOS](https://github.com/google/breakpad/blob/master/docs/mac_breakpad_starter_guide.md), and [Linux](https://github.com/google/breakpad/blob/master/docs/linux_starter_guide.md) applications.
 
@@ -88,7 +88,7 @@ void crash()
 
 BugSplat can process Breakpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage to this approach is that BugSplat will be able to display function arguments and local variables for each resolved stack frame. Another advantage of this approach is that our backend will automatically resolve Windows OS symbols.
 
-To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload .pdb, .dll and .exe files \(rather than .sym files\). The presence of .pdb, .dll or .exe files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs).
+To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload .pdb, .dll and .exe files \(rather than .sym files\). The presence of .pdb, .dll or .exe files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 ### Additional Considerations
 

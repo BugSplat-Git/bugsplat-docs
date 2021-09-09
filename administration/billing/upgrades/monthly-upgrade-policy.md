@@ -18,5 +18,5 @@ If you believe you shouldn't have been upgraded please view our [Fair-Refund](re
 
 If you think that you need to upgrade to an Enterprise plan [send us a note](mailto:sales@bugsplat.com).
 
-To learn more you can visit our [pricing page](https://www.bugsplat.com/pricing).
+To learn more you can visit our [pricing page](https://www.bugsplat.com/plans).
 

@@ -16,11 +16,11 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 The BugSplat .NET SDK supports applications written using the [Microsoft Common Language Runtime \(CLR\)](https://docs.microsoft.com/en-us/dotnet/standard/clr). This includes applications written using C\#. The managed call stacks captured at the time of a crash include function names, source code file names, and line numbers. In addition, BugSplat will also display mixed-mode call stacks which have both managed code and native code on the stack.
 
-To get started, make sure to [log in](https://app.bugsplat.com/auth0/login) using your email address and [download](https://www.bugsplat.com/docs/sdk) the BugSplat software development kit for .NET Framework / C\# applications.
+To get started, make sure to [log in](https://app.bugsplat.com/auth0/login) using your email address and [download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) the BugSplat software development kit for .NET Framework / C\# applications.
 
 To get a feel for the BugSplat service before enabling your application, feel free to experiment with the myDotNetCrasher sample application, which is part of the BugSplat software development kit. You may also want to browse the [.NET API documentation](https://www.bugsplat.com/docs/BugSplatDotNet/html/index.html).
 
-Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box](https://www.bugsplat.com/docs/faq/customize-crash-dialog/) page.
+Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box](../../../../education/how-tos/customize-the-crash-dialog.md) page.
 
 ## Integration
 
@@ -32,14 +32,14 @@ In a few simple steps, your .NET application can be modified to provide full deb
    * The BugSplat database is created on the [Company](https://app.bugsplat.com/v2/company) page. Typically, you will create a new database for each major release of your product.
 3. Add `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRC.dll` to your application's installer.
 4. Edit `BugSplatRC.dll` with Visual Studio if you wish to change the banner displayed when your application crashes.
-5. Add symbolic debug information to your release build. **Important!** To get symbolic stack reports, debug information \([pdb, dll, and executable files](https://www.bugsplat.com/docs/faq/sendpdbs)\) needs to be uploaded to the BugSplat website along with your application’s executable files. Modify your build settings so that symbol files are created for Release builds, e.g.,
+5. Add symbolic debug information to your release build. **Important!** To get symbolic stack reports, debug information \([pdb, dll, and executable files](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)\) needs to be uploaded to the BugSplat website along with your application’s executable files. Modify your build settings so that symbol files are created for Release builds, e.g.,
 
 ![Build Settings for .NET Applications](../../../../.gitbook/assets/buildnet2-e14105434665201.png)
 
 ![Advanced Build Settings for .NET Applications](../../../../.gitbook/assets/buildnet3-11-e1410469012133.png)
 
 {% hint style="info" %}
-After each build you should upload the new executable and files. The [myDotNetCrasher sample app](https://www.bugsplat.com/docs/faq/sendpdbs) uses a Visual Studio post build event to automate this step.
+After each build you should upload the new executable and files. The [myDotNetCrasher sample app](windows-dot-net-framework.md) uses a Visual Studio post build event to automate this step.
 {% endhint %}
 
 {% hint style="danger" %}

@@ -16,7 +16,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 ## Building Crashpad
 
-BugSplat leverages Crashpad to provide crash reporting for Android NDK applications. This tutorial provides a quick overview of how to build Crashpad. For an in depth guide that discusses how to build Crashpad, please see this [article](https://www.bugsplat.com/docs/sdk/crashpad/building/).
+BugSplat leverages Crashpad to provide crash reporting for Android NDK applications. This tutorial provides a quick overview of how to build Crashpad. For an in depth guide that discusses how to build Crashpad, please see this [article](../cross-platform/crashpad/how-to-build-google-crashpad.md).
 
 To build crashpad you'll first need to download a copy of the Chromium [depot\_tools](https://dev.chromium.org/developers/how-tos/install-depot-tools). Once you have downloaded `depot_tools`, you'll need to add the parent folder to your system's `PATH` environment variable. After adding `depot_tools` to your systems `PATH`, run the following commands to download the Crashpad repository:
 
@@ -201,7 +201,7 @@ android {
 }
 ```
 
-Next, you will need to generate and upload `.sym` files to BugSplat. To generate symbols for your Android NDK library you will need to build the Breakpad tool `dump_syms` on a Linux machine. For more information about building Breakpad tools on Linux please see this [document](https://www.bugsplat.com/docs/sdk/crashpad/building/#generating-symbols).
+Next, you will need to generate and upload `.sym` files to BugSplat. To generate symbols for your Android NDK library you will need to build the Breakpad tool `dump_syms` on a Linux machine. For more information about building Breakpad tools on Linux please see this [document](../cross-platform/crashpad/how-to-build-google-crashpad.md#generating-symbols).
 
 Once you've built `dump_syms` on a Linux system, run `dump_syms` on a Linux machine passing it the path to your Android library:
 

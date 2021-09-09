@@ -29,7 +29,7 @@ sudo apt-get install llvm
 sudo apt-get install clang
 ```
 
-Next, you will need to build and integrate Crashpad with your application. For a step by step guide on how to build and integrate Crashpad please see this [doc](https://www.bugsplat.com/docs/sdk/crashpad/building).
+Next, you will need to build and integrate Crashpad with your application. For a step by step guide on how to build and integrate Crashpad please see this [doc](../cross-platform/crashpad/).
 
 Once you've built and integrated Crashpad you will need to ensure that your application is built with symbolic information and a build identifier. Symbolic information is required in order to map the stacktrace in the minidump to function names and line numbers in your application's source. A build identifier is required so that `minidump_stackwalk` can match modules loaded at runtime with the corresponding `.sym` file.
 
@@ -54,7 +54,7 @@ clang++ -pthread $PROJECT_DIR/main.cpp \
   -Wl,--build-id
 ```
 
-Finally, you will need to use the Breakpad tools `dump_syms` and `symupload` in order to generate and upload `.sym` files to BugSplat. Instructions on how to build these tools can be found [here](https://www.bugsplat.com/docs/sdk/crashpad/building/#generating-symbols).
+Finally, you will need to use the Breakpad tools `dump_syms` and `symupload` in order to generate and upload `.sym` files to BugSplat. Instructions on how to build these tools can be found [here](../cross-platform/crashpad/how-to-build-google-crashpad.md#building-crashpad).
 
 Once you've built `dump_syms` and `symupload` the following [script](https://github.com/BugSplat-Git/myUbuntuCrasher/blob/master/scripts/symbols.sh) will generate symbols and upload them to BugSplat:
 

@@ -16,7 +16,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 Integrate BugSplat crash reporting with your Java Applications:
 
-Before doing anything make sure to [download](https://www.bugsplat.com/docs/sdk/) the BugSplat software development kit for Java Applications.
+Before doing anything make sure to [download](https://app.bugsplat.com/browse/download_item.php/?item=java) the BugSplat software development kit for Java Applications.
 
 ## Add BugSplat to your application
 
@@ -56,5 +56,5 @@ Once that is complete start the thread.
 
 #### Test
 
-Remember to test your with our the [MyJavaCrasher](https://www.bugsplat.com/docs/sdk/testapps/myjavacrasher) sample application. This will test that crashes are posted and a good call stack is being created.
+Remember to test your with our the [MyJavaCrasher](../../posting-a-test-crash/myjavacrasher.md) sample application. This will test that crashes are posted and a good call stack is being created.
 

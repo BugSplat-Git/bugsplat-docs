@@ -18,11 +18,11 @@ This document explains how your Microsoft Visual C++ application can be modified
 
 ### First steps
 
-To begin [Download](https://www.bugsplat.com/docs/sdk/) and unzip the BugSplat software development kit for Microsoft Visual C++.
+To begin [Download](https://app.bugsplat.com/browse/download_item.php?item=native) and unzip the BugSplat software development kit for Microsoft Visual C++.
 
-To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [myConsoleCrasher sample application](https://www.bugsplat.com/docs/sdk/testapps/myconsolecrasher). You can find the Visual Studio project file located in your download folder at `...\BugSplatNative\BugSplat\samples\myConsoleCrasher\myConsoleCrasher.vcxproj`.
+To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [myConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/). You can find the Visual Studio project file located in your download folder at `...\BugSplatNative\BugSplat\samples\myConsoleCrasher\myConsoleCrasher.vcxproj`.
 
-Run the sample application without the debugger attached to post a sample crash report to our [public database](https://www.bugsplat.com/docs/faq/public-database).
+Run the sample application without the debugger attached to post a sample crash report to our [public database](../../../../../education/faq/using-bugsplats-public-database.md).
 
 You may also want to browse the [BugSplat Native API](http://www.bugsplat.com/docs/BugSplatNative/html/index.html) documentation.
 
@@ -41,7 +41,7 @@ You should modify your build settings so that symbol files are created for relea
 
 ![Microsoft Visual Studio C++ Debugging Properties](../../../../../.gitbook/assets/microsoft-cpp-configuration-debugging.png)
 
-**Note:** To get fully detailed call stacks and variable names for each crash on the BugSplat website, every time you build a release version of your application for distribution or internal testing, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product on the [Symbols Page](https://app.bugsplat.com/v2/symbols/). Better yet, use the [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs) application as part of your build process to automate symbol upload to BugSplat.
+**Note:** To get fully detailed call stacks and variable names for each crash on the BugSplat website, every time you build a release version of your application for distribution or internal testing, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product on the [Symbols Page](https://app.bugsplat.com/v2/symbols/). Better yet, use the [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) application as part of your build process to automate symbol upload to BugSplat.
 
 Test your application by forcing a crash and verifying that the BugSplat dialog appears and that crashes are posted to your BugSplat account.
 

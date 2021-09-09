@@ -14,17 +14,17 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 ## Overview
 
-{% hint style="info" %}
-**Want help building Crashpad?** We have a brand new step-by-step guide to help you get started [here](https://www.bugsplat.com/docs/sdk/crashpad/building).
+{% hint style="warning" %}
+**Want help building Crashpad?** View our step-by-step guide to help you more quickly get started [here](how-to-build-google-crashpad.md).
 {% endhint %}
 
 Crashpad is the latest open-source crash reporting tool built by Google and is the successor to the popular Breakpad crash reporter. Crashpad allows you to submit minidumps to a configured URL after a crash occurs in your product. The official Crashpad documentation is available [here](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md).
 
 ## Tutorial
 
-To begin, [download](https://www.bugsplat.com/docs/sdk/) and unzip the BugSplat Crashpad software development kit. The download contains a sample Crashpad application and a compiled version of Crashpad for Windows.
+To begin, [download](https://app.bugsplat.com/browse/download_item.php/?item=crashpad) and unzip the BugSplat Crashpad software development kit. The download contains a sample Crashpad application and a compiled version of Crashpad for Windows.
 
-It's also possible to download and build Crashpad yourself. This step is required if you are targeting an OS other than Windows. See our [Building Crashpad](https://www.bugsplat.com/docs/sdk/crashpad/building) doc for our How to Build Google Crashpad.
+It's also possible to download and build Crashpad yourself. This step is required if you are targeting an OS other than Windows. See our [Building Crashpad](how-to-build-google-crashpad.md) doc for our a step-by-step guide to building Crashpad.
 
 To get a feel for the BugSplat service before enabling your application, experiment with the myCrashpadCrasher sample application. You can find the Visual Studio project file located in your download folder at `...\BugSplatCrashpad\BugSplat\samples\myCrashpadCrasher\myCrashpadCrasher.vcxproj.`
 
@@ -133,7 +133,7 @@ Link your application with the appropriate version of the Crashpad libraries `cl
 
 #### Step 5
 
-Upload symbols for your application to generate symbolic call stacks. Our sample project uses the BugSplat `SendPdbs` utility to upload .exe, .dll and .pdb files. This is the preferred approach for Windows products. Additional information can be found on our [SendPdbs page](https://www.bugsplat.com/docs/faq/sendpdbs).
+Upload symbols for your application to generate symbolic call stacks. Our sample project uses the BugSplat `SendPdbs` utility to upload .exe, .dll and .pdb files. This is the preferred approach for Windows products. Additional information can be found on our [SendPdbs page](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 #### Step 6
 
@@ -165,5 +165,5 @@ Compiler optimizations can cause a mismatch between the line numbers in crash re
 
 BugSplat can process Crashpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage to this approach is that BugSplat will be able to display function arguments and local variables for each resolved stack frame. Another advantage of this approach is that our backend will automatically resolve Windows OS symbols.
 
-To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll` and `.exe` files \(rather than .sym files\). The presence of `.pdb`, `.dll` or `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs).
+To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll` and `.exe` files \(rather than .sym files\). The presence of `.pdb`, `.dll` or `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 

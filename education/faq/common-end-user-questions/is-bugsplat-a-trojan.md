@@ -15,7 +15,7 @@ BugSplat is a powerful tool that many companies rely on to improve their softwar
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 
-![BugSplat Crash Dialog](../../../.gitbook/assets/bugsplat-crash-dialog.png)
+![BugSplat Crash Dialog](../../../.gitbook/assets/bugsplat-crash-dialog%20%282%29.png)
 
 That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while in use.
 
@@ -37,7 +37,7 @@ Once a crash occurs, a BugSplat crash dialogue appears to ask for feedback from 
 
 Including details about what immediately happened before the application crashes is a powerful way for developers to fix the issue you just experienced. Feel free to let the developers of your application know what happened.
 
-![The face you get when your software crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1.jpg)
+![The face you get when your software crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1%20%282%29.jpg)
 
 ## How do I fix a BugSplat? <a id="how_to_fix_bugsplat"></a>
 
@@ -53,7 +53,7 @@ Follow the steps below to try to fix your application crashes. If none of them a
 4. **Contact the makers of your Software directly.** Most software companies will have a way to contact their support team to get technical help for their products. Find the contact information on their website, and contact them via email, chat, or phone.
 5. **Try uninstalling and reinstalling.** Uninstalling your application from your computer and reinstalling it can be dangerous as you could lose data, so please proceed with caution and adequately back up any valuable data that could be lost. Most applications have documents online that help with accomplishing this task safely.
 
-![The feeling once you get your software to stop crashing.](../../../.gitbook/assets/feeling-once-software-fixed-1%20%281%29%20%281%29.jpg)
+![The feeling once you get your software to stop crashing.](../../../.gitbook/assets/feeling-once-software-fixed-1%20%281%29%20%282%29%20%281%29.jpg)
 
 {% hint style="danger" %}
 **Warning!!**
@@ -91,7 +91,7 @@ After the ACME team finished this process, they did a little more testing, and t
 
 Once their users had the new version of the ACME software, they used it the same as they always had.
 
-![](../../../.gitbook/assets/egg-heads-using-bugsplat-1%20%282%29%20%282%29.jpg)
+![](../../../.gitbook/assets/egg-heads-using-bugsplat-1%20%282%29%20%285%29%20%282%29.jpg)
 
 However, when some users started running into an issue that caused their application to quit unexpectedly, the ACME software program called the code included from BugSplat to capture the crash.
 

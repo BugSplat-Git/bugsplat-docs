@@ -1,4 +1,4 @@
-# How an why to use Sukeying
+# How and why to use Sukeying
 
 A subkey lets you organize a set of call stacks using some level of the call stack hierarchy other than the topmost stack frame. Imagine you have the following three call stacks. By default, these would all be grouped using the topmost stack frame \(stack key A\), and you would have just one entry in the [Summary](https://app.bugsplat.com/v2/summary) page that grouped all three crashes.
 
@@ -12,5 +12,5 @@ To create a subkey, select a row of your call stack either on an individual cras
 
 You can view the list of all your currently defined subkeys on the [Subkeys](https://app.bugsplat.com/v2/subkeys/) page.
 
-You can learn more about how Subkeying works [here](https://www.bugsplat.com/resources/development/subkeying/).
+You can learn more about how Subkeying works [here](../../introduction/development/using-subkeying-to-find-difficult-crashes.md).
 

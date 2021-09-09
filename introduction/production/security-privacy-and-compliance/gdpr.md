@@ -1,6 +1,6 @@
 # GDPR
 
-Follow us on [Twitter](https://twitter.com/bugsplatco) to stay up to date with our GDPR efforts. You can also read our [Security Doc](https://www.bugsplat.com/docs/security/program) or our [Privacy Policy](https://www.bugsplat.com/privacy).
+Follow us on [Twitter](https://twitter.com/bugsplatco) to stay up to date with our GDPR efforts. You can also read our [Security Doc](security-program.md) or our [Privacy Policy](privacy-policy.md).
 
 **On May 25th 2018 the EU General Data Protection Regulation \(GDPR\) became effective bringing new global data protection rights for individuals in the European Union.**
 
@@ -27,5 +27,5 @@ If you have any questions about our DPA or wish to sign it, please send an email
 
 **Additional Information**
 
-For more info about BugSplat and GDPR please see our [Security](https://www.bugsplat.com/docs/security/program/) page and our [Privacy Policy](https://www.bugsplat.com/privacy/).
+For more info about BugSplat and GDPR please see our [Security](security-program.md) page and our [Privacy Policy](privacy-policy.md).
 

@@ -40,7 +40,7 @@ Package your game, check that the **Include Crash Reporter** and **Include Debug
 
 ### Step 3
 
-To create symbolic call stacks on Windows platforms you will need to upload symbol and executable files. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download_item.php?item=sendpdbs) or via the [SendPDBs](https://www.bugsplat.com/docs/faq/sendpdbs) doc. Run it from your build folder using the following commands.
+To create symbolic call stacks on Windows platforms you will need to upload symbol and executable files. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download_item.php?item=sendpdbs) or via the [SendPDBs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc. Run it from your build folder using the following commands.
 
 ```bash
 cd {your build folder}

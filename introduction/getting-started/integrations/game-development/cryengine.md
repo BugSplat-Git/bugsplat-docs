@@ -16,7 +16,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 In order to get function names and line numbers for internal CRYENGINE code you'll need to build CRYENGINE from source and generate `.pdb` files. Make sure to build the engine with the `Profile` configuration so that `.pdb` files are generated. The following video gives an overview of how to clone and build the CRYENGINE [source](https://github.com/CRYTEK/CRYENGINE):
 
-Next, upload all of the `.pdb`, `.dll` and `.exe` files in the `bin` folder using [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs/). Make sure to note the application name, version and database as you'll need these values later.
+Next, upload all of the `.pdb`, `.dll` and `.exe` files in the `bin` folder using [SendPdbs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md). Make sure to note the application name, version and database as you'll need these values later.
 
 ### Project Configuration
 
@@ -46,7 +46,7 @@ By default building your game should output `.pdb` files so that minidumps can b
 
 ### Uploading Symbols
 
-Symbol files are required in order to display function names, file names and line numbers of source code in crash reports. Once you've built your project's solution upload the resulting files in `bin` using [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs/).
+Symbol files are required in order to display function names, file names and line numbers of source code in crash reports. Once you've built your project's solution upload the resulting files in `bin` using [SendPdbs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 ### Generating a Crash Report
 
@@ -56,7 +56,7 @@ Right click the `.cryproject` file for your game and select `Launch Game`. Once 
 
 ### Viewing the Crash Report
 
-After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. In this case the last 4 stack frames are all related to the crash report generator and the frame of interest is the 5th frame of the call stack. Create a [subkey](https://www.bugsplat.com/docs/faq/subkey/) by expanding the 5th row in the `Active Thread` and then click the `Create Subkey` button. Navigate back to the crash and notice that the Stack Key is now `CrySystem!CXConsole::ExecuteCommand(2427)` instead of `CrySystem!CCrashHandler::GetExceptionPointers(1566)`.
+After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. In this case the last 4 stack frames are all related to the crash report generator and the frame of interest is the 5th frame of the call stack. Create a [subkey](../../../development/using-subkeying-to-find-difficult-crashes.md) by expanding the 5th row in the `Active Thread` and then click the `Create Subkey` button. Navigate back to the crash and notice that the Stack Key is now `CrySystem!CXConsole::ExecuteCommand(2427)` instead of `CrySystem!CCrashHandler::GetExceptionPointers(1566)`.
 
 ![BugSplat CRYENGINE crash details](../../../../.gitbook/assets/cryengine-crash-details.png)
 

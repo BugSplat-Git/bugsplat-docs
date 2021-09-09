@@ -15,7 +15,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 ## Building Crashpad
 
-BugSplat leverages Crashpad to provide crash reporting for macOS, Windows, and Linux Qt applications. For an in-depth guide that discusses how to build Crashpad, please see this [article](https://www.bugsplat.com/docs/sdk/crashpad/building/).
+BugSplat leverages Crashpad to provide crash reporting for macOS, Windows, and Linux Qt applications. For an in-depth guide that discusses how to build Crashpad, please see this [article](crashpad/how-to-build-google-crashpad.md).
 
 For Windows, you'll need to build shared libraries. After running `gn gen out/Default` run `gn args out/Default` and add `extra_cflags="/MD"` so that your builds produce shared libraries. Additionally, make sure the version of MSVC and the Windows SDK used to compile Crashpad is the same version used by your Qt build otherwise your project [will not build](https://stackoverflow.com/questions/62396117/integrating-crashpad-with-a-windows-qt-application). Setting the version of MSVC that builds Crashpad can be done by instead generating your configuration using the command `gn gen out/Default --winsdk="10.0.19041.0" --ide="vs2017"`.
 

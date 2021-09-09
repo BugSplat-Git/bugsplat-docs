@@ -8,11 +8,11 @@ This tool may help reduce or eliminate the need to debug a crash report on your 
 
 When a crash happens in common code, such as a 3rd party library or system function, it is often the case that stack frames in application code are more useful in determining where the crash originated. Subkeying allows developers to group program crashes at a lower level in the stack trace so that they more accurately target their fixes in order to maximize product stability.
 
-#### Why is Subkeying Important?
+## Why is Subkeying Important?
 
 Sorting program crashes brings visibility to problems customers are running into most often and allows developers to prioritize their fixes accordingly. For applications that generate large crash volumes, it may not be feasible to look at each crash individually. BugSplat’s [Summary](https://app.bugsplat.com/v2/summary) page provides an overview of the crashes. Subkeying allows teams to more accurately group crashes on the [Summary](https://app.bugsplat.com/v2/summary) page.
 
-#### Example
+## Example
 
 In our example application mySubkeyCrasher, Widget, Gizmo and Doohickey are all editable objects and the edits to each of these objects can be saved to the file system. These objects are loaded by an Editor which provides the Widget, Gizmo and Doohickey objects with a file path where they should be saved when the user has completed their edits.
 
@@ -20,13 +20,13 @@ In this example Widget, Gizmo and Doohickey inherit from an abstract class \(we�
 
 When crashes from **mySubkeyCrasher** are processed by BugSplat, the top of the call stack, or the primary [stack key](../../education/bugsplat-terminology.md#stack-key), shows up as **`KernelBase!RaiseException+0x69`**. In this case the primary stack key is not useful as it doesn’t tell us much about why the crash actually occurred.
 
-#### Next Steps
+## Next Steps
 
 BugSplat’s [Crashes](https://app.bugsplat.com/v2/crashes) page shows a list of all the crashes for our **mySubkeyCrasher** sample application. Notice that we have 3 sample crashes all with the stack key KernelBase!RaiseException+0x62 which isn’t particularly helpful.
 
 ![Fig. 1 Sample crashes on the Crashes page \(click to expand image\)](../../.gitbook/assets/subkey-0.png)
 
-Since these 3 crashes share the same stack key they are grouped together on the [Summary](https://app.bugsplat.com/v2/summary) page.  
+Since these 3 crashes share the same stack key they are grouped together on the [Summary](https://app.bugsplat.com/v2/summary) page.
 
 ![Fig. 2 Crashes grouped on the Summary page \(click to expand image\)](../../.gitbook/assets/subkey-1.png)
 
@@ -42,7 +42,7 @@ The call stack explorer helps you prioritize code paths, so that you can address
 
 If, for instance, 1000 crashes had passed through the **`Save function`** in the Widget class, it would make more sense to look at crashes coming from the Widget class first as they would be far more prevalent than the crashes that included calls to the **`Save function`** in either the Doohickey or Gizmo classes.
 
-To group crashes, click the link at any level of the call stack. For this example we’re going to pretend that significantly more crashes passed through the Widget class and click the link containing **`Widget::Save`** to navigate to the **Group Stacks** page.  
+To group crashes, click the link at any level of the call stack. For this example we’re going to pretend that significantly more crashes passed through the Widget class and click the link containing **`Widget::Save`** to navigate to the **Group Stacks** page.
 
 ![Fig. 5 Group Stacks page \(click to expand image\)](../../.gitbook/assets/subkey-4.png)
 
@@ -54,7 +54,7 @@ The Summary view makes it much easier to see which subkeys are causing most of t
 
 The **mySubkeyCrasher** sample uses the BugSplat Windows Native C++ SDK which means BugSplat will display function arguments and local variables for each function in the call stack. This allows us to see that the crash didn’t originate in Widget::Save. Notice the argument filePath is equal to the value /does/not/exist. The crash we’re chasing was actually a result of the Editor passing a bad path to Widget::Save! This means that we actually want to create subkeys at 5 frames into the call stack to isolate the actual problem.
 
-Expand the **`Editor::Save`**row and click the Create Subkey to create a **subkey** at a depth of 5 frames. Once you’ve subkeyed at 5 frames deep, navigate to the [Summary](https://app.bugsplat.com/v2/summary) page. On the [Summary](https://app.bugsplat.com/v2/summary) page you’ll notice that if you fix the bug that originated in the **`Editor::Save`**function you’ll fix all of the crashes in that group!  
+Expand the **`Editor::Save`**row and click the Create Subkey to create a **subkey** at a depth of 5 frames. Once you’ve subkeyed at 5 frames deep, navigate to the [Summary](https://app.bugsplat.com/v2/summary) page. On the [Summary](https://app.bugsplat.com/v2/summary) page you’ll notice that if you fix the bug that originated in the **`Editor::Save`**function you’ll fix all of the crashes in that group!
 
 ![Fig. 7 Crash page expanded to show arguments and local variables \(click to expand image\)](../../.gitbook/assets/subkey-6.png)
 
@@ -65,6 +65,4 @@ Finally, if you’ve hooked BugSplat up to your [defect tracker](integrating-wit
 ![Fig. 9 Stack Key defect created in GitHub \(click to expand image\)](../../.gitbook/assets/subkey-8.png)
 
 We hope you found this tutorial helpful. If you have any questions please reach out to us using the in-app chat feature, or via our support [email](mailto:support@bugsplat.com).
-
-
 

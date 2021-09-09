@@ -2,7 +2,7 @@
 
 BugSplat provides a variety of monthly pricing options which you can find in the table below or on our [Plans](https://www.bugsplat.com/pricing/) page.  
 
-These plans can either be paid for monthly with a credit card, or they can be [paid for annually](pricing-faqs.md#can-i-pay-annually) via an invoice \(saving 5%\).
+These plans can either be paid for monthly with a credit card, or they can be [paid for annually](../billing-and-plan-managment/pricing-faqs.md#can-i-pay-annually) via an invoice \(saving 5%\).
 
 To pay for an account - simply visit your [Account](https://app.bugsplat.com/v2/account) page and select the plan that makes the most sense for your application, team, or company.
 

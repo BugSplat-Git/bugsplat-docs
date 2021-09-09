@@ -16,7 +16,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 BugSplat supports the collection of both [electron.crashReporter](https://www.electronjs.org/docs/api/crash-reporter) \(native\) and [node.js](node.js.md) crash reports. Native crashes are generated via [Crashpad](https://github.com/chromium/crashpad) and BugSplat requires symbol files in order to calculate the call stack.
 
-If your app is packaged with electron-builder or similar you will need to upload application-specific symbol files in order to see full native call stacks. All symbol files must be uploaded to BugSplat via [symupload](https://github.com/google/breakpad/blob/master/docs/getting_started_with_breakpad.md#build-process-specificssymbol-generation). More information about uploading symbol files to BugSplat can be found [here](https://www.bugsplat.com/docs/sdk/breakpad#symbols).
+If your app is packaged with electron-builder or similar you will need to upload application-specific symbol files in order to see full native call stacks. All symbol files must be uploaded to BugSplat via [symupload](https://github.com/google/breakpad/blob/master/docs/getting_started_with_breakpad.md#build-process-specificssymbol-generation). More information about uploading symbol files to BugSplat can be found [here](crashpad/how-to-build-google-crashpad.md#uploading-symbols).
 
 BugSplat-node can also be used to collect [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process_event_unhandledrejection) events in your application's JavaScript code.
 
@@ -26,7 +26,7 @@ Configure [electron.crashReporter](https://github.com/electron/electron/blob/mas
 
 #### Step 1
 
-Use the Breakpad [symupload](https://www.bugsplat.com/docs/sdk/breakpad#symbols) utility to upload symbol files to BugSplat. For additional information on how to upload symbols to BugSplat using symupload please check out our [Breakpad](https://www.bugsplat.com/docs/sdk/breakpad#symbols) documentation.
+Use the Breakpad [symupload](https://www.bugsplat.com/docs/sdk/breakpad#symbols) utility to upload symbol files to BugSplat. For additional information on how to upload symbols to BugSplat using symupload please check out our [Breakpad](breakpad.md) documentation.
 
 #### Step 2
 
@@ -72,7 +72,7 @@ Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat 
 
 BugSplat can process Breakpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage to this approach is that BugSplat will be able to display function arguments and local variables for each resolved stack frame. Another advantage of this approach is that our backend will automatically resolve Windows OS symbols.
 
-To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload .pdb, .dll and .exe files \(rather than .sym files\). The presence of .pdb, .dll or .exe files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](https://www.bugsplat.com/docs/faq/sendpdbs).
+To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload .pdb, .dll and .exe files \(rather than .sym files\). The presence of .pdb, .dll or .exe files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 ## Node.js Configuration
 
