@@ -15,6 +15,8 @@ BugSplat is a powerful tool that many companies rely on to improve their softwar
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 
+![BugSplat Crash Dialog](../../../.gitbook/assets/bugsplat-crash-dialog.png)
+
 That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while in use.
 
 It is only viewable at that time because BugSplat is a program called a crash reporter and it's job is to report when crashes happen.
