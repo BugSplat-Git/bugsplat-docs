@@ -1,6 +1,6 @@
 # Monthly pricing sheet
 
-BugSplat provides a variety of monthly pricing options which you can find in the table below or on our [Plans](https://www.bugsplat.com/pricing/) page.  
+BugSplat provides a variety of monthly pricing options which you can find in the table below or on our [Plans](https://www.bugsplat.com/plans/) page.  
 
 These plans can either be paid for monthly with a credit card, or they can be [paid for annually](../billing-and-plan-managment/pricing-faqs.md#can-i-pay-annually) via an invoice \(saving 5%\).
 
