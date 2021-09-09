@@ -44,9 +44,9 @@ Promise.reject(new Error("BugSplat!")).catch(error => bugsplat.post(error, {}));
 
 After posting an error with bugsplat-deno, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page. You should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the [Crashes](https://app.bugsplat.com/v2/crashes) page:
 
-![BugSplat deno crash example](https://www.bugsplat.com/assets/img/docs/deno-bugsplat-crash-example-1.png)
+![Deno Crashes](../../../../.gitbook/assets/deno-crashes.png)
 
-![BugSplat deno crash example ](https://www.bugsplat.com/assets/img/docs/deno-bugsplat-crash-example-2.png)
+![Deno Crash](../../../../.gitbook/assets/deno-crash.png)
 
 That’s it! Your application is now configured to post crash reports to BugSplat.
 
