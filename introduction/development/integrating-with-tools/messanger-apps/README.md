@@ -17,7 +17,7 @@ BugSplat is currently building a new, more configurable, suite of alerts that wi
 
 Follow us on [Twitter](https://twitter.com/bugsplatco?lang=en) for more info.
 
-Edited: August 1, 2021.
+Edited: September 10, 2021.
 {% endhint %}
 
 
