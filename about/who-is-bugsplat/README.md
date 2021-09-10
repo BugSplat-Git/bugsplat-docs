@@ -50,5 +50,5 @@ If you're a BugSplat user, thank you for making this happen. If you're not a use
 
 Cheers,
 
- ![BS Team Signature](http://localhost:3000/assets/img/icons/bs-team-signature.png)
+![](../../.gitbook/assets/bs-team-signature.png)
 
