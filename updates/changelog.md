@@ -2,6 +2,103 @@
 
 List of recent product changes and updates for BugSplat. We announce these updates via [Twitter](https://twitter.com/bugsplatco).
 
+## Web App Update - Release - 2.2.35 - September 3rd, 2021 
+
+* Increases password complexity requirements
+* Adds Crash page link to docs for iOS crashes
+* Updates Crash page links to new docs
+
+## Web App Update - Release - 2.2.34 - August 25th, 2021 
+
+* Fixes text wrapping in row details component
+* Adds a link to JavaScript docs for JavaScript crashes
+* Adds support for uploading .js.map filesde.js.
+
+## JS API Client -  **Breaking Changes** - Release 0.0.10 - August 25th, 2021 
+
+* Removes dependency on fs so that symbol upload can be done in a browser as well as via node.js.
+
+## JS API Client -  v0.0.9 - August 25th, 2021 
+
+* Fixes bug where error was thrown if event username was undefined
+
+## Web App Update - Release - 2.2.33 - August 17th, 2021
+
+* Adds persistent column width to Crash page's Active Threads table
+
+## Web App Update - Release - 2.2.31 - August 17th, 2021
+
+* Fixes issue uploading .dSYM and .xcarchive packages with Safari
+* Adds link to docs for ASAN crash reports
+* Updates modal styles
+
+## BugSplatNative library - v3.6.0.11. - August 5th, 2021
+
+* Now supports Address Sanitizer crash reports. See [here](https://github.com/BugSplat-Git/bugsplat-docs/blob/master/introduction/getting-started/posting-a-test-crash/myconsolecrasher-c++/address-sanitizer-reports.md) for details on this integration.
+
+## BugSplatNative library - v3.6.0.10. - Jul 22nd, 2021
+
+* MDSF\_NONINTERACTIVE option now also enforces silent reporting of application hangs.
+
+## Web App Update - v2.2.30 - Jul 22nd, 2021
+
+* Updates row details table on Versions page
+* Updates row details table on Symbols page
+* Updates row details table on Summary page
+* Updates row details table on Company page
+* Updates row details table on Dashboard page
+* Updates Delete Symbols modal
+* Updates Transfer Database modal
+* Fixes padding for missing symbols warning
+* Fixes padding for row details Active Thread table
+
+## BugSplat Unity - v1.3.0 - Jul 20th, 2021
+
+* Adds support for capturing UnityPlayer.log in UWP
+* Fixes build error where PostBuild.cs could not find SendPdbs.exe in order to upload Plugin symbols
+* Fixes TODO to destroy Texture2D after being used to create a screenshot
+
+## Symbol Upload - v2.3.0 - Jun 29th, 2021
+
+Adds support for removing symbols
+
+## Remote Stack Analyzer - v2.0.0 - Jun 28th, 2021
+
+* Fixes issues with corrupt crash report calculation
+* Improved performance in MacOS and Crashpad crash processing
+* Improved API error responses and error handling
+
+## Web App Update - v2.2.28 - Jun 28th, 2021
+
+* Updates Crash page styles
+
+## Stack Converter - v1.2.3 - Jun 22nd, 2021
+
+* Fixes broken bin command
+
+## Stack Converter - v1.1.0 - Jun 22nd, 2021
+
+* Fixes issue with invalid 'main' property in package.json
+
+## BugSplat Unity - v1.2.0 - Jun 22nd, 2021
+
+* Adds support for attaching Linux Editor.log and Player.log files
+
+## Web App Update - v2.2.27 - Jun 20th, 2021
+
+* Support for displaying defect events on Crash and Key Crash pages
+
+## Web App Update - v2.2.26 - Jun 18th, 2021
+
+* Adds markdown support to comments component
+* Fixes BugSplat when attempting to set initials for comment component
+
+## Web App Update - v0.0.6 - Jun 17th, 2021
+
+* Fixes Events comment event comment property should be message
+
+## 
+
 ## Web App Update 16-June-2021
 
 * Fixed issue where exported csv had duplicate columns
