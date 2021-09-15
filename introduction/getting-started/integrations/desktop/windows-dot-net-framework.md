@@ -18,7 +18,7 @@ The BugSplat .NET SDK supports applications written using the [Microsoft Common 
 
 To get started, make sure to [log in](https://app.bugsplat.com/auth0/login) using your email address and [download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) the BugSplat software development kit for .NET Framework / C\# applications.
 
-To get a feel for the BugSplat service before enabling your application, feel free to experiment with the myDotNetCrasher sample application, which is part of the BugSplat software development kit. You may also want to browse the [.NET API documentation](https://www.bugsplat.com/docs/BugSplatDotNet/html/index.html).
+To get a feel for the BugSplat service before enabling your application, feel free to experiment with the myDotNetCrasher sample application, which is part of the BugSplat software development kit. You may also want to browse the [.NET API documentation](https://www.bugsplat.com/platforms/net/api/).
 
 Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box](../../../../education/how-tos/customize-the-crash-dialog.md) page.
 
