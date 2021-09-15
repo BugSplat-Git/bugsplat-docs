@@ -24,7 +24,7 @@ To get a feel for the BugSplat service before enabling your application, feel fr
 
 Run the sample application without the debugger attached to post a sample crash report to our [public database](../../../../../education/faq/using-bugsplats-public-database.md).
 
-You may also want to browse the [BugSplat Native API](http://www.bugsplat.com/docs/BugSplatNative/html/index.html) documentation.
+You may also want to browse the [BugSplat Native API](https://www.bugsplat.com/platforms/cpp/api/) documentation.
 
 ### Generating crash reports with your application
 
