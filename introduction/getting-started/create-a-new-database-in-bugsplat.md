@@ -1,6 +1,6 @@
 # Creating a Database
 
-In BugSplat, crashes are organized at the highest level into databases. Generally, a database holds all crashes or errors from a single application. To learn more about the hierarchy of BugSplat information \(JOEY TODO\), please view this document.
+In BugSplat, crashes are organized at the highest level into databases. Generally, a database holds all crashes or errors from a single application. To learn more about the hierarchy of BugSplat information, please view this [document](../development/using-the-app.md#navigating-with-breadcrumbs).
 
 To start using BugSplat, you'll need to create a database. You can create a database through one of two methods.
 
