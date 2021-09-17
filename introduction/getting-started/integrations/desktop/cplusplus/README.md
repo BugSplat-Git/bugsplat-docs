@@ -1,3 +1,9 @@
+---
+description: >-
+  Find and fix crashes in your Microsoft Visual C++ application with crash
+  reporting from BugSplat.
+---
+
 # Windows \(Native C++\)
 
 ## Introduction
@@ -14,7 +20,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 ## Overview
 
-This document explains how your Microsoft Visual C++ application can be modified to provide full debug information to BugSplat website when it crashes.
+This document explains how your Microsoft Visual C++ application can be modified to provide full debug information to the BugSplat web application when it crashes.
 
 ### First steps
 
