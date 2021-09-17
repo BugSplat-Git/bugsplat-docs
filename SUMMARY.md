@@ -2,7 +2,7 @@
 
 * [Welcome](README.md)
 
-## Introduction
+## 📌 Introduction
 
 * [Getting Started](introduction/getting-started/README.md)
   * [Signing Up](introduction/getting-started/signing-up-for-an-account-with-bugsplat.md)
@@ -95,7 +95,7 @@
     * [Terms](introduction/production/security-privacy-and-compliance/terms.md)
     * [Privacy Policy](introduction/production/security-privacy-and-compliance/privacy-policy.md)
 
-## About
+## 🐛 About
 
 * [What is BugSplat?](about/what-is-bugsplat.md)
 * [Why BugSplat?](about/introduction.md)
@@ -107,7 +107,7 @@
   * [LootLocker](about/partnerships/lootlocker.md)
   * [EQU8](about/partnerships/equ8.md)
 
-## Administration
+## 🏢 Administration
 
 * [Users](administration/introduction/README.md)
   * [Deleting a User](administration/introduction/permanently-deleting-a-user-account.md)
@@ -141,7 +141,7 @@
     * [Good Causes](administration/billing/free-plans-from-bugsplat/good-causes.md)
 * [Contact us](administration/contact-us.md)
 
-## Education
+## 🍎 Education
 
 * [BugSplat Terminology](education/bugsplat-terminology.md)
 * [How-Tos](education/how-tos/README.md)
@@ -184,7 +184,7 @@
     * [How to remove BugSplat from Windows?](education/faq/common-end-user-questions/how-to-remove-bugsplat-from-windows.md)
     * [My software just crashed. Should I contact BugSplat for help?](education/faq/common-end-user-questions/my-software-just-crashed.-should-i-contact-bugsplat-for-help.md)
 
-## Updates
+## 🔧 Updates
 
 * [Changelog](updates/changelog.md)
 
