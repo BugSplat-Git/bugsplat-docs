@@ -4,7 +4,7 @@ In BugSplat, crashes are organized at the highest level into databases. Generall
 
 To start using BugSplat, you'll need to create a database. You can create a database through one of two methods.
 
-### Creating database via the onboarding tool  
+### Creating database via the onboarding tool  🔼
 
 For new BugSplat users, creating a new database can be accomplished via the onboarding process. After creating a new account, users will be prompted to create a database.
 
@@ -12,7 +12,7 @@ For new BugSplat users, creating a new database can be accomplished via the onbo
 
 
 
-### Creating a database through the app
+### Creating a database through the app ➡️
 
 Alternatively, a database can be created on the [Company](https://app.bugsplat.com/v2/company) page by clicking the button labeled `+ Create Database`.  This method is also useful when wishing to set up multiple databases under an account.
 
@@ -20,7 +20,7 @@ Alternatively, a database can be created on the [Company](https://app.bugsplat.c
 
 
 
-### Naming your database
+### Naming your database 💻
 
 When choosing a database name, you should pick something that is descriptive and easy to remember. Please note that spaces, periods, and symbols other than \_ are not allowed. Some examples of database names are: `DeliciousDonutsApp` or `Super_Strong_Coffee_App`.
 

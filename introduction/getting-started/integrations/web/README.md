@@ -1,4 +1,4 @@
-# Web
+# 🕸️ Web
 
 The web platform is an increasingly popular solution for delivering highly approachable and highly visible applications. Web applications are often the primary means of communication between your business and your customers. Businesses can't afford to put anything less than their best foot forward. BugSplat crash reporting can help your team dance their way toward more stable web applications.
 
