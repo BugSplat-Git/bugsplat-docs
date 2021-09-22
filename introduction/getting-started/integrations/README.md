@@ -10,9 +10,9 @@ If you are creating a new account, you'll have an option to access these documen
 
 ### Integrations 
 
-{% page-ref page="cross-platform/" %}
-
 {% page-ref page="desktop/" %}
+
+{% page-ref page="cross-platform/" %}
 
 {% page-ref page="game-development/" %}
 
