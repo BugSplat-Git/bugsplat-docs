@@ -32,7 +32,7 @@ In 2004, BugSplat was launched with our friends at Sketchup being the first cust
 
 ### Over the years, BugSplat has grown significantly.
 
-Since we launching our business in 2004 we have seen the industry grow and change.
+Since we launched our business in 2004 we have seen the industry grow and change.
 
 Many companies have entered the market in that time - some were free options from tech giants, and others were VC-backed startups raising millions to try and do the same things as BugSplat.
 
