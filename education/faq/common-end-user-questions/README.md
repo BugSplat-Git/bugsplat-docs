@@ -9,8 +9,8 @@ The Common [End-User](../../bugsplat-terminology.md#end-users) Questions section
 1. [What is BugSplat?](../../../about/what-is-bugsplat.md) 
 2. [How to fix 'BugSplat's'.](how-to-fix-bugsplats.md)
 3. [Is BugSplat malicious? ](is-bugsplat-a-computer-virus.md)
-4. [How can I fix the cause behind an application crash?](how-to-fix-bugsplats-when-your-video-game-is-crashing.md)
-5. [How can I fix the cause behind my game crashing?]()
+4. [How can I fix the cause behind an application crash?](how-to-fix-bugsplats.md)
+5. [How can I fix the cause behind my game crashing?](how-to-fix-bugsplats-when-your-video-game-is-crashing.md)
 6. And lots more!
 
 
@@ -23,7 +23,7 @@ The Common [End-User](../../bugsplat-terminology.md#end-users) Questions section
 
 {% page-ref page="does-bugsplat-cause-crashes.md" %}
 
-{% page-ref page="what-is-bssndrpt.exe.md" %}
+{% page-ref page="what-is-bssndrpt-exe.md" %}
 
 {% page-ref page="how-to-fix-bugsplats-when-your-video-game-is-crashing.md" %}
 
@@ -40,6 +40,8 @@ The Common [End-User](../../bugsplat-terminology.md#end-users) Questions section
 {% page-ref page="how-to-remove-bugsplat-from-windows.md" %}
 
 {% page-ref page="my-software-just-crashed.-should-i-contact-bugsplat-for-help.md" %}
+
+{% page-ref page="missing-bugsplat-dll.md" %}
 
 
 

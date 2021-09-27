@@ -6,7 +6,7 @@ Seeing a BugSplat means that the company behind your video game cares about its 
 
 Because BugSplat is just a tool the developer of your game uses, we can’t provide any specific help with your crash.
 
-We suggest you go to your video game’s support page / help forum and search for common issues there.
+We suggest you go to your video game’s support page/help forum and search for common issues there.
 
 Most of the time only a simple fix is needed to remove the problem that brought you to [bugsplat.com](https://www.bugsplat.com/) searching for answers.
 

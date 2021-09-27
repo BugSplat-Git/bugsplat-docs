@@ -34,7 +34,7 @@ As a crash reporter, BugSplat helps software companies understand how their appl
 
 Software companies that use BugSplat are hoping that knowledge of software crashes will help them improve their applications.
 
-Today, BugSplat is used by many companies large and small to fix bugs in all kinds of software and video games. You can learn more about how BugSplat specifically helps companies fix bugs on our [Features](http://localhost:3000/features/) page.
+Today, BugSplat is used by many companies large and small to fix bugs in all kinds of software and video games. You can learn more about how BugSplat specifically helps companies fix bugs on our [Features](https://www.bugsplat.com/crash-reporting/) page.
 
 ## Why did I get a BugSplat? <a id="why_did_i_get_bugsplat"></a>
 
@@ -83,7 +83,7 @@ The best "BugSplat Removal Guide" is not to try and remove the BugSplat code - w
 {% hint style="danger" %}
 **Warning!!**
 
-### Beware websites providing programs that promise to remove or uninstall BugSplat.
+### Beware of websites providing programs that promise to remove or uninstall BugSplat.
 
 There are some sites on the internet that provide free programs for download, claiming to be able to remove BugSplat from a user's computer.
 
