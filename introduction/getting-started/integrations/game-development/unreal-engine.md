@@ -18,9 +18,7 @@ BugSplat’s Unreal Engine integration supports most Unreal platforms including 
 
 ### Step 1
 
-To send crash reports to BugSplat, change the `DataRouterUrl` parameter in `/Engine/Programs/CrashReportClient/Config/NoRedist/DefaultEngine.ini` so that crash reports are posted to our back end. There are multiple DefaultEngine.ini files in your tree, make sure you edit the right one.
-
-Here's what the crash report client section of `DefaultEngine.ini` should look like:
+Sending crash reports to BugSplat can be done via a simple configuration change to Unreal Engine's CrashReportClient. To configure crash upload to your BugSplat database, create a file named DefaultEngine.ini with the following contents:
 
 ```text
 [CrashReportClient]
@@ -28,7 +26,21 @@ CrashReportClientVersion=1.0
 DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}"
 ```
 
-Replace {database}, {appName}, and {appVersion} with the names of your BugSplat database, application name, and version. \(You will use these exact same parameter values when uploading symbols
+Replace {database}, {appName}, and {appVersion} with the names of your BugSplat database, application name, and version.
+
+{% hint style="info" %}
+Remember the values you use for {database}, {appName}, and {appVersion}. You will need to use the same values when uploading [Symbols](../../../development/working-with-symbol-files/) in order to get crash reports with function names and line numbers in the call stack.
+{% endhint %}
+
+#### Unreal Engine 4.25 and older
+
+For capturing crashes in packaged games in Unreal Engine 4.25 and earlier, ****copy `DefaultEngine.ini` to `{{output directory}}\Engine\Programs\CrashReportClient\Config\NoRedist` making sure to create folders that don't exist.
+
+**Unreal Engine 4.26 and newer**
+
+For capturing crashes in packaged games in Unreal Engine 4.26 and newer, copy`DefaultEngine.ini` to `{{output directory}}\Engine\Restricted\NoRedist\Programs\CrashReportClient\Config`  making sure to create folders that don't exist.
+
+If DefaultEngine.ini already exists, add the snippet above anywhere in the file. There are multiple DefaultEngine.ini files in your tree, make sure you edit the right one otherwise crash reports will not be sent to BugSplat.
 
 ### Step 2
 
@@ -49,7 +61,7 @@ SendPdbs.exe /u {username} /p {password} /b {database} /a {appName} /v {appVersi
 
 ### Step 4
 
-Run your game. For testing, a crash can be forced from the console using the command "debug crash". After posting the crash report, login to BugSplat to view the report.
+Run your game. For testing, a crash can be forced from the console using the command "debug crash". After posting the crash report, log in to BugSplat to view the report.
 
 ### Step 5
 
