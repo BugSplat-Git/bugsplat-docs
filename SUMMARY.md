@@ -155,6 +155,7 @@
   * [Upgrades](administration/billing/upgrades/README.md)
     * [Monthly Plan Upgrades](administration/billing/upgrades/monthly-upgrade-policy.md)
     * [Annually Invoiced Plan Upgrades](administration/billing/upgrades/annual-plan-upgrades.md)
+    * [High Volume Fractional Crash Processing](administration/billing/upgrades/high-volume-fractional-crash-processing.md)
     * [Fair-Refund Policy](administration/billing/upgrades/refund-policy.md)
   * [Billing and Plan Management](administration/billing/billing-and-plan-managment/README.md)
     * [Pricing FAQ's](administration/billing/billing-and-plan-managment/pricing-faqs.md)
