@@ -14,7 +14,11 @@ Copy the Client Id and Client Secret to a secure location. Once you've dismissed
 
 #### Authorize
 
-The Client Id and Client Secret are used in a POST to the server and will return `access_token` and a `token_type`. The Authorize endpoint is described below.
+The Client Id and Client Secret are used in a POST to the server and will return `access_token` and a `token_type`. The [Authorize](oauth2.md#authorize-1) endpoint is described below.
+
+#### Headers
+
+Once an `access_token` and `token_type` have been acquired they can be used in any of the API requests outlined in our [API docs](api.md). To make an authenticated request to one of BugSplat's API endpoints add a header with a key of `Authorization` and a value of `${token_type} ${access_token}`.
 
 {% api-method method="post" host="https://app.bugsplat.com" path="/oauth2/authorize" %}
 {% api-method-summary %}
@@ -63,8 +67,4 @@ OAuth2 grant type, in this case, **client\_credentials**
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-#### Headers
-
-Once an `access_token` and `token_type` have been acquired they can be used in any of the API requests outlined in our [API docs](api.md). To make an authenticated request to one of BugSplat's API endpoints add a header with a key of `Authorization` and a value of `${token_type} ${access_token}`.
 
