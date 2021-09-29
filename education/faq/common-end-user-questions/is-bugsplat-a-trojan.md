@@ -11,7 +11,7 @@ BugSplat is a powerful tool that many companies rely on to improve their softwar
 3. How do I fix a BugSplat?
 4. Why does the company that makes my software use BugSplat?
 
-## What is BugSplat?
+## Overview
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 

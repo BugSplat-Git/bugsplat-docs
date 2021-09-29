@@ -25,7 +25,7 @@ Importantly, BugSplat is a safe program built by a reputable software company ca
 * Why you shouldn't "Remove BugSplat."
 * Why does the company that makes my software use BugSplat?
 
-## What is BugSplat?
+## Overview
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 
