@@ -22,7 +22,7 @@ Importantly, BugSplat is a safe program built by a reputable software company ca
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 
-![BugSplat Crash Dialog](../../../.gitbook/assets/bugsplat-crash-dialog%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
+![BugSplat Crash Dialog](../../../.gitbook/assets/bugsplat-crash-dialog%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while is use.
 
@@ -46,7 +46,7 @@ Including details about what immediately happened before the application crashed
 
 Most of the time, restarting the application that crashed will fix the issue that caused the crash and lead to you seeing the BugSplat Crash Dialogue. If you continue to get "BugSplats," then follow the steps sketched in the paragraph below.
 
-![The face you get when the software application you&apos;re using crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![The face you get when the software application you&apos;re using crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 ## How do I fix a BugSplat? <a id="how_to_fix_bugsplat"></a>
 
@@ -62,7 +62,7 @@ Follow the steps below to try to fix your application crashes. If none of them a
 4. **Contact the makers of your Software directly.** Most software companies will have a way to contact their support team to get technical help for their products. Find the contact information on their website, and contact them via email, chat, or phone.
 5. **Try uninstalling and reinstalling.** Uninstalling your computer application and reinstalling it can be dangerous as you could lose data, so please proceed with caution and adequately back up any valuable data that could be lost. Most applications have documents online that help with accomplishing this task safely.
 
-![The feeling once you get your software to stop crashing.](../../../.gitbook/assets/feeling-once-software-fixed-1%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
+![The feeling once you get your software to stop crashing.](../../../.gitbook/assets/feeling-once-software-fixed-1%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.jpg)
 
 ## Why you shouldn't "Remove BugSplat." <a id="how_to_fix_bugsplat"></a>
 

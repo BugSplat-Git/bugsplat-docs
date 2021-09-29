@@ -82,6 +82,7 @@
   * [API](introduction/development/web-services/README.md)
     * [API](introduction/development/web-services/api.md)
     * [Crash](introduction/development/web-services/crash.md)
+    * [OAuth2](introduction/development/web-services/oauth2.md)
     * [Paging, Filtering, and Grouping](introduction/development/web-services/paging-filtering-and-grouping.md)
 * [Production](introduction/production/README.md)
   * [Support Responses](introduction/production/setting-up-custom-support-responses.md)
