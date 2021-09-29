@@ -1,8 +1,8 @@
 # OAuth2
 
-BugSplat recently added support for authenticating via OAuth2. Currently, only the OAuth2 client credentials flow is supported. If you are interested in other OAuth2 authentication methods please reach out to [support@bugsplat.com](mailto:support@bugsplat.com) or via the chat bubble in the bottom right-hand corner of the page.
+BugSplat supports authenticating via OAuth2 in addition to the username/password authentication described in our [API docs](api.md). Currently, only the OAuth2 client credentials flow is supported. If you are interested in other OAuth2 authentication methods, please reach out to [support@bugsplat.com](mailto:support@bugsplat.com).
 
-Additionally, a reference client implementation can be found in our [@bugsplat/js-api-client](https://github.com/BugSplat-Git/bugsplat-js-api-client/blob/1ebf36453d275ed62d6e5a4bb4249ef17efbc929/src/common/client/oauth-client-credentials-api-client/oauth-client-credentials-api-client.ts) repo.
+A reference client implementation can be found in our [@bugsplat/js-api-client](https://github.com/BugSplat-Git/bugsplat-js-api-client/blob/1ebf36453d275ed62d6e5a4bb4249ef17efbc929/src/common/client/oauth-client-credentials-api-client/oauth-client-credentials-api-client.ts) repo.
 
 ### Client Credentials
 
