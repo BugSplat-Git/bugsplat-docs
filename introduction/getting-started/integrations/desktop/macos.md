@@ -297,7 +297,7 @@ Click the link in the **ID** column to view more details about your crash.
 
 #### Step 8
 
-You will notice there are no function names or line numbers, this is because you need to upload the application's xcarchive. See the [Configuration](https://github.com/BugSplat-Git/bugsplat-docs/tree/0e8c731969c277b58263a18e7f213af1add2069d/introduction/getting-started/integrations/desktop/os-x.md#step-2) section above for more information.
+You will notice there are no function names or line numbers, this is because you need to upload the application's xcarchive. See the [Configuration](macos.md#configuration) section above for more information.
 
 #### Step 9
 

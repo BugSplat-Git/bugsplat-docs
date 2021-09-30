@@ -34,7 +34,7 @@ List of recent product changes and updates for BugSplat. We announce these updat
 
 ## BugSplatNative library - v3.6.0.11. - August 5th, 2021
 
-* Now supports Address Sanitizer crash reports. See [here](https://github.com/BugSplat-Git/bugsplat-docs/blob/master/introduction/getting-started/posting-a-test-crash/myconsolecrasher-c++/address-sanitizer-reports.md) for details on this integration.
+* Now supports Address Sanitizer crash reports. See [here](../introduction/getting-started/posting-a-test-crash/myconsolecrasher-c-plus-plus/address-sanitizer-reports.md) for details on this integration.
 
 ## BugSplatNative library - v3.6.0.10. - Jul 22nd, 2021
 
