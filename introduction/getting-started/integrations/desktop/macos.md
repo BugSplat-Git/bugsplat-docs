@@ -12,14 +12,14 @@ The BugSplat macOS framework enables posting crash reports from Cocoa applicatio
 Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
 {% endhint %}
 
-## Integration
-
-BugSplatMac supports multiple methods for installing the library in a project.
-
-### Requirements
+## 1. Requirements
 
 * BugSplatMac supports macOS 10.7 and later.
 * BugSplatMac supports x86\_64 and Apple Silicon applications
+
+## 2. Integration
+
+BugSplatMac supports multiple methods for installing the library in a project.
 
 ### Installation with CocoaPods
 
@@ -83,7 +83,7 @@ To use this library in your project manually you may:
    * Choose `Frameworks` from the Destination list.
    * Drag `BugsplatMac` from the Project Navigator left sidebar to the list in the new Copy Files phase.
 
-## Usage
+## 3. Usage
 
 ### Configuration
 

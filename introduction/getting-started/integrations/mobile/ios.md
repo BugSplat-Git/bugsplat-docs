@@ -4,11 +4,11 @@
 
 The BugSplat iOS framework enables posting crash reports from iOS applications to BugSplat. Visit [http://www.bugsplat.com](http://www.bugsplat.com) for more information and to sign up for an account.
 
-#### Requirements
+## 1. Requirements
 
 * BugSplat supports iOS 13 and later.
 
-#### Integration
+## 2. Integration
 
 BugSplat supports multiple methods for installing the library in a project.
 
@@ -59,7 +59,7 @@ To use this library in your project manually you may:
 11. Choose `Frameworks` from the Destination list.
 12. Drag `Bugsplat` from the Project Navigator left sidebar to the list in the new Copy Files phase.
 
-## Usage
+## 3. Usage
 
 #### Configuration
 
