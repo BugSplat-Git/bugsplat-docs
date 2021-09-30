@@ -117,7 +117,6 @@
   * [How and why to use Sukeying](education/faq/how-and-why-to-use-sukeying.md)
   * [Uploading third-party DLLs without PDB files](education/faq/uploading-third-party-dlls-without-pdb-files.md)
   * [Localized Support Responses for Windows C++, .NET, and macOS](education/faq/localized-support-responses-for-windows-c++-.net-and-macos.md)
-  * [Unreal Engine Windows 10 crash reporting bug fix](education/faq/unreal-engine-windows-10-crash-reporting-bug-fix.md)
   * [BugSplat application uptime data](education/faq/bugsplat-application-uptime-data/README.md)
     * [What are the upload size considerations with BugSplat accounts.](education/faq/bugsplat-application-uptime-data/what-are-the-upload-size-considerations-with-bugsplat-accounts..md)
   * [Is an application's source code safe when using BugSplat?](education/faq/is-an-applications-source-code-safe-when-using-bugsplat.md)
