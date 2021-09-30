@@ -20,7 +20,7 @@ Next, download the BugSplat Microsoft Windows Native C++ SDK from the [Downloads
 
 Rebuild the project and run it outside of the Visual Studio debugger \(Ctrl+F5\). This is important since the debugger interferes with the BugSplat library’s exception handling. You should see a dialog such as that shown below \(make sure to type something describing the crash so that you can identify it on the website\):
 
-![BugSplat Crash Dialog](../../../../.gitbook/assets/bugsplat-crash-dialog%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
+![BugSplat Crash Dialog](../../../../.gitbook/assets/bugsplat-crash-dialog%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 Click the `Send Error Report` button and voilà! The report will be sent! On the BugSplat website while logged in to the `fred@bugsplat.com` account, look for the crash report with the description you entered.
 
