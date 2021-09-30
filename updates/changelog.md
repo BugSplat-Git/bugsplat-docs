@@ -364,7 +364,7 @@ Web App Update 26-March-2021
 
 ## Web App Update 09-October-2020
 
-* Added new 'Users Affected' column to [Summary](https://app.bugsplat.com/v2/summary) page. This column shows unique users who exprienced a crash associated with a Stack Key. Read more at [product updates](https://github.com/BugSplat-Git/bugsplat-docs/tree/7ceed9b5d5282b867c9e2bfc06ed066ac1b516e9/resources/README.md).
+* Added new **Users Affected** column to [Summary](https://app.bugsplat.com/v2/summary) page. This column shows unique users who exprienced a crash associated with a Stack Key. More information on the Users Affected column can be found [here](https://www.bugsplat.com/blog/product/users-affected-by-crash/).
 
 ## ngb-filterable-dropdown update 08-October-2020
 
