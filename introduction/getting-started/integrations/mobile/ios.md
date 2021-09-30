@@ -46,7 +46,7 @@ BugSplat framework binaries are also now distributed via Swift Package Manager. 
 
 To use this library in your project manually you may:
 
-1. Download the latest release from [https://github.com/BugSplatGit/BugSplat-iOS/releases](https://github.com/BugSplatGit/BugSplat-iOS/releases) which is provided as a zip file
+1. Download the latest release from [https://github.com/BugSplatGit/BugSplat-iOS/releases](https://github.com/BugSplat-Git/BugSplat-iOS/releases) which is provided as a zip file
 2. Unzip the archive and add Bugsplat.xcframework to your Xcode project
 3. Drag & drop `Bugsplat.xcframework` from your window in the `Finder` into your project in Xcode and move it to the desired location in the `Project Navigator`
 4. A popup will appear. Select `Create groups for any added folders` and set the checkmark for your target. Then click `Finish`.
