@@ -100,7 +100,7 @@ Many Electron applications run multiple Node.js processes. For instance, the [el
 
 Sometimes it is desirable to reload or quit the application when an error occurs in the renderer process. The following is an example of how to invoke the main process from the renderer and quit your application in the case of an unhandled exception in the renderer:
 
-[renderer.js](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/renderer.js)
+[renderer.ts](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/src/renderer.ts)
 
 ```typescript
 window.onerror = async (messageOrEvent, source, lineno, colno, error) => {
@@ -109,11 +109,10 @@ await bugsplat.post(error)
 }
 ```
 
-[main.js](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/main.js)
+[main.ts](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/src/main.ts)
 
 ```typescript
-const electron = require('electron')
-const ipcMain = electron.ipcMain
+import { ipcMain } from "electron";
 ipcMain.on('rendererCrash', function () {
   // Display an error and reload or quit the app here
 })
