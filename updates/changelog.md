@@ -2,6 +2,66 @@
 
 List of recent product changes and updates for BugSplat. We announce these updates via [Twitter](https://twitter.com/bugsplatco).
 
+## BugSplat Unity - Release - 1.4.1 - September 30th, 2021
+
+* Fixes error in non-Windows builds
+
+## Symbol Upload - Release - 3.0.0 - September 29th, 2021
+
+**Breaking Changes**
+
+* Renames post and delete to postSymbols and deleteSymbols respectively
+
+## JS API Client - Release - 2.3.3 - September 29th, 2021
+
+* Fixes issue with TypeScript not generating correct paths in build output
+
+## Symbol Upload - Release - 2.3.3 - September 29th, 2021
+
+* Updates @bugsplat/js-api-client to a version compatible with Node.js
+
+## JS API Client - Release - 1.0.0 - September 28th, 2021
+
+* Adds client with support for posting crash reports
+* Adds client with support for the OAuth2 Client Credentials flow
+
+**Breaking Changes**
+
+* Changes the order of the parameters for BugSplatApiClient's createAuthenticatedClientForNode and createAuthenticatedClientForWebBrowser functions so that host can be an optional parameter with a default value
+
+## iOS - **Update -** September 26th, 2021
+
+* Updated documentation.
+
+## macOS - Release - 0.0.12 - September 24th, 2021
+
+* Adds support for Crashes API
+
+## JS API Client - Release - 0.0.12 - September 24th, 2021
+
+* Adds support for Crashes API
+
+## Web App Update - Release - 2.2.40 - September 22th, 2021
+
+* Fixes typo in onboarding page
+
+## Web App Update - Release - 2.2.39 - September 22th, 2021
+
+* Fixes bug where some special characters were not allowed when creating new passwords
+
+## Web App Update - Release - 2.2.38 - September 22th, 2021
+
+* Update to dramatically increases the speed of Crash processing by reducing information displayed in Modules table
+
+## Web App Update - Release - 2.2.37 - September 15th, 2021
+
+* Updates links to docs
+
+## Web App Update - Release - 2.2.36 - September 15th, 2021
+
+* Improves Crash Rate Alert note
+* Updates Sign Up page
+
 ## Web App Update - Release - 2.2.35 - September 3rd, 2021
 
 * Increases password complexity requirements
