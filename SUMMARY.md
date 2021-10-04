@@ -94,6 +94,7 @@
     * [Avoid Collecting Personally Identifiable Information \(PII\)](introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md)
     * [Terms](introduction/production/security-privacy-and-compliance/terms.md)
     * [Privacy Policy](introduction/production/security-privacy-and-compliance/privacy-policy.md)
+  * [BugSplat Status](http://stats.bugsplat.com/)
 
 ## 🍎 Education
 
