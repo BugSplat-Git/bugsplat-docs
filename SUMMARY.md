@@ -92,6 +92,7 @@
     * [GDPR](introduction/production/security-privacy-and-compliance/gdpr.md)
     * [SOC-2](introduction/production/security-privacy-and-compliance/soc-2.md)
     * [Avoid Collecting Personally Identifiable Information \(PII\)](introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md)
+    * [Crash Expiry](introduction/production/security-privacy-and-compliance/crash-expiry.md)
     * [Terms](introduction/production/security-privacy-and-compliance/terms.md)
     * [Privacy Policy](introduction/production/security-privacy-and-compliance/privacy-policy.md)
   * [BugSplat Status](http://stats.bugsplat.com/)

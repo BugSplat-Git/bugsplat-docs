@@ -6,7 +6,7 @@ BugSplat has options that prevent the collection of personally identifiable info
 
 1. Sign in to your account
 2. Navigate to the ‘Options’ page
-3. Enable all the check boxes under ‘Obfuscate Personally Identifiable Information’
+3. Enable all the checkboxes under ‘Obfuscate Personally Identifiable Information’
 
 Once these option boxes are checked, new crash reports will not contain any personally identifiable information.
 
