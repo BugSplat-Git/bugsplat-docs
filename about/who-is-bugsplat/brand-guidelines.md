@@ -55,7 +55,7 @@ Our crash box is the consumer-facing portion of our crash reporting tool. As suc
 
 Some monthly plans require that you use our standard crash box \(see below\).
 
-![BugSplat Crash Dialog](../../.gitbook/assets/bugsplat-crash-dialog%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
+![BugSplat Crash Dialog](../../.gitbook/assets/bugsplat-crash-dialog%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%283%29%20%281%29.png)
 
 Most implementations of BugSplat do not require you to use our branded crash dialog shown above. That said, we love and appreciate when our users keep our crash dialog or give us a 'shoutout' somewhere on the box.
 

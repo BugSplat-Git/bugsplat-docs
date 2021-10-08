@@ -75,7 +75,7 @@ catch (Exception ex)
 The default values specified on the instance of `BugSplat` can be overridden in the call to `Post`. Additionally, you can provide a `callback` to `Post` that will be invoked with the result once the upload is complete.
 
 ```csharp
-var options = new ExceptionPostOptions()
+var options = new ReportPostOptions()
 {
     Description = "a new description",
     Email = "barney@bugsplat.com",
@@ -116,11 +116,19 @@ Once you've posted an exception or a minidump to BugSplat click the link in the 
 
 ![Unity crash reports](../../../../.gitbook/assets/unity-crash.png)
 
+## WebGL
+
+A few settings must be changed in order to capture function names and line numbers in a WebGL exception report. Open **File &gt; Build Settings** and switch the platform to **WebGL** and check **Development Build.**
+
+![Unity Build Settings Menu](../../../../.gitbook/assets/unity-build-settings.png)
+
+Click the button that says **Player Settings**, highlight the **Player** section. Under **Publishing Settings**, select **Full With Stacktrace**. 
+
+![Unity Player Publishing Settings](../../../../.gitbook/assets/unity-full-with-stack-trace.png)
+
+Please note that Unity does not recommend shipping development builds and thus this configuration is not recommended for applications in production.
+
 ## Contributing
 
 BugSplat ❤️ 's open source! If you feel that this integration can be improved, please open an [Issue](https://github.com/BugSplat-Git/bugsplat-unity/issues). If you have an awesome new feature you'd like to implement, we'd love to merge your [Pull Request](https://github.com/BugSplat-Git/bugsplat-unity/pulls). You can also reach out to us via an email to [support@bugsplat.com](mailto:support@bugsplat.com) or the in-app chat on bugsplat.com.
-
-|  |
-| :--- |
-|  |
 
