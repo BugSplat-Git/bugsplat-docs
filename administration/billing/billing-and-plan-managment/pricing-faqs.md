@@ -26,7 +26,7 @@ No problem. You can cancel at any time, no questions asked. You can even export 
 
 #### Can I cancel my plan?
 
-Absolutely. Just cancel your plan via the [Account](https://app.bugsplat.com/v2/account) page in our web app or shoot us an email. We can do it for you as well. We'll make the process stress-free.
+Absolutely. If you pay monthly via a credit card, simply navigate to the Company page and click the 'Manage your plan →' in the Usage section.  From there you can cancel your plan.  Please reach out to sales@bugsplat with any questions. We'll make the process stress-free.
 
 #### Is there a money-back guarantee?
 
