@@ -4,9 +4,18 @@ Welcome to the BugSplat web services API Reference Documentation.
 
 We try hard to keep this documentation up to date, however, if you find any issues, please send us a note at [support@bugsplat.com](mailto:support@bugsplat.com), or drop by our [Discord Server](https://discord.gg/K4KjjRV5ve) and talk to us directly.
 
-{% page-ref page="api.md" %}
+{% content-ref url="api.md" %}
+[api.md](api.md)
+{% endcontent-ref %}
 
-{% page-ref page="crash.md" %}
+{% content-ref url="crash.md" %}
+[crash.md](crash.md)
+{% endcontent-ref %}
 
-{% page-ref page="paging-filtering-and-grouping.md" %}
+{% content-ref url="oauth2.md" %}
+[oauth2.md](oauth2.md)
+{% endcontent-ref %}
 
+{% content-ref url="paging-filtering-and-grouping.md" %}
+[paging-filtering-and-grouping.md](paging-filtering-and-grouping.md)
+{% endcontent-ref %}
