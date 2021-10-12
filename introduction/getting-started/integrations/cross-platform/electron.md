@@ -112,8 +112,7 @@ await bugsplat.post(error)
 [main.ts](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/src/main.ts)
 
 ```typescript
-const electron = require('electron')
-const ipcMain = electron.ipcMain
+import { ipcMain } from "electron";
 ipcMain.on('rendererCrash', function () {
   // Display an error and reload or quit the app here
 })
