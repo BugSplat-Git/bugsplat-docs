@@ -29,7 +29,7 @@ List of recent product changes and updates for BugSplat. We announce these updat
 
 * Changes the order of the parameters for BugSplatApiClient's createAuthenticatedClientForNode and createAuthenticatedClientForWebBrowser functions so that host can be an optional parameter with a default value
 
-## iOS - **Update -** September 26th, 2021
+## iOS - **Update - **September 26th, 2021
 
 * Updated documentation.
 
@@ -98,7 +98,7 @@ List of recent product changes and updates for BugSplat. We announce these updat
 
 ## BugSplatNative library - v3.6.0.10. - Jul 22nd, 2021
 
-* MDSF\_NONINTERACTIVE option now also enforces silent reporting of application hangs.
+* MDSF_NONINTERACTIVE option now also enforces silent reporting of application hangs.
 
 ## Web App Update - v2.2.30 - Jul 22nd, 2021
 
@@ -355,8 +355,8 @@ Web App Update 26-March-2021
 
 ## AWS Status Update 25-November-2020
 
-* Update 7:00 pm est:BugSplat application services have recovered from the AWS outage which is not fully resolved. Note that until the AWS services are fully-restored, there is a continued risk of interruption of BugSplat services. See [here](https://status.aws.amazon.com/) for additional details.
-* BugSplat services are experiencing intermittent failures due to issues at our service provider AWS. Our team is monitoring and working to mitigate the effects. We will update here when the issues are resolved. Learn more at [AWS Service Health Dashboard](https://status.aws.amazon.com/).
+* Update 7:00 pm est:BugSplat application services have recovered from the AWS outage which is not fully resolved. Note that until the AWS services are fully-restored, there is a continued risk of interruption of BugSplat services. See [here](https://status.aws.amazon.com) for additional details.
+* BugSplat services are experiencing intermittent failures due to issues at our service provider AWS. Our team is monitoring and working to mitigate the effects. We will update here when the issues are resolved. Learn more at [AWS Service Health Dashboard](https://status.aws.amazon.com).
 
 ## Ngb-Filterablep-Dropdown Update 27-November-2020
 
@@ -442,7 +442,7 @@ Web App Update 26-March-2021
 
 ## Web App Update 05-October-2020
 
-* Upgraded technical support editor and response pages. These now use Markdown \(make that a link to the markdown website\) rather than HTML. Existing HTML responses can be edited, but must be converted to Markdown. View an example in the fred@bugsplat.com database with this [link](https://app.bugsplat.com/browse/support/?stackKeyId=5555&vendor=Fred&key=*Default*).
+* Upgraded technical support editor and response pages. These now use Markdown (make that a link to the markdown website) rather than HTML. Existing HTML responses can be edited, but must be converted to Markdown. View an example in the fred@bugsplat.com database with this [link](https://app.bugsplat.com/browse/support/?stackKeyId=5555\&vendor=Fred\&key=\*Default\*).
 
 ## Web App Updates 30-Septeber-2020
 
@@ -556,7 +556,7 @@ We'll be posting updates here and on [Twitter](https://twitter.com/bugsplatco).
 
 ## Web App Update 17-Mar-2020
 
-* Added support for [Discord](https://discordapp.com/) notifications
+* Added support for [Discord](https://discordapp.com) notifications
 
 ## Web App Update 11-Mar-2020
 
@@ -587,7 +587,7 @@ We'll be posting updates here and on [Twitter](https://twitter.com/bugsplatco).
 * Moved transferring and deleting databases to Options page
 * Removed Database page
 
-## Native SDK \(Version 3.6.0.8\) 18-Feb-2020
+## Native SDK (Version 3.6.0.8) 18-Feb-2020
 
 * Improvements in multi-thread crashing support
 
@@ -1057,16 +1057,16 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 * Fixes bug where rethrowErrors would attempt to recursively post to BugSplat
 * Replaces rethrowError with an error log statement
 
-## 15-Feb-2019: [Auth0](https://auth0.com/) integration for login security
+## 15-Feb-2019: [Auth0](https://auth0.com) integration for login security
 
 * As part of our continuing [security program](../introduction/production/security-privacy-and-compliance/security-program.md) at BugSplat, we’re switching to an authentication service called Auth0 for all of our account logins. Set via the [Password](https://app.bugsplat.com/v2/password/) page.
-* Multi-Factor Authentication \(MFA\) for two-step login protocol requiring separate verification from a mobile device to access your account
+* Multi-Factor Authentication (MFA) for two-step login protocol requiring separate verification from a mobile device to access your account
 * Federated logins via Google, Github, and Microsoft accounts
 
 ## 04-Feb-2019
 
-* Fixed bug where email column cutoff on Users page \(mobile\)
-* Fixed bug where id column was cut off on KeyCrash page \(mobile\)
+* Fixed bug where email column cutoff on Users page (mobile)
+* Fixed bug where id column was cut off on KeyCrash page (mobile)
 * Fixed broken link on Login page
 * Added mailto links to email addresses on Crashes page
 
@@ -1082,7 +1082,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 ## 26-Jan-2019
 
 * Released new Key Crash page
-* Released new Summary page \(beta\)
+* Released new Summary page (beta)
 * Fixed bug where charts were the wrong color
 * Added support for displaying times in local timezone
 
@@ -1099,12 +1099,12 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 * BugSplat has released a rebuilt version of the Crash page. This release includes the launch of new features including:
 * **Advanced column filtering options:** use the +Add Filter button to quickly find the crashes you're searching for based on an expanded field of inputs.
 * **Customizable column visibility settings** easily show or hide columns to improve your workflow in BugSplat.
-* **In-row crash details:** click the far left &gt; to see information on any crash without having to navigate to the individual crash page.
+* **In-row crash details:** click the far left > to see information on any crash without having to navigate to the individual crash page.
 * **Improved crash comment column:** quickly add comments to an individual crash from right on the All Crash page.
 
 ## 09-Nov-2018: Unity Native Version 1.2.0
 
-* Added support for passing flags to BsSndRpt. The BugSplat.MSDF\_LOGCONSOLE flag will instruct BsSndRpt to not remove the dmp file when posting a crash report. Fixes bug that prevented some crash reports from being sent to BugSplat.
+* Added support for passing flags to BsSndRpt. The BugSplat.MSDF_LOGCONSOLE flag will instruct BsSndRpt to not remove the dmp file when posting a crash report. Fixes bug that prevented some crash reports from being sent to BugSplat.
 
 ## 31-October-2018: SendPdbs 2.1.0.3
 
@@ -1112,7 +1112,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 19-Oct-2018: Planned Database Upgrade
 
-* BugSplat will be upgrading our database on Saturday October 27th. The website will be operational during the upgrade, however, there will be a short period of time where new data will not be persisted in the updated database. If you notice any missing data from the morning of 27-Oct-2018 \(MST\) please contact support@bugsplat.com. Our support team is here to recover anything that is critical.
+* BugSplat will be upgrading our database on Saturday October 27th. The website will be operational during the upgrade, however, there will be a short period of time where new data will not be persisted in the updated database. If you notice any missing data from the morning of 27-Oct-2018 (MST) please contact support@bugsplat.com. Our support team is here to recover anything that is critical.
 
 ## 17-Sept-2018: BugsplatMac
 
@@ -1120,7 +1120,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 15-September-2018: Planned Database Upgrade
 
-* We experienced brief periods \(1-2 minutes\) of web app downtime during our database upgrade on Saturday September 15th. During these periods new crash reports may have been rejected by our servers.
+* We experienced brief periods (1-2 minutes) of web app downtime during our database upgrade on Saturday September 15th. During these periods new crash reports may have been rejected by our servers.
 
 ## 30-August-2018: Intermittent Authentication Errors
 
@@ -1128,7 +1128,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 27-August-2018: Version 3.6.0.6
 
-* This release fixes a bug in setGuardBytesBufferSize\(\) in the Windows Native SDK. All customers using setGuardBytesBufferSize\(\) should upgrade to this version.
+* This release fixes a bug in setGuardBytesBufferSize() in the Windows Native SDK. All customers using setGuardBytesBufferSize() should upgrade to this version.
 
 ## 14-August-2018: Unreal Upgrade
 
@@ -1148,7 +1148,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 30-July-2018: Version 3.6.0.5
 
-* Added new method setGuardBytesBufferSize\(\). This can be used along with the MDSF\_USEGUARDMEMORY option to specify the size \(in bytes\) of the guard buffer. The default buffer size is 4 mb.
+* Added new method setGuardBytesBufferSize(). This can be used along with the MDSF_USEGUARDMEMORY option to specify the size (in bytes) of the guard buffer. The default buffer size is 4 mb.
 
 ## 11-June-2018: Unity Native Version 1.1.0
 
@@ -1172,7 +1172,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 12-Apr-2018: Unity Cross-Platform Version 1.4.0
 
-* Added ability to specify a callback that is executed after an error is posted to BugSplat via Reporter.SetCallback\(Action callback\). Fixed a warning about UnityWebRequest.Send being obsolete.
+* Added ability to specify a callback that is executed after an error is posted to BugSplat via Reporter.SetCallback(Action callback). Fixed a warning about UnityWebRequest.Send being obsolete.
 
 ## 11-Apr-2018: bugsplat-js 3.0.0
 
@@ -1184,7 +1184,8 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 22-Feb-2018: Website Updates
 
-* * Manual symbol upload page improvements. Symbols now upload directly to Amazon S3 improving speed and reliability.
+*
+  * Manual symbol upload page improvements. Symbols now upload directly to Amazon S3 improving speed and reliability.
   * Breakpad and Mac symbols uploads are now supported on the manual upload page
   * "All" menu link renamed to "Crashes"
   * Pending crash reports on the Crashes page now have an active link that navigates you to the crash details page.
@@ -1217,11 +1218,11 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 20-Jan-2018: Website Update
 
-* Old versions of SendPdbs have been retired as scheduled. If automated symbol uploads are not working for you, please upgrade to the latest version of SendPdbs \(version 2.0.0.1\) found [here](https://app.bugsplat.com/browse/download_item.php?item=sendpdbs).
+* Old versions of SendPdbs have been retired as scheduled. If automated symbol uploads are not working for you, please upgrade to the latest version of SendPdbs (version 2.0.0.1) found [here](https://app.bugsplat.com/browse/download_item.php?item=sendpdbs).
 
 ## 14-Nov-2017: Version 2.2.0
 
-* Original error parameter from bugsplat.post is now passed to the callback method as the 3rd parameter \(requestError, responseBody, originalError\). Fixed a bug where callback wasn't invoked when there was an error posting to BugSplat.
+* Original error parameter from bugsplat.post is now passed to the callback method as the 3rd parameter (requestError, responseBody, originalError). Fixed a bug where callback wasn't invoked when there was an error posting to BugSplat.
 
 ## 09-Nov-2017: Website Update
 
@@ -1229,7 +1230,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 07-Nov-2017: Version 1.3.1
 
-* Added support for newline character \(\r\n\) in the UE4 CrashReportClient -Description parameter.
+* Added support for newline character (\r\n) in the UE4 CrashReportClient -Description parameter.
 
 ## 06-Nov-2017: Version 1.3.0
 
@@ -1257,7 +1258,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 02-Oct-2017: Version 3.5.0.5
 
-* Improvements to out-of-memory crash reporting. We now allocate a larger guard memory block and free it earlier in the unhandled exception handler code. All Native Windows applications should use the MDSF\_USEGUARDMEMORY flag to enable crash reports in out-of-memory situations. Also added back support for internal IP address reporting, which was dropped in version 3.4.0.2.
+* Improvements to out-of-memory crash reporting. We now allocate a larger guard memory block and free it earlier in the unhandled exception handler code. All Native Windows applications should use the MDSF_USEGUARDMEMORY flag to enable crash reports in out-of-memory situations. Also added back support for internal IP address reporting, which was dropped in version 3.4.0.2.
 
 ## 25-Oct-2017: Version 1.0.0.
 
@@ -1313,7 +1314,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 19-May-2017: Version 3.4.0.3
 
-* Added removeAdditionalFiles\(\) method.
+* Added removeAdditionalFiles() method.
 
 ## 12-May-2017: Version 3.4.0.2
 
@@ -1332,13 +1333,13 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 21-April-2017: Version 3.4.0.0
 
-* Converted to Unicode build. Dropped MBCS and C interfaces. Added setMinidumpType\(\), previously only available to a limited set of customers.
+* Converted to Unicode build. Dropped MBCS and C interfaces. Added setMinidumpType(), previously only available to a limited set of customers.
 
 ## Native SDK updates 21-April-2017
 
 * Updated to Unicode build only.
 * Dropped support for MBCS interfaces.
-* Added support for setMinidumpType\(\).
+* Added support for setMinidumpType().
 * Release version changed to 3.4.0.0
 
 ## Updates 26-Dec-2016
@@ -1363,7 +1364,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 07-Sept-2016
 
-* Added support for setResourceDllPath\(\).
+* Added support for setResourceDllPath().
 * BugSplat native SDK version 3.3.3.0
 * BugSplat logo update
 * BsSndRpt support for Resource DLL path API function
@@ -1384,21 +1385,21 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## Updates 03-March-2016
 
-* Header file change to indicate MDSCB\_GETADDITIONALFILECOUNT is obsolete, not just deprecated
+* Header file change to indicate MDSCB_GETADDITIONALFILECOUNT is obsolete, not just deprecated
 
 ## Updates 29-December-2015
 
 * Native SDK update
 * BsSndRpt updated dialog text.
 * Removed dbghelp.dll/lib from Native SDK
-* Added sendAdditionalFile\(\) API
+* Added sendAdditionalFile() API
 * Added myConsoleCrasher sample which replaces bulky myCrasher sample
 * Updated version to 3.3.2.0
 
 ## Updates 23-August-2015
 
 * Updated dbghelp.dll to version 6.3.9600.17200
-* Updated Java SDK. Fix for Java platform-dependent return value of System.getProperty\("java.io.tmpdir"\). On some platforms it is file-separator terminated, others not.
+* Updated Java SDK. Fix for Java platform-dependent return value of System.getProperty("java.io.tmpdir"). On some platforms it is file-separator terminated, others not.
 * Also deleted a stale duplicate version of BugSplat.java source.
 * Updated .NET version to 1.1.03
 
@@ -1410,4 +1411,3 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 ## Breakpad Updates 04-May-2015
 
 * Added Breakpad support for Mac OS/X Yosemite
-

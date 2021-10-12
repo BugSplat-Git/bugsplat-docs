@@ -12,11 +12,10 @@ Fogbugz integration with BugSplat crash reports allows your team to create defec
 
 ### Creating an issue in Fogbuz from a BugSplat crash report
 
-1. Create a new defect from an individual crash report page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the ‘Create a new defect’ link.
+1\. Create a new defect from an individual crash report page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the ‘Create a new defect’ link.
 
-2. Selecting the ‘Create defect’ link brings you to this page.
+2\. Selecting the ‘Create defect’ link brings you to this page.
 
-3. Selecting the Submit button will create the defect.
+3\. Selecting the Submit button will create the defect.
 
-4. Go to Jira to view your new issue based on your BugSplat crash report.
-
+4\. Go to Jira to view your new issue based on your BugSplat crash report.

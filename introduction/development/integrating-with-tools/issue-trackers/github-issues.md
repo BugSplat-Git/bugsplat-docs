@@ -12,11 +12,10 @@ BugSplat's GitHub Issues integration allows your team to create defects from cra
 
 ### Creating a defect in GitHub Issues from a BugSplat crash report
 
-1. Create a new defect from an individual crash report page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the ‘Create a new defect’ link.
+1\. Create a new defect from an individual crash report page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the ‘Create a new defect’ link.
 
-2. Selecting the ‘Create defect’ link brings you to this page.
+2\. Selecting the ‘Create defect’ link brings you to this page.
 
-3. Selecting the Submit button will create the defect.
+3\. Selecting the Submit button will create the defect.
 
-4. Go to GitHub Issues to view your new issue based on your BugSplat crash report.
-
+4\. Go to GitHub Issues to view your new issue based on your BugSplat crash report.

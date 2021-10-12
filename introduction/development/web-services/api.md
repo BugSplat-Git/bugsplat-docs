@@ -4,32 +4,18 @@ BugSplat provides RESTful web services to access data on our backend. The BugSpl
 
 Want to see our API in action? Open your web browser inspector to see how our web application uses the endpoints below!
 
-Most API endpoints support a "database={name}" parameter, used to specify which BugSplat database to use. In the absence of this parameter, the current \(default\) database will be selected.
+Most API endpoints support a "database={name}" parameter, used to specify which BugSplat database to use. In the absence of this parameter, the current (default) database will be selected.
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/allcrash" %}
-{% api-method-summary %}
-Crashes
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/allcrash" method="get" summary="Crashes" %}
+{% swagger-description %}
 Get a list of crashes for a database. This query supports paging, filtering, and grouping. More information on how to use paging, filtering, and grouping can be found here. All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, stackKey, appName, ipAddress, etc.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing crash data
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
   {
@@ -66,39 +52,23 @@ BugSplat database containing crash data
   }
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/keycrash" %}
-{% api-method-summary %}
-Key Crash
-{% endapi-method-summary %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/keycrash" method="get" summary="Key Crash" %}
+{% swagger-description %}
+Get a list of crashes for a particular crash group (aka Stack Key). This query supports paging, filtering, and grouping. More information on how to use paging, filtering, and grouping can be found here. All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, email, IpAddress etc.
+{% endswagger-description %}
 
-{% api-method-description %}
-Get a list of crashes for a particular crash group \(aka Stack Key\). This query supports paging, filtering, and grouping. More information on how to use paging, filtering, and grouping can be found here. All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, email, IpAddress etc.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="stackKeyId" type="number" required=true %}
+{% swagger-parameter in="query" name="stackKeyId" type="number" %}
 ID for the desired crash group
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing crash data
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
   {
@@ -153,39 +123,23 @@ BugSplat database containing crash data
   }
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/company" %}
-{% api-method-summary %}
-Company
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/company" method="get" summary="Company" %}
+{% swagger-description %}
 Returns information about the queried company by database or companyId. 
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="companyId" type="number" required=false %}
+{% swagger-parameter in="query" name="companyId" type="number" %}
 ID of the company to query
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=false %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database owned by the company
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
   companyId: 545,
@@ -196,45 +150,27 @@ BugSplat database owned by the company
   licensedLimitExceededDate: null,
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://app.bugsplat.com" path="/api/company" %}
-{% api-method-summary %}
-Company
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/company" method="put" summary="Company" %}
+{% swagger-description %}
 Set the name of the specified company by database or companyId.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="companyId" type="number" required=false %}
+{% swagger-parameter in="query" name="companyId" type="number" %}
 ID of the company to update
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=false %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat Database owned by the company
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="companyName" type="string" required=true %}
+{% swagger-parameter in="body" name="companyName" type="string" %}
 Updated name for the specified company
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
   companyId: 545,
@@ -245,51 +181,35 @@ Updated name for the specified company
   licensedLimitExceededDate: null,
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/crashHistory" %}
-{% api-method-summary %}
-Crash History
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/crashHistory" method="get" summary="Crash History" %}
+{% swagger-description %}
 Returns chartable crash data for the specified database, appNames, appVersions, startDate, and endDate.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="endDate" type="string" required=false %}
+{% swagger-parameter in="query" name="endDate" type="string" %}
 ISO 8601 timestamp representing the end date of the specified time period
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="startDate" type="string" required=false %}
+{% swagger-parameter in="query" name="startDate" type="string" %}
 ISO 8601 timestamp representing the start date of the specified time period
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="appVersions" type="array" required=false %}
+{% swagger-parameter in="query" name="appVersions" type="array" %}
 Comma-separated list of versions to query
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="appNames" type="array" required=false %}
+{% swagger-parameter in="query" name="appNames" type="array" %}
 Comma-separated list of applications to query
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing crash history
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "TotalRows": 1,
@@ -315,39 +235,23 @@ BugSplat database containing crash history
     ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/crash/data" %}
-{% api-method-summary %}
-Crash
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/crash/data" method="get" summary="Crash" %}
+{% swagger-description %}
 Returns call stack and associated metadata for the specified crash. Also returns a processed property with the value of 0 if the crash is still processing, the value 1 if the crashing thread has been processed, and the value 2 if the crashing thread, background threads, and debugger output have been processed.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="id" type="number" required=false %}
+{% swagger-parameter in="query" name="id" type="number" %}
 The ID of the specified crash
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing the specified crash
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "id": 103182,
@@ -572,35 +476,19 @@ BugSplat database containing the specified crash
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/databases" %}
-{% api-method-summary %}
-Databases
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/databases" method="get" summary="Databases" %}
+{% swagger-description %}
 Returns databases for the current user or a company specified by companyId.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="companyId" type="number" required=false %}
+{% swagger-parameter in="query" name="companyId" type="number" %}
 ID of the company that owns the databases
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [{
     "dbName": "Fred",
@@ -611,74 +499,42 @@ ID of the company that owns the databases
     "CrashDataDays": "6544"
 }]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://app.bugsplat.com" path="/api/databases" %}
-{% api-method-summary %}
-Databases
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/databases" method="post" summary="Databases" %}
+{% swagger-description %}
 Create a new database for the current user.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="body" name="database" type="string" %}
 Name of the database being created
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "status": "success",
     "database": "fred"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://app.bugsplat.com" path="/api/databases" %}
-{% api-method-summary %}
-Databases
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/databases" method="put" summary="Databases" %}
+{% swagger-description %}
 Transfer the ownership of a database to a different company.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="companyId" type="number" required=true %}
+{% swagger-parameter in="body" name="companyId" type="number" %}
 ID of the company the database is being transferred to
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="body" name="database" type="string" %}
 Name of the database being transferred
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "status": "success",
@@ -686,35 +542,19 @@ Name of the database being transferred
     "companyId": 25
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://app.bugsplat.com" path="/api/databases" %}
-{% api-method-summary %}
-Databases
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/databases" method="delete" summary="Databases" %}
+{% swagger-description %}
 Deletes a database and all associated data from BugSplat. This action is irreversible
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database to delete
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "status": "success",
@@ -722,43 +562,27 @@ BugSplat database to delete
     "deleted":true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/logDefect" %}
-{% api-method-summary %}
-Defect
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/logDefect" method="get" summary="Defect" %}
+{% swagger-description %}
 Returns information regarding linked defects for a given crashId or stackKeyId.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database to query
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="stackKeyId" type="number" required=false %}
+{% swagger-parameter in="query" name="stackKeyId" type="number" %}
 Stack Key Id to query
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="id" type="number" required=false %}
+{% swagger-parameter in="query" name="id" type="number" %}
 Crash Id to query
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "status": "success",
@@ -768,43 +592,27 @@ Crash Id to query
     "defectId": 1
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://app.bugsplat.com" path="/api/logDefect" %}
-{% api-method-summary %}
-Defect
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/logDefect" method="post" summary="Defect" %}
+{% swagger-description %}
 Create an issue in the associated defect tracker
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="stackKeyId" type="number" required=false %}
+{% swagger-parameter in="body" name="stackKeyId" type="number" %}
 Id of the stack key being used to create a new issue
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="id" type="number" required=false %}
+{% swagger-parameter in="body" name="id" type="number" %}
 Id of the crash being used to create a new issue
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="body" name="database" type="string" %}
 BugSplat database containing the crashId or stackKeyId
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "status": "success",
@@ -814,43 +622,27 @@ BugSplat database containing the crashId or stackKeyId
     "defectId": 1
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://app.bugsplat.com" path="/api/logDefect" %}
-{% api-method-summary %}
-Defect
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/logDefect" method="delete" summary="Defect" %}
+{% swagger-description %}
 Removes a defect or stack key defect association from BugSplat. This method will not remove the issue from the associated issue tracker.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="stackKeyId" type="string" required=false %}
+{% swagger-parameter in="query" name="stackKeyId" type="string" %}
 Stack Key Id for which the defect association will be removed
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="id" type="number" required=false %}
+{% swagger-parameter in="query" name="id" type="number" %}
 Crash Id for which the defect association will be removed
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing the crashId or stackKeyId
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "status": "success",
@@ -859,35 +651,19 @@ BugSplat database containing the crashId or stackKeyId
     "id": 1
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/summary" %}
-{% api-method-summary %}
-Summary
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/summary" method="get" summary="Summary" %}
+{% swagger-description %}
 Returns crash summary data. Supports paging and filtering using column names startDate, endDate, stackKey, stackKeyId, crashSum, userSum, subKeyDepth, defectId, comments, subject.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing summary data
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
     {
@@ -912,39 +688,23 @@ BugSplat database containing summary data
     }
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/stackKeyDailyVolume" %}
-{% api-method-summary %}
-Stack Key Daily Volume
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/stackKeyDailyVolume" method="get" summary="Stack Key Daily Volume" %}
+{% swagger-description %}
 Returns chartable volumes for a given database and a comma-separated list of stackKeyIds.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="stackKeyIds" type="array" required=true %}
+{% swagger-parameter in="query" name="stackKeyIds" type="array" %}
 Comma-separated list of stackKeyIds to query
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing a list of stackKeyIds
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
     [
@@ -957,35 +717,19 @@ BugSplat database containing a list of stackKeyIds
     ]
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/symbols" %}
-{% api-method-summary %}
-Symbols
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/symbols" method="get" summary="Symbols" %}
+{% swagger-description %}
 Returns a list of symbol stores in a given database.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing symbol stores
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
     {
@@ -1003,51 +747,35 @@ BugSplat database containing symbol stores
     }
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://app.bugsplat.com" path="/api/symbols" %}
-{% api-method-summary %}
-Symbols
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/symbols" method="post" summary="Symbols" %}
+{% swagger-description %}
 Used to create a new symbol store and also get a pre-signed URL that can be used to upload new symbol files.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="symFileName" type="string" required=false %}
+{% swagger-parameter in="body" name="symFileName" type="string" %}
 Filename of the symbol file being uploaded to the symbol store via the returned pre-signed URL.
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="size" type="number" required=false %}
+{% swagger-parameter in="body" name="size" type="number" %}
 Size of symbol file being uploaded to the symbol store via the returned pre-signed URL. Enter 0 to create a placeholder symbol store
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="appVersion" type="string" required=true %}
+{% swagger-parameter in="body" name="appVersion" type="string" %}
 Version of the application symbols being stored in the new symbol store
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="appName" type="string" required=true %}
+{% swagger-parameter in="body" name="appName" type="string" %}
 Name of application symbols being stored in the new symbol store
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="body" name="database" type="string" %}
 BugSplat database in which the symbol store should be created
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "Status": "Success",
@@ -1057,35 +785,19 @@ BugSplat database in which the symbol store should be created
     "appVersion": "1.0"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/users" %}
-{% api-method-summary %}
-Users
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/users" method="get" summary="Users" %}
+{% swagger-description %}
 Returns a list of users and access rights for the specified database.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing users
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
   {
@@ -1102,125 +814,77 @@ BugSplat database containing users
   }
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://app.bugsplat.com" path="/api/users" %}
-{% api-method-summary %}
-Users
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/users" method="post" summary="Users" %}
+{% swagger-description %}
 Adds a new user to the specified database.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="username" type="string" required=true %}
+{% swagger-parameter in="body" name="username" type="string" %}
 Email of user to be added to the database
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="body" name="database" type="string" %}
 BugSplat database to add the user to
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "status": "success",
     "username": "fred@bugsplat.com",
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://app.bugsplat.com" path="/api/users" %}
-{% api-method-summary %}
-Users
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/users" method="delete" summary="Users" %}
+{% swagger-description %}
 Removes a user from the specified database. The authenticated user must not be a restricted user for this call to succeed.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="uId" type="number" required=true %}
+{% swagger-parameter in="query" name="uId" type="number" %}
 Id of the user to remove
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database that contains the user
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "status": "success",
     "uId": 55411,
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/user/userData" %}
-{% api-method-summary %}
-User Data
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/user/userData" method="get" summary="User Data" %}
+{% swagger-description %}
 Returns crash reports containing specified email, username, or IP Address. Only one of the following query params can be specified at a time: email, username, ipAddress.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="ipAddress" type="string" required=false %}
+{% swagger-parameter in="query" name="ipAddress" type="string" %}
 IP Address of user to search for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="username" type="string" required=false %}
+{% swagger-parameter in="query" name="username" type="string" %}
 Username of user to search for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="email" type="string" required=false %}
+{% swagger-parameter in="query" name="email" type="string" %}
 Email of user to search for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database to query for user data
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "Status": "Success",
@@ -1235,81 +899,49 @@ BugSplat database to query for user data
     ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://app.bugsplat.com" path="/api/user/userData" %}
-{% api-method-summary %}
-User Data
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/user/userData" method="delete" summary="User Data" %}
+{% swagger-description %}
 Destroys the PII data associated with each matching crash report. This process will obfuscate email, username, and IP Address and delete the crash upload file. Only one of the following query params can be specified at a time: email, username, ipAddress.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="ipAddress" type="string" required=false %}
+{% swagger-parameter in="query" name="ipAddress" type="string" %}
 IP Address of the user whose data will be deleted
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="username" type="string" required=false %}
+{% swagger-parameter in="query" name="username" type="string" %}
 Username of the user whose data will be deleted
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="email" type="string" required=false %}
+{% swagger-parameter in="query" name="email" type="string" %}
 Email of the user whose data will be deleted
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing user data
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
     "Status": "Success"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://app.bugsplat.com" path="/api/versions" %}
-{% api-method-summary %}
-Versions
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/versions" method="get" summary="Versions" %}
+{% swagger-description %}
 Returns crash data grouped by application and version.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="database" type="string" required=true %}
+{% swagger-parameter in="query" name="database" type="string" %}
 BugSplat database containing version information
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
     {
@@ -1332,79 +964,57 @@ BugSplat database containing version information
     }
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://{{database}}.bugsplat.com" path="/post/xml" %}
-{% api-method-summary %}
-XML Crash Report
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://{{database}}.bugsplat.com" path="/post/xml" method="post" summary="XML Crash Report" %}
+{% swagger-description %}
 Endpoint for uploading a new XML crash report to an existing database. Please note that unlike our other endpoints it is imporant that you post this to the BugSplat sub-domain that matches your database e.g. fred.bugsplat.com.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="description" type="string" required=false %}
+{% swagger-parameter in="body" name="description" type="string" %}
 Description to associate with the crash report
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="email" type="string" required=false %}
+{% swagger-parameter in="body" name="email" type="string" %}
 Email to associate with the crash report
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="user" type="string" required=false %}
+{% swagger-parameter in="body" name="user" type="string" %}
 Username to associate with the crash report
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="appKey" type="string" required=false %}
+{% swagger-parameter in="body" name="appKey" type="string" %}
 Application key to associated with the crash report
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="appVersion" type="string" required=true %}
+{% swagger-parameter in="body" name="appVersion" type="string" %}
 Version of the application that generated the crash report
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="appName" type="string" required=true %}
+{% swagger-parameter in="body" name="appName" type="string" %}
 Name of the application that generated the crash report
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="file" type="object" required=false %}
+{% swagger-parameter in="body" name="file" type="object" %}
 File named bsCrashReport.xml that contains the crash report data. See the mConsoleCrasher example in the Windows C++ SDK for an example of the XML schema
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Example
 
 You can access the web services with a variety of tools. Here’s an example using Curl to connect to the Fred database:
 
 * rm cookies.txt
-* curl -b cookies.txt -c cookies.txt --data "email=fred@bugsplat.com&password=Flintstone" https://app.bugsplat.com/api/authenticatev3
+* curl -b cookies.txt -c cookies.txt --data "email=fred@bugsplat.com\&password=Flintstone" https://app.bugsplat.com/api/authenticatev3
 * curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/allCrash?database=Fred"
-* curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/api/crash/data?id=58464&database=Fred"
+* curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/api/crash/data?id=58464\&database=Fred"
 
 ## Special Rules for POSTing
 
-When POSTing data to BugSplat endpoints additional steps are required to meet our Cross Site Request Forgery \(XSRF\) safety checks. After authenticating you will recieve a cookie named xsrf-token. Send that variable/value as a header parameter in all POST requests.
-
+When POSTing data to BugSplat endpoints additional steps are required to meet our Cross Site Request Forgery (XSRF) safety checks. After authenticating you will recieve a cookie named xsrf-token. Send that variable/value as a header parameter in all POST requests.

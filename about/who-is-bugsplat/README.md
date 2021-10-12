@@ -1,14 +1,17 @@
 # Who is BugSplat?
 
-### **Our Story** 
+### **Our Story **
 
 BugSplat started in 2004 as an informal side project by David Plunkett and a couple of friends.
 
 Dave and the gang had built and maintained crash reporting tools at much larger software companies in their previous roles.  This was an experience that led them to three big takeaways: 
 
-1. Crash reporting was a nearly magical tool for finding and fixing crash defects.   
-2. Software is better and more stable with crash reporting—so everyone should use it. 
-3. Building and supporting a crash reporter was a lot of work. 
+1. Crash reporting was a nearly magical tool for finding and fixing crash defects.  \
+
+2. Software is better and more stable with crash reporting—so everyone should use it.\
+
+3. Building and supporting a crash reporter was a lot of work.\
+
 
 ### Back in 2004, if you wanted a crash reporter, you had to build it.
 
@@ -51,4 +54,3 @@ If you're a BugSplat user, thank you for making this happen. If you're not a use
 Cheers,
 
 ![](../../.gitbook/assets/bs-team-signature.png)
-

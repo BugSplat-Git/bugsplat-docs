@@ -1,6 +1,6 @@
 # How to fix 'BugSplat's'
 
-**Hello internet friend.  Don't panic!  We can help you fix the root cause of** _**BugSplats**_**.**
+**Hello internet friend.  Don't panic!  We can help you fix the root cause of **_**BugSplats**_**.**
 
 Have you've recently encountered the [BugSplat pop-up](../../../about/who-is-bugsplat/brand-guidelines.md#wall-of-fame) and don't know what to do next? If so then you're in the right place!
 
@@ -8,7 +8,7 @@ First off, [BugSplat](https://bugsplat.com) is a type of tool called a ‘Crash 
 
 That means that the best way to remove BugSplat is to simply fix the problem causing your application to crash in the first place.
 
-Importantly, BugSplat is a safe program built by a reputable software company called BugSplat Software \([that’s us!](https://bugsplat.com/about)\). BugSplat is trusted by many developers \(people who build and maintain software programs\) to find and fix bugs that cause crashes in their applications. BugSplat is not a virus, trojan, or any kind of malware.
+Importantly, BugSplat is a safe program built by a reputable software company called BugSplat Software ([that’s us!](https://bugsplat.com/about)). BugSplat is trusted by many developers (people who build and maintain software programs) to find and fix bugs that cause crashes in their applications. BugSplat is not a virus, trojan, or any kind of malware.
 
 **In the guide below we’ll cover:**
 
@@ -22,7 +22,7 @@ Importantly, BugSplat is a safe program built by a reputable software company ca
 
 You’re likely reading this because something popped up on your computer saying it’s from BugSplat. That pop-up probably looks like the image below.
 
-![BugSplat Crash Dialog](../../../.gitbook/assets/bugsplat-crash-dialog%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%283%29%20%281%29.png)
+![BugSplat Crash Dialog](<../../../.gitbook/assets/bugsplat-crash-dialog (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3) (1).png>)
 
 That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while is use.
 
@@ -36,9 +36,9 @@ Software companies that use BugSplat are hoping that knowledge of software crash
 
 Today, BugSplat is used by many companies large and small to fix bugs in all kinds of software and video games. You can learn more about how BugSplat specifically helps companies fix bugs on our [Features](https://www.bugsplat.com/crash-reporting/) page.
 
-## Why did I get a BugSplat? <a id="why_did_i_get_bugsplat"></a>
+## Why did I get a BugSplat? <a href="why_did_i_get_bugsplat" id="why_did_i_get_bugsplat"></a>
 
-You will only get a "BugSplat" \(i.e. see the BugSplat Crash Dialogue\) when a software application you are currently using crashes. A crash occurs when a software application runs into an issue or defect that causes it to break.
+You will only get a "BugSplat" (i.e. see the BugSplat Crash Dialogue) when a software application you are currently using crashes. A crash occurs when a software application runs into an issue or defect that causes it to break.
 
 It is BugSplat's job to report on crashes. Once a crash occurs, BugSplat is called into duty, and a crash dialogue appears on your screen asking for feedback from you about what caused the crash.
 
@@ -46,9 +46,9 @@ Including details about what immediately happened before the application crashed
 
 Most of the time, restarting the application that crashed will fix the issue that caused the crash and lead to you seeing the BugSplat Crash Dialogue. If you continue to get "BugSplats," then follow the steps sketched in the paragraph below.
 
-![The face you get when the software application you&apos;re using crashes.](../../../.gitbook/assets/man-actively-getting-a-bugsplat-1%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%283%29.jpg)
+![The face you get when the software application you're using crashes.](<../../../.gitbook/assets/man-actively-getting-a-bugsplat-1 (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3).jpg>)
 
-## How do I fix a BugSplat? <a id="how_to_fix_bugsplat"></a>
+## How do I fix a BugSplat? <a href="how_to_fix_bugsplat" id="how_to_fix_bugsplat"></a>
 
 BugSplat doesn’t cause crashes; it only reports when crashes occur.
 
@@ -62,9 +62,9 @@ Follow the steps below to try to fix your application crashes. If none of them a
 4. **Contact the makers of your Software directly.** Most software companies will have a way to contact their support team to get technical help for their products. Find the contact information on their website, and contact them via email, chat, or phone.
 5. **Try uninstalling and reinstalling.** Uninstalling your computer application and reinstalling it can be dangerous as you could lose data, so please proceed with caution and adequately back up any valuable data that could be lost. Most applications have documents online that help with accomplishing this task safely.
 
-![The feeling once you get your software to stop crashing.](../../../.gitbook/assets/feeling-once-software-fixed-1%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%284%29.jpg)
+![The feeling once you get your software to stop crashing.](<../../../.gitbook/assets/feeling-once-software-fixed-1 (1) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (4).jpg>)
 
-## Why you shouldn't "Remove BugSplat." <a id="how_to_fix_bugsplat"></a>
+## Why you shouldn't "Remove BugSplat." <a href="how_to_fix_bugsplat" id="how_to_fix_bugsplat"></a>
 
 As we've said above, removing BugSplat isn't a viable path for fixing the problem afflicting your application and making it crash.
 
@@ -123,4 +123,3 @@ At this point, ACME users saw the BugSplat Crash Dialogue box and were asked to 
 Because ACME had BugSplat included with their software, they quickly learned about the problem in their code. ACME took data collected by BugSplat to find the cause quickly. They fixed it and shipped a new version to their users that didn't crash as often.
 
 Because ACME is now using BugSplat, they had a much better understanding of how stable their software was because they have an accurate crash count and data on their worst crashes.
-

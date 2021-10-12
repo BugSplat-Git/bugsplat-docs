@@ -20,42 +20,34 @@ The Client Id and Client Secret are used in a POST to the server and will return
 
 Once an `access_token` and `token_type` have been acquired they can be used in any of the API requests outlined in our [API docs](api.md). To make an authenticated request to one of BugSplat's API endpoints add a header with a key of `Authorization` and a value of `${token_type} ${access_token}`.
 
-{% api-method method="post" host="https://app.bugsplat.com" path="/oauth2/authorize" %}
-{% api-method-summary %}
-Authorize
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/oauth2/authorize" method="post" summary="Authorize" %}
+{% swagger-description %}
 Exchange a Client Id and Client Secret for a bearer token.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="scope" type="string" required=true %}
-OAuth2 scope, currently only **restricted** is the only available scope
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="scope" type="string" %}
+OAuth2 scope, currently only 
 
-{% api-method-parameter name="client\_secret" type="string" required=true %}
+**restricted**
+
+ is the only available scope
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="client_secret" type="string" %}
 The Client Secret created above
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="client\_id" type="string" required=true %}
+{% swagger-parameter in="body" name="client_id" type="string" %}
 The Client Id created above
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="grant\_type" type="string" required=true %}
-OAuth2 grant type, in this case, **client\_credentials**
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="body" name="grant_type" type="string" %}
+OAuth2 grant type, in this case, 
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+**client_credentials**
+{% endswagger-parameter %}
 
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
   "token_type": "Bearer",
@@ -63,8 +55,5 @@ OAuth2 grant type, in this case, **client\_credentials**
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9[...]"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

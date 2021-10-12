@@ -22,9 +22,9 @@ BugSplat's `com.bugsplat.unity` package can be added to your project via [OpenUP
 
 ### OpenUPM
 
-Information on how to install the OpenUPM package for node.js can be found [here](https://openupm.com/).
+Information on how to install the OpenUPM package for node.js can be found [here](https://openupm.com).
 
-```text
+```
 openupm add com.bugsplat.unity
 ```
 
@@ -118,7 +118,7 @@ Once you've posted an exception or a minidump to BugSplat click the link in the 
 
 ## WebGL
 
-A few settings must be changed in order to capture function names and line numbers in a WebGL exception report. Open **File &gt; Build Settings** and switch the platform to **WebGL** and check **Development Build.**
+A few settings must be changed in order to capture function names and line numbers in a WebGL exception report. Open **File > Build Settings **and switch the platform to **WebGL** and check **Development Build.**
 
 ![Unity Build Settings Menu](../../../../.gitbook/assets/unity-build-settings.png)
 
@@ -131,4 +131,3 @@ Please note that Unity does not recommend shipping development builds and thus t
 ## Contributing
 
 BugSplat ❤️ 's open source! If you feel that this integration can be improved, please open an [Issue](https://github.com/BugSplat-Git/bugsplat-unity/issues). If you have an awesome new feature you'd like to implement, we'd love to merge your [Pull Request](https://github.com/BugSplat-Git/bugsplat-unity/pulls). You can also reach out to us via an email to [support@bugsplat.com](mailto:support@bugsplat.com) or the in-app chat on bugsplat.com.
-

@@ -50,7 +50,7 @@ Symbol files are required in order to display function names, file names and lin
 
 ### Generating a Crash Report
 
-Right click the `.cryproject` file for your game and select `Launch Game`. Once the game has launched press the ``` (backtick)`` key on your keyboard to display the console. Type `?crash` to ensure that all of the variables from the `Project Configuration` step have been loaded by your game. To generate a crash report, enter `sys_crashrpt_generate` into the console:
+Right click the `.cryproject` file for your game and select `Launch Game`. Once the game has launched press the `` ` (backtick) `` key on your keyboard to display the console. Type `?crash` to ensure that all of the variables from the `Project Configuration` step have been loaded by your game. To generate a crash report, enter `sys_crashrpt_generate` into the console:
 
 ![BugSplat CRYENGINE crash dialog](../../../../.gitbook/assets/cryengine-crash.png)
 
@@ -59,4 +59,3 @@ Right click the `.cryproject` file for your game and select `Launch Game`. Once 
 After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. In this case the last 4 stack frames are all related to the crash report generator and the frame of interest is the 5th frame of the call stack. Create a [subkey](../../../development/using-subkeying-to-find-difficult-crashes.md) by expanding the 5th row in the `Active Thread` and then click the `Create Subkey` button. Navigate back to the crash and notice that the Stack Key is now `CrySystem!CXConsole::ExecuteCommand(2427)` instead of `CrySystem!CCrashHandler::GetExceptionPointers(1566)`.
 
 ![BugSplat CRYENGINE crash details](../../../../.gitbook/assets/cryengine-crash-details.png)
-

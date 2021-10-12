@@ -8,5 +8,4 @@ In order to correctly unwind uglified stack traces, you’ll need to ensure that
 Be sure to upload source maps for each released version of your application for best results.
 {% endhint %}
 
-If BugSplat is unable to convert the uglified stack trace back to the original source the **Debugger Output** tab will display diagnostic information from the BugSplat backend that will help you troubleshoot.
-
+If BugSplat is unable to convert the uglified stack trace back to the original source the **Debugger Output **tab will display diagnostic information from the BugSplat backend that will help you troubleshoot.

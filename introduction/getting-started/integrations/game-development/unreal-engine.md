@@ -20,7 +20,7 @@ BugSplat’s Unreal Engine integration supports most Unreal platforms including 
 
 Sending crash reports to BugSplat can be done via a simple configuration change to Unreal Engine's CrashReportClient. To configure crash upload to your BugSplat database, create a file named DefaultEngine.ini with the following contents:
 
-```text
+```
 [CrashReportClient]
 CrashReportClientVersion=1.0
 DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}"
@@ -34,7 +34,7 @@ Remember the values you use for {database}, {appName}, and {appVersion}. You wil
 
 #### Unreal Engine 4.25 and older
 
-For capturing crashes in packaged games in Unreal Engine 4.25 and earlier, ****copy `DefaultEngine.ini` to `{{output directory}}\Engine\Programs\CrashReportClient\Config\NoRedist` making sure to create folders that don't exist.
+For capturing crashes in packaged games in Unreal Engine 4.25 and earlier,** **copy `DefaultEngine.ini` to `{{output directory}}\Engine\Programs\CrashReportClient\Config\NoRedist` making sure to create folders that don't exist.
 
 **Unreal Engine 4.26 and newer**
 
@@ -77,4 +77,3 @@ Special instructions for Linux servers:
 ## Forwarding Crashes to Epic Games
 
 If you'd like to forward crashes to the original `DataRouterUrl` specified in `DefaultEngine.ini` you can enable the **Forward Crashes** option under the Privacy tab on the [Options](https://app.bugsplat.com/v2/options?tab=privacy) page. Forwarding crash reports to Epic is useful when a crash in your game is caused by the underlying engine and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes that were successfully forwarded to Epic.
-

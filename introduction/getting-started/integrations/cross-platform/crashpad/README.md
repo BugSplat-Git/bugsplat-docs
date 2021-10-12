@@ -129,7 +129,7 @@ initializeCrashpad(dbName, appName, appVersion);
 
 #### Step 4
 
-Link your application with the appropriate version of the Crashpad libraries `client.lib`, `base.lib`, and`util.lib`. BugSplat supplies builds for Debug/Release \(x86\) and Debug\_x64/Release\_x64 versions of the Crashpad libraries.
+Link your application with the appropriate version of the Crashpad libraries `client.lib`, `base.lib`, and`util.lib`. BugSplat supplies builds for Debug/Release (x86) and Debug_x64/Release_x64 versions of the Crashpad libraries.
 
 #### Step 5
 
@@ -137,7 +137,7 @@ Upload symbols for your application to generate symbolic call stacks. Our sample
 
 #### Step 6
 
-BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's .sym files using the manual symbol upload page, select one of your symbol stores on the [Symbols](https://app.bugsplat.com/v2/symbols/) page, then click the "Upload new symbol files" link. Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store. 
+BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's .sym files using the manual symbol upload page, select one of your symbol stores on the [Symbols](https://app.bugsplat.com/v2/symbols/) page, then click the "Upload new symbol files" link. Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`,` {appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store. 
 
 {% hint style="warning" %}
 Ensure the `path`and`url`are wrapped in double quotes when using`symupload`
@@ -159,11 +159,10 @@ The BugSplat database for your crash reports is created on the [Company](https:/
 
 ### Optimizations
 
-Compiler optimizations can cause a mismatch between the line numbers in crash reports and the actual line numbers in your code. BugSplat recommends turning off compiler optimizations to ensure that the line numbers in your crash reports match the line numbers in your code. To turn off optimizations in Visual Studio, right click your project and navigate to **Properties &gt; C/C++ &gt; Optimization &gt; Optimization** and set the value to **Disabled \(/Od\)**.
+Compiler optimizations can cause a mismatch between the line numbers in crash reports and the actual line numbers in your code. BugSplat recommends turning off compiler optimizations to ensure that the line numbers in your crash reports match the line numbers in your code. To turn off optimizations in Visual Studio, right click your project and navigate to **Properties > C/C++ > Optimization > Optimization** and set the value to **Disabled (/Od)**.
 
 ### Processing as Windows Native
 
 BugSplat can process Crashpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage to this approach is that BugSplat will be able to display function arguments and local variables for each resolved stack frame. Another advantage of this approach is that our backend will automatically resolve Windows OS symbols.
 
-To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll` and `.exe` files \(rather than .sym files\). The presence of `.pdb`, `.dll` or `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
-
+To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll` and `.exe` files (rather than .sym files). The presence of `.pdb`, `.dll` or `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).

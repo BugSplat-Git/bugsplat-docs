@@ -1,4 +1,4 @@
-# Windows \(.NET Framework\)
+# Windows (.NET Framework)
 
 ## Introduction
 
@@ -14,9 +14,9 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 ## Overview
 
-The BugSplat .NET SDK supports applications written using the [Microsoft Common Language Runtime \(CLR\)](https://docs.microsoft.com/en-us/dotnet/standard/clr). This includes applications written using C\#. The managed call stacks captured at the time of a crash include function names, source code file names, and line numbers. In addition, BugSplat will also display mixed-mode call stacks which have both managed code and native code on the stack.
+The BugSplat .NET SDK supports applications written using the [Microsoft Common Language Runtime (CLR)](https://docs.microsoft.com/en-us/dotnet/standard/clr). This includes applications written using C#. The managed call stacks captured at the time of a crash include function names, source code file names, and line numbers. In addition, BugSplat will also display mixed-mode call stacks which have both managed code and native code on the stack.
 
-To get started, make sure to [log in](https://app.bugsplat.com/auth0/login) using your email address and [download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) the BugSplat software development kit for .NET Framework / C\# applications.
+To get started, make sure to [log in](https://app.bugsplat.com/auth0/login) using your email address and [download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) the BugSplat software development kit for .NET Framework / C# applications.
 
 To get a feel for the BugSplat service before enabling your application, feel free to experiment with the myDotNetCrasher sample application, which is part of the BugSplat software development kit. You may also want to browse the [.NET API documentation](https://www.bugsplat.com/platforms/net/api/).
 
@@ -32,7 +32,7 @@ In a few simple steps, your .NET application can be modified to provide full deb
    * The BugSplat database is created on the [Company](https://app.bugsplat.com/v2/company) page. Typically, you will create a new database for each major release of your product.
 3. Add `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRC.dll` to your application's installer.
 4. Edit `BugSplatRC.dll` with Visual Studio if you wish to change the banner displayed when your application crashes.
-5. Add symbolic debug information to your release build. **Important!** To get symbolic stack reports, debug information \([pdb, dll, and executable files](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)\) needs to be uploaded to the BugSplat website along with your application’s executable files. Modify your build settings so that symbol files are created for Release builds, e.g.,
+5. Add symbolic debug information to your release build. **Important!** To get symbolic stack reports, debug information ([pdb, dll, and executable files](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)) needs to be uploaded to the BugSplat website along with your application’s executable files. Modify your build settings so that symbol files are created for Release builds, e.g.,
 
 ![Build Settings for .NET Applications](../../../../.gitbook/assets/buildnet2-e14105434665201.png)
 
@@ -46,5 +46,4 @@ After each build you should upload the new executable and files. The [myDotNetCr
 Visual Studio debugger's hosting process can interfere with BugSplat's ability to resolve symbols; it should be disabled in your project's debug settings when submitting crash reports that occur while debugging.
 {% endhint %}
 
-6. Test your application by forcing a crash, and then verify that crashes are posted and symbol names are resolved. You can verify symbols have been posted on the [Symbols](https://app.bugsplat.com/v2/symbols) page. You can view a list of crashes that have been posted to BugSplat on the [Crashes](https://app.bugsplat.com/v2/crashes) page
-
+6\. Test your application by forcing a crash, and then verify that crashes are posted and symbol names are resolved. You can verify symbols have been posted on the [Symbols](https://app.bugsplat.com/v2/symbols) page. You can view a list of crashes that have been posted to BugSplat on the [Crashes](https://app.bugsplat.com/v2/crashes) page

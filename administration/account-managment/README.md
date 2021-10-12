@@ -2,13 +2,23 @@
 
 Docs to help you and your team more easily manage your BugSplat account and teams.
 
-{% page-ref page="how-to-migrate-databases-between-users-and-accounts.md" %}
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}
 
-{% page-ref page="deleting-databases.md" %}
+{% content-ref url="how-to-migrate-databases-between-users-and-accounts.md" %}
+[how-to-migrate-databases-between-users-and-accounts.md](how-to-migrate-databases-between-users-and-accounts.md)
+{% endcontent-ref %}
 
-{% page-ref page="permanently-deleting-a-company-account.md" %}
+{% content-ref url="deleting-databases.md" %}
+[deleting-databases.md](deleting-databases.md)
+{% endcontent-ref %}
 
-{% page-ref page="../introduction/permanently-deleting-a-user-account.md" %}
+{% content-ref url="permanently-deleting-a-company-account.md" %}
+[permanently-deleting-a-company-account.md](permanently-deleting-a-company-account.md)
+{% endcontent-ref %}
 
-
+{% content-ref url="../introduction/permanently-deleting-a-user-account.md" %}
+[permanently-deleting-a-user-account.md](../introduction/permanently-deleting-a-user-account.md)
+{% endcontent-ref %}
 
