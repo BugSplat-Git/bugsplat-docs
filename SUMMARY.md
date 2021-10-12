@@ -116,7 +116,7 @@
   * [How to configure proxy settings in BugSplat](education/faq/how-to-configure-proxy-settings-in-bugsplat.md)
   * [Using BugSplat's public database](education/faq/using-bugsplats-public-database.md)
   * [Using SendPdbs to Automatically Upload Symbol Files](education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)
-  * [How and why to use Sukeying](education/faq/how-and-why-to-use-sukeying.md)
+  * [How and why to use Subkeying](education/faq/how-and-why-to-use-sukeying.md)
   * [Uploading third-party DLLs without PDB files](education/faq/uploading-third-party-dlls-without-pdb-files.md)
   * [Localized Support Responses for Windows C++, .NET, and macOS](education/faq/localized-support-responses-for-windows-c++-.net-and-macos.md)
   * [BugSplat application uptime data](education/faq/bugsplat-application-uptime-data/README.md)
