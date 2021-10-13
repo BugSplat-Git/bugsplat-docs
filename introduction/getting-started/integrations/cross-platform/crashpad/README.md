@@ -163,6 +163,6 @@ Compiler optimizations can cause a mismatch between the line numbers in crash re
 
 ### Processing as Windows Native
 
-BugSplat can process Crashpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage to this approach is that BugSplat will be able to display function arguments and local variables for each resolved stack frame. Another advantage of this approach is that our backend will automatically resolve Windows OS symbols.
+BugSplat can process Crashpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage of this approach is that BugSplat will be able to automatically resolve Windows OS symbols.
 
 To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll` and `.exe` files (rather than .sym files). The presence of `.pdb`, `.dll` or `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
