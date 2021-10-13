@@ -1,4 +1,4 @@
-# Breakpad \(Deprecated\)
+# Breakpad (Deprecated)
 
 {% hint style="danger" %}
 **Breakpad is the predecessor of Crashpad**. If you are configuring a new integration, please consider using our [Crashpad integration](crashpad/) instead.
@@ -20,8 +20,8 @@ Before continuing with the integration please complete the following tasks:
 
 * Create a new [database](https://app.bugsplat.com/v2/company) for your application
 * Clone the [source](https://chromium.googlesource.com/breakpad/breakpad/)
-* Build the exception\_handler and crash\_report\_sender libraries and integrate them into your application
-* Build the dump\_syms and symupload tools
+* Build the exception_handler and crash_report_sender libraries and integrate them into your application
+* Build the dump_syms and symupload tools
 
 ## Configuration
 
@@ -67,14 +67,14 @@ bool minidumpCallback(
 ```
 
 1. Create a new symbol store on our [Symbols](https://app.bugsplat.com/v2/symbols/) page. You should do this for each released version of your product in order to ensure your crash reports contain function names and line numbers.
-2. Use dump\_syms to generate .sym files for your application. You need to do this for each release version of your product.
+2. Use dump_syms to generate .sym files for your application. You need to do this for each release version of your product.
 3. Upload your application's .sym files to BugSplat via the symupload tool, or via our manual symbol upload page. To view the manual symbol upload page, select one of your symbol stores on the [Symbols](https://app.bugsplat.com/v2/symbols/) page, then click the "Upload new symbol files" link. Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
 
 ```bash
 symupload file.sym "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
 ```
 
-1. Trigger a crash in your application. The following code snippet can be used to generate an EXCEPTION\_ACCESS\_VIOLATION\_WRITE crash:
+1. Trigger a crash in your application. The following code snippet can be used to generate an EXCEPTION_ACCESS_VIOLATION_WRITE crash:
 
 ```cpp
 int nullVal;
@@ -86,9 +86,9 @@ void crash()
 
 ### Processing as Windows Native
 
-BugSplat can process Breakpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage to this approach is that BugSplat will be able to display function arguments and local variables for each resolved stack frame. Another advantage of this approach is that our backend will automatically resolve Windows OS symbols.
+BugSplat can process Breakpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage of this approach is that our backend will automatically resolve Windows OS symbols.
 
-To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload .pdb, .dll and .exe files \(rather than .sym files\). The presence of .pdb, .dll or .exe files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
+To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload .pdb, .dll and .exe files (rather than .sym files). The presence of .pdb, .dll or .exe files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 ### Additional Considerations
 
@@ -96,5 +96,4 @@ Crashes can be posted manually using our test page at `https://{database}.bugspl
 
 The BugSplat database for your crash reports is created on the [Company](https://app.bugsplat.com/v2/company) page. Typically you will create a new database for each major release of your product.
 
-If you are sending symbols from symupload on macOS there is no command line option to increase the upload timeout. We have created a [fork of symupload](https://github.com/BugSplat-Git/breakpad/commit/b823d9128884051627874a780296edef1cf6acac) with the timeout increased to 100 seconds \(from 10 seconds\). You need to use a modified version of symupload to upload files larger than 100 MB. You can download the modified archive [here](https://s3.amazonaws.com/bugsplat-public/symupload.xcarchive.zip).
-
+If you are sending symbols from symupload on macOS there is no command line option to increase the upload timeout. We have created a [fork of symupload](https://github.com/BugSplat-Git/breakpad/commit/b823d9128884051627874a780296edef1cf6acac) with the timeout increased to 100 seconds (from 10 seconds). You need to use a modified version of symupload to upload files larger than 100 MB. You can download the modified archive [here](https://s3.amazonaws.com/bugsplat-public/symupload.xcarchive.zip).
