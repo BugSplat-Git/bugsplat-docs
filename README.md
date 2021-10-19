@@ -4,7 +4,7 @@ Hi there 👋
 
 BugSplat is the go-to tool for finding, understanding, fixing, and monitoring defects, crashes, errors, and other issues in live applications and projects in development.  BugSplat provides teams with turn-key tools that are secure, scalable, and customizable, allowing developers to spend less time supporting their applications, and more time building them.
 
-In these documents, you’ll find everything you need to get fully up to speed with BugSplat.  This includes getting started guides,[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of third-party tool integrations, best practices and features overviews, links to our webservices (API), and much more. 
+In these documents, you’ll find everything you need to get fully up to speed with BugSplat.  This includes getting started guides,[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of third-party tool integrations, best practices and features overviews, links to our webservices (API), and much more.&#x20;
 
 Use the links below to begin navigating these docs.  If you can’t find something use the left-hand menu or the handy search bar in the top right.
 
@@ -12,7 +12,7 @@ If you need any support please reach out to us at [support@bugsplat.com](mailto:
 
 ## Introduction
 
-Whether you're new to BugSplat, or simply setting up a new project, our getting started resources make the process straightforward. 
+Whether you're new to BugSplat, or simply setting up a new project, our getting started resources make the process straightforward.&#x20;
 
 {% content-ref url="introduction/getting-started/" %}
 [getting-started](introduction/getting-started/)
@@ -24,46 +24,6 @@ Whether you're new to BugSplat, or simply setting up a new project, our getting 
 
 {% content-ref url="introduction/production/" %}
 [production](introduction/production/)
-{% endcontent-ref %}
-
-## About
-
-Information that covers the who, what, when, where, and why's of BugSplat.
-
-{% content-ref url="about/what-is-bugsplat.md" %}
-[what-is-bugsplat.md](about/what-is-bugsplat.md)
-{% endcontent-ref %}
-
-{% content-ref url="about/introduction.md" %}
-[introduction.md](about/introduction.md)
-{% endcontent-ref %}
-
-{% content-ref url="about/who-is-bugsplat/" %}
-[who-is-bugsplat](about/who-is-bugsplat/)
-{% endcontent-ref %}
-
-## Administration
-
-Documentation covering user management, account management, billing, and upgrades.
-
-{% content-ref url="administration/introduction/" %}
-[introduction](administration/introduction/)
-{% endcontent-ref %}
-
-{% content-ref url="administration/account-managment/" %}
-[account-managment](administration/account-managment/)
-{% endcontent-ref %}
-
-{% content-ref url="administration/billing/" %}
-[billing](administration/billing/)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-{% content-ref url="administration/contact-us.md" %}
-[contact-us.md](administration/contact-us.md)
 {% endcontent-ref %}
 
 ## **Education**
@@ -84,6 +44,44 @@ Information helpful for understanding and using BugSplat, FAQ's, and answers to 
 
 {% content-ref url="education/faq/common-end-user-questions/" %}
 [common-end-user-questions](education/faq/common-end-user-questions/)
+{% endcontent-ref %}
+
+## Administration
+
+Documentation covering user management, account management, billing, and upgrades.
+
+{% content-ref url="administration/introduction/" %}
+[introduction](administration/introduction/)
+{% endcontent-ref %}
+
+{% content-ref url="administration/account-managment/" %}
+[account-managment](administration/account-managment/)
+{% endcontent-ref %}
+
+{% content-ref url="administration/billing/" %}
+[billing](administration/billing/)
+{% endcontent-ref %}
+
+{% content-ref url="administration/contact-us.md" %}
+[contact-us.md](administration/contact-us.md)
+{% endcontent-ref %}
+
+****
+
+## About
+
+Information that covers the who, what, when, where, and why's of BugSplat.
+
+{% content-ref url="about/what-is-bugsplat.md" %}
+[what-is-bugsplat.md](about/what-is-bugsplat.md)
+{% endcontent-ref %}
+
+{% content-ref url="about/introduction.md" %}
+[introduction.md](about/introduction.md)
+{% endcontent-ref %}
+
+{% content-ref url="about/who-is-bugsplat/" %}
+[who-is-bugsplat](about/who-is-bugsplat/)
 {% endcontent-ref %}
 
 ## Updates
