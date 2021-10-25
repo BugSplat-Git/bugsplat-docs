@@ -2,9 +2,15 @@
 
 List of recent product changes and updates for BugSplat. We announce these updates via [Twitter](https://twitter.com/bugsplatco).
 
-## BugSplat Unity - Release - 1.4.1 - September 30th, 2021
+## BugSplat Unity - Release - 2.1.0 - October 14th, 2021
 
-* Fixes error in non-Windows builds
+* Adds support for configuring BugSplat via the Unity Editor
+* Adds support for DontDestroyOnLoad
+
+## BugSplat Unity - Release - 2.0.0 - October 7th, 2021
+
+* Adds support for WebGL&#x20;
+* Fixes a bug where PostMostRecentCrash posted the oldest crash
 
 ## Symbol Upload - Release - 3.0.0 - September 29th, 2021
 
@@ -98,7 +104,7 @@ List of recent product changes and updates for BugSplat. We announce these updat
 
 ## BugSplatNative library - v3.6.0.10. - Jul 22nd, 2021
 
-* MDSF_NONINTERACTIVE option now also enforces silent reporting of application hangs.
+* MDSF\_NONINTERACTIVE option now also enforces silent reporting of application hangs.
 
 ## Web App Update - v2.2.30 - Jul 22nd, 2021
 
@@ -1104,7 +1110,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 09-Nov-2018: Unity Native Version 1.2.0
 
-* Added support for passing flags to BsSndRpt. The BugSplat.MSDF_LOGCONSOLE flag will instruct BsSndRpt to not remove the dmp file when posting a crash report. Fixes bug that prevented some crash reports from being sent to BugSplat.
+* Added support for passing flags to BsSndRpt. The BugSplat.MSDF\_LOGCONSOLE flag will instruct BsSndRpt to not remove the dmp file when posting a crash report. Fixes bug that prevented some crash reports from being sent to BugSplat.
 
 ## 31-October-2018: SendPdbs 2.1.0.3
 
@@ -1148,7 +1154,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 30-July-2018: Version 3.6.0.5
 
-* Added new method setGuardBytesBufferSize(). This can be used along with the MDSF_USEGUARDMEMORY option to specify the size (in bytes) of the guard buffer. The default buffer size is 4 mb.
+* Added new method setGuardBytesBufferSize(). This can be used along with the MDSF\_USEGUARDMEMORY option to specify the size (in bytes) of the guard buffer. The default buffer size is 4 mb.
 
 ## 11-June-2018: Unity Native Version 1.1.0
 
@@ -1218,7 +1224,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 20-Jan-2018: Website Update
 
-* Old versions of SendPdbs have been retired as scheduled. If automated symbol uploads are not working for you, please upgrade to the latest version of SendPdbs (version 2.0.0.1) found [here](https://app.bugsplat.com/browse/download_item.php?item=sendpdbs).
+* Old versions of SendPdbs have been retired as scheduled. If automated symbol uploads are not working for you, please upgrade to the latest version of SendPdbs (version 2.0.0.1) found [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
 
 ## 14-Nov-2017: Version 2.2.0
 
@@ -1258,7 +1264,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 02-Oct-2017: Version 3.5.0.5
 
-* Improvements to out-of-memory crash reporting. We now allocate a larger guard memory block and free it earlier in the unhandled exception handler code. All Native Windows applications should use the MDSF_USEGUARDMEMORY flag to enable crash reports in out-of-memory situations. Also added back support for internal IP address reporting, which was dropped in version 3.4.0.2.
+* Improvements to out-of-memory crash reporting. We now allocate a larger guard memory block and free it earlier in the unhandled exception handler code. All Native Windows applications should use the MDSF\_USEGUARDMEMORY flag to enable crash reports in out-of-memory situations. Also added back support for internal IP address reporting, which was dropped in version 3.4.0.2.
 
 ## 25-Oct-2017: Version 1.0.0.
 
@@ -1385,7 +1391,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## Updates 03-March-2016
 
-* Header file change to indicate MDSCB_GETADDITIONALFILECOUNT is obsolete, not just deprecated
+* Header file change to indicate MDSCB\_GETADDITIONALFILECOUNT is obsolete, not just deprecated
 
 ## Updates 29-December-2015
 
