@@ -14,9 +14,7 @@ List of recent product changes and updates for BugSplat. We announce these updat
 
 ## Symbol Upload - Release - 3.0.0 - September 29th, 2021
 
-**Breaking Changes**
-
-* Renames post and delete to postSymbols and deleteSymbols respectively
+Renames post and delete to postSymbols and deleteSymbols respectively
 
 ## JS API Client - Release - 2.3.3 - September 29th, 2021
 
