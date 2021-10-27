@@ -108,6 +108,7 @@
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
 * [FAQs](education/faq/README.md)
   * [Crash details 'Active Thread'](education/faq/crash-details-active-thread.md)
+  * [Multi-Factor Authentication (MFA)](education/faq/multi-factor-authentication-mfa.md)
   * [How BugSplat handles large crash volumes](education/faq/how-bugsplat-handles-large-crash-volumes.md)
   * [Find missing crash data](education/faq/find-missing-crash-data.md)
   * [Finding missing reports](education/faq/finding-missing-reports.md)
