@@ -1,6 +1,6 @@
 # Multi-Factor Authentication (MFA)
 
-To enable Multi-Factor Authentication (MFA) two-step login protocol requiring separate verification from a mobile device to access your account, simply visit the [Password](https://app.bugsplat.com/v2/password) page found under the Settings dropdown.  Once there, toggle the Enable MFA button to the on position. &#x20;
+Multi-Factor Authentication (MFA) is a two-step login protocol requiring separate verification from a mobile device to access your account.  To enable MFA, simply visit the [Password](https://app.bugsplat.com/v2/password) page found under the Settings dropdown. Once there, toggle the Enable MFA button to the 'On' position. &#x20;
 
 Next, log out of your account by clicking the Logout button found at the bottom the Settings dropdown. &#x20;
 
