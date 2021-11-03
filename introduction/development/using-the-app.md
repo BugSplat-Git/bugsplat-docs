@@ -4,7 +4,7 @@ The BugSplat web application consists of three main pages: [Dashboard](https://a
 
 Each of the main pages has subpages that provide more detail on individual [crashes](../../education/bugsplat-terminology.md#crash-report), errors, [stack keys](../../education/bugsplat-terminology.md#stack-key), and other important data.
 
-## Dashboard 
+## Dashboard&#x20;
 
 The [Dashboard](https://app.bugsplat.com/v2/dashboard) page is the application’s home and the place users land first inside the application. It provides users with an overview of how their application is performing and shows a list of the most recently submitted crashes.
 
@@ -34,7 +34,7 @@ Second, users can select different data types using the **Column Visibility** dr
 
 Third, users can sort by ascending or descending order in a column by clicking on the header text of that column.
 
-Fourth, users can click the **&gt;** on each individual row to expand that row and view more details about a specific crash. These details include crash metadata, call stack of the crashing thread, and a list of files that were attached to the crash report.
+Fourth, users can click the **>** on each individual row to expand that row and view more details about a specific crash. These details include crash metadata, call stack of the crashing thread, and a list of files that were attached to the crash report.
 
 ![](../../.gitbook/assets/expando-row-crashes.gif)
 
@@ -46,9 +46,9 @@ The **Crash** page allows for users to get information critical for understandin
 
 ### User Details
 
-The **User Details** component contains information about the user who experienced a crash. The User Details table will display who crashed, where they crashed \(IP address\), and the description provided by the user in the crash dialog. This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md) — like it is in the image below.
+The **User Details** component contains information about the user who experienced a crash. The User Details table will display who crashed, where they crashed (IP address), and the description provided by the user in the crash dialog. This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md) — like it is in the image below.
 
-![](../../.gitbook/assets/screen-shot-2021-07-16-at-3.08.42-pm%20%281%29.png)
+![](<../../.gitbook/assets/screen-shot-2021-07-16-at-3.08.42-pm (1).png>)
 
 ### Crash Details
 
@@ -62,7 +62,7 @@ The **Method** column contains a list of functions in the stack trace of the thr
 
 ![](../../.gitbook/assets/active-thread-july-21.png)
 
-Clicking the **&gt;** \(greater than symbol\) in the left-most column will expand the **Row Details** view.
+Clicking the **>** (greater than symbol) in the left-most column will expand the **Row Details** view.
 
 The **Row Details** view will display the **Group Stacks** button that will allow you to create a [subkey](using-subkeying-to-find-difficult-crashes.md). Grouping at a different level of the call stack is called [subkeying](using-subkeying-to-find-difficult-crashes.md) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
 
@@ -74,13 +74,13 @@ The Crash page includes valuable information like crash time, environment, corre
 
 All data covered to this point on the Crash page are found under the **Crash Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Debugger Output**, and **Attachments** — use the tabs found above the **User Details** module.
 
-![](../../.gitbook/assets/viewing-tabs-crashreport%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.gif)
+![](<../../.gitbook/assets/viewing-tabs-crashreport (1) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (1).gif>)
 
 ## Summary
 
 The [Summary](https://app.bugsplat.com/v2/summary) page shows a view of an application's crash data which automatically groups crashes by the top line of the call stack, allowing users to see which defects are occurring most frequently.
 
-You can group by other levels of the call stack as well to differentiate defects using [Subkeying](using-subkeying-to-find-difficult-crashes.md).
+You can group by other levels of the call stack as well to differentiate defects using [Crash Grouping](../../education/how-tos/creating-crash-groups.md).
 
 The **Summary** page allows for similar table navigation as the [Crashes](using-the-app.md#crashes) page. Users can search, manipulate column size, alter column visibility, and expand rows.
 
@@ -88,7 +88,7 @@ The **Summary** page allows for similar table navigation as the [Crashes](using-
 
 The Summary page has a line chart at the top of the page which shows the top stack key by default, although you can select multiple stack keys to display on the chart.
 
-![](../../.gitbook/assets/charting-stack-keys%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29.gif)
+![](<../../.gitbook/assets/charting-stack-keys (3) (3) (3) (3) (3) (3) (3) (4).gif>)
 
 ## Key Crash
 
@@ -97,4 +97,3 @@ The **Key Crash** page shows a more in-depth view of all crashes found in a [sta
 The Key Crash page allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more.
 
 Companies that are using BugSplat's [Windows C++ SDK](../getting-started/integrations/desktop/cplusplus/) can create [Custom Support Responses](../production/setting-up-custom-support-responses.md) to alert their end-users to known issues identified with BugSplat. Support responses are a valuable tool for communicating with end-users about known fixes or to point them toward specific helpful docs.
-
