@@ -13,7 +13,7 @@ The **Crash Dialog** box is the end-user, customer-facing aspect of BugSplat. Th
 
 ### Crash Groups
 
-Crash groups are used to group similar crashes and identify the root cause of multiple crash reports. Crash grouping helps speed up the analysis of specific crashes by ignoring uninteresting frames at the top of a call stack.  [Learn more here](how-tos/creating-crash-groups.md).
+Crash groups are used to group similar crashes and identify the root cause of multiple crash reports. Crash grouping helps speed up the analysis of specific crashes by ignoring uninteresting frames at the top of a call stack.  [Learn more here](../introduction/development/grouping-crashes.md).
 
 ### Crash Report
 

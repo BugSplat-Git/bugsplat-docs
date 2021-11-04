@@ -64,6 +64,7 @@
     * [Working with Symbol Files in Windows Environments](introduction/development/working-with-symbol-files/working-with-windows-symbols-in-bugsplat.md)
   * [Search](introduction/development/search.md)
   * [Grouping](introduction/development/grouping.md)
+  * [Grouping Crashes](introduction/development/grouping-crashes.md)
   * [Subkeying](introduction/development/using-subkeying-to-find-difficult-crashes.md)
   * [Commenting](introduction/development/commenting.md)
   * [3rd Party Tools](introduction/development/integrating-with-tools/README.md)
@@ -101,9 +102,8 @@
 
 * [BugSplat Terminology](education/bugsplat-terminology.md)
 * [How-Tos](education/how-tos/README.md)
-  * [Contacting End-Users](education/how-tos/contacting-users.md)
-  * [Creating Crash Groups](education/how-tos/creating-crash-groups.md)
   * [Creating Defects](education/how-tos/creating-a-defect.md)
+  * [Contacting End-Users](education/how-tos/contacting-users.md)
   * [Crash Dialog Branding](education/how-tos/customize-the-crash-dialog.md)
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
   * [Send Feedback](education/how-tos/sending-feedback.md)

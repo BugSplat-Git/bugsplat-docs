@@ -80,7 +80,7 @@ All data covered to this point on the Crash page are found under the **Crash Ove
 
 The [Summary](https://app.bugsplat.com/v2/summary) page shows a view of an application's crash data which automatically groups crashes by the top line of the call stack, allowing users to see which defects are occurring most frequently.
 
-You can group by other levels of the call stack as well to differentiate defects using [Crash Grouping](../../education/how-tos/creating-crash-groups.md).
+You can group by other levels of the call stack as well to differentiate defects using [Crash Grouping](grouping-crashes.md).
 
 The **Summary** page allows for similar table navigation as the [Crashes](using-the-app.md#crashes) page. Users can search, manipulate column size, alter column visibility, and expand rows.
 
