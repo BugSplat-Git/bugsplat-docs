@@ -12,8 +12,8 @@ The BugSplat Basics section covers important features and skills needed for usin
 [using-the-app.md](../../introduction/development/using-the-app.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../introduction/development/search.md" %}
-[search.md](../../introduction/development/search.md)
+{% content-ref url="../../introduction/development/searching/search.md" %}
+[search.md](../../introduction/development/searching/search.md)
 {% endcontent-ref %}
 
 {% content-ref url="../../introduction/development/commenting.md" %}
@@ -38,8 +38,8 @@ The Diving Into Defect Data includes tutorials and docs outlining features usefu
 [working-with-symbol-files](../../introduction/development/working-with-symbol-files/)
 {% endcontent-ref %}
 
-{% content-ref url="../../introduction/development/using-subkeying-to-find-difficult-crashes.md" %}
-[using-subkeying-to-find-difficult-crashes.md](../../introduction/development/using-subkeying-to-find-difficult-crashes.md)
+{% content-ref url="crash-grouping-concepts.md" %}
+[crash-grouping-concepts.md](crash-grouping-concepts.md)
 {% endcontent-ref %}
 
 {% content-ref url="reprocessing-crashes.md" %}
@@ -70,7 +70,7 @@ The documents in the Supporting Application Users section covers issues critical
 [working-with-symbol-files](../../introduction/development/working-with-symbol-files/)
 {% endcontent-ref %}
 
-{% content-ref url="../../introduction/development/using-subkeying-to-find-difficult-crashes.md" %}
-[using-subkeying-to-find-difficult-crashes.md](../../introduction/development/using-subkeying-to-find-difficult-crashes.md)
+{% content-ref url="crash-grouping-concepts.md" %}
+[crash-grouping-concepts.md](crash-grouping-concepts.md)
 {% endcontent-ref %}
 

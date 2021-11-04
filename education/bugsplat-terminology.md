@@ -59,7 +59,7 @@ Stack Key is a BugSplat specific term for the function name and line number that
 
 By default, the Stack Key is the function name and line number at the top of a stack of the crashing thread.&#x20;
 
-You can create a [Subkey](../introduction/development/using-subkeying-to-find-difficult-crashes.md) to group the call stack at a different level of the crashing thread. Subkeying is useful for regrouping crashes that would otherwise be grouped by uninteresting stack frames such as system calls or third-party code. For more information about creating Subkeys, please see this [article](../introduction/development/using-subkeying-to-find-difficult-crashes.md).
+You can create a [Subkey](how-tos/crash-grouping-concepts.md) to group the call stack at a different level of the crashing thread. Subkeying is useful for regrouping crashes that would otherwise be grouped by uninteresting stack frames such as system calls or third-party code. For more information about creating Subkeys, please see this [article](how-tos/crash-grouping-concepts.md).
 
 ### Subkey
 
