@@ -28,7 +28,7 @@ The [Crashes](https://app.bugsplat.com/v2/crashes) page contains all an applicat
 
 From here, users can manipulate the table in multiple ways to view specific sets of data.
 
-First, users can filter the crashes using the [Searching](searching/search.md) and [Grouping](searching/grouping.md) tools to find specific crashes. The **Timeframe** filter on the top right can also choose a specific time period.
+First, users can filter the crashes using the [Searching](search.md) and [Grouping](grouping.md) tools to find specific crashes. The **Timeframe** filter on the top right can also choose a specific time period.
 
 Second, users can select different data types using the **Column Visibility** dropdown to change what data is visible.
 
