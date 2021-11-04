@@ -38,11 +38,19 @@ Crash group-by-level is powerful.  It operates on all crashes related to the sam
 
 The '**group-similar**' feature groups crashes that share a number of stack frames beginning at the top of the call stack.  For our example above, if we used group-similar at level 3 on call stack 2, a new crash group would be created for stack frame 'F'.  And crashes in both call stack 2 and 3 would be included in the 'F' grouping.
 
-Group-similar and group-by-level can be used together!  It's just fine to create a group-by-level crash group and refine its results using group-similar.  You can have any number of group-similar crash groups defined for a top-level stack frame.  If a call stack matches multiple crash groups, it will be grouped using the deepest matching level.
+You can have any number of group-similar crash groups defined for a top-level stack frame.  If a call stack matches multiple crash groups, it will be grouped using the deepest matching level. &#x20;
+
+Group-similar and group-by-level can be used together!  It's just fine to create a group-by-level crash group and refine its results using group-similar. &#x20;
 
 Let's return to our example above.  We first created a group-by-level crash group at level 2, which resulted in groups 'B' and 'C'.  Then, we created a group-similar group for stack frame 'F'.  These three groups will now be used for classifying crashes.  Crashes with call stack 1 will be grouped in 'B',  crashes with call stacks 2 or 3 will be grouped in 'F', and crashes with call stack 4 will be grouped in 'C'.  No crashes will be grouped with the default top-level stack frame 'A'.
 
-When you define a crash group, you can also select a timeframe for regrouping existing crashes in your database.  This feature allows you to group existing as well as new crashes.
+**Deleting Crash Groups**
+
+Any individual crash group can be deleted.  This applies to groups created with group-similar and for any single group that was automatically created with group-by-level.
+
+**Grouping of Existing Crashes **
+
+When you define a crash group, you select a timeframe for regrouping existing crashes in your database.  The grouping for crashes older than the selected timeframe will not be modified. &#x20;
 
 
 
