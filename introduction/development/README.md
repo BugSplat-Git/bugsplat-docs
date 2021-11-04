@@ -1,16 +1,16 @@
 # Development
 
-This **Development** section includes articles that are useful for using BugSplat and getting the most out of the app.  
+This **Development** section includes articles that are useful for using BugSplat and getting the most out of the app. &#x20;
 
-****[**Using the App**](using-the-app.md) - is a walkthrough of the different pages in the app, how to navigate inside the app, and how to begin using the app to view crash data.  
+****[**Using the App**](using-the-app.md) - is a walkthrough of the different pages in the app, how to navigate inside the app, and how to begin using the app to view crash data. &#x20;
 
 ****[**Symbol Files**](working-with-symbol-files/) - are a critical component of getting useful data from your crashes.  They're also a common stumbling block for new users.
 
 ****[**Filtering**](search.md) - contains instructions on how to search application crash data to find and isolate specific crashes or crash groups.
 
-****[**Grouping**](grouping.md) - is an overview of how to compare groups of crashes to see into crash and stability trends. 
+****[**Grouping**](grouping.md) - is an overview of how to compare groups of crashes to see into crash and stability trends.&#x20;
 
-[**Subkeying**](using-subkeying-to-find-difficult-crashes.md) - is a way to group a set of crashes at some level other than the top level of the call stack.
+[**Subkeying**](../../education/how-tos/using-subkeying-to-find-difficult-crashes.md) - is a way to group a set of crashes at some level other than the top level of the call stack.
 
 ****[**Commenting**](commenting.md) - is BugSplat's built-in comment tool and issue tracker.
 
