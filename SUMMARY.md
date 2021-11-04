@@ -103,7 +103,7 @@
 * [How-Tos](education/how-tos/README.md)
   * [Creating Defects](education/how-tos/creating-a-defect.md)
   * [Contacting End-Users](education/how-tos/contacting-users.md)
-  * [Crash Grouping](education/how-tos/using-subkeying-to-find-difficult-crashes.md)
+  * [Crash Grouping](introduction/development/using-subkeying-to-find-difficult-crashes.md)
   * [Crash Dialog Branding](education/how-tos/customize-the-crash-dialog.md)
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
   * [Send Feedback](education/how-tos/sending-feedback.md)

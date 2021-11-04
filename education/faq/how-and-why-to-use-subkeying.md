@@ -12,4 +12,4 @@ To create a subkey, select a row of your call stack either on an individual cras
 
 You can view the list of all your currently defined subkeys on the [Subkeys](https://app.bugsplat.com/v2/subkeys/) page.
 
-You can learn more about how Subkeying works [here](../how-tos/using-subkeying-to-find-difficult-crashes.md).
+You can learn more about how Subkeying works [here](../../introduction/development/using-subkeying-to-find-difficult-crashes.md).

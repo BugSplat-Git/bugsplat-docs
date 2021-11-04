@@ -12,10 +12,6 @@ When a crash happens in common code, such as a 3rd party library or system funct
 
 Sorting program crashes brings visibility to problems customers are running into most often and allows developers to prioritize their fixes accordingly. For applications that generate large crash volumes, it may not be feasible to look at each crash individually. BugSplat’s [Summary](https://app.bugsplat.com/v2/summary) page provides an overview of the crash groups. Crash grouping allows teams to alter the default grouping rules to more accurately group crashes on the [Summary](https://app.bugsplat.com/v2/summary) page.
 
-## Why is Subkeying Important?
-
-
-
 
 
 

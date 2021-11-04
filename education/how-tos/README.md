@@ -38,8 +38,8 @@ The Diving Into Defect Data includes tutorials and docs outlining features usefu
 [working-with-symbol-files](../../introduction/development/working-with-symbol-files/)
 {% endcontent-ref %}
 
-{% content-ref url="using-subkeying-to-find-difficult-crashes.md" %}
-[using-subkeying-to-find-difficult-crashes.md](using-subkeying-to-find-difficult-crashes.md)
+{% content-ref url="../../introduction/development/using-subkeying-to-find-difficult-crashes.md" %}
+[using-subkeying-to-find-difficult-crashes.md](../../introduction/development/using-subkeying-to-find-difficult-crashes.md)
 {% endcontent-ref %}
 
 {% content-ref url="reprocessing-crashes.md" %}
@@ -70,7 +70,7 @@ The documents in the Supporting Application Users section covers issues critical
 [working-with-symbol-files](../../introduction/development/working-with-symbol-files/)
 {% endcontent-ref %}
 
-{% content-ref url="using-subkeying-to-find-difficult-crashes.md" %}
-[using-subkeying-to-find-difficult-crashes.md](using-subkeying-to-find-difficult-crashes.md)
+{% content-ref url="../../introduction/development/using-subkeying-to-find-difficult-crashes.md" %}
+[using-subkeying-to-find-difficult-crashes.md](../../introduction/development/using-subkeying-to-find-difficult-crashes.md)
 {% endcontent-ref %}
 

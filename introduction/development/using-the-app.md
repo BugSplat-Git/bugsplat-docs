@@ -64,7 +64,7 @@ The **Method** column contains a list of functions in the stack trace of the thr
 
 Clicking the **>** (greater than symbol) in the left-most column will expand the **Row Details** view.
 
-The **Row Details** view will display the **Group Stacks** button that will allow you to create a [subkey](../../education/how-tos/using-subkeying-to-find-difficult-crashes.md). Grouping at a different level of the call stack is called [subkeying](../../education/how-tos/using-subkeying-to-find-difficult-crashes.md) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
+The **Row Details** view will display the **Group Stacks** button that will allow you to create a [subkey](using-subkeying-to-find-difficult-crashes.md). Grouping at a different level of the call stack is called [subkeying](using-subkeying-to-find-difficult-crashes.md) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
 
 Additionally, for [Windows Native](../getting-started/integrations/desktop/cplusplus/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments.](https://www.bugsplat.com/blog/development/local-variables-function-arguments/)
 
