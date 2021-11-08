@@ -104,7 +104,7 @@
 * [How-Tos](education/how-tos/README.md)
   * [Creating Defects](education/how-tos/creating-a-defect.md)
   * [Contacting End-Users](education/how-tos/contacting-users.md)
-  * [Crash Grouping](education/how-tos/crash-grouping-concepts.md)
+  * [Crash Grouping Concepts](education/how-tos/crash-grouping-concepts.md)
   * [Crash Dialog Branding](education/how-tos/customize-the-crash-dialog.md)
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
   * [Send Feedback](education/how-tos/sending-feedback.md)
