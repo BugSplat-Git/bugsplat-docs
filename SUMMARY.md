@@ -9,7 +9,7 @@
   * [Creating a Database](introduction/getting-started/create-a-new-database-in-bugsplat.md)
   * [Platform Integrations](introduction/getting-started/integrations/README.md)
     * [💻 Desktop](introduction/getting-started/integrations/desktop/README.md)
-      * [Windows (Native C++)](introduction/getting-started/integrations/desktop/cplusplus/README.md)
+      * [BugSplat Crash Reporting Library for Windows (Native C++)](introduction/getting-started/integrations/desktop/cplusplus/README.md)
         * [Windows (Native C++) Dependencies](introduction/getting-started/integrations/desktop/cplusplus/dependencies.md)
       * [Windows (.NET Framework)](introduction/getting-started/integrations/desktop/windows-dot-net-framework.md)
       * [macOS](introduction/getting-started/integrations/desktop/macos.md)
