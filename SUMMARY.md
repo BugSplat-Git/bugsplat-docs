@@ -42,7 +42,6 @@
       * [JavaScript](introduction/getting-started/integrations/web/javascript.md)
       * [React](introduction/getting-started/integrations/web/react.md)
       * [Vue](introduction/getting-started/integrations/web/vue.md)
-    * [⌛ Downloads](introduction/getting-started/integrations/downloads.md)
   * [Platform Samples](introduction/getting-started/posting-a-test-crash/README.md)
     * [myConsoleCrasher (C++)](introduction/getting-started/posting-a-test-crash/myconsolecrasher-c-plus-plus/README.md)
       * [Address Sanitizer Reports](introduction/getting-started/posting-a-test-crash/myconsolecrasher-c-plus-plus/address-sanitizer-reports.md)
