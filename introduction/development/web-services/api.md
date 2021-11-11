@@ -788,6 +788,62 @@ BugSplat database in which the symbol store should be created
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="get" path="/api/upload/manual/crash" baseUrl="https://app.bugsplat.com" summary="Upload Minidump" %}
+{% swagger-description %}
+Migrate crash minidump files to BugSplat from your existing crash report solution, not suited for production crash volumes
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="database" type="string" required="true" %}
+BugSplat database to upload the crash to
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="appName" type="string" required="true" %}
+Application name that generated the corresponding minidump file. This must match the application name used to upload symbol files.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="appVersion" type="string" required="true" %}
+Application version that generated the corresponding minidump file. This must match the version used to upload symbol files.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="minidump" type="file" required="true" %}
+Minidump file to upload
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="crashTypeId" type="int" required="false" %}
+TypeId for the corresponding minidump. 1=Windows Native, 6=Breakpad/Crashpad, 8=.NET Framework, 15=Unity Native Windows, 16=Unreal Engine (Linux Server), 17=Unreal Engine
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="appKey" type="string" %}
+Optional appKey value
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="description" type="string" %}
+Optional description value
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="email" type="string" %}
+Optional email value
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="ipAddress" type="string" %}
+Optional IP Address value
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="user" type="string" %}
+Optional user value
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+    status: "success",
+    crashId: 1,
+    techSupportUrl: "https://fred.bugsplat.com/browse/support/?stackKeyId=5555&vendor=Fred&key=*Default*"
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
 {% swagger baseUrl="https://app.bugsplat.com" path="/api/users" method="get" summary="Users" %}
 {% swagger-description %}
 Returns a list of users and access rights for the specified database.
