@@ -93,7 +93,7 @@
   * [Security and Compliance](introduction/production/security-privacy-and-compliance/README.md)
     * [Security Program](introduction/production/security-privacy-and-compliance/security-program.md)
     * [GDPR](introduction/production/security-privacy-and-compliance/gdpr.md)
-    * [SOC-2](introduction/production/security-privacy-and-compliance/soc-2.md)
+    * [SOC 2](introduction/production/security-privacy-and-compliance/soc-2.md)
     * [Avoid Collecting Personally Identifiable Information (PII)](introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md)
     * [Crash Expiry](introduction/production/security-privacy-and-compliance/crash-expiry.md)
     * [Terms](introduction/production/security-privacy-and-compliance/terms.md)
