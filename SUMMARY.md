@@ -161,6 +161,7 @@
     * [Monthly pricing sheet](administration/billing/free-trial-and-new-accounts/full-monthly-pricing-sheet.md)
   * [Upgrades](administration/billing/upgrades/README.md)
     * [Monthly Plan Upgrades](administration/billing/upgrades/monthly-upgrade-policy.md)
+    * [Enterprise Plans](administration/billing/upgrades/enterprise-plans.md)
     * [Annually Invoiced Plan Upgrades](administration/billing/upgrades/annual-plan-upgrades.md)
     * [High Volume Fractional Crash Processing](administration/billing/upgrades/high-volume-fractional-crash-processing.md)
     * [Fair-Refund Policy](administration/billing/upgrades/refund-policy.md)
