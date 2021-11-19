@@ -1,26 +1,43 @@
 # Full Memory Dumps
 
-In rare circumstances, the default memory dump image created by BugSplat may not contain enough information to diagnose the underlying problem leading to the crash.  In these cases, it can be helpful to create a full memory dump.  Note, this can be an expensive operation.  The full memory dump can be really large, slow to upload, and slow to process. &#x20;
+In some circumstances, the default memory dump image created by BugSplat may not contain enough information to diagnose the underlying problem leading to the crash.  In these cases, it can be helpful to create a full memory dump.  Note, this can be an expensive operation.  The full memory dump can be really large, slow to upload, and slow to process. &#x20;
 
-BugSplat customers interested in processing full memory dumps should contact sales@bugsplat.com.  There is a charge for this feature.  After your account has been enabled for full memory dump processing, follow the steps below.
+BugSplat customers interested in processing full memory dumps should contact sales@bugsplat.com.  There is a charge for this feature.  After your account has been enabled for full memory dump processing, follow the instructions below.
 
-#### Creating Full Memory Dumps
+#### Creating Full Memory Dumps for Windows Native Apps
 
-(1) To enable full memory dumps in your application, code changes are required.  Call the setMiniDumpType method after initializing the BugSplat library:
+To enable full memory dumps in your C++ application call the setMiniDumpType method after initializing the BugSplat library:
 
 ```
-// BugSplat initialization.  
+// BugSplat initialization  
 mpSender = new MiniDmpSender("DbName", "AppName", "AppVersion" ... );
 mpSender->setMiniDumpType( 
                 MiniDmpSender::BS_MINIDUMP_TYPE::MiniDumpWithFullMemory ); 
 ```
 
-\
-(2) Deploy your application.  By default, crash reports will still be created with the normal minidump size.
+**Creating Full Memory Dumps for .NET Apps**
 
-(3) Inside the BugSplat web application, the "full dump flag" on the [versions page](https://app.bugsplat.com/v2/versions) must be enabled in order to get a full memory crash dump.  Enable the flag for each version of your application that should send full memory dumps.  If that flag isn't set, a new crash will create a normal minidump file.  The Full Memory Dumps column is hidden by default, you'll need to display it using the column visibility dropdown menu. &#x20;
+To enable full memory dumps in your .NET application, set the MinidumpType to  MiniDumpWithFullMemory after initializing BugSplat:
 
-(4) You should enable full memory dumps only for the duration required to capture your critical crash information.  The overhead required to send and process full memory dumps will affect your customers' crash upload experience and the speed that BugSplat can process the crash reports.
+```
+// BugSplat initialization  
+BugSplat.CrashReporter.Init(Database, App, Version);
+BugSplat.CrashReporter.MinidumpType = 
+                                BugSplat.MinidumpType.MiniDumpWithFullMemory;
+ 
+```
 
-(5) You can download crash reports containing full memory dumps using the crash details page Attachments tab.  Full memory dumps will typically not show the contents of the crash zip file.  Your only option will be the "Download All" button.\
+
+
+**Collecting Full Memory Dumps**
+
+After modifying your application, use the following steps to collect full memory dumps:
+
+(1) Deploy your application.  By default, crash reports will still be created with the normal minidump size.
+
+(2) Inside the BugSplat web application, the "Full Memory Dumps" checkbox on the [versions page](https://app.bugsplat.com/v2/versions) must be enabled in order to get a full memory crash dump.  Enable the checkbox for each version of your application that should send full memory dumps.  If the checkbox isn't set, application crashes will create normal minidump files.  The Full Memory Dumps column is hidden by default, you'll need to display it using the column visibility dropdown menu. &#x20;
+
+(3) You should enable full memory dumps only for the duration required to capture your critical crash information.  The overhead of the much larger full memory dump files will affect your customers' crash upload experience and the time required to process the crash reports.
+
+(4) You can download crash reports containing full memory dumps using the crash details page Attachments tab.  Full memory dumps will typically not show the contents of the crash zip file.  Your only option will be the "Download All" button.\
 \
