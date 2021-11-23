@@ -16,7 +16,7 @@ Corporate firewalls or network policies can prevent connections to BugSplat. Ple
 
 ### The crash being uploaded is too large
 
-By default BugSplat accounts are limited to posting crash uploads that are no larger than 2MB compressed. Abnormally large minidump, log files, and/or other attachments can cause crash uploads to be larger than your account's crash upload size limit. This limit can be raised by contacting [support@bugsplat.com](mailto:support@bugsplat.com). You can view BugSplat's [Errors](https://app.bugsplat.com/v2/errors) page to see if crash reports are being rejected due to size limit restrictions.
+By default BugSplat accounts are limited to posting crash uploads that are no larger than 20MB (compressed). Abnormally large minidump, log files, and/or other attachments can cause crash uploads to be larger than your account's crash upload size limit.  You can view BugSplat's [Errors](https://app.bugsplat.com/v2/errors) page to see if crash reports are being rejected due to size limit restrictions.
 
 ### Crashes are being posted too frequently
 
@@ -24,7 +24,7 @@ Occasionally BugSplat will reject crashes that are being posted in rapid success
 
 ### BugSplat has been configured incorrectly
 
-Many of our sample programs are configured to post crashes to the Fred database in BugSplat. If you are using one of our samples to test BugSplat, ensure that the database you used to configured the BugSplat SDK matches the value of the database you're viewing in the BugSplat web application.
+Many of our sample programs are configured to post crashes to the Fred database in BugSplat. If you are using one of our samples to test BugSplat, ensure that the database you used to configure the BugSplat SDK matches the value of the database you're viewing in the BugSplat web application.
 
 ## Incorrect Call Stacks
 
@@ -32,7 +32,7 @@ In order to get call stacks that match the function names, file names, and line 
 
 ### Missing Symbols
 
-You may see a red warning on certain crashes that indicate a crash is missing symbols. C++, .NET, Crashpad, macOS, iOS and some JavaScript crashes might display this warning. For more information about uploading symbols please see the documentation that corresponds to your application's [platform](integrations/).
+You may see a red warning on certain crashes that indicate a crash is missing symbols. C++, .NET, Crashpad, macOS, iOS, and some JavaScript crashes might display this warning. For more information about uploading symbols please see the documentation that corresponds to your application's [platform](integrations/).
 
 **Code Signing**
 
@@ -44,7 +44,7 @@ Applications that are protected by anti-cheat or copy protection software someti
 
 ### Deleted Symbols
 
-BugSplat does not limit the size of your uploaded symbols. However, we may automatically delete your symbols under certain circumstances. If your database has less than 5 GB of data, you won't be affected. Larger stores that have new symbols files uploaded, but not referenced by a crash within the first 15 days, will be deleted. Additionally, symbol stores for versions that haven't had a crash posted within the last 90 days will be deleted. For more information regarding symbol cleanup please see this [doc](../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
+BugSplat does not limit the size of your uploaded symbols. However, we may automatically delete your symbols under certain circumstances. If your database has less than 5 GB of data, you won't be affected. Larger stores that have new symbol files uploaded, but not referenced by a crash within the first 15 days, will be deleted. Additionally, symbol stores for versions that haven't had a crash posted within the last 90 days will be deleted. For more information regarding symbol cleanup please see this [doc](../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 ## Symbol Size Limit Exceeded
 
@@ -56,5 +56,4 @@ By default BugSplat will reject a request to upload any symbol file that is larg
 
 **Table Max Size Limit Exceeded**
 
-By default BugSplat will reject a request to upload symbols to a symbol store that will cause it to exceed a size of 4 GB. We reject symbol stores over 4 GB in order to encourage users to upload each build to a new symbol store \(instead of uploading all builds to the same symbol store\). You can create as many symbol stores as you like.
-
+By default BugSplat will reject a request to upload symbols to a symbol store that will cause it to exceed a size of 4 GB. We reject symbol stores over 4 GB in order to encourage users to upload each build to a new symbol store (instead of uploading all builds to the same symbol store). You can create as many symbol stores as you like.
