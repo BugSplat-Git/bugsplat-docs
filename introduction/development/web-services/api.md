@@ -1023,45 +1023,6 @@ BugSplat database containing version information
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://{{database}}.bugsplat.com" path="/post/xml" method="post" summary="XML Crash Report" %}
-{% swagger-description %}
-Endpoint for uploading a new XML crash report to an existing database. Please note that unlike our other endpoints it is imporant that you post this to the BugSplat sub-domain that matches your database e.g. fred.bugsplat.com.
-{% endswagger-description %}
-
-{% swagger-parameter in="body" name="description" type="string" %}
-Description to associate with the crash report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="email" type="string" %}
-Email to associate with the crash report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="user" type="string" %}
-Username to associate with the crash report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="appKey" type="string" %}
-Application key to associated with the crash report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="appVersion" type="string" %}
-Version of the application that generated the crash report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="appName" type="string" %}
-Name of the application that generated the crash report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="file" type="object" %}
-File named bsCrashReport.xml that contains the crash report data. See the mConsoleCrasher example in the Windows C++ SDK for an example of the XML schema
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```
-```
-{% endswagger-response %}
-{% endswagger %}
-
 ### Example
 
 You can access the web services with a variety of tools. Here’s an example using Curl to connect to the Fred database:
