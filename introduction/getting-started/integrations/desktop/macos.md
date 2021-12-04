@@ -33,7 +33,7 @@ $ gem install cocoapods
 
 To integrate BugSplatMac into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
-```text
+```
 target 'TargetName' do
 pod 'BugsplatMac'
 end
@@ -60,7 +60,7 @@ $ brew install carthage
 
 To integrate BugsplatMac into your Xcode project using Carthage, specify it in your `Cartfile`:
 
-```text
+```
 github "BugsplatGit/BugsplatMac"
 ```
 
@@ -75,7 +75,7 @@ To use this library in your project manually you may:
 3. Drag & drop `BugsplatMac.framework` from your window in the `Finder` into your project in Xcode and move it to the desired location in the `Project Navigator`
 4. A popup will appear. Select `Create groups for any added folders` and set the checkmark for your target. Then click `Finish`.
 5. Configure the framework to be copied into your app bundle:
-   * Click on your project in the `Project Navigator` \(⌘+1\).
+   * Click on your project in the `Project Navigator` (⌘+1).
    * Click your target in the project editor.
    * Click on the `Build Phases` tab.
    * Click the `Add Build Phase` button at the bottom and choose `Add Copy Files`.
@@ -106,9 +106,9 @@ You must upload a `.xcarchive` or `.dSYM` containing your app's binary and symbo
 
 Create a `~/.bugsplat.conf` file to store your Bugsplat credentials
 
-```text
-BUGSPLAT_USER="<username>"
-BUGSPLAT_PASS="<password>"
+```
+BUGSPLAT_USER='<username>'
+BUGSPLAT_PASS='<password>'
 ```
 
 Add the `upload-archive.sh` script located in `Bugsplat.framework/Versions/A/Resources` as an Archive **Post-action** in your build scheme. The script will be invoked when archiving completes which will upload the .xcarchive to BugSplat for processing. You can view the script output in `/tmp/bugsplat-upload.log`. To share amongst your team, mark the scheme as **Shared**.
@@ -178,7 +178,7 @@ Set `persistUserDetails` to `YES` to save and restore the user's name and email 
 
 #### Expiration Time
 
-Set `expirationTimeInterval` to a desired value \(in seconds\) whereby if the difference in time between when the crash occurred and next launch is greater than the set expiration time, auto send the report without presenting the crash reporter dialogue. Defaults to `-1`, which represents no expiration.
+Set `expirationTimeInterval` to a desired value (in seconds) whereby if the difference in time between when the crash occurred and next launch is greater than the set expiration time, auto send the report without presenting the crash reporter dialogue. Defaults to `-1`, which represents no expiration.
 
 ```objectivec
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -248,7 +248,7 @@ Follow the main configuration steps listed above, however, use upload-archive-cl
 
 Initialize as follows:
 
-```text
+```
 [BugsplatStartupManager sharedManager].autoSubmitCrashReport = YES;
 [BugsplatStartupManager sharedManager].askUserDetails = NO;
 [[BugsplatStartupManager sharedManager] start];
@@ -302,4 +302,3 @@ You will notice there are no function names or line numbers, this is because you
 #### Step 9
 
 Repeat this process with the executable from the xcarchive you created with BugsplatTester. To find the executable within the xcarchive, right click the xcarchive in finder and select **Show Package Contents**. The executable should be located in `.../Products/Applications`. BugSplat will display function names and line numbers for all crashes posted from this executable.
-
