@@ -1,10 +1,10 @@
 # Who is BugSplat?
 
-### **Our Story **
+### **Our Story**&#x20;
 
 BugSplat started in 2004 as an informal side project by David Plunkett and a couple of friends.
 
-Dave and the gang had built and maintained crash reporting tools at much larger software companies in their previous roles.  This was an experience that led them to three big takeaways: 
+Dave and the gang had built and maintained crash reporting tools at much larger software companies in their previous roles.  This was an experience that led them to three big takeaways:&#x20;
 
 1. Crash reporting was a nearly magical tool for finding and fixing crash defects.  \
 
@@ -43,13 +43,13 @@ Through it all we’ve maintained a laser focus on providing our users with the 
 
 Despite the industry changes we’re still 100% self-funded and have never accepted outside investment. That means we only answer to you, our customer. We're lean, profitable, growing, and supporting ourselves and our families through this business.
 
-Today BugSplat helps developers track and fix over 500 million crashes on around 350 million computers, tablets, consoles, and phones every year. 
+Today BugSplat helps developers track and fix over 500 million crashes on around 350 million computers, tablets, consoles, and phones every year.&#x20;
 
 We know that we have an amazing gig with BugSplat. It’s a lot of work, sure, but we work every day on interesting problems with great partners. We’re a fully remote company that emphasizes flexibility, self-responsibility, and personal and professional exploration.
 
 All of this is to say...
 
-If you're a BugSplat user, thank you for making this happen. If you're not a user yet, please consider [signing up](https://app.bugsplat.com/v2/sign-up).  
+If you're a BugSplat user, thank you for making this happen. If you're not a user yet, please consider [signing up](https://app.bugsplat.com/v2/sign-up). &#x20;
 
 Cheers,
 

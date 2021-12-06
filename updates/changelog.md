@@ -33,7 +33,7 @@ Renames post and delete to postSymbols and deleteSymbols respectively
 
 * Changes the order of the parameters for BugSplatApiClient's createAuthenticatedClientForNode and createAuthenticatedClientForWebBrowser functions so that host can be an optional parameter with a default value
 
-## iOS - **Update - **September 26th, 2021
+## iOS - **Update -** September 26th, 2021
 
 * Updated documentation.
 

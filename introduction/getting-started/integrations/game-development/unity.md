@@ -118,11 +118,11 @@ Once you've posted an exception or a minidump to BugSplat click the link in the 
 
 ## WebGL
 
-A few settings must be changed in order to capture function names and line numbers in a WebGL exception report. Open **File > Build Settings **and switch the platform to **WebGL** and check **Development Build.**
+A few settings must be changed in order to capture function names and line numbers in a WebGL exception report. Open **File > Build Settings** and switch the platform to **WebGL** and check **Development Build.**
 
 ![Unity Build Settings Menu](../../../../.gitbook/assets/unity-build-settings.png)
 
-Click the button that says **Player Settings**, highlight the **Player** section. Under **Publishing Settings**, select **Full With Stacktrace**. 
+Click the button that says **Player Settings**, highlight the **Player** section. Under **Publishing Settings**, select **Full With Stacktrace**.&#x20;
 
 ![Unity Player Publishing Settings](../../../../.gitbook/assets/unity-full-with-stack-trace.png)
 

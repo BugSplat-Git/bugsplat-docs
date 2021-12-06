@@ -72,9 +72,15 @@ The Crash page includes valuable information like crash time, environment, corre
 
 ### Additional Information
 
-All data covered to this point on the Crash page are found under the **Crash Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Debugger Output**, and **Attachments** — use the tabs found above the **User Details** module.
+All data covered to this point on the Crash page are found under the **Crash Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Debugger Output**, and **Attachments** — use the tabs found above the **User Details** module.&#x20;
 
 ![](<../../.gitbook/assets/viewing-tabs-crashreport (1) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (1).gif>)
+
+#### Previwing attached files&#x20;
+
+To preview or download an attached file, simply navigate to the **Attachments** tab in a crash report and click on the right arrow next to the attachment name in order to load a preview of the attached text.
+
+![](../../.gitbook/assets/log-viewer-bs.gif)
 
 ## Summary
 

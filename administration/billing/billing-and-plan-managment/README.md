@@ -1,8 +1,8 @@
 # Billing and Plan Management
 
-This segment focuses on helping using to manage their current billing, update account settings around billing, and add or remove credit cards associated with BugSplat accounts.  
+This segment focuses on helping using to manage their current billing, update account settings around billing, and add or remove credit cards associated with BugSplat accounts. &#x20;
 
-**Not finding what you're looking for? **
+**Not finding what you're looking for?**&#x20;
 
 Try searching for it using the search bar at the top right of this screen.  If you still can't find the answer you're looking for,  please send us a note at [support@bugsplat.com](mailto:support@bugsplat.com).  You can also drop by our [Discord Server](https://discord.gg/K4KjjRV5ve) and talk to us directly.
 

@@ -34,7 +34,7 @@ When you define a crash group, all new crashes will be processed according to it
 You can only define a single group-by-level for any top-level stack frame. When you define a group-by-level, any existing crash groups for the top-level stack frame are removed.
 {% endhint %}
 
-Crash group-by-level is powerful and operates on all crashes related to the same top-level stack frame, but group-by-level is a blunt tool that doesn't work for every situation. What if some crashes don't have your interesting** **code at the selected level? If you want to do more surgical crash grouping, you need **group-similar.**
+Crash group-by-level is powerful and operates on all crashes related to the same top-level stack frame, but group-by-level is a blunt tool that doesn't work for every situation. What if some crashes don't have your interesting **** code at the selected level? If you want to do more surgical crash grouping, you need **group-similar.**
 
 #### Group Similar Crashes&#x20;
 
@@ -52,6 +52,6 @@ Let's return to our example above. We first created a group-by-level crash group
 
 Any individual crash group can be deleted. This applies to groups created with group-similar and for any single group that was automatically created with group-by-level.  You can also remove all crash groups for a single top-level stack frame.
 
-**Grouping of Existing Crashes **
+**Grouping of Existing Crashes**&#x20;
 
 When you define a crash group, you select a timeframe for regrouping existing crashes in your database. The grouping for crashes older than the selected timeframe will not be modified. &#x20;

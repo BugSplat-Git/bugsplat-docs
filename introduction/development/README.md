@@ -14,7 +14,7 @@ This **Development** section includes articles that are useful for using BugSpla
 
 ****[**Commenting**](commenting.md) - is BugSplat's built-in comment tool and issue tracker.
 
-[**3rd Party Tools**](integrating-with-tools/)** **- compliment your workflow by integrating BugSplat with your issue tracker, messaging app, or another tool.
+[**3rd Party Tools**](integrating-with-tools/) **** - compliment your workflow by integrating BugSplat with your issue tracker, messaging app, or another tool.
 
 [**API**](web-services/) – is an overview of the BugSplat API.
 

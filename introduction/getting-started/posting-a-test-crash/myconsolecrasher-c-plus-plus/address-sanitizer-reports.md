@@ -8,13 +8,13 @@ Enable the Address Sanitizer by choosing the Enable Address Sanitizer (/fsanitiz
 
 ![Visual Studio Enable Address Sanitizer](../../../../.gitbook/assets/screen-shot-2021-08-03-at-5.14.10-pm.png)
 
-Modify the Visual Studio Include Directories so that the Address Sanitizer header files can be located: 
+Modify the Visual Studio Include Directories so that the Address Sanitizer header files can be located:&#x20;
 
 ![](../../../../.gitbook/assets/screen-shot-2021-08-03-at-5.27.05-pm.png)
 
-## Modify Initialization Code 
+## Modify Initialization Code&#x20;
 
-To hook into the Address Sanitizer you will call **\__asan_set_error_report_callback**_ _with the BugSplat **createAssanReport** method.  To do this, we'll need a global instance of the BugSplat MiniDmpSender object and a new asanCallback function. See below for how you would modify our myConsoleCrasher sample program:
+To hook into the Address Sanitizer you will call **\_\_asan\_set\_error\_report\_callback** __ with the BugSplat **createAssanReport** method.  To do this, we'll need a global instance of the BugSplat MiniDmpSender object and a new asanCallback function. See below for how you would modify our myConsoleCrasher sample program:
 
 ```cpp
 ...
@@ -42,7 +42,7 @@ int wmain(int argc, wchar_t** argv)
 }
 ```
 
-## Create Memory Corruption Test 
+## Create Memory Corruption Test&#x20;
 
 The only step left is to generate a memory corruption that Address Sanitizer will catch.  Here's one way to do that:
 
@@ -91,7 +91,7 @@ void HeapCorruption() {
 	}
 ```
 
-Calling HeapCorruption (or your own memory error code) will generate the Address Sanitizer report and send a crash report to BugSplat. 
+Calling HeapCorruption (or your own memory error code) will generate the Address Sanitizer report and send a crash report to BugSplat.&#x20;
 
 ## Crash Report Result
 
