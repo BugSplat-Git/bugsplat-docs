@@ -122,7 +122,7 @@ Optional username for the user that crashed
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="post" path="/post/bp/crash/crashpad" baseUrl="{{database}}.bugsplat.com" summary="Crashpad" %}
+{% swagger method="post" path="/post/bp/crash/crashpad.php" baseUrl="{{database}}.bugsplat.com" summary="Crashpad" %}
 {% swagger-description %}
 Uploads a Crashpad crash report with optional metadata.
 {% endswagger-description %}
