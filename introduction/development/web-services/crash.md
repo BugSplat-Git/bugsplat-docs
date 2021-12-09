@@ -122,6 +122,60 @@ Optional username for the user that crashed
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="post" path="/post/bp/crash/crashpad" baseUrl="{{database}}.bugsplat.com" summary="Crashpad" %}
+{% swagger-description %}
+Uploads a Crashpad crash report with optional metadata.
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="{{database}}" required="true" %}
+Replace the subdomain value with the name of your BugSplat database
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" type="FILE" name="upload_file_minidump" required="true" %}
+File POST parameter.  This file can optionally be zip compressed.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="other files" type="FILE" %}
+Any additional file POSTs will be attached to the crash report.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="product" required="true" %}
+Application name
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="version" required="true" %}
+Application version
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="key" %}
+BugSplat crash key
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="user" %}
+User reporting the crash
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="list_annotations" %}
+User description of the problem
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" %}
+
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+    "status": "success",
+    "crash_id": 1,
+    "url": "https://app.bugsplat.com/browse/crashInfo.php?vendor=fred&version=1.0&key=key&id=99999999&row=1"
+}
+```
+
+
+{% endswagger-response %}
+{% endswagger %}
+
 ### Example
 
 The following is an example that uses curl to demonstrate posting a crash to BugSplat. Be sure to update the value of `{{database}}` with the value of your BugSplat database.
