@@ -2,17 +2,17 @@
 
 ## Security Program
 
-BugSplat, LLC \(“BugSplat”\) maintains an Information Security Program \(“ISP”\) in conformance with the requirements set forth below, which may be incorporated by reference into a Customer License Agreement \(the “Agreement”\). In the event of a conflict between the terms of this document and the terms of the Agreement, the terms of the Agreement will apply.
+BugSplat, LLC (“BugSplat”) maintains an Information Security Program (“ISP”) in conformance with the requirements set forth below, which may be incorporated by reference into a Customer License Agreement (the “Agreement”). In the event of a conflict between the terms of this document and the terms of the Agreement, the terms of the Agreement will apply.
 
 #### Security Standards.
 
-The ISP is designed to: \(a\) protect the confidentiality, integrity, and availability of information and data, including personal data, that is provided or made available to BugSplat under the Agreement \(“Customer Data”\) against any anticipated or actual threats or hazards; unauthorized or unlawful access, use, disclosure, alteration, or destruction; accidental loss or destruction or damage; and \(b\) safeguard the Customer Data as required by any local, state or federal regulations applicable to any Service provided by BugSplat under the Agreement. The ISP contains administrative, technical, and physical safeguards appropriate to: \(a\) the size, scope and type of BugSplat’s business and the Service it provides; \(b\) the type of information that BugSplat stores; and \(c\) the need for security and confidentiality of such information.
+The ISP is designed to: (a) protect the confidentiality, integrity, and availability of information and data, including personal data, that is provided or made available to BugSplat under the Agreement (“Customer Data”) against any anticipated or actual threats or hazards; unauthorized or unlawful access, use, disclosure, alteration, or destruction; accidental loss or destruction or damage; and (b) safeguard the Customer Data as required by any local, state or federal regulations applicable to any Service provided by BugSplat under the Agreement. The ISP contains administrative, technical, and physical safeguards appropriate to: (a) the size, scope and type of BugSplat’s business and the Service it provides; (b) the type of information that BugSplat stores; and (c) the need for security and confidentiality of such information.
 
 #### Elements of the ISP
 
 **Security Policies and Procedures**
 
-* BugSplat will maintain and implement security policies and procedures that are reasonably designed to cause all employees, Infrastructure Operator, and any subcontractors to process Customer Data in accordance with the Information Security Program. “Infrastructure Operator” means the vendor who hosts BugSplat’s physical servers. Amazon Web Services \(AWS\) is the current Infrastructure Operator.
+* BugSplat will maintain and implement security policies and procedures that are reasonably designed to cause all employees, Infrastructure Operator, and any subcontractors to process Customer Data in accordance with the Information Security Program. “Infrastructure Operator” means the vendor who hosts BugSplat’s physical servers. Amazon Web Services (AWS) is the current Infrastructure Operator.
 * BugSplat will implement disciplinary measures against employees and contractors who fail to abide by its security policies and procedures
 
 **Intrusion Prevention**
@@ -82,11 +82,11 @@ The ISP is designed to: \(a\) protect the confidentiality, integrity, and availa
 * BugSplat will conduct a risk assessment on the security practices of any of its third-party contractors or vendors prior to providing access to Customer Data. Any BugSplat third-party supplier with access to Customer Data must adhere to terms substantially similar to those in the BugSplat ISP.
 * BugSplat will verify that its risk assessment is sufficient to satisfy compliance with this ISP.
 * The data sub-processors used by BugSplat are:
-  * Amazon Web Services
-  * Loggly, a service of SolarWinds Worldwide
-  * MacStadium
-  * Auth0
-  * LuckyOrange
+  * Amazon Web Services ([https://aws.amazon.com/](https://aws.amazon.com))
+  * Loggly, a service of SolarWinds Worldwide ([https://www.loggly.com/](https://www.loggly.com))
+  * MacStadium ([https://www.macstadium.com/](https://www.macstadium.com))
+  * Auth0 ([https://auth0.com/](https://auth0.com))
+  * Hotjar ([https://www.hotjar.com/](https://www.hotjar.com))
 
 **Change and Configuration Management**
 
@@ -96,4 +96,3 @@ The ISP is designed to: \(a\) protect the confidentiality, integrity, and availa
 **Change of Compliance**
 
 * BugSplat will notify Customer within thirty days if it is no longer possible to satisfy the security policies and procedures outlined in this document. At its option, Customer may terminate services upon such notification and receive a pro-rata refund of any fees already paid for the period following such termination.
-

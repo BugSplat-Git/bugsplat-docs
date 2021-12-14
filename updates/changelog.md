@@ -2,6 +2,10 @@
 
 List of recent product changes and updates for BugSplat. We announce these updates via [Twitter](https://twitter.com/bugsplatco).
 
+## BugSplat Terms Update - December 14th, 2021
+
+* BugSplat has updated our list of data sub-processors data sub-processors to include Hotjar.  See the full list [here](../introduction/production/security-privacy-and-compliance/terms.md).
+
 ## BugSplat Unity - Release - 2.1.0 - October 14th, 2021
 
 * Adds support for configuring BugSplat via the Unity Editor
