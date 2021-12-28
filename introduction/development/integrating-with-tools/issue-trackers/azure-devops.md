@@ -5,7 +5,7 @@ Visual Studio Team Services (Azure DevOps) integration with BugSplat allows your
 ### Integrating Azure DevOps with BugSplat
 
 1. Login to your BugSplat account.
-2. Go to the ‘[Options](https://app.bugsplat.com/v2/options)’ page and under ‘Defect Tracking System Setup’ select Azure DevOps from the drop-down menu.
+2. Go to the ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page and under ‘Defect Tracking System Setup’ select Azure DevOps from the drop-down menu.
 3. Enter your Azure DevOps URL and Personal Access Token into the appropriate fields.
 4. Click ‘Apply’.
 5. If the connection is successful, you will now be able to select your desired project from the Project dropdown list.

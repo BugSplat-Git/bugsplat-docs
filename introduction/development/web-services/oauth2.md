@@ -6,7 +6,7 @@ A reference client implementation can be found in our [@bugsplat/js-api-client](
 
 ### Client Credentials
 
-To authenticate via OAuth2 client credentials you will need to create a Client Id and Client Secret pair on the Integrations tab on the [Options](https://app.bugsplat.com/v2/options?tab=integrations) page.
+To authenticate via OAuth2 client credentials you will need to create a Client Id and Client Secret pair on the Integrations tab on the ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page.
 
 ![Adding a New Integration](../../../.gitbook/assets/integration.gif)
 

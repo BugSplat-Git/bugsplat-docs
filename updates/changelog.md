@@ -4,7 +4,7 @@ List of recent product changes and updates for BugSplat. We announce these updat
 
 ## BugSplat Terms Update - December 14th, 2021
 
-* BugSplat has updated our list of data sub-processors data sub-processors to include Hotjar.  See the full list [here](../introduction/production/security-privacy-and-compliance/terms.md).
+* BugSplat has updated our list of data sub-processors data sub-processors to include Hotjar.  See the full list [here](../introduction/production/security-privacy-and-compliance/security-program.md).
 
 ## BugSplat Unity - Release - 2.1.0 - October 14th, 2021
 
@@ -569,7 +569,7 @@ We'll be posting updates here and on [Twitter](https://twitter.com/bugsplatco).
 ## Web App Update 11-Mar-2020
 
 * Hide horizontal scrollbar on row details views with no overflow
-* Style improvements for restricted users on the Options page
+* Style improvements for restricted users on the ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page.
 * Anchored app footer to the bottom of the screen
 
 ## Web App Update 10-Mar-2020
@@ -588,11 +588,11 @@ We'll be posting updates here and on [Twitter](https://twitter.com/bugsplatco).
 ## Web App Update 23-Feb-2020
 
 * Added crashing thread to expanded row detail view on Crashes page
-* Hide Options page for restricted users
+* Hide ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page for restricted users
 
 ## Web App Update 19-Feb-2020
 
-* Moved transferring and deleting databases to Options page
+* Moved transferring and deleting databases to
 * Removed Database page
 
 ## Native SDK (Version 3.6.0.8) 18-Feb-2020
@@ -611,7 +611,7 @@ We'll be posting updates here and on [Twitter](https://twitter.com/bugsplatco).
 
 ## Web App Updates 10-Feb-2020
 
-* Released new Options page
+* Released new ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page
 * Improved log defect workflow
 
 ## Windows Native and .NET Update 06-Feb-2020
@@ -1202,7 +1202,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 
 ## 15-Feb-2018: Electron Automatic Symbols
 
-* Symbols for Electron applications can now be automatically resolved. Select the new Include Electron Symbols checkbox on our [Options](https://app.bugsplat.com/v2/options) page to enable this feature.
+* Symbols for Electron applications can now be automatically resolved. Select the new Include Electron Symbols checkbox on our [Settings](https://app.bugsplat.com/v2/options) page to enable this feature.
 
 ## 29-Jan-2018: Unity Update
 

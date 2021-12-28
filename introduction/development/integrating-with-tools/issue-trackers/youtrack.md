@@ -5,8 +5,8 @@ YouTrack integration with BugSplat crash reports allows your team to create defe
 ### Integrating YouTrack with BugSplat
 
 1. Login to your account.
-2. Go to the [‘Options’](https://app.bugsplat.com/v2/options) page and under ‘Defect Tracking System Setup’ select YouTrack from the drop-down menu.
-3. Enter your Username, YouTrack API Token, YouTrack URL, and any of the additional options into the appropriate boxes on the BugSplat [‘Options’](https://app.bugsplat.com/v2/options) page.
+2. Go to the ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page and under ‘Defect Tracking System Setup’ select YouTrack from the drop-down menu.
+3. Enter your Username, YouTrack API Token, YouTrack URL, and any of the additional options into the appropriate boxes on the BugSplat ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page.
    * Note: You can find these resources in your YouTracks Hub Integration page. [Click to learn more](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html).
 4. Select your desired project.
 5. Click ‘Apply’.
