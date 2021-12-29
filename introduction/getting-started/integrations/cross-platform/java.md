@@ -6,7 +6,7 @@ Before integrating a new BugSplat SDK with your application, make sure to review
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 {% hint style="info" %}
 Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
@@ -16,7 +16,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 Integrate BugSplat crash reporting with your Java Applications:
 
-Before doing anything make sure to [download](https://app.bugsplat.com/browse/download_item.php/?item=java) the BugSplat software development kit for Java Applications.
+Before doing anything make sure to [download](https://app.bugsplat.com/browse/download\_item.php/?item=java) the BugSplat software development kit for Java Applications.
 
 ## Add BugSplat to your application
 
@@ -30,13 +30,13 @@ The initialization call requires three parameters: BugSplat database, applicatio
 
 Typically, you will create a new database for each major release of your product.
 
-Add a try-catch block in your application entry point \(for example, in main\).
+Add a try-catch block in your application entry point (for example, in main).
 
 To handle both runtime Exceptions and Errors, catch Throwable, construct an Exception object, and pass it to BugSplat.HandleException.
 
 If your application creates threads, you will want an exception report to be generated before the thread is terminated:
 
-```text
+```
 class MyThreadGroup extends ThreadGroup {
       public MyThreadGroup (String s) {
           super(s);
@@ -57,4 +57,3 @@ Once that is complete start the thread.
 #### Test
 
 Remember to test your with our the [MyJavaCrasher](../../posting-a-test-crash/myjavacrasher.md) sample application. This will test that crashes are posted and a good call stack is being created.
-

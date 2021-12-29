@@ -6,7 +6,7 @@ BugSplat's [bugsplat-node](https://www.npmjs.com/package/bugsplat-node) package 
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 {% hint style="info" %}
 Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
@@ -20,7 +20,7 @@ To add the bugsplat package to your application, run the following shell command
 npm i bugsplat-node --save
 ```
 
-Require bugsplat at the entry point of your application \(usually main.js\) by adding the following code snippet:
+Require bugsplat at the entry point of your application (usually main.js) by adding the following code snippet:
 
 ```typescript
 const BugSplat = require('bugsplat-node');
@@ -76,7 +76,9 @@ That’s it! Your application is now configured to post crash reports to BugSpla
 
 BugSplat has the ability to map uglified and minified JavaScript function names, file names, and line numbers back to their original values via source maps. For information on how to configure your application to upload source maps to BugSplat, please see the link below.
 
-{% page-ref page="../../../development/working-with-symbol-files/source-maps.md" %}
+{% content-ref url="../../../development/working-with-symbol-files/source-maps.md" %}
+[source-maps.md](../../../development/working-with-symbol-files/source-maps.md)
+{% endcontent-ref %}
 
 ### API
 
@@ -99,11 +101,10 @@ view rawbugsplat-node-api.js hosted with ❤ by GitHub
 
 It is recommended that you exit and restart your application after an uncaughtException or unhandledRejection occurs. Packages such as [pm2](https://www.npmjs.com/package/pm2) and [forever](https://www.npmjs.com/package/forever) can be configured to restart your application.
 
-Additionally you can use [domains](https://nodejs.org/api/domain.html#domain_warning_don_t_ignore_errors) to handle errors differently across various parts of your application. Domains are pending deprecation according the the Node.js [documentation](https://nodejs.org/api/domain.html), however a suitable replacement has not been added yet.
+Additionally you can use [domains](https://nodejs.org/api/domain.html#domain\_warning\_don\_t\_ignore\_errors) to handle errors differently across various parts of your application. Domains are pending deprecation according the the Node.js [documentation](https://nodejs.org/api/domain.html), however a suitable replacement has not been added yet.
 
 More information regarding domain deprecation can be found [here](https://github.com/nodejs/node/issues/10843).
 
 ## Contributing
 
 BugSplat loves open source software! Please check out our project on [GitHub](https://github.com/BugSplat-Git/bugsplat-node) and send us a pull request.
-

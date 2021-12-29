@@ -6,7 +6,7 @@ The Android NDK is a set of tools for building native C++ applications for Andro
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 Please also review the [AndroidCrasher](https://github.com/BugSplat-Git/AndroidCrasher) application to see an example BugSplat integration.
 
@@ -27,7 +27,7 @@ fetch crashpad
 cd crashpad
 ```
 
-Next you'll need to generate Crashpad build configurations for each Android ABI your application supports. You can view the source of [gyp\_crashpad\_android.py](https://github.com/chromium/crashpad/blob/f9549d1ffefe00f5e3dbabc6aff9e1a7ff619089/build/gyp_crashpad_android.py#L51) to see a list of supported ABIs. Take note of the `--api-level` value you use here as you'll need this information when configuring your project. The following command will create a Crashpad Android config for the `x86` ABI:
+Next you'll need to generate Crashpad build configurations for each Android ABI your application supports. You can view the source of [gyp\_crashpad\_android.py](https://github.com/chromium/crashpad/blob/f9549d1ffefe00f5e3dbabc6aff9e1a7ff619089/build/gyp\_crashpad\_android.py#L51) to see a list of supported ABIs. Take note of the `--api-level` value you use here as you'll need this information when configuring your project. The following command will create a Crashpad Android config for the `x86` ABI:
 
 ```bash
 ninja -C out/android_x86_api21/out/Debug all
@@ -37,7 +37,7 @@ ninja -C out/android_x86_api21/out/Debug all
 
 Once Crashpad has been built you'll need to add the relevant include directories to your project. Copy all of the Crashpad `.h` files to the directory `app/src/main/cpp/crashpad/include`. Next, add the include directories your project's `CMakeLists.txt` file:
 
-```text
+```
 # Crashpad Headers
 include_directories(${PROJECT_SOURCE_DIR}/crashpad/include/ ${PROJECT_SOURCE_DIR}/crashpad/include/third_party/mini_chromium/mini_chromium/)
 ```
@@ -48,7 +48,7 @@ After adding the include directories, you'll need to add the Crashpad static lib
 
 Once all of the Crashpad libraries have been copied to your project directory, add the following to your project's `CMakeLists.txt` file to link the Crashpad libraries:
 
-```text
+```
 # Crashpad Libraries
 add_library(crashpad_client STATIC IMPORTED)
 set_property(TARGET crashpad_client PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/crashpad/lib/${ANDROID_ABI}/client/libcrashpad_client.a)
@@ -70,7 +70,7 @@ target_link_libraries(
 
 Additionally, you'll need ship a copy of the `crashpad_handler` executable with your application. To do this, you'll need to rename `crashpad_handler` to `libcrashpad_handler.so` otherwise it will be ignored by the APK bundler. Copy `libcrashpad_handler.so` to `app/src/main/cpp/crashpad/lib/{{ABI}}` for each Crashpad ABI architecture. Add the following snippet to `CMakeLists.txt` so that `libcrashpad_handler.so` is copied to your device and made available at runtime:
 
-```text
+```
 # Crashpad Handler
 add_library(crashpad_handler SHARED IMPORTED)
 set_property(TARGET crashpad_handler PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/crashpad/lib/${ANDROID_ABI}/libcrashpad_handler.so)
@@ -188,7 +188,7 @@ private fun writeLogFile() {
 
 To ensure that your crash reports contain function names and line numbers you'll need to add an option to your build configuration that prevents symbolic information from being stripped. To prevent symbols from being stripped, add the following to your `build.gradle` file:
 
-```text
+```
 android {
   ...
   // Add this directly under the android section in app/src/build.gradle
@@ -229,7 +229,6 @@ Force a crash in your application after Crashpad has been initialized:
 *(volatile int *)0 = 0;
 ```
 
-After you've submitted a crash report, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes?database=Fred&c0=appName&f0=CONTAINS&v0=AndroidCrasher) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `AndroidCrasher` application:
+After you've submitted a crash report, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes?database=Fred\&c0=appName\&f0=CONTAINS\&v0=AndroidCrasher) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `AndroidCrasher` application:
 
 ![BugSplat Android NDK Crash](../../../../.gitbook/assets/android-crash.png)
-

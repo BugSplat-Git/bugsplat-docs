@@ -4,7 +4,7 @@ description: >-
   reporting from BugSplat.
 ---
 
-# Windows \(Native C++\)
+# BugSplat Crash Reporting Library for Windows (Native C++)
 
 ## Introduction
 
@@ -12,7 +12,7 @@ Before integrating a new BugSplat SDK with your application, make sure to review
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 {% hint style="info" %}
 Need any further help? Check out the full BugSplat documentation [here](../../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
@@ -24,7 +24,7 @@ This document explains how your Microsoft Visual C++ application can be modified
 
 ### First steps
 
-To begin [Download](https://app.bugsplat.com/browse/download_item.php?item=native) and unzip the BugSplat software development kit for Microsoft Visual C++.
+To begin [Download](https://app.bugsplat.com/browse/download\_item.php?item=native) and unzip the BugSplat software development kit for Microsoft Visual C++.
 
 To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [myConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/). You can find the Visual Studio project file located in your download folder at `...\BugSplatNative\BugSplat\samples\myConsoleCrasher\myConsoleCrasher.vcxproj`.
 
@@ -74,4 +74,3 @@ Instructions for modifying the default crash dialog can be found on the [Windows
 ## Dependencies
 
 See technology dependencies at our [dependencies page](dependencies.md).
-

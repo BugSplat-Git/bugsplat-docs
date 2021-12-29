@@ -6,7 +6,7 @@ BugSplat's [npm package](https://www.npmjs.com/package/bugsplat) provides error 
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 {% hint style="info" %}
 Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
@@ -16,7 +16,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 
 To begin integrating your app with BugSplat, install the bugsplat package via npm:
 
-```text
+```
 npm i bugsplat
 ```
 
@@ -67,4 +67,3 @@ try {
 ```
 
 After posting an error, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new error report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page.
-

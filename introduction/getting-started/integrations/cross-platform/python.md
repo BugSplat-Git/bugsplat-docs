@@ -6,7 +6,7 @@ Before integrating a new BugSplat SDK with your application, make sure to review
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 {% hint style="info" %}
 Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
@@ -65,4 +65,3 @@ Once you've posted a crash, navigate to the Crashes page and click the link in t
 ![BugSplat Python Crash](../../../../.gitbook/assets/python-crash.png)
 
 Thanks for using BugSplat ❤️
-

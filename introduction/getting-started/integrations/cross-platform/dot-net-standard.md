@@ -1,12 +1,12 @@
 # .NET Standard
 
-### Introduction <a id="intro"></a>
+### Introduction <a href="#intro" id="intro"></a>
 
 Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 {% hint style="info" %}
 Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
@@ -17,7 +17,7 @@ Need any further help? Check out the full BugSplat documentation [here](../../..
 BugSplatDotNetStandard allows you to capture and track exceptions on all .NET Standard 2.0 [platforms](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This includes:
 
 * .NET Core
-* Universal Windows Platform \(UWP\)
+* Universal Windows Platform (UWP)
 * Xamarin
 * Mono
 
@@ -91,4 +91,3 @@ Click the link in the **ID** column to see details about the crash:
 That’s it! Your application is now configured to post crash reports to BugSplat.
 
 If you have any additional questions please reach out to our [support](mailto:support@bugsplat.com) team
-

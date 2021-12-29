@@ -6,7 +6,7 @@ Qt is a powerful cross-platform C++ app development platform. With a few easy st
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 * Review the [myQtCrasher application](https://github.com/BugSplat-Git/myQtCrasher) to see an example BugSplat integration
 
 {% hint style="info" %}
@@ -25,7 +25,7 @@ For more info on how to build shared libraries for Windows, see this [post](http
 
 Once Crashpad has been built you'll need to add the relevant include directories to your project. Copy all of the Crashpad `.h` files to the directory `$$PWD/Crashpad/Include/crashpad` where `$$PWD` is your project's working directory. Add the include directories to your project by pasting the following snippet at the top of your project file:
 
-```text
+```
 # Include directories for Crashpad libraries
 INCLUDEPATH += $$PWD/Crashpad/Include/crashpad
 INCLUDEPATH += $$PWD/Crashpad/Include/crashpad/third_party/mini_chromium/mini_chromium
@@ -37,7 +37,7 @@ Next, link your app with the Crashpad libraries. Linking with the Crashpad libra
 
 Copy `libbase.a`, `libutil.a` and `libclient.a` into `$$PWD/Crashpad/Libraries/MacOS`. Additionally, you'll need to copy all of the `.o` files from the Crashpad build folder `/out/Default/gen/util/mach` to the directory `$$PWD/Crashpad/Libraries/MacOS/util/mach`. Finally, you'll need to link with the system libraries `libbsm`, `AppKit.Framework`, and `Security.Framework`. Add the following snippet to your project file to link with the aforementioned libraries:
 
-```text
+```
 # Crashpad rules for MacOS
 macx {
     # Crashpad libraries
@@ -55,7 +55,7 @@ macx {
 
 You'll need to ship a copy of the `crashpad_handler` executable with your application. Copy `crashpad_handler` to the `$$PWD/Crashpad/Bin/MacOS` directory. Add the following snippet to the `macx` section of your project file that copies the macOS `crashpad_handler` to your project's build directory.
 
-```text
+```
 # Crashpad rules for MacOS
 macx {
     ...
@@ -69,7 +69,7 @@ macx {
 
 Copy `base.lib`, `client.lib` and `util.lib` into `$$PWD/Crashpad/Libraries/Windows`. You'll need to link with the system library `Advapi32`. Add the following snippet to your project file to link with the aforementioned libraries:
 
-```text
+```
 # Crashpad rules for Windows
 win32 {
     # Crashpad libraries
@@ -84,7 +84,7 @@ win32 {
 
 Additionally, you'll need to ship a copy of the `crashpad_handler.exe` executable with your application. Copy `crashpad_handler.exe` to the `$$PWD/Crashpad/Bin/Windows` directory. Add the following snippet to the `win32` section of your project file that copies the Windows `crashpad_handler.exe` to your project's build directory.
 
-```text
+```
 # Crashpad rules for Windows
 win32 {
     ...
@@ -105,7 +105,7 @@ win32 {
 
 Copy `libbase.a`, `libutil.a` and `libclient.a` into `$$PWD/Crashpad/Libraries/Linux`. The order in which you specify the Crashpad libraries to link is important! `libclient.a` must be specified first, then `libutil.a` and finally `libbase.a`. Add the following snippet to your project file to link with the aforementioned libraries:
 
-```text
+```
 # Crashpad rules for Linux
 linux {
     # Crashpad libraries
@@ -117,7 +117,7 @@ linux {
 
 Additionally, you'll need to ship a copy of the `crashpad_handler` executable with your application. Copy `crashpad_handler` to the `$$PWD/Crashpad/Bin/MacOS` directory. Add the following snippet to the `linux` section of your project file that copies the Linux `crashpad_handler` to your project's build directory.
 
-```text
+```
 # Crashpad rules for Linux
 linux {
     ...
@@ -277,7 +277,7 @@ In order to get function names and line numbers in your crash reports, you will 
 
 To generate `.dSYM`, `.pdb` and `.debug` files add the following to the project file:
 
-```text
+```
 # Create symbols for dump_syms and symupload
 CONFIG += force_debug_info
 CONFIG += separate_debug_info
@@ -340,4 +340,3 @@ Force a crash in your application after Crashpad has been initialized:
 After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `myQtCrasher` application:
 
 ![BugSplat Qt Crash](../../../../.gitbook/assets/qt-crash.png)
-

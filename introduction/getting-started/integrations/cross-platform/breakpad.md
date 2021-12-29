@@ -8,11 +8,11 @@
 
 Breakpad is the predecessor of Crashpad. If you are configuring a new integration, please consider using our [Crashpad integration](crashpad/) instead.
 
-Google Breakpad is a crash reporting tool built by Google in C++. It allows you to submit minidumps to a configured URL as a crash happens. With Breakpad you can process crashes for [Windows](https://github.com/google/breakpad/blob/master/docs/windows_client_integration.md), [macOS](https://github.com/google/breakpad/blob/master/docs/mac_breakpad_starter_guide.md), and [Linux](https://github.com/google/breakpad/blob/master/docs/linux_starter_guide.md) applications.
+Google Breakpad is a crash reporting tool built by Google in C++. It allows you to submit minidumps to a configured URL as a crash happens. With Breakpad you can process crashes for [Windows](https://github.com/google/breakpad/blob/master/docs/windows\_client\_integration.md), [macOS](https://github.com/google/breakpad/blob/master/docs/mac\_breakpad\_starter\_guide.md), and [Linux](https://github.com/google/breakpad/blob/master/docs/linux\_starter\_guide.md) applications.
 
 In a few simple steps, your Breakpad-enabled application can be configured to send crash reports to BugSplat. This allows you to take advantage of BugSplat's reporting mechanisms.
 
-For more information see Google's Integration Overview [here](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md).
+For more information see Google's Integration Overview [here](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md).
 
 ## Prerequisites
 
@@ -20,8 +20,8 @@ Before continuing with the integration please complete the following tasks:
 
 * Create a new [database](https://app.bugsplat.com/v2/company) for your application
 * Clone the [source](https://chromium.googlesource.com/breakpad/breakpad/)
-* Build the exception_handler and crash_report_sender libraries and integrate them into your application
-* Build the dump_syms and symupload tools
+* Build the exception\_handler and crash\_report\_sender libraries and integrate them into your application
+* Build the dump\_syms and symupload tools
 
 ## Configuration
 
@@ -67,14 +67,14 @@ bool minidumpCallback(
 ```
 
 1. Create a new symbol store on our [Symbols](https://app.bugsplat.com/v2/symbols/) page. You should do this for each released version of your product in order to ensure your crash reports contain function names and line numbers.
-2. Use dump_syms to generate .sym files for your application. You need to do this for each release version of your product.
+2. Use dump\_syms to generate .sym files for your application. You need to do this for each release version of your product.
 3. Upload your application's .sym files to BugSplat via the symupload tool, or via our manual symbol upload page. To view the manual symbol upload page, select one of your symbol stores on the [Symbols](https://app.bugsplat.com/v2/symbols/) page, then click the "Upload new symbol files" link. Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
 
 ```bash
 symupload file.sym "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
 ```
 
-1. Trigger a crash in your application. The following code snippet can be used to generate an EXCEPTION_ACCESS_VIOLATION_WRITE crash:
+1. Trigger a crash in your application. The following code snippet can be used to generate an EXCEPTION\_ACCESS\_VIOLATION\_WRITE crash:
 
 ```cpp
 int nullVal;
@@ -94,6 +94,6 @@ To configure your Breakpad crashes to be processed by our Windows backend, creat
 
 Crashes can be posted manually using our test page at `https://{database}.bugsplat.com/post/bp/crash/Native/index.php`. Replace `{database}` with the name of your BugSplat database. Viewing the source HTML of that page may help with the configuration.
 
-The BugSplat database for your crash reports is created on the [Company](https://app.bugsplat.com/v2/company) page. Typically you will create a new database for each major release of your product.
+The BugSplat database for your crash reports is created on the [Manage Database](https://app.bugsplat.com/v2/settings/company/databases) page in Settings. Typically you will create a new database for each major release of your product.
 
 If you are sending symbols from symupload on macOS there is no command line option to increase the upload timeout. We have created a [fork of symupload](https://github.com/BugSplat-Git/breakpad/commit/b823d9128884051627874a780296edef1cf6acac) with the timeout increased to 100 seconds (from 10 seconds). You need to use a modified version of symupload to upload files larger than 100 MB. You can download the modified archive [here](https://s3.amazonaws.com/bugsplat-public/symupload.xcarchive.zip).

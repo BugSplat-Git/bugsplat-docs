@@ -6,7 +6,7 @@ BugSplat's [npm package](https://www.npmjs.com/package/bugsplat) provides error 
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 Please also review our [my-react-crasher](https://github.com/BugSplat-Git/my-react-crasher) sample to see an example application configured with BugSplat.
 

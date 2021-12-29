@@ -6,7 +6,7 @@ Before integrating a new BugSplat SDK with your application, make sure to review
 
 * [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
 * [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/company) for your application
+* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
 
 {% hint style="info" %}
 **Need any further help?** Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
@@ -22,7 +22,7 @@ Before continuing with the tutorial please review our [myUbuntuCrasher](https://
 
 The first step in integrating with Crashpad is to ensure that your system has all the required dependencies. These dependenices include `git`, `python`, `llvm` and `clang++`. The following snippet will download and install all the dependencies on an Ubuntu system:
 
-```text
+```
 sudo apt-get install git
 sudo apt-get install python
 sudo apt-get install llvm
@@ -39,7 +39,7 @@ When specifying the Crashpad libraries `libbase.a` must be the last library argu
 
 If you are building with `clang++`, specify the `-g` flag to ensure the output executable contains symbolic information for debugging. Additionally when building with `clang++` you must pass the `-Wl,--build-id` argument in order to ensure the linker creates a build identifier in the output executable. The following [script](https://github.com/BugSplat-Git/myUbuntuCrasher/blob/master/scripts/compile.sh) from [myUbuntuCrasher](https://github.com/BugSplat-Git/myUbuntuCrasher) demonstrates how to link the Crashpad libraries and output an executable with symbolic information using `clang++`:
 
-```text
+```
 #!/bin/bash
 source exports.sh
 
@@ -58,7 +58,7 @@ Finally, you will need to use the Breakpad tools `dump_syms` and `symupload` in 
 
 Once you've built `dump_syms` and `symupload` the following [script](https://github.com/BugSplat-Git/myUbuntuCrasher/blob/master/scripts/symbols.sh) will generate symbols and upload them to BugSplat:
 
-```text
+```
 #!/bin/bash
 source exports.sh
 
@@ -73,4 +73,3 @@ It's important that you re-upload symbols each time you build your application o
 If you've set everything up correctly, your crash report should look like this:
 
 ![Linux crash example](../../../../.gitbook/assets/linux-crash.png)
-

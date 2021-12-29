@@ -22,7 +22,7 @@ Crashpad is the latest open-source crash reporting tool built by Google and is t
 
 ## Tutorial
 
-To begin, [download](https://app.bugsplat.com/browse/download_item.php/?item=crashpad) and unzip the BugSplat Crashpad software development kit. The download contains a sample Crashpad application and a compiled version of Crashpad for Windows.
+To begin, [download](https://app.bugsplat.com/browse/download\_item.php/?item=crashpad) and unzip the BugSplat Crashpad software development kit. The download contains a sample Crashpad application and a compiled version of Crashpad for Windows.
 
 It's also possible to download and build Crashpad yourself. This step is required if you are targeting an OS other than Windows. See our [Building Crashpad](how-to-build-google-crashpad.md) doc for our a step-by-step guide to building Crashpad.
 
@@ -129,7 +129,7 @@ initializeCrashpad(dbName, appName, appVersion);
 
 #### Step 4
 
-Link your application with the appropriate version of the Crashpad libraries `client.lib`, `base.lib`, and`util.lib`. BugSplat supplies builds for Debug/Release (x86) and Debug_x64/Release_x64 versions of the Crashpad libraries.
+Link your application with the appropriate version of the Crashpad libraries `client.lib`, `base.lib`, and`util.lib`. BugSplat supplies builds for Debug/Release (x86) and Debug\_x64/Release\_x64 versions of the Crashpad libraries.
 
 #### Step 5
 
@@ -137,7 +137,7 @@ Upload symbols for your application to generate symbolic call stacks. Our sample
 
 #### Step 6
 
-BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's .sym files using the manual symbol upload page, select one of your symbol stores on the [Symbols](https://app.bugsplat.com/v2/symbols/) page, then click the "Upload new symbol files" link. Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`,` {appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store. 
+BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's .sym files using the manual symbol upload page, select one of your symbol stores on the [Symbols](https://app.bugsplat.com/v2/symbols/) page, then click the "Upload new symbol files" link. Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.&#x20;
 
 {% hint style="warning" %}
 Ensure the `path`and`url`are wrapped in double quotes when using`symupload`
@@ -155,7 +155,7 @@ Trigger a crash in your application. The crash report should be available immedi
 
 ### Databases
 
-The BugSplat database for your crash reports is created on the [Company](https://app.bugsplat.com/v2/company) page. Typically you will create a new database for each major release of your product.
+The BugSplat database for your crash reports is created on the [Manage Database](https://app.bugsplat.com/v2/settings/company/databases) page in Settings. Typically you will create a new database for each major release of your product.
 
 ### Optimizations
 
