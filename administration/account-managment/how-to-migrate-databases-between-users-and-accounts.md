@@ -1,6 +1,6 @@
 # Migrating Databases
 
-Databases are owned by companies. To transfer ownership of a database to another company, use the ‘Transfer Database Ownership’ option on the [Settings](https://app.bugsplat.com/v2/settings/database?database) page on the [General](https://app.bugsplat.com/v2/settings/database?) page under Database.
+Databases are owned by companies. To transfer ownership of a database to another company, use the ‘Transfer Database Ownership’ option on the [Settings](https://app.bugsplat.com/v2/settings/database) page on the [General](https://app.bugsplat.com/v2/settings/database) page under Database.
 
 Make sure you are currently in the database you would like to transfer (confirm at the top of the Options page), then use the dropdown highlighted in the image below to select a company to which you wish to transfer ownership.
 

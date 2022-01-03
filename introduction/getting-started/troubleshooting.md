@@ -20,7 +20,7 @@ By default BugSplat accounts are limited to posting crash uploads that are no la
 
 ### Crashes are being posted too frequently
 
-Occasionally BugSplat will reject crashes that are being posted in rapid succession. This is done to prevent BugSplat from being overrun as well as to allow customers to protect themselves from exceeding their subscription allotments. BugSplat may reject crash reports when they are incoming at a rate greater than 1,000,000 per month. Additionally, BugSplat can reject repeated crashes coming from the same IP address via a setting on the ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page. A list of rejected crashes can be found on BugSplat's [Errors](https://app.bugsplat.com/v2/errors) page.
+Occasionally BugSplat will reject crashes that are being posted in rapid succession. This is done to prevent BugSplat from being overrun as well as to allow customers to protect themselves from exceeding their subscription allotments. BugSplat may reject crash reports when they are incoming at a rate greater than 1,000,000 per month. Additionally, BugSplat can reject repeated crashes coming from the same IP address via a setting on the ‘[Settings](https://app.bugsplat.com/v2/settings/database)’ page. A list of rejected crashes can be found on BugSplat's [Errors](https://app.bugsplat.com/v2/errors) page.
 
 ### BugSplat has been configured incorrectly
 
