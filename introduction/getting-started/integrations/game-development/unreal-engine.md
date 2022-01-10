@@ -32,6 +32,10 @@ Replace {database}, {appName}, and {appVersion} with the names of your BugSplat 
 Remember the values you use for {database}, {appName}, and {appVersion}. You will need to use the same values when uploading [Symbols](../../../development/working-with-symbol-files/) in order to get crash reports with function names and line numbers in the call stack.
 {% endhint %}
 
+{% hint style="warning" %}
+#### Spaces and special characters in {appName} or {appVersion} might cause unexpected behavior and should be avoided.
+{% endhint %}
+
 #### Unreal Engine 4.25 and older
 
 For capturing crashes in packaged games in Unreal Engine 4.25 and earlier, **** copy `DefaultEngine.ini` to `{{output directory}}\Engine\Programs\CrashReportClient\Config\NoRedist` making sure to create folders that don't exist (where`{{output directory}}` is the location of your packaged build).
