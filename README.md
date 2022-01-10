@@ -88,6 +88,6 @@ Information that covers the who, what, when, where, and why's of BugSplat.
 
 Updates to the BugSplat web app, various SDK's, and other aspects of our services.
 
-{% content-ref url="updates/changelog.md" %}
-[changelog.md](updates/changelog.md)
+{% content-ref url="updates/changelog/" %}
+[changelog](updates/changelog/)
 {% endcontent-ref %}
