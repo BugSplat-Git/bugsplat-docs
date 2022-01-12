@@ -115,7 +115,7 @@
   * [Multi-Factor Authentication (MFA)](education/faq/multi-factor-authentication-mfa.md)
   * [How BugSplat handles large crash volumes](education/faq/how-bugsplat-handles-large-crash-volumes.md)
   * [Find missing crash data](education/faq/find-missing-crash-data.md)
-  * [Finding missing reports](education/faq/finding-missing-reports.md)
+  * [Finding Missing Reports](education/faq/finding-missing-reports.md)
   * [Does BugSplat have an effect on application performance?](education/faq/does-bugsplat-have-an-effect-on-application-performance.md)
   * [Manually post crash reports to BugSplat](education/faq/manually-post-crash-reports-to-bugsplat.md)
   * [How to configure proxy settings in BugSplat](education/faq/how-to-configure-proxy-settings-in-bugsplat.md)
