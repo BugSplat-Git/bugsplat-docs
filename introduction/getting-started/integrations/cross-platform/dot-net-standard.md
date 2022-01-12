@@ -65,7 +65,7 @@ Additionally, `Post` can be used to upload minidumps to BugSplat.
 await bugsplat.Post(new FileInfo("/path/to/minidump.dmp"));
 ```
 
-The default values for description, email, key and user can be overridden in the call to Post. Additional attachments can also be specified in the call to Post. Please note that the total size of the Post body and all attachments is limited to 2MB by default.
+The default values for description, email, key, and user can be overridden in the call to Post. Additional attachments can also be specified in the call to Post. Please note that the total size of the Post body and all attachments is limited to 20MB by default.
 
 ```csharp
 var options = new ExceptionPostOptions()
