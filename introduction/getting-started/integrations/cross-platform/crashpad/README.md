@@ -97,7 +97,7 @@ CrashpadClient *initializeCrashpad(char *dbName, char *appName, char *appVersion
   if (settings == NULL) return false;
   settings->SetUploadsEnabled(true);
 
-  // Files to upload with the crash report - default bundle size limit is 2MB
+  // Files to upload with the crash report - default bundle size limit is 20MB
   std::vector<base::FilePath> attachments;
   base::FilePath attachment(L"./attachment.txt");
   attachments.push_back(attachment);
