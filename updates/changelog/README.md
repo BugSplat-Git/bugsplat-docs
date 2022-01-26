@@ -4,6 +4,14 @@ List of recent product changes and updates for BugSplat. We announce these updat
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+
+
+## Web App Update - January 18th, 2022
+
+#### Release - 2.8.1
+
+* Improve loading state on Settings pages
+
 ## Web App Update - January 10th, 2022
 
 #### Release - 2.7.6
