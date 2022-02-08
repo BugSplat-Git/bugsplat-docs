@@ -19,3 +19,7 @@ We try hard to keep this documentation up to date, however, if you find any issu
 {% content-ref url="paging-filtering-and-grouping.md" %}
 [paging-filtering-and-grouping.md](paging-filtering-and-grouping.md)
 {% endcontent-ref %}
+
+{% content-ref url="platform-specific-apis/" %}
+[platform-specific-apis](platform-specific-apis/)
+{% endcontent-ref %}
