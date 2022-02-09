@@ -1,6 +1,6 @@
 # Changelog
 
-List of recent product changes and updates for BugSplat. We announce these updates via [Twitter](https://twitter.com/bugsplatco).
+List of recent product changes and updates for BugSplat. We also discuss these updates on [Twitter](https://twitter.com/bugsplatco).
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
