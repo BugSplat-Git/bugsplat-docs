@@ -4,7 +4,51 @@ List of recent product changes and updates for BugSplat. We announce these updat
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Web App Update - February 2nd, 2022
 
+#### Release - 2.8.8
+
+* Update Crash and Key Crash action column styles
+
+#### Release - 2.8.7
+
+* Move firstReported/lastReported to side column
+
+## BugSplat-js - February 2nd, 2022
+
+#### Release - 7.1.1
+
+* Bump node-fetch from 2.6.1 to 2.6.7
+* Add types for server response
+
+#### Release - 7.1.0
+
+* Add options FormDataParam
+* Make database, application, version public for bugsplat-ng
+
+## Web App Update - February 1st, 2022
+
+#### Release - 2.8.6
+
+* Update Crash and Key Crash action column styles
+
+#### Release - 2.8.5
+
+* Billing should show usage for currently selected company
+
+#### Release - 2.8.4
+
+* Update comment component padding
+
+#### Release - 2.8.3
+
+* Update event stream component styles
+
+## Web App Update - January 31th, 2022
+
+#### Release - 2.8.2
+
+* Update crash page overview font-size to 0.875rem
 
 ## Web App Update - January 18th, 2022
 
