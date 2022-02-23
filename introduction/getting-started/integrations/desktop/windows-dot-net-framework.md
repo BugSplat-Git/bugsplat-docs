@@ -1,17 +1,5 @@
 # Windows (.NET Framework)
 
-## Introduction
-
-Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
-
-* [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
-* [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
-
-{% hint style="info" %}
-Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-{% endhint %}
-
 ## Overview
 
 The BugSplat .NET SDK supports applications written using the [Microsoft Common Language Runtime (CLR)](https://docs.microsoft.com/en-us/dotnet/standard/clr). This includes applications written using C#. The managed call stacks captured at the time of a crash include function names, source code file names, and line numbers. In addition, BugSplat will also display mixed-mode call stacks which have both managed code and native code on the stack.

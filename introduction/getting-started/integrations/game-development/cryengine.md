@@ -1,17 +1,5 @@
 # CRYENGINE
 
-## Introduction
-
-Enable BugSplat crash reporting in your CRYENGINE game with a few easy steps and leverage the most in-depth crash data on the market. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
-
-* [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
-* [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
-
-{% hint style="info" %}
-Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-{% endhint %}
-
 ## Building CRYENGINE
 
 In order to get function names and line numbers for internal CRYENGINE code you'll need to build CRYENGINE from source and generate `.pdb` files. Make sure to build the engine with the `Profile` configuration so that `.pdb` files are generated. The following video gives an overview of how to clone and build the CRYENGINE [source](https://github.com/CRYTEK/CRYENGINE):

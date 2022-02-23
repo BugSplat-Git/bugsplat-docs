@@ -1,19 +1,5 @@
 # React
 
-## Introduction
-
-BugSplat's [npm package](https://www.npmjs.com/package/bugsplat) provides error reporting for React applications. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
-
-* [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
-* [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
-
-Please also review our [my-react-crasher](https://github.com/BugSplat-Git/my-react-crasher) sample to see an example application configured with BugSplat.
-
-{% hint style="info" %}
-Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-{% endhint %}
-
 ## Integration
 
 BugSplat’s [npm package](https://www.npmjs.com/package/bugsplat) supports the collection of errors in React applications. Source map files can be uploaded to BugSplat via [@bugsplat/symbol-upload](https://www.npmjs.com/package/@bugsplat/symbol-upload). Additionally, BugSplat’s backend leverages [@bugsplat/stack-converter](https://www.npmjs.com/package/@bugsplat/stack-converter) to convert stack traces in JavaScript back to their original JSX or TSX file names and line number. BugSplat provides you with invaluable insight into the issues tripping up your users so that you can fix bugs and deliver a better user experience.

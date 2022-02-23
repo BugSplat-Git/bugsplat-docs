@@ -1,17 +1,5 @@
 # JavaScript
 
-## Introduction
-
-Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
-
-* [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
-* [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
-
-{% hint style="info" %}
-Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-{% endhint %}
-
 ## Overview
 
 BugSplat supports JavaScript and TypeScript error reporting in a variety of environments. Each environment that BugSplat supports requires slightly different configurations. Follow the links below for instructions on how to configure BugSplat in your application:

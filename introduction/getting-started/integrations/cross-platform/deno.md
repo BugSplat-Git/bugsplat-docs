@@ -1,17 +1,5 @@
 # Deno
 
-## Introduction
-
-[BugSplat-Deno](https://deno.land/x/bugsplat@v1.0.0) is a TypeScript error reporting system for Deno applications. Before integrating a new BugSplat SDK with your application, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
-
-* [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
-* [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
-
-{% hint style="info" %}
-Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-{% endhint %}
-
 ## Configuration
 
 To add the bugsplat package to your application, run the following shell command at the root of your project’s directory:

@@ -1,23 +1,11 @@
 # macOS
 
-## Introduction
-
-The BugSplat macOS framework enables posting crash reports from Cocoa applications to BugSplat. This allows for your team to process macOS crash reports with BugSplat. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
-
-* [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
-* [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
-
-{% hint style="info" %}
-Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-{% endhint %}
-
-## 1. Requirements
+## Requirements
 
 * BugSplatMac supports macOS 10.7 and later.
 * BugSplatMac supports x86\_64 and Apple Silicon applications
 
-## 2. Integration
+## Integration
 
 BugSplatMac supports multiple methods for installing the library in a project.
 
@@ -83,7 +71,7 @@ To use this library in your project manually you may:
    * Choose `Frameworks` from the Destination list.
    * Drag `BugsplatMac` from the Project Navigator left sidebar to the list in the new Copy Files phase.
 
-## 3. Usage
+## Usage
 
 ### Configuration
 

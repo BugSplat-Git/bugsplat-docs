@@ -1,17 +1,5 @@
 # Node.js
 
-## Introduction
-
-BugSplat's [bugsplat-node](https://www.npmjs.com/package/bugsplat-node) package provides error reporting for Node.js and Electron applications. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
-
-* [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
-* [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
-
-{% hint style="info" %}
-Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-{% endhint %}
-
 ## Configuration
 
 To add the bugsplat package to your application, run the following shell command at the root of your project’s directory:

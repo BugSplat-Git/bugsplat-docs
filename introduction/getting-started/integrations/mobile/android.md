@@ -4,16 +4,6 @@
 
 The Android NDK is a set of tools for building native C++ applications for Android. BugSplat recommends using Crashpad to handle native crashes in Android NDK applications. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
 
-* [Sign up](https://app.bugsplat.com/v2/sign-up) for a BugSplat account
-* [Log in](https://app.bugsplat.com/auth0/login) using your email address
-* Create a new [database](https://app.bugsplat.com/v2/settings/company/databases) for your application
-
-Please also review the [AndroidCrasher](https://github.com/BugSplat-Git/AndroidCrasher) application to see an example BugSplat integration.
-
-{% hint style="info" %}
-Need any further help? Check out the full BugSplat documentation [here](../../../../), or email the team at [support@bugsplat.com](mailto:support@bugsplat.com).
-{% endhint %}
-
 ## Building Crashpad
 
 BugSplat leverages Crashpad to provide crash reporting for Android NDK applications. This tutorial provides a quick overview of how to build Crashpad. For an in depth guide that discusses how to build Crashpad, please see this [article](../cross-platform/crashpad/how-to-build-google-crashpad.md).
