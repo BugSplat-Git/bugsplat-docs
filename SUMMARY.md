@@ -56,7 +56,7 @@
     * [my-unity-crasher](https://github.com/BugSplat-Git/my-unity-crasher)
     * [my-unreal-crasher](https://github.com/BugSplat-Git/my-unreal-crasher)
   * [Inviting Team Members](introduction/getting-started/adding-uses-to-your-account.md)
-  * [Migrating Crashes](introduction/getting-started/migrating-crashes-from-another-tool.md)
+  * [Importing Crashes](introduction/getting-started/migrating-crashes-from-another-tool.md)
   * [Troubleshooting](introduction/getting-started/troubleshooting.md)
 * [Development](introduction/development/README.md)
   * [Using the App](introduction/development/using-the-app.md)
