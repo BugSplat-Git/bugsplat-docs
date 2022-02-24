@@ -4,6 +4,28 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Web App Update - February 15th, 2022
+
+#### Release - 2.8.12
+
+* Redirect to Account page if Stripe Portal returns null
+
+#### Release - 2.8.11
+
+* Fix should not fail to parse Subscription API
+
+
+
+## BugSplat Angular - February 10th, 2022
+
+#### Release - 5.0.0
+
+* Uploads source maps&#x20;
+* Add README Section for Source Maps&#x20;
+* Demo refresh
+* chore(sample): improve symbol uploads
+* fix: provide ivy distribution
+
 ## Web App Update - February 2nd, 2022
 
 #### Release - 2.8.8
