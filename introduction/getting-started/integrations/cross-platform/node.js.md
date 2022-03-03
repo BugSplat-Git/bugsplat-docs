@@ -11,13 +11,13 @@ npm i bugsplat-node --save
 Require bugsplat at the entry point of your application (usually main.js) by adding the following code snippet:
 
 ```typescript
-const BugSplat = require('bugsplat-node');
+const { BugSplatNode } = require('bugsplat-node');
 ```
 
 Create a new instance of the BugSplat class being sure to replace the database, application, and version with the correct values for your application:
 
 ```typescript
-const bugsplat = new BugSplat(database, application, version);
+const bugsplat = new BugSplatNode(database, application, version);
 ```
 
 Set the bugsplat.post function as an event handler for uncaught exceptions:
