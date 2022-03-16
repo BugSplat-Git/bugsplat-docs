@@ -10,9 +10,9 @@ Because of that, BugSplat has an Extended Free Tier Plan for students and educat
 
 If you're a student or educator who wants to use BugSplat for educational or instructional purposes, you probably qualify for our Extended Free Tier Plan.
 
-For users and teams that qualify, you'll get annual 50,000 free annual crashes plus integrations with defect trackers.
+For users and teams that qualify, you'll get annual 50,000 free monthly crashes or errors plus integrations with defect trackers.
 
-If you're wondering if you qualify but are not sure, please send an email to our product manager, Joey \([joey@bugsplat.com](mailto:joey@bugsplat.com)\), and tell him a little bit about yourself and your use case.
+If you're wondering if you qualify but are not sure, please send an email to our product manager, Joey ([joey@bugsplat.com](mailto:joey@bugsplat.com)), and tell him a little bit about yourself and your use case.
 
 ### How long does this plan last?
 
@@ -34,6 +34,5 @@ To get started with the Extended Free Tier Plan for education, follow the below 
 
 1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up).
 2. Follow the [Gettings Started](../../../introduction/getting-started/) docs to set up your account.
-3. Send our product manager Joey \([joey@bugsplat.com](mailto:joey@bugsplat.com)\) an email asking for the free plan and telling him a bit about your project. 
+3. Send our product manager Joey ([joey@bugsplat.com](mailto:joey@bugsplat.com)) an email asking for the free plan and telling him a bit about your project.&#x20;
 4. Gain approval and get access to the Extended Free Tier Plan for education.
-

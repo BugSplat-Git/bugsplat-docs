@@ -6,23 +6,25 @@ We're committed to supporting those who are giving back, working hard to learn, 
 
 Because of that, BugSplat has an Extended Free Tier Plan for those working on building an indie video game on little or no budget.
 
-### Here are the rules:
+Additionally, BugSplat provides a 25% discount for Team and Business plans for Indie Developers who used the Free Plan during development.
+
+### Indie Game Dev Free Plan:
 
 If you're unaffiliated with a funded studio and currently developing your game, you probably qualify for our Extended Free Tier Plan.
 
-For users and teams that qualify, you'll get annual 50,000 free annual crashes plus integrations with defect trackers.‌
+For users and teams that qualify, you'll get annual 50,000 free monthly crashes and errors plus integrations with defect trackers and other tools.‌
 
-If you're wondering if you qualify but are not sure, please send an email to our product manager, Joey \(joey@bugsplat.com\). Tell him a little bit about yourself and your game.
+If you're wondering if you qualify but are not sure, please send an email to our product manager, Joey (joey@bugsplat.com). Tell him a little bit about yourself and your game.
 
 #### How long does this plan last?
 
-Once you launch your game or secure funding, we will work with you to find a plan that works for your game, team, and company.
+Once you launch your game or secure funding, we will work with you to find a plan that works for your game, team, and company and send you a 25% discount code for your first 3 months of using a paid account at BugSplat.
 
 #### How can I support BugSplat during the free plan?
 
-First off, it's very nice that you're thinking of us. We're touched.   
+First off, it's very nice that you're thinking of us. We're touched.  &#x20;
 
-There is absolutely no responsibility on your part to help us in exchange for getting free crash reporting.  
+There is absolutely no responsibility on your part to help us in exchange for getting free crash reporting. &#x20;
 
 If you're determined to be super nice—how dare you—you could mention us positively to your friends and coworkers. Please also consider including a link to our website in your documentation.
 
@@ -30,10 +32,9 @@ BugSplat is a [bootstrapped startup](https://www.bugsplat.com/about/) and we gro
 
 ### How to get started
 
-To get started with the Indie Game Development Free Tier Plan, follow the below steps: 
+To get started with the Indie Game Development Free Tier Plan, follow the below steps:&#x20;
 
 1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up).
 2. Follow the [Gettings Started](../../../introduction/getting-started/) docs to set up your account.
-3. Send our product manager Joey [\(joey@bugsplat.com](mailto:joey@bugsplat.com)\) an email asking for the free plan and telling him a bit about your project.
+3. Send our product manager Joey [(joey@bugsplat.com](mailto:joey@bugsplat.com)) an email asking for the free plan and telling him a bit about your project.
 4. Gain approval and get access to the Indie Game Development Free Tier Plan. 
-

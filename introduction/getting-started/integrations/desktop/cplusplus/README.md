@@ -1,9 +1,3 @@
----
-description: >-
-  Find and fix crashes in your Microsoft Visual C++ application with crash
-  reporting from BugSplat.
----
-
 # BugSplat Crash Reporting Library for Windows (Native C++)
 
 ## Overview

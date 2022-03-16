@@ -2,13 +2,17 @@
 
 Hi there 👋
 
-BugSplat is the go-to tool for finding, understanding, fixing, and monitoring defects, crashes, errors, and other issues in live applications and projects in development.  BugSplat provides teams with turn-key tools that are secure, scalable, and customizable, allowing developers to spend less time supporting their applications, and more time building them.
+BugSplat is a crash reporting, error reporting, and bug tracking tool that helps developers efficiently identify and fix defects in order to support more stable applications.&#x20;
 
 In these documents, you’ll find everything you need to get fully up to speed with BugSplat.  This includes [getting started guides](introduction/getting-started/),[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of [3rd-party tool integrations](introduction/development/integrating-with-tools/), a [walkthrough of using the web application](introduction/development/using-the-app.md), links to our[ webservices (API)](introduction/development/web-services/api.md), and much more.&#x20;
+
+!['Splat your bugs with BugSplat!](https://media.giphy.com/media/Lkexv8W0dRZR7VOLuh/giphy-downsized-large.gif)
 
 Use the links below to begin navigating these docs.  If you can’t find something use the left-hand menu or the handy search bar in the top right.
 
 If you need any support please reach out to us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app window, or ping us on our [Discord](https://discord.gg/K4KjjRV5ve).
+
+
 
 ## Introduction
 
@@ -58,8 +62,8 @@ Documentation covering user management, account management, billing, and upgrade
 [account-managment](administration/account-managment/)
 {% endcontent-ref %}
 
-{% content-ref url="administration/billing/" %}
-[billing](administration/billing/)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="administration/contact-us.md" %}

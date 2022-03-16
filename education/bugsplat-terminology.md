@@ -1,5 +1,11 @@
 # BugSplat Terminology
 
+### App
+
+'Apps' are one level of how BugSplat organizes crash and error reports to keep them organized and easy to navigate for the team's working on them. &#x20;
+
+It is best practice to keep back-end and client reports from a single Application separate. Using more than two 'apps' can provide for further organization and customization. &#x20;
+
 ### Call-Stack
 
 These are the active subroutines of your program at some point in time. In the BugSplat world, that time is typically the time of a crash. The call stack identifies which subroutines have been called in what order. The call stack is also known as the stack trace, execution stack, program stack, or simply the stack.
