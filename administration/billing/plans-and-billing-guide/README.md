@@ -58,7 +58,7 @@ Think your team is right for an Enterprise Plan? Please get in touch with [sales
 
 To choose a plan navigate to the [Billing page](https://app.bugsplat.com/v2/settings/company/billing) inside of your Admin settings inside of your BugSplat account. There you will be able to upgrade to a paid plan by clicking on the 'Upgrade' button.
 
-{Insert Image}
+![](../../../.gitbook/assets/bugsplat-checkout-march-16.png)
 
 This button brings up the Set Plan Details pop-up that allows you to select your plan type (Business or Team), monthly crash volume, number of users, number of apps, and payment period (month or year).  Once these have been selected hit 'Checkout' at the bottom right to bring up the review and payment method page. &#x20;
 
