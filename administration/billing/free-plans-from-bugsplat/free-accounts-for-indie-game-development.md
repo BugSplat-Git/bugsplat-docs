@@ -14,7 +14,7 @@ If you're unaffiliated with a funded studio and currently developing your game, 
 
 For users and teams that qualify, you'll get annual 50,000 free monthly crashes and errors plus integrations with defect trackers and other tools.‌
 
-If you're wondering if you qualify but are not sure, please send an email to [hi@bugsplat.com](mailto:hi@bugsplat.com) and tell us a little bit about yourself and your game.
+If you're wondering if you qualify but are not sure, please send an email to our product manager, Joey (joey@bugsplat.com). Tell him a little bit about yourself and your game.
 
 #### How long does this plan last?
 
@@ -36,5 +36,5 @@ To get started with the Indie Game Development Free Tier Plan, follow the below 
 
 1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up).
 2. Follow the [Gettings Started](../../../introduction/getting-started/) docs to set up your account.
-3. Send us an email at [hi@bugsplat.com](mailto:hi@bugsplat.com) asking for the Education Free Plan. Make sure to include a bit telling us about your game project.&#x20;
+3. Send our product manager Joey [(joey@bugsplat.com](mailto:joey@bugsplat.com)) an email asking for the free plan and telling him a bit about your project.
 4. Gain approval and get access to the Indie Game Development Free Tier Plan. 

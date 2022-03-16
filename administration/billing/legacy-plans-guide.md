@@ -8,9 +8,9 @@ description: >-
 
 ### Important Note:
 
-The information found in this document pertains only to BugSplat users who signed up for plans before March 15th, 2022.  Beginning March 15th, 2022 BugSplat instituted a new pricing structure for plans which can be viewed on our [Pricing](https://www.bugsplat.com/plans) page. &#x20;
+The information found in this document pertains only to BugSplat users who signed up for paid plans before March 15th, 2022.  Beginning March 15th, 2022 BugSplat instituted a new pricing structure which can be viewed on our [Pricing](https://www.bugsplat.com/plans) page. &#x20;
 
-If you are on a legacy plan you are grandfathered into that plan and no action is required from your end.
+If you are on a legacy plan you are grandfathered into that plan and no action is required on your end.
 
 If you would like to speak directly with someone about your legacy account, or about our expanded pricing options now available, please send a note to [sales@bugsplat.com](mailto:sales@bugsplat.com).
 
