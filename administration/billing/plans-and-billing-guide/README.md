@@ -8,8 +8,8 @@ This guide is for users interested in upgrading to a paid account and BugSplat a
 
 Note that only [non-restricted users](../../introduction/user-permissions.md) can change billing settings.  If you are unable to view these pages please request access from a non-restricted team member.
 
-{% hint style="warning" %}
-If you haven't created a BugSplat account yet, please view our [Plans page](https://www.bugsplat.com/plans/) for details on available plans.  Makes sure to start your free trial while there!
+{% hint style="info" %}
+**Sign up for a BugSplat plan before March 15th, 2022?**  Your account is governed by the legacy pricing plan.  Please see [here](../legacy-plans-guide.md) to learn more.
 {% endhint %}
 
 Have questions related to plans and billing?  Please contact sales at [sales@bugsplat.com](mailto:sales@bugsplat.com) or ask us a question on [Discord](https://discord.com/invite/K4KjjRV5ve).
@@ -55,8 +55,6 @@ Team's looking to take advantage of the Enterprise can benefit from volume-based
 Think your team is right for an Enterprise Plan? Please get in touch with [sales@bugsplat.com](mailto:sales@bugsplat.com) to learn more about plans for your team.
 
 ## Paying for your plan
-
-
 
 To choose a plan navigate to the [Billing page](https://app.bugsplat.com/v2/settings/company/billing) inside of your Admin settings inside of your BugSplat account. There you will be able to upgrade to a paid plan by clicking on the 'Upgrade' button.
 
@@ -145,6 +143,4 @@ By default, BugSplat collects all crashes and errors submitted from an applicati
 For **Business plans**, BugSplat can distribute a collection of crashes over high volume times to collect crash data more economically via a Fractional Crash Collection process.
 
 For **Team plans**, crashes are rejected once an account surpasses 100,000 crashes or errors per month. If those additional crashes are critical, users can upgrade at any point to the Business plan and continue tracking those crashes.
-
-
 
