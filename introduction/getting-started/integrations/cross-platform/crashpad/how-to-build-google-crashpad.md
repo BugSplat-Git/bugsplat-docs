@@ -4,17 +4,26 @@
 
 Crashpad is a cross-platform system for end-to-end crash reporting. Crashpad supports reporting of native crashes on a variety of operating systems including Windows, macOS, Linux, Android, and iOS. Crashpad also provides tools such as `dump_syms`, `symupload` and `minidump_stackwalk` that provide developers with function names, file names, and line numbers in their crash reports. Integrating with Crashpad helps software engineers find and fix program crashes in order to develop more stable applications.
 
-{% embed url="https://bugsplat.wistia.com/medias/bh4l456ydm" caption="" %}
+{% embed url="https://bugsplat.wistia.com/medias/bh4l456ydm" %}
 
 ## Installing depot\_tools
 
-The Chromium [depot\_tools](https://chromium.googlesource.com/chromium/tools/depot_tools.git) are a set of tools that are required to build Crashpad. The documentation claims that Python 2.7 is a requirement for depot\_tools, however since checking out Crashpad uses only a subset of the depot tools Python 3+ worked fine for BugSplat.
+The Chromium [depot\_tools](https://chromium.googlesource.com/chromium/tools/depot\_tools.git) are a set of tools that are required to build Crashpad. The documentation claims that Python 2.7 is a requirement for depot\_tools, however since checking out Crashpad uses only a subset of the depot tools Python 3+ worked fine for BugSplat.
 
-### **macOS & Linux**
+Run the following terminal commands below to clone `depot_tools` and add the tools to your system PATH variable. Be sure to change `/path/to/depot_tools` to the path where you cloned depot\_tools.
+
+### **macOS**
 
 ```bash
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git 
 sudo echo "export PATH=/path/to/depot_tools:$PATH" >> ~/.zshrc
+```
+
+### **Linux**
+
+```
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git 
+sudo echo "export PATH=/path/to/depot_tools:$PATH" >> ~/.bashrc
 ```
 
 ### **Windows**
@@ -243,7 +252,7 @@ int main(int argc, char *argv[]) {
 
 ## Generating Symbols
 
-Generating sym files requires the `dump_syms` tool from the repository of Crashpad’s predecessor, [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/). Dump\_syms creates [sym files](https://github.com/google/breakpad/blob/master/docs/symbol_files.md) from executable binaries so that minidumps can be symbolicated to determine the function names, file names, and line numbers in the call stack.
+Generating sym files requires the `dump_syms` tool from the repository of Crashpad’s predecessor, [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/). Dump\_syms creates [sym files](https://github.com/google/breakpad/blob/master/docs/symbol\_files.md) from executable binaries so that minidumps can be symbolicated to determine the function names, file names, and line numbers in the call stack.
 
 ```bash
 mkdir ~/breakpad
@@ -253,9 +262,9 @@ fetch breakpad
 
 ### **macOS**
 
-Build the application with symbolic information \(preferably in a separate dSYM file\) in order to get fully symbolicated crash reports.
+Build the application with symbolic information (preferably in a separate dSYM file) in order to get fully symbolicated crash reports.
 
-Next, build the Xcode project located at `src/src/tools/mac/dump_syms/dump_syms.xcodeproj`. Switch the configuration to dump\_syms and build the project. The report navigator tab \(icon looks like a chat bubble in Xcode 11\) will show the file system location with the compiled executable. Run the dump\_syms executable.
+Next, build the Xcode project located at `src/src/tools/mac/dump_syms/dump_syms.xcodeproj`. Switch the configuration to dump\_syms and build the project. The report navigator tab (icon looks like a chat bubble in Xcode 11) will show the file system location with the compiled executable. Run the dump\_syms executable.
 
 ```bash
 dump_syms -g "/path/to/myApp.app.dSYM" "/path/to/myApp.app/Contents/MacOS/myApp" > myApp.sym
@@ -291,7 +300,7 @@ The `symupload` tool is also part of the [Breakpad](https://chromium.googlesourc
 
 ### **macOS**
 
-Build the Xcode project located at `src/src/tools/mac/symupload/symupload.xcodeproj`. The report navigator tab \(icon looks like a chat bubble in Xcode 11\) will show you the file system location with the compiled executable. Copy the symupload file into your project and run the executable wrapping the arguments to symupload in quotes.
+Build the Xcode project located at `src/src/tools/mac/symupload/symupload.xcodeproj`. The report navigator tab (icon looks like a chat bubble in Xcode 11) will show you the file system location with the compiled executable. Copy the symupload file into your project and run the executable wrapping the arguments to symupload in quotes.
 
 ```bash
 symupload "/path/to/myApp.sym" "https://fred.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName=myApp&appVer=1.0.0"
@@ -311,7 +320,7 @@ Symupload can be built from source so that the debugger can be used for troubles
 
 ## Symbolicating Crash Reports
 
-`Minidump_stackwalk` is another tool in the [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/) repository that is responsible for the symbolication of minidump files. In order to correctly symbolicate minidumps, sym files need to be nested at least 2 folders deep. The topmost parent folder’s name must equal the sym files module name. The first child folder’s name must equal the module id. Additionally, the sym file name must also match the module name. The module id and module name can be found in the [module record](https://github.com/google/breakpad/blob/master/docs/symbol_files.md#module-records) of the sym file.
+`Minidump_stackwalk` is another tool in the [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/) repository that is responsible for the symbolication of minidump files. In order to correctly symbolicate minidumps, sym files need to be nested at least 2 folders deep. The topmost parent folder’s name must equal the sym files module name. The first child folder’s name must equal the module id. Additionally, the sym file name must also match the module name. The module id and module name can be found in the [module record](https://github.com/google/breakpad/blob/master/docs/symbol\_files.md#module-records) of the sym file.
 
 For example the module `myApp` with the module id `1A67F3DEAACA3B209D9992871B2620AA0` must be located at `/path/to/symbols/myApp/1A67F3DEAACA3B209D9992871B2620AA0/myApp.sym`.
 
@@ -319,13 +328,13 @@ For example the module `myApp` with the module id `1A67F3DEAACA3B209D9992871B262
 
 Minidump\_stackwalk is built when building [Breakpad](https://chromium.googlesource.com/breakpad/breakpad#getting-started-from-master).
 
-```text
+```
 cd ~/breakpad/src && configure && make
 ```
 
 Run `minidump_stackwalk` passing it a path to a dmp file and a path to a symbols directory. The folders in the symbols directory need to be laid out following the pattern `module_name/module_id/module_name.sym`:
 
-```text
+```
 minidump_stackwalk -m "/path/to/minidump.dmp" "/path/to/symbols"
 ```
 
@@ -333,23 +342,22 @@ minidump_stackwalk -m "/path/to/minidump.dmp" "/path/to/symbols"
 
 Minidump\_stackwalk is part of the Breakpad `processor` sln which is generated by `gyp`
 
-```text
+```
 gyp ~/breakpad/src/src/processor/processor.gyp
 ```
 
-At the time of writing the `processor.sln` file will not build on Windows 10 with Visual Studio 2019. However, minidumps generated on the Windows platform can be symbolicated on macOS or by a 3rd party service such as [BugSplat](https://www.bugsplat.com/). Additionally, minidumps generated by the Crashpad library can also be symbolicated via [Debugging Tools](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/) for Windows given the `.exe`, `.dll` and `.pdb` files are made available to WinDBG.
+At the time of writing the `processor.sln` file will not build on Windows 10 with Visual Studio 2019. However, minidumps generated on the Windows platform can be symbolicated on macOS or by a 3rd party service such as [BugSplat](https://www.bugsplat.com). Additionally, minidumps generated by the Crashpad library can also be symbolicated via [Debugging Tools](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/) for Windows given the `.exe`, `.dll` and `.pdb` files are made available to WinDBG.
 
 ## Troubleshooting
 
-Most issues symbolicating dump files can be traced back to mismatched module ids. Anything that modifies a given executable \(code-signing, anti-cheat\) must be performed before `dump_syms` and `symupload` are run. Every time an executable is modified `dump_syms` and `symupload` need to be re-run. The name and id of the module loaded at runtime can be found in the `minidump_stackwalk` output. The module name and id must match the module name and id of the generated sym file in order for `minidump_stackwalk` to correctly symbolicate the minidump file.
+Most issues symbolicating dump files can be traced back to mismatched module ids. Anything that modifies a given executable (code-signing, anti-cheat) must be performed before `dump_syms` and `symupload` are run. Every time an executable is modified `dump_syms` and `symupload` need to be re-run. The name and id of the module loaded at runtime can be found in the `minidump_stackwalk` output. The module name and id must match the module name and id of the generated sym file in order for `minidump_stackwalk` to correctly symbolicate the minidump file.
 
 ## References
 
-1. [https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot\_tools/docs/html/depot\_tools\_tutorial.html\#\_setting\_up](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)
+1. [https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot\_tools/docs/html/depot\_tools\_tutorial.html#\_setting\_up](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot\_tools/docs/html/depot\_tools\_tutorial.html#\_setting\_up)
 2. [https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md)
-3. [https://groups.google.com/a/chromium.org/forum/\#!topic/crashpad-dev/XVggc7kvlNs](https://groups.google.com/a/chromium.org/forum/#!topic/crashpad-dev/XVggc7kvlNs)
+3. [https://groups.google.com/a/chromium.org/forum/#!topic/crashpad-dev/XVggc7kvlNs](https://groups.google.com/a/chromium.org/forum/#!topic/crashpad-dev/XVggc7kvlNs)
 4. [https://docs.bugsplat.com/introduction/getting-started/integrations/cross-platform/crashpad](https://docs.bugsplat.com/introduction/getting-started/integrations/cross-platform/crashpad)
-5. [https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md\#build-process-specificssymbol-generation](https://github.com/google/breakpad/blob/master/docs/getting_started_with_breakpad.md#build-process-specificssymbol-generation)
-6. [https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md\#build-process-specifics\_symbol-generation](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#build-process-specifics_symbol-generation)
+5. [https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation)
+6. [https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md#build-process-specifics\_symbol-generation](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md#build-process-specifics\_symbol-generation)
 7. [https://www.chromium.org/developers/decoding-crash-dumps](https://www.chromium.org/developers/decoding-crash-dumps)
-
