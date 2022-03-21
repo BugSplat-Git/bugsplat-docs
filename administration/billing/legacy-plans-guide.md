@@ -16,7 +16,7 @@ If you would like to speak directly with someone about your legacy account, or a
 
 ### I'm on a Legacy plan, will I need to upgrade to the new pricing model?
 
-Users who signed up before March 15th, 2022 are grandfathered into their current plan will not need to upgrade to the new billing structure.
+Users who signed up before March 15th, 2022 are grandfathered into their current plan are not required to upgrade to the new billing structure.
 
 ### Viewing  Billing History and Past Invoices
 
