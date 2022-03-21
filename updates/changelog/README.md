@@ -4,6 +4,20 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Pricing Update - March 16th, 2022
+
+#### Commercial Plans&#x20;
+
+Release of new pricing plans.  Users who sign up for plans after March 16th, 2022 are governed by pricing detailed on the [Plans](https://www.bugsplat.com/plans/) page. &#x20;
+
+Users who signed up for plans before March 16th, 2022 are governed by [legacy pricing plans](../../administration/billing/legacy-plans-guide.md).
+
+Learn more by viewing the [Billing](../../administration/billing/) documents or contacting [sales@bugsplat.com](mailto:sales@bugsplat.com).
+
+#### Free Plans
+
+Terms for the [Open Source](../../administration/billing/free-plans-from-bugsplat/bugsplat-free-accounts-for-not-for-profit-open-source-projects.md), [Indie Game Dev](../../administration/billing/free-plans-from-bugsplat/free-accounts-for-indie-game-development.md#overview), [Education](../../administration/billing/free-plans-from-bugsplat/bugsplat-free-accounts-for-students-and-teachers.md), and [Good Causes](../../administration/billing/free-plans-from-bugsplat/good-causes.md) terms have been updated as part of this new pricing plans release.
+
 ## Web App Update - February 15th, 2022
 
 #### Release - 2.8.12
