@@ -6,7 +6,7 @@ BugSplat supports the collection of errors in Angular applications. The bugsplat
 
 ## Sample
 
-This repository includes a sample my-angular-crasher application that has be pre-configured with BugSplat. Before you try the sample, you'll need to create an OAuth2 ClientId/ClientSecret pair as shown [here](https://docs.bugsplat.com/introduction/development/web-services/oauth2).
+This repository includes a sample my-angular-crasher application that has be pre-configured with BugSplat. A hosted version of my-angular-crasher can also be found [here](https://bugsplat-git.github.io/my-angular-crasher). Before you try the sample, you'll need to create an OAuth2 ClientId/ClientSecret pair as shown [here](https://docs.bugsplat.com/introduction/development/web-services/oauth2).
 
 Once you've genereated OAuth2 credentials, create a file with the name `.env` at the root of the repository and populate with the correct values substituted for `{{clientId}}` and `{{clientSecret}}`:
 
