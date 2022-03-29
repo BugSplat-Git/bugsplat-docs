@@ -16,22 +16,28 @@ Once Crashpad has been built you'll need to add the relevant include directories
 # Include directories for Crashpad libraries
 INCLUDEPATH += $$PWD/Crashpad/Include/crashpad
 INCLUDEPATH += $$PWD/Crashpad/Include/crashpad/third_party/mini_chromium/mini_chromium
+INCLUDEPATH += $$PWD/Crashpad/Include/crashpad/out/Default/gen
 ```
 
 Next, link your app with the Crashpad libraries. Linking with the Crashpad libraries is platform-dependent.
 
 ### **macOS**
 
-Copy `libbase.a`, `libutil.a` and `libclient.a` into `$$PWD/Crashpad/Libraries/MacOS`. Additionally, you'll need to copy all of the `.o` files from the Crashpad build folder `/out/Default/gen/util/mach` to the directory `$$PWD/Crashpad/Libraries/MacOS/util/mach`. Finally, you'll need to link with the system libraries `libbsm`, `AppKit.Framework`, and `Security.Framework`. Add the following snippet to your project file to link with the aforementioned libraries:
+Copy `libcommon.a`, `libbase.a`, `libutil.a`, `libclient.a` , and `libmig_output.a` into `$$PWD/Crashpad/Libraries/MacOS`. You'll need to link to versions of these libraries that were built to target either `arm64` or `x86_64` depending which architecture your build targets. You'll also need to link with the system libraries `libbsm`, `AppKit.Framework`, and `Security.Framework`. Add the following snippet to your project file to link with the aforementioned libraries:
 
 ```
 # Crashpad rules for MacOS
 macx {
+    # Choose either x86_64 or arm64
+    #ARCH = x86_64
+    ARCH = arm64
+
     # Crashpad libraries
-    LIBS += -L$$PWD/Crashpad/Libraries/MacOS/ -lbase
-    LIBS += -L$$PWD/Crashpad/Libraries/MacOS/ -lutil
-    LIBS += -L$$PWD/Crashpad/Libraries/MacOS/ -lclient
-    LIBS += "$$PWD/Crashpad/Libraries/MacOS/util/mach/*.o"
+    LIBS += -L$$PWD/Crashpad/Libraries/MacOS/$$ARCH -lcommon
+    LIBS += -L$$PWD/Crashpad/Libraries/MacOS/$$ARCH -lclient
+    LIBS += -L$$PWD/Crashpad/Libraries/MacOS/$$ARCH -lbase
+    LIBS += -L$$PWD/Crashpad/Libraries/MacOS/$$ARCH -lutil
+    LIBS += -L$$PWD/Crashpad/Libraries/MacOS/$$ARCH -lmig_output
 
     # System libraries
     LIBS += -L/usr/lib/ -lbsm
@@ -40,7 +46,9 @@ macx {
 }
 ```
 
-You'll need to ship a copy of the `crashpad_handler` executable with your application. Copy `crashpad_handler` to the `$$PWD/Crashpad/Bin/MacOS` directory. Add the following snippet to the `macx` section of your project file that copies the macOS `crashpad_handler` to your project's build directory.
+You'll need to ship a copy of the `crashpad_handler` executable with your application. Again, be sure to copy the version of `crashpad_handler` that targets either `arm64` or `x86_64` depending on what architecture you're targeting.
+
+Copy `crashpad_handler` to the `$$PWD/Crashpad/Bin/MacOS` directory. Add the following snippet to the `macx` section of your project file that copies the macOS `crashpad_handler` to your project's build directory.
 
 ```
 # Crashpad rules for MacOS
@@ -54,13 +62,14 @@ macx {
 
 ### **Windows**
 
-Copy `base.lib`, `client.lib` and `util.lib` into `$$PWD/Crashpad/Libraries/Windows`. You'll need to link with the system library `Advapi32`. Add the following snippet to your project file to link with the aforementioned libraries:
+Copy `base.lib`, `common.lib`, `client.lib` and `util.lib` into `$$PWD/Crashpad/Libraries/Windows`. You'll need to link with the system library `Advapi32`. Add the following snippet to your project file to link with the aforementioned libraries:
 
 ```
 # Crashpad rules for Windows
 win32 {
     # Crashpad libraries
     LIBS += -L$$PWD/Crashpad/Libraries/Windows/ -lbase
+    LIBS += -L$$PWD/Crashpad/Libraries/Windows/ -lcommon
     LIBS += -L$$PWD/Crashpad/Libraries/Windows/ -lclient
     LIBS += -L$$PWD/Crashpad/Libraries/Windows/ -lutil
 
@@ -69,7 +78,9 @@ win32 {
 }
 ```
 
-Additionally, you'll need to ship a copy of the `crashpad_handler.exe` executable with your application. Copy `crashpad_handler.exe` to the `$$PWD/Crashpad/Bin/Windows` directory. Add the following snippet to the `win32` section of your project file that copies the Windows `crashpad_handler.exe` to your project's build directory.
+Additionally, you'll need to ship a copy of the `crashpad_handler.exe` executable with your application.&#x20;
+
+Copy `crashpad_handler.exe` to the `$$PWD/Crashpad/Bin/Windows` directory. Add the following snippet to the `win32` section of your project file that copies the Windows `crashpad_handler.exe` to your project's build directory.
 
 ```
 # Crashpad rules for Windows
@@ -90,19 +101,20 @@ win32 {
 
 ### **Linux**
 
-Copy `libbase.a`, `libutil.a` and `libclient.a` into `$$PWD/Crashpad/Libraries/Linux`. The order in which you specify the Crashpad libraries to link is important! `libclient.a` must be specified first, then `libutil.a` and finally `libbase.a`. Add the following snippet to your project file to link with the aforementioned libraries:
+Copy `libbase.a`, `libutil.a`, `libcommon.a` and `libclient.a` into `$$PWD/Crashpad/Libraries/Linux`. The order in which you specify the Crashpad libraries to link is important! `libcommon.a`, and `libclient.a` must be specified first, then `libutil.a` and finally `libbase.a`. Add the following snippet to your project file to link with the aforementioned libraries:
 
 ```
 # Crashpad rules for Linux
 linux {
     # Crashpad libraries
+    LIBS += -L$$PWD/Crashpad/Libraries/Linux/ -lcommon
     LIBS += -L$$PWD/Crashpad/Libraries/Linux/ -lclient
     LIBS += -L$$PWD/Crashpad/Libraries/Linux/ -lutil
     LIBS += -L$$PWD/Crashpad/Libraries/Linux/ -lbase
 }
 ```
 
-Additionally, you'll need to ship a copy of the `crashpad_handler` executable with your application. Copy `crashpad_handler` to the `$$PWD/Crashpad/Bin/MacOS` directory. Add the following snippet to the `linux` section of your project file that copies the Linux `crashpad_handler` to your project's build directory.
+Additionally, you'll need to ship a copy of the `crashpad_handler` executable with your application. Copy `crashpad_handler` to the `$$PWD/Crashpad/Bin/Linux` directory. Add the following snippet to the `linux` section of your project file that copies the Linux `crashpad_handler` to your project's build directory.
 
 ```
 # Crashpad rules for Linux
@@ -152,21 +164,21 @@ bool initializeCrashpad(QString dbName, QString appName, QString appVersion)
     QString url = "https://" + dbName + ".bugsplat.com/post/bp/crash/crashpad.php";
 
     // Metadata that will be posted to BugSplat
-    QMap<string, string> annotations;
+    QMap<std::string, std::string> annotations;
     annotations["format"] = "minidump";                 // Required: Crashpad setting to save crash as a minidump
     annotations["database"] = dbName.toStdString();     // Required: BugSplat database
     annotations["product"] = appName.toStdString();     // Required: BugSplat appName
     annotations["version"] = appVersion.toStdString();  // Required: BugSplat appVersion
     annotations["key"] = "Sample key";                  // Optional: BugSplat key field
     annotations["user"] = "fred@bugsplat.com";          // Optional: BugSplat user email
-    annotations["list_annotations"] = "Sample comment";    // Optional: BugSplat crash description
+    annotations["list_annotations"] = "Sample comment";	// Optional: BugSplat crash description
 
     // Disable crashpad rate limiting so that all crashes have dmp files
-    vector<string> arguments;
+    std::vector<std::string> arguments;
     arguments.push_back("--no-rate-limit");
 
     // Initialize crashpad database
-    unique_ptr<CrashReportDatabase> database = CrashReportDatabase::Initialize(reportsDir);
+    std::unique_ptr<CrashReportDatabase> database = CrashReportDatabase::Initialize(reportsDir);
     if (database == NULL) return false;
 
     // Enable automated crash uploads
@@ -174,11 +186,11 @@ bool initializeCrashpad(QString dbName, QString appName, QString appVersion)
     if (settings == NULL) return false;
     settings->SetUploadsEnabled(true);
 
-    // Attachments to be uploaded alongside the crash - default bundle size limit is 2MB
-    vector<FilePath> attachments;
+    // Attachments to be uploaded alongside the crash - default bundle size limit is 20MB
+    std::vector<FilePath> attachments;
     FilePath attachment(Paths::getPlatformString(crashpadPaths.getAttachmentPath()));
 #if defined(Q_OS_WINDOWS) || defined(Q_OS_LINUX)
-    // Crashpad hasn't implemented attachments on macOS yet
+    // Crashpad hasn't implemented attachments on OS X yet
     attachments.push_back(attachment);
 #endif
 
@@ -192,7 +204,12 @@ bool initializeCrashpad(QString dbName, QString appName, QString appVersion)
 Be sure to update the values for `dbName`, `appName` and `appVersion` to values specific to your application. The `Paths` class allows you to get platform-specific paths for Crashpad and its source can be found [here](https://github.com/BugSplat-Git/myQtCrasher/blob/master/paths.cpp). To configure the paths to `crashpad_handler`, `metricsDir`, `reportsDir` and `attachment` you'll first want to find the location of your executable using the sample code below:
 
 ```cpp
-#if defined(Q_OS_MACOS)
+#if defined(Q_OS_WIN)
+    #define NOMINMAX
+    #include <windows.h>
+#endif
+
+#if defined(Q_OS_MAC)
     #include <mach-o/dyld.h>
 #endif
 
@@ -202,14 +219,14 @@ Be sure to update the values for `dbName`, `appName` and `appVersion` to values 
 #endif
 
 QString getExecutableDir() {
-#if defined(Q_OS_MACOS)
+#if defined(Q_OS_MAC)
     unsigned int bufferSize = 512;
-    vector<char> buffer(bufferSize + 1);
+    std::vector<char> buffer(bufferSize + 1);
 
     if(_NSGetExecutablePath(&buffer[0], &bufferSize))
     {
-    buffer.resize(bufferSize);
-    _NSGetExecutablePath(&buffer[0], &bufferSize);
+        buffer.resize(bufferSize);
+        _NSGetExecutablePath(&buffer[0], &bufferSize);
     }
 
     char* lastForwardSlash = strrchr(&buffer[0], '/');
@@ -308,6 +325,12 @@ To generate `.sym` files you will need to build or locate a copy of `dump_syms`.
 ./dump_syms path/to/myApp.debug > myApp.sym
 ```
 
+When symbols are dumped from a debug file Crashpad creates an incorrect module name. To correct this issue, use `sed` to correct the module name in the `.sym` file.
+
+```
+sed -i "1s/.debug//" myApp.sym
+```
+
 Upload the generated `.sym` file by running `symupload`. Be sure to replace the `{{database}}`, `{{application}}` and `{{version}}` with the values you used in the Configuring Crashpad section:
 
 ```bash
@@ -326,4 +349,4 @@ Force a crash in your application after Crashpad has been initialized:
 
 After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `myQtCrasher` application:
 
-![BugSplat Qt Crash](../../../../.gitbook/assets/qt-crash.png)
+![BugSplat Qt Crash](<../../../../.gitbook/assets/image (2).png>)
