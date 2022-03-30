@@ -83,7 +83,7 @@ static async void callback(HttpResponseMessage response)
 StartCoroutine(bugsplat.Post(ex, options, callback));
 ```
 
-You can also configure a global `LogMessageRecieved` callback. When the BugSplat instance recieves a logging event where the type is `Exception` it will upload the exception.
+You can also configure a global `LogMessageRecieved` callback. When the BugSplat instance receives a logging event where the type is `Exception` it will upload the exception.
 
 ```csharp
 Application.logMessageReceived += bugsplat.LogMessageReceived;
@@ -91,7 +91,7 @@ Application.logMessageReceived += bugsplat.LogMessageReceived;
 
 BugSplat can be configured to upload Windows minidumps created by the `UnityCrashHandler`. If your game contains Native Windows C++ plugins, `.exe`, `.dll` and `.pdb` files in the `Assets/Plugins/x86` and `Assets/Plugins/x86_64` folders they will be uploaded by BugSplat's PostBuild script and used in symbolication.
 
-Each of the methods that post crashes to BugSplat also accept a `MinidumpPostOptions` parameter and a callback. The usage of `MinidumpPostOptions` and `callback` are nearly identically to the `ExceptionPostOptions` example listed above.
+Each of the methods that post crashes to BugSplat also accepts a `MinidumpPostOptions` parameter and a callback. The usage of `MinidumpPostOptions` and `callback` are nearly identically to the `ExceptionPostOptions` the example listed above.
 
 ```csharp
 Utils.ForceCrash(ForcedCrashCategory.Abort);
