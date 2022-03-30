@@ -83,7 +83,7 @@ static async void callback(HttpResponseMessage response)
 StartCoroutine(bugsplat.Post(ex, options, callback));
 ```
 
-You can also configure a global `LogMessageRecieved` callback. When the BugSplat instance receives a logging event where the type is `Exception` it will upload the exception.
+You can also configure a global `LogMessageReceived` callback. When the BugSplat instance receives a logging event where the type is `Exception` it will upload the exception.
 
 ```csharp
 Application.logMessageReceived += bugsplat.LogMessageReceived;
