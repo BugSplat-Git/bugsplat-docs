@@ -1034,4 +1034,4 @@ You can access the web services with a variety of tools. Here’s an example usi
 
 ## Special Rules for POSTing
 
-When POSTing data to BugSplat endpoints additional steps are required to meet our Cross Site Request Forgery (XSRF) safety checks. After authenticating you will recieve a cookie named xsrf-token. Send that variable/value as a header parameter in all POST requests.
+When POSTing data to BugSplat endpoints additional steps are required to meet our Cross Site Request Forgery (XSRF) safety checks. After authenticating you will receive a cookie named xsrf-token. Send that variable/value as a header parameter in all POST requests.
