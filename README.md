@@ -60,8 +60,8 @@ Documentation covering user management, account management, billing, and upgrade
 [account-managment](administration/account-managment/)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="administration/billing/" %}
+[billing](administration/billing/)
 {% endcontent-ref %}
 
 {% content-ref url="administration/contact-us.md" %}
