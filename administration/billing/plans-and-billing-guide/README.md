@@ -9,7 +9,7 @@ This guide is for users interested in upgrading to a paid account and BugSplat a
 Note that only [non-restricted users](../../introduction/user-permissions.md) can change billing settings.  If you are unable to view these pages please request access from a non-restricted team member.
 
 {% hint style="info" %}
-**Sign up for a BugSplat plan before March 15th, 2022?**  Your account is governed by the legacy pricing plan.  Please see [here](../legacy-plans-guide.md) to learn more.
+**Signed up for a BugSplat plan before March 15th, 2022?**  Your account is governed by the legacy pricing plan. Please see [here](../legacy-plans-guide.md) to learn more.
 {% endhint %}
 
 Have questions related to plans and billing?  Please contact sales at [sales@bugsplat.com](mailto:sales@bugsplat.com) or ask us a question on [Discord](https://discord.com/invite/K4KjjRV5ve).
@@ -22,13 +22,13 @@ Determining which plan is right for you or your team depends on what you are spe
 
 ### Solo plan
 
-The Solo plan is BugSplat's free-to-use plan that's great for individual developers working on a single project.  It comes with 25,000 monthly crashes and errors and one [app](./#what-is-an-app).  Key features like Github and Gitlab integrations as well as email alerts are also included.
+The Solo plan is BugSplat's free-to-use plan that's great for individual developers working on a single project.  It comes with 25,000 monthly crash and error reports for one [app](./#what-is-an-app).  Key features like Github and Gitlab integrations as well as email alerts are also included.
 
 Interested in the Solo plan?  Accounts default to this plan after the [14-day free trial](../free-trial.md).   &#x20;
 
 ### Team plan&#x20;
 
-The Team plan is perfect for smaller teams that require up to 100,000 monthly crashes and errors.  The Team plan comes with 4 users seats and 2 [apps](./#what-is-an-app) and has the option to add more of both for a low monthly cost.
+The Team plan is perfect for smaller teams that require up to 100,000 monthly crashes and errors.  The Team plan comes with 4 users and 2 [apps](./#what-is-an-app) and has the option to add more of both for a low monthly cost.
 
 Additionally, Team plan account holders get expanded [defect tracker](../../../introduction/development/integrating-with-tools/#issue-trackers) integrations, [notifications & alerts](../../../introduction/development/integrating-with-tools/#configurable-alerts) via chat tools, [API](../../../introduction/development/web-services/api.md) access, and help us contribute to [OneTreePlanted](../../../about/who-is-bugsplat/charitable-giving.md#one-tree-planted).
 
@@ -40,7 +40,7 @@ The Business plan is the best choice for medium or large teams - as well as anyo
 
 The Business plan is the most customizable plan as it allows account-holders to configure their account to process up to 1 million monthly crashes and errors. &#x20;
 
-Out of the box, the Business plan comes with 100,000 monthly crashes and errors, 4 users seats, and 3 [apps](./#what-is-an-app).  Adding more user seats and apps is also customizable.
+Out of the box, the Business plan comes with 100,000 monthly crashes and errors, 4 users, and 3 [apps](./#what-is-an-app) with the ability to purchase more user seats and apps.
 
 Finally, the Business Plan comes with additional features like advanced user management tools for managing larger teams,  user privacy tools like[ PII obfuscation](../../../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md) & custom [crash and error expiry](../../../introduction/production/security-privacy-and-compliance/crash-expiry.md), and [fractional crash processing](what-is-high-volume-fractional-crash-processing.md).
 
@@ -50,29 +50,27 @@ See all of the features that come with the Team plan on the [Plans page](https:/
 
 BugSplat's Enterprise plans are for enterprise-scale customers and account holders who need custom agreements and plans.  Enterprise plans are fixed-rate, tiered subscriptions that allow for volume-based discounts on annual reports, users, and applications.
 
-Team's looking to take advantage of the Enterprise can benefit from volume-based discounts, custom agreements, and other bene reserved for&#x20;
+Team's looking to take advantage of the Enterprise can benefit from volume-based discounts, custom agreements, and other benefits.
 
-Think your team is right for an Enterprise Plan? Please get in touch with [sales@bugsplat.com](mailto:sales@bugsplat.com) to learn more about plans for your team.
+Think an Enterprise Plan is right for your team? Please get in touch with [sales@bugsplat.com](mailto:sales@bugsplat.com) to learn more about plans for your team.
 
 ## Paying for your plan
 
-To choose a plan navigate to the [Billing page](https://app.bugsplat.com/v2/settings/company/billing) inside of your Admin settings inside of your BugSplat account. There you will be able to upgrade to a paid plan by clicking on the 'Upgrade' button.
+To choose a plan navigate to the [Billing page](https://app.bugsplat.com/v2/settings/company/billing) inside of your Admin settings inside of your BugSplat account. There you will be able to upgrade to a paid plan by clicking on the **Update Plan** button.
 
 ![](../../../.gitbook/assets/bugsplat-checkout-march-16.png)
 
-This button brings up the Set Plan Details pop-up that allows you to select your plan type (Business or Team), monthly crash volume, number of users, number of apps, and payment period (month or year).  Once these have been selected hit 'Checkout' at the bottom right to bring up the review and payment method page. &#x20;
+This button brings up the Update Plan pop-up that allows you to select your plan type (Business or Team), monthly crash volume, number of users, number of apps, and payment period (monthly or yearly).  Once you've chosen the desired plan specifications hit **Update** at the bottom right to bring up the review and payment method page. &#x20;
 
 For our Team and Business plans, we accept all major credit cards. &#x20;
 
 For Enterprise plans, account holders are able to pay annually via bank transfers and check.
 
-
-
 ## Upgrading and changing your plan
 
-Team and Business account holders can upgrade or change their plan at any point during their billing cycle.  To upgrade or change your plan visit the Billing page and click on the 'Upgrade' Button.&#x20;
+Team and Business account holders can upgrade or change their plan at any point during their billing cycle.  To upgrade or change your plan visit the [Billing](https://app.bugsplat.com/v2/settings/company/billing) page and click on the **Update Plan** button.&#x20;
 
-The Upgrade button will allow you to change account settings like plan type, total users, total applications, and monthly crash & error volume.  Additionally, you'll be given the option to pay annually.&#x20;
+The Update Plan button will allow you to change account settings like plan type, total users, total applications, and monthly crash & error volume.  Additionally, you'll be given the option to pay annually.&#x20;
 
 All upgrades take into account the point in the current billing cycle and pro-rate accordingly. &#x20;
 
