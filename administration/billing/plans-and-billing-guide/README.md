@@ -84,7 +84,7 @@ BugSplat client libraries integrate with your code to capture exception informat
 
 #### How many crashes do I need?
 
-Choose the lowest volume plan that will cover your current annual crash rate. If you don’t know how many crashes you’re likely to post in a year, don't hesitate to get in touch with sales@bugsplat.com, and we can assist with an estimate.
+Choose the lowest volume plan that will cover your current annual crash rate. If you don’t know how many crashes you’re likely to post in a year, don't hesitate to get in touch with [sales@bugsplat.com](mailto:sales@bugsplat.com), and we can assist with an estimate.
 
 #### How do I integrate BugSplat?
 
@@ -92,11 +92,11 @@ Adding BugSplat to your application is a straightforward and well-documented pro
 
 #### Are prices for individual projects?
 
-No, BugSplat encourages using your account for multiple projects or games. Each project should be managed under a different “app,” and if your account run's out of “apps,” then it's easy and economical to add more to your plan.
+No, BugSplat encourages using your account for multiple projects or games. Each project should be managed under a different "app", and if your account run's out of "apps", then it's easy and economical to add more to your plan.
 
 #### Can I pay yearly?
 
-Absolutely. You can see the annual prices by toggling the button above the pricing table to "Annual.” There’s a 20% discount if you choose to pay upfront for your plan.
+Absolutely. You can see the annual prices by toggling the button above the pricing table to "Annual". There’s a 20% discount if you choose to pay upfront for your plan.
 
 #### What currency are plans listed in?
 
@@ -118,7 +118,7 @@ Yes, our Enterprise plan can cover any level of crash or error volume you need. 
 
 Both the Team and Business plans come with a specific amount of 'apps' included in their plans.  'Apps' are how BugSplat organizes crash and error reports to keep them organized and easy to navigate for the team's working on them. &#x20;
 
-For example, the Team plan comes with two 'apps' because it is best practice to keep back-end and client reports from a single Application separate.  The Business Team comes with three 'apps' to provide for further organization and customization. &#x20;
+For example, the Team plan comes with two 'apps' because it is best practice to keep back-end and client reports from a single Application separate.  The Business plan comes with three 'apps' to provide for further organization and customization. &#x20;
 
 Both plans allow teams to add more 'apps' to their plans in order to accommodate further customization and the addition of other products and applications your team might be supporting.
 
@@ -128,7 +128,7 @@ Yes, each plan comes with a standard number of "apps" that allow you to easily o
 
 #### Can I add more users to my account?
 
-Yup! Each plan allows you to add additional users whenever you want. Compare prices using the table above. Hit “Compare plans.”
+Yup! Both the Team and Business plans allow you to add additional users whenever you want.
 
 #### Do I have to process all my crashes and errors, or can I process some fraction of them?
 
