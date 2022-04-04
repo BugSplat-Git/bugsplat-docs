@@ -54,7 +54,7 @@ If you have any questions or want further confirmation, please email [sales](mai
 
 BugSplat Legacy plans provided a variety of monthly pricing options for users which you can see below.
 
-These plans can be paid for monthly with a credit card, or they can be [paid for annually](broken-reference) via an invoice (saving 5%).
+These plans can be paid for monthly with a credit card, or they can be paid for annually via an invoice (saving 5%).
 
 These plans are no longer available for purchase starting March 15th, 2022.  However, if your account is currently governed by a Legacy plan because you signed up for a paid account before March 2022,  please email [sales](mailto:sales@bugsplat.com) for any assistance you might need.  You still qualify for these plans.
 
@@ -73,7 +73,7 @@ If your account has exceeded its plan limits - users or annual allotted crash vo
 
 To qualify for an upgrade an account has to exceed both the monthly and annual crash limit in the same month.
 
-When this happens, the account admin (change admin email instructions [here](broken-reference)) will get an email letting you know that your plan has changed. The [Billing](https://app.bugsplat.com/v2/settings/company/billing) page and your next invoice will both reflect this upgrade.
+When this happens, the account admin (change admin email instructions [here](../introduction/user-permissions.md)) will get an email letting you know that your plan has changed. The [Billing](https://app.bugsplat.com/v2/settings/company/billing) page and your next invoice will both reflect this upgrade.
 
 You will have 30 days before your account is charged for the larger plan, which gives your team a window to get back into compliance and set your account back to its original setting (which can be accomplished on the [Account](https://app.bugsplat.com/v2/account) page).
 
