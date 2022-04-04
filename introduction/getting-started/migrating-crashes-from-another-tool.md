@@ -4,4 +4,4 @@ If you are trying out BugSplat and would like to migrate crashes from your old s
 
 You will need to make sure you've uploaded the corresponding symbols on the [Symbols](https://app.bugsplat.com/v2/symbols?database=Fred) page.
 
-![Upload Minidump Files to BugSplat](<../../.gitbook/assets/image (1).png>)
+![Upload Minidump Files to BugSplat](<../../.gitbook/assets/image (1) (1).png>)
