@@ -1,11 +1,11 @@
 # Billing
 
-The Billing page in settings allows for users to purchase a plan, upgrade to a new plan level, and perform other [Account Management](../account-managment/managing-payment-details.md) tasks.
+The [Billing](https://app.bugsplat.com/v2/settings/company/billing) page allows for users to purchase a plan, upgrade to a new plan level, and perform other [Account Management](../account-managment/managing-payment-details.md) tasks.
 
 If you have any questions or want further confirmation, please email [sales](mailto:sales@bugsplat.com).
 
 {% hint style="info" %}
-**Sign up for a BugSplat plan before March 15th, 2022?**  Your account is governed by the legacy pricing plan.  Please see [here](legacy-plans-guide.md) to learn more.
+**Signed up for a BugSplat plan before March 15th, 2022?**  Your account is governed by the legacy pricing plan. Please see [here](legacy-plans-guide.md) to learn more.
 {% endhint %}
 
 ### Quick Links
@@ -44,8 +44,8 @@ Account holders can pay for any BugSplat plans via all major credit cards.  Ente
 
 #### Is there a refund policy?&#x20;
 
-Yes!  All plans are governed by our [Fair-Refund Policy](refund-policy.md).
+Yes! All plans are governed by our [Fair-Refund Policy](refund-policy.md).
 
 #### What is a Legacy plan?&#x20;
 
-BugSplat released new pricing plans on March 15th, 2022.  If you were an account holder before then, please review this [document](legacy-plans-guide.md) for information on your plan.
+BugSplat released new pricing plans on March 15th, 2022. If you were an account holder before then, please review this [document](legacy-plans-guide.md) for information on your plan.
