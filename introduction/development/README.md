@@ -10,7 +10,7 @@ This **Development** section includes articles that are useful for using BugSpla
 
 ****[**Grouping**](searching/grouping.md) - is an overview of how to compare groups of crashes to see into crash and stability trends.&#x20;
 
-[**Subkeying**](../../education/how-tos/crash-grouping-concepts.md) - is a way to group a set of crashes at some level other than the top level of the call stack.
+[**Crash Grouping**](../../education/how-tos/crash-grouping-concepts.md) - is a way to group a set of crashes at some level other than the top level of the call stack.
 
 ****[**Commenting**](commenting.md) - is BugSplat's built-in comment tool and issue tracker.
 

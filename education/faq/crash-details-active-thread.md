@@ -6,7 +6,7 @@ The **Method** column contains a list of methods in the stack trace of the threa
 
 Clicking the **>** (greater than symbol) in the left-most column will expand the **Row Details** view.
 
-The **Row Details** view will display the **Create Subkey** button that will allow you to create a [subkey](../how-tos/crash-grouping-concepts.md). Grouping at a different level of the call stack is called [subkeying](../how-tos/crash-grouping-concepts.md) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
+The **Row Details** view will display the **Create Group** button that will allow you to create a [group](../how-tos/crash-grouping-concepts.md). Grouping at a different level of the call stack is called [Crash Group](../how-tos/crash-grouping-concepts.md) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
 
 Additionally, for [Windows Native](../../introduction/getting-started/integrations/desktop/cplusplus/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments](https://www.bugsplat.com/blog/development/local-variables-function-arguments/).
 

@@ -51,21 +51,15 @@ This is an anomalous or exceptional condition requiring special processing durin
 
 This is the exception that has logic to mitigate an error scenario such as to display a dialog to the user or reset values to their defaults. A program can continue execution after a handled exception.
 
-### Key Crash
-
-This is an abstract object that represents all crashes that share the same x stack frames from the stack key to the top of the call stack. This may be a BugSplat-specific construct.
-
 ### Stack Frame
 
 This is one level of the call stack.
 
-### Stack Key
+### Crash Group
 
-Stack Key is a BugSplat specific term for the function name and line number that is used to group crashes on the [Summary](https://app.bugsplat.com/v2/summary) page.&#x20;
+A Crash Group is a BugSplat-specific term for a group of similar crashes displayed on the [Summary](https://app.bugsplat.com/v2/summary) page.  By default, a Crash Group is identified by the function name and line number at the top of the stack of the crashing thread.&#x20;
 
-By default, the Stack Key is the function name and line number at the top of a stack of the crashing thread.&#x20;
-
-You can create a [Subkey](how-tos/crash-grouping-concepts.md) to group the call stack at a different level of the crashing thread. Subkeying is useful for regrouping crashes that would otherwise be grouped by uninteresting stack frames such as system calls or third-party code. For more information about creating Subkeys, please see this [article](how-tos/crash-grouping-concepts.md).
+However you can create a [Crash Group](how-tos/crash-grouping-concepts.md) using different rules. Crash Grouping is useful for regrouping crashes that would otherwise be grouped by uninteresting stack frames such as system calls or third-party code. For more information about creating Crash Groups, please see this [article](how-tos/crash-grouping-concepts.md).
 
 ### Subkey
 
@@ -73,7 +67,7 @@ Subkey is a now-retired term for a [Crash Group](bugsplat-terminology.md#crash-g
 
 ### Symbols
 
-These are files that contain information to map information in the minidump file to file names and line numbers in source code.
+Symbol files contain information to map information in a crash report to file names and line numbers in the source code.
 
 ### Users
 
@@ -81,13 +75,13 @@ Users are the developers, QA professionals, support engineers, and others who us
 
 ### Unhandled Exception
 
-This is the unexpected exception where the surrounding code does not have the logic to handle the scenario and can put the program into an unknown state.
+This is the unexpected exception where the surrounding code does not have the logic to handle the scenario and can put the program into an unknown state, typically leading to an application exit.
 
 ### Version
 
-This is a version you can easily separate releases of your code inside of BugSplat. Typically, users will create a new version for each new release.
+Typically, companies will create a new version of their application for each new build.  This is especially helpful because symbol files are uploaded into a 'symbol store' identified by the database, application name, and application version.
 
-Using versions is a useful way to track crashes that you want to keep separate. Many users find value in comparing and tracking crash rates, top crashes, and particularly tricky-to-fix crashes across multiple versions
+Using versions is a useful way to track crashes that you want to keep separate. Many users find value in comparing and tracking crash rates, top crashes, and particularly tricky-to-fix crashes across multiple versions.
 
 ###
 

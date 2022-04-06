@@ -6,4 +6,5 @@ The best thing to do is fill out the User Description box and hit “Send.” Th
 
 If you have repeatedly gotten BugSplats, you should search for help from the developer of your software or video game. Try searching for a help forum or support site maintained by the company that developed the application that is crashing. Most of the time only a simple fix is required.
 
-See this [document](broken-reference) for further help with fixing repeat 'BugSplat's'.
+See this [document](how-to-fix-bugsplats.md) for further help with fixing repeat 'BugSplat's'.
+

@@ -96,10 +96,10 @@ The Summary page has a line chart at the top of the page which shows the top sta
 
 ![](<../../.gitbook/assets/charting-stack-keys (3) (3) (3) (3) (3) (3) (3) (4).gif>)
 
-## Key Crash
+## Crash Group Page
 
-The **Key Crash** page shows a more in-depth view of all crashes found in a [stack key](../../education/bugsplat-terminology.md#stack-key).
+The **Crash Group** page shows a more in-depth view of all crashes found in a [stack key](../../education/bugsplat-terminology.md#stack-key).
 
-The Key Crash page allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more.
+The **Crash Group** page allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more.
 
 Companies that are using BugSplat's [Windows C++ SDK](../getting-started/integrations/desktop/cplusplus/) can create [Custom Support Responses](../production/setting-up-custom-support-responses.md) to alert their end-users to known issues identified with BugSplat. Support responses are a valuable tool for communicating with end-users about known fixes or to point them toward specific helpful docs.
