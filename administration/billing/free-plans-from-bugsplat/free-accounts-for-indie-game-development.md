@@ -4,27 +4,27 @@
 
 We're committed to supporting those who are giving back, working hard to learn, or hacking together something fun.
 
-Because of that, BugSplat has an Extended Free Tier Plan for those working on building an indie video game on little or no budget.
+Because of that, BugSplat has a free plan or those working on building an indie video game on little or no budget.
 
 Additionally, BugSplat provides a 25% discount for Team and Business plans for Indie Developers who used the Free Plan during development.
 
 ### Indie Game Dev Free Plan:
 
-If you're unaffiliated with a funded studio and currently developing your game, you probably qualify for our Extended Free Tier Plan.
+If you're unaffiliated with a funded studio and currently developing your game, you probably qualify for a free plan from BuGSplat.
 
-For users and teams that qualify, you'll get annual 50,000 free monthly crashes and errors plus integrations with defect trackers and other tools.‌
+To start out, Indie devs get annual 25,000 free monthly crashes and errors, one user seat, and one application.&#x20;
 
-If you're wondering if you qualify but are not sure, please send an email to [hi@bugsplat.com](mailto:hi@bugsplat.com) and tell us a little bit about yourself and your game.
+If your team has special circumstances you can [hi@bugsplat.com](mailto:hi@bugsplat.com) and tell us a little bit about yourself and your game.  We'll likely add additional users or crashes if needed.
 
 #### How long does this plan last?
 
-Once you launch your game or secure funding, we will work with you to find a plan that works for your game, team, and company and send you a 25% discount code for your first 3 months of using a paid account at BugSplat.
+Once you launch your game or secure funding, we will work with you to find a plan that works for your game, team, and company and send you a 25% discount code for your first 6 months of using a paid account at BugSplat.
 
 #### How can I support BugSplat during the free plan?
 
 First off, it's very nice that you're thinking of us. We're touched.  &#x20;
 
-There is absolutely no responsibility on your part to help us in exchange for getting free crash reporting. &#x20;
+There is no responsibility on your part to help us in exchange for getting free crash reporting. &#x20;
 
 If you're determined to be super nice—how dare you—you could mention us positively to your friends and coworkers. Please also consider including a link to our website in your documentation.
 
