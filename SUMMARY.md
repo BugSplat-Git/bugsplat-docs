@@ -160,9 +160,9 @@
   * [Deleting Databases](administration/account-managment/deleting-databases.md)
   * [Deleting a Company Account](administration/account-managment/permanently-deleting-a-company-account.md)
 * [Users](administration/introduction/README.md)
+  * [User Permissions](administration/introduction/user-permissions.md)
   * [Deleting a User](administration/introduction/permanently-deleting-a-user-account.md)
   * [Requesting Access](administration/introduction/requesting-access-to-your-teams-accounts.md)
-  * [User Permissions](administration/introduction/user-permissions.md)
 * [Contact us](administration/contact-us.md)
 
 ## 🐛 About
