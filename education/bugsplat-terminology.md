@@ -15,11 +15,13 @@ These are the active subroutines of your program at some point in time. In the B
 The **Crash Dialog** box is the end-user, customer-facing aspect of BugSplat. This box appears when an application configured to send crash data to BugSplat runs into a crash defect while in use. At this point, the dialog box prompts the end-user to provide an account of the events leading up to the crash as well as their name and email address.&#x20;
 
 * [Adding your company or project's custom branding to the crash dialog box](how-tos/customize-the-crash-dialog.md).
-* [Avoid collecting personally identifiable information through the crash dialog box](../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md).
+* [Avoid collecting personally identifiable information through the crash dialog bo](../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md)
 
-### Crash Groups
+### Crash Group
 
-Crash groups are used to group similar crashes and identify the root cause of multiple crash reports. Crash grouping helps speed up the analysis of specific crashes by ignoring uninteresting frames at the top of a call stack.  [Learn more here](../introduction/development/grouping-crashes.md).
+Crash groups are used to group similar crashes and identify the root cause of multiple crash reports. The [Summary](https://app.bugsplat.com/v2/summary) page displays a list of crash groups. The [Crash Group](https://app.bugsplat.com/keycrash?stackKeyId=1) page displays a single crash group with a list of all the individual crashes belonging to the group.
+
+&#x20;By default, a Crash Group is identified by the function name and line number at the top of the stack of the crashing thread.  However, you can create a [Crash Group](how-tos/crash-grouping-concepts.md) using different rules. Crash Grouping is useful for regrouping crashes that would otherwise be grouped by uninteresting stack frames such as system calls or third-party code. For more information about creating Crash Groups, please see [grouping crashes](https://docs.bugsplat.com/introduction/development/grouping-crashes).
 
 ### Crash Report
 
@@ -54,12 +56,6 @@ This is the exception that has logic to mitigate an error scenario such as to di
 ### Stack Frame
 
 This is one level of the call stack.
-
-### Crash Group
-
-A Crash Group is a BugSplat-specific term for a group of similar crashes displayed on the [Summary](https://app.bugsplat.com/v2/summary) page.  By default, a Crash Group is identified by the function name and line number at the top of the stack of the crashing thread.&#x20;
-
-However you can create a [Crash Group](how-tos/crash-grouping-concepts.md) using different rules. Crash Grouping is useful for regrouping crashes that would otherwise be grouped by uninteresting stack frames such as system calls or third-party code. For more information about creating Crash Groups, please see this [article](how-tos/crash-grouping-concepts.md).
 
 ### Subkey
 
