@@ -4,6 +4,120 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Web App Update - April 5th, 2022
+
+#### Release - 2.9.23
+
+* Add legacy pricing FAQ
+
+## Web App Update - April 4th, 2022
+
+#### Release - 2.9.21
+
+* Settings page background should fill vertical space
+
+## Web App Update - April 2nd, 2022
+
+#### Release - 2.9.20
+
+* Empty Key Crash text should not be cutoff
+
+#### Release - 2.9.19
+
+* Fix Key Crash button hover should not be white
+
+#### Release - 2.9.18
+
+* Empty Key Crash text should not be cutoff
+
+## Web App Update - April 1st, 2022
+
+#### Release - 2.9.17
+
+* Don't show empty IP address globe
+
+## Web App Update - March 30th, 2022
+
+#### Release - 2.9.16
+
+* Confetti cannon should wait to fire on databases that already contain crashes
+* Stack key links should be disabled until crash is processed
+
+## Web App Update - March 29th, 2022
+
+#### Release - 2.9.15
+
+* Add Link to Filter By IP Address
+
+#### Release - 2.9.14
+
+* Restricted Settings menu should navigate to Billing page
+
+#### Release - 2.9.13
+
+* Make stack key link clickable
+
+## Web App Update - March 26th, 2022
+
+#### Release - 2.9.12
+
+* Remove crash id header information
+
+## Web App Update - March 25th, 2022
+
+#### Release - 2.9.11
+
+* Fix ngb-filterable-dropdown styling issue
+
+## Web App Update - March 24th, 2022
+
+#### Release - 2.9.10
+
+* Should provide enterprise users a contact us link in subscription nag
+
+#### Release - 2.9.9
+
+* Improve crash page header styles
+
+#### Release - 2.9.8
+
+* Improve markdown styles for code snippets in onboarding
+
+#### Release - 2.9.7
+
+* Improve app and onboarding top nav styles
+
+#### Release - 2.9.6
+
+* Add link to platform docs in onboarding
+* Update 'Bobby' image in the footer
+
+## Web App Update - March 23rd, 2022
+
+#### Release - 2.9.5
+
+* Fix onboarding sample z-index issue
+
+#### Release - 2.9.4
+
+* Show warning message to locked out restricted user
+
+## Web App Update - March 21st, 2022
+
+#### Release - 2.9.3
+
+* Should not nag customers who pay via Invoice
+
+#### Release - 2.9.2
+
+* Don't Nag Enterprise CustomersS
+
+## Web App Update - March 19th, 2022
+
+#### Release - 2.9.1
+
+* Show nag when customer has exceeded user and app usage
+
 ## Pricing Update - March 16th, 2022
 
 #### Commercial Plans&#x20;
@@ -17,6 +131,83 @@ Learn more by viewing the [Billing](../../administration/billing/) documents or 
 #### Free Plans
 
 Terms for the [Solo Developer](../../administration/billing/free-plans-from-bugsplat/standard-free-plan.md), [Open Source](../../administration/billing/free-plans-from-bugsplat/bugsplat-free-accounts-for-not-for-profit-open-source-projects.md), [Indie Game Dev](../../administration/billing/free-plans-from-bugsplat/free-accounts-for-indie-game-development.md#overview), [Education](../../administration/billing/free-plans-from-bugsplat/bugsplat-free-accounts-for-students-and-teachers.md), and [Good Causes](../../administration/billing/free-plans-from-bugsplat/good-causes.md) terms have been updated as part of this new pricing plans release.
+
+#### Release - 2.9.0
+
+* Release 2022 pricing
+
+#### Release - 2.8.27
+
+* Update lockout flow to work with new billing page
+
+#### Release - 2.8.26
+
+* Settings page should display "Loading..." instead of restricted before app is loaded
+
+## Web App Update - March 15th, 2022
+
+#### Release - 2.8.25
+
+* Wait for stripe webhook
+
+## Web App Update - March 14th, 2022
+
+#### Release - 2.8.24
+
+* Fix fontawesome path
+* fix Pricing TODOs
+
+## Web App Update - March 11th, 2022
+
+#### Release - 2.8.23
+
+* Add Manage Apps page
+
+#### Release - 2.8.22
+
+* Fix routerLink not defined on pricing page
+
+## Web App Update - March 9th, 2022
+
+#### Release - 2.8.21
+
+* Merge Company General and Company Billing
+
+## Web App Update - March 9th, 2022
+
+#### Release - 2.8.20
+
+* Reset Apps, Users, Crashes when toggling plan
+
+## Web App Update - March 8th, 2022
+
+#### Release - 2.8.19
+
+* Use API for Upgrade Modal Crashes Input Max
+
+#### Release - 2.8.18
+
+* Enterprise card should be paid by invoice
+
+## Web App Update - March 2nd, 2022
+
+#### Release - 2.8.17
+
+* Update pricing modal to match new design
+
+## Web App Update - February 28th, 2022
+
+#### Release - 2.8.16
+
+* Fix Font Awesome Math.Divide Warning
+
+## Web App Update - February 23rd, 2022
+
+#### Release - 2.8.13
+
+* Add manage your plan link for legacy plans
+
+
 
 ## Web App Update - February 15th, 2022
 
@@ -80,7 +271,7 @@ Terms for the [Solo Developer](../../administration/billing/free-plans-from-bugs
 
 * Update event stream component styles
 
-## Web App Update - January 31th, 2022
+## Web App Update - January 31st, 2022
 
 #### Release - 2.8.2
 
@@ -269,15 +460,15 @@ New Feature!  Users now get confetti in the onboarding tool when they submit the
 
 * Add groupByCount to CrashesApiRow
 
-## JS API Client - Release - 1.1.4 - November 22th, 2021
+## JS API Client - Release - 1.1.4 - November 22nd, 2021
 
 * crashesApiRow id, stackKeyId should be type numberxpose TableDataFormDataBuilder
 
-## JS API Client - Release - 1.1.3 - November 22th, 2021
+## JS API Client - Release - 1.1.3 - November 22nd, 2021
 
 * Expose TableDataFormDataBuilder
 
-## JS API Client - Release - 1.1.2 - November 22th, 2021
+## JS API Client - Release - 1.1.2 - November 22nd, 2021
 
 * Throw more useful error if OAuthClientCredentialsApiClient fails to authenticate
 
@@ -388,7 +579,7 @@ Renames post and delete to postSymbols and deleteSymbols respectively
 
 * Fixes bug where some special characters were not allowed when creating new passwords
 
-## Web App Update - Release - 2.2.38 - September 22th, 2021
+## Web App Update - Release - 2.2.38 - September 22nd, 2021
 
 * Update to dramatically increases the speed of Crash processing by reducing information displayed in Modules table
 
