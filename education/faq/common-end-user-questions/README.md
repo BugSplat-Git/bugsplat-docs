@@ -46,9 +46,9 @@ You will only get a "BugSplat" (i.e. see the BugSplat Crash Dialogue) when a sof
 
 It is BugSplat's job to report on crashes. Once a crash occurs, BugSplat is called into duty, and a crash dialogue appears on your screen asking for feedback from you about what caused the crash.
 
-Including details about what immediately happened before the application crashed is a powerful tool for developers to fix the issue you just experienced. It would be best if you always considered providing details about the circumstances that lead to the crash when you see the BugSplat Crash Dialogue.
+Including details about what immediately happened before the application crashed is a powerful tool for developers and can help them fix the issue you just experienced.&#x20;
 
-Most of the time, restarting the application that crashed will fix the issue that caused the crash and lead to you seeing the BugSplat Crash Dialogue. If you continue to get "BugSplats," then follow the steps sketched in the paragraph below.
+Most of the time, restarting the application that crashed will fix the issue.  However, if you continue to get "BugSplats," then follow the steps outlined in the paragraph below.
 
 ![The face you get when the software application you're using crashes.](<../../../.gitbook/assets/man-actively-getting-a-bugsplat-1 (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3).jpg>)
 
@@ -56,13 +56,11 @@ Most of the time, restarting the application that crashed will fix the issue tha
 
 BugSplat doesn’t cause crashes; it only reports when crashes occur.
 
-That said, there are some basic steps anyone should take when their applications are crashing.
+Follow the steps below to try to resolve your application crashes. If none of them are successful, make sure to reach out directly to the support team responsible for your application.
 
-Follow the steps below to try to fix your application crashes. If none of them are successful, make sure to reach out directly to the support team responsible for fixing your software.
-
-1. **Attempt to restart the application.** Most of the time, an application will only crash once and be fixed once reopened and running again.
-2. **Check for updates.** Is there an update you've missed with your software? Make sure you're using the most up-to-date version of your software.
-3. **Check online support documents for your issue.** Likely, this issue has already been experienced by another user, and a quick fix is documented online. Go to your software's website, and search their technical documentation for the problem.
+1. **Attempt to restart the application.** Most of the time, an application will only crash once.  Reopen the application and you'll probably be up and running again.
+2. **Check for updates.** Is there a software update you've missed? Make sure you're using the most up-to-date version of your software.
+3. **Check online support documents for your issue.** Likely, another user has already experienced the problem, and a quick fix is documented online. Go to your software's website, and search their technical documentation for the problem.
 4. **Contact the makers of your Software directly.** Most software companies will have a way to contact their support team to get technical help for their products. Find the contact information on their website, and contact them via email, chat, or phone.
 5. **Try uninstalling and reinstalling.** Uninstalling your computer application and reinstalling it can be dangerous as you could lose data, so please proceed with caution and adequately back up any valuable data that could be lost. Most applications have documents online that help with accomplishing this task safely.
 
@@ -78,9 +76,9 @@ That's because firefighters only show up when a fire occurs. Firefighters don't 
 
 Similarly, BugSplat only shows up when there's a "fire." In this case, the "fire" is an application crashing while you are using it.
 
-BugSplat is a part of your application's code - it's the part of your application that runs when a crash happens. BugSplat's job is to create capture what happened when the application crashed and then pass the information along to the people who build and support it.
+BugSplat is a part of your application's code - it's the part of your application that runs when a crash happens. BugSplat's job is to capture what happened when the application crashed and then pass the information along to the people who build and support it.
 
-The best "BugSplat Removal Guide" is not to try and remove the BugSplat code - which is complicated and likely to break everything worse - it is to follow the steps I laid out above to fix the reason why your application is crashing. Most likely, making sure that you're on your application's most recent version is enough.
+The best "BugSplat Removal Guide" is not to try and remove the BugSplat code.  Instead, follow the steps laid out above to fix the root cause of your application crash. Most likely, making sure that you're on your application's most recent version is enough.
 
 ![Would you think firefighters were the cause of a fire?](../../../.gitbook/assets/bugsplat-is-like-a-firefighter-1.jpg)
 
