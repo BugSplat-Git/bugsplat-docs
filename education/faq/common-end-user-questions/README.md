@@ -28,15 +28,15 @@ You’re likely reading this because something popped up on your computer saying
 
 ![BugSplat Crash Dialog](<../../../.gitbook/assets/bugsplat-crash-dialog (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3) (1).png>)
 
-That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while is use.
+That popup is called the BugSplat Crash Dialogue and it is only seen when a software application or game that uses BugSplat crashes while in use.
 
 It is only viewable at that time because BugSplat is a program called a crash reporter and it's job is to report when crashes happen.
 
-As a crash reporter, BugSplat helps software companies understand how their application performs for their users by reporting on instances of crashes. This is what the BugSplat application looks like to the development team who build and support your software application.
+As a crash reporter, BugSplat helps software companies understand how their application performs for their users by reporting crashes. This is what the BugSplat application looks like to the development team who build and support your software application.
 
 ![The BugSplat app](../../../.gitbook/assets/what-developers-see-in-bs.gif)
 
-Software companies that use BugSplat are hoping that knowledge of software crashes will help them improve their applications.
+Software companies that use BugSplat know that knowledge of software crashes will help them improve their applications.
 
 Today, BugSplat is used by many companies large and small to fix bugs in all kinds of software and video games. You can learn more about how BugSplat specifically helps companies fix bugs on our [Features](https://www.bugsplat.com/crash-reporting/) page.
 
