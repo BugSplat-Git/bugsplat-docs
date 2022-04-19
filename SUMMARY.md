@@ -94,7 +94,7 @@
       * [.NET API](https://www.bugsplat.com/platforms/net/api/)
 * [Production](introduction/production/README.md)
   * [Support Responses](introduction/production/setting-up-custom-support-responses.md)
-  * [Retiring Versions](introduction/production/how-to-stop-reporting-versions-of-an-application.md)
+  * [Managing Versions](introduction/production/how-to-stop-reporting-versions-of-an-application.md)
   * [Security and Compliance](introduction/production/security-privacy-and-compliance/README.md)
     * [Security Program](introduction/production/security-privacy-and-compliance/security-program.md)
     * [GDPR](introduction/production/security-privacy-and-compliance/gdpr.md)
