@@ -2,25 +2,27 @@
 
 ## Step 1
 
-Create a symbol store on the [Symbols](https://app.bugsplat.com/v2/symbols) page.
-
-![Manual Symbol Upload](../../../.gitbook/assets/manual-symbol-upload.png)
+Navigate to the [Versions](https://app.bugsplat.com/v2/versions) page.
 
 ## Step 2
 
-Click the link that appears in the Application column of the table below to navigate to the Symbol Details page.
+Click the **Upload Symbols** button to open the Symbol Upload modal. Alternatively, you can expand a row in the table and upload symbols to an existing version.
+
+![Manual Symbol Upload](../../../.gitbook/assets/manual-symbol-upload.png)
 
 ## Step 3
 
-On the Symbol Details page, click the Upload Symbols button.
+Enter values in the **Application** and **Version** fields if they are displayed. These values __must__ match the application and version values you used to configure BugSplat in your application.
 
 ## Step 4
 
-Select all symbol files that correspond to your application. Windows symbol files have a .exe, .dll or .pdb file extension. MacOS requires uploading the entire .xcarchive file. Crashpad and Breakpad symbol files have a .sym file extension.
+Drag and drop the files you would like to upload, or use the **Select Files** link to choose the files in your system file explorer.
 
-![Upload Symbols Dialog](../../../.gitbook/assets/symbol-details-upload.png)
+Choose all of the symbol files that correspond to your application. Windows symbol files have `.exe`, `.dll`, and `.pdb` file extensions. MacOS symbol files can be extracted from a `.xcarchive` (must be zipped before uploading), or you can upload `.dSYM` files. Crashpad and Breakpad symbol files have a `.sym` file extension. TypeScript and JavaScript symbol files have a `.js.map` extension.
 
 ## Step 5
 
-Once the Close button becomes enabled you can click it to safely dismiss the Upload dialog.
+Symbols that have been uploaded successfully will display a green checkmark next to their names. Once all files have been uploaded the Close button will be enabled and you can safely close the dialog.
+
+![Successful Symbol Upload](../../../.gitbook/assets/symbol-upload-success.png)
 
