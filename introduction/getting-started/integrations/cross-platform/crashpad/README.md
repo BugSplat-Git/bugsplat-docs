@@ -125,7 +125,7 @@ Upload symbols for your application to generate symbolic call stacks. Our sample
 
 #### Step 6
 
-BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's .sym files using the manual symbol upload page, select one of your symbol stores on the [Symbols](https://app.bugsplat.com/v2/symbols/) page, then click the "Upload new symbol files" link. Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.&#x20;
+BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's `.sym` files manually please see this [doc](../../../../../introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.&#x20;
 
 {% hint style="warning" %}
 Ensure the `path`and`url`are wrapped in double quotes when using`symupload`

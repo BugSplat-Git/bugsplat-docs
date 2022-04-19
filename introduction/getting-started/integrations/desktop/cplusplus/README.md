@@ -29,11 +29,11 @@ You should modify your build settings so that symbol files are created for relea
 
 ![Microsoft Visual Studio C++ Debugging Properties](../../../../../.gitbook/assets/microsoft-cpp-configuration-debugging.png)
 
-**Note:** To get fully detailed call stacks and variable names for each crash on the BugSplat website, every time you build a release version of your application for distribution or internal testing, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product on the [Symbols Page](https://app.bugsplat.com/v2/symbols/). Better yet, use the [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) application as part of your build process to automate symbol upload to BugSplat.
+**Note:** To get fully detailed call stacks and variable names for each crash on the BugSplat website, every time you build a release version of your application for distribution or internal testing, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product on the [Versions](https://app.bugsplat.com/v2/versions) page. Better yet, use the [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) application as part of your build process to automate symbol upload to BugSplat.
 
 Test your application by forcing a crash and verifying that the BugSplat dialog appears and that crashes are posted to your BugSplat account.
 
-**Finally**, make sure to check that symbol names in the call stack are resolved correctly. If they aren’t, double-check that the correct version of symbol files and all executables for your application have been uploaded on the [Symbols](https://app.bugsplat.com/v2/symbols/) page.
+**Finally**, make sure to check that symbol names in the call stack are resolved correctly. If they aren’t, double-check that the correct version of symbol files and all executables for your application have been uploaded on the [Versions](https://app.bugsplat.com/v2/versions) page.
 
 ## Toolset Considerations
 
