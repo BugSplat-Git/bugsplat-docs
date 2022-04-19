@@ -81,7 +81,7 @@ You can see your usage on the [Billing](https://app.bugsplat.com/v2/settings/com
 
 ![Company Plan Usage](../../.gitbook/assets/company-plan-usage.png)
 
-Have users that don't need access any longer? Delete them! Don't use an old database anymore - feel free to [retire it](../../introduction/production/how-to-stop-reporting-versions-of-an-application.md).
+Have users that don't need access any longer? Delete them! Don't use an old database anymore - feel free to [retire it](../../introduction/production/managing-versions.md).
 
 If you believe you shouldn't have been upgraded please view our [Fair-Refund](refund-policy.md) policy and then [contact us.](mailto:sales@bugsplat.com)
 

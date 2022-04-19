@@ -93,8 +93,7 @@
       * [C++ Native API](https://www.bugsplat.com/platforms/cpp/api/)
       * [.NET API](https://www.bugsplat.com/platforms/net/api/)
 * [Production](introduction/production/README.md)
-  * [Support Responses](introduction/production/setting-up-custom-support-responses.md)
-  * [Managing Versions](introduction/production/how-to-stop-reporting-versions-of-an-application.md)
+  * [Managing Versions](introduction/production/managing-versions.md)
   * [Security and Compliance](introduction/production/security-privacy-and-compliance/README.md)
     * [Security Program](introduction/production/security-privacy-and-compliance/security-program.md)
     * [GDPR](introduction/production/security-privacy-and-compliance/gdpr.md)
@@ -103,6 +102,7 @@
     * [Crash Expiry](introduction/production/security-privacy-and-compliance/crash-expiry.md)
     * [Terms](introduction/production/security-privacy-and-compliance/terms.md)
     * [Privacy Policy](introduction/production/security-privacy-and-compliance/privacy-policy.md)
+  * [Support Responses](introduction/production/setting-up-custom-support-responses.md)
   * [BugSplat Status](http://stats.bugsplat.com)
 
 ## 🍎 Education
