@@ -1,5 +1,7 @@
 # How to Manually Upload Symbols
 
+[Symbols](../../../education/bugsplat-terminology.md#symbols) are used to display the original function names and line numbers in source code from the [call stacks](../../../education/bugsplat-terminology.md#call-stack) of compiled applications.
+
 ## Step 1
 
 Navigate to the [Versions](https://app.bugsplat.com/v2/versions) page.
