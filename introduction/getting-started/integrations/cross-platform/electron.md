@@ -4,7 +4,7 @@
 
 BugSplat supports the collection of both [electron.crashReporter](https://www.electronjs.org/docs/api/crash-reporter) (native) and [node.js](node.js.md) crash reports. Native crashes are generated via [Crashpad](https://github.com/chromium/crashpad) and BugSplat requires symbol files in order to calculate the call stack.
 
-If your app is packaged with electron-builder or similar you will need to upload application-specific symbol files in order to see full native call stacks. All symbol files must be uploaded to BugSplat via [symupload](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation). More information about uploading symbol files to BugSplat can be found [here](crashpad/how-to-build-google-crashpad.md#uploading-symbols).
+BugSplat will automatically resolve Electron framework symbol files when calculating call stacks. However if include native add-ons or package your application with [electron-builder](https://github.com/electron-userland/electron-builder) you will need to upload application-specific symbol files in order to see full native call stacks. All symbol files must be uploaded to BugSplat via [symupload](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation). More information about uploading symbol files to BugSplat can be found [here](crashpad/how-to-build-google-crashpad.md#uploading-symbols).
 
 BugSplat-node can also be used to collect [uncaughtException](https://nodejs.org/api/process.html#process\_event\_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process\_event\_unhandledrejection) events in your application's JavaScript code.
 
@@ -18,7 +18,7 @@ Use the Breakpad [symupload](../../../development/working-with-symbol-files/) ut
 
 #### Step 2
 
-Verify that your application-specific symbol files show up on the [Symbols](https://app.bugsplat.com/v2/symbols/) page. Be sure to upload symbols for each released version of your application. For best results, integrate symupload into your build or release process.
+Verify that your application-specific symbol files show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Be sure to upload symbols for each released version of your application. For best results, integrate symupload into your build or release process.
 
 #### Step 3
 

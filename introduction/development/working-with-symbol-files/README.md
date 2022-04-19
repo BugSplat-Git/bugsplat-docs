@@ -1,6 +1,6 @@
 # Symbol Files
 
-Symbol files are a critical component of getting useful data from your crashes. Windows, Breakpad, Crashpad, Mac, and some JavaScript applications require [symbol files](./) to be uploaded to generate call stacks containing function names and line numbers. The symbol upload process can be automated as part of your build. Symbols are required by many of our SDKs and can be uploaded and managed via the [Symbols](https://app.bugsplat.com/v2/symbols) page. 
+Symbol files are a critical component of getting useful data from your crashes. Windows, Breakpad, Crashpad, Mac, and some JavaScript applications require [symbol files](./) to be uploaded to generate call stacks containing function names and line numbers. The symbol upload process can be automated as part of your build. Symbols are required by many of our SDKs and can be uploaded and managed via the [Versions](https://app.bugsplat.com/v2/versions) page. 
 
 For additional information regarding Symbol files, please visit the [documentation](../../../) specific to your application's platform
 

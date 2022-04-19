@@ -10,7 +10,7 @@ At the top of the Crash page you will see a warning if you're missing symbols.
 
 ![Missing Symbols Alert](../../../.gitbook/assets/windows-symbols-missing-symbols.png)
 
-Once the data is obtained the fields of Function, Location, Code, OS, and Explanation will be populated with all available information. If a crash is missing symbols, there will be various messages under the 'File' column in the 'Active Thread' tab indicating which symbols were missing. Make sure to upload the missing symbols \(as indicated by the 'Active Thread' tab\) to the symbol store for your application name and version via the [Symbols](https://app.bugsplat.com/v2/symbols) page or [SendPdbs](../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
+Once the data is obtained the fields of Function, Location, Code, OS, and Explanation will be populated with all available information. If a crash is missing symbols, there will be various messages under the 'File' column in the 'Active Thread' tab indicating which symbols were missing. Make sure to upload the missing symbols \(as indicated by the 'Active Thread' tab\) to the symbol store for your application name and version via the [Versions](https://app.bugsplat.com/v2/versions) page or [SendPdbs](../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 ![Missing Symbols in Active Thread](../../../.gitbook/assets/windows-symbols-active-thread.png)
 

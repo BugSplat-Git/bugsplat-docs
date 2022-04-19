@@ -34,4 +34,4 @@ After each build you should upload the new executable and files. The [myDotNetCr
 Visual Studio debugger's hosting process can interfere with BugSplat's ability to resolve symbols; it should be disabled in your project's debug settings when submitting crash reports that occur while debugging.
 {% endhint %}
 
-6\. Test your application by forcing a crash, and then verify that crashes are posted and symbol names are resolved. You can verify symbols have been posted on the [Symbols](https://app.bugsplat.com/v2/symbols) page. You can view a list of crashes that have been posted to BugSplat on the [Crashes](https://app.bugsplat.com/v2/crashes) page
+6\. Test your application by forcing a crash, and then verify that crashes are posted and symbol names are resolved. You can verify symbols have been posted on the [Versions](https://app.bugsplat.com/v2/versions) page. You can view a list of crashes that have been posted to BugSplat on the [Crashes](https://app.bugsplat.com/v2/crashes) page
