@@ -44,4 +44,4 @@ Next, launch MyJavaCrasher and select a crash button. Fill in the requested info
 
 Finally, to verify that the report was sent, log into BugSplat as yourself (not fred@bugsplat.com) and verify the crash was recorded on the [Crashes](https://app.bugsplat.com/v2/allcrash) page
 
-![BugSplat Crash Dialog](<../../../.gitbook/assets/bugsplat-crash-dialog (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3) (5).png>)
+![BugSplat Crash Dialog](<../../../.gitbook/assets/bugsplat-crash-dialog (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3) (2).png>)

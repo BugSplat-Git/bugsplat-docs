@@ -30,7 +30,7 @@ Interested in the Solo plan?  Accounts default to this plan after the [14-day fr
 
 The Team plan is perfect for smaller teams that require up to 100,000 monthly crashes and errors.  The Team plan comes with 4 users and 2 [apps](./#what-is-an-app) and has the option to add more of both for a low monthly cost.
 
-Additionally, Team plan account holders get expanded [defect tracker](../../../introduction/development/integrating-with-tools/#issue-trackers) integrations, [notifications & alerts](../../../introduction/development/integrating-with-tools/#configurable-alerts) via chat tools, [API](../../../introduction/development/web-services/api.md) access, and help us contribute to [OneTreePlanted](../../../about/who-is-bugsplat/charitable-giving.md#one-tree-planted).
+Additionally, Team plan account holders get expanded [defect tracker](../../../introduction/development/integrating-with-tools/#issue-trackers) integrations, [notifications & alerts](../../../introduction/development/integrating-with-tools/#configurable-alerts) via chat tools, [API](../../../introduction/development/web-services/api/) access, and help us contribute to [OneTreePlanted](../../../about/who-is-bugsplat/charitable-giving.md#one-tree-planted).
 
 See all of the features that come with the Team plan on the [Plans page](https://www.bugsplat.com/plans/).
 

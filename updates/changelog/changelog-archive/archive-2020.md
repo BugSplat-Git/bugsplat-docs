@@ -155,7 +155,7 @@
 
 ## Web Services API 29-September-2020
 
-* Removed deprecated endpoint `crashRatePerMinute` from [Web Services API](../../../introduction/development/web-services/api.md) documentation.
+* Removed deprecated endpoint `crashRatePerMinute` from [Web Services API](../../../introduction/development/web-services/api/) documentation.
 
 ## Web App Updates 12-Septeber-2020
 

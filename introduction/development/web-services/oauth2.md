@@ -1,6 +1,6 @@
 # OAuth2
 
-BugSplat supports authenticating via OAuth2 in addition to the username/password authentication described in our [API docs](api.md). Currently, only the OAuth2 client credentials flow is supported. If you are interested in other OAuth2 authentication methods, please reach out to [support@bugsplat.com](mailto:support@bugsplat.com).
+BugSplat supports authenticating via OAuth2 in addition to the username/password authentication described in our [API docs](api/). Currently, only the OAuth2 client credentials flow is supported. If you are interested in other OAuth2 authentication methods, please reach out to [support@bugsplat.com](mailto:support@bugsplat.com).
 
 A reference client implementation can be found in our [@bugsplat/js-api-client](https://github.com/BugSplat-Git/bugsplat-js-api-client/blob/1ebf36453d275ed62d6e5a4bb4249ef17efbc929/src/common/client/oauth-client-credentials-api-client/oauth-client-credentials-api-client.ts) repo.
 
@@ -18,7 +18,7 @@ The Client Id and Client Secret are used in a POST to the server and will return
 
 #### Headers
 
-Once an `access_token` and `token_type` have been acquired they can be used in any of the API requests outlined in our [API docs](api.md). To make an authenticated request to one of BugSplat's API endpoints add a header with a key of `Authorization` and a value of `${token_type} ${access_token}`.
+Once an `access_token` and `token_type` have been acquired they can be used in any of the API requests outlined in our [API docs](api/). To make an authenticated request to one of BugSplat's API endpoints add a header with a key of `Authorization` and a value of `${token_type} ${access_token}`.
 
 {% swagger baseUrl="https://app.bugsplat.com" path="/oauth2/authorize" method="post" summary="Authorize" %}
 {% swagger-description %}

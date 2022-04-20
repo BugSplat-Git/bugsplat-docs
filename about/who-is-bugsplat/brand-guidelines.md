@@ -10,13 +10,13 @@ Is your team getting ready to ship your software with BugSplat crash reporting b
 
 That's great! We just have a few small guidelines that we ask you to follow.
 
-These guidelines were inspired by Bootstrap's [Brand Assets](https://getbootstrap.com/about/#team) which follow a similar post by [MailChimp](https://styleguide.mailchimp.com/).
+These guidelines were inspired by Bootstrap's [Brand Assets](https://getbootstrap.com/about/#team) which follow a similar post by [MailChimp](https://styleguide.mailchimp.com).
 
 ## **Logo**
 
 Below are the acceptable iterations of our logo for light and dark backgrounds.
 
-![](../../.gitbook/assets/new-full-logo-color%20%282%29%20%282%29%20%282%29.png)
+![](<../../.gitbook/assets/new-full-logo-color (2) (2) (2) (2) (2).png>)
 
 ![](../../.gitbook/assets/logo-brand-usage-2021.png)
 
@@ -34,14 +34,14 @@ Many people will see our brand for the first time because of your interaction wi
 
 ## **In Writing**
 
-Our company and crash reporting tool should always be referred to as **BugSplat**. Specifically, note the CamelCase \( Bug Splat\) and that it is always written as one word.
+Our company and crash reporting tool should always be referred to as **BugSplat**. Specifically, note the CamelCase ( Bug Splat) and that it is always written as one word.
 
-| Spelling | Correct? |
-| :--- | :--- |
-| BugSplat | ✅ |
-| Bug Splat | ❌ |
-| bugsplat | ❌ |
-| Bugsplat | ❌ |
+| Spelling  | Correct? |
+| --------- | -------- |
+| BugSplat  | ✅        |
+| Bug Splat | ❌        |
+| bugsplat  | ❌        |
+| Bugsplat  | ❌        |
 
 ## **Colors**
 
@@ -53,9 +53,9 @@ BugSplat's never been afraid of a little color - or a lot of color - in our bran
 
 Our crash box is the consumer-facing portion of our crash reporting tool. As such, it follows the same guidelines as the rest of our brand.
 
-Some monthly plans require that you use our standard crash box \(see below\).
+Some monthly plans require that you use our standard crash box (see below).
 
-![BugSplat Crash Dialog](../../.gitbook/assets/bugsplat-crash-dialog%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%283%29%20%281%29.png)
+![BugSplat Crash Dialog](<../../.gitbook/assets/bugsplat-crash-dialog (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3) (1).png>)
 
 Most implementations of BugSplat do not require you to use our branded crash dialog shown above. That said, we love and appreciate when our users keep our crash dialog or give us a 'shoutout' somewhere on the box.
 
@@ -63,15 +63,14 @@ This helps us spread the word about BugSplat, allowing us to spend less time on 
 
 If you want to give us a shout-out, please put our name in either the header or the bottom right-hand corner of the crash box.
 
-Be sure to send us an image of your customized crash box. If it's really cool, we'll include it and a link to your site or project below. :\)
+Be sure to send us an image of your customized crash box. If it's really cool, we'll include it and a link to your site or project below. :)
 
 ### **Wall of Fame**
 
 ![League of Legends](../../.gitbook/assets/league-of-legends-crash-dialog.png)
 
-![Isadora](../../.gitbook/assets/bugsplat-crash-dialog-windows%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![Isadora](<../../.gitbook/assets/bugsplat-crash-dialog-windows (1) (1) (1) (1) (1) (1).png>)
 
-![Moonman](../../.gitbook/assets/moonman_crash_box-2.png)
+![Moonman](../../.gitbook/assets/moonman\_crash\_box-2.png)
 
 ![SketchUp](../../.gitbook/assets/sketchup-crash-dialog.png)
-
