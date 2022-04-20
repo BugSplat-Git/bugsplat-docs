@@ -4,6 +4,42 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Web App Update - April 20th, 2022
+
+#### Release - 2.10.3
+
+* Remove default sort on Versions page
+
+#### Release - 2.10.2
+
+* Fix logic miss with showFiltering
+
+## Web App Update - April 19th, 2022
+
+#### Release - 2.10.1
+
+* Version ID column should be visible by default
+
+#### Release - 2.10.0
+
+* Combine Symbols and Versions page&#x20;
+
+## Web App Update - April 14th, 2022
+
+#### Release - 2.9.26
+
+* Center graphic on restricted users lockout screen
+
+#### Release - 2.9.25
+
+* Center graphic on restricted users lockout screen
+
+## Web App Update - April 11th, 2022
+
+#### Release - 2.9.24
+
+* Improve drag and drop hover and disabled states
+
 ## Web App Update - April 5th, 2022
 
 #### Release - 2.9.23
