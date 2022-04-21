@@ -10,7 +10,7 @@ This endpoint supports paging, and filtering queries. More information paging fi
 
 Get a list stats for crashes that have been posted separated by application and version, create a new version, or set the retired and full dumps flags on a specified version.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/symbols" method="get" summary="Version" %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/versions" method="get" summary="Versions" %}
 {% swagger-description %}
 Returns a list of versions in a given database.
 {% endswagger-description %}
@@ -163,7 +163,7 @@ BugSplat database containing symbol stores
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/version" method="post" summary="Version" %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/versions" method="post" summary="Versions" %}
 {% swagger-description %}
 Used to create a new version and returns a pre-signed URL that can be used to upload new symbol files.
 {% endswagger-description %}
@@ -201,7 +201,7 @@ BugSplat database in which the symbol store should be created
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/version" method="put" summary="Version" %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/api/versions" method="put" summary="Versions" %}
 {% swagger-description %}
 Used to set the retired and fullDumps flags for a specified version.
 {% endswagger-description %}
