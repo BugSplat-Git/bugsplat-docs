@@ -6,7 +6,7 @@ description: API Documentation for the BugSplat Crashes Endpoint
 
 Endpoint to help your team to upload existing crashes and migrate from an existing crash report solution to BugSplat. This endpoint is not suitable for production crash volumes.
 
-{% swagger method="get" path="/api/upload/manual/crash" baseUrl="https://app.bugsplat.com" summary="Crash Import" %}
+{% swagger method="post" path="/api/upload/manual/crash" baseUrl="https://app.bugsplat.com" summary="Crash Import" %}
 {% swagger-description %}
 Migrate crash minidump files to BugSplat from your existing crash report solution.  Note, this endpoint is not suiteable for production crash volumes
 {% endswagger-description %}
