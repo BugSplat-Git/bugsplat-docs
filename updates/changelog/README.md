@@ -6,6 +6,35 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 ## Web App Update - April 20th, 2022
 
+#### Release - 2.10.6
+
+* Wait for response before finalizing uploads
+
+#### Release - 2.10.5
+
+* npm version should be added to package.json
+
+## Web App Update - April 28th, 2022
+
+#### Release - 2.10.4
+
+* Enable close button after symbol upload
+
+## Web App Update - April 28th, 2022
+
+#### Release - 2.10.4
+
+* Enable close button after symbol upload
+
+## JS API Client - April 21th, 2022
+
+#### Release - 2.0.0
+
+* Replace Symbols API Client with Versions API Client
+* Merged the Symbols and Versions APIs to a single Versions API and thus have removed the Symbols API client.
+
+## Web App Update - April 20th, 2022
+
 #### Release - 2.10.3
 
 * Remove default sort on Versions page
