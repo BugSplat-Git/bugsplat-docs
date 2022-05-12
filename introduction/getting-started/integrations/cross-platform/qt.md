@@ -2,11 +2,17 @@
 
 ## Building Crashpad
 
-BugSplat leverages Crashpad to provide crash reporting for macOS, Windows, and Linux Qt applications. For an in-depth guide that discusses how to build Crashpad, please see this [article](crashpad/how-to-build-google-crashpad.md).
+BugSplat leverages [Crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to provide crash reporting for macOS, Windows, and Linux Qt applications. For an in-depth guide that discusses how to build Crashpad, please see this [article](crashpad/how-to-build-google-crashpad.md).
 
-For Windows, you'll need to build shared libraries. After running `gn gen out/Default` run `gn args out/Default` and add `extra_cflags="/MD"` so that your builds produce shared libraries. Additionally, make sure the version of MSVC and the Windows SDK used to compile Crashpad is the same version used by your Qt build otherwise your project [will not build](https://stackoverflow.com/questions/62396117/integrating-crashpad-with-a-windows-qt-application). Setting the version of MSVC that builds Crashpad can be done by instead generating your configuration using the command `gn gen out/Default --winsdk="10.0.19041.0" --ide="vs2017"`.
+For Windows, you'll need to build shared libraries for both Release (`/MD`) and Debug (`/MDd`) configurations. You'll also want to consider building with [Whole Program Optimization](https://docs.microsoft.com/en-us/cpp/build/reference/gl-whole-program-optimization?view=msvc-170) turned off (`/GL-`). To build shared libraries generate your Crashpad build using the following terminal command:
 
-For more info on how to build shared libraries for Windows, see this [post](https://stackoverflow.com/questions/55302553/how-to-build-dynamic-shared-libraries-of-crashpad).
+```
+gn gen out\MD --args="extra_cflags=\"/MD /GL-\"" && gn gen out\MDd --args="extra_cflags=\"/MDd /GL-\""
+```
+
+The snippet above works with Windows CMD and depending on the terminal you're using you might get various errors related to escape characters. If you choose to omit the `/GL-` flag you must ensure that you build Crashpad with the same version of MSVC you use for building your Qt application otherwise your project [will not build](https://stackoverflow.com/questions/62396117/integrating-crashpad-with-a-windows-qt-application). Setting the version of MSVC that builds Crashpad can be done by instead generating your configuration using the command `gn gen out/Default --winsdk="10.0.19041.0" --ide="vs2017"`.
+
+For more info on how to build Crashpad shared libraries on Windows, see this [post](https://stackoverflow.com/questions/55302553/how-to-build-dynamic-shared-libraries-of-crashpad).
 
 ## Integrating Crashpad
 
