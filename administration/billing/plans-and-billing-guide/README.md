@@ -72,6 +72,10 @@ Team and Business account holders can upgrade or change their plan at any point 
 
 The Update Plan button will allow you to change account settings like plan type, total users, total applications, and monthly crash & error volume.  Additionally, you'll be given the option to pay annually.&#x20;
 
+{% hint style="info" %}
+**Adding more retention days:**  After upgrading from Solo to Team or Team to Business, users will have the option to increase the number of days they retain crashes.  To edit this for any database visit the database-pecific [Privacy](https://app.bugsplat.com/v2/settings/database/privacy?database) page.&#x20;
+{% endhint %}
+
 All upgrades take into account the point in the current billing cycle and pro-rate accordingly. &#x20;
 
 Looking to upgrade to an Enterprise plan?  Simply email [sales@bugsplat.com](mailto:sales@bugsplat.com) and let us know.

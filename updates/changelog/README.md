@@ -26,7 +26,7 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 #### Release - 2.10.6
 
-* Wait for response before finalizing uploads
+* Wait for a response before finalizing uploads
 
 #### Release - 2.10.5
 
