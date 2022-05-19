@@ -4,7 +4,25 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
-## Web App Update - April 20th, 2022
+## BugSplat-Unity Update - May 16th, 2022
+
+#### Release - v2.1.4...v2.2.0
+
+* Feat: add support for Unity 2019
+
+## Web App Update - May 16th, 2022
+
+#### Release - 2.10.1
+
+* Should not throw errors when no plans available for Upgrade
+
+## Web App Update - May 15th, 2022
+
+#### Release - 2.11.0
+
+* Add Rejected 30 Day and Rejected 365 Day
+
+## Web App Update - April 29th, 2022
 
 #### Release - 2.10.6
 
