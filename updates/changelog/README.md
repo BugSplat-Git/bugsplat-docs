@@ -354,6 +354,12 @@ Terms for the [Solo Developer](../../administration/billing/free-plans-from-bugs
 
 * Update event stream component styles
 
+## BugSplatNative library - January 31st, 2022
+
+#### Release - 3.6.0.13
+
+* Added MiniDumper::setNotes(const \_\_wchar\_t\* szNotes), which sets the initial value of the crash report Notes field. Note that your users can edit this field using the BugSplat web application. A current version of SendPdbs is also required for this API change.
+
 ## Web App Update - January 31st, 2022
 
 #### Release - 2.8.2
