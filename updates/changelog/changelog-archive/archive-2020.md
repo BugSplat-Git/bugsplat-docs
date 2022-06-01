@@ -1,3 +1,9 @@
+---
+description: >-
+  Changelog archives for 2020.  Not finding what you're looking for? Send a
+  message to support@bugsplat.com
+---
+
 # Archive 2020
 
 {% hint style="info" %}
@@ -55,8 +61,8 @@
 
 ## AWS Status Update 25-November-2020
 
-* Update 7:00 pm est:BugSplat application services have recovered from the AWS outage which is not fully resolved. Note that until the AWS services are fully-restored, there is a continued risk of interruption of BugSplat services. See [here](https://status.aws.amazon.com) for additional details.
-* BugSplat services are experiencing intermittent failures due to issues at our service provider AWS. Our team is monitoring and working to mitigate the effects. We will update here when the issues are resolved. Learn more at [AWS Service Health Dashboard](https://status.aws.amazon.com).
+* Update 7:00 pm est:BugSplat application services have recovered from the AWS outage which is not fully resolved. Note that until the AWS services are fully-restored, there is a continued risk of interruption of BugSplat services. See [here](https://status.aws.amazon.com/) for additional details.
+* BugSplat services are experiencing intermittent failures due to issues at our service provider AWS. Our team is monitoring and working to mitigate the effects. We will update here when the issues are resolved. Learn more at [AWS Service Health Dashboard](https://status.aws.amazon.com/).
 
 ## Ngb-Filterablep-Dropdown Update 27-November-2020
 
@@ -256,7 +262,7 @@ We'll be posting updates here and on [Twitter](https://twitter.com/bugsplatco).
 
 ## Web App Update 17-Mar-2020
 
-* Added support for [Discord](https://discordapp.com) notifications
+* Added support for [Discord](https://discordapp.com/) notifications
 
 ## Web App Update 11-Mar-2020
 

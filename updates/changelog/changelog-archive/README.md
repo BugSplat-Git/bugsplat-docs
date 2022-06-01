@@ -14,6 +14,10 @@ description: Cataloguing pervious changes BugSplat.
 
 ### Archived Changelogs
 
+{% content-ref url="archive-2021.md" %}
+[archive-2021.md](archive-2021.md)
+{% endcontent-ref %}
+
 {% content-ref url="archive-2020.md" %}
 [archive-2020.md](archive-2020.md)
 {% endcontent-ref %}

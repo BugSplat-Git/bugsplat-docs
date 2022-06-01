@@ -1,3 +1,9 @@
+---
+description: >-
+  Changelog archives for 2019.  Not finding what you're looking for? Send a
+  message to support@bugsplat.com
+---
+
 # Archive 2019
 
 {% hint style="info" %}
@@ -450,7 +456,7 @@ Fixed bug where database was undefined when grouping stack on Crash Details page
 * Fixes bug where rethrowErrors would attempt to recursively post to BugSplat
 * Replaces rethrowError with an error log statement
 
-## 15-Feb-2019: [Auth0](https://auth0.com) integration for login security
+## 15-Feb-2019: [Auth0](https://auth0.com/) integration for login security
 
 * As part of our continuing [security program](../../../introduction/production/security-privacy-and-compliance/security-program.md) at BugSplat, we’re switching to an authentication service called Auth0 for all of our account logins. Set via the [Password](https://app.bugsplat.com/v2/password/) page.
 * Multi-Factor Authentication (MFA) for two-step login protocol requiring separate verification from a mobile device to access your account
