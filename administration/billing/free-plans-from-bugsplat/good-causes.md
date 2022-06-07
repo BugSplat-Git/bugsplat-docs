@@ -6,7 +6,7 @@ We're committed to supporting those who are giving back and making a real differ
 
 Because of that, BugSplat has an Extended Free Tier Plan for anyone working on human rights, world poverty, environmental sustainability, or underrepresentation in tech.&#x20;
 
-We also give a 10% discount to any [Pledge 1%](https://pledge1percent.org) company.
+We also give a 10% discount to any [Pledge 1%](https://pledge1percent.org/) company.
 
 If you're wondering if you qualify but are not sure, please send an email to [hi@bugsplat.com](mailto:hi@bugsplat.com) and tell us a little bit about yourself and your project.
 

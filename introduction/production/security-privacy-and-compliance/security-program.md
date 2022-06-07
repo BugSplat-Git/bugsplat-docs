@@ -82,11 +82,11 @@ The ISP is designed to: (a) protect the confidentiality, integrity, and availabi
 * BugSplat will conduct a risk assessment on the security practices of any of its third-party contractors or vendors prior to providing access to Customer Data. Any BugSplat third-party supplier with access to Customer Data must adhere to terms substantially similar to those in the BugSplat ISP.
 * BugSplat will verify that its risk assessment is sufficient to satisfy compliance with this ISP.
 * The data sub-processors used by BugSplat are:
-  * Amazon Web Services ([https://aws.amazon.com/](https://aws.amazon.com))
-  * Loggly, a service of SolarWinds Worldwide ([https://www.loggly.com/](https://www.loggly.com))
-  * MacStadium ([https://www.macstadium.com/](https://www.macstadium.com))
-  * Auth0 ([https://auth0.com/](https://auth0.com))
-  * Hotjar ([https://www.hotjar.com/](https://www.hotjar.com))
+  * Amazon Web Services ([https://aws.amazon.com/](https://aws.amazon.com/))
+  * Loggly, a service of SolarWinds Worldwide ([https://www.loggly.com/](https://www.loggly.com/))
+  * MacStadium ([https://www.macstadium.com/](https://www.macstadium.com/))
+  * Auth0 ([https://auth0.com/](https://auth0.com/))
+  * Hotjar ([https://www.hotjar.com/](https://www.hotjar.com/))
 
 **Change and Configuration Management**
 

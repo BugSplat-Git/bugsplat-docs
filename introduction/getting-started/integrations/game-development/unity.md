@@ -10,7 +10,7 @@ BugSplat's `com.bugsplat.unity` package can be added to your project via [OpenUP
 
 ### OpenUPM
 
-Information on how to install the OpenUPM package for node.js can be found [here](https://openupm.com).
+Information on how to install the OpenUPM package for node.js can be found [here](https://openupm.com/).
 
 ```
 openupm add com.bugsplat.unity

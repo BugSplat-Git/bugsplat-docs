@@ -28,7 +28,7 @@ Interested in the Solo plan?  Accounts default to this plan after the [14-day fr
 
 ### Team plan&#x20;
 
-The Team plan is perfect for smaller teams that require up to 100,000 monthly crashes and errors.  The Team plan comes with 4 users and 2 [apps](./#what-is-an-app) and has the option to add more of both for a low monthly cost.
+The Team plan is perfect for smaller teams that require up to 50,000 monthly crashes and errors.  The Team plan comes with 4 users and 2 [apps](./#what-is-an-app) and has the option to add more of both for a low monthly cost.
 
 Additionally, Team plan account holders get expanded [defect tracker](../../../introduction/development/integrating-with-tools/#issue-trackers) integrations, [notifications & alerts](../../../introduction/development/integrating-with-tools/#configurable-alerts) via chat tools, [API](../../../introduction/development/web-services/api/) access, and help us contribute to [OneTreePlanted](../../../about/who-is-bugsplat/charitable-giving.md#one-tree-planted).
 
@@ -58,7 +58,7 @@ Think an Enterprise Plan is right for your team? Please get in touch with [sales
 
 To choose a plan navigate to the [Billing page](https://app.bugsplat.com/v2/settings/company/billing) inside of your Admin settings inside of your BugSplat account. There you will be able to upgrade to a paid plan by clicking on the **Update Plan** button.
 
-<img src="../../../.gitbook/assets/bugsplat-checkout-march-16.png" alt="" data-size="original">
+![](../../../.gitbook/assets/bugsplat-billing-page-new-team-plan.png)
 
 This button brings up the Update Plan pop-up that allows you to select your plan type (Business or Team), monthly crash volume, number of users, number of apps, and payment period (monthly or yearly).  Once you've chosen the desired plan specifications hit **Update** at the bottom right to bring up the review and payment method page. &#x20;
 

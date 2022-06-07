@@ -8,5 +8,5 @@ Use the left-hand menu to navigate to specific FAQs or search for your topic usi
 
 ### **Not finding what you're looking for?**&#x20;
 
-If you still can't find the answer you're looking for,  please send us a note at [support@bugsplat.com](mailto:support@bugsplat.com).  You can also drop by our [Discord Server](https://discord.bugsplat.com) and talk to us directly.
+If you still can't find the answer you're looking for,  please send us a note at [support@bugsplat.com](mailto:support@bugsplat.com).  You can also drop by our [Discord Server](https://discord.bugsplat.com/) and talk to us directly.
 
