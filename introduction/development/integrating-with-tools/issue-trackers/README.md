@@ -37,9 +37,5 @@ This allows for teams to build issues that contain full crash information like s
 {% endcontent-ref %}
 
 {% hint style="warning" %}
-We're currently building a suite of tools that will allow for more bi-directional linking between defect trackers and the BugSplat app.  This will allow users to close, open, tag, or assign issues in either BugSplat or your preferred issue tracker and have that action persist everywhere.&#x20;
-
-Follow us on [Twitter](https://twitter.com/bugsplatco?lang=en) for more info.
-
-Edited: August 1st, 2021
+Some organizations restrict access to their issue tracker by IP address.  If you need to allow access for BugSplat, whitelist the IP address [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home)
 {% endhint %}
