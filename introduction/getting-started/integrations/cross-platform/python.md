@@ -1,5 +1,9 @@
 # Python
 
+### Sample
+
+An example Python project configured with BugSplat exception reporting can be found [here](https://github.com/BugSplat-Git/my-python-crasher).
+
 ### Installation
 
 BugSplat recommends you use [bugsplat-py](https://github.com/BugSplat-Git/bugsplat-py) with a Python [virtual environment](https://docs.python.org/3/library/venv.html). To create a virtual environment for your project please run the following command at your project's root directory:
