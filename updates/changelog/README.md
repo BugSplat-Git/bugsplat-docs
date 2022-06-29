@@ -4,6 +4,18 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Web App Update - June 27th, 2022
+
+#### Release - v2.11.5
+
+* fix release workflow action
+
+#### Release - v2.11.4
+
+* platform SVGs are too large
+
+
+
 ## BugSplat-Unity Update - May 25th, 2022
 
 #### Release - v2.3.0
