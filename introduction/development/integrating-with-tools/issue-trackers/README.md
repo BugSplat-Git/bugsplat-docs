@@ -4,6 +4,10 @@ BugSplat connects with popular defect trackers allowing users to create new issu
 
 This allows for teams to build issues that contain full crash information like symbolic call stacks as well as other crash-specific data that can help your team crush bugs faster.  Issues created from BugSplat also include hyperlinks that allows for users to quickly navigate between issues and the crash or stack key associated with them.&#x20;
 
+{% hint style="warning" %}
+Some organizations restrict access to their issue tracker by IP address.  If you need to allow access for BugSplat, whitelist the IP address [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home)
+{% endhint %}
+
 {% content-ref url="jira.md" %}
 [jira.md](jira.md)
 {% endcontent-ref %}
@@ -35,7 +39,3 @@ This allows for teams to build issues that contain full crash information like s
 {% content-ref url="gitlab.md" %}
 [gitlab.md](gitlab.md)
 {% endcontent-ref %}
-
-{% hint style="warning" %}
-Some organizations restrict access to their issue tracker by IP address.  If you need to allow access for BugSplat, whitelist the IP address [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home)
-{% endhint %}
