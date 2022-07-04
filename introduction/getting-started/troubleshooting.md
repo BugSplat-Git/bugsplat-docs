@@ -40,7 +40,7 @@ Code signing will change the timestamp of the executable being signed. If you ar
 
 ### Anti-Cheat and Copy Protection
 
-Applications that are protected by anti-cheat or copy protection software sometimes require additional software to be run on the BugSplat backend. BugSplat supports VM Protect but it must be configured by our support. Please contact [support@bugsplat.com](mailto:support@bugsplat.com) to configure unwinding VM Protect crash reports or to request support for other anti-cheat or copy protection solutions.
+Applications that are protected by anti-cheat or copy protection software sometimes require additional software to be run on the BugSplat backend. BugSplat supports VMProtect by using their MiniDumpFixer tool.  However, this support must be configured by our team on the backend. Please contact [support@bugsplat.com](mailto:support@bugsplat.com) to set up the configuration for your database, or to request support for other anti-cheat or copy protection solutions.
 
 ### Deleted Symbols
 
