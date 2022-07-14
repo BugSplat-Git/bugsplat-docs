@@ -4,6 +4,28 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Web App Update - July 2nd, 2022
+
+#### Release - v2.11.6
+
+* re-add support for linkDefectId with prefix
+
+## bugsplat-xbox update - June 30th, 2022
+
+#### Release - v1.1.1
+
+* fix: use XP compatible GetTempPathW
+
+#### Release - v1.1.0
+
+* feat: add user email support
+* add script to build Sample
+* fix: temp path for Desktop
+* feat: add Gaming.Desktop.x64 support
+* chore: update sdk.ps1 to add Gaming.Desktop.x64
+
+
+
 ## Web App Update - June 27th, 2022
 
 #### Release - v2.11.5
