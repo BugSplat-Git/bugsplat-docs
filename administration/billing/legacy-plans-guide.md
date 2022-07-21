@@ -26,7 +26,7 @@ For customers who pay via credit card, it’s easy to access and download docume
 
 To do so, navigate to the [Billing](https://app.bugsplat.com/v2/settings/company/billing) page in Settings and click on the link that says **Update Card**
 
-![Company Billing Page](<../../.gitbook/assets/image (3).png>)
+![Company Billing Page](<../../.gitbook/assets/image (3) (1).png>)
 
 On the next page, you can view or download previous invoices. Simply scroll down the page and click on any month under the heading **Invoice History**.
 
