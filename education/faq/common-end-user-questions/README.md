@@ -50,7 +50,7 @@ Including details about what immediately happened before the application crashed
 
 Most of the time, restarting the application that crashed will fix the issue.  However, if you continue to get "BugSplats," then follow the steps outlined in the paragraph below.
 
-![The face you get when the software application you're using crashes.](<../../../.gitbook/assets/man-actively-getting-a-bugsplat-1 (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2).jpg>)
+![The face you get when the software application you're using crashes.](<../../../.gitbook/assets/man-actively-getting-a-bugsplat-1 (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (1) (1).jpg>)
 
 ## How do I fix a BugSplat? <a href="#how_to_fix_bugsplat" id="how_to_fix_bugsplat"></a>
 
@@ -64,7 +64,7 @@ Follow the steps below to try to resolve your application crashes. If none of th
 4. **Contact the makers of your Software directly.** Most software companies will have a way to contact their support team to get technical help for their products. Find the contact information on their website, and contact them via email, chat, or phone.
 5. **Try uninstalling and reinstalling.** Uninstalling your computer application and reinstalling it can be dangerous as you could lose data, so please proceed with caution and adequately back up any valuable data that could be lost. Most applications have documents online that help with accomplishing this task safely.
 
-![The feeling once you get your software to stop crashing.](<../../../.gitbook/assets/feeling-once-software-fixed-1 (1) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (4) (2) (2).jpg>)
+![The feeling once you get your software to stop crashing.](<../../../.gitbook/assets/feeling-once-software-fixed-1 (1) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (4) (2) (1) (1).jpg>)
 
 ## Why you shouldn't "Remove BugSplat." <a href="#how_to_fix_bugsplat" id="how_to_fix_bugsplat"></a>
 

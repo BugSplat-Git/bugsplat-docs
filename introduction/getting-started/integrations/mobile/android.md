@@ -2,13 +2,17 @@
 
 ## Introduction
 
-The Android NDK is a set of tools for building native C++ applications for Android. BugSplat recommends using Crashpad to handle native crashes in Android NDK applications. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
+The [Android NDK](https://developer.android.com/ndk) is a set of tools for building native C++ applications for Android. BugSplat recommends using [Crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to handle native crashes in Android NDK applications. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
+
+BugSplat also provides a reference Android Studio project [my-android-crasher](https://github.com/BugSplat-Git/my-android-crasher) that includes [pre-built Crashpad libraries](https://github.com/BugSplat-Git/my-android-crasher/tree/master/app/src/main/cpp/crashpad/lib), shows how to [initialize Crashpad](https://github.com/BugSplat-Git/my-android-crasher/blob/e02e0b7afbf85912bdf03a25ea652daebde15e72/app/src/main/cpp/native-lib.cpp#L18-L69), demonstrates how to link with the Crashpad libraries and and copy the necessary files to your APK via [CMakeLists.txt](https://github.com/BugSplat-Git/my-android-crasher/blob/master/app/src/main/cpp/CMakeLists.txt).
 
 ## Building Crashpad
 
-BugSplat leverages Crashpad to provide crash reporting for Android NDK applications. This tutorial provides a quick overview of how to build Crashpad. For an in depth guide that discusses how to build Crashpad, please see this [article](../cross-platform/crashpad/how-to-build-google-crashpad.md).
+{% hint style="info" %}
+For an in depth guide that discusses how to build Crashpad, please see this [article](../cross-platform/crashpad/how-to-build-google-crashpad.md).
+{% endhint %}
 
-To build crashpad you'll first need to download a copy of the Chromium [depot\_tools](https://dev.chromium.org/developers/how-tos/install-depot-tools). Once you have downloaded `depot_tools`, you'll need to add the parent folder to your system's `PATH` environment variable. After adding `depot_tools` to your systems `PATH`, run the following commands to download the Crashpad repository:
+To build Crashpad you'll first need to download a copy of the Chromium [depot\_tools](https://dev.chromium.org/developers/how-tos/install-depot-tools). Once you have downloaded `depot_tools`, you'll need to add the parent folder to your system's `PATH` environment variable. After adding `depot_tools` to your systems `PATH`, run the following commands to download the Crashpad repository:
 
 ```bash
 mkdir ~/crashpad
@@ -17,10 +21,16 @@ fetch crashpad
 cd crashpad
 ```
 
-Next you'll need to generate Crashpad build configurations for each Android ABI your application supports. You can view the source of [gyp\_crashpad\_android.py](https://github.com/chromium/crashpad/blob/f9549d1ffefe00f5e3dbabc6aff9e1a7ff619089/build/gyp\_crashpad\_android.py#L51) to see a list of supported ABIs. Take note of the `--api-level` value you use here as you'll need this information when configuring your project. The following command will create a Crashpad Android config for the `x86` ABI:
+Next you'll need to generate Crashpad build configurations for each [Android ABI](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/android\_build\_instructions.md#figuring-out-target\_cpu) your application supports. Generate build configurations for the `target_cpu` values `arm`, `arm64`, `x86`, and `x64`:
 
 ```bash
-ninja -C out/android_x86_api21/out/Debug all
+gn gen out/arm64-v8a --args='target_os="android" target_cpu="arm64" android_ndk_root="[Path to Android SDK]/ndk/21.4.7075529" android_api_level=21'
+```
+
+Build each of build configurations:
+
+```
+ninja -C out/arm64-v8a
 ```
 
 ## Integrating Crashpad

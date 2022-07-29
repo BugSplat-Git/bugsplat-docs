@@ -16,7 +16,7 @@ These guidelines were inspired by Bootstrap's [Brand Assets](https://getbootstra
 
 Below are the acceptable iterations of our logo for light and dark backgrounds.
 
-![](<../../.gitbook/assets/new-full-logo-color (2) (2) (2) (2) (2).png>)
+![](<../../.gitbook/assets/new-full-logo-color (2) (2) (2) (2) (1).png>)
 
 ![](../../.gitbook/assets/logo-brand-usage-2021.png)
 
