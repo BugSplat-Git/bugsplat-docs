@@ -4,6 +4,29 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+
+
+## bugsplat-xbox update - July 26th, 2022
+
+#### Release - v1.2.1
+
+* Target v142 for compatibility
+* Remove references to DX:: functions&#x20;
+* Remove dependency on Advapi32.lib
+
+## bugsplat-xbox update - July 25th, 2022
+
+#### Release - v1.1.2
+
+* Use BsSndRpt in Gaming.Desktop.x64
+* Make MyGdkCrasher the sample startup project by
+
+## Web App Update - July 17th, 2022
+
+#### Release - v2.11.7
+
+* Add .macdmp as an inline preview type
+
 ## Web App Update - July 2nd, 2022
 
 #### Release - v2.11.6
