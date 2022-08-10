@@ -4,6 +4,10 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Terms and Service Update - August 10th, 2022
+
+* Updates to BugSplat User [Terms](../../introduction/production/security-privacy-and-compliance/terms.md) section&#x20;
+
 ## Web App Update - August 5th, 2022
 
 #### Release - v2.11.10
