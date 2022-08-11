@@ -6,7 +6,7 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 ## Terms and Service Update - August 10th, 2022
 
-* Updates to BugSplat User [Terms](../../introduction/production/security-privacy-and-compliance/terms.md) section&#x20;
+* Updates to BugSplat [Terms of Service](../../introduction/production/security-privacy-and-compliance/terms.md)
 
 ## Web App Update - August 5th, 2022
 

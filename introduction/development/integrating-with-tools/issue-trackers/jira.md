@@ -10,7 +10,11 @@ Jira integration with BugSplat crash reports allows your team to create defects 
 4. Click ‘Apply’.
 5. Once a successful connection to Jira has been established, you will be able to select one of your projects from the project dropdown list.
 6. After selecting your desired project, click ‘Apply’ again.
-7. Add additional data in any of the other fields.  Note that the 'Assignee' field requires the Atlassian user id (not the user name).
+7. Add additional data in any of the other fields. &#x20;
+
+{% hint style="info" %}
+**Assignee ID**:  The optional 'Assignee ID' field requires the Atlassian user id when using Jira Cloud.  Jira Server doesn't support user ids, so use the user name in that case.
+{% endhint %}
 
 ### Creating an issue in Jira from a BugSplat crash report
 
