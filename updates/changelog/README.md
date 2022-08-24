@@ -4,6 +4,29 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Web App Update - August 19th, 2022
+
+#### Release - v2.11.11
+
+* Show Active Thread ID
+
+## Remote stack analyzer - August 17th, 2022
+
+#### Release - v2.0.2
+
+* Logs error in retryFillSymbolStore
+* Updates for iOS
+* Adds setup.sh
+* Modifies setup.sh to run pfctl at boot time
+* Replaces expired Resolume e2e test
+
+## Stack Converter - August 17th, 2022
+
+#### Release - v1.2.5
+
+* Support for stack frames with win32 path
+* Update README.md
+
 ## Terms and Service Update - August 10th, 2022
 
 * Updates to BugSplat [Terms of Service](../../introduction/production/security-privacy-and-compliance/terms.md)
