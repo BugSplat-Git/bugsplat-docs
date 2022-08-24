@@ -8,24 +8,13 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 #### Release - v2.11.11
 
-* Show Active Thread ID
-
-## Remote stack analyzer - August 17th, 2022
-
-#### Release - v2.0.2
-
-* Logs error in retryFillSymbolStore
-* Updates for iOS
-* Adds setup.sh
-* Modifies setup.sh to run pfctl at boot time
-* Replaces expired Resolume e2e test
+* Show Active Thread ID on Crash page
 
 ## Stack Converter - August 17th, 2022
 
 #### Release - v1.2.5
 
-* Support for stack frames with win32 path
-* Update README.md
+* Support for stack frames with win32 paths
 
 ## Terms and Service Update - August 10th, 2022
 
@@ -35,10 +24,6 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 #### Release - v2.11.10
 
-* File missed in last commit
-
-#### Release - v2.11.9
-
 * Change Jira Assignee Label to Assignee ID
 
 ## bugsplat-ng update - August 3rd, 2022
@@ -47,11 +32,9 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 * Update README.md
 
-## bugsplat-ng update - August 2nd, 2022
-
 #### Release - v14.0.1
 
-* run npm audit fix
+* Security Fixes
 
 #### Release - v14.0.0
 
@@ -62,44 +45,17 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 **BREAKING CHANGES**&#x20;
 
 * Updates to package version to stay in sync with Angular versions&#x20;
-* Fix linting issues&#x20;
-* Silence ts test errors&#x20;
-* Squash more ts test errors&#x20;
-* Refactore: add semi&#x20;
-* Feat: use bugsplatJs to keep track of desc, key, email, user&#x20;
-* Description, key, email, and user are now set only properties&#x20;
-* Fix lib build&#x20;
-* Fix sample&#x20;
-* Add tests for bugsplat-js setDefaults&#x20;
-* Fix weird missing .eslintrc.json&#x20;
-* Add lint rule for single quotes&#x20;
-* Remove todo&#x20;
-* Fix semantic release committing wrong version info
+* feat: use bugsplatJs to keep track of desc, key, email, user&#x20;
+  * Description, key, email, and user are now set only properties&#x20;
 
 #### Release - v13.0.0
 
-* Uploads source maps
-* Uploads source maps&#x20;
 * Add README Section for Source Maps&#x20;
 * Demo refresh chore(sample): improve symbol uploads&#x20;
 * Provide ivy distribution&#x20;
-* Should be able to override logger&#x20;
-* Bump karma from 6.3.4 to 6.3.14&#x20;
-* Bump node-fetch from 2.6.1 to 2.6.7&#x20;
-* Bump follow-redirects from 1.14.1 to 1.14.8&#x20;
-* Fix typo in readme&#x20;
-* Bump karma from 6.3.14 to 6.3.16&#x20;
-* Bump node-forge from 1.2.1 to 1.3.0&#x20;
-* Bump minimist from 1.2.5 to 1.2.6&#x20;
-* Add CI/CD
+* Allow overriding logger&#x20;
 
-## Web App Update - July 26th, 2022
-
-#### Release - v2.11.8
-
-* Add pathMatch to adminLogins redirect
-
-## bugsplat-xbox update - July 26th, 2022
+## bugsplat-gdk update - July 26th, 2022
 
 #### Release - v1.2.1
 
@@ -107,7 +63,7 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 * Remove references to DX:: functions&#x20;
 * Remove dependency on Advapi32.lib
 
-## bugsplat-xbox update - July 25th, 2022
+## bugsplat-gdk update - July 25th, 2022
 
 #### Release - v1.1.2
 
@@ -126,7 +82,7 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 * re-add support for linkDefectId with prefix
 
-## bugsplat-xbox update - June 30th, 2022
+## bugsplat-gdk update - June 30th, 2022
 
 #### Release - v1.1.1
 
