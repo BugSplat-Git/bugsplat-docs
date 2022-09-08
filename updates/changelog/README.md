@@ -4,6 +4,53 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+
+
+## .NET Standard  Update - September 8th, 2022
+
+#### Release - v4.0.1
+
+* Updated to latest SendPdbs - v3.0.0.0
+* Improve SDK folder layout
+* Remove deprecated function set\_unexpected from bugsplat.h
+
+#### Release - v3.1.0
+
+* Add symbol uploads
+* Symbol files should be uploaded with name of zip
+* Support for symbol file signatures
+
+## React Update - September 8th, 2022
+
+#### Release - v1.0.3
+
+* **Examples:** Include pages mode environment file
+
+## React Update - September 7th, 2022
+
+#### Release - v1.0.2
+
+* **Examples:** my-react-crasher fails to load
+
+## BugSplat Native Update - August 30th, 2022
+
+#### Release - v4.0.0
+
+* Remove calls to unsafe native functions and support drop in .NET BsSndRpt replacement
+* Changes the arguments used to invoke BsSndRpt, BugSplatHD in order to support .NET drop-in replacement (BugSplatCrashHandler)
+
+## Web App Update - August 29th, 2022
+
+#### Release - v2.11.12
+
+* Add React to onboarding tool
+
+## Stack Converter - August 24th, 2022
+
+#### Release - v2.0.3
+
+* Handle electron native plugin symbols
+
 ## Web App Update - August 19th, 2022
 
 #### Release - v2.11.11
