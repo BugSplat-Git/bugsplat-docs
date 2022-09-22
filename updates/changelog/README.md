@@ -4,7 +4,99 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## bugsplat-gdk update - September 22th, 2022
 
+#### Release - v1.2.2
+
+* See bugsplat-gdk changelog for details
+
+## SendPdbsDotNet Update - September 20th, 2022
+
+**Release - v3.0.0**
+
+* Target .NET 4.7.2 and for TLS 1.2 support
+* Improve support for Win32 credentials AP
+
+## Web App Update - September 18th, 2022
+
+**Release - v2.13.0**
+
+* Don't display alerts for 401 responses
+* Filter values in Email/User columns with clicks
+
+## BugSplat Native Update - September 17th, 2022
+
+**Release - v4.0.3**
+
+* Support quiet mode for out-of-process crash reporting
+* Update MyCrasher sample
+
+#### Release - v4.0.0
+
+* Remove calls to unsafe native functions and support drop in .NET BsSndRpt replacement
+* Changes the arguments used to invoke BsSndRpt, BugSplatHD in order to support .NET drop-in replacement (BugSplatCrashHandler)
+
+## BsSndRpt - September 17th, 2022
+
+**Release - v4.0.3**
+
+* Crash when BugSplatSharedMemory is not initialized
+
+## Web App Update - September 15th, 2022
+
+**Release - v2.12.2**
+
+* Upgrade modal styles
+
+## BsSndRpt - September 14th, 2022
+
+**Release - v4.0.2**
+
+* Set quiet mode from BugSplatSharedMemory
+
+**Release - v4.0.1**
+
+* Simplify SDK folder structure
+* Update BsSndRpt icon
+
+**Release - v4.0.1**
+
+* Target v142 for compatibility
+* Support single char flags for BugSplatCrashHandler compatibility
+* **Breaking Changes:** BsSndRpt expects to be invoked with single character flags and is not backwards compatible with BugSplat.dll versions before 4.0\
+
+
+## Web App Update - September 14th, 2022
+
+**Release - v2.12.1**
+
+* Improve progress bar colors
+
+## Web App Update - September 13th, 2022
+
+**Release - v2.12**
+
+* Support preview of PlayStation attachments
+
+****
+
+**Release - v2.11.15**
+
+* Modules table horizontal scrollbar
+
+
+
+**Release - v2.11.14**
+
+* Show attachments table loading indicator
+
+
+
+**Release - v2.11.13**
+
+* Add PlayStation crash types
+* Crash table column resizing change
+* Update to [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 
 ## .NET Standard  Update - September 8th, 2022
 
@@ -106,16 +198,13 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 #### Release - v1.2.1
 
-* Target v142 for compatibility
-* Remove references to DX:: functions&#x20;
-* Remove dependency on Advapi32.lib
+* See bugsplat-gdk changelog for details
 
 ## bugsplat-gdk update - July 25th, 2022
 
 #### Release - v1.1.2
 
-* Use BsSndRpt in Gaming.Desktop.x64
-* Make MyGdkCrasher the sample startup project
+* See bugsplat-gdk changelog for details
 
 ## Web App Update - July 17th, 2022
 
@@ -133,15 +222,11 @@ Looking for older product updates?  View our [Archive](changelog-archive/) to vi
 
 #### Release - v1.1.1
 
-* fix: use XP compatible GetTempPathW
+* See bugsplat-gdk changelog for details
 
 #### Release - v1.1.0
 
-* feat: add user email support
-* add script to build Sample
-* fix: temp path for Desktop
-* feat: add Gaming.Desktop.x64 support
-* chore: update sdk.ps1 to add Gaming.Desktop.x64
+* See bugsplat-gdk changelog for details
 
 
 
