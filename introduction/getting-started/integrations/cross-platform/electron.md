@@ -10,19 +10,27 @@ BugSplat-node can also be used to collect [uncaughtException](https://nodejs.org
 
 ## Native
 
-Configure [electron.crashReporter](https://github.com/electron/electron/blob/master/docs/api/crash-reporter.md) to upload crash reports to BugSplat using the following steps. Electron symbol files will be automatically downloaded by BugSplat. If you package your application with additional binaries you will need to upload the corresponding symbol files in order to correctly resolve call stacks. Please skip to step 3 if your app does not include additional binaries.
+Configure [electron.crashReporter](https://github.com/electron/electron/blob/master/docs/api/crash-reporter.md) to upload crash reports to BugSplat using the following steps. Electron and Electron Framework symbol files will be automatically downloaded by BugSplat. If your application uses [Native Node Modules](https://www.electronjs.org/docs/latest/tutorial/using-native-node-modules) you will need to generate and upload symbol files in order to correctly resolve call stacks.
+
+{% hint style="info" %}
+Please skip to step 3 if your app does not include any [Native Node Modules](https://www.electronjs.org/docs/latest/tutorial/using-native-node-modules)
+{% endhint %}
 
 #### Step 1
 
-Use the Breakpad [symupload](../../../development/working-with-symbol-files/) utility to upload symbol files to BugSplat. For additional information on how to upload symbols to BugSplat using symupload please check out our [Breakpad](breakpad.md) documentation.
+Add a build step to generate and upload `.sym` files for you Node Native Modules. To generate symbol files you can run [dump\_syms](crashpad/how-to-build-google-crashpad.md#generating-symbols) with a path to a `.node` file after the Node Native Module build or rebuild step if you're using a tool like [electron-rebuild](https://github.com/electron/electron-rebuild).
+
+Once you've generated a `.sym` file for your `.node` native module, the `.sym` file can be uploaded with either [`@bugsplat/symbol-upload`](https://www.npmjs.com/package/@bugsplat/symbol-upload), [symupload](crashpad/how-to-build-google-crashpad.md#uploading-symbols), or manually via the [Versions](https://app.bugsplat.com/v2/versions?database=Fred) page.
 
 #### Step 2
 
-Verify that your application-specific symbol files show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Be sure to upload symbols for each released version of your application. For best results, integrate symupload into your build or release process.
+Verify that your Node Native Module `.sym` files show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Be sure to upload symbols for each released version of your application. For best results, integrate [`@bugsplat/symbol-upload`](https://www.npmjs.com/package/@bugsplat/symbol-upload) or [symupload](crashpad/how-to-build-google-crashpad.md#uploading-symbols) into your build and release processes.
 
 #### Step 3
 
-Add a require or an import statement for electron and call electron.crashReporter.start as shown in the example below. Replace company name, product name, database name, application key, user email, and comment. Note this initialization code will need to be added to each process you wish to capture errors from:
+Add a `require` or an `import` statement for `electron` and call `electron.crashReporter.start` as shown in the example below. Replace `company name`, `product name`, `database name`, `application key`, `user email`, and `comment`.
+
+Note that the `globalExtra` fields will be sent with crashes captured on all processes:
 
 ```javascript
 const electron = require('electron')
@@ -32,13 +40,16 @@ electron.crashReporter.start({
   submitURL: 'https://<<database name>>.bugsplat.com/post/electron/crash.php',
   compress: true,
   ignoreSystemCrashHandler: true,
-  extra: {
+  rateLimit: false,
+  globalExtra: {
     'key': '<<application key>>',
     'email': '<<user email>>',
     'comments': '<<comment>>'
   }
 })
 ```
+
+For more information on how to configure `electron.crashReporter` including adding properties to individual processes, please see the [Electron crashReporter documentation](https://www.electronjs.org/docs/latest/api/crash-reporter).
 
 #### Step 4
 
@@ -58,9 +69,9 @@ Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat 
 
 ### Processing as Windows Native
 
-BugSplat can process Breakpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage to this approach is that BugSplat will be able to display function arguments and local variables for each resolved stack frame. Another advantage of this approach is that our backend will automatically resolve Windows OS symbols.
+BugSplat can process Breakpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage to this approach is that BugSplat will be able to display [function arguments and local variables](https://www.bugsplat.com/blog/development/local-variables-function-arguments/) for each resolved stack frame. Another advantage of this approach is that our backend will automatically resolve Windows OS symbols.
 
-To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload .pdb, .dll and .exe files (rather than .sym files). The presence of .pdb, .dll or .exe files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
+To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll`, and `.exe` files (rather than `.sym` files). The presence of `.pdb`, `.dll`, and `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via the [Versions](https://app.bugsplat.com/v2/versions?database=Fred) page or our automated tool [SendPdbs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 ## Node.js Configuration
 
