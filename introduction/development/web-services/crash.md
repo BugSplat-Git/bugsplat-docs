@@ -1,4 +1,4 @@
-# Crash
+# Crash Post Endpoints
 
 The following documentation describes how customers can POST crashes directly to BugSplat via a suite of endpoints specific to their BugSplat database. It is important that all these crashes are uploaded via your BugSplat subdomain to ensure that they are not rejected by our backend.
 
@@ -62,20 +62,20 @@ Optional username for the user that crashed
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://{{database}}.bugsplat.com" path="/post/playstation/crash" method="post" summary="Playstation" %}
+{% swagger baseUrl="https://{{database}}.bugsplat.com" path="/post/ps4/crash" method="post" summary="Playstation 4" %}
 {% swagger-description %}
-Uploads a Playstation crash report and optional metadata
+Uploads a Playstation 4 crash report, extracts user data and user files
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="{{database}}" type="string" %}
+{% swagger-parameter in="path" name="{{database}}" type="string" required="true" %}
 Replace the subdomain value  with the value of your BugSplat database
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="core" type="object" %}
+{% swagger-parameter in="body" name="corefile" type="object" required="true" %}
 The core dump file to be uploaded
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="appName" type="string" %}
+{% swagger-parameter in="body" name="application" type="string" required="true" %}
 Name of the crashing application. 
 
 **IMPORTANT**
@@ -83,7 +83,7 @@ Name of the crashing application.
  this value must match the value used to upload symbols.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="appVersion" type="string" %}
+{% swagger-parameter in="body" name="version" type="string" required="true" %}
 Crashing application's version. 
 
 **IMPORTANT**
@@ -91,24 +91,44 @@ Crashing application's version.
  this value must match the value used to upload symbols
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="appKey" type="string" %}
-Optional application identifier that provides extra data for searching and grouping
+{% swagger-response status="200" description="" %}
+```
+{
+    "status": "success",
+    "crashId": 1,
+    "techSupportUrl": "https://app.bugsplat.com/browse/crashInfo.php?vendor=fred&version=1.0&key=key&id=99999999&row=1"
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger baseUrl="https://{{database}}.bugsplat.com" path="/post/ps5/crash" method="post" summary="Playstation 5" %}
+{% swagger-description %}
+Uploads a Playstation 5 crash report, extracts user data and user files
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="{{database}}" type="string" required="true" %}
+Replace the subdomain value  with the value of your BugSplat database
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="description" type="string" %}
-Optional description of why the crash occurred
+{% swagger-parameter in="body" name="corefile" type="object" required="true" %}
+The core dump file to be uploaded
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="email" type="string" %}
-Optional email address for the user that crashed
+{% swagger-parameter in="body" name="application" type="string" required="true" %}
+Name of the crashing application. 
+
+**IMPORTANT**
+
+ this value must match the value used to upload symbols.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="ipAddress" type="string" %}
-Optional IP address of the crashing user
-{% endswagger-parameter %}
+{% swagger-parameter in="body" name="version" type="string" required="true" %}
+Crashing application's version. 
 
-{% swagger-parameter in="body" name="user" type="string" %}
-Optional username for the user that crashed
+**IMPORTANT**
+
+ this value must match the value used to upload symbols
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
