@@ -7,15 +7,15 @@ The following documentation describes how customers can POST crashes directly to
 Uploads an Xbox crash report and optional metadata
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="{{database}}" type="string" %}
+{% swagger-parameter in="path" name="{{database}}" type="string" required="true" %}
 Replace the subdomain value  with the value of your BugSplat database
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="minidump" type="object" %}
+{% swagger-parameter in="body" name="minidump" type="object" required="true" %}
 The minidump file to be uploaded
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="appName" type="string" %}
+{% swagger-parameter in="body" name="appName" type="string" required="true" %}
 Name of the crashing application. 
 
 **IMPORTANT**
@@ -23,7 +23,7 @@ Name of the crashing application.
  this value must match the value used to upload symbols.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="appVersion" type="string" %}
+{% swagger-parameter in="body" name="appVersion" type="string" required="true" %}
 Crashing application's version. 
 
 **IMPORTANT**
