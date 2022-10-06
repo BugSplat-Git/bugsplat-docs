@@ -4,6 +4,39 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## bugsplat-gdk update - October 3rd, 2022
+
+#### Release - v2.0.0
+
+* See bugsplat-gdk changelog for details
+
+## BsSndRpt - October 3rd, 2022
+
+**Release - v5.0.0**
+
+* Pass PID to MonitorApplication
+* **Breaking Change:** BsSndRpt requires a PID argument when invoked with the `-m` (monitor mode) flag
+* **Breaking Change:** Support for passing a PID to BsSndRpt was added in BugSplatGdk 2.0.0.
+
+## bugsplat-gdk update - September 27th, 2022
+
+#### Release - v1.2.4
+
+* See bugsplat-gdk changelog for details
+
+## BsSndRpt - September 27th, 2022
+
+**Release - v4.0.4**
+
+* Fixed cleanup files in monitor mode
+* Don't display BsSndRpt info dialog when app is minimized
+
+## bugsplat-gdk update - September 26th, 2022
+
+#### Release - v1.2.3
+
+* See bugsplat-gdk changelog for details
+
 ## bugsplat-gdk update - September 22th, 2022
 
 #### Release - v1.2.2
