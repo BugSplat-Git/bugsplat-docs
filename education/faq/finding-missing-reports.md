@@ -22,3 +22,4 @@ Before becoming alarmed, please note that this may happen naturally as part of o
 4.  **Reports were from a retired version.**
 
     If you are missing crash reports check to make sure they were not from a version you have previously retired. You can do this by visiting the [Versions](https://app.bugsplat.com/v2/versions) page.
+5. **Crash reports are missing values for application name or version**

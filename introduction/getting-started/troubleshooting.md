@@ -24,7 +24,7 @@ Occasionally BugSplat will reject crashes that are being posted in rapid success
 
 ### BugSplat has been configured incorrectly
 
-Many of our sample programs are configured to post crashes to the Fred database in BugSplat. If you are using one of our samples to test BugSplat, ensure that the database you used to configure the BugSplat SDK matches the value of the database you're viewing in the BugSplat web application.
+Many of our sample programs are configured to post crashes to the Fred database in BugSplat. If you are using one of our samples to test BugSplat, ensure that the database you used to configure the BugSplat SDK matches the value of the database you're viewing in the BugSplat web application. Additionally, if your application name or version is missing or cannot be decoded crash reports will be rejected by BugSplat.
 
 ## Incorrect Call Stacks
 
