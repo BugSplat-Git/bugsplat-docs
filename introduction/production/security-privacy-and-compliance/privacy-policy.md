@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Updated September 7th, 2022
+**Updated October 10th, 2022**
 
 BugSplat, LLC (“BugSplat”) offers a crash reporting service that provides developers with information about the stability of their applications (the “Services”). This Privacy Policy describes how BugSplat collects, uses and shares information about application developers that are customers of BugSplat (“Developers”) and the end-users of their applications (“End Users”) that use our Services. The policy also explains how BugSplat collects and uses information when individuals visit our websites. We encourage you to read this Privacy Policy in order to learn more about how we safeguard your privacy. Below are our Terms of Service, which outline a lot of legal goodies, but the bottom line is it’s our aim to always take care of both you, as a customer, or as a seller on our platform.&#x20;
 
