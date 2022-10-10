@@ -1,8 +1,10 @@
 # Privacy Policy
 
-Updated May 16, 2018
+Updated September 7th, 2022
 
-BugSplat, LLC \(“BugSplat”\) offers a crash reporting service that provides developers with information about the stability of their applications \(the “Services”\). This Privacy Policy describes how BugSplat collects, uses and shares information about application developers that are customers of BugSplat \(“Developers”\) and the end-users of their applications \(“End Users”\) that use our Services. The policy also explains how BugSplat collects and uses information when individuals visit our websites. We encourage you to read this Privacy Policy in order to learn more about how we safeguard your privacy. Below are our Terms of Service, which outline a lot of legal goodies, but the bottom line is it’s our aim to always take care of both you, as a customer, or as a seller on our platform.
+BugSplat, LLC (“BugSplat”) offers a crash reporting service that provides developers with information about the stability of their applications (the “Services”). This Privacy Policy describes how BugSplat collects, uses and shares information about application developers that are customers of BugSplat (“Developers”) and the end-users of their applications (“End Users”) that use our Services. The policy also explains how BugSplat collects and uses information when individuals visit our websites. We encourage you to read this Privacy Policy in order to learn more about how we safeguard your privacy. Below are our Terms of Service, which outline a lot of legal goodies, but the bottom line is it’s our aim to always take care of both you, as a customer, or as a seller on our platform.&#x20;
+
+Customers using BugSplat technology in an application created by Microsoft or one of their affiliates are also covered by the [Microsoft Security and Privacy](https://privacy.microsoft.com/en-us/privacystatement) policy.&#x20;
 
 ### _**SCOPE OF THIS PRIVACY POLICY**_
 
@@ -13,11 +15,11 @@ The policy specifically addresses the following areas:
 * What information is collected by the BugSplat websites and Services;
 * How BugSplat uses this information;
 * With whom BugSplat may share this information;
-* What choices are available to you with respect to collection and use of information collected by BugSplat;
+* What choices are available to you with respect to the collection and use of information collected by BugSplat;
 * What types of security procedures are in place to protect against the loss, misuse or alteration of information under our control; and
 * How you can correct any inaccuracies in the information we hold about you.
 
-This policy does not apply to the practices of companies not owned or controlled by BugSplat \(including Developers\) or to people whom BugSplat does not employ or manage.
+This policy does not apply to the practices of companies not owned or controlled by BugSplat (including Developers) or to people whom BugSplat does not employ or manage.
 
 #### **SECTION 1: END USER INFORMATION**
 
@@ -31,7 +33,7 @@ Developers may also use certain features of the Services that will allow BugSpla
 
 **How does BugSplat use the information that it collects?**
 
-The information BugSplat collects about End Users and their activities is the property of the Developer, not of BugSplat. The information collected by the Services from End Users is used to provide Developers with insight into the functionality of and engagement with their applications, including any problems that occur. Our algorithms process and analyze the data separately for each Developer, so if you are an End User of multiple Developers that are BugSplat’s customers your information is not shared across Developers. However, BugSplat does aggregate information across Developers in a non-personally identifiable way. Such aggregate and anonymous information is used by BugSplat to \(i\) improve the Services, \(ii\) create analysis of trends or behaviors and \(iii\) other similar uses, but always in an aggregate and anonymous way.
+The information BugSplat collects about End Users and their activities is the property of the Developer, not of BugSplat. The information collected by the Services from End Users is used to provide Developers with insight into the functionality of and engagement with their applications, including any problems that occur. Our algorithms process and analyze the data separately for each Developer, so if you are an End User of multiple Developers that are BugSplat’s customers your information is not shared across Developers. However, BugSplat does aggregate information across Developers in a non-personally identifiable way. Such aggregate and anonymous information is used by BugSplat to (i) improve the Services, (ii) create analysis of trends or behaviors and (iii) other similar uses, but always in an aggregate and anonymous way.
 
 **Will BugSplat share information about me with anyone else?**
 
@@ -77,7 +79,7 @@ BugSplat has implemented reasonable security measures in order to protect both p
 
 Under what circumstances will BugSplat share my information with third parties?
 
-Except for the provision of End User information relating to a specific Developer’s application to that Developer as described above, BugSplat will never give your information to, or share your information with, any third party except as provided below \(which disclosure shall always be in accordance with applicable law\). BugSplat will share information about you only as follows:
+Except for the provision of End User information relating to a specific Developer’s application to that Developer as described above, BugSplat will never give your information to, or share your information with, any third party except as provided below (which disclosure shall always be in accordance with applicable law). BugSplat will share information about you only as follows:
 
 * We may share information with service providers we engage to perform functions and provide services to us in the United States and abroad, subject to confidentiality obligations consistent with this Privacy Policy, and on the condition that the third parties use your information only on our behalf and pursuant to our instructions.
 * We have your consent to share the information.
@@ -90,7 +92,7 @@ Our websites and the Services are not directed to children and BugSplat does not
 
 **Does BugSplat collect information when I visit the BugSplat websites?**
 
-When you visit our websites, our servers automatically record certain information in our log files. This web log information includes your IP address, browser type, operating system, the referring web page, pages visited, and cookie information \(discussed further below\). Like many websites, we use web log information, along with cookies and similar technologies, to operate our websites, better understand how they are used, resolve technical problems, and enhance your experience on our websites.
+When you visit our websites, our servers automatically record certain information in our log files. This web log information includes your IP address, browser type, operating system, the referring web page, pages visited, and cookie information (discussed further below). Like many websites, we use web log information, along with cookies and similar technologies, to operate our websites, better understand how they are used, resolve technical problems, and enhance your experience on our websites.
 
 **Does BugSplat use cookies?**
 
@@ -104,7 +106,7 @@ No. Please be advised that we do not control and are not responsible for the pri
 
 **BugSplat and GDPR**
 
-If you've entered into a data processing agreement \(DPA\) with BugSplat you have additional rights
+If you've entered into a data processing agreement (DPA) with BugSplat you have additional rights
 
 **Can this Privacy Policy change?**
 
@@ -113,4 +115,3 @@ We may amend this Privacy Policy from time to time. If we make a change to this 
 **Who can I contact if I have questions about this Privacy Policy?**
 
 If you have any questions about our Privacy Policy or any other questions about the BugSplat websites or the Services, please contact us at support@bugsplat.com. We will make every effort to resolve your concerns.
-
