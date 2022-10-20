@@ -38,7 +38,7 @@ Can’t find exactly what you’re looking for? Send us a note at email [sales@b
 
 Upgrading the credit card, address, VAT, or email associated with your BugSplat account is easy. To do so, navigate to the [Billing](https://app.bugsplat.com/v2/settings/company/billing) page in Settings and click on the link that says **Update Card**.
 
-![Company Billing Page](<../../.gitbook/assets/image (1).png>)
+![Company Billing Page](<../../.gitbook/assets/image (1) (1).png>)
 
 Next, click the button that says **+ Add payment method** and enter a new credit card. Make sure the box below the space to enter your card details is checked, designating the new card as the default card on the account.
 
