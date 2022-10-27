@@ -1,4 +1,11 @@
-# PlayStation
+---
+description: Use BugSplat to track live crashes in your Nintendo Switch game projects
+---
 
-BugSplat can process crashes from PlayStation consoles. This process involves some configuration from our support team. Please contact [support@bugsplat.com](mailto:support@bugsplat.com) to learn more.
+# Nintendo Switch
 
+### **🍄 Coming soon! 🍄**&#x20;
+
+BugSplat will soon be shipping our integration for the Nintendo Switch console.&#x20;
+
+Please contact the support ([support@bugsplat.com](mailto:support@bugsplat.com)) team to register your interest in using BugSplat in your game project.  We will be selecting several teams for a closed beta release in the near future.&#x20;

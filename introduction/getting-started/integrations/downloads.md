@@ -39,7 +39,7 @@ description: >-
 | CRYENGINE     | See platform docs ([here](game-development/cryengine.md))     |
 | Unreal Engine | See platform docs ([here](game-development/unreal-engine.md)) |
 | Unity         | See platform docs ([here](game-development/unity.md))         |
-| PlayStation   | See platform docs ([here](game-development/playstation.md))   |
+| PlayStation   | See platform docs ([here](game-development/playstation-1.md)) |
 | Xbox          | See platform docs ([here](game-development/xbox.md))          |
 
 

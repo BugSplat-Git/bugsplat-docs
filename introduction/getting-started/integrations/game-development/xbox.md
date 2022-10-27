@@ -1,3 +1,10 @@
+---
+description: >-
+  Use BugSplat to automatically track live crashes in your Xbox (Xbox Series X,
+  Xbox Series S, and Xbox One) game projects in both development and
+  production.  Support for GDK and GDKX projects.
+---
+
 # Xbox
 
 BugSplat is a licensed developer on Xbox consoles.

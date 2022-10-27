@@ -4,23 +4,35 @@ Game engines are some of the largest and most complicated codebases that develop
 
 ### Game Engines
 
-{% page-ref page="cryengine.md" %}
+{% content-ref url="cryengine.md" %}
+[cryengine.md](cryengine.md)
+{% endcontent-ref %}
 
-{% page-ref page="unreal-engine.md" %}
+{% content-ref url="unreal-engine.md" %}
+[unreal-engine.md](unreal-engine.md)
+{% endcontent-ref %}
 
-{% page-ref page="unity.md" %}
+{% content-ref url="unity.md" %}
+[unity.md](unity.md)
+{% endcontent-ref %}
 
-### Game Consoles 
+### Game Consoles&#x20;
 
-{% page-ref page="playstation.md" %}
+{% content-ref url="playstation.md" %}
+[playstation.md](playstation.md)
+{% endcontent-ref %}
 
-{% page-ref page="xbox.md" %}
+{% content-ref url="playstation-1.md" %}
+[playstation-1.md](playstation-1.md)
+{% endcontent-ref %}
+
+{% content-ref url="xbox.md" %}
+[xbox.md](xbox.md)
+{% endcontent-ref %}
 
 
 
 {% hint style="info" %}
 **Not finding what you're looking for?**  Please reach out to [support@bugsplat.com](mailto:support@bugsplat.com) to request the language or environment you'd like BugSplat to integrate with next!
 {% endhint %}
-
-
 
