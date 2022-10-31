@@ -10,7 +10,7 @@ Additionally, BugSplat provides a 25% discount for Team and Business plans for I
 
 ### Indie Game Dev Free Plan:
 
-If you're unaffiliated with a funded studio and currently developing your game, you probably qualify for a free plan from BuGSplat.
+If you're unaffiliated with a funded studio and currently developing your game, you probably qualify for a free plan from BugSplat.
 
 To start out, Indie devs get annual 25,000 free monthly crashes and errors, one user seat, and one application.&#x20;
 
