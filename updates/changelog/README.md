@@ -4,18 +4,6 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
-## BugSplatCrashHandler - October 26th, 2022
-
-**Release - v1.0.1**
-
-* **C**rash when rapidly clicking send
-* Update icon
-* Add attachments correctly
-
-**Release - v1.0.0**
-
-* Hello world!
-
 ## BugSplat Native Update - October 26th, 2022
 
 **Release - v4.1.1**
