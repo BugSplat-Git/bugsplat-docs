@@ -4,6 +4,103 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## BugSplatCrashHandler - October 26th, 2022
+
+**Release - v1.0.1**
+
+* **C**rash when rapidly clicking send
+* Update icon
+* Add attachments correctly
+
+**Release - v1.0.0**
+
+* Hello world!
+
+## BugSplat Native Update - October 26th, 2022
+
+**Release - v4.1.1**
+
+* Reset crash type after sending xml report
+
+## BugSplat Native Update - October 26th, 2022
+
+**Release - v4.1.1**
+
+* Reset crash type after sending xml report
+
+## Web App Update - October 24th, 2022
+
+#### Release - v2.16.7
+
+* Should reset page when performing new column search
+
+#### Release - v2.16.6
+
+* Hide Stack Key Volume in Summary row details
+
+## JS API Client - October 20th, 2022
+
+#### Release - v2.1.1
+
+* Support dbg id in sym files
+* **Breaking Change:** Updates to @bugsplat/js-api-client 2.1.1 and exports VersionsApiClient instead of SymbolsApiClient
+
+## JS API Client - October 19th, 2022
+
+#### Release - v2.1.1
+
+* Better error for invalid client id or client secret
+
+## Web App Update - October 18th, 2022
+
+#### Release - v2.16.5
+
+* Multiple calls to getStack
+
+## Web App Update - October 14th, 2022
+
+#### Release - v2.16.4
+
+* Resize loading gif
+
+#### Release - v2.16.3
+
+* PlayStation Update: see release notes in download package.
+
+#### Release - v2.16.2
+
+* spark chart improvements
+
+#### Release - v2.16.1
+
+* Unlink Defect from Crash and Summary tables
+
+## Web App Update - October 14th, 2022
+
+#### Release - v2.16.0
+
+* Summary spark charts
+
+## Web App Update - October 14th, 2022
+
+#### Release - v2.15.1
+
+* Show create stack key defect
+
+#### Release - v2.15.0
+
+* Add webm preview
+
+#### Release - v2.14.0
+
+* Create defects from Crash and Summary tables
+
+## JS API Client - October 13th, 2022
+
+#### Release - v2.1.0
+
+* Add summary client
+
 ## bugsplat-gdk update - October 3rd, 2022
 
 #### Release - v2.0.0
