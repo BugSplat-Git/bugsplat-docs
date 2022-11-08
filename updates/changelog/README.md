@@ -4,6 +4,22 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
+## Compliance update - November 8th, 2022
+
+{% hint style="warning" %}
+**Update to the latest version of SendPDBs before January 1st, 2023**
+
+As part of our ongoing security program, BugSplat will eliminate support for the TLS 1.0 and TLS 1.1 protocols by the end of the year. As a result of this change, customers using older versions of our symbol upload utility, SendPdbs, will need to upgrade to the latest version.
+
+We encourage you to upgrade quickly. However, support for the existing versions of SendPdbs will remain until the end of the year. &#x20;
+
+The latest version of SendPdbs is 2.3.0.0. Older versions are not compatible with TLS 1.2. You can identify your SendPdbs version by running the utility in a command window without any arguments.
+
+All customers using SendPdbs will need to upgrade to the most recent version of the application before January 1st, 2023.
+
+You can download the newest version on the [downloads](../../introduction/getting-started/integrations/downloads.md) page or by clicking [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
+{% endhint %}
+
 ## BugSplat Native Update - October 26th, 2022
 
 **Release - v4.1.1**
