@@ -11,4 +11,4 @@ BugSplat’s Teams integration allows your team to receive alerts for new crashe
 5. Use the toggle buttons to set your notification preferences. You can choose to be notified for each new report or each new unique report group.
 6. Use the **Fields** dropdown to select the fields you'd like to include in your notifications.
 
-<figure><img src="../../../../.gitbook/assets/teams.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/teams.gif" alt=""><figcaption><p>Configuring BugSplat's Teams Integration</p></figcaption></figure>
