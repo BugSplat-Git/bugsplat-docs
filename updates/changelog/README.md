@@ -4,7 +4,7 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
-## Compliance update - November 8th, 2022
+## Compliance update - Posted November 8th, 2022
 
 {% hint style="warning" %}
 **Update to the latest version of SendPDBs before January 1st, 2023**
@@ -19,6 +19,49 @@ All customers using SendPdbs will need to upgrade to the most recent version of 
 
 You can download the newest version on the [downloads](../../introduction/getting-started/integrations/downloads.md) page or by clicking [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
 {% endhint %}
+
+## Web App Update - November 15th, 2022
+
+#### Release - v2.17.1
+
+* Update notification labels
+
+#### Release - v2.17.0
+
+* Show correct value for retire checkbox
+
+## JS API Client - November 15th, 2022
+
+#### Release - v3.0.0
+
+* Require node 18
+* **Breaking Change:** Requires Node.js 18 or later
+
+#### Release - v2.1.3
+
+* Better messages for 4xx errors
+
+## Web App Update - November 10th, 2022
+
+#### Release - v2.16.9
+
+* Defect tacker select missing down arrow
+
+## JS API Client - November 9th, 2022
+
+#### Release - v2.1.2
+
+* Set retired and fullDumps correctly
+
+## Web App Update - November 9th, 2022
+
+#### Release - v2.16.9
+
+* Display full dump and retired on versions page
+
+#### Release - v2.16.8
+
+* Azure devops Url placeholder
 
 ## BugSplat Native Update - October 26th, 2022
 

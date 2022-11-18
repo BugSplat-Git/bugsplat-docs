@@ -136,7 +136,7 @@
   * [Find missing crash data](education/faq/find-missing-crash-data.md)
   * [Finding Missing Reports](education/faq/finding-missing-reports.md)
   * [Does BugSplat have an effect on application performance?](education/faq/does-bugsplat-have-an-effect-on-application-performance.md)
-  * [Manually post crash reports to BugSplat](education/faq/manually-post-crash-reports-to-bugsplat.md)
+  * [Manually Upload Crash Reports to BugSplat](education/faq/manually-post-crash-reports-to-bugsplat.md)
   * [How to configure proxy settings in BugSplat](education/faq/how-to-configure-proxy-settings-in-bugsplat.md)
   * [Using BugSplat's public database](education/faq/using-bugsplats-public-database.md)
   * [Using SendPdbs to Automatically Upload Symbol Files](education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)
