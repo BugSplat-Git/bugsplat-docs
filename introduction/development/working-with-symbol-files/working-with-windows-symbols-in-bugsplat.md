@@ -1,16 +1,16 @@
 # Working with Symbol Files in Windows Environments
 
-A common stumbling block for new BugSplat users is properly uploading symbols for Windows \(native and .NET\). [Symbols](../../../education/bugsplat-terminology.md#symbols) are files that contain information to map the data in a crash file to file names and line numbers in source code.
+A common stumbling block for new BugSplat users is properly uploading symbols for Windows (native and .NET). [Symbols](../../../education/bugsplat-terminology.md#symbols) are files that contain information to map the data in a crash file to file names and line numbers in source code.
 
 To help make this issue easier we’ve put in a way to check if symbols have been uploaded properly.
 
-## How it works: <a id="how-it-works"></a>
+## How it works: <a href="#how-it-works" id="how-it-works"></a>
 
 At the top of the Crash page you will see a warning if you're missing symbols.
 
 ![Missing Symbols Alert](../../../.gitbook/assets/windows-symbols-missing-symbols.png)
 
-Once the data is obtained the fields of Function, Location, Code, OS, and Explanation will be populated with all available information. If a crash is missing symbols, there will be various messages under the 'File' column in the 'Active Thread' tab indicating which symbols were missing. Make sure to upload the missing symbols \(as indicated by the 'Active Thread' tab\) to the symbol store for your application name and version via the [Versions](https://app.bugsplat.com/v2/versions) page or [SendPdbs](../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
+Once the data is obtained the fields of Function, Location, Code, OS, and Explanation will be populated with all available information. If a crash is missing symbols, there will be various messages under the 'File' column in the 'Active Thread' tab indicating which symbols were missing. Make sure to upload the missing symbols (`.exe`,`.pdb`, and `.dll` files as indicated by the 'Active Thread' tab) to the symbol store for your application name and version via the [Versions](https://app.bugsplat.com/v2/versions) page or [SendPdbs](../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
 
 ![Missing Symbols in Active Thread](../../../.gitbook/assets/windows-symbols-active-thread.png)
 
@@ -28,4 +28,3 @@ The values under the status column are as follows:
 Unfortunately, Microsoft doesn’t provide symbol information for all of the operating system modules, so “file not found” is a fairly common occurrence.
 
 Presence of a call stack warning that reads, “Stack unwind information not available. Following frames may be wrong.” is an indication that the debugger did not have access to the files it needed.
-
