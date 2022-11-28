@@ -4,7 +4,7 @@ Many customers automate the upload of Windows symbols and executables using the 
 
 Each build of your product that is used to send crash reports must have an exact set of matching exe/symbol files uploaded to BugSplat. Typically you will provide a unique BugSplat application name/version for each build.
 
-Feel free to send symbols to BugSplat for every build on your build/integration server. There is no limit on the total amount of symbols you can post to BugSplat. But by default, any single symbol file must be smaller than 2 GB and any single symbol store (identified by an application name and version) must be less than 4 GB. Enterprise customers can increase these limits.
+Feel free to send symbols to BugSplat for every build on your build/integration server. There is no limit on the total amount of symbols you can post to BugSplat. But by default, any single symbol file must be smaller than 2 GB and any single symbol store (identified by an application name and version) must be less than 8 GB. Enterprise customers can increase these limits.
 
 Credentials can be provided to SendPdbs via the /u and /p command-line arguments. Alternatively, you can save these credentials in the Windows Credentials Manager. To use values from Windows Credential Manager, create a new Generic Credentials entry and provide the entry name as the value for the /credentials argument.
 
