@@ -4,8 +4,6 @@ List of recent product changes and updates for BugSplat. We also discuss these u
 
 Looking for older product updates?  View our [Archive](changelog-archive/) to view past updates.
 
-## Compliance update - Posted November 8th, 2022
-
 {% hint style="warning" %}
 **Update to the latest version of SendPDBs before January 1st, 2023**
 
@@ -19,6 +17,64 @@ All customers using SendPdbs will need to upgrade to the most recent version of 
 
 You can download the newest version on the [downloads](../../introduction/getting-started/integrations/downloads.md) page or by clicking [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
 {% endhint %}
+
+## BugSplatMac-SP  Update - December 8th, 2022
+
+#### Release - v1.1.4
+
+* Updated BugSplat logo.
+
+## BugSplatMac-SP  Update - November 30th, 2022
+
+#### Release - v1.1.3
+
+* Fixes issue with CrashReporter framework not being resolved.
+
+## .NET Standard  Update - November 29th, 2022
+
+#### Release - v3.1.1
+
+* README nuget compatible
+
+## PdbLibary Update - November 28th, 2022
+
+#### Release - v1.0.0
+
+* Initial release 🥳 :tada:
+
+## ZipCreator Update - November 28th, 2022
+
+#### Release - v1.0.1
+
+* Remove extra folder at zip root
+
+#### Release - v1.0.0
+
+* Initial release 🥳 :tada:
+
+## SDK Update - November 21st, 2022
+
+#### Release - v4.2.1
+
+* BsSndRpt unexpectedly stuck in monitor mode
+* MFA used as user description in BsSndRpt
+
+#### Release - v4.2.0
+
+* Xbox Update: See bugsplat-gdk changelog for details
+* Reset crash type after each post
+
+## Web App Update - November 19th, 2022
+
+#### Release - v2.18.1
+
+* Add google tag manager
+
+## Web App Update - November 18th, 2022
+
+#### Release - v2.18.0
+
+* Link to versions page in crash details
 
 ## Web App Update - November 15th, 2022
 
