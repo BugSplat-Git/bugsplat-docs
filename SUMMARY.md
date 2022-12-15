@@ -159,6 +159,7 @@
 * [Billing](administration/billing/README.md)
   * [Free Trial](administration/billing/free-trial.md)
   * [Plans and Billing Guide](administration/billing/plans-and-billing-guide/README.md)
+    * [Adding Additional Users and Apps to Your Plan](administration/billing/plans-and-billing-guide/adding-additional-users-and-apps-to-your-plan.md)
     * [What is 'High Volume Fractional Crash Processing'?](administration/billing/plans-and-billing-guide/what-is-high-volume-fractional-crash-processing.md)
   * [Fair-Refund Policy](administration/billing/refund-policy.md)
   * [Free and Discounted Plans](administration/billing/free-plans-from-bugsplat/README.md)

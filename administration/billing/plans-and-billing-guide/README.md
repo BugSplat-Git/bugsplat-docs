@@ -120,7 +120,7 @@ Yes, our Enterprise plan can cover any level of crash or error volume you need. 
 
 #### What is an 'App'?
 
-Both the Team and Business plans come with a specific amount of 'apps' included in their plans.  'Apps' are how BugSplat organizes crash and error reports to keep them organized and easy to navigate for the team's working on them. &#x20;
+Both the Team and Business plans come with a specific amount of 'apps' included in their plans.  'Apps' are how BugSplat organizes crash and error reports to keep them organized and easy to navigate for the teams working on them. &#x20;
 
 For example, the Team plan comes with two 'apps' because it is best practice to keep back-end and client reports from a single Application separate.  The Business plan comes with three 'apps' to provide for further organization and customization. &#x20;
 
@@ -128,11 +128,11 @@ Both plans allow teams to add more 'apps' to their plans in order to accommodate
 
 #### Can I manage more than one project, application, or game with my plan?
 
-Yes, each plan comes with a standard number of "apps" that allow you to easily organize and handle multiple projects. All paid plans come with at least 2 "apps", allowing you to separate backend and client-side crashes and errors into separate buckets. Want to add more projects or more finely separate crashes? It's easy to upgrade your plan to include more "Apps".
+Yes, each plan comes with a standard number of "apps" that allow you to easily organize and handle multiple projects. All paid plans come with at least 2 "apps", allowing you to separate back-end and client-side crashes and errors into separate buckets. Want to add more projects or more finely separate crashes? It's easy to upgrade your plan to include more "Apps".
 
 #### Can I add more users to my account?
 
-Yup! Both the Team and Business plans allow you to add additional users whenever you want.
+Yup! Both the Team and Business plans allow you to add additional users whenever you want.  Learn more in the doc '[Adding Additional Users and Apps to Your Plan](adding-additional-users-and-apps-to-your-plan.md)'.
 
 #### Do I have to process all my crashes and errors, or can I process some fraction of them?
 
