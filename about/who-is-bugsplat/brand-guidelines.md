@@ -10,7 +10,7 @@ Is your team getting ready to ship your software with BugSplat crash reporting b
 
 That's great! We just have a few small guidelines that we ask you to follow.
 
-These guidelines were inspired by Bootstrap's [Brand Assets](https://getbootstrap.com/about/#team) which follow a similar post by [MailChimp](https://styleguide.mailchimp.com/).
+These guidelines were inspired by Bootstrap's [Brand Assets](https://www.dropbox.com/sh/yn24gz1ruom7l7l/AAA4vweIYVMFZdCHAwKN0YDoa?dl=0) which follow a similar post by [MailChimp](https://styleguide.mailchimp.com/).
 
 ## **Logo**
 
