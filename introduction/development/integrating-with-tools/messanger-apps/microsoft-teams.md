@@ -7,7 +7,7 @@ BugSplat’s Teams integration allows your team to receive alerts for new crashe
 1. Create a new Teams webhook following the guide found [here](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#create-an-incoming-webhook).
 2. Login to [BugSplat](https://app.bugsplat.com/auth0/login) and navigate to the [Notifications ](https://app.bugsplat.com/v2/settings/database/notifications)page.
 3. Select the Database for which you'd like to configure alerts
-4. Under the **Teams** section, enter the webhook URL for your channel and click **Update**. More information regarding how to create a webhook URL can be found [here](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
+4. Under the **Teams** section, enter the webhook URL for your channel and click **Update**.
 5. Use the toggle buttons to set your notification preferences. You can choose to be notified for each new report or each new unique report group.
 6. Use the **Fields** dropdown to select the fields you'd like to include in your notifications.
 
