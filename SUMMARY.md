@@ -106,6 +106,7 @@
     * [Platform Specific API's](introduction/development/web-services/platform-specific-apis/README.md)
       * [C++ Native API](https://www.bugsplat.com/platforms/cpp/api/)
       * [.NET API](https://www.bugsplat.com/platforms/net/api/)
+      * [Android](introduction/development/web-services/platform-specific-apis/android.md)
 * [Production](introduction/production/README.md)
   * [Managing Versions](introduction/production/managing-versions.md)
   * [Security and Compliance](introduction/production/security-privacy-and-compliance/README.md)
