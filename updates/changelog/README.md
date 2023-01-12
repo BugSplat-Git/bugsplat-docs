@@ -18,6 +18,45 @@ All customers using SendPdbs will need to upgrade to the most recent version of 
 You can download the newest version on the [downloads](../../introduction/getting-started/integrations/downloads.md) page or by clicking [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
 {% endhint %}
 
+## Web App Update - January 10th, 2023
+
+#### Release - v2.18.4
+
+* Add downloads link to header navigation
+
+## Web App Update - January 10th, 2023
+
+#### Release - v2.18.3
+
+* Preserve query params in feedback link
+
+## Web App Update - January 9th, 2023
+
+#### Release - v2.18.2
+
+* Display stack key name in create defect modal
+
+## JS API Client -  January 9th, 2023
+
+#### Release - v4.0.0
+
+* Allow body reuse
+* BREAKING CHANGES: api client now returns Response instead of BugSplatResponse to allow cloning. BugSplatResponse `json` no longer returns type `any`.
+
+## SDK Update  - January 9th, 2023
+
+#### Release - v5.0.0
+
+* Refactor!: simplify public includes
+* BREAKING CHANGE: removes json.h and other internally used header files from public includes
+
+## SDK Update  - December 21st, 2022
+
+#### Release - v4.2.2
+
+* Fix: look for either BsSndRpt.exe or BsSndRpt64.exe in BugSplatDotNet
+* ILMerge SendPdbs so we can distribute a single exe
+
 ## BugSplatMac-SP  Update - December 8th, 2022
 
 #### Release - v1.1.4
