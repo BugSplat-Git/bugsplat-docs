@@ -18,7 +18,7 @@ All customers using SendPdbs will need to upgrade to the most recent version of 
 You can download the newest version on the [downloads](../../introduction/getting-started/integrations/downloads.md) page or by clicking [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
 {% endhint %}
 
-## Web App Update - January 10th, 2023
+## Web App Update - January 11th, 2023
 
 #### Release - v2.18.4
 
