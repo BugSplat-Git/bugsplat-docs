@@ -1,24 +1,22 @@
 # Configurable Alerts
 
-BugSplat provides tools for teams to get alerted the instant something changes in an application. 
+BugSplat provides tools for teams to get alerted the instant something changes in an application.&#x20;
 
-These tools currently allow you to build alerts that show if your crash rate has increased to a certain number \(configurable to any number\) of crashes per minute or if a new type of crash is present in a certain database. 
+These tools currently allow you to build alerts that show if your crash rate has increased to a certain number (configurable to any number) of crashes per minute or if a new type of crash is present in a certain database.&#x20;
 
-{% page-ref page="slack.md" %}
+{% content-ref url="slack.md" %}
+[slack.md](slack.md)
+{% endcontent-ref %}
 
-{% page-ref page="microsoft-teams.md" %}
+{% content-ref url="microsoft-teams.md" %}
+[microsoft-teams.md](microsoft-teams.md)
+{% endcontent-ref %}
 
-{% page-ref page="discord.md" %}
+{% content-ref url="discord.md" %}
+[discord.md](discord.md)
+{% endcontent-ref %}
 
-{% page-ref page="email.md" %}
-
-{% hint style="warning" %}
-BugSplat is currently building a new, more configurable, suite of alerts that will allow teams to get more granular on when and why they get notified about application performance.  
-
-Follow us on [Twitter](https://twitter.com/bugsplatco?lang=en) for more info.
-
-Edited: September 10, 2021.
-{% endhint %}
-
-
+{% content-ref url="email.md" %}
+[email.md](email.md)
+{% endcontent-ref %}
 
