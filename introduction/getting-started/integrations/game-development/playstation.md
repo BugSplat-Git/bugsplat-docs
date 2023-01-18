@@ -1,11 +1,15 @@
 ---
-description: Use BugSplat to track live crashes in your Nintendo Switch game projects
+description: >-
+  BugSplat can automatically collect crash data for PlayStation projects (PS4
+  and PS5) in both production and development.
 ---
 
-# Nintendo Switch
+# PlayStation
 
-### **🍄 Coming soon! 🍄**&#x20;
+BugSplat can process crashes from PlayStation consoles (PS4/PS5) for development and production projects.&#x20;
 
-BugSplat will soon be shipping our integration for the Nintendo Switch console.&#x20;
+Access to this SDK is restricted to certified PlayStation developers.&#x20;
 
-Please contact the support ([support@bugsplat.com](mailto:support@bugsplat.com)) team to register your interest in using BugSplat in your game project.  We will be selecting several teams for a closed beta release in the near future.&#x20;
+If you are a registered PlayStation developer, you can request access to the SDK by clicking here → [https://p.siedev.net/tm/verify/bugsplat](https://p.siedev.net/tm/verify/bugsplat).
+
+Want to learn more about PlayStation crash reporting from BugSplat? Send us an email titled 'Request For Access to PS4/PS5 BugSplat Crash Reporting SDK' to [support@bugsplat.com](mailto:support@bugsplat.com).

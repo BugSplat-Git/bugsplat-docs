@@ -18,12 +18,12 @@ Game engines are some of the largest and most complicated codebases that develop
 
 ### Game Consoles&#x20;
 
-{% content-ref url="playstation.md" %}
-[playstation.md](playstation.md)
+{% content-ref url="nintendo.md" %}
+[nintendo.md](nintendo.md)
 {% endcontent-ref %}
 
-{% content-ref url="playstation-1.md" %}
-[playstation-1.md](playstation-1.md)
+{% content-ref url="playstation.md" %}
+[playstation.md](playstation.md)
 {% endcontent-ref %}
 
 {% content-ref url="xbox.md" %}
