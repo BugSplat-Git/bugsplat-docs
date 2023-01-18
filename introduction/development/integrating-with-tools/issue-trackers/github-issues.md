@@ -5,17 +5,15 @@ BugSplat's GitHub Issues integration allows your team to create defects from cra
 ### Integrating GitHub Issues with BugSplat
 
 1. [Login](https://app.bugsplat.com/auth0/login) to your account.
-2. Go to the ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page and under the **Defect Tracker** tab select **GitHub Issues** from the drop-down menu.
-3. Enter your GitHub **Username**, **API Token** and Repo Owner into the appropriate boxes on the BugSplat ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page.
+2. Go to the [Settings](https://app.bugsplat.com/v2/settings/database/integrations#defect-trackers) page and under the **Defect Tracker** tab select **GitHub Issues** from the drop-down menu.
+3. Enter your GitHub **Username**, **API Token** and **Repo Owner** into the appropriate boxes and click **Apply**.
 4. Select your desired project.
-5. Click **Apply**.
+5. Click **Apply** once more to complete the integration.
 
 ### Creating a defect in GitHub Issues from a BugSplat crash report
 
-1\. Create a new defect from an individual crash report page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the ‘Create a new defect’ link.
+1\. Create a new defect from the crash page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the **Create Defect** button.
 
-2\. Selecting the ‘Create defect’ link brings you to this page.
+2\. Enter relevant details and click the **Submit** button to create the defect. You can also enter an existing **Defect ID** if you'd like to associate a crash or stack key with an existing issue from GitHub.
 
-3\. Selecting the Submit button will create the defect.
-
-4\. Go to GitHub Issues to view your new issue based on your BugSplat crash report.
+3\. Click the link to view the new GitHub issue that was created by BugSplat.

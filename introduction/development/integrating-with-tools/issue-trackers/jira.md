@@ -1,15 +1,15 @@
 # Jira
 
-Jira integration with BugSplat crash reports allows your team to create defects with a single-button click. Hyperlinks allow quick navigation from defects to crash reports and back. Defects created from BugSplat automatically include symbolic call stack information as well as other crash-specific data.
+BugSplat's Jira integration allows your team to create defects with a couple clicks. Links from BugSplat to Jira allows for quick navigation from defects to crash reports and back. Defects created from BugSplat automatically include symbolic call stack information as well as other crash-specific data.
 
 ### Integrating Jira with BugSplat
 
 1. Login to your account.
-2. Go to the ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker)’ page and under ‘Defect Tracking System Setup’ select Jira from the drop-down menu.
-3. Enter your Username, Password, URL, and IssueType into the appropriate boxes on the BugSplat ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker)’ page.
-4. Click ‘Apply’.
+2. Go to the [Settings](https://app.bugsplat.com/v2/settings/database/integrations#defect-trackers) page and under **Defect Tracker** select **Jira** from the drop-down menu.
+3. Enter your **Username**, **Password**, **URL**, and **IssueType** into the appropriate boxes.
+4. Click **Apply**.
 5. Once a successful connection to Jira has been established, you will be able to select one of your projects from the project dropdown list.
-6. After selecting your desired project, click ‘Apply’ again.
+6. After selecting your desired project, click **Apply** again.
 7. Add additional data in any of the other fields. &#x20;
 
 {% hint style="info" %}
@@ -18,12 +18,10 @@ Jira integration with BugSplat crash reports allows your team to create defects 
 
 ### Creating an issue in Jira from a BugSplat crash report
 
-1\. Create a new defect from an individual crash report page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the ‘Create a new defect’ link.
+1\. Create a new defect from the crashes page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the **Create Defect** button.
 
-2\. Selecting the ‘Create defect’ link brings you to this page.
+2\. Enter relevant details and click the **Submit** button to create the defect. You can also enter an existing **Defect ID** if you'd like to associate a crash or stack key with an existing defect from Jira.
 
-3\. Selecting the Submit button will create the defect.
-
-4\. Go to Jira to view your new issue based on your BugSplat crash report.
+3\. Click the link to view the new Jira issue that was created by BugSplat.
 
 ![](../../../../.gitbook/assets/creating-defect.gif)

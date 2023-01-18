@@ -6,7 +6,7 @@ A reference client implementation can be found in our [@bugsplat/js-api-client](
 
 ### Client Credentials
 
-To authenticate via OAuth2 client credentials you will need to create a Client Id and Client Secret pair on the Integrations tab on the [Settings](https://app.bugsplat.com/v2/settings/database/integrations) page.
+To authenticate via OAuth2 client credentials you will need to create a Client Id and Client Secret pair on the [OAuth Integrations](https://app.bugsplat.com/v2/settings/database/integrations#oauth) page.
 
 ![Adding a New Integration](../../../.gitbook/assets/integration.gif)
 
@@ -20,7 +20,7 @@ The Client Id and Client Secret are used in a POST to the server and will return
 
 Once an `access_token` and `token_type` have been acquired they can be used in any of the API requests outlined in our [API docs](api/). To make an authenticated request to one of BugSplat's API endpoints add a header with a key of `Authorization` and a value of `${token_type} ${access_token}`.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/oauth2/authorize" method="post" summary="Authorize" %}
+{% swagger baseUrl="https://app.bugsplat.com" path="/oauth2/authorize" method="post" summary="Authorize" expanded="true" %}
 {% swagger-description %}
 Exchange a Client Id and Client Secret for a bearer token.
 {% endswagger-description %}

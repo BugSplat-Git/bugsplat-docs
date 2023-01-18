@@ -5,19 +5,16 @@ Visual Studio Team Services (Azure DevOps) integration with BugSplat allows your
 ### Integrating Azure DevOps with BugSplat
 
 1. Login to your BugSplat account.
-2. Go to the ‘[Settings](https://app.bugsplat.com/v2/settings/database/defect-tracker?)’ page and under ‘Defect Tracking System Setup’ select Azure DevOps from the drop-down menu.
-3. Enter your Azure DevOps URL and Personal Access Token into the appropriate fields.
-4. Click ‘Apply’.
-5. If the connection is successful, you will now be able to select your desired project from the Project dropdown list.
-6. Click ‘Apply’.
+2. Go to the [Settings](https://app.bugsplat.com/v2/settings/database/integrations#defect-trackers) page and under the **Defect Tracker** tab select **Azure DevOps** from the drop-down menu.
+3. Enter your **Azure DevOps URL** and **Personal Access Token** into the appropriate fields.
+4. Click **Apply**.
+5. If the connection is successful, you will now be able to select your desired project from the **Project** dropdown list.
+6. Click **Apply**.
 
 ### Creating an issue in Azure DevOps from a BugSplat crash report
 
-1\. Create a new defect from an individual crash report page or a stack key page by using the ‘Create a new defect’ link.
+1\. Create a new defect from the crash page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the **Create Defect** button.
 
-2\. Selecting the ‘Create defect’ link brings you to this page.
+2\. Enter relevant details and click the **Submit** button to create the defect. You can also enter an existing **Defect ID** if you'd like to associate a crash or stack key with an existing issue from Azure DevOps.
 
-3\. Selecting the Submit button will create the defect.
-
-4\. Go to Azure DevOps to view your new issue based on your BugSplat crash report.
-
+3\. Click the link to view the new Azure DevOps defect that was created by BugSplat.
