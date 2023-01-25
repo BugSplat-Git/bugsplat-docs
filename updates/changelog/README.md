@@ -18,7 +18,45 @@ All customers using SendPdbs will need to upgrade to the most recent version of 
 You can download the newest version on the [downloads](../../introduction/getting-started/integrations/downloads.md) page or by clicking [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
 {% endhint %}
 
-## Web App Update - January 11th, 2023
+## Web App Update - January 17th, 2023
+
+#### Release - v2.19.1
+
+* Add note for crash notifications
+
+#### Release - v2.19.0
+
+* Move toward new integrations page
+
+## SDK Update  - January 18th, 2023
+
+#### Release - v5.0.1
+
+* Provides a mechanism to override the default BugSplat exception filter using an optional parameter in the BugSplat constructor.
+* MyGdkCrasher now adds a sample application log file to the BugSplat crash report.
+* Hides private implementation details, making builds easier for customers.
+
+## Web App Update - January 17th, 2023
+
+#### Release - v2.18.8
+
+* Crash in pretty-print pipe
+
+#### Release - v2.18.7
+
+* Open ip address locator in new tab
+
+## Web App Update - January 13th, 2023
+
+#### Release - v2.18.6
+
+* No defect tracker link should point to issue tracker page
+
+## Web App Update - January 12th, 2023
+
+#### Release - v2.18.5
+
+* Improve non-configured defect tracker modal
 
 #### Release - v2.18.4
 
