@@ -75,60 +75,69 @@ Finally, provide a valid `BugSplatOptions` to `BugSplatManager`.
 | **Description**                       | A default description that can be overridden by call to Post.                                                                                                                                                                                                      |
 | **Email**                             | A default email that can be overridden by call to Post.                                                                                                                                                                                                            |
 | **Key**                               | A default key that can be overridden by call to Post.                                                                                                                                                                                                              |
+| **Notes**                             | A default general purpose field that can be overridden by call to post                                                                                                                                                                                             |
 | **User**                              | A default user that can be overridden by call to Post                                                                                                                                                                                                              |
 | **CaptureEditorLog**                  | Should BugSplat upload Editor.log when Post is called                                                                                                                                                                                                              |
 | **CapturePlayerLog**                  | Should BugSplat upload Player.log when Post is called                                                                                                                                                                                                              |
 | **CaptureScreenshots**                | Should BugSplat a screenshot and upload it when Post is called                                                                                                                                                                                                     |
 | **PostExceptionsInEditor**            | Should BugSplat upload exceptions when in editor                                                                                                                                                                                                                   |
 | **PersistentDataFileAttachmentPaths** | Paths to files (relative to Application.persistentDataPath) to upload with each report                                                                                                                                                                             |
+| **ShouldPostException**               | Settable guard function that is called before each BugSplat report is posted                                                                                                                                                                                       |
 | **SymbolUploadClientId**              | An OAuth2 Client ID value used for uploading [symbol files](https://docs.bugsplat.com/introduction/development/working-with-symbol-files) generated via BugSplat's [OAuth Integrations](https://app.bugsplat.com/v2/settings/database/integrations#oauth) page     |
 | **SymbolUploadClientSecret**          | An OAuth2 Client Secret value used for uploading [symbol files](https://docs.bugsplat.com/introduction/development/working-with-symbol-files) generated via BugSplat's [OAuth Integrations](https://app.bugsplat.com/v2/settings/database/integrations#oauth) page |
 
-### **Further Customization** <a href="#configuring-in-code" id="configuring-in-code"></a>
+## Usage <a href="#usage" id="usage"></a>
 
-If your application requires special configuration, you may optionally create your own script to manage and instantiate `BugSplat`. To do so, create a new script and attach it to a GameObject. In your script, add a using statement for BugSplatUnity.
+If you're using `BugSplatOptions` and `BugSplatManager`, BugSplat automatically configures an `Application.logMessageReceived` handler that will post reports when it encounters a log message of type `Exception`. You can also extend your BugSplat integration and [customize report metadata](unity.md#adding-metadata), [report exceptions in try/catch blocks](unity.md#try-catch-reporting), [prevent repeated reports](unity.md#windows-minidumps-1), and [upload windows minidumps](unity.md#windows-minidumps) from native crashes.
 
-```csharp
-using BugSplatUnity;
-```
+#### Adding Metadata
 
-Next, create a new instance of `BugSplat` passing it your `database`, `application`, and `version`. Use `Application.productName`, and `Application.version` for application and version respectively.
+First, find your instance of `BugSplat`. The following is an example of how to find an instance of `BugSplat` via `BugSplatManager`:
 
 ```csharp
-var bugsplat = new BugSplat(database, Application.productName, Application.version);
+var bugsplat = FindObjectOfType<BugSplatManager>().BugSplat;
 ```
 
-You can set the defaults for a variety of properties on the `BugSplat` instance. These default values will be used in exception and crash posts. Additionally, you can tell BugSplat to capture a screenshot, include the Player.log file, and include the Editor.log file when an exception is recorded.
+You can extend `BugSplat` by setting the following properties:
 
 ```csharp
 bugsplat.Attachments.Add(new FileInfo("/path/to/attachment.txt"));
 bugsplat.Description = "description!";
 bugsplat.Email = "fred@bugsplat.com";
 bugsplat.Key = "key!";
+bugsplat.Notes = "notes!";
 bugsplat.User = "Fred";
 bugsplat.CaptureEditorLog = true;
 bugsplat.CapturePlayerLog = false;
 bugsplat.CaptureScreenshots = true;
 ```
 
-Alternatively, a new instance of BugSplat can be created with `BugSplatOptions`.
+You can use the `Notes` field to capture arbitrary data such as system information:
 
 ```csharp
-[SerializeField]
-BugSplatOptions bugSplatOptions;
-...
-var bugsplat = BugSplat.CreateFromOptions(bugSplatOptions);
+void Start()
+{
+    bugsplat = FindObjectOfType<BugSplatManager>().BugSplat;
+    bugsplat.Notes = GetSystemInfo();
+}
+
+private string GetSystemInfo()
+{
+    var info = new Dictionary<string, string>();
+    info.Add("OS", SystemInfo.operatingSystem);
+    info.Add("CPU", SystemInfo.processorType);
+    info.Add("MEMORY", $"{SystemInfo.systemMemorySize} MB");
+    info.Add("GPU", SystemInfo.graphicsDeviceName);
+    info.Add("GPU MEMORY", $"{SystemInfo.graphicsMemorySize} MB");
+
+    var sections = info.Select(section => $"{section.Key}: {section.Value}");
+    return string.Join(Environment.NewLine, sections);
+}
 ```
 
-## Usage <a href="#usage" id="usage"></a>
+#### Try/Catch Reporting
 
-First, find your BugSplat instance. For example, using `BugSplatManager`:
-
-```csharp
-var bugsplat = FindObjectOfType<BugSplatManager>().BugSplat;
-```
-
-You can send exceptions to BugSplat in a try/catch block by calling `Post`.
+Exceptions can be sent to BugSplat in a try/catch block by calling `Post`.
 
 ```csharp
 try
@@ -149,6 +158,7 @@ var options = new ReportPostOptions()
     Description = "a new description",
     Email = "barney@bugsplat.com",
     Key = "a new key!",
+    Notes = "some new notes!",
     User = "Barney"
 };
 
@@ -162,13 +172,33 @@ static void callback()
 StartCoroutine(bugsplat.Post(ex, options, callback));
 ```
 
-You can also configure a global `LogMessageRecieved` callback. When the BugSplat instance recieves a logging event where the type is `Exception` it will upload the exception. Note that the `BugSplatManager` can be configured to register this callback at startup.
+#### Preventing Repeated Reports <a href="#windows-minidumps" id="windows-minidumps"></a>
+
+By default BugSplat prevents reports from being sent at a rate greater than 1 per every 60 seconds. You can override the default crash report throttling implementation by setting `ShouldPostException` on your BugSplat instance. To override `ShouldPostException`, assign the property a new `Func<Exception, bool>` value. Be sure your new implementation can handle a null value for `Exception`!
+
+The following example demonstrates how you could implement your own time-based report throttling mechanism:
 
 ```csharp
-Application.logMessageReceived += bugsplat.LogMessageReceived;
+var lastPost = DateTime.Now;
+
+bugsplat.ShouldPostException = (ex) =>
+{
+    var now = DateTime.Now;
+
+    if (now - lastPost < TimeSpan.FromSeconds(3))
+    {
+        Debug.LogWarning("ShouldPostException returns false. Skipping BugSplat report...");
+        return false;
+    }
+
+    Debug.Log("ShouldPostException returns true. Posting BugSplat report...");
+    lastPost = now;
+
+    return true;
+};
 ```
 
-### Windows Minidumps <a href="#windows-minidumps" id="windows-minidumps"></a>
+#### Windows Minidumps <a href="#windows-minidumps" id="windows-minidumps"></a>
 
 BugSplat can be configured to upload Windows minidumps created by the `UnityCrashHandler`. BugSplat will automatically pull Unity Player symbols from the [Unity Symbol Server](https://docs.unity3d.com/Manual/WindowsDebugging.html). If your game contains Native Windows C++ plugins, `.dll` and `.pdb` files in the `Assets/Plugins/x86` and `Assets/Plugins/x86_64` folders will be uploaded automatically by BugSplat's PostBuild script and used in symbolication.
 
