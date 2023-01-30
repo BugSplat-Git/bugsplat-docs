@@ -192,7 +192,6 @@
 * [Partnerships](about/partnerships/README.md)
   * [LootLocker](about/partnerships/lootlocker.md)
   * [EQU8](about/partnerships/equ8.md)
-* [Page 1](about/page-1.md)
 
 ## 🔀 Changelog
 
