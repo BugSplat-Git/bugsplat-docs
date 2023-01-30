@@ -67,16 +67,14 @@ bool minidumpCallback(
 ```
 
 1. Create a new symbol store on our [Versions](https://app.bugsplat.com/v2/versions) page. You should do this for each released version of your product in order to ensure your crash reports contain function names and line numbers.
-
 2. Use dump\_syms to generate `.sym` files for your application. You need to do this for each release version of your product.
-
-3. Upload your application's `.sym` files to BugSplat via the symupload tool. For more information on how to upload Symbols manually please see this [article](../../../../introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
+3. Upload your application's `.sym` files to BugSplat via the symupload tool. For more information on how to upload Symbols manually please see this [article](../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
 
 ```bash
 symupload file.sym "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
 ```
 
-4. Trigger a crash in your application. The following code snippet can be used to generate an EXCEPTION\_ACCESS\_VIOLATION\_WRITE crash:
+1. Trigger a crash in your application. The following code snippet can be used to generate an EXCEPTION\_ACCESS\_VIOLATION\_WRITE crash:
 
 ```cpp
 int nullVal;

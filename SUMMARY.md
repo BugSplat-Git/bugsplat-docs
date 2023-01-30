@@ -192,12 +192,8 @@
 * [Partnerships](about/partnerships/README.md)
   * [LootLocker](about/partnerships/lootlocker.md)
   * [EQU8](about/partnerships/equ8.md)
+* [Page 1](about/page-1.md)
 
-## 🔧 Updates
+## 🔀 Changelog
 
-* [Changelog](updates/changelog/README.md)
-  * [Changelog Archive](updates/changelog/changelog-archive/README.md)
-    * [Archive 2021](updates/changelog/changelog-archive/archive-2021.md)
-    * [Archive 2020](updates/changelog/changelog-archive/archive-2020.md)
-    * [Archive 2019](updates/changelog/changelog-archive/archive-2019.md)
-    * [Archive 2015-2018](updates/changelog/changelog-archive/archive-2015-2018.md)
+* [Changelog](https://changelog.bugsplat.com/)
