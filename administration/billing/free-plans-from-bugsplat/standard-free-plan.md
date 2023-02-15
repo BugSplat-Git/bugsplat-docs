@@ -15,6 +15,6 @@ Yup!  If you're an [indie game dev](free-accounts-for-indie-game-development.md)
 To get started with the Standard Free Plan, follow the below steps:&#x20;
 
 1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up).
-2. Follow the [Gettings Started](../../../introduction/getting-started/) docs to set up your account.
-3. Use BugSplat normally and stay within the guidelines of the plan (1 user, 1 application, and less than 25,000 monthly errors and crashes).
+2. Follow the [Getting Started](../../../introduction/getting-started/) docs to set up your account.
+3. Use BugSplat normally and stay within the guidelines of the plan (1 user, 1 application, and less than 25,000 monthly errors and crashes) and your account will automatically switch to this plan at the end of the [Free Trial](../free-trial.md).
 
