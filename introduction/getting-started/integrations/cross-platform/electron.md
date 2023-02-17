@@ -35,7 +35,6 @@ Note that the `globalExtra` fields will be sent with crashes captured on all pro
 ```javascript
 const electron = require('electron')
 electron.crashReporter.start({
-  companyName: '<<company name>>',
   productName: '<<product name>>',
   submitURL: 'https://<<database name>>.bugsplat.com/post/electron/crash.php',
   compress: true,
