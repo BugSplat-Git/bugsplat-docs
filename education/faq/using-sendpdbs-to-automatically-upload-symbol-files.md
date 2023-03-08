@@ -48,3 +48,8 @@ Running SendPdbs.exe in a command window without any arguments show the followin
   The log level can be modified with:
     /verbose     Use for additional diagnostics
 ```
+
+## Improving Upload Speeds
+
+Customers located far away from our US-East hosting location, especially those with high-latency and high-bandwidth connections, sometimes report slow upload speeds.  We have several reports of significantly faster uploads after following the advice in the Microsoft technical note: [https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/tcpip-performance-known-issues](https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/tcpip-performance-known-issues)
+
