@@ -1,5 +1,11 @@
 # Qt
 
+## Sample
+
+BugSplat has developed a sample application that demonstrates a cross-platform Qt crash reporting solution with Crashpad. The MyQtCrasher sample application provides a good starting point for developers wishing to capture crashes on Windows, macOS, and Linux. Additionally, the sample provides symbol upload [scripts](https://github.com/BugSplat-Git/my-qt-crasher/tree/master/Crashpad/Tools) that you can incorporate into your build tools in order to generate crash reports with fully symbolicated call stacks&#x20;
+
+The MyQtCrasher sample application is available on [GitHub](https://github.com/BugSplat-Git/my-qt-crasher).
+
 ## Building Crashpad
 
 BugSplat leverages [Crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to provide crash reporting for macOS, Windows, and Linux Qt applications. For an in-depth guide that discusses how to build Crashpad, please see this [article](crashpad/how-to-build-google-crashpad.md).
