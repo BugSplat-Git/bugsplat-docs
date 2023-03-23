@@ -2,37 +2,57 @@
 
 ## Overview
 
-It can be difficult to wrangle with large amounts of crash data. Deciding which crashes your team should focus on might seem daunting. For large applications, it's nearly impossible to investigate every crash that has been submitted to BugSplat. Fortunately, BugSplat allows teams to group similar crashes and fix the root cause of multiple crash reports in one fell swoop. Crash grouping also helps speed up the analysis of specific crashes by ignoring uninteresting frames at the top of the call stack.
+It can be difficult to wrangle large amounts of crash data. Deciding which crashes your team should focus on might seem daunting. For large applications, it's nearly impossible to investigate every crash that has been submitted to BugSplat. Fortunately, BugSplat allows teams to group similar crashes and fix the root cause of multiple crash reports in one fell swoop. Crash grouping also helps speed up the analysis of specific crashes by ignoring uninteresting frames at the top of the call stack.
 
 ## How-To
 
-Groups of crashes can be viewed on BugSplat's [Summary](https://app.bugsplat.com/v2/summary) page. By default, all crashes are grouped by the frame that was at the top of the stack when an application crashed. Sometimes the top of a crash's stack may contain a single frame (or several frames) of common code that causes unrelated crashes to be grouped together. The simplest example of when crashes are grouped incorrectly is in C++ crashes from raised exceptions. Let's take a look at how we can separate crashes with **KernelBase!RaiseException** at the top of the stack into more descriptive crash groups.
+BugSplat's [Summary](https://app.bugsplat.com/v2/summary) page contains a table of crash groups. By default, all reports are grouped by the frame that was at the top of the stack when an application crashed. Sometimes the top of a crash's stack may contain a single frame (or several frames) of common code that causes unrelated crashes to be grouped together. The simplest example of when crashes are grouped incorrectly is in C++ crashes from raised exceptions. Let's take a look at how we can separate reports with `KERNELBASE!RaiseException` at the top of the stack into more descriptive crash groups.
+
+### Auto-Group Rules
+
+By leveraging BugSplat's Auto-Group feature, developers can specify pattern-based rules that skip irrelevant stack frames and create more meaningful crash groups. The two main types of rules are **group by** and **ignore frames up to and including**. Rules can be applied per **platform**, and match either the **function** or **file** portion of the call stack. BugSplat will first process any **group by** rules, and only if there are no matches will it process the **ignore** rules.
+
+{% hint style="info" %}
+When you specify a new Auto-Group rule it applies newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
+{% endhint %}
+
+Developers can specify new Auto-Group rules on the [Settings](https://app.bugsplat.com/v2/settings/database) page.
+
+<figure><img src="../../.gitbook/assets/auto-group.gif" alt=""><figcaption><p>Auto-Group Rule Example</p></figcaption></figure>
+
+In the example above, we specified a rule for **Windows Native C++** that groups reports **ignoring stack frames up to and including** frames where the **function** matches **KERNELBASE\***. When BugSplat processes reports containing `KERNELBASE!RaiseException` at the top of the stack the crashes will automatically be grouped by the next frame in the call stack.
+
+Alternatively, developers can add rules that **group by** frames matching patterns. **Group by** rules are useful for including items that can be identified as belonging to your application. For example, you might choose **group by** to specify a **file** matching a path on your build machine, or a **function** matching your main application's module.
+
+Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/Glob\_\(programming\)).
+
+| Pattern  | Description                                                                                      | Example       | Matches                                                  | Does not match                        |
+| -------- | ------------------------------------------------------------------------------------------------ | ------------- | -------------------------------------------------------- | ------------------------------------- |
+| `*`      | matches any number of any characters including none                                              | Law\*         | Law, Laws, or Lawyer                                     |                                       |
+| `**`     | matches any number of path/directory segments. When used must be the only contents of a segment. | /\*\*/some.\* | /foo/bar/bah/some.txt, /some.txt, or /foo/some.txt       |                                       |
+| `?`      | matches any single character                                                                     | ?at           | Cat, cat, Bat or bat                                     | at                                    |
+| `[abc]`  | matches one character given in the bracket                                                       | \[CB]at       | Cat or Bat                                               | cat or bat                            |
+| `[a-z]`  | matches one character from the range given in the bracket                                        | Letter\[0-9]  | Letter0, Letter1, Letter2 up to Letter9                  | Letters, Letter or Letter10           |
+| `[!abc]` | matches one character that is not given in the bracket                                           | \[!C]at       | Bat, bat, or cat                                         | Cat                                   |
+| `[!a-z]` | matches one character that is not from the range given in the bracket                            | Letter\[!3-5] | Letter1, Letter2, Letter6 up to Letter9 and Letterx etc. | Letter3, Letter4, Letter5 or Letterxx |
 
 ### Crashes Page
 
-On the crashes page, there's a list of crashes that all contain KernelBase!RaiseException at the top of their stack. We know that KernelBase!RaiseException is a common runtime stack frame that is added for all C++ crashes caused by thrown exceptions. In order to find the root cause of the issue, click the value in the ID column to navigate to the **Crash** page.
+The [**Crashes**](https://app.bugsplat.com/v2/crashes) page displays a list of reports and their associated group under the **Stack Key** column. We've added a rule that effectively skips `KERNELBASE!RaiseException` and the reports are now grouped by the next frame in the stack `MyConsoleCrasher!_CxxThrowException(75)`. To see the report's stack trace, click the value in the **ID** column.
 
-![Crashes Page](../../.gitbook/assets/Group-How-To-Crashes.png)
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Crash Page</p></figcaption></figure>
 
 ### Crash Page
 
-On the Crash page, scroll down to the list of stack frames for the crashing thread. Expand any of the frames below KernelBase!RaiseException to reveal the **Create Group** button. Click the button to navigate to the **Group Crashes** page.
+On the **Crash** page, scroll down to the list of stack frames for the crashing thread. Notice that we didn't quite get our grouping rules correct. Our rules have caused the report to be grouped under the bolded function `MyConsoleCrasher!_CxxThrowException`**.** The function we actually want to group on is `MyConsoleCrasher!ThrowByUser`. Expand the row containing `MyConsoleCrasher!ThrowByUser` to reveal the **Group Rules** and **Create Group** buttons.
 
-![Crash Page with Stack Frame Expanded](../../.gitbook/assets/Group-How-To-Crash.png)
+<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption><p>Crash Page with Stack Frame Expanded</p></figcaption></figure>
 
-### Group Crashes Page
+First, we should click **Group Rules** and add another rule that **ignores stack frames up to and including** frames where a **function** matches the glob **\*\_CXXThrowException\***. However, rules are only applied to newly processed, and reprocessed crashes. If you would like to retroactively override the grouping for all reports that match the top 2 frames (`RaiseException`, and `_CxxThrowException`), click the **Create Group** button.
 
-The Group Crashes page is used to create new crash groups and recategorize a set amount of existing crashes into newly created groups. There are two ways to create crash groups on the Group Crashes page.
+### Create Group Page
 
-![Group Crashes Page with 3 Frames Selected](../../.gitbook/assets/Group-How-To-Group-Crashes.png)
-
-#### Group Similar Crashes
-
-The most fundamental action on the Group Crashes page is **Group Similar Crashes**. This action will group all crashes that match each of the displayed stack frames at the top of the stack. This means that crashes with RaiseException, \_CxxThrowException, and FileSystemUtils::Save at the top of the stack will be grouped by **FileSystemUtils::Save**. However, crashes with RaiseException, \_CxxThrowException, SomeOtherFunction at the top of the stack will still be grouped by **KernelBase!RaiseException**.
-
-#### Regroup Crashes By Level
-
-Regrouping by level is an automated way to create several crash groups at a specified call stack depth. This action can be thought of as a **Group Similar** action for all variations of crashes with KernelBase!RaiseException that share the topmost 3 stack frames. This means that crashes with RaiseException, \_CxxThrowException, and FileSystemUtils::Save at the top of the stack will be grouped by **FileSystemUtils::Save**. Additionally, crashes with RaiseException, \_CxxThrowException, SomeOtherFunction at the top of the stack will be grouped by **SomeOtherFunction**.
+The **Create Group** page is used to retroactively override groupings for reports that match a specific list of stack frames at the top of the stack. Reports with the frames listed in the **Stack Frames** table at the top of the stack will be grouped together under the group `MyConsoleCrasher!ThrowByUser`.
 
 #### Time Frame
 
@@ -40,34 +60,26 @@ All incoming crashes will be grouped based on the specified rule. However, it mi
 
 #### Remove Group
 
-When a group exists for a specified call stack and depth, the **Remove Group** button will show when **Group Similar** is selected. This action will allow you to stop crashes from being grouped by the specified rule. This action also allows you to specify a time frame in order to retroactively remove the group from BugSplat. You can group by level at a specified depth, and use Remove Group to remove a single rule from the set of rules that were automatically created at the specified level.
+Groups can also be removed via the **Create Group** page. Please note that when you remove a group, you are only removing groups that were created manually and reports will still be processed according to the list of Auto-Group rules.&#x20;
 
-#### Remove Groups
+<figure><img src="../../.gitbook/assets/create-group.gif" alt=""><figcaption><p>Create Group for ThrowByUser</p></figcaption></figure>
 
-When a specified call stack and depth has been grouped by level, the **Remove Groups** button will show when **Regroup By Level** is selected. This action will remove all groups for a crash and also allows you to specify a time frame in order to retroactively remove the groups from BugSplat.
+### Key Crash Page
 
-#### Remove Selection
+The **Key Crash** page shows an overview of all the crashes in a specified group, as well as first-seen and last-reported metrics. For default groups (aka the top of the stack) that have been split into sub-groups, such as `KERNELBASE!RaiseException`, a **View Groups** button will be displayed in the **Navigation** section on the right of the window. The **View Groups** button will navigate to the **Groups** page which will display a list of all groups that have been created from the parent group `KERNELBASE!RaiseException`. Note that since all crashes with `KERNELBASE!RaiseException` have been grouped crashes will no longer appear in the default group, and can instead be found in the child groups.
 
-The **Remove Selection** link will discard the current selection and select only the top-most stack frame. Selecting the top-most frame allows you to regroup the call stack at level 1. Regrouping the stack at level 1 will remove all groups that have been created for crashes with KernelBase!RaiseException at the top of the stack and allows you to restart the grouping process if needed.
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Key Crash Page for Default Group</p></figcaption></figure>
+
+For child groups, such as `MyConsoleCrasher!ThrowByUser`, a **View Group Details** button will be displayed in the **Navigation** section on the right of the window. The **View Group** button will navigate to the **Groups** page filtered by the specified group. The **Groups** page will allow you to see the parent group as well as any sibling groups that might exist.
+
+Child groups, such as `MyConsoleCrasher!ThrowByUser`, will also display a **View Related Groups** button on the **Group Crash** Crash page. This button will navigate the user to a list of sibling groups that have been created for crashes with `KERNELBASE!RaiseException` at the top of the stack.
+
+Finally, child groups will display a **Remove Group** button will be displayed in the Navigation section on the right of the window. This button will navigate the user to the **Group Crashes** page where a group or collection of groups can be removed.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Key Crash Page for Child Group</p></figcaption></figure>
 
 ### Summary Page
 
-Once new grouping rules have been applied, navigate to the [Summary](https://app.bugsplat.com/v2/summary) page to view an overview of the groups the selected database. The Summary page provides crash counts for all of the various groups. Targeting groups with the highest crash count will generally give teams the best return on their efforts. To get more information about the crashes that comprise a specific group, click the link in the **Stack Key** column to be brought to the **Crash Groups** page.
+Once new grouping rules have been applied, navigate to the [**Summary**](https://app.bugsplat.com/v2/summary) page to view an overview of groups in the selected database. The **Summary** page provides report counts for all of the various groups. Targeting groups with the highest report **Count** will generally give teams the best return on their efforts. Another interesting metric to target is **Users Affected** which represents the number of unique users that ran into a specific problem during the selected time frame.
 
-![Summary Page Displaying a Sub-Group](../../.gitbook/assets/Group-How-To-Summary.png)
-
-### Crash Group Page
-
-The **Crash Group** page shows an overview of all the crashes in a specified group, as well as first seen and last reported metrics.
-
-For default groups (aka the top of the stack) that have been split into sub-groups, such as KernelBase!RaiseException, a **View Groups** button will be displayed in the Navigation section on the right of the window. The View Groups button will navigate to the **Groups** page which will display a list of all groups that have been created from the parent group KernelBase!RaiseException. Note that since all crashes with KernelBase!RaiseException have been sub-grouped crashes will no longer appear in the default group, and can instead be found in the sub-groups.
-
-![Group Crash Page for Default Group](../../.gitbook/assets/Group-How-To-Key-Crash-Parent.png)
-
-For sub-groups, such as FileSystemUtils::Save, a **View Group Details** button will be displayed in the Navigation section on the right of the window. The View Group button will navigate to the **Groups** page filtered by the specified group. The Groups page will allow you to see the parent group as well as any sibling groups that might exist.
-
-Sub-groups, such as FileSystemUtils::Save, will also display a **View Related Groups** button on the **Group Crash** Crash page. This button will navigate the user to a list of sibling groups that have been created for crashes with KernelBase!RaiseException at the top of the stack.
-
-Finally, sub-groups will display a **Remove Group** button will be displayed in the Navigation section on the right of the window. This button will navigate the user to the **Group Crashes** page where a group or collection of groups can be removed.
-
-![Group Crash Crash Page for Sub-Group](../../.gitbook/assets/Group-How-To-Key-Crash-Group.png)
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Summary Page</p></figcaption></figure>

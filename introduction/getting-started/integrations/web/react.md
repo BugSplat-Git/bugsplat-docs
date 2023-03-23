@@ -2,29 +2,19 @@
 
 ## Overview
 
-BugSplat supports the collection of errors in React applications. The
-[@bugsplat/react](https://www.npmjs.com/package/@bugsplat/react) npm package implements an
-[ErrorBoundary](https://reactjs.org/docs/error-boundaries.html)
-component in order to capture rendering errors in child components and
-post them to BugSplat where they can be tracked and managed. Adding BugSplat
-to your React application is extremely easy.
+BugSplat supports the collection of errors in React applications. The [@bugsplat/react](https://www.npmjs.com/package/@bugsplat/react) npm package implements an [ErrorBoundary](https://reactjs.org/docs/error-boundaries.html) component in order to capture rendering errors in child components and post them to BugSplat where they can be tracked and managed. Adding BugSplat to your React application is extremely easy.
 
 ## Get Started
 
-To start using BugSplat in your React application, run the following command
-at the root of your project. This will install @bugsplat/react and it's
-sub-dependency, [bugsplat](https://github.com/BugSplat-Git/bugsplat-js).
+To start using BugSplat in your React application, run the following command at the root of your project. This will install @bugsplat/react and it's sub-dependency, [bugsplat](https://github.com/BugSplat-Git/bugsplat-js).
 
 ```shell
 npm i @bugsplat/react --save
 ```
 
-In addition to standard `package.json` properties `name` and `version`, include
-a `database` property to your `package.json` file with the value of your BugSplat
-database. Make sure to replace `{{YOUR_DATABASE_NAME}}` with your actual
-database name.
+In addition to standard `package.json` properties `name` and `version`, include a `database` property to your `package.json` file with the value of your BugSplat database. Make sure to replace `{{YOUR_DATABASE_NAME}}` with your actual database name.
 
-```jsonc
+```
 // package.json
 {
   "name": "my-app",
@@ -34,10 +24,7 @@ database name.
 }
 ```
 
-In the root of your project, import your project's `package.json`. Use it's
-`name`, `database`, and `version` properties to initialize the BugSplat client
-for sending crashes. This will instantiate a new client instance and store it
-internally.
+In the root of your project, import your project's `package.json`. Use it's `name`, `database`, and `version` properties to initialize the BugSplat client for sending crashes. This will instantiate a new client instance and store it internally.
 
 ```jsx
 // src/index.tsx
@@ -58,9 +45,7 @@ const root = createRoot(document.getElementById('root'));
 root.render(<App />);
 ```
 
-You can now wrap your component trees with `ErrorBoundary` to capture rendering
-errors and automatically post them to BugSplat with the internal client
-instance we initialized earlier.
+You can now wrap your component trees with `ErrorBoundary` to capture rendering errors and automatically post them to BugSplat with the internal client instance we initialized earlier.
 
 ```jsx
 // src/App.tsx
@@ -76,8 +61,7 @@ export default function App() {
 }
 ```
 
-You can also access the stored `BugSplat` instance anywhere by
-calling `getBugSplat()`
+You can also access the stored `BugSplat` instance anywhere by calling `getBugSplat()`
 
 ```jsx
 // src/App.tsx
@@ -100,12 +84,7 @@ export default function App() {
 
 ## Further Integration
 
-Want your error boundary to also handle errors that are not caught by
-`ErrorBoundary`, such as async errors or event handlers? No problem!
-`useErrorHandler` to the rescue. Pass your error to the callback returned from
-`useErrorHandler` in order to propagate the error to the nearest
-`ErrorBoundary`. You can also pass your error directly to `useErrorHandler`
-if you manage the error state yourself or get it from another library.
+Want your error boundary to also handle errors that are not caught by `ErrorBoundary`, such as async errors or event handlers? No problem! `useErrorHandler` to the rescue. Pass your error to the callback returned from `useErrorHandler` in order to propagate the error to the nearest `ErrorBoundary`. You can also pass your error directly to `useErrorHandler` if you manage the error state yourself or get it from another library.
 
 ```jsx
 // src/App.tsx
@@ -153,23 +132,20 @@ export default function App() {
 }
 ```
 
-Providing an instance of BugSplat will allow `ErrorBoundary` to automatically
-post errors it catches to BugSplat.
+Providing an instance of BugSplat will allow `ErrorBoundary` to automatically post errors it catches to BugSplat.
 
-The `ErrorBoundary` component is packed with props that can be used to
-customize it to fit your needs:
+The `ErrorBoundary` component is packed with props that can be used to customize it to fit your needs:
 
-- `fallback`
-- `onMount`
-- `onUnmount`
-- `onError`
-- `beforePost`
-- `onReset`
-- `onResetKeysChange`
-- `disablePost`
+* `fallback`
+* `onMount`
+* `onUnmount`
+* `onError`
+* `beforePost`
+* `onReset`
+* `onResetKeysChange`
+* `disablePost`
 
-We strongly recommend passing a `fallback` prop that will be rendered
-when `ErrorBoundary` encounters an error.
+We strongly recommend passing a `fallback` prop that will be rendered when `ErrorBoundary` encounters an error.
 
 The `fallback` prop can be any valid element:
 
@@ -199,20 +175,14 @@ function Component() {
 
 If `fallback` is a function, it will be called with
 
-- `error` - the error caught be `ErrorBoundary`
-- `componentStack` - the component stack trace of the error
-- `response` - the BugSplat response of posting error to BugSplat, if applicable
-- `resetErrorBoundary` - a function to call in order to reset the
-  `ErrorBoundary` state
+* `error` - the error caught be `ErrorBoundary`
+* `componentStack` - the component stack trace of the error
+* `response` - the BugSplat response of posting error to BugSplat, if applicable
+* `resetErrorBoundary` - a function to call in order to reset the `ErrorBoundary` state
 
-The fallback will render any time the `ErrorBoundary` catches an error. It is
-useful to have a fallback UI to gracefully handle errors for your users, while
-still sending errors to BugSplat behind the scenes.
+The fallback will render any time the `ErrorBoundary` catches an error. It is useful to have a fallback UI to gracefully handle errors for your users, while still sending errors to BugSplat behind the scenes.
 
-`ErrorBoundary` accepts a `resetKeys` prop that you can pass with an array of
-values that will cause it to automatically reset if one of those values changes.
-This gives you the power to control the error state from outside of the
-component.
+`ErrorBoundary` accepts a `resetKeys` prop that you can pass with an array of values that will cause it to automatically reset if one of those values changes. This gives you the power to control the error state from outside of the component.
 
 ```jsx
 function App() {
@@ -234,9 +204,7 @@ function App() {
 
 ### The `scope` property
 
-If you know what you're doing and want ErrorBoundary functionality
-beyond what is possible through props and callbacks, you can extend the
-BugSplat client and pass it to the ErrorBoundary through it's `scope` property.
+If you know what you're doing and want ErrorBoundary functionality beyond what is possible through props and callbacks, you can extend the BugSplat client and pass it to the ErrorBoundary through it's `scope` property.
 
 ```jsx
 import { BugSplat } from 'bugsplat';
@@ -262,8 +230,7 @@ function App() {
 
 ## API
 
-This package re-exports all exports from
-[bugsplat-js](https://github.com/BugSplat-Git/bugsplat-js).
+This package re-exports all exports from [bugsplat-js](https://github.com/BugSplat-Git/bugsplat-js).
 
 ### `init()`
 
@@ -493,8 +460,7 @@ function useErrorHandler(errorProp?: unknown): (error: unknown) => void;
 
 ## Test Suite
 
-This package contains both unit and integration tests. To run them,
-use the package.json scripts provided.
+This package contains both unit and integration tests. To run them, use the package.json scripts provided.
 
 | Tests       | Command                    |
 | ----------- | -------------------------- |
@@ -503,10 +469,4 @@ use the package.json scripts provided.
 
 ### **Contributing**
 
-BugSplat ❤️s open source! If you feel that this integration can be improved,
-please open an [Issue](https://github.com/BugSplat-Git/bugsplat-react/issues).
-If you have an awesome new feature you'd like to implement, we'd love to merge
-your [Pull Request](https://github.com/BugSplat-Git/bugsplat-react/pulls).
-You can also reach out to us via an email to
-[support@bugsplat.com](mailto:support@bugsplat.com) or the in-app chat on
-bugsplat.com.
+BugSplat ❤️s open source! If you feel that this integration can be improved, please open an [Issue](https://github.com/BugSplat-Git/bugsplat-react/issues). If you have an awesome new feature you'd like to implement, we'd love to merge your [Pull Request](https://github.com/BugSplat-Git/bugsplat-react/pulls). You can also reach out to us via an email to [support@bugsplat.com](mailto:support@bugsplat.com) or the in-app chat on bugsplat.com.
