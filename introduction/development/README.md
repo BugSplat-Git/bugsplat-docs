@@ -6,11 +6,11 @@ This **Development** section includes articles that are useful for using BugSpla
 
 ****[**Symbol Files**](working-with-symbol-files/) - are a critical component of getting useful data from your crashes.  They're also a common stumbling block for new users.
 
-****[**Filtering**](searching/search.md) - contains instructions on how to search application crash data to find and isolate specific crashes or crash groups.
+****[**Table Filtering**](searching/search.md) - contains instructions on how to search application crash data to find and isolate specific crashes or crash groups.
 
-****[**Grouping**](searching/grouping.md) - is an overview of how to compare groups of crashes to see into crash and stability trends.&#x20;
+****[**Table Grouping**](searching/grouping.md) - is an overview of how to compare groups of crashes to see into crash and stability trends.&#x20;
 
-[**Crash Grouping**](../../education/how-tos/crash-grouping-concepts.md) - is a way to group a set of crashes at some level other than the top level of the call stack.
+****[**Grouping Crashes**](grouping-crashes.md) - define rules that group a set of crashes at some level other than the top level of the call stack.
 
 ****[**Commenting**](commenting.md) - is BugSplat's built-in comment tool and issue tracker.
 

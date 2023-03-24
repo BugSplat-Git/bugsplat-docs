@@ -1,6 +1,6 @@
 # Using the App
 
-The BugSplat web application consists of three main pages: [Dashboard](https://app.bugsplat.com/v2/dashboard), [Crashes](https://app.bugsplat.com/v2/crashes), and [Summary](https://app.bugsplat.com/v2/summary). These pages sort and organize an application's crash data, helping users quickly and simply navigate to the information they need.
+The BugSplat web application consists of four main pages: [Dashboard](https://app.bugsplat.com/v2/dashboard), [Crashes](https://app.bugsplat.com/v2/crashes), [Summary](https://app.bugsplat.com/v2/summary), and [Versions](https://app.bugsplat.com/v2/versions). These pages sort and organize an application's crash data, helping users quickly and simply navigate to the information they need.
 
 Each of the main pages has subpages that provide more detail on individual [crashes](../../education/bugsplat-terminology.md#crash-report), errors, [stack keys](../../education/bugsplat-terminology.md#stack-key), and other important data.
 
@@ -8,15 +8,15 @@ Each of the main pages has subpages that provide more detail on individual [cras
 
 The [Dashboard](https://app.bugsplat.com/v2/dashboard) page is the application’s home and the place users land first inside the application. It provides users with an overview of how their application is performing and shows a list of the most recently submitted crashes.
 
-![](../../.gitbook/assets/bugsplat-dashboard.png)
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Dashboard Page</p></figcaption></figure>
 
-## Navigating with breadcrumbs
+## Navigating with Breadcrumbs
 
-BugSplat provides a breadcrumb navigation control so that users always know where they are in their data, what they're looking, and how to get back to where they were.
+BugSplat provides a breadcrumb navigation control so that users always know where they are in their data, what they're looking for, and how to get back to where they were.
 
 The breadcrumb control is laid out as follows `Database / Applications / Versions / ID`
 
-The databases, applications, and versions controls contain searchable dropdowns that allow users to quickly find what they're looking for. Select a database to enable the applications dropdown. Next, select an application or multiple applications to reveal the versions dropdown. Select a version or multiple versions to filter the data further. Click the ID of a crash to see its details or click a crash's Stack Key to see information about the crash's group.
+The database, application, and version controls contain searchable dropdowns that allow users to quickly find what they're looking for. Select a database to enable the applications dropdown. Next, select an application or multiple applications to reveal the versions dropdown. Select a version or multiple versions to filter the data further. Click the **ID** of a crash to see its details or click a crash's Stack Key to see information about the crash's group.
 
 ![](../../.gitbook/assets/navigating-with-breadcrumbs.gif)
 
@@ -34,7 +34,7 @@ Second, users can select different data types using the **Column Visibility** dr
 
 Third, users can sort by ascending or descending order in a column by clicking on the header text of that column.
 
-Fourth, users can click the **>** on each individual row to expand that row and view more details about a specific crash. These details include crash metadata, call stack of the crashing thread, and a list of files that were attached to the crash report.
+Fourth, users can click the **>** on each individual row to expand that row and view more details about a specific crash. These details include crash metadata, the call stack of the crashing thread, and a list of files that were attached to the crash report.
 
 ![](../../.gitbook/assets/expando-row-crashes.gif)
 
@@ -42,7 +42,7 @@ Finally, if a specific crash seems important and worthy of further investigation
 
 ## Crash
 
-The **Crash** page allows for users to get information critical for understanding and fixing the defect which originally caused the issue.
+The **Crash** page allows users to get information critical for understanding and fixing the defect which originally caused the issue.
 
 ### User Details
 
@@ -64,7 +64,7 @@ The **Method** column contains a list of functions in the stack trace of the thr
 
 Clicking the **>** (greater than symbol) in the left-most column will expand the **Row Details** view.
 
-The **Row Details** view will display the **Group Stacks** button that will allow you to create a [subkey](../../education/how-tos/crash-grouping-concepts.md). Grouping at a different level of the call stack is called [subkeying](../../education/how-tos/crash-grouping-concepts.md) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
+The **Row Details** view will display the **Grouping Rules** and **Create Group** buttons that will allow you to [modify the way your reports are grouped](grouping-crashes.md). Grouping at a different level of the call stack is called [subkeying](../../education/bugsplat-terminology.md#subkey) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
 
 Additionally, for [Windows Native](../getting-started/integrations/desktop/cplusplus/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments.](https://www.bugsplat.com/blog/development/local-variables-function-arguments/)
 
@@ -76,7 +76,7 @@ All data covered to this point on the Crash page are found under the **Crash Ove
 
 ![](<../../.gitbook/assets/viewing-tabs-crashreport (1) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (1).gif>)
 
-#### Previwing attached files&#x20;
+#### Previewing Attached Files&#x20;
 
 To preview or download an attached file, simply navigate to the **Attachments** tab in a crash report and click on the right arrow next to the attachment name in order to load a preview of the attached text.
 
@@ -98,8 +98,6 @@ The Summary page has a line chart at the top of the page which shows the top sta
 
 ## Crash Group Page
 
-The **Crash Group** page shows a more in-depth view of all crashes found in a [stack key](../../education/bugsplat-terminology.md#stack-key).
+The **Crash Group** page shows a more in-depth view of all crashes found in a [stack key](../../education/bugsplat-terminology.md#stack-key) and allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more.
 
-The **Crash Group** page allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more.
-
-Companies that are using BugSplat's [Windows C++ SDK](../getting-started/integrations/desktop/cplusplus/) can create [Custom Support Responses](../production/setting-up-custom-support-responses.md) to alert their end-users to known issues identified with BugSplat. Support responses are a valuable tool for communicating with end-users about known fixes or to point them toward specific helpful docs.
+Companies that are using BugSplat's [Windows C++ SDK](../getting-started/integrations/desktop/cplusplus/) can create [Custom Support Responses](../production/setting-up-custom-support-responses.md) to alert their end-users to known issues identified with BugSplat. Support responses are a valuable tool for communicating with end-users about known fixes or pointing them toward specific helpful docs.

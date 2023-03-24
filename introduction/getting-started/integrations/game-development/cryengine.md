@@ -44,6 +44,6 @@ Right click the `.cryproject` file for your game and select `Launch Game`. Once 
 
 ### Viewing the Crash Report
 
-After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. In this case the last 4 stack frames are all related to the crash report generator and the frame of interest is the 5th frame of the call stack. Create a [subkey](../../../../education/how-tos/crash-grouping-concepts.md) by expanding the 5th row in the `Active Thread` and then click the `Create Subkey` button. Navigate back to the crash and notice that the Stack Key is now `CrySystem!CXConsole::ExecuteCommand(2427)` instead of `CrySystem!CCrashHandler::GetExceptionPointers(1566)`.
+After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. In this case the last 4 stack frames are all related to the crash report generator and the frame of interest is the 5th frame of the call stack. Create a [Group](../../../development/grouping-crashes.md) by expanding the 5th row in the `Active Thread` and then click the `Create Subkey` button. Navigate back to the crash and notice that the Stack Key is now `CrySystem!CXConsole::ExecuteCommand(2427)` instead of `CrySystem!CCrashHandler::GetExceptionPointers(1566)`.
 
 ![BugSplat CRYENGINE crash details](../../../../.gitbook/assets/cryengine-crash-details.png)
