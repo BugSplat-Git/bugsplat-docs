@@ -40,7 +40,7 @@ Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/G
 
 The [**Crashes**](https://app.bugsplat.com/v2/crashes) page displays a list of reports and their associated group under the **Stack Key** column. We've added a rule that effectively skips `KERNELBASE!RaiseException` and the reports are now grouped by the next frame in the stack `MyConsoleCrasher!_CxxThrowException(75)`. To see the report's stack trace, click the value in the **ID** column.
 
-<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Crash Page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Crash Page</p></figcaption></figure>
 
 ### Crash Page
 

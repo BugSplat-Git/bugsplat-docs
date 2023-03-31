@@ -153,7 +153,7 @@ Once you've submitted a crash report navigate to the [Crashes](https://app.bugsp
 If everything is configured correctly, you should see something that resembles the following:
 
 \
-![](<../../../../.gitbook/assets/image (3).png>)
+![](../../../../.gitbook/assets/image.png)
 
 ### Contributing
 

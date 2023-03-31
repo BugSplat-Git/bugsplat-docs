@@ -8,7 +8,7 @@ Each of the main pages has subpages that provide more detail on individual [cras
 
 The [Dashboard](https://app.bugsplat.com/v2/dashboard) page is the application’s home and the place users land first inside the application. It provides users with an overview of how their application is performing and shows a list of the most recently submitted crashes.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Dashboard Page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Dashboard Page</p></figcaption></figure>
 
 ## Navigating with Breadcrumbs
 
