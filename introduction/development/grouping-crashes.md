@@ -16,7 +16,7 @@ By leveraging BugSplat's Auto-Group feature, developers can specify pattern-base
 When you specify a new Auto-Group rule it applies newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
 {% endhint %}
 
-Developers can specify new Auto-Group rules on the [Settings](https://app.bugsplat.com/v2/settings/database) page.
+Developers can specify new Auto-Group rules on the [Settings](https://app.bugsplat.com/v2/settings/database/grouping) page.
 
 <figure><img src="../../.gitbook/assets/auto-group.gif" alt=""><figcaption><p>Auto-Group Rule Example</p></figcaption></figure>
 
