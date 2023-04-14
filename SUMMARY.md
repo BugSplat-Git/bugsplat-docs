@@ -180,7 +180,7 @@
   * [User Permissions](administration/introduction/user-permissions.md)
   * [Deleting a User](administration/introduction/permanently-deleting-a-user-account.md)
   * [Requesting Access](administration/introduction/requesting-access-to-your-teams-accounts.md)
-  * [Best Practices for Adding Users in Companies with Multiple Databases](administration/introduction/best-practices-for-adding-users-in-companies-with-multiple-databases.md)
+  * [Adding New Users in Companies with Multiple Databases](administration/introduction/adding-new-users-in-companies-with-multiple-databases.md)
 * [Contact us](administration/contact-us.md)
 
 ## 🐛 About
