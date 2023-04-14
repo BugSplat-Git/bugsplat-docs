@@ -15,7 +15,7 @@ They perform this task automatically, capturing an application's state during th
 
 Access to this information allows developers to identify the underlying issue causing the application to crash without seeing it in real-time or recreating the issue on their own computers.&#x20;
 
-Most people interact with a crash reporter via the [**dialog box**](../how-tos/customize-the-crash-dialog.md) **** (shown below) or the window that appears after an application crashes. This box provides basic information about what happened and gives the user a chance to provide additional details about the events leading up to the crash event.
+Most people interact with a crash reporter via the [**dialog box**](../how-tos/customize-the-crash-dialog.md) (shown below) or the window that appears after an application crashes. This box provides basic information about what happened and gives the user a chance to provide additional details about the events leading up to the crash event.
 
 <figure><img src="../../.gitbook/assets/crash-reporter-dialog-bugsplat.png" alt=""><figcaption><p>Example BugSplat Crash Dialog</p></figcaption></figure>
 

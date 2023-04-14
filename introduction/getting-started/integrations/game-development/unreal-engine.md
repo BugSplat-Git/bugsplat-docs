@@ -38,7 +38,7 @@ Remember the values you use for {database}, {appName}, and {appVersion}. You wil
 
 #### Unreal Engine 4.25 and older
 
-For capturing crashes in packaged games in Unreal Engine 4.25 and earlier, **** copy `DefaultEngine.ini` to `{{output directory}}\Engine\Programs\CrashReportClient\Config\NoRedist` making sure to create folders that don't exist (where`{{output directory}}` is the location of your packaged build).
+For capturing crashes in packaged games in Unreal Engine 4.25 and earlier, copy `DefaultEngine.ini` to `{{output directory}}\Engine\Programs\CrashReportClient\Config\NoRedist` making sure to create folders that don't exist (where`{{output directory}}` is the location of your packaged build).
 
 #### **Unreal Engine 4.26 and newer**
 

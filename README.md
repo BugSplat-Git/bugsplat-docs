@@ -76,7 +76,7 @@ Documentation covering user management, account management, billing, and upgrade
 [contact-us.md](administration/contact-us.md)
 {% endcontent-ref %}
 
-****
+
 
 ## About
 
