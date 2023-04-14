@@ -10,7 +10,7 @@ description: >-
 
 Large companies and teams with multiple databases may have a need to restrict access to certain databases while allowing access to others. In order to manage access to databases effectively, it is important to establish best practices for adding users to individual databases.
 
-In these cases, new users should always be given access to one database at a time via the Database-specific [Users](https://app.bugsplat.com/v2/settings/database/users?database) page (outlined below in pink).  Do not use the Company-wide [Manage Users](https://app.bugsplat.com/v2/settings/company/users) page (outlined below in yellow) as it grants access to all Company Databases.
+In these cases, new users should always be invited via the Database-specific [Users](https://app.bugsplat.com/v2/settings/database/users?database) page (outlined below in pink) because it grants access only to the selected Database.  Do not use the Company-wide [Manage Users](https://app.bugsplat.com/v2/settings/company/users) page (outlined below in yellow), as it grants access to all Company Databases.
 
 <figure><img src="../../.gitbook/assets/database-specific-users-page.png" alt=""><figcaption></figcaption></figure>
 
@@ -24,4 +24,4 @@ In these cases, new users should always be given access to one database at a tim
 
 ### Conclusion:&#x20;
 
-Managing user access in large companies with multiple databases is crucial to ensure privacy, security, and compliance. By following these best practices, companies can avoid potential issues and ensure that users only have access to the databases they need.
+Managing user access in large companies with multiple databases is crucial to ensure privacy, security, and compliance. By following these best practices, companies can avoid potential issues and ensure that users only have access to the needed databases.
