@@ -35,6 +35,12 @@ Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/G
 | `[!abc]` | matches one character that is not given in the bracket                                           | \[!C]at       | Bat, bat, or cat                                         | Cat                                   |
 | `[!a-z]` | matches one character that is not from the range given in the bracket                            | Letter\[!3-5] | Letter1, Letter2, Letter6 up to Letter9 and Letterx etc. | Letter3, Letter4, Letter5 or Letterxx |
 
+Auto-group rules are processed in a specific, consistent order that cannot be changed.  The rules engine follows the logic below:
+
+* If there are any **group by** stack frame matches, select the top-most matching frame as the candidate frame.  Starting with this frame, skip over any frames that match the **ignore** rules until finding the first frame that isn't to be ignored.  Use the resulting frame for grouping.  Don't process any more rules.
+* If there are any **group after** stack frame matches, select the lower-most matching frame as the candidate frame.  Starting with this frame, skip over any frames that match the **ignore** rules until finding the first frame that isn't to be ignored.  Use the resulting frame for grouping.  Don't process any more rules.
+* At this point neither **group by** nor **group after** rules matched any stack frames.  The rules engine will apply the **ignore** rules starting with the top stack frame, skipping over any frames that match the **ignore** rules until it finds the first frame that isn't to be ignored.  The resulting frame is used for grouping.
+
 {% hint style="info" %}
 When you specify a new Auto-Group rule it applies newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
 {% endhint %}
