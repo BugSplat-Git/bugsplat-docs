@@ -8,15 +8,13 @@ BugSplat's [Summary](https://app.bugsplat.com/v2/summary) page is a table of cra
 
 ### Auto-Group Rules
 
-By leveraging BugSplat's Auto-Group feature, developers can specify pattern-based rules that skip irrelevant stack frames and create more meaningful crash groups. The two main types of rules are **group by** and **ignore frames up to and including**. Rules can be applied per **platform**, and match either the **function** or **file** portion of the call stack. BugSplat will first process any **group by** rules, and only if there are no matches will it process the **ignore** rules.
+BugSplat has a set of customizable rules that skip over functions that are typically not interesting to application developers.  Our default rules are designed to get you started quickly, and can be modified as required for each of your crash report databases.
 
-{% hint style="info" %}
-When you specify a new Auto-Group rule it applies newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
-{% endhint %}
+The auto-group rules are pattern-based matching rules that skip irrelevant stack frames and create more meaningful crash groups. The three types of rules are group by, group after and ignore frames. Rules are defined per platform, and can be specified to match either the function or file portion of the call stack.&#x20;
 
-Developers can specify new Auto-Group rules on the [Settings](https://app.bugsplat.com/v2/settings/database/grouping) page.
+You can view and change Auto-Group rules on the [Settings](https://app.bugsplat.com/v2/settings/database/grouping)/Grouping page.
 
-<figure><img src="../../.gitbook/assets/auto-group.gif" alt=""><figcaption><p>Auto-Group Rule Example</p></figcaption></figure>
+Let's take a look at how BugSplat groups a report with the Windows OS function KERNELBASE!RaiseException at the top of the stack.  Our default rule is shown below:
 
 In the example above, we specified a rule for **Windows Native C++** that groups reports **ignoring stack frames up to and including** frames where the **function** matches **KERNELBASE\***. When BugSplat processes reports containing `KERNELBASE!RaiseException` at the top of the stack the crashes will automatically be grouped by the next frame in the call stack.
 
@@ -33,6 +31,10 @@ Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/G
 | `[a-z]`  | matches one character from the range given in the bracket                                        | Letter\[0-9]  | Letter0, Letter1, Letter2 up to Letter9                  | Letters, Letter or Letter10           |
 | `[!abc]` | matches one character that is not given in the bracket                                           | \[!C]at       | Bat, bat, or cat                                         | Cat                                   |
 | `[!a-z]` | matches one character that is not from the range given in the bracket                            | Letter\[!3-5] | Letter1, Letter2, Letter6 up to Letter9 and Letterx etc. | Letter3, Letter4, Letter5 or Letterxx |
+
+{% hint style="info" %}
+When you specify a new Auto-Group rule it applies newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
+{% endhint %}
 
 ### Crashes Page
 
