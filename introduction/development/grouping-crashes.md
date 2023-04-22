@@ -53,23 +53,17 @@ The [**Crashes**](https://app.bugsplat.com/v2/crashes) page displays a list of r
 
 ### Crash Page
 
-On the **Crash** page, scroll down to the list of stack frames for the crashing thread. Notice that we didn't quite get our grouping rules correct. Our rules have caused the report to be grouped under the bolded function `MyConsoleCrasher!_CxxThrowException`**.** The function we actually want to group on is `MyConsoleCrasher!ThrowByUser`. Expand the row containing `MyConsoleCrasher!ThrowByUser` to reveal the **Group Rules** and **Create Group** buttons.
+On the **Crash** page, scroll down to the list of stack frames for the crashing thread. Notice that we didn't quite get our grouping rules correct. Our rules have caused the report to be grouped under the bolded function `MyConsoleCrasher!_CxxThrowException`**.** The function we actually want to group on is `MyConsoleCrasher!ThrowByUser`. Expand the row containing `MyConsoleCrasher!ThrowByUser` to reveal the **Group Rules** button.
 
 <figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption><p>Crash Page with Stack Frame Expanded</p></figcaption></figure>
 
-First, we should click **Group Rules** and add another rule that **ignores stack frames up to and including** frames where a **function** matches the glob **\*\_CXXThrowException\***. However, rules are only applied to newly processed, and reprocessed crashes. If you would like to retroactively override the grouping for all reports that match the top 2 frames (`RaiseException`, and `_CxxThrowException`), click the **Create Group** button.
+We can click **Group Rules** and add another rule that **groups after** stack frames where the function matches the glob **\*\_CXXThrowException\***.   After creating this rule and reprocessing the crash report, you will see the correct grouping.&#x20;
 
-### Create Group Page
-
-The **Create Group** page is used to retroactively override groupings for reports that match a specific list of stack frames at the top of the stack. Reports with the frames listed in the **Stack Frames** table at the top of the stack will be grouped together under the group `MyConsoleCrasher!ThrowByUser`.
-
-#### Time Frame
-
-All incoming crashes will be grouped based on the specified rule. However, it might be desirable to apply the new grouping rule(s) to existing crashes in a database. Select a period of time in which you would like BugSplat to retroactively apply the new grouping preference. Please note that the longer the time frame you select the longer the action will take to complete.
+### Legacy Crash Groups Page
 
 #### Remove Group
 
-Groups can also be removed via the **Create Group** page. Please note that when you remove a group, you are only removing groups that were created manually and reports will still be processed according to the list of Auto-Group rules.&#x20;
+Legacy crash groups can be removed via the **Create Group** page. Please note that when you remove a group, you are only removing groups that were created with the old, no longer supported version of BugSplat crash grouping.&#x20;
 
 <figure><img src="../../.gitbook/assets/create-group.gif" alt=""><figcaption><p>Create Group for ThrowByUser</p></figcaption></figure>
 
