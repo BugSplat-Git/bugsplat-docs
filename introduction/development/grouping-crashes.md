@@ -16,6 +16,8 @@ You can view and change Auto-Group rules on the [Settings/Grouping](https://app.
 
 Let's take a look at how BugSplat groups a report with the Windows OS function KERNELBASE!RaiseException at the top of the stack.  Our default rule is shown below:
 
+![](../../.gitbook/assets/image.png)
+
 This rule, for Windows Native C++ crash types, **groups after** any stack frame where the function matches KERNELBASE\*.  When BugSplat processes reports containing KERNELBASE!RaiseException, the rule matches and crashes will automatically be grouped by the following frame of the call stack.  Group after rules are useful for excluding frames that are known to be common error conditions. \
 
 

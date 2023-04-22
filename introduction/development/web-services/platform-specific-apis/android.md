@@ -1,6 +1,6 @@
 # Android
 
-{% swagger method="post" path="/post/android/symbols" baseUrl="https://{{database}}.bugsplat.com" summary="Symbols" %}
+{% swagger method="post" path="/post/android/symbols" baseUrl="https://{{database}}.bugsplat.com" summary="Symbols" expanded="true" %}
 {% swagger-description %}
 Transforms 
 
