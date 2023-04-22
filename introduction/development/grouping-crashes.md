@@ -2,11 +2,9 @@
 
 ## Overview
 
-It can be difficult to wrangle large amounts of crash data. Deciding which crashes your team should focus on might seem daunting. For large applications, it's nearly impossible to investigate every crash that has been submitted to BugSplat. Fortunately, BugSplat allows teams to group similar crashes and fix the root cause of multiple crash reports in one fell swoop. Crash grouping also helps speed up the analysis of specific crashes by ignoring uninteresting frames at the top of the call stack.
+Deciding which crashes your team should focus on can seem daunting. For many applications, it's impossible to investigate every crash. Fortunately, BugSplat automatically groups similar crashes, allowing you to concentrate your efforts on the bugs causing the most instability. &#x20;
 
-## How-To
-
-BugSplat's [Summary](https://app.bugsplat.com/v2/summary) page contains a table of crash groups. By default, all reports are grouped by the frame that was at the top of the stack when an application crashed. Sometimes the top of a crash's stack may contain a single frame (or several frames) of common code that causes unrelated crashes to be grouped together. The simplest example of when crashes are grouped incorrectly is in C++ crashes from raised exceptions. Let's take a look at how we can separate reports with `KERNELBASE!RaiseException` at the top of the stack into more descriptive crash groups.
+BugSplat's [Summary](https://app.bugsplat.com/v2/summary) page is a table of crash groups. Usually, crash reports are grouped by the top stack frame when the application crashes.  However, sometimes the top of a stack contains common code that causes unrelated crashes to be grouped together.  When this happens, auto-group rules can automatically select a lower stack frame that more accurately groups related crashes
 
 ### Auto-Group Rules
 
