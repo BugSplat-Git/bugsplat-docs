@@ -16,9 +16,12 @@ You can view and change Auto-Group rules on the [Settings](https://app.bugsplat.
 
 Let's take a look at how BugSplat groups a report with the Windows OS function KERNELBASE!RaiseException at the top of the stack.  Our default rule is shown below:
 
-In the example above, we specified a rule for **Windows Native C++** that groups reports **ignoring stack frames up to and including** frames where the **function** matches **KERNELBASE\***. When BugSplat processes reports containing `KERNELBASE!RaiseException` at the top of the stack the crashes will automatically be grouped by the next frame in the call stack.
 
-Alternatively, developers can add rules that **group by** frames matching patterns. **Group by** rules are useful for including items that can be identified as belonging to your application. For example, you might choose **group by** to specify a **file** matching a path on your build machine, or a **function** matching your main application's module.
+
+This rule, for Windows Native C++ crash types, **groups after** any stack frame where the function matches KERNELBASE\*.  When BugSplat processes reports containing KERNELBASE!RaiseException, the rule matches and crashes will automatically be grouped by the following frame of the call stack.  Group after rules are useful for excluding frames that are known to be common error conditions. \
+
+
+Developers can also add rules that **group by** frames matching certain patterns. Group by rules are useful for including items that can be identified as belonging to your application. For example, you might choose group by to specify a file matching a path on your build machine, or a function matching your main application's module.
 
 Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/Glob\_\(programming\)).
 
