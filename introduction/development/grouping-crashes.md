@@ -21,9 +21,9 @@ Let's take a look at how BugSplat groups a report with the Windows OS function K
 This rule, for Windows Native C++ crash types, **groups after** any stack frame where the function matches KERNELBASE\*.  When BugSplat processes reports containing KERNELBASE!RaiseException, the rule matches and crashes will automatically be grouped by the following frame of the call stack.  Group after rules are useful for excluding frames that are known to be common error conditions. \
 
 
-Developers can also add rules that **group by** frames matching certain patterns. Group by rules are useful for including items that can be identified as belonging to your application. For example, you might choose group by to specify a file matching a path on your build machine, or a function matching your main application's module.
+Developers can also add rules that **group by** frames matching certain patterns. **Group by** rules are useful for including items that can be identified as belonging to your application. For example, you might choose **group by** to specify a file matching a path on your build machine, or a function matching your main application's module.
 
-Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/Glob\_\(programming\)).
+Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/Glob\_\(programming\)).  The following table describes common glob patterns.&#x20;
 
 | Pattern  | Description                                                                                      | Example       | Matches                                                  | Does not match                        |
 | -------- | ------------------------------------------------------------------------------------------------ | ------------- | -------------------------------------------------------- | ------------------------------------- |
@@ -42,7 +42,7 @@ Auto-group rules are processed in a specific, consistent order that cannot be ch
 * At this point neither **group by** nor **group after** rules matched any stack frames.  The rules engine will apply the **ignore** rules starting with the top stack frame, skipping over any frames that match the **ignore** rules until it finds the first frame that isn't to be ignored.  The resulting frame is used for grouping.
 
 {% hint style="info" %}
-When you specify a new Auto-Group rule it applies newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
+When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
 {% endhint %}
 
 ### Crashes Page
