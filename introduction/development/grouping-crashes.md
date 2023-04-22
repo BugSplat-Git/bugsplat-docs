@@ -4,19 +4,17 @@
 
 Deciding which crashes your team should focus on can seem daunting. For many applications, it's impossible to investigate every crash. Fortunately, BugSplat automatically groups similar crashes, allowing you to concentrate your efforts on the bugs causing the most instability. &#x20;
 
-BugSplat's [Summary](https://app.bugsplat.com/v2/summary) page is a table of crash groups. Usually, crash reports are grouped by the top stack frame when the application crashes.  However, sometimes the top of a stack contains common code that causes unrelated crashes to be grouped together.  When this happens, auto-group rules can automatically select a lower stack frame that more accurately groups related crashes
+BugSplat's [Summary](https://app.bugsplat.com/v2/summary) page is a table of crash groups. Usually, crash reports are grouped by the top stack frame when the application crashes.  However, sometimes the top of a stack contains common code that causes unrelated crashes to be grouped together.  When this happens, auto-group rules can automatically select a lower stack frame that more accurately groups related crashes.
 
 ### Auto-Group Rules
 
-BugSplat has a set of customizable rules that skip over functions that are typically not interesting to application developers.  Our default rules are designed to get you started quickly, and can be modified as required for each of your crash report databases.
+BugSplat has a set of customizable rules that skip over functions that are typically not interesting to application developers.  Our default rules are designed to get you started quickly and can be modified as required for each crash report database.
 
-The auto-group rules are pattern-based matching rules that skip irrelevant stack frames and create more meaningful crash groups. The three types of rules are group by, group after and ignore frames. Rules are defined per platform, and can be specified to match either the function or file portion of the call stack.&#x20;
+The auto-group rules are pattern-based matching rules that skip irrelevant stack frames and create more meaningful crash groups. The three types of rules are **group by**, **group after** and **ignore** frames. Rules are defined per platform and can be specified to match either the function or file portion of the call stack.&#x20;
 
 You can view and change Auto-Group rules on the [Settings](https://app.bugsplat.com/v2/settings/database/grouping)/Grouping page.
 
 Let's take a look at how BugSplat groups a report with the Windows OS function KERNELBASE!RaiseException at the top of the stack.  Our default rule is shown below:
-
-
 
 This rule, for Windows Native C++ crash types, **groups after** any stack frame where the function matches KERNELBASE\*.  When BugSplat processes reports containing KERNELBASE!RaiseException, the rule matches and crashes will automatically be grouped by the following frame of the call stack.  Group after rules are useful for excluding frames that are known to be common error conditions. \
 
