@@ -12,7 +12,7 @@ BugSplat has a set of customizable rules that skip over functions that are typic
 
 The auto-group rules are pattern-based matching rules that skip irrelevant stack frames and create more meaningful crash groups. The three types of rules are **group by**, **group after** and **ignore** frames. Rules are defined per platform and can be specified to match either the function or file portion of the call stack.&#x20;
 
-You can view and change Auto-Group rules on the [Settings](https://app.bugsplat.com/v2/settings/database/grouping)/Grouping page.
+You can view and change Auto-Group rules on the [Settings/Grouping](https://app.bugsplat.com/v2/settings/database/grouping) page.
 
 Let's take a look at how BugSplat groups a report with the Windows OS function KERNELBASE!RaiseException at the top of the stack.  Our default rule is shown below:
 
