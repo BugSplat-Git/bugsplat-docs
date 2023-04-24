@@ -1,47 +1,85 @@
 # Java
 
-## Overview
+Install `com.bugsplat` from [Maven Central](https://search.maven.org/artifact/com.bugsplat/bugsplat-java).
 
-Integrate BugSplat crash reporting with your Java Applications:
+**Maven**
 
-Before doing anything make sure to [download](https://app.bugsplat.com/browse/download\_item.php/?item=java) the BugSplat software development kit for Java Applications.
-
-## Add BugSplat to your application
-
-Add the BugSplat pbrary to your CLASSPATH.
-
-Import the BugSplat exception handler class `com.bugsplat.cpent.BugSplat`.
-
-Add a call to BugSplat.Init as shown in the MyJavaCrasher sample code.
-
-The initialization call requires three parameters: BugSplat database, application name and version. You supply the application name and version. The BugSplat database is created and selected on the [Versions](https://app.bugsplat.com/v2/versions) page.
-
-Typically, you will create a new database for each major release of your product.
-
-Add a try-catch block in your application entry point (for example, in main).
-
-To handle both runtime Exceptions and Errors, catch Throwable, construct an Exception object, and pass it to BugSplat.HandleException.
-
-If your application creates threads, you will want an exception report to be generated before the thread is terminated:
-
+```xml
+<dependency>
+    <groupId>com.bugsplat</groupId>
+    <artifactId>bugsplat-java</artifactId>
+    <version>0.0.0</version>
+</dependency>
 ```
+
+**Gradle**
+
+```kotlin
+implementation("com.bugsplat:bugsplat-java:0.0.0")
+```
+
+### ⚙️ Configuration
+
+After you've installed the SDK from Maven, add an import statement for `com.bugsplat.BugSplat`:
+
+```java
+import com.bugsplat.BugSplat;
+```
+
+Call `BugSplat.init` providing it your `database`, `application`, and `version`. It's best to do this at the entry point of your application. Several defaults can be provided to BugSplat. You can provide default values for things such as `description`, `email`, `key`, `notes`, `user` and additional file attachments.
+
+```java
+BugSplat.init("Fred", "MyJavaCrasherConsole", "1.0");
+BugSplat.setDescription("Please enter a description");
+BugSplat.setEmail("fred@bugsplat.com");
+BugSplat.setNotes("bobby testing notes");
+BugSplat.setKey("en-US");
+BugSplat.setUser("Fred");
+BugSplat.addAdditionalFile(new File("file.txt").getAbsolutePath());
+```
+
+For servers, console applications, or applications where you don't want to show the report dialog, call `BugSplat.setQuietMode` to prevent the BugSplat dialog from appearing.
+
+```java
+BugSplat.setQuietMode(true);
+```
+
+Wrap your application in a try/catch block and call `BugSplat.handleException` in the catch block. This will post the exception to BugSplat.
+
+```java
+try {
+    throw new Exception("BugSplat rocks!");
+} catch (Exception ex) {
+    Bugsplat.handleException(ex);
+}
+```
+
+If your application uses [threads](https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html), add a call to `BugSplat.handleException` in `uncaughtException` to post a report to BugSplat before the thread is terminated.
+
+```java
 class MyThreadGroup extends ThreadGroup {
-      public MyThreadGroup (String s) {
-          super(s);
-      }
-              
-      public void uncaughtException(Thread thread, Throwable throwable) {
-          BugSplat.HandleException(new Exception(throwable));                     
-      }
+  public MyThreadGroup (String s) {
+      super(s);
   }
+
+  public void uncaughtException(Thread thread, Throwable throwable) {
+      BugSplat.handleException(new Exception(throwable));                     
+  }
+}
 ```
 
-Construct an instance of your `ThreadGroup` class.
+### 🗺️ Samples
 
-Construct an instance of your Thread, providing your `ThreadGroup` instance in the constructor.
+This repo includes sample projects that demonstrate how to integrate `bugsplat-java`. Please review the [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/master/my-java-crasher) and [my-java-crasher-console](https://github.com/BugSplat-Git/bugsplat-java/tree/master/my-java-crasher-console) folders for more a sample implementation. To run the sample projects, clone this repo and open it in either [IntelliJ IDEA](https://www.jetbrains.com/idea/) or [VS Code](https://code.visualstudio.com/).
 
-Once that is complete start the thread.
+### ✅ Verification
 
-#### Test
+Once you've generated an exception, navigate to the BugSplat [Dashboard](https://app.bugsplat.com/v2/dashboard) and ensure you have to correct database selected in the dropdown menu. You should see a new report under the **Recent Crashes** section:
 
-Remember to test your with our the [MyJavaCrasher](../../posting-a-test-crash/myjavacrasher.md) sample application. This will test that crashes are posted and a good call stack is being created.
+![BugSplat Dashboard Page](https://user-images.githubusercontent.com/2646053/234051911-2bed816e-ffff-424e-8dcd-d81f678cfbfa.png)
+
+Click the link in the **ID** column to see details about the report:
+
+![BugSplat Crash Page](https://user-images.githubusercontent.com/2646053/234052953-465c53f2-e4c2-4190-8d5b-d6d6ec556e97.png)
+
+That’s it! Your application is now configured to post reports to BugSplat.
