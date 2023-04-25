@@ -1,5 +1,7 @@
 # Java
 
+### 🏗 Installation
+
 Install `com.bugsplat` from [Maven Central](https://search.maven.org/artifact/com.bugsplat/bugsplat-java).
 
 **Maven**
