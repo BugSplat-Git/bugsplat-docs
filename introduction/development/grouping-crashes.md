@@ -53,19 +53,11 @@ The [**Crashes**](https://app.bugsplat.com/v2/crashes) page displays a list of r
 
 ### Crash Page
 
-On the **Crash** page, scroll down to the list of stack frames for the crashing thread. Notice that we didn't quite get our grouping rules correct. Our rules have caused the report to be grouped under the bolded function `MyConsoleCrasher!_CxxThrowException`**.** The function we actually want to group on is `MyConsoleCrasher!ThrowByUser`. Expand the row containing `MyConsoleCrasher!ThrowByUser` to reveal the **Group Rules** button.
+On the **Crash** page, scroll down to the list of stack frames for the crashing thread. Notice that we didn't quite get our grouping rules correct. Our rules have caused the report to be grouped under the function in bold, `MyConsoleCrasher!_CxxThrowException`**.** The function we actually want to group on is `MyConsoleCrasher!ThrowByUser`. Expand the row containing `MyConsoleCrasher!ThrowByUser` to reveal the **Group Rules** button.
 
 <figure><img src="../../.gitbook/assets/crash-expanded-frame.png" alt=""><figcaption><p>Crash Page with Stack Frame Expanded</p></figcaption></figure>
 
 We can click **Group Rules** and add another rule that **groups after** stack frames where the function matches the glob `*_CXXThrowException*`. After creating this rule and reprocessing the crash report, you will see the correct grouping.&#x20;
-
-### Legacy Crash Groups Page
-
-#### Remove Group
-
-Legacy crash groups can be removed via the **Create Group** page. Please note that when you remove a group, you are only removing groups that were created with the old, no longer supported version of BugSplat crash grouping.&#x20;
-
-<figure><img src="../../.gitbook/assets/create-group.gif" alt=""><figcaption><p>Create Group for ThrowByUser</p></figcaption></figure>
 
 ### Key Crash Page
 
@@ -77,12 +69,8 @@ For child groups, such as `MyConsoleCrasher!ThrowByUser`, a **View Group Details
 
 Child groups, such as `MyConsoleCrasher!ThrowByUser`, will also display a **View Related Groups** button on the **Group Crash** Crash page. This button will navigate the user to a list of sibling groups that have been created for crashes with `KERNELBASE!RaiseException` at the top of the stack.
 
-Finally, child groups will display a **Remove Group** button will be displayed in the Navigation section on the right of the window. This button will navigate the user to the **Group Crashes** page where a group or collection of groups can be removed.
-
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Key Crash Page for Child Group</p></figcaption></figure>
-
 ### Summary Page
 
-Once new grouping rules have been applied, navigate to the [**Summary**](https://app.bugsplat.com/v2/summary) page to view an overview of groups in the selected database. The **Summary** page provides report counts for all of the various groups. Targeting groups with the highest report **Count** will generally give teams the best return on their efforts. Another interesting metric to target is **Users Affected** which represents the number of unique users that ran into a specific problem during the selected time frame.
+Once new grouping rules have been applied, navigate to the [**Summary**](https://app.bugsplat.com/v2/summary) page to view an overview of groups in the selected database. The **Summary** page provides report counts for all of the various groups. Targeting groups with the highest report **Count** will generally give teams the best return on their efforts. Another interesting metric to target is **Users Affected,** which represents the number of unique users that ran into a specific problem during the selected time frame.
 
 <figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Summary Page</p></figcaption></figure>
