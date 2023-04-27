@@ -6,9 +6,9 @@ A->B->C\
 A->D->E\
 A->F->G
 
-If you set up a crash group at level 2, stack key A would no longer appear in the summary table. Instead, you would have three different groups displayed (B, D, and F).
+If you set up a rule to ignore stack key A, crashes would instead be grouped at the second level of the call stack. Instead of a single group at A, you would have three different groups displayed (B, D, and F).
 
-Reports can be created by specifying a list of rules on the [Settings](https://app.bugsplat.com/v2/settings/database?database=Fred) page, or by expanding a stack frame on the **Crash** page and selecting **Create Group.** You can view the list of all your currently defined groups on the [Groups](https://app.bugsplat.com/v2/groups) page.
+Crash report grouping rules can be changed on the [Groupings](https://app.bugsplat.com/v2/settings/database/grouping) page or by expanding a stack frame on the **Crash** page and selecting **Group Rules.**&#x20;
 
-For more information on how to group reports please see our [Grouping Crashes](../../introduction/development/grouping-crashes.md) doc.
+For more information on how to group crash reports, please see [Grouping Crashes](../../introduction/development/grouping-crashes.md).
 
