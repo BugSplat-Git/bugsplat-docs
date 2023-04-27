@@ -5,7 +5,7 @@ description: API Documentation for various endpoints related to BugSplat Crash G
 # Crash Groups
 
 {% hint style="info" %}
-These endpoints support paging and filtering queries. More information paging and filtering is available [here](../paging-filtering-and-grouping.md).
+These endpoints support paging, filtering, and grouping queries. More information on paging, filtering, and grouping is available [here](../paging-filtering-and-grouping.md).
 {% endhint %}
 
 Get a summary of all [crash groups](../../../../education/bugsplat-terminology.md#crash-group), get a list of crashes in a particular group, or detailed information on individual crash groups that share a common function name and line number at the top of the call stack and have been grouped at a lower level of the call stack.
