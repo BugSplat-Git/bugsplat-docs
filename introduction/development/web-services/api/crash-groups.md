@@ -5,7 +5,7 @@ description: API Documentation for various endpoints related to BugSplat Crash G
 # Crash Groups
 
 {% hint style="info" %}
-These endpoints supports paging, and filtering queries. More information paging filtering, and grouping is available [here](../paging-filtering-and-grouping.md).
+These endpoints support paging and filtering queries. More information paging and filtering is available [here](../paging-filtering-and-grouping.md).
 {% endhint %}
 
 Get a summary of all [crash groups](../../../../education/bugsplat-terminology.md#crash-group), get a list of crashes in a particular group, or detailed information on individual crash groups that share a common function name and line number at the top of the call stack and have been grouped at a lower level of the call stack.
@@ -110,99 +110,6 @@ BugSplat database containing crash data
         "exceptionCode": "c0000005",
         "exceptionMessage": "Access violation",
         "groupByCount": null
-      }
-    ]
-  }
-]
-```
-{% endswagger-response %}
-{% endswagger %}
-
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/subKeys" method="get" summary="Sub Keys" %}
-{% swagger-description %}
-Get a list of crash groups (subkeys) that share a common function at the top of the call stack and have been grouped at a lower level of the call stack.
-{% endswagger-description %}
-
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing crash data
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```
-[
-  {
-    "Database": "Fred",
-    "PageData": null,
-    "Rows": [
-      {
-        "SubkeyStackKey": "myCrasher80!__native_startup_lock(0)",
-        "subBucketStackKeyId": "508",
-        "depth": "3",
-        "ParentStackKey": "myCrasher80!CMyCrasherApp::InitInstance(50)",
-        "primaryStackKeyId": "215"
-      },
-      {
-        "SubkeyStackKey": "mfc90!CCmdTarget::OnCmdMsg(381)",
-        "subBucketStackKeyId": "494",
-        "depth": "35",
-        "ParentStackKey": "myCrasher90!CMyCrasherDlg::OnSimulateProblem(246)",
-        "primaryStackKeyId": "486"
-      },
-      {
-        "SubkeyStackKey": "mfc90!CCmdTarget::OnCmdMsg(381)",
-        "subBucketStackKeyId": "494",
-        "depth": "36",
-        "ParentStackKey": "myCrasher90!CMyCrasherDlg::OnSimulateProblem(246)",
-        "primaryStackKeyId": "486"
-      },
-      {
-        "SubkeyStackKey": "mfc90!CCmdTarget::OnCmdMsg(381)",
-        "subBucketStackKeyId": "494",
-        "depth": "38",
-        "ParentStackKey": "myCrasher90!CMyCrasherDlg::OnSimulateProblem(246)",
-        "primaryStackKeyId": "486"
-      },
-      {
-        "SubkeyStackKey": "mycrasher12!_AfxDispatchCmdMsg(82)",
-        "subBucketStackKeyId": "661",
-        "depth": "2",
-        "ParentStackKey": "mycrasher12!CMyCrasherDlg::OnSimulateProblem(246)",
-        "primaryStackKeyId": "655"
-      },
-      {
-        "SubkeyStackKey": "mycrasher10!AfxWinMain(37)",
-        "subBucketStackKeyId": "951",
-        "depth": "2",
-        "ParentStackKey": "mycrasher10!CMyCrasherApp::InitInstance(115)",
-        "primaryStackKeyId": "720"
-      },
-      {
-        "SubkeyStackKey": "Undefined Subkey Name",
-        "subBucketStackKeyId": "4419",
-        "depth": "5",
-        "ParentStackKey": "myDotNetCrasher!myDotNetCrasher.Program.Main(System.String[])(65)",
-        "primaryStackKeyId": "840"
-      },
-      {
-        "SubkeyStackKey": "MyCustomDotNetCrasher!MyCustomDotNetCrasher.Switch.Flip()(7)",
-        "subBucketStackKeyId": "1129",
-        "depth": "5",
-        "ParentStackKey": "MyCustomDotNetCrasher!MyCustomDotNetCrasher.Surprise.Crash()(9)",
-        "primaryStackKeyId": "932"
-      },
-      {
-        "SubkeyStackKey": "jasmine.Spec.(45:37)(45)",
-        "subBucketStackKeyId": "1034",
-        "depth": "2",
-        "ParentStackKey": "jasmine.Spec.it(10:23)",
-        "primaryStackKeyId": "1028"
-      },
-      {
-        "SubkeyStackKey": "jasmine.Spec.(45:37)(45)",
-        "subBucketStackKeyId": "1034",
-        "depth": "2",
-        "ParentStackKey": "jasmine.Spec.it(46:23)",
-        "primaryStackKeyId": "1030"
       }
     ]
   }
