@@ -10,6 +10,10 @@ It is best practice to keep back-end and client reports from a single Applicatio
 
 These are the active subroutines of your program at some point in time. In the BugSplat world, that time is typically the time of a crash. The call stack identifies which subroutines have been called in what order. The call stack is also known as the stack trace, execution stack, program stack, or simply the stack.
 
+### **Company**
+
+The umbrella under which all [Databases](bugsplat-terminology.md#database) are organized.   Customizable inside of Settings at any time, name your company something recognizable to your overall organization (like your full company name). &#x20;
+
 ### Crash Dialog
 
 The **Crash Dialog** box is the end-user, customer-facing aspect of BugSplat. This box appears when an application configured to send crash data to BugSplat runs into a crash defect while in use. At this point, the dialog box prompts the end-user to provide an account of the events leading up to the crash as well as their name and email address.&#x20;
@@ -29,9 +33,9 @@ This is the foundational unit of the BugSplat universe. BugSplat client librarie
 
 ### Database
 
-Databases are the highest order of organization inside of BugSplat.
+Databases are the highest level of data organization inside of BugSplat.
 
-Each database usually corresponds with a different product that your company offers. Some users have only one database, but larger teams and companies will generally find value in utilizing multiple databases to keep their crashes from different products (or versions of the same product) separate.
+Each database usually corresponds with a different product that your company offers. Some users have only one database, but larger teams and companies will generally find value in utilizing multiple databases to separate their crashes from different products (or versions of the same product).
 
 ### Dump File
 
