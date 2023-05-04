@@ -39,7 +39,7 @@ Auto-group rules are processed in a specific, consistent order that cannot be ch
 
 * If there are any **group by** stack frame matches, select the top-most matching frame as the candidate frame. Starting with this frame, skip over any frames that match the **ignore** rules until finding the first frame that isn't to be ignored. Use the resulting frame for grouping. Don't process any more rules.
 * If there are any **group after** stack frame matches, select the lower-most matching frame as the candidate frame. Starting with this frame, skip over any frames that match the **ignore** rules until finding the first frame that isn't to be ignored. Use the resulting frame for grouping. Don't process any more rules.
-* At this point neither **group by** nor **group after** rules matched any stack frames. The rules engine will apply the **ignore** rules starting with the top stack frame, skipping over any frames that match the **ignore** rules until it finds the first frame that isn't to be ignored. The resulting frame is used for grouping.
+* At this point, neither **group by** nor **group after** rules matched any stack frames. The rules engine will apply the **ignore** rules starting with the top stack frame, skipping over any frames that match the **ignore** rules until it finds the first frame that isn't to be ignored. The resulting frame is used for grouping.
 
 {% hint style="info" %}
 When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
@@ -58,16 +58,6 @@ On the **Crash** page, scroll down to the list of stack frames for the crashing 
 <figure><img src="../../.gitbook/assets/crash-expanded-frame.png" alt=""><figcaption><p>Crash Page with Stack Frame Expanded</p></figcaption></figure>
 
 We can click **Group Rules** and add another rule that **groups after** stack frames where the function matches the glob `*_CXXThrowException*`. After creating this rule and reprocessing the crash report, you will see the correct grouping.&#x20;
-
-### Key Crash Page
-
-The **Key Crash** page shows an overview of all the crashes in a specified group, as well as first-seen and last-reported metrics. For default groups (aka the top of the stack) that have been split into sub-groups, such as `KERNELBASE!RaiseException`, a **View Groups** button will be displayed in the **Navigation** section on the right of the window. The **View Groups** button will navigate to the **Groups** page which will display a list of all groups that have been created from the parent group `KERNELBASE!RaiseException`. Note that since all crashes with `KERNELBASE!RaiseException` have been grouped crashes will no longer appear in the default group, and can instead be found in the child groups.
-
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Key Crash Page for Default Group</p></figcaption></figure>
-
-For child groups, such as `MyConsoleCrasher!ThrowByUser`, a **View Group Details** button will be displayed in the **Navigation** section on the right of the window. The **View Group** button will navigate to the **Groups** page filtered by the specified group. The **Groups** page will allow you to see the parent group as well as any sibling groups that might exist.
-
-Child groups, such as `MyConsoleCrasher!ThrowByUser`, will also display a **View Related Groups** button on the **Group Crash** Crash page. This button will navigate the user to a list of sibling groups that have been created for crashes with `KERNELBASE!RaiseException` at the top of the stack.
 
 ### Summary Page
 
