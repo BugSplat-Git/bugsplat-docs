@@ -130,6 +130,8 @@
   * [Crash Dialog Branding](education/how-tos/customize-the-crash-dialog.md)
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
   * [Send Feedback](education/how-tos/sending-feedback.md)
+* [Videos](education/videos/README.md)
+  * [BugSplat Product Walkthrough](education/videos/bugsplat-product-walkthrough.md)
 * [FAQs](education/faq/README.md)
   * [Crash details 'Active Thread'](education/faq/crash-details-active-thread.md)
   * [How long does it take to process a crash?](education/faq/how-long-does-it-take-to-process-a-crash.md)

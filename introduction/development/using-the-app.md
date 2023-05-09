@@ -4,11 +4,17 @@ The BugSplat web application consists of four main pages: [Dashboard](https://ap
 
 Each of the main pages has subpages that provide more detail on individual [crashes](../../education/bugsplat-terminology.md#crash-report), errors, [stack keys](../../education/bugsplat-terminology.md#stack-key), and other important data.
 
+Want a quick run-through of the app?  Watch this video here - > [BugSplat Walkthrough. ](../../education/videos/bugsplat-product-walkthrough.md)
+
 ## Dashboard&#x20;
 
-The [Dashboard](https://app.bugsplat.com/v2/dashboard) page is the application’s home and the place users land first inside the application. It provides users with an overview of how their application is performing and shows a list of the most recently submitted crashes.
+The [Dashboard](https://app.bugsplat.com/v2/dashboard) page is the application’s home and where users land first inside the application. It provides users with an overview of their application's performance and lists the most recently submitted crashes.
 
-<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Dashboard Page</p></figcaption></figure>
+Additionally, the Dashboard page provides a view of your top Crash Groups in a donut chart allowing you to visualize which defects are most critical to fix right now.&#x20;
+
+
+
+<figure><img src="../../.gitbook/assets/bugsplat-dashboard-may-9-2023.png" alt=""><figcaption><p>Dashboard Page</p></figcaption></figure>
 
 ## Navigating with Breadcrumbs
 
