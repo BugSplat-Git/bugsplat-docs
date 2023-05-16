@@ -1,22 +1,24 @@
 # Using SendPdbs to Automatically Upload Symbol Files
 
-Many customers automate the upload of Windows symbols and executables using the BugSplat utility SendPdbs.exe.
+SendPdbs.exe is a BugSplat application used to automate the upload of Windows symbols and executables.  Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.&#x20;
 
-Each build of your product that is used to send crash reports must have an exact set of matching exe/symbol files uploaded to BugSplat. Typically you will provide a unique BugSplat application name/version for each build.
+Download SendPdbs from [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).  The application is also included in the BugSplat Windows SDKs.
 
-Feel free to send symbols to BugSplat for every build on your build/integration server. There is no limit on the total amount of symbols you can post to BugSplat. But by default, any single symbol file must be smaller than 2 GB and any single symbol store (identified by an application name and version) must be less than 8 GB. Enterprise customers can increase these limits.
+Feel free to send symbols to BugSplat for every build on your build/integration server. There is no limit on the total amount of symbols you can post to BugSplat. However, by default, any single symbol file must be smaller than 2 GB.
 
-Credentials can be provided to SendPdbs via the /u and /p command-line arguments. Alternatively, you can save these credentials in the Windows Credentials Manager. To use values from Windows Credential Manager, create a new Generic Credentials entry and provide the entry name as the value for the /credentials argument.
-
-Credentials can also be provided using an OAuth2 client id/client secret created on our [OAuth Integrations](https://app.bugsplat.com/v2/settings/database/integrations#oauth) page.  Just supply these values as the user name/password.
+Uploading symbols with SendPdbs creates a 'symbol store,' which is just a group of symbols identified by their application name and version.  BugSplat will automatically remove symbol stores that haven't been accessed recently.  See below for those rules.  Using our web application, you can manually delete a symbol store.
 
 {% hint style="warning" %}
 BugSplat will automatically remove unreferenced symbols in large symbol sets. If your database contains more than 5 gigabytes of symbol data, our cleanup algorithm will automatically remove symbols that haven't been referenced by a crash report in more than 90 days. Additionally, newly posted symbols not referenced by a crash report within 15 days will be removed.
 {% endhint %}
 
-You can download the BugSplatSendPdbs file by [clicking here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
+Older versions of SendPdbs (prior to version 4.0.0.0) required the application name and version used with SendPdbs to match the application name and version used to initialize BugSplat in your code.   This restriction has been lifted, and any symbols uploaded to your database are now available to all crash reports in that database.
 
-Running SendPdbs.exe in a command window without any arguments show the following usage information:&#x20;
+Credentials can be provided to SendPdbs via the /u and /p command-line arguments. Alternatively, you can save these credentials in the Windows Credentials Manager. To use values from Windows Credential Manager, create a new Generic Credentials entry and provide the entry name as the value for the /credentials argument.
+
+Credentials can also be provided using an OAuth2 client id/client secret created on our [OAuth Integrations](https://app.bugsplat.com/v2/settings/database/integrations#oauth) page.  Just supply these values as the username/password.
+
+Running SendPdbs.exe in a command window without any arguments shows the following usage information:&#x20;
 
 ```
  USAGE: This utility searches your build tree for Windows symbol/executable
