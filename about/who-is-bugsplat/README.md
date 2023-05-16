@@ -53,4 +53,8 @@ If you're a BugSplat user, thank you for making this happen. If you're not a use
 
 Cheers,
 
-![](../../.gitbook/assets/bs-team-signature.png)
+<div align="left">
+
+<img src="../../.gitbook/assets/bs-team-signature.png" alt="">
+
+</div>
