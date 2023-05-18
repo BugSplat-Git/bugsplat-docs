@@ -4,7 +4,7 @@
 
 BugSplat’s Unreal Engine integration supports most Unreal platforms including desktop computers, the Steam platform, and Linux servers. Support for additional platforms will be provided in the future.
 
-There are two options for configuring BugSplat. If you integrating BugSplat on behalf of your organization that uses a dedicated build machine, please continue reading. If you are a developer who is looking to try BugSplat on your local machine you can skip to the [Plugin](unreal-engine.md#unreal-engine-plugin) section below.
+There are two options for configuring BugSplat. If you are integrating BugSplat on behalf of your organization that uses a dedicated build machine, please continue reading. If you are a developer who is looking to try BugSplat on your local machine you can skip to the [Plugin](unreal-engine.md#unreal-engine-plugin) section below.
 
 ## Windows 🪟
 
