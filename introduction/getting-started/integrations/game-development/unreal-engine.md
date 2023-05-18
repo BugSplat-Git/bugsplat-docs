@@ -1,14 +1,14 @@
 # Unreal Engine
 
-## Overview 🌎
-
 BugSplat’s Unreal Engine integration supports most Unreal platforms including desktop computers, the Steam platform, and Linux servers. Support for additional platforms will be provided in the future.
 
-There are two options for configuring BugSplat. If you are integrating BugSplat on behalf of your organization that uses a dedicated build machine, please continue reading. If you are a developer who is looking to try BugSplat on your local machine you can skip to the [Plugin](unreal-engine-plugin.md) section below.
+There are two options for configuring BugSplat. If you are integrating BugSplat on behalf of your organization that uses a dedicated build machine, please continue reading. If you are a developer who is looking to try BugSplat on your local machine you can skip to the [Plugin](unreal-engine/unreal-engine-plugin.md) section below.
+
+Additionally, if you're looking to integrate BugSplat on iOS and Android, please refer to our [Plugin](unreal-engine/unreal-engine-plugin.md) page.
 
 ## Windows 🪟
 
-To create symbolic call stacks on Windows platforms, you must upload symbol and executable files. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs) or via the [SendPDBs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc.
+To create symbolic call stacks on Windows platforms, you must upload symbol and executable files. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs) or via the [SendPDBs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc.
 
 ### Symbol Uploads
 
@@ -19,15 +19,15 @@ cd {your build folder}
 SendPdbs.exe /u {username} /p {password} /b {database} /a {appName} /v {appVersion} /s /f "*.pdb;*.dll;*.exe"
 ```
 
-The `appName` and `appVersion` parameters will be associated with your uploaded symbols, creating a **symbol store**. BugSplat will automatically remove symbol stores that have not been accessed recently. See the [SendPDBs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc for a description of these rules.
+The `appName` and `appVersion` parameters will be associated with your uploaded symbols, creating a **symbol store**. BugSplat will automatically remove symbol stores that have not been accessed recently. See the [SendPDBs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc for a description of these rules.
 
 ### Packaging Settings
 
 Package your game, and check the **Include Crash Reporter** and **Include Debug Files** options are selected in your build configuration:
 
-![Integrating Unreal with BugSplat](../../../../../.gitbook/assets/unreal-package-project-menu.png)
+![Integrating Unreal with BugSplat](../../../../.gitbook/assets/unreal-package-project-menu.png)
 
-![UE4\_PackagingSetttings](../../../../../.gitbook/assets/unreal-packaging-settings.png)
+![UE4\_PackagingSetttings](../../../../.gitbook/assets/unreal-packaging-settings.png)
 
 ### Configuring Crash Report Client
 
