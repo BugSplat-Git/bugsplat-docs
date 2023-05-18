@@ -138,6 +138,7 @@
   * [How long does it take to process a crash?](education/faq/how-long-does-it-take-to-process-a-crash.md)
   * [Multi-Factor Authentication (MFA)](education/faq/multi-factor-authentication-mfa.md)
   * [How BugSplat handles large crash volumes](education/faq/how-bugsplat-handles-large-crash-volumes.md)
+  * [Add Custom Branding to Support Response](education/faq/add-custom-branding-to-support-response.md)
   * [Finding Missing Reports](education/faq/finding-missing-reports.md)
   * [Does BugSplat have an effect on application performance?](education/faq/does-bugsplat-have-an-effect-on-application-performance.md)
   * [Manually Upload Crash Reports to BugSplat](education/faq/manually-post-crash-reports-to-bugsplat.md)
