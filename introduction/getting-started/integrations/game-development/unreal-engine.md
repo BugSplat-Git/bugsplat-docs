@@ -88,7 +88,7 @@ Special instructions for Linux servers:
 * Package the crash reporter with your Linux server build by adding the `-CrashReporter` flag to `PackageBuildLinuxServer.bat`
 * Force a test crash by running your server executable with the option `-ExecCmds="debug crash"`
 
-## Custom Fields
+## Custom Fields 📝
 
 We extract metadata from `CrashContext.runtime-xml` file attached to Unreal Engine crash reports. In addition to the values that are provided by prebuilt versions of Unreal Engine, we support a few values our customers have added to their customized engine builds. You can add the following XML fields as child properties of `RuntimeProperties`:
 
@@ -97,7 +97,7 @@ We extract metadata from `CrashContext.runtime-xml` file attached to Unreal Engi
 | BugSplatNotes          | A value persisted to the Notes column |
 | BugSplatApplicationKey | A value persisted to the Key column   |
 
-## Forwarding Crashes to Epic Games
+## Forwarding Crashes to Epic Games 📤
 
 If you'd like to forward crashes to the original `DataRouterUrl` specified in `DefaultEngine.ini` you can enable the **Forward Crashes** option under the Privacy tab on the [Settings](https://app.bugsplat.com/v2/settings/database/privacy) page. Forwarding crash reports to Epic is useful when a crash in your game is caused by the underlying engine and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes that were successfully forwarded to Epic.
 
