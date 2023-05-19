@@ -55,7 +55,7 @@ CrashReportClientVersion=1.0
 DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}"
 ```
 
-Replace `{database}`, `{appName}`, and `{appVersion}` with the names of your BugSplat database, application name, and version.  The appName and appVersion parameters will be assigned to each crash report posted to your database allowing you to group and filter crashes within BugSplat.
+Replace `{database}`, `{appName}`, and `{appVersion}` with the names of your BugSplat database, application name, and version.  The appName and appVersion parameters will be assigned to each crash report posted to your database, allowing you to group and filter crashes within BugSplat.  These parameters should match the corresponding values used for SendPdbs.
 
 {% hint style="warning" %}
 #### Spaces and special characters in {appName} or {appVersion} might cause unexpected behavior and should be avoided.
