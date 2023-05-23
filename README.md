@@ -98,6 +98,6 @@ Information that covers the who, what, when, where, and why's of BugSplat.
 
 Updates to the BugSplat web app, various SDK's, and other aspects of our services.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="http://localhost:5000/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/" %}
+[BugSplat Changelog](http://localhost:5000/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/)
 {% endcontent-ref %}
