@@ -80,9 +80,9 @@ Building Crashpad generates several files that need to be linked with an applica
 
 ### **macOS & Linux**
 
-At a minimum, macOS and Linux applications need to be linked with, `out/Default/obj/client/libcommon.a`, `out/Default/obj/client/libclient.a`, `out/Default/obj/util/libutil.a`, and `out/Default/obj/third_party/mini_chromium/mini_chromium/base/libbase.a`.
+At a minimum, macOS and Linux applications need to be linked with `out/Default/obj/client/libcommon.a`, `out/Default/obj/client/libclient.a`, `out/Default/obj/util/libutil.a`, and `out/Default/obj/third_party/mini_chromium/mini_chromium/base/libbase.a`.
 
-MacOS application will need to link with all of the .o files in `out/Default/obj/out/Default/gen/util/mach` as well.
+MacOS application will need to link with `out/Default/obj/util/libmig_output.a` as well.
 
 When building Linux applications, `libbase.a` needs to be the last Crashpad file specified in the build arguments or the application will not build.
 

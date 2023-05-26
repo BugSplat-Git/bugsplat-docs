@@ -36,6 +36,10 @@ Whether you're new to BugSplat, or simply setting up a new project, our getting 
 [production](introduction/production/)
 {% endcontent-ref %}
 
+{% content-ref url="education/videos/" %}
+[videos](education/videos/)
+{% endcontent-ref %}
+
 ## **Education**
 
 Information helpful for understanding and using BugSplat, FAQ's, and answers to common questions.
