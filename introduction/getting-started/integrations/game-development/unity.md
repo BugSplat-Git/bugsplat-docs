@@ -237,7 +237,7 @@ Under the `Capabilities` section add the `broadFileSystemAccess` capability:
 
 Finally, ensure that your application has access to the file system. The following is a snippet illustrating where this is set for our [my-unity-crasher](https://github.com/BugSplat-Git/my-unity-crasher) sample:
 
-<figure><img src="../../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (11).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### WebGL
 
