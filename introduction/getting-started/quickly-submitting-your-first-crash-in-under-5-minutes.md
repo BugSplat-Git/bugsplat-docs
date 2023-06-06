@@ -4,7 +4,7 @@ Submitting a sample crash to your new BugSplat account is a quick and straightfo
 
 ### Step 1: Sign Up for a New Account
 
-First, Sign up for a free BugSplat account at [https://app.bugsplat.com/v2/sign-up](https://app.bugsplat.com/v2/sign-up). Fill in the required information, including your email address and a secure password. Once you've successfully signed up, you'll be ready to proceed to the next step.
+First, sign up for a free BugSplat account at [https://app.bugsplat.com/v2/sign-up](https://app.bugsplat.com/v2/sign-up). Fill in the required information, including your email address and a secure password. Once you've successfully signed up, you'll be ready to proceed to the next step.
 
 <figure><img src="../../.gitbook/assets/post_sample_crash-1.png" alt=""><figcaption></figcaption></figure>
 
