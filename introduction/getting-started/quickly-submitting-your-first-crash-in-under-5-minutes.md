@@ -2,6 +2,13 @@
 
 Submitting a sample crash to your new BugSplat account is a quick and straightforward process that can be completed in under 5 minutes. Follow the steps below to get started easily:
 
+1. Sign up for a new account
+2. Use the onboarding tool to create a new database
+3. Select your first platform or SDK from our list of 25+ SDKs
+4. Select the "In a Hurry" button at the bottom right of the docs to skip the full integration process for now and post a sample crash
+5. Explore your new BugSplat account and see the data you can get from a crashed app
+6. Navigate back to the onboarding flow for the process of integrating your app fully with BugSplat by clicking the BugSplat logo in the top left of the screen at any point.
+
 ### Step 1: Sign Up for a New Account
 
 First, sign up for a free BugSplat account at [https://app.bugsplat.com/v2/sign-up](https://app.bugsplat.com/v2/sign-up). Fill in the required information, including your email address and a secure password. Once you've successfully signed up, you'll be ready to proceed to the next step.
