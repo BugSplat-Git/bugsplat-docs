@@ -58,14 +58,7 @@ These plans can be paid for monthly with a credit card, or they can be paid for 
 
 These plans are no longer available for purchase starting March 15th, 2022.  However, if your account is currently governed by a Legacy plan because you signed up for a paid account before March 2022,  please email [sales](mailto:sales@bugsplat.com) for any assistance you might need.  You still qualify for these plans.
 
-| Annual Crash Volume | Monthly Cost | Annual Cost (Save 5%) | Users     | Full-feature |
-| ------------------- | ------------ | --------------------- | --------- | ------------ |
-| 15,000              | $0           | $0                    | 1         | No           |
-| 25,000              | $49          | $44                   | 3         | No           |
-| 50,000              | $139         | $125                  | 10        | No           |
-| 125,000             | $259         | $233                  | 20        | Yes          |
-| 250,000             | $529         | $502                  | 40        | Yes          |
-| Enterprise          | Volume Based | -                     | Unlimited |              |
+<table data-header-hidden><thead><tr><th>Annual Crash Volume</th><th>Monthly Cost</th><th width="150">Annual Cost (Save 5%)</th><th>Users</th><th>Full-feature</th></tr></thead><tbody><tr><td>Annual Crash Volume</td><td>Monthly Cost</td><td>Annual Cost (Save 5%)</td><td>Users</td><td>Full-feature</td></tr><tr><td>15,000</td><td>$0</td><td>$0</td><td>1</td><td>No</td></tr><tr><td>25,000</td><td>$49</td><td>$44</td><td>3</td><td>No</td></tr><tr><td>50,000</td><td>$139</td><td>$125</td><td>10</td><td>No</td></tr><tr><td>125,000</td><td>$259</td><td>$233</td><td>20</td><td>Yes</td></tr><tr><td>250,000</td><td>$529</td><td>$502</td><td>40</td><td>Yes</td></tr><tr><td>Enterprise</td><td>Volume Based</td><td>-</td><td>Unlimited</td><td></td></tr></tbody></table>
 
 ### Automated Upgrades for Legacy plans
 

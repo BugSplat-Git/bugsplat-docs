@@ -60,6 +60,7 @@
   * [Inviting Team Members](introduction/getting-started/adding-uses-to-your-account.md)
   * [Importing Crashes](introduction/getting-started/migrating-crashes-from-another-tool.md)
   * [Troubleshooting](introduction/getting-started/troubleshooting.md)
+  * [Quickly Submitting Your First Crash in Under 5 Minutes](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 * [Development](introduction/development/README.md)
   * [Using the App](introduction/development/using-the-app.md)
   * [Symbol Files](introduction/development/working-with-symbol-files/README.md)
