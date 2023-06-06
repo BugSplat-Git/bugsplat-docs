@@ -7,7 +7,6 @@ Submitting a sample crash to your new BugSplat account is a quick and straightfo
 3. Select your first platform or SDK from our list of 25+ SDKs
 4. Select the "In a Hurry" button at the bottom right of the docs to skip the full integration process for now and post a sample crash
 5. Explore your new BugSplat account and see the data you can get from a crashed app
-6. Navigate back to the onboarding flow for the process of integrating your app fully with BugSplat by clicking the BugSplat logo in the top left of the screen at any point.
 
 ### Step 1: Sign Up for a New Account
 
