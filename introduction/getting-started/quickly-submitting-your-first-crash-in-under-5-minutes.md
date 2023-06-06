@@ -6,13 +6,13 @@ Submitting a sample crash to your new BugSplat account is a quick and straightfo
 
 First, sign up for a free BugSplat account at [https://app.bugsplat.com/v2/sign-up](https://app.bugsplat.com/v2/sign-up). Fill in the required information, including your email address and a secure password. Once you've successfully signed up, you'll be ready to proceed to the next step.
 
-<figure><img src="../../.gitbook/assets/post_sample_crash-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/post_sample_crash-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Step 2: Use the Onboarding Tool to Create a New Database
 
 After signing up, you'll be directed to the BugSplat onboarding tool. This tool is designed to make the setup process as seamless as possible. Follow the prompts to create a new database for your application, ensuring you have all the necessary information to set up crash reporting effectively.
 
-<figure><img src="../../.gitbook/assets/post_sample_crash-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/post_sample_crash-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Step 3: Select Your First Platform or SDK
 
@@ -20,13 +20,13 @@ BugSplat supports [a wide range of platforms and SDKs](integrations/), providing
 
 
 
-<figure><img src="../../.gitbook/assets/post_sample_crash-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/post_sample_crash-3.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Step 4: Submitting a Sample Crash
 
 Once you've selected your platform or SDK, you'll be taken to our documentation page. To quickly submit a sample crash without going through the full integration process, scroll down to the bottom right of the page and click the button labeled "**In a hurry? Post a sample crash instead**." This allows you to skip the full integration process for now and submit a sample crash directly.
 
-<figure><img src="../../.gitbook/assets/post_sample_crash-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/post_sample_crash-4.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Step 5: Explore Your New BugSplat Account
 
@@ -34,7 +34,7 @@ Congratulations! You've successfully submitted a sample crash to your new BugSpl
 
 Remember, if you want to navigate back to the onboarding flow and complete the full integration process with BugSplat, you can do so at any time by clicking the BugSplat logo in the top left corner of the screen.  You can also click this link --> [https://app.bugsplat.com/v2/welcome](https://app.bugsplat.com/v2/welcome)
 
-<figure><img src="../../.gitbook/assets/post_sample_crash-5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/post_sample_crash-5.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Additional Resources
 
