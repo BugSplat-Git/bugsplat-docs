@@ -125,7 +125,7 @@ Upload symbols for your application to generate symbolic call stacks. Our sample
 
 #### Step 6
 
-BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's `.sym` files manually, please see this [doc](../../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.
+BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's `.sym` files manually, please see this [doc](../../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use the Breakpad [symupload](how-to-build-google-crashpad.md#windows-4) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.
 
 {% hint style="warning" %}
 Ensure the `path`and`url`are wrapped in double quotes when using`symupload`
@@ -137,7 +137,7 @@ symupload "<file.exe|file.dll>" "https://{database}.bugsplat.com/post/bp/symbol/
 
 #### Breakpad symbols for non-Windows platforms
 
-Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step.  You must first run the Breakpad utility dump\_syms to create .sym files from your local executable files.  Then use symupload to upload the symbols to BugSplat. &#x20;
+Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step.  You must first run the Breakpad utility `dump_syms` to create `.sym` files from your local executable files.  Then use `symupload` to upload the symbols to BugSplat. &#x20;
 
 Operating system symbol files can be uploaded in a similar manner.  You may be able to find symbolic debug files for your operating system.  If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated.
 

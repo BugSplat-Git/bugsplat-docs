@@ -284,11 +284,11 @@ dump_syms /path/to/myApp.out > myApp.out.sym
 
 ### **Windows**
 
-The dump\_syms functionality is built into the `symupload` utility and can be skipped if the application will be symbolicated remotely. Run `dump_syms` only if the application will be symbolicated locally or the sym file will be uploaded to a remote server via some means other than symupload.
+The `dump_syms` functionality is built into the `symupload` utility and can be skipped if the application will be symbolicated remotely. Run `dump_syms` only if the application will be symbolicated locally or the sym file will be uploaded to a remote server via some means other than `symupload`.
 
-In order for `dump_syms.exe` to generate the correct output, applications must be built with symbolic information so that each exe and dll file generates a corresponding pdb file. Generated pdb files must contain full debug information. With Visual Studio, full debug information can be generated with the `/Zi` compiler argument and the `/DEBUG:FULL` linker argument. Failure to specify either the `/Zi` or `/DEBUG:FULL` arguments will result in dump\_syms outputting incorrect sym file data. Additionally the output pdb file must be in the same folder as the corresponding exe or dll file otherwise dump\_syms.exe will fail.
+In order for `symupload.exe` to generate the correct output, applications must be built with symbolic information so that each `exe` and `dll` file generates a corresponding `pdb` file. Generated `pdb` files must contain full debug information. With Visual Studio, full debug information can be generated with the `/Zi` compiler argument and the `/DEBUG:FULL` linker argument. Failure to specify either the `/Zi` or `/DEBUG:FULL` arguments will result in dump\_syms outputting incorrect sym file data. Additionally, the output `pdb` file must be in the same folder as the corresponding `exe` or `dll` file otherwise `dump_syms.exe` will fail.
 
-In order to run dump\_syms.exe a copy of `msdia140.dll` must be placed in the same folder. If [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/productinfo/2017-redistribution-vs#dia-sdk) is installed this file can be found at `[VisualStudioFolder]\DIA SDK\bin\amd64\msdia140.dll`. Copy msdia140.dll into the same folder as dump\_syms.exe and run dump\_syms.exe.
+In order to run `symupload.exe` a copy of `msdia140.dll` must be placed in the same folder. If [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/productinfo/2017-redistribution-vs#dia-sdk) is installed this file can be found at `[VisualStudioFolder]\DIA SDK\bin\amd64\msdia140.dll`. Copy `msdia140.dll` into the same folder as `symupload.exe` and run `symupload.exe`.
 
 ```bash
 symupload.exe "path/to/myApp.exe" "https://fred.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName=myApp&appVer=1.0.0"
@@ -310,15 +310,15 @@ symupload "/path/to/myApp.sym" "https://fred.bugsplat.com/post/bp/symbol/breakpa
 
 ### **Windows**
 
-In order to use symupload applications must be built with symbolic information so that each exe and dll file generates a corresponding pdb file. Generated pdb files must contain full debug information. Full debug information can be generated with the `/Zi` compiler argument and the `/DEBUG:FULL` linker argument. Failure to specify either the `/Zi` or `/DEBUG:FULL` arguments will result in symupload failing entirely. The output pdb file must be in the same folder as the corresponding exe or dll file.
+In order to use `symupload` applications must be built with symbolic information so that each `exe` and `dll` file generates a corresponding `pdb` file. Generated `pdb` files must contain full debug information. Full debug information can be generated with the `/Zi` compiler argument and the `/DEBUG:FULL` linker argument. Failure to specify either the `/Zi` or `/DEBUG:FULL` arguments will result in `symupload` failing entirely. The output `pdb` file must be in the same folder as the corresponding `exe` or `dll` file.
 
-In order to run symupload.exe a copy of `msdia140.dll` must be placed in the same folder. If [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/productinfo/2017-redistribution-vs#dia-sdk) is installed this file can be found at `[VisualStudioFolder]\DIA SDK\bin\amd64\msdia140.dll`. Copy msdia140.dll into the same folder as symupload.exe and run symupload.exe.
+In order to run `symupload.exe` a copy of `msdia140.dll` must be placed in the same folder. If [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/productinfo/2017-redistribution-vs#dia-sdk) is installed this file can be found at `[VisualStudioFolder]\DIA SDK\bin\amd64\msdia140.dll`. Copy msdia140.dll into the same folder as symupload.exe and run symupload.exe.
 
 ```bash
-dump_syms.exe "path/to/myApp.exe" > myApp.pdb.sym
+symupload.exe "/path/to/myApp.exe" "https://fred.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName=myApp&appVer=1.0.0"
 ```
 
-Symupload can be built from source so that the debugger can be used for troubleshooting. To build symupload clone the [gyp repository](https://github.com/chromium/gyp) and run `python setup.py install`. Next, run `gyp ~\breakpad\src\tools\windows\symupload\symupload.gyp` and use Visual Studio to build the sln file generated by gyp. If the build fails with an error that unique\_pointer is not part of std add `#include <memory>` to the top of the file that contains the error and rebuild.
+Symupload can be built from source so that the debugger can be used for troubleshooting. To build `symupload` clone the [gyp repository](https://github.com/chromium/gyp) and run `python setup.py install`. Next, run `gyp ~\breakpad\src\tools\windows\symupload\symupload.gyp` and use Visual Studio to build the sln file generated by `gyp`. If the build fails with an error that unique\_pointer is not part of std add `#include <memory>` to the top of the file that contains the error and rebuild.
 
 ## Symbolicating Crash Reports
 
