@@ -6,17 +6,17 @@
 **Want help building Crashpad?** View our step-by-step guide to help you more quickly get started [here](how-to-build-google-crashpad.md).
 {% endhint %}
 
-Crashpad is the latest open-source crash reporting tool built by Google and is the successor to the popular Breakpad crash reporter. Crashpad allows you to submit minidumps to a configured URL after a crash occurs in your product. The official Crashpad documentation is available [here](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md).
+Crashpad is the latest open-source crash reporting tool built by Google and is the successor to the popular Breakpad crash reporter. Crashpad allows you to submit minidumps to a configured URL after a crash occurs in your product. The official Crashpad documentation is available [here](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md).  Crashpad and Breakpad are 'wire compatible.'  The crash reports created by both systems are processed similarly on our backend.
 
 ## Tutorial
 
 To begin, [download](https://app.bugsplat.com/browse/download\_item.php/?item=crashpad) and unzip the BugSplat Crashpad software development kit. The download contains a sample Crashpad application and a compiled version of Crashpad for Windows.
 
-It's also possible to download and build Crashpad yourself. This step is required if you are targeting an OS other than Windows. See our [Building Crashpad](how-to-build-google-crashpad.md) doc for our a step-by-step guide to building Crashpad.
+It's also possible to download and build Crashpad yourself. This step is required if you are targeting an OS other than Windows. See our [Building Crashpad](how-to-build-google-crashpad.md) doc for our step-by-step guide to building Crashpad.
 
-To get a feel for the BugSplat service before enabling your application, experiment with the myCrashpadCrasher sample application. You can find the Visual Studio project file located in your download folder at `...\BugSplatCrashpad\BugSplat\samples\myCrashpadCrasher\myCrashpadCrasher.vcxproj.`
+To get a feel for the BugSplat service, experiment with the myCrashpadCrasher sample application before enabling your application. You can find the Visual Studio project file located in your download folder at `...\BugSplatCrashpad\BugSplat\samples\myCrashpadCrasher\myCrashpadCrasher.vcxproj.`
 
-Run the sample application without the debugger attached to post a crash report to our public "fred@bugsplat.com" database. To view the report, log in to the public database using the account "fred@bugsplat.com" and the password "Flintstone".
+Run the sample application without the debugger attached to post a crash report to our public "fred@bugsplat.com" database. To view the report, log in to the public database using the account "fred@bugsplat.com" and the password "Flintstone."
 
 ### Integrating Crashpad
 
@@ -34,7 +34,7 @@ Add the following includes:
 
 #### Step 2
 
-Copy the `initializeCrashpad` and `GetCrashpadHandlerPath` methods from the BugSplat sample. The Crashpad `url` and parameters `format`, `database`, `product` and `version` are required to successfully upload crash reports to BugSplat. You can optionally specify values for the parameters `user`, `list_annotations`, and `key` which will be tracked with each crash report.
+Copy the `initializeCrashpad` and `GetCrashpadHandlerPath` methods from the BugSplat sample. The Crashpad `url` and parameters `format`, `database`, `product` and `version` are required to upload crash reports to BugSplat. You can optionally specify values for the parameters `user`, `list_annotations`, and `key` which will be tracked with each crash report.
 
 ```cpp
 CrashpadClient *initializeCrashpad(char *dbName, char *appName, char *appVersion)
@@ -125,7 +125,7 @@ Upload symbols for your application to generate symbolic call stacks. Our sample
 
 #### Step 6
 
-BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's `.sym` files manually please see this [doc](../../../../../introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.&#x20;
+BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's `.sym` files manually, please see this [doc](../../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use the Breakpad [symupload](https://github.com/google/breakpad/tree/master/src/tools/windows/symupload) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.
 
 {% hint style="warning" %}
 Ensure the `path`and`url`are wrapped in double quotes when using`symupload`
@@ -134,6 +134,12 @@ Ensure the `path`and`url`are wrapped in double quotes when using`symupload`
 ```bash
 symupload "file.sym" "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
 ```
+
+#### Breakpad symbols for non-Windows platforms
+
+Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step.  You must first run the Breakpad utility dump\_syms to create .sym files from your local executable files.  Then use symupload to upload the symbols to BugSplat. &#x20;
+
+Operating system symbol files can be uploaded in a similar manner.  You may be able to find symbolic debug files for your operating system.  If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated.
 
 #### Step 7
 
@@ -151,6 +157,6 @@ Compiler optimizations can cause a mismatch between the line numbers in crash re
 
 ### Processing as Windows Native
 
-BugSplat can process Crashpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage of this approach is that BugSplat will be able to automatically resolve Windows OS symbols.
+BugSplat can process Crashpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage of this approach is that BugSplat can resolve Windows OS symbols automatically.
 
-To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll` and `.exe` files (rather than .sym files). The presence of `.pdb`, `.dll` or `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or our automated tool [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
+To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll` and `.exe` files (rather than .sym files). The presence of `.pdb`, `.dll` or `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or by our automated tool [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
