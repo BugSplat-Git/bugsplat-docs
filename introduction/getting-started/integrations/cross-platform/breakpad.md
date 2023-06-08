@@ -77,7 +77,7 @@ void crash()
 }
 ```
 
-### Uploading Breakpd Symbols
+### Uploading Breakpad Symbols
 
 Upload your application's symbol files to BugSplat for symbolic call stack information. For more information on how to upload symbols manually please see this [article](../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
 
