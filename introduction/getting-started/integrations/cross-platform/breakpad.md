@@ -79,7 +79,7 @@ void crash()
 
 ### Uploading Breakpd Symbols
 
-Upload your application's symbol files to BugSplat to get symbolic call stack information. For more information on how to upload Symbols manually please see this [article](../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
+Upload your application's symbol files to BugSplat for symbolic call stack information. For more information on how to upload symbols manually please see this [article](../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
 
 ```bash
 symupload file.[exe,dll] "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
@@ -89,9 +89,7 @@ Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) requi
 
 Operating system symbol files can be uploaded in a similar manner.  You may be able to find symbolic debug files for your operating system.  If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated.
 
-1.
-
-### Processing as Windows Native
+### Processing crash reports as Windows native&#x20;
 
 BugSplat can process Breakpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage of this approach is that our backend will automatically resolve Windows OS symbols.
 
