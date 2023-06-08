@@ -67,14 +67,7 @@ bool minidumpCallback(
 ```
 
 1. Create a new symbol store on our [Versions](https://app.bugsplat.com/v2/versions) page. You should do this for each released version of your product in order to ensure your crash reports contain function names and line numbers.
-2. Use dump\_syms to generate `.sym` files for your application. You need to do this for each release version of your product.
-3. Upload your application's `.sym` files to BugSplat via the symupload tool. For more information on how to upload Symbols manually please see this [article](../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
-
-```bash
-symupload file.sym "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
-```
-
-1. Trigger a crash in your application. The following code snippet can be used to generate an EXCEPTION\_ACCESS\_VIOLATION\_WRITE crash:
+2. Trigger a crash in your application. The following code snippet can be used to generate an EXCEPTION\_ACCESS\_VIOLATION\_WRITE crash:
 
 ```cpp
 int nullVal;
@@ -83,6 +76,20 @@ void crash()
   *(volatile int *)0 = nullVal;
 }
 ```
+
+### Uploading Breakpd Symbols
+
+Upload your application's symbol files to BugSplat to get symbolic call stack information. For more information on how to upload Symbols manually please see this [article](../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
+
+```bash
+symupload file.[exe,dll] "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
+```
+
+Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step.  You must first run the Breakpad utility dump\_syms to create .sym files from your local executable files.  Then use symupload to upload the .sym files to BugSplat. &#x20;
+
+Operating system symbol files can be uploaded in a similar manner.  You may be able to find symbolic debug files for your operating system.  If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated.
+
+1.
 
 ### Processing as Windows Native
 
