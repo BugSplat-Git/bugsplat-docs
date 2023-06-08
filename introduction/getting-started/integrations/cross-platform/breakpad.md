@@ -82,7 +82,7 @@ void crash()
 Upload your application's symbol files to BugSplat for symbolic call stack information. For more information on how to upload symbols manually please see this [article](../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use symupload to automate the symbol upload process. Run the following symupload command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store:
 
 ```bash
-symupload file.[exe,dll] "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
+symupload <file.exe|file.dll> "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
 ```
 
 Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step.  You must first run the Breakpad utility dump\_syms to create .sym files from your local executable files.  Then use symupload to upload the .sym files to BugSplat. &#x20;
