@@ -132,7 +132,7 @@ Ensure the `path`and`url`are wrapped in double quotes when using`symupload`
 {% endhint %}
 
 ```bash
-symupload "file.[exe,dll]" "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
+symupload "<file.exe|file.dll>" "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
 ```
 
 #### Breakpad symbols for non-Windows platforms
