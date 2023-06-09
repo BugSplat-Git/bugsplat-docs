@@ -139,7 +139,7 @@ symupload "<file.exe|file.dll>" "https://{database}.bugsplat.com/post/bp/symbol/
 
 Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step.  You must first run the Breakpad utility `dump_syms` to create `.sym` files from your local executable files.  Then use `symupload` to upload the symbols to BugSplat. &#x20;
 
-Operating system symbol files can be uploaded in a similar manner.  You may be able to find symbolic debug files for your operating system.  If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated.
+Operating system symbol files can be uploaded in a similar manner.  You may be able to find symbolic debug files for your operating system.  If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated.  Since OS symbols change infrequently, they are a good candidate to store in a [Common Symbol Libarary](../../../../development/working-with-symbol-files/common-symbols.md).
 
 #### Step 7
 
