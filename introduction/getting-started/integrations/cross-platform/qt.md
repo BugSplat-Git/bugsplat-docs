@@ -2,7 +2,7 @@
 
 ## Sample
 
-BugSplat has developed a sample application that demonstrates a cross-platform Qt crash reporting solution with Crashpad. The MyQtCrasher sample application provides a good starting point for developers wishing to capture crashes on Windows, macOS, and Linux. Additionally, the sample provides symbol upload [scripts](https://github.com/BugSplat-Git/my-qt-crasher/tree/master/Crashpad/Tools) that you can incorporate into your build tools in order to generate crash reports with fully symbolicated call stacks&#x20;
+BugSplat has developed a sample application that demonstrates a cross-platform Qt crash reporting solution with Crashpad. The MyQtCrasher sample application provides a good starting point for developers wishing to capture crashes on Windows, macOS, and Linux. Additionally, the sample provides symbol upload [scripts](https://github.com/BugSplat-Git/my-qt-crasher/tree/master/Crashpad/Tools) that you can incorporate into your build tools in order to generate crash reports with fully symbolicated call stacks
 
 The MyQtCrasher sample application is available on [GitHub](https://github.com/BugSplat-Git/my-qt-crasher).
 
@@ -90,7 +90,7 @@ win32 {
 }
 ```
 
-Additionally, you'll need to ship a copy of the `crashpad_handler.exe` executable with your application.&#x20;
+Additionally, you'll need to ship a copy of the `crashpad_handler.exe` executable with your application.
 
 Copy `crashpad_handler.exe` to the `$$PWD/Crashpad/Bin/Windows` directory. Add the following snippet to the `win32` section of your project file that copies the Windows `crashpad_handler.exe` to your project's build directory.
 
@@ -361,4 +361,4 @@ Force a crash in your application after Crashpad has been initialized:
 
 After you've submitted a crash report, navigate to the [Dashboard](https://app.bugsplat.com/v2/dashboard) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `myQtCrasher` application:
 
-![BugSplat Qt Crash](<../../../../.gitbook/assets/image (2) (1).png>)
+![BugSplat Qt Crash](<../../../../.gitbook/assets/image (1).png>)

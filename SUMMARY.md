@@ -131,6 +131,7 @@
   * [Contacting End-Users](education/how-tos/contacting-users.md)
   * [Crash Dialog Branding](education/how-tos/customize-the-crash-dialog.md)
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
+  * [Batch Reprocess Crashes](education/how-tos/batch-reprocess-crashes.md)
   * [Send Feedback](education/how-tos/sending-feedback.md)
 * [Videos](education/videos/README.md)
   * [BugSplat Product Walkthrough](education/videos/bugsplat-product-walkthrough.md)

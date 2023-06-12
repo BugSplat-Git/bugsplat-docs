@@ -205,7 +205,7 @@ Utils.ForceCrash(ForcedCrashCategory.PureVirtualFunction);
 
 Once you've posted an exception or a minidump to BugSplat click the link in the **ID** column on either the [Dashboard](https://app.bugsplat.com/v2/dashboard) or [Crashes](https://app.bugsplat.com/v2/crashes) pages to see details about your crash.
 
-<figure><img src="../../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 ### UWP <a href="#uwp" id="uwp"></a>
 
@@ -237,7 +237,7 @@ Under the `Capabilities` section add the `broadFileSystemAccess` capability:
 
 Finally, ensure that your application has access to the file system. The following is a snippet illustrating where this is set for our [my-unity-crasher](https://github.com/BugSplat-Git/my-unity-crasher) sample:
 
-<figure><img src="../../../../.gitbook/assets/image (11).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (15).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### WebGL
 
@@ -245,7 +245,7 @@ A few settings must be changed in order to capture function names and line numbe
 
 ![Unity Build Settings Menu](../../../../.gitbook/assets/unity-build-settings.png)
 
-Click the button that says **Player Settings**, highlight the **Player** section. Under **Publishing Settings**, select **Full With Stacktrace**.&#x20;
+Click the button that says **Player Settings**, highlight the **Player** section. Under **Publishing Settings**, select **Full With Stacktrace**.
 
 ![Unity Player Publishing Settings](../../../../.gitbook/assets/unity-full-with-stack-trace.png)
 

@@ -4,15 +4,13 @@ The BugSplat web application consists of four main pages: [Dashboard](https://ap
 
 Each of the main pages has subpages that provide more detail on individual [crashes](../../education/bugsplat-terminology.md#crash-report), errors, [stack keys](../../education/bugsplat-terminology.md#stack-key), and other important data.
 
-Want a quick run-through of the app?  Watch this video here - > [BugSplat Walkthrough. ](../../education/videos/bugsplat-product-walkthrough.md)
+Want a quick run-through of the app? Watch this video here - > [BugSplat Walkthrough.](../../education/videos/bugsplat-product-walkthrough.md)
 
-## Dashboard&#x20;
+## Dashboard
 
 The [Dashboard](https://app.bugsplat.com/v2/dashboard) page is the application’s home and where users land first inside the application. It provides users with an overview of their application's performance and lists the most recently submitted crashes.
 
-Additionally, the Dashboard page provides a view of your top Crash Groups in a donut chart allowing you to visualize which defects are most critical to fix right now.&#x20;
-
-
+Additionally, the Dashboard page provides a view of your top Crash Groups in a donut chart allowing you to visualize which defects are most critical to fix right now.
 
 <figure><img src="../../.gitbook/assets/bugsplat-dashboard-may-9-2023.png" alt=""><figcaption><p>Dashboard Page</p></figcaption></figure>
 
@@ -24,13 +22,13 @@ The breadcrumb control is laid out as follows `Database / Applications / Version
 
 The database, application, and version controls contain searchable dropdowns that allow users to quickly find what they're looking for. Select a database to enable the applications dropdown. Next, select an application or multiple applications to reveal the versions dropdown. Select a version or multiple versions to filter the data further. Click the **ID** of a crash to see its details or click a crash's Stack Key to see information about the crash's group.
 
-![](../../.gitbook/assets/navigating-with-breadcrumbs.gif)
+![](<../../.gitbook/assets/navigating-with-breadcrumbs (1).gif>)
 
 ## Crashes
 
 The [Crashes](https://app.bugsplat.com/v2/crashes) page contains all an application's crashes organized with the most recent crashes at the top of the table by default.
 
-![](../../.gitbook/assets/screen-shot-2021-07-16-at-1.03.48-pm.png)
+![](<../../.gitbook/assets/Screen Shot 2021-07-16 at 1.03.48 PM.png>)
 
 From here, users can manipulate the table in multiple ways to view specific sets of data.
 
@@ -54,7 +52,7 @@ The **Crash** page allows users to get information critical for understanding an
 
 The **User Details** component contains information about the user who experienced a crash. The User Details table will display who crashed, where they crashed (IP address), and the description provided by the user in the crash dialog. This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md) — like it is in the image below.
 
-![](<../../.gitbook/assets/screen-shot-2021-07-16-at-3.08.42-pm (1).png>)
+![](<../../.gitbook/assets/screen-shot-2021-07-16-at-3.08.42-pm (1) (1).png>)
 
 ### Crash Details
 
@@ -78,11 +76,11 @@ The Crash page includes valuable information like crash time, environment, corre
 
 ### Additional Information
 
-All data covered to this point on the Crash page are found under the **Crash Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Debugger Output**, and **Attachments** — use the tabs found above the **User Details** module.&#x20;
+All data covered to this point on the Crash page are found under the **Crash Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Debugger Output**, and **Attachments** — use the tabs found above the **User Details** module.
 
-![](<../../.gitbook/assets/viewing-tabs-crashreport (1) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (1).gif>)
+![](<../../.gitbook/assets/viewing-tabs-crashreport (1).gif>)
 
-#### Previewing Attached Files&#x20;
+#### Previewing Attached Files
 
 To preview or download an attached file, simply navigate to the **Attachments** tab in a crash report and click on the right arrow next to the attachment name in order to load a preview of the attached text.
 

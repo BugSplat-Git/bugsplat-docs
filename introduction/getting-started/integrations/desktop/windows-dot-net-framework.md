@@ -22,9 +22,9 @@ In a few simple steps, your .NET application can be modified to provide full deb
 4. Edit `BugSplatRC.dll` with Visual Studio if you wish to change the banner displayed when your application crashes.
 5. Add symbolic debug information to your release build. **Important!** To get symbolic stack reports, debug information ([pdb, dll, and executable files](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)) needs to be uploaded to the BugSplat website along with your application’s executable files. Modify your build settings so that symbol files are created for Release builds, e.g.,
 
-![Build Settings for .NET Applications](../../../../.gitbook/assets/buildnet2-e14105434665201.png)
+![Build Settings for .NET Applications](../../../../.gitbook/assets/buildNet2-e14105434665201.png)
 
-![Advanced Build Settings for .NET Applications](../../../../.gitbook/assets/buildnet3-11-e1410469012133.png)
+![Advanced Build Settings for .NET Applications](../../../../.gitbook/assets/buildNet3-11-e1410469012133.png)
 
 {% hint style="info" %}
 After each build you should upload the new executable and files. The [myDotNetCrasher sample app](windows-dot-net-framework.md) uses a Visual Studio post build event to automate this step.

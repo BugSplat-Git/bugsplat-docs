@@ -1,10 +1,10 @@
 # How-Tos
 
-The How-To segment covers guides and tutorials for common stumbling blocks, best practices, feature overviews, and more.&#x20;
+The How-To segment covers guides and tutorials for common stumbling blocks, best practices, feature overviews, and more.
 
-These resources are meant to help new users get the most out of BugSplat following completion of the [Getting Started ](../../introduction/getting-started/)resources, or to help current users find resources that can help them further customize their BugSplat account.
+These resources are meant to help new users get the most out of BugSplat following completion of the [Getting Started ](../../introduction/getting-started/)resources or to help current users find resources that can help them further customize their BugSplat account.
 
-## BugSplat Basics&#x20;
+## BugSplat Basics
 
 The BugSplat Basics section covers important features and skills needed for using BugSplat.
 
@@ -28,22 +28,20 @@ The BugSplat Basics section covers important features and skills needed for usin
 [sending-feedback.md](sending-feedback.md)
 {% endcontent-ref %}
 
-
-
 ## Diving Into Defect Data
 
-The Diving Into Defect Data includes tutorials and docs outlining features useful for exploring the data BugSplat can gather on application defects.&#x20;
+The Diving Into Defect Data includes tutorials and docs outlining features useful for exploring the data BugSplat can gather on application defects.
 
 {% content-ref url="../../introduction/development/working-with-symbol-files/" %}
 [working-with-symbol-files](../../introduction/development/working-with-symbol-files/)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
 {% content-ref url="reprocessing-crashes.md" %}
 [reprocessing-crashes.md](reprocessing-crashes.md)
+{% endcontent-ref %}
+
+{% content-ref url="batch-reprocess-crashes.md" %}
+[batch-reprocess-crashes.md](batch-reprocess-crashes.md)
 {% endcontent-ref %}
 
 ## Supporting Application Users
@@ -62,15 +60,8 @@ The documents in the Supporting Application Users section covers issues critical
 [contacting-users.md](contacting-users.md)
 {% endcontent-ref %}
 
-
-
 ## Defect Data
 
 {% content-ref url="../../introduction/development/working-with-symbol-files/" %}
 [working-with-symbol-files](../../introduction/development/working-with-symbol-files/)
 {% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-

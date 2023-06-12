@@ -10,7 +10,7 @@ description: >-
 The information found in this document pertains only to BugSplat users who signed up for paid plans before March 15th, 2022.
 {% endhint %}
 
-Beginning March 15th, 2022 BugSplat instituted a new pricing structure which can be viewed on our [Plans](https://www.bugsplat.com/plans) page. &#x20;
+Beginning March 15th, 2022 BugSplat instituted a new pricing structure which can be viewed on our [Plans](https://www.bugsplat.com/plans) page.
 
 If you are on a legacy plan you are grandfathered into that plan and no action is required on your end.
 
@@ -26,7 +26,7 @@ For customers who pay via credit card, it’s easy to access and download docume
 
 To do so, navigate to the [Billing](https://app.bugsplat.com/v2/settings/company/billing) page in Settings and click on the link that says **Update Card**
 
-![Company Billing Page](<../../.gitbook/assets/image (3) (1).png>)
+![Company Billing Page](<../../.gitbook/assets/image (6).png>)
 
 On the next page, you can view or download previous invoices. Simply scroll down the page and click on any month under the heading **Invoice History**.
 
@@ -38,7 +38,7 @@ Can’t find exactly what you’re looking for? Send us a note at email [sales@b
 
 Upgrading the credit card, address, VAT, or email associated with your BugSplat account is easy. To do so, navigate to the [Billing](https://app.bugsplat.com/v2/settings/company/billing) page in Settings and click on the link that says **Update Card**.
 
-![Company Billing Page](<../../.gitbook/assets/image (1) (1).png>)
+![Company Billing Page](<../../.gitbook/assets/image (21).png>)
 
 Next, click the button that says **+ Add payment method** and enter a new credit card. Make sure the box below the space to enter your card details is checked, designating the new card as the default card on the account.
 
@@ -56,7 +56,7 @@ BugSplat Legacy plans provided a variety of monthly pricing options for users wh
 
 These plans can be paid for monthly with a credit card, or they can be paid for annually via an invoice (saving 5%).
 
-These plans are no longer available for purchase starting March 15th, 2022.  However, if your account is currently governed by a Legacy plan because you signed up for a paid account before March 2022,  please email [sales](mailto:sales@bugsplat.com) for any assistance you might need.  You still qualify for these plans.
+These plans are no longer available for purchase starting March 15th, 2022. However, if your account is currently governed by a Legacy plan because you signed up for a paid account before March 2022, please email [sales](mailto:sales@bugsplat.com) for any assistance you might need. You still qualify for these plans.
 
 <table data-header-hidden><thead><tr><th>Annual Crash Volume</th><th>Monthly Cost</th><th width="150">Annual Cost (Save 5%)</th><th>Users</th><th>Full-feature</th></tr></thead><tbody><tr><td>Annual Crash Volume</td><td>Monthly Cost</td><td>Annual Cost (Save 5%)</td><td>Users</td><td>Full-feature</td></tr><tr><td>15,000</td><td>$0</td><td>$0</td><td>1</td><td>No</td></tr><tr><td>25,000</td><td>$49</td><td>$44</td><td>3</td><td>No</td></tr><tr><td>50,000</td><td>$139</td><td>$125</td><td>10</td><td>No</td></tr><tr><td>125,000</td><td>$259</td><td>$233</td><td>20</td><td>Yes</td></tr><tr><td>250,000</td><td>$529</td><td>$502</td><td>40</td><td>Yes</td></tr><tr><td>Enterprise</td><td>Volume Based</td><td>-</td><td>Unlimited</td><td></td></tr></tbody></table>
 
