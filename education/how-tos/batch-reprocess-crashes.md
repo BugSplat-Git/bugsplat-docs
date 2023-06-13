@@ -52,8 +52,6 @@ Watch Reprocess in action!
 
 **Auto-Group Rule Changes:** Reprocessing is also valuable when there are modifications to the auto-group rules. By reprocessing the crashes, the system can reevaluate and group the crashes based on the updated rules, providing a more accurate representation of the crash data.
 
-**BugSplat Processing Error:** We strive to process every report quickly and correctly, but sometimes we don't get it right on the first go. If you come across any instances of BugSplat not processing crashes correctly, please reach out to our support team via the in-app chat in the web app.
-
 ### Conclusion
 
 That's it! By reprocessing crashes in the current view on BugSplat, you can easily apply updated symbols or new auto-group rules to your crash reports. Just remember that reprocessing up to 50 crashes may take a few minutes to complete, so feel free to grab a coffee or engage in other activities during this time.
