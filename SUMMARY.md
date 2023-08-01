@@ -181,10 +181,12 @@
   * [Migrating Databases](administration/account-managment/how-to-migrate-databases-between-users-and-accounts.md)
   * [Deleting Databases](administration/account-managment/deleting-databases.md)
   * [Deleting a Company Account](administration/account-managment/permanently-deleting-a-company-account.md)
-* [Users](administration/introduction/README.md)
+* [User Management](administration/introduction/README.md)
   * [User Permissions](administration/introduction/user-permissions.md)
   * [Deleting a User](administration/introduction/permanently-deleting-a-user-account.md)
   * [Requesting Access](administration/introduction/requesting-access-to-your-teams-accounts.md)
+  * [Single Sign-On (SSO)](administration/introduction/single-sign-on-sso.md)
+  * [Enforce MFA](administration/introduction/enforce-mfa.md)
   * [Adding New Users in Companies with Multiple Databases](administration/introduction/adding-new-users-in-companies-with-multiple-databases.md)
 * [Contact us](administration/contact-us.md)
 
