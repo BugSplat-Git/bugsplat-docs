@@ -8,23 +8,23 @@ description: >-
 
 Hi there 👋
 
-BugSplat is a crash reporting, error reporting, and bug tracking tool that helps developers efficiently identify and fix defects in order to support more stable applications.&#x20;
+BugSplat is a crash reporting, error reporting, and bug tracking tool that helps developers efficiently identify and fix defects in order to support more stable applications.
 
 {% content-ref url="introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md" %}
 [quickly-submitting-your-first-crash-in-under-5-minutes.md](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 {% endcontent-ref %}
 
-In these documents, you’ll find everything you need to get fully up to speed with BugSplat.  This includes [getting started guides](introduction/getting-started/),[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of [3rd-party tool integrations](introduction/development/integrating-with-tools/), a [walkthrough of using the web application](introduction/development/using-the-app.md), links to our[ webservices (API)](introduction/development/web-services/api/), and much more.&#x20;
+In these documents, you’ll find everything you need to get fully up to speed with BugSplat. This includes [getting started guides](introduction/getting-started/),[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of [3rd-party tool integrations](introduction/development/integrating-with-tools/), a [walkthrough of using the web application](introduction/development/using-the-app.md), links to our[ webservices (API)](introduction/development/web-services/api/), and much more.
 
 <figure><img src=".gitbook/assets/bs-video-game-banner-wide-logo-powered-reddit.png" alt=""><figcaption></figcaption></figure>
 
-Use the links below to begin navigating these docs.  If you can’t find something use the left-hand menu or the handy search bar in the top right.
+Use the links below to begin navigating these docs. If you can’t find something use the left-hand menu or the handy search bar in the top right.
 
 If you need any support please reach out to us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app window, or ping us on our [Discord](https://discord.gg/K4KjjRV5ve).
 
 ## Introduction
 
-Whether you're new to BugSplat, or simply setting up a new project, our getting started resources make the process straightforward.&#x20;
+Whether you're new to BugSplat, or simply setting up a new project, our getting started resources make the process straightforward.
 
 {% content-ref url="introduction/getting-started/" %}
 [getting-started](introduction/getting-started/)
@@ -82,8 +82,6 @@ Documentation covering user management, account management, billing, and upgrade
 [contact-us.md](administration/contact-us.md)
 {% endcontent-ref %}
 
-
-
 ## About
 
 Information that covers the who, what, when, where, and why's of BugSplat.
@@ -104,6 +102,6 @@ Information that covers the who, what, when, where, and why's of BugSplat.
 
 Updates to the BugSplat web app, various SDK's, and other aspects of our services.
 
-{% content-ref url="http://localhost:5000/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/" %}
-[BugSplat Changelog](http://localhost:5000/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/)
+{% content-ref url="http://127.0.0.1:5000/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/" %}
+[BugSplat Changelog](http://127.0.0.1:5000/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/)
 {% endcontent-ref %}
