@@ -2,10 +2,6 @@
 
 Docs to help you and your team more easily manage your BugSplat account and teams.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
 {% content-ref url="how-to-migrate-databases-between-users-and-accounts.md" %}
 [how-to-migrate-databases-between-users-and-accounts.md](how-to-migrate-databases-between-users-and-accounts.md)
 {% endcontent-ref %}
@@ -21,4 +17,3 @@ Docs to help you and your team more easily manage your BugSplat account and team
 {% content-ref url="../introduction/permanently-deleting-a-user-account.md" %}
 [permanently-deleting-a-user-account.md](../introduction/permanently-deleting-a-user-account.md)
 {% endcontent-ref %}
-
