@@ -7,7 +7,7 @@ description: >-
 # Welcome
 
 {% hint style="warning" %}
-**Required Password Reset (August 4th, 2023):** All BugSplat users must reset the password associated with their BugSplat account. Emails containing a password reset link have been sent to all users. If you missed that email, please visit our [new login page](https://app.bugsplat.com/cognito/login) and follow the steps below for '[Resetting a forgotten password.](administration/introduction/password-settings-and-reset-options.md)'   Note users who log in using only Google or GitHub are not affected.
+**Required Password Reset (August 4th, 2023):** All BugSplat users must reset the password associated with their BugSplat account. Emails containing a password reset link have been sent to all users. If you missed that email, please visit our [new login page](https://app.bugsplat.com/cognito/login) and follow the steps below for '[Resetting a forgotten password.](administration/introduction/password-settings-and-reset-options/)'   Note users who log in using only Google or GitHub are not affected.
 {% endhint %}
 
 ### **Hi there 👋**
