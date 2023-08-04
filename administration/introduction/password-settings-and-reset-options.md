@@ -1,7 +1,7 @@
 # Password Settings and Reset Options
 
 {% hint style="warning" %}
-**Required Password Reset (August 4th, 2023):** All BugSplat users must reset the password associated with their BugSplat account. Emails have been sent to all BugSplat users alerting them of this change. If you missed that email, please follow the steps below for '[Resetting a forgotten password.](https://app.gitbook.com/o/-LBMgmIbZKqjzfg08G3A/s/-LBMgmIcgkIXSUfnXDSv/\~/changes/548/administration/introduction/password-settings-and-reset-options#updating-passwords)'   Note, users that log in using only Google or GitHub can skip this.
+**Required Password Reset (August 4th, 2023):** All BugSplat users must reset the password associated with their BugSplat account. Emails containing a password reset link have been sent to all users. If you missed that email, please follow the steps below for '[Resetting a forgotten password.](https://app.gitbook.com/o/-LBMgmIbZKqjzfg08G3A/s/-LBMgmIcgkIXSUfnXDSv/\~/changes/548/administration/introduction/password-settings-and-reset-options#updating-passwords)'   Note users who log in using only Google or GitHub are not affected.
 {% endhint %}
 
 ### **Setting your password**:
