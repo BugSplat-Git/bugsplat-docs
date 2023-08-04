@@ -10,7 +10,7 @@ Users are requested to create a password when they create an account with BugSpl
 
 ### **Updating passwords**
 
-1. **Resetting a forgotten password**:  The BugSplat [login page](https://cognito.bugsplat.com/login?client\_id=2cto7q004s89cid304op4sfc\&response\_type=code\&scope=email+openid+profile+aws.cognito.signin.user.admin\&redirect\_uri=https://app.bugsplat.com/cognito/redirect.php) has a link labeled 'Forgot your password?' which will allow users to reset their password through a familiar set of steps. If you have any issues, please reach out to [support@bugsplat.com](mailto:support@bugsplat.com).
+1. **Resetting a forgotten password**:  The BugSplat [login page](https://app.bugsplat.com/cognito/login) has a link labeled 'Forgot your password?' which will allow users to reset their password through a familiar set of steps. If you have any issues, please reach out to [support@bugsplat.com](mailto:support@bugsplat.com).
 2.  **Resetting a password inside the app**: Users who are currently logged into the app can reset their password by navigating to the '[Password](https://app.bugsplat.com/v2/password)' page under the Options dropdown tab. Select the button that says 'Reset Password'.
 
 
