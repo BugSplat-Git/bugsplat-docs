@@ -6,7 +6,11 @@ description: >-
 
 # Welcome
 
-Hi there 👋
+{% hint style="warning" %}
+**Required Password Reset (August 4th, 2023):** All BugSplat users must reset the password associated with their BugSplat account. Emails containing a password reset link have been sent to all users. If you missed that email, please visit our [new login page](https://app.bugsplat.com/cognito/login) and follow the steps below for '[Resetting a forgotten password.](https://app.gitbook.com/o/-LBMgmIbZKqjzfg08G3A/s/-LBMgmIcgkIXSUfnXDSv/\~/changes/548/administration/introduction/password-settings-and-reset-options#updating-passwords)'   Note users who log in using only Google or GitHub are not affected.
+{% endhint %}
+
+### **Hi there 👋**
 
 BugSplat is a crash reporting, error reporting, and bug tracking tool that helps developers efficiently identify and fix defects in order to support more stable applications.
 
