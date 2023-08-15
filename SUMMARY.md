@@ -185,6 +185,7 @@
   * [User Permissions](administration/introduction/user-permissions.md)
   * [Deleting a User](administration/introduction/permanently-deleting-a-user-account.md)
   * [Requesting Access](administration/introduction/requesting-access-to-your-teams-accounts.md)
+  * [Login Page and Options](administration/introduction/login-page-and-options.md)
   * [Password Settings and Reset Options](administration/introduction/password-settings-and-reset-options/README.md)
     * [Required Password Reset - August 4th, 2023](administration/introduction/password-settings-and-reset-options/required-password-reset-august-4th-2023.md)
   * [Single Sign-On (SSO)](administration/introduction/single-sign-on-sso.md)
