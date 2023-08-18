@@ -4,7 +4,7 @@
 
 The BugSplat .NET SDK supports applications written using the [Microsoft Common Language Runtime (CLR)](https://docs.microsoft.com/en-us/dotnet/standard/clr). This includes applications written using C#. The managed call stacks captured at the time of a crash include function names, source code file names, and line numbers. In addition, BugSplat will also display mixed-mode call stacks which have both managed code and native code on the stack.
 
-To get started, make sure to [log in](https://app.bugsplat.com/auth0/login) using your email address and [download](https://app.bugsplat.com/browse/download\_item.php?item=dotnet) the BugSplat software development kit for .NET Framework / C# applications.
+To get started, make sure to [log in](https://app.bugsplat.com/cognito/login) using your email address and [download](https://app.bugsplat.com/browse/download\_item.php?item=dotnet) the BugSplat software development kit for .NET Framework / C# applications.
 
 To get a feel for the BugSplat service before enabling your application, feel free to experiment with the myDotNetCrasher sample application, which is part of the BugSplat software development kit. You may also want to browse the [.NET API documentation](https://www.bugsplat.com/platforms/net/api/).
 

@@ -4,7 +4,7 @@ BugSplat’s Slack integration allows your team to receive alerts for new crashe
 
 #### Integrating Slack with BugSplat <a href="#integrating-slack-with-bugsplat-docs" id="integrating-slack-with-bugsplat-docs"></a>
 
-1. Login to [BugSplat](https://app.bugsplat.com/auth0/login) and navigate to the [Notifications](https://app.bugsplat.com/v2/settings/database/integrations#notifications)[ ](https://app.bugsplat.com/v2/settings/database/notifications)page.
+1. Login to [BugSplat](https://app.bugsplat.com/cognito/login) and navigate to the [Notifications](https://app.bugsplat.com/v2/settings/database/integrations#notifications)[ ](https://app.bugsplat.com/v2/settings/database/notifications)page.
 2. Select the Database for which you'd like to configure alerts
 3. Under the **Slack** section, click the **Add to Slack** button.
 4. You’ll be prompted to confirm your identity and choose which channel you would like the notifications posted to.

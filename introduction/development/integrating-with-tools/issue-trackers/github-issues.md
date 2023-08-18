@@ -4,7 +4,7 @@ BugSplat's GitHub Issues integration allows your team to create defects from cra
 
 ### Integrating GitHub Issues with BugSplat
 
-1. [Login](https://app.bugsplat.com/auth0/login) to your account.
+1. [Login](https://app.bugsplat.com/cognito/login) to your account.
 2. Go to the [Settings](https://app.bugsplat.com/v2/settings/database/integrations#defect-trackers) page and under the **Defect Tracker** tab select **GitHub Issues** from the drop-down menu.
 3. Enter your GitHub **Username**, **API Token** and **Repo Owner** into the appropriate boxes and click **Apply**.
 4. Select your desired project.

@@ -4,7 +4,7 @@
 
 To access the test database:
 
-1. Navigate to the [login page](https://app.bugsplat.com/auth0/login)
+1. Navigate to the [login page](https://app.bugsplat.com/cognito/login)
 2. Use the public database credentials to log in.
    * **Username:** `fred@bugsplat.com`
    * **Password:** `Flintstone`
