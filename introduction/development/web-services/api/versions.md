@@ -15,7 +15,7 @@ Get a list stats for crashes that have been posted separated by application and 
 Returns a list of versions in a given database.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="database" type="string" %}
+{% swagger-parameter in="query" name="database" type="string" required="false" %}
 BugSplat database containing symbol stores
 {% endswagger-parameter %}
 
@@ -168,11 +168,11 @@ BugSplat database containing symbol stores
 Used to create a new version and returns a pre-signed URL that can be used to upload new symbol files.
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="symFileName" type="string" %}
+{% swagger-parameter in="body" name="symFileName" type="string" required="false" %}
 Filename of the symbol file being uploaded to the symbol store via the returned pre-signed URL.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="size" type="number" %}
+{% swagger-parameter in="body" name="size" type="number" required="false" %}
 Size of symbol file being uploaded to the symbol store via the returned pre-signed URL. Enter 0 to create a placeholder symbol store
 {% endswagger-parameter %}
 
@@ -184,7 +184,7 @@ Version of the application symbols being stored in the new symbol store
 Name of application symbols being stored in the new symbol store
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="database" type="string" %}
+{% swagger-parameter in="body" name="database" type="string" required="false" %}
 BugSplat database in which the symbol store should be created
 {% endswagger-parameter %}
 
@@ -206,19 +206,19 @@ BugSplat database in which the symbol store should be created
 Used to set the retired and fullDumps flags for a specified version.
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="fullDumps" type="0|1" %}
-Flag indicating that the BugSplat Native and .NET SDKs should generate and upload 
+{% swagger-parameter in="body" name="fullDumps" type="0|1" required="false" %}
+Flag indicating that the BugSplat Native and .NET SDKs should generate and upload
 
 [full memory dumps](../../../getting-started/integrations/desktop/cplusplus/full-memory-dumps.md)
 
-. This feature incurs additional costs. 
+. This feature incurs additional costs.
 
 [Contact us](../../../../administration/contact-us.md)
 
- to enable full memory dumps for your account.
+to enable full memory dumps for your account.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="retired" type="0|1" %}
+{% swagger-parameter in="body" name="retired" type="0|1" required="false" %}
 Flag indicating that the version should be marked as retired. Crash reports for retired versions will not be ingested or processed.
 {% endswagger-parameter %}
 
@@ -230,7 +230,7 @@ Version of application for which the retired/fullDumps flags should be updated
 Name of application for which the retired/fullDumps flags should be updated
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="database" type="string" %}
+{% swagger-parameter in="body" name="database" type="string" required="false" %}
 BugSplat database in which the symbol store should be created
 {% endswagger-parameter %}
 
@@ -244,4 +244,30 @@ BugSplat database in which the symbol store should be created
 }
 ```
 {% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="delete" path="/api/users" baseUrl="https://app.bugsplat.com" summary="Versions" %}
+{% swagger-description %}
+Remove symbols from a specified version or versions.
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="database" type="string" required="true" %}
+BugSplat database containing versions with symbols for removal
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="appName" type="string" %}
+Single application name to remove symbols for, required if appVersion is set
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="appVersion" type="string" %}
+Single application version to remove symbols for, required if appName is set
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="appVersions" type="array" %}
+Multi-dimensional array of appName and appVersion for symbol removal eg 
+
+`app0,version0,app1,version1`
+
+.  Required if appName and appVersion are not set.
+{% endswagger-parameter %}
 {% endswagger %}
