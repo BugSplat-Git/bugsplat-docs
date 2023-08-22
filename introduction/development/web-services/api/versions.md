@@ -246,7 +246,7 @@ BugSplat database in which the symbol store should be created
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="delete" path="/api/users" baseUrl="https://app.bugsplat.com" summary="Versions" %}
+{% swagger method="delete" path="/api/versions" baseUrl="https://app.bugsplat.com" summary="Versions" %}
 {% swagger-description %}
 Remove symbols from a specified version or versions.
 {% endswagger-description %}
