@@ -2,7 +2,7 @@
 
 **Introduction**
 
-At BugSplat, we prioritize and take both user convenience and security seriously. Our diverse login methods cater to user preferences, ensuring a smooth and secure sign-in experience. This document will guide you through each available option.
+At BugSplat, our diverse login methods cater to user preferences, ensuring a smooth and secure sign-in experience. This document will guide you through each available option.
 
 <figure><img src="../../.gitbook/assets/bugsplat-login-screen (1).png" alt=""><figcaption></figcaption></figure>
 
