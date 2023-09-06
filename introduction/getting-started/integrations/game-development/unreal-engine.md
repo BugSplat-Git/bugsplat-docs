@@ -1,14 +1,14 @@
 # Unreal Engine
 
-BugSplat’s Unreal Engine integration supports most Unreal platforms including desktop computers, the Steam platform, and Linux servers. Support for additional platforms will be provided in the future.
+BugSplat’s Unreal Engine integration supports capturing crashes on Windows, macOS, Linux, iOS, Android, Xbox, and PlayStation games, with support for the Nintendo Switch coming soon. BugSplat also supports both Windows and Linux servers.
 
-There are two options for configuring BugSplat. If you are integrating BugSplat on behalf of your organization that uses a dedicated build machine, please continue reading. If you are a developer who is looking to try BugSplat on your local machine you can skip to the [Plugin](unreal-engine/unreal-engine-plugin.md) section below.
+There are two options for configuring BugSplat. If you are integrating BugSplat on behalf of your organization that uses a dedicated build machine, please continue reading. If you are a developer looking to try BugSplat on your local machine, we've created a [Plugin](unreal-engine/unreal-engine-plugin.md) to help you get started.
 
 Additionally, if you're looking to integrate BugSplat on iOS and Android, please refer to our [Plugin](unreal-engine/unreal-engine-plugin.md) page.
 
 ## Windows 🪟
 
-To create symbolic call stacks on Windows platforms, you must upload symbol and executable files. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs) or via the [SendPDBs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc.
+You must upload symbol and executable files to create symbolic call stacks on Windows platforms. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs) or via the [SendPDBs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc.
 
 ### Symbol Uploads
 
@@ -33,11 +33,11 @@ Package your game, and check the **Include Crash Reporter** and **Include Debug 
 
 Sending crash reports to BugSplat can be done via a simple configuration change to Unreal Engine's [CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/).
 
-There are two options for configuring CrashReportClient. The first option is modifying the `DefaultEngine.ini` file for an engine install or engine source checkout. Modifying the engine's config file is the easiest approach but has the downside of affecting every game that you build with this version of the engine. Alternatively, you can add `DefaultEngine.ini` to a specific path in your packaged build directory which will overwrite values specified by the engine.
+There are two options for configuring CrashReportClient. The first option is modifying the `DefaultEngine.ini` file for an engine install or engine source checkout. Modifying the engine's config file is the easiest approach but has the downside of affecting every game you build with this version. Alternatively, you can add `DefaultEngine.ini` to a specific path in your packaged build directory, which will overwrite values specified by the engine.
 
 #### Option 1: Editor and Engine Crashes
 
-Unreal Editor can also be configured to send crash reports to BugSplat. To do this, add the following DefaultEngine.ini file in `C:\Path\To\Engine_Install_or_Source_Checkout\Programs\CrashReportClient\Config\DefaultEngine.ini.`&#x20;
+Unreal Editor can also be configured to send crash reports to BugSplat. To do this, add the following DefaultEngine.ini file in `C:\Path\To\Engine_Install_or_Source_Checkout\Programs\CrashReportClient\Config\DefaultEngine.ini.`
 
 ```
 [CrashReportClient]
@@ -55,10 +55,10 @@ CrashReportClientVersion=1.0
 DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}"
 ```
 
-Replace `{database}`, `{appName}`, and `{appVersion}` with the names of your BugSplat database, application name, and version.  The appName and appVersion parameters will be assigned to each crash report posted to your database, allowing you to group and filter crashes within BugSplat.  These parameters should match the corresponding values used for SendPdbs.
+Replace `{database}`, `{appName}`, and `{appVersion}` with the names of your BugSplat database, application name, and version. The appName and appVersion parameters will be assigned to each crash report posted to your database, allowing you to group and filter crashes within BugSplat. These parameters should match the corresponding values used for SendPdbs.
 
 {% hint style="warning" %}
-#### Spaces and special characters in {appName} or {appVersion} might cause unexpected behavior and should be avoided.
+**Be sure to URL encode spaces and special characters in {appName} or {appVersion}**&#x20;
 {% endhint %}
 
 #### Unreal Engine 4.25 and older
@@ -67,9 +67,9 @@ For capturing crashes in packaged games in Unreal Engine 4.25 and earlier, copy 
 
 #### **Unreal Engine 4.26 and newer**
 
-For capturing crashes in packaged games in Unreal Engine 4.26 and newer, copy`DefaultEngine.ini` to `{{output directory}}\Engine\Restricted\NoRedist\Programs\CrashReportClient\Config`  making sure to create folders that don't exist (where`{{output directory}}` is the location of your packaged build).
+For capturing crashes in packaged games in Unreal Engine 4.26 and newer, copy`DefaultEngine.ini` to `{{output directory}}\Engine\Restricted\NoRedist\Programs\CrashReportClient\Config` making sure to create folders that don't exist (where`{{output directory}}` is the location of your packaged build).
 
-If `DefaultEngine.ini` already exists, add the snippet above anywhere in the file. There are multiple `DefaultEngine.ini` files in your tree, make sure you edit the right one otherwise crash reports will not be sent to BugSplat.
+If `DefaultEngine.ini` already exists, add the snippet above anywhere in the file. There are multiple `DefaultEngine.ini` files in your tree. Ensure you edit the right DefaultEngine.ini file; otherwise, crash reports will not be sent to BugSplat.
 
 ### Trigger a Crash
 
@@ -99,4 +99,4 @@ We extract metadata from `CrashContext.runtime-xml` file attached to Unreal Engi
 
 ## Forwarding Crashes to Epic Games 📤
 
-If you'd like to forward crashes to the original `DataRouterUrl` specified in `DefaultEngine.ini` you can enable the **Forward Crashes** option under the Privacy tab on the [Settings](https://app.bugsplat.com/v2/settings/database/privacy) page. Forwarding crash reports to Epic is useful when a crash in your game is caused by the underlying engine and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes that were successfully forwarded to Epic.
+If you'd like to forward crashes to the original `DataRouterUrl` specified in `DefaultEngine.ini` you can enable the **Forward Crashes** option under the Privacy tab on the [Settings](https://app.bugsplat.com/v2/settings/database/privacy) page. Forwarding crash reports to Epic is useful when the underlying engine causes a crash in your game and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes that were successfully forwarded to Epic.
