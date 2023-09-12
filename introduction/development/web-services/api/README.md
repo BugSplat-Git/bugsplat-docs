@@ -61,6 +61,14 @@ curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/allCrash?database=F
 curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/api/crash/data?id=58464&database=Fred"
 ```
 
+Escaping special characters in email and password fields can be challenging.  If your authentication isn't working, try posting to httpbin.org/post and check the parameters that are returned.  You may need to URL-encode the email and password values.  For example:
+
+```
+curl --data "email=test+app@bugsplat.com&password=ABCHi&898S$QQ" https://httpbin.org/post
+```
+
+
+
 ## Special Rules for POST Requests
 
 When POSTing data to BugSplat endpoints additional steps are required to meet our Cross Site Request Forgery (XSRF) safety checks. After authenticating you will receive a cookie named `xsrf-token`. Send the xsrf-token key/value as a **header** in all POST requests.
