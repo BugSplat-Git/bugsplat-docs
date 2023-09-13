@@ -45,3 +45,7 @@ At BugSplat, our diverse login methods cater to user preferences, ensuring a smo
     * Click on the "Sign in with Corporate Email" button.
     * Use `username@github.com` as your login ID.
     * GitHub will request your password if you aren't currently authenticated.
+
+### Account Lock Out
+
+After five failed sign-in attempts with a password, BugSplat locks out the user for one second. The lockout duration then doubles after each additional failed attempt, up to a maximum of approximately 15 minutes.  To reset the lockout to its initial state, the user must not initiate any sign-in attempts for 15 consecutive minutes at any time after a lockout.
