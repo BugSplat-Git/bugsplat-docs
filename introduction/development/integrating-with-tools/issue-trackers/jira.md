@@ -10,10 +10,10 @@ BugSplat's Jira integration allows your team to create defects with a couple cli
 4. Click **Apply**.
 5. Once a successful connection to Jira has been established, you will be able to select one of your projects from the project dropdown list.
 6. After selecting your desired project, click **Apply** again.
-7. Add additional data in any of the other fields. &#x20;
+7. Add additional data in any of the other fields.
 
 {% hint style="info" %}
-**Assignee ID**:  The optional 'Assignee ID' field requires the Atlassian user id when using Jira Cloud.  Jira Server doesn't support user ids, so use the user name in that case.
+**Assignee ID**: The optional 'Assignee ID' field requires the Atlassian user id when using Jira Cloud. Jira Server doesn't support user ids, so use the user name in that case.
 {% endhint %}
 
 ### Creating an issue in Jira from a BugSplat crash report
@@ -25,3 +25,7 @@ BugSplat's Jira integration allows your team to create defects with a couple cli
 3\. Click the link to view the new Jira issue that was created by BugSplat.
 
 ![](../../../../.gitbook/assets/creating-defect.gif)
+
+{% hint style="info" %}
+**Want to create issues automatically?** You can!  Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](jira.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
+{% endhint %}

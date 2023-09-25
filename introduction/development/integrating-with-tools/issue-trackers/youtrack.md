@@ -18,3 +18,7 @@ YouTrack integration with BugSplat crash reports allows your team to create defe
 2\. Enter relevant details and click the **Submit** button to create the defect. You can also enter an existing **Defect ID** if you'd like to associate a crash or stack key with an existing issue from YouTrack.
 
 3\. Click the link to view the new YouTrack defect that was created by BugSplat.
+
+{% hint style="info" %}
+**Want to create issues automatically?** You can!  Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](youtrack.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
+{% endhint %}
