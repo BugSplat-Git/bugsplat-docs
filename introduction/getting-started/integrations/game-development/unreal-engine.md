@@ -90,7 +90,23 @@ Special instructions for Linux servers:
 
 Symbolic call stacks are resolved if you deploy symbols on your server.  This is the typical case.  However, if symbols aren't available locally, upload the Unreal Linux custom symbol files (.sym extension) using SendPdbs.&#x20;
 
+## Miscellaneous Issues
+
+Some forks of Unreal (e.g. Oculus) are set up as a "Licensee" build.  Regardless of other settings, crash reports won't be sent because of this block of code:
+
+```
+if (BuildSettings::IsLicenseeVersion() && !UD_EDITOR)
+{
+    // do not send unattended reports in licensees' builds except for the editor, where it is governed
+    bSendUnattendedBugReports = false;
+    bAgreeToCrashUpload = false;
+    bSendUsageData = false;
+}
+```
+
 ## Custom Fields 📝
+
+##
 
 We extract metadata from `CrashContext.runtime-xml` file attached to Unreal Engine crash reports. In addition to the values that are provided by prebuilt versions of Unreal Engine, we support a few values our customers have added to their customized engine builds. You can add the following XML fields as child properties of `RuntimeProperties`:
 
