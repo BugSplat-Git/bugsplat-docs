@@ -106,8 +106,6 @@ if (BuildSettings::IsLicenseeVersion() && !UD_EDITOR)
 
 ## Custom Fields 📝
 
-##
-
 We extract metadata from `CrashContext.runtime-xml` file attached to Unreal Engine crash reports. In addition to the values that are provided by prebuilt versions of Unreal Engine, we support a few values our customers have added to their customized engine builds. You can add the following XML fields as child properties of `RuntimeProperties`:
 
 | Name                   | Description                           |
