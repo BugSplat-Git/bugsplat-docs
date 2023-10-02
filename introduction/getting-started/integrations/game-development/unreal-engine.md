@@ -90,11 +90,11 @@ Special instructions for Linux servers:
 
 Symbolic call stacks are resolved if you deploy symbols on your server.  This is the typical case.  However, if symbols aren't available locally, upload the Unreal Linux custom symbol files (.sym extension) using SendPdbs.&#x20;
 
-## Miscellaneous Issues
+## Licensee Builds 🤝
 
-Some forks of Unreal (e.g. Oculus) are set up as a "Licensee" build.  Regardless of other settings, crash reports won't be sent because of this block of code:
+Some forks of Unreal (e.g. Oculus) are set up as a "Licensee" build. Regardless of other settings, crash reports won't be sent because of this [block of code](https://github.com/EpicGames/UnrealEngine/blob/5ccd1d8b91c944d275d04395a037636837de2c56/Engine/Source/Runtime/Core/Private/Unix/UnixPlatformCrashContext.cpp#L594-L600):
 
-```
+```cpp
 if (BuildSettings::IsLicenseeVersion() && !UD_EDITOR)
 {
     // do not send unattended reports in licensees' builds except for the editor, where it is governed
@@ -103,6 +103,8 @@ if (BuildSettings::IsLicenseeVersion() && !UD_EDITOR)
     bSendUsageData = false;
 }
 ```
+
+To upload crash reports to BugSplat, recompile with `bSendUnattendedBugReports = true`.
 
 ## Custom Fields 📝
 
