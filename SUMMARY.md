@@ -206,6 +206,9 @@
 * [Partnerships](about/partnerships/README.md)
   * [LootLocker](about/partnerships/lootlocker.md)
   * [EQU8](about/partnerships/equ8.md)
+* [Misc.](about/misc./README.md)
+  * [Giveaway's](about/misc./giveaways/README.md)
+    * [October 9th 2023](about/misc./giveaways/october-9th-2023.md)
 
 ## 🔀 Changelog
 

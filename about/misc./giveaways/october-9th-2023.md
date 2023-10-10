@@ -1,0 +1,42 @@
+---
+description: Terms for Giveaway conducted over Discord and Email.
+---
+
+# October 9th 2023
+
+DETAILS AND OFFICIAL RULES
+
+***
+
+NO PURCHASE, DONATION OR PAYMENT OF ANY KIND NECESSARY TO ENTER OR WIN. A PURCHASE DOES NOT IMPROVE YOUR CHANCE OF WINNING. VOID WHERE PROHIBITED BY LAW.
+
+Start Date: October 9, 2023 4:04 PM
+
+Deadline to Enter: October 23, 2023, 4:04 PM
+
+Winner Announced: October 24, 2023&#x20;
+
+How to Enter: Participants must join the BugSplat Discord server via the provided link and react with the 🎉 Celebration emoji under the designated post. Alternatively, if you do not wish to join our Discord server to enter, you can email [hi@bugsplat.com](mailto:hi@bugsplat.com) and request to be entered into the Giveaway.
+
+Prize Details: Prize: One (1) Xbox Series X. The approximate retail value is $499.99. The prize is non-transferable, and no substitution will be made unless BugSplat, in its sole discretion, determines otherwise.
+
+Winner Selection: The winner will be selected at random on October 23, 2023, at 4:04 PM. The winner will be notified via direct message on Discord. If the winner does not respond within 48 hours, a new winner may be selected.
+
+Giveaway Eligibility
+
+The Giveaway is open only to the following individuals (each, an “Eligible Participant”):1. Individual legal residents of, and physically located within, the United States or Canada.2. Must be of legal age of majority or older in their country or state of residence as of the date of entry.
+
+Any participation by any ineligible person(s) will be void.
+
+The Giveaway is void where prohibited or restricted by law. All directors, officers, employees, and agents of BugSplat, and each of their respective subsidiaries, affiliates, sales representatives, distributors, licensees, agents, website administrators, advertising and Giveaway agencies, and any immediate family members (spouses, parents, children, and siblings and their respective spouses, regardless of where they reside) and those living in the same household (whether related or not) of any of the foregoing, are not eligible to participate in the Giveaway.
+
+All international, federal, state, and local laws, rules, and regulations apply. Void where prohibited by law.
+
+Participants are responsible for reviewing specific restrictions on giveaway entry and/or eligibility to receive a giveaway prize in their country or state of residence.
+
+Release: By participating, entrants agree to release and hold harmless BugSplat, its affiliates, and their respective representatives from any and all liability for any injuries, loss, or damage of any kind arising from or in connection with the Giveaway.
+
+For any questions related to the Giveaway, please contact [hi@bugsplat.com](mailto:hi@bugsplat.com)
+
+|   |
+| - |
