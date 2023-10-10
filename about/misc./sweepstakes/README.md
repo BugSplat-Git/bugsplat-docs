@@ -1,4 +1,5 @@
 ---
+description: Terms and Conditions
 layout:
   title:
     visible: true
@@ -12,6 +13,6 @@ layout:
     visible: false
 ---
 
-# Giveaway's
+# Sweepstakes
 
-&#x20;
+&#x20;[october-9-23-2023.md](october-9-23-2023.md "mention")

@@ -264,10 +264,6 @@ Single application version to remove symbols for, required if appName is set
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="appVersions" type="array" %}
-Multi-dimensional array of appName and appVersion for symbol removal eg 
-
-`app0,version0,app1,version1`
-
-.  Required if appName and appVersion are not set.
+Multi-dimensional array of appName and appVersion for symbol removal eg `app0,version0,app1,version1`.  Required if appName and appVersion are not set.
 {% endswagger-parameter %}
 {% endswagger %}
