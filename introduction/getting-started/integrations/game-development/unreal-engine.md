@@ -2,24 +2,24 @@
 
 BugSplat’s Unreal Engine integration supports capturing crashes on Windows, macOS, Linux, iOS, Android, Xbox, and PlayStation games, with support for the Nintendo Switch coming soon. BugSplat also supports both Windows and Linux servers.
 
-There are two options for configuring BugSplat. If you are integrating BugSplat on behalf of your organization that uses a dedicated build machine, please continue reading. If you are a developer looking to try BugSplat on your local machine, we've created a [Plugin](unreal-engine/unreal-engine-plugin.md) to help you get started.
+There are two options for configuring BugSplat. If you are integrating BugSplat for your organization that uses a dedicated build machine, please continue reading. If you are a developer looking to try BugSplat on your local machine, we've created a [Plugin](unreal-engine/unreal-engine-plugin.md) to help you get started.
 
-Additionally, if you're looking to integrate BugSplat on iOS and Android, please refer to our [Plugin](unreal-engine/unreal-engine-plugin.md) page.
+Additionally, if you want to integrate BugSplat on iOS and Android, please refer to our [Plugin](unreal-engine/unreal-engine-plugin.md) page.
 
 ## Windows 🪟
 
-You must upload symbol and executable files to create symbolic call stacks on Windows platforms. The easiest way to upload files is to use our `SendPdbs` command line utility. `SendPdbs` can be downloaded either by [clicking here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs) or via the [SendPDBs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc.
+You must upload symbol and executable files to create symbolic call stacks on Windows platforms. The easiest way to upload files is to use our [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) command line utility. You can download `symbol-upload` [here](https://github.com/BugSplat-Git/symbol-upload/releases).
 
 ### Symbol Uploads
 
-Add a step to your build pipeline that uploads `.exe`, `.dll`, and `.pdb` files via [SendPdbs](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs).
+Add a step to your build pipeline that uploads `.exe`, `.dll`, and `.pdb` files via [symbol-upload](https://github.com/BugSplat-Git/symbol-upload). We recommend creating an [OAuth Client ID/Client Secret](../../../development/web-services/oauth2.md#client-credentials) pair for authentication.
 
 ```bash
 cd {your build folder}
-SendPdbs.exe /u {username} /p {password} /b {database} /a {appName} /v {appVersion} /s /f "*.pdb;*.dll;*.exe"
+symbol-upload.exe -i {client id} -s {client secret} -b {database} -a {appName} -v {appVersion} -f "*.pdb;*.dll;*.exe"
 ```
 
-The `appName` and `appVersion` parameters will be associated with your uploaded symbols, creating a **symbol store**. BugSplat will automatically remove symbol stores that have not been accessed recently. See the [SendPDBs](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md) doc for a description of these rules.
+The `appName` and `appVersion` parameters will be associated with your uploaded symbols, allowing logical grouping of files within BugSplat for easier symbol management. BugSplat will automatically remove symbol stores that have not been accessed recently. See our [FAQ](../../../../education/faq/how-do-i-remove-symbol-files.md#automatically) for a description of these rules.
 
 ### Packaging Settings
 
