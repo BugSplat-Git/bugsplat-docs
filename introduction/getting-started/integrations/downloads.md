@@ -6,7 +6,7 @@ description: >-
 
 # ⌛ Downloads
 
-### :computer: Desktop&#x20;
+### :computer: Desktop
 
 |                          |                                                                            |
 | ------------------------ | -------------------------------------------------------------------------- |
@@ -14,8 +14,6 @@ description: >-
 | Windows (.NET Framework) | [Download](https://app.bugsplat.com/browse/download\_item.php?item=dotnet) |
 | macOS                    | See platform docs ([here](desktop/macos.md))                               |
 | Linux                    | See platform docs ([here](desktop/linux.md))                               |
-
-
 
 ### :twisted\_rightwards\_arrows: Cross-Platform
 
@@ -30,8 +28,6 @@ description: >-
 | Python        | See platform docs ([here](cross-platform/python.md))                          |
 | Qt            | See platform docs ([here](cross-platform/qt.md))                              |
 
-
-
 ### :video\_game: Game Development
 
 |               |                                                               |
@@ -42,8 +38,6 @@ description: >-
 | PlayStation   | See platform docs ([here](game-development/playstation.md))   |
 | Xbox          | See platform docs ([here](game-development/xbox.md))          |
 
-
-
 ### :mobile\_phone: Mobile
 
 |              |                                               |
@@ -53,9 +47,7 @@ description: >-
 | iOS          | See platform docs ([here](mobile/ios.md))     |
 | React Native | See platform docs ([here](web/react.md))      |
 
-
-
-### 🕸️ Web&#x20;
+### 🕸️ Web
 
 |            |                                               |
 | ---------- | --------------------------------------------- |
@@ -64,10 +56,9 @@ description: >-
 | React      | See platform docs ([here](web/react.md))      |
 | Vue        | See platform docs ([here](web/vue.md))        |
 
-### :incoming\_envelope: SendPDBs
+### Symbols
 
-|                  |                                                                              |
-| ---------------- | ---------------------------------------------------------------------------- |
-| BugSplatSendPdbs | [Download](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs) |
-|                  |                                                                              |
-
+|                  |                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------ |
+| BugSplatSendPdbs | [Download](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs)         |
+| symbol-upload    | See GitHub releases ([here](https://github.com/BugSplat-Git/symbol-upload/releases)) |
