@@ -208,8 +208,8 @@
   * [LootLocker](about/partnerships/lootlocker.md)
   * [EQU8](about/partnerships/equ8.md)
 * [Misc.](about/misc./README.md)
-  * [Sweepstakes](about/misc./sweepstakes/README.md)
-    * [October 9-23, 2023](about/misc./sweepstakes/october-9-23-2023.md)
+  * [Giveaways](about/misc./giveaways/README.md)
+    * [October 9-23, 2023](about/misc./giveaways/october-9-23-2023.md)
 
 ## 🔀 Changelog
 
