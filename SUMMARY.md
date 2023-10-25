@@ -73,7 +73,7 @@
     * [Table Grouping](introduction/development/searching/grouping.md)
   * [Grouping Crashes](introduction/development/grouping-crashes.md)
   * [Commenting](introduction/development/commenting.md)
-  * [3rd Party Tools](introduction/development/integrating-with-tools/README.md)
+  * [Integrations and Third Party Tools](introduction/development/integrating-with-tools/README.md)
     * [Configurable Alerts](introduction/development/integrating-with-tools/messanger-apps/README.md)
       * [Slack](introduction/development/integrating-with-tools/messanger-apps/slack.md)
       * [Microsoft Teams](introduction/development/integrating-with-tools/messanger-apps/microsoft-teams.md)
