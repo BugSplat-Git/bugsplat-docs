@@ -89,7 +89,6 @@ The ISP is designed to: (a) protect the confidentiality, integrity, and availabi
   * Amazon Web Services ([https://aws.amazon.com/](https://aws.amazon.com/))
   * Loggly, a service of SolarWinds Worldwide ([https://www.loggly.com/](https://www.loggly.com/))
   * MacStadium ([https://www.macstadium.com/](https://www.macstadium.com/))
-  * Auth0 ([https://auth0.com/](https://auth0.com/))
   * Hotjar ([https://www.hotjar.com/](https://www.hotjar.com/))
   * Intercom ([https://www.intercom.com/](https://www.intercom.com/))
 
