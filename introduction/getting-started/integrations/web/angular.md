@@ -2,7 +2,7 @@
 
 ## Overview
 
-BugSplat supports the collection of errors in Angular applications. The bugsplat-ng npm package implements Angular’s [ErrorHandler](https://angular.io/api/core/ErrorHandler) interface in order to post errors to BugSplat where they can be tracked and managed.&#x20;
+BugSplat supports the collection of errors in Angular applications. The bugsplat-ng npm package implements Angular’s [ErrorHandler](https://angular.io/api/core/ErrorHandler) interface in order to post errors to BugSplat where they can be tracked and managed.
 
 ## Sample
 
@@ -91,9 +91,9 @@ throw new Error("foobar!");
 
 Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
-![Crashes Page](https://s3.amazonaws.com/bugsplat-public/npm/bugsplat-ng/crashes-page.png)
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption><p>Crash Page</p></figcaption></figure>
 
-![Crash Page](https://s3.amazonaws.com/bugsplat-public/npm/bugsplat-ng/crash-page.png)
+<figure><img src="../../../../.gitbook/assets/image (28).png" alt=""><figcaption><p>Crashes Page</p></figcaption></figure>
 
 ## Extended Integration
 
