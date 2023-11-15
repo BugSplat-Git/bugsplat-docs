@@ -210,6 +210,7 @@
 * [Misc.](about/misc./README.md)
   * [Giveaways](about/misc./giveaways/README.md)
     * [October 9-23, 2023](about/misc./giveaways/october-9-23-2023.md)
+    * [November 15-30, 2023](about/misc./giveaways/november-15-30-2023.md)
 
 ## 🔀 Changelog
 
