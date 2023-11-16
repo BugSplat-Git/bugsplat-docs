@@ -1,6 +1,6 @@
 # Billing
 
-The [Billing](https://app.bugsplat.com/v2/settings/company/billing) page allows for users to purchase a plan, upgrade to a new plan level, and perform other [Account Management](../account-managment/managing-payment-details.md) tasks.
+The [Billing](https://app.bugsplat.com/v2/company/billing) page allows for users to purchase a plan, upgrade to a new plan level, and perform other [Account Management](../account-managment/managing-payment-details.md) tasks.
 
 If you have any questions or want further confirmation, please email [sales](mailto:sales@bugsplat.com).
 

@@ -7,7 +7,7 @@ description: >-
 
 # Add Custom Branding to Support Response
 
-One of the key benefits of using BugSplat for crash reporting is the ability to customize support messages with your branding. By uploading your own custom logo via the Support page in the BugSplat app ([https://app.bugsplat.com/v2/settings/database/support?database=](https://app.bugsplat.com/v2/settings/database/support?database=)), you can create a consistent brand identity for your customers. If you don't upload a custom logo, the BugSplat logo will be displayed by default. This not only increases goodwill with users when they experience a crash, but also helps to establish your brand as a reliable source of support.
+One of the key benefits of using BugSplat for crash reporting is the ability to customize support messages with your branding. By uploading your own custom logo via the Support page in the BugSplat app ([https://app.bugsplat.com/v2/database/support?database=](https://app.bugsplat.com/v2/database/support?database=)), you can create a consistent brand identity for your customers. If you don't upload a custom logo, the BugSplat logo will be displayed by default. This not only increases goodwill with users when they experience a crash, but also helps to establish your brand as a reliable source of support.
 
 <figure><img src="../../.gitbook/assets/support-response-editor-small-logo.png" alt=""><figcaption><p>Upload Logo Here</p></figcaption></figure>
 

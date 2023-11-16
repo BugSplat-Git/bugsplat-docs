@@ -56,7 +56,7 @@ Think an Enterprise Plan is right for your team? Please get in touch with [sales
 
 ## Paying for your plan
 
-To choose a plan navigate to the [Billing page](https://app.bugsplat.com/v2/settings/company/billing) inside of your Admin settings inside of your BugSplat account. There you will be able to upgrade to a paid plan by clicking on the **Update Plan** button.
+To choose a plan navigate to the [Billing page](https://app.bugsplat.com/v2/company/billing) inside of your Admin settings inside of your BugSplat account. There you will be able to upgrade to a paid plan by clicking on the **Update Plan** button.
 
 ![](../../../.gitbook/assets/bugsplat-billing-page-new-team-plan.png)
 
@@ -68,12 +68,12 @@ For Enterprise plans, account holders are able to pay annually via bank transfer
 
 ## Upgrading and changing your plan
 
-Team and Business account holders can upgrade or change their plan at any point during their billing cycle.  To upgrade or change your plan visit the [Billing](https://app.bugsplat.com/v2/settings/company/billing) page and click on the **Update Plan** button.&#x20;
+Team and Business account holders can upgrade or change their plan at any point during their billing cycle.  To upgrade or change your plan visit the [Billing](https://app.bugsplat.com/v2/company/billing) page and click on the **Update Plan** button.&#x20;
 
 The Update Plan button will allow you to change account settings like plan type, total users, total applications, and monthly crash & error volume.  Additionally, you'll be given the option to pay annually.&#x20;
 
 {% hint style="info" %}
-**Adding more retention days:**  After upgrading from Solo to Team or Team to Business, users will have the option to increase the number of days they retain crashes.  To edit this for any database visit the database-pecific [Privacy](https://app.bugsplat.com/v2/settings/database/privacy?database) page.&#x20;
+**Adding more retention days:**  After upgrading from Solo to Team or Team to Business, users will have the option to increase the number of days they retain crashes.  To edit this for any database visit the database-pecific [Privacy](https://app.bugsplat.com/v2/database/privacy?database) page.&#x20;
 {% endhint %}
 
 All upgrades take into account the point in the current billing cycle and pro-rate accordingly. &#x20;

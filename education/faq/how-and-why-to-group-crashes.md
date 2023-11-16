@@ -8,7 +8,7 @@ A->F->G
 
 If you set up a rule to ignore stack key A, crashes would instead be grouped at the second level of the call stack. Instead of a single group at A, you would have three different groups displayed (B, D, and F).
 
-Crash report grouping rules can be changed on the [Groupings](https://app.bugsplat.com/v2/settings/database/grouping) page or by expanding a stack frame on the **Crash** page and selecting **Group Rules.**&#x20;
+Crash report grouping rules can be changed on the [Groupings](https://app.bugsplat.com/v2/database/grouping) page or by expanding a stack frame on the **Crash** page and selecting **Group Rules.**&#x20;
 
 For more information on how to group crash reports, please see [Grouping Crashes](../../introduction/development/grouping-crashes.md).
 

@@ -8,7 +8,7 @@ BugSplat provides the capability to auto-create issues in third-party trackers l
 
 #### Location
 
-The settings for this feature are located under the Integrations tab in the database settings. To access this, click on the following link: [Database Integrations Settings](https://app.bugsplat.com/v2/settings/database/integrations).
+The settings for this feature are located under the Integrations tab in the database settings. To access this, click on the following link: [Database Integrations Settings](https://app.bugsplat.com/v2/database/integrations).
 
 <figure><img src="../../../../.gitbook/assets/Auto_create_issue.png" alt=""><figcaption></figcaption></figure>
 

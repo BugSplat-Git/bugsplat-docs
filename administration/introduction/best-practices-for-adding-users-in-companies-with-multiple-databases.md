@@ -12,7 +12,7 @@ Large companies and teams with multiple databases may have a need to restrict ac
 
 ### Best Practices:
 
-* Ask team members to add users via the Database-specific [Users](https://app.bugsplat.com/v2/settings/database/users?database) page (outlined below in pink) instead of the Company-wide [Manage Users](https://app.bugsplat.com/v2/settings/company/users) page (outlined below in yellow)
+* Ask team members to add users via the Database-specific [Users](https://app.bugsplat.com/v2/database/users?database) page (outlined below in pink) instead of the Company-wide [Manage Users](https://app.bugsplat.com/v2/company/users) page (outlined below in yellow)
   * Users added via the Database-specific Users page will only get access to that individual Database
 * Limit non-restricted users' (admins) access to multiple databases
   * When a non-restricted user sends an invite via the Manage Users page, they, by default, give access to all the databases they have unrestricted access to

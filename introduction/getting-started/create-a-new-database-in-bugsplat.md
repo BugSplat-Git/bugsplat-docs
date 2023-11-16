@@ -14,7 +14,7 @@ For new BugSplat users, creating a new database can be accomplished via the onbo
 
 ### Creating a database through the app ➡️
 
-Alternatively, a database can be created on the [Manage Database](https://app.bugsplat.com/v2/settings/company/databases) page in Settings by clicking the button labeled `+ Create Database`.  This method is also useful when wishing to set up multiple databases under an account.
+Alternatively, a database can be created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings by clicking the button labeled `+ Create Database`.  This method is also useful when wishing to set up multiple databases under an account.
 
 ![](../../.gitbook/assets/company-page-db.gif)
 

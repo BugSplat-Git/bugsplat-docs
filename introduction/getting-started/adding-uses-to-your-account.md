@@ -8,7 +8,7 @@ To add a team member to all your company's databases, simply add them via the [C
 
 ## Adding Team Members to a Specific Databases ⚽
 
-Only need to add a team member to a specific subset of databases? Navigate to the [Manage Users](https://app.bugsplat.com/v2/settings/company/users) page in Settings and select the desired database from the dropdown selector.
+Only need to add a team member to a specific subset of databases? Navigate to the [Manage Users](https://app.bugsplat.com/v2/company/users) page in Settings and select the desired database from the dropdown selector.
 
 ![Adding Team Members](../../.gitbook/assets/help-adding-users.png)
 
