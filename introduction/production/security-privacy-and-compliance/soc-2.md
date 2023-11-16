@@ -2,12 +2,10 @@
 
 BugSplat is SOC 2 compliant.
 
-BugSplat has implemented processes to support SOC 2 based on the Trust Services Criteria \
-relevant to Security (applicable Trust Services Criteria) set forth in TSP section 100, 2017 Trust Services Criteria for Security, Availability, Processing Integrity, Confidentiality, and Privacy (AICPA, Trust Services Criteria).
+BugSplat has implemented processes to support SOC 2 based on the Trust Services Criteria relevant to Security (applicable Trust Services Criteria) set forth in TSP section 100, 2017 Trust Services Criteria for Security, Availability, Processing Integrity, Confidentiality, and Privacy (AICPA, Trust Services Criteria).
 
 BugSplat has created a Systems Description (or Section 3), conducted an annual risk assessment, identified applicable risk mitigation strategies, completed and reviewed information security policies and procedures, and prepared an internal controls matrix.
 
 BugSplat has partnered with [Strike Graph](https://www.strikegraph.com/) to implement our security framework. Additional supporting documents regarding the BugSplat SOC 2 program, including a letter of attestation from Strike Graph, are available to customers and curious parties under NDA.
 
 Please contact [support@bugsplat.com](mailto:support@bugsplat.com) for follow-up questions.
-
