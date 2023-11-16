@@ -10,13 +10,13 @@ description: >-
 
 Large companies and teams with multiple databases may have a need to restrict access to certain databases while allowing access to others. In order to manage access to databases effectively, it is important to establish best practices for adding users to individual databases.
 
-In these cases, new users should always be invited via the Database-specific [Users](https://app.bugsplat.com/v2/settings/database/users?database) page (outlined below in pink) because it grants access only to the selected Database.  Do not use the Company-wide [Manage Users](https://app.bugsplat.com/v2/settings/company/users) page (outlined below in yellow), as it grants access to all Company Databases.
+In these cases, new users should always be invited via the Database-specific [Users](https://app.bugsplat.com/v2/database/users?database) page (outlined below in pink) because it grants access only to the selected Database.  Do not use the Company-wide [Manage Users](https://app.bugsplat.com/v2/company/users) page (outlined below in yellow), as it grants access to all Company Databases.
 
 <figure><img src="../../.gitbook/assets/database-specific-users-page.png" alt=""><figcaption></figcaption></figure>
 
 ### Best Practices:
 
-1. In cases where it's important to restrict new user access to specific databases, ask team members to add users via the Database-specific [Users](https://app.bugsplat.com/v2/settings/database/users?database) page instead of the Company-wide [Manage Users](https://app.bugsplat.com/v2/settings/company/users) page
+1. In cases where it's important to restrict new user access to specific databases, ask team members to add users via the Database-specific [Users](https://app.bugsplat.com/v2/database/users?database) page instead of the Company-wide [Manage Users](https://app.bugsplat.com/v2/company/users) page
    * Users added via the Database-specific Users page will only get access to that individual Database
 2. Limit non-restricted users' (admins) access to multiple databases
    * When a non-restricted user sends an invite via the Manage Users page, they, by default, give access to all the databases they have unrestricted access to

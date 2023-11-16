@@ -17,7 +17,7 @@ In a few simple steps, your .NET application can be modified to provide full deb
 1. Add a reference to "BugSplatDotNet.dll".
 2. Add a call to BugSplat.CrashReporter.Init and add the BugSplat exception handlers for the appropriate set of system exceptions. As shown in the myDotNetCrasher sample app, this takes just a few lines of code.
    * The initialization call requires three parameters: BugSplat database, application name and version. You supply the application name and version.
-   * The BugSplat database is created on the [Manage Database](https://app.bugsplat.com/v2/settings/company/databases) page in Settings. Typically, you will create a new database for each major release of your product.
+   * The BugSplat database is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. Typically, you will create a new database for each major release of your product.
 3. Add `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRC.dll` to your application's installer.
 4. Edit `BugSplatRC.dll` with Visual Studio if you wish to change the banner displayed when your application crashes.
 5. Add symbolic debug information to your release build. **Important!** To get symbolic stack reports, debug information ([pdb, dll, and executable files](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)) needs to be uploaded to the BugSplat website along with your application’s executable files. Modify your build settings so that symbol files are created for Release builds, e.g.,

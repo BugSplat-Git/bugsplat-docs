@@ -149,7 +149,7 @@ Trigger a crash in your application. The crash report should be available immedi
 
 ### Databases
 
-The BugSplat database for your crash reports is created on the [Manage Database](https://app.bugsplat.com/v2/settings/company/databases) page in Settings. Typically you will create a new database for each major release of your product.
+The BugSplat database for your crash reports is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. Typically you will create a new database for each major release of your product.
 
 ### Optimizations
 

@@ -35,7 +35,7 @@ In MyJavaCrasher.java search for the following line: `BugSplat.Init("Fred", "MyJ
 Make the following changes:
 
 * Modify the database name string **Fred** so that it matches your BugSplat database name.
-* The BugSplat database is created and selected on the [Manage Database](https://app.bugsplat.com/v2/settings/company/databases) page in Settings.
+* The BugSplat database is created and selected on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings.
 * Change the application name **MyJavaCrasher** to a name of your choice (this is an arbitrary string, used to distinguish your applications across crash reports).
 * Change the version from "1.0" to a string of your choice. Again, this is arbitrary, but would typically match the version and build string of your application.
 * Compile the MyJavaCrasher source file.
