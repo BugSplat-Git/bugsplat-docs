@@ -16,11 +16,22 @@ BugSplat's SSO domain prefix is [`https://cognito.bugsplat.com`](https://cognito
 
 Our SP urn is `urn:amazon:cognito:sp:us-east-1_rZndGLwmO`
 
-BugSplat support can configure SSO for your organization when supplied with the SAML metadata document generated from your organization.  Please send this file to support@bugsplat.com.
+BugSplat support will configure SSO for your organization when supplied with the SAML metadata document generated from your organization.  Please send this file to support@bugsplat.com.
 
-Need help setting up your integration?  This article might be helpful - [Cognito SSO](https://medium.com/@zippicoder/setup-aws-cognito-user-pool-with-an-azure-ad-identity-provider-to-perform-single-sign-on-sso-7ff5aa36fc2a)
+Need help setting up your integration?  See the following instructions for some popular IdPs.  These links are shamelessly copied from the AWS Cognito docs.  They discuss both the IdP setup along with the Cognito setup.   (BugSplat will perform the Cognito setup on your behalf.)
 
-Note:  SSO is a premium feature that requires a BugSplat Enterprise subscription.
+* Active Directory Federation Services (ADFS):
+  * [Building ADFS Federation for your Web App using Amazon Cognito User Pools](https://aws.amazon.com/blogs/mobile/building-adfs-federation-for-your-web-app-using-amazon-cognito-user-pools/)
+  * [How do I set up AD FS as a SAML identity provider with an Amazon Cognito user pool?](https://aws.amazon.com/premiumsupport/knowledge-center/cognito-ad-fs-saml/)
+* Auth0: [How do I set up Auth0 as a SAML identity provider with an Amazon Cognito user pool?](https://aws.amazon.com/premiumsupport/knowledge-center/auth0-saml-cognito-user-pool/)
+* Azure Active Directory: [Setup Amazon Cognito User Pool with an Azure AD identity provider to perform single sign-on (SSO) authentication in mobile app](https://medium.com/@zippicoder/setup-aws-cognito-user-pool-with-an-azure-ad-identity-provider-to-perform-single-sign-on-sso-7ff5aa36fc2a)
+* Centrify: [Adding and configuring a Custom SAML application](https://docs.centrify.com/Content/Applications/AppsCustom/AddConfigSAML.htm)
+* G-Suite: [Set up your own custom SAML application](https://support.google.com/a/answer/6087519?hl=en)
+* Okta: [Integrating IdP Sign In with Amazon Cognito](https://github.com/aws-samples/amazon-cognito-example-for-external-idp/blob/master/docs/OktaInstructions.md)
+* OneLogin: [How do I set up OneLogin as a SAML identity provider with an Amazon Cognito user pool?](https://aws.amazon.com/premiumsupport/knowledge-center/cognito-saml-onelogin/)
+* PingFederate: [PingOne for Enterprise Administration Guide: Add or update a SAML application](https://documentation.pingidentity.com/pingone/employeeSsoAdminGuide/index.shtml#enableAppWithoutURL.html)
+
+Note:  SSO integration is a premium feature that requires a BugSplat Enterprise subscription.
 
 ### Skipping the BugSplat Login Dialog
 
