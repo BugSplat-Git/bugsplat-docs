@@ -2,9 +2,9 @@
 
 Enhance your organization's security and user management capabilities with our Single Sign-On (SSO) support. By integrating with third-party identity providers via SAML and OpenID Connect protocols, we provide a robust and secure authentication mechanism, tailored especially for larger enterprises.
 
-SSO not only centralizes user management but also fortifies security by reducing the number of attack vectors and potential password vulnerabilities. As organizations scale, implementing a unified and secure login process becomes paramount.
+SSO not only centralizes user management but also fortifies security by reducing the number of attack vectors and potential password vulnerabilities.&#x20;
 
-In addition to SSO, we also support GitHub sign-in. This feature is available on all plans and is controlled by individual users. Organizations cannot use it to centralize user management.  Learn more [here](password-settings-and-reset-options/).
+In addition to SSO, BugSplat also supports federated authentication using Google or GitHub sign-in. This feature is available on all plans and is controlled by individual users. Organizations cannot use it to centralize user management.  Learn more [here](password-settings-and-reset-options/).
 
 ## SSO Setup Parameters
 
@@ -12,9 +12,15 @@ To setup SSO, your corporate IT team needs the following information:
 
 BugSplat's user pool ID is: `us-east-1_rZndGLwmO`
 
-BugSplat's SSO domain prefix is [`https://cognito.bugsplat.com`](https://cognito.bugsplat.com/)`.` This means our SAML assertion endpoint is: [https://cognito.bugsplat.com/saml2/idpresponse](https://cognito.bugsplat.com/saml2/idpresponse)
+BugSplat's SSO domain prefix is [`https://cognito.bugsplat.com`](https://cognito.bugsplat.com/) This means our SAML assertion endpoint is: [https://cognito.bugsplat.com/saml2/idpresponse](https://cognito.bugsplat.com/saml2/idpresponse)
 
 Our SP urn is `urn:amazon:cognito:sp:us-east-1_rZndGLwmO`
+
+BugSplat support can configure SSO for your organization when supplied with the SAML metadata document generated from your organization.  Please send this file to support@bugsplat.com.
+
+Need help setting up your integration?  This article might be helpful - [Cognito SSO](https://medium.com/@zippicoder/setup-aws-cognito-user-pool-with-an-azure-ad-identity-provider-to-perform-single-sign-on-sso-7ff5aa36fc2a)
+
+Note:  SSO is a premium feature that requires a BugSplat Enterprise subscription.
 
 ### Skipping the BugSplat Login Dialog
 
