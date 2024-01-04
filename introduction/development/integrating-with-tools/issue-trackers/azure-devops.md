@@ -5,7 +5,7 @@ Visual Studio Team Services (Azure DevOps) integration with BugSplat allows your
 ### Integrating Azure DevOps with BugSplat
 
 1. Login to your BugSplat account.
-2. Go to the [Settings](https://app.bugsplat.com/v2/database/integrations#defect-trackers) page and under the **Defect Tracker** tab select **Azure DevOps** from the drop-down menu.
+2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**, select **Azure DevOps** from from the options shown.
 3. Enter your **Azure DevOps URL** and **Personal Access Token** into the appropriate fields.
 4. Click **Apply**.
 5. If the connection is successful, you will now be able to select your desired project from the **Project** dropdown list.
@@ -20,5 +20,5 @@ Visual Studio Team Services (Azure DevOps) integration with BugSplat allows your
 3\. Click the link to view the new Azure DevOps defect that was created by BugSplat.
 
 {% hint style="info" %}
-**Want to create issues automatically?** You can!  Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](azure-devops.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
+**Want to create issues automatically?** You can! Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](azure-devops.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
 {% endhint %}

@@ -5,7 +5,7 @@ Fogbugz integration with BugSplat crash reports allows your team to create defec
 ### Integrating Fogbugz with BugSplat
 
 1. Login to your account.
-2. Go to the [Settings](https://app.bugsplat.com/v2/database/integrations#defect-trackers) page and under **Defect Tracker** select **FogBugz** from the drop-down menu.
+2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**, select **Frogbugz** from the options shown.
 3. Enter your Fogbugz **Username**, and your Fogbugz **URL** into the appropriate boxes and click **Apply**.
 4. Select your desired **Project**.
 5. Click **Apply**.
@@ -19,5 +19,5 @@ Fogbugz integration with BugSplat crash reports allows your team to create defec
 3\. Click the link to view the new FogBugz defect that was created by BugSplat.
 
 {% hint style="info" %}
-**Want to create issues automatically?** You can!  Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](fogbugz.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
+**Want to create issues automatically?** You can! Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](fogbugz.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
 {% endhint %}

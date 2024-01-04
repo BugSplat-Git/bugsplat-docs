@@ -5,7 +5,7 @@ BugSplat's GitHub Issues integration allows your team to create defects from cra
 ### Integrating GitHub Issues with BugSplat
 
 1. [Login](https://app.bugsplat.com/cognito/login) to your account.
-2. Go to the [Settings](https://app.bugsplat.com/v2/database/integrations#defect-trackers) page and under the **Defect Tracker** tab select **GitHub Issues** from the drop-down menu.
+2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**,t **GitHub Issues** from the from the options shown.
 3. Enter your GitHub **Username**, **API Token** and **Repo Owner** into the appropriate boxes and click **Apply**.
 4. Select your desired project.
 5. Click **Apply** once more to complete the integration.
@@ -19,5 +19,5 @@ BugSplat's GitHub Issues integration allows your team to create defects from cra
 3\. Click the link to view the new GitHub issue that was created by BugSplat.
 
 {% hint style="info" %}
-**Want to create issues automatically?** You can!  Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](github-issues.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
+**Want to create issues automatically?** You can! Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](github-issues.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
 {% endhint %}
