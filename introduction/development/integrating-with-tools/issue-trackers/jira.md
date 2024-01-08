@@ -5,7 +5,7 @@ BugSplat's Jira integration allows your team to create defects with a few clicks
 ### Integrating Jira and BugSplat
 
 1. Login to your account.
-2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**, select **Jira** from the from the options shown.
+2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**, select **Jira** from the options shown.
 3. Enter your **Username**, **Password**, **URL**, and **Issue Type** into the appropriate boxes.
 4. Click **Apply**.
 5. Once a connection to Jira has been established, you can select one of your projects from the project dropdown list.

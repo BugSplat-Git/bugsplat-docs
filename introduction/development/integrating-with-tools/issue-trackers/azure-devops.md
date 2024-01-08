@@ -1,14 +1,14 @@
 # Azure DevOps
 
-Visual Studio Team Services (Azure DevOps) integration with BugSplat allows your team to create defects with a single-button click. Hyperlinks allow quick navigation from defects to crash reports and back. Defects created from BugSplat automatically include symbolic call stack information as well as other crash-specific data.
+Visual Studio Team Services (Azure DevOps) integration with BugSplat allows your team to create defects with a few clicks. Hyperlinks allow quick navigation from defects to crash reports and back. Defects created from BugSplat automatically include symbolic call stack information and other crash-specific data.
 
 ### Integrating Azure DevOps with BugSplat
 
 1. Login to your BugSplat account.
-2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**, select **Azure DevOps** from from the options shown.
+2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**, select **Azure DevOps** from the options shown.
 3. Enter your **Azure DevOps URL** and **Personal Access Token** into the appropriate fields.
 4. Click **Apply**.
-5. If the connection is successful, you will now be able to select your desired project from the **Project** dropdown list.
+5. If the connection is successful, you can select your desired project from the **Project** dropdown list.
 6. Click **Apply**.
 
 ### Creating an issue in Azure DevOps from a BugSplat crash report
@@ -17,8 +17,8 @@ Visual Studio Team Services (Azure DevOps) integration with BugSplat allows your
 
 2\. Enter relevant details and click the **Submit** button to create the defect. You can also enter an existing **Defect ID** if you'd like to associate a crash or stack key with an existing issue from Azure DevOps.
 
-3\. Click the link to view the new Azure DevOps defect that was created by BugSplat.
+3\. Click the link to view the new Azure DevOps defect created by BugSplat.
 
-{% hint style="info" %}
-**Want to create issues automatically?** You can! Please check out the document on auto-creating defects in your third-party defect tracker tool here --> [#creating-an-issue-in-jira-from-a-bugsplat-crash-report](azure-devops.md#creating-an-issue-in-jira-from-a-bugsplat-crash-report "mention")
-{% endhint %}
+### Automated Defect Creation
+
+Want to create issues in Azure DevOps automatically for each new crash or crash group? Check out the document on auto-creating defects in your third-party defect tracker tool [here](auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md).
