@@ -4,7 +4,7 @@ In large-scale application environments, managing production crashes efficiently
 
 For instance, if your application encounters 15 million crashes in a year, BugSplat's system allows for the configuration of a percentage-based, random selection of crashes for full processing. This means that out of the 15 million, a predetermined, random subset is processed, providing a reliable overview of your application's crash patterns, detailed insights into various crash categories, and a robust set of fully processed, searchable crash reports to facilitate your debugging and customer support processes.
 
-Key Features of High Volume Fractional Crash Processing:
+**Key Features of High Volume Fractional Crash Processing:**
 
 1. **Exclusively for Enterprise Customers**: This feature is specifically designed to address enterprise-level applications' high-volume crash analysis needs.
 2. **Randomized, Configurable Crash Processing**: BugSplat can be set to randomly process a specific percentage of crashes from your production databases, ensuring a representative sample without the need to process every single crash.
