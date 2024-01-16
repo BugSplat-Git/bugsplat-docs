@@ -1,6 +1,6 @@
 # Crash Expiry
 
-BugSplat stores crash data for different time frames for different [plans](https://www.bugsplat.com/plans/). Business and Pro account holders by default get crash data stored for 1 year.
+BugSplat stores crash data for different time frames for different [plans](https://www.bugsplat.com/plans/). Business and Enterprise account holders by default get crash data stored for 1 year.
 
 Business and Team account-holders who require crash data to be stored for a shorter amount of time have the option to specify a shorter retention period using the "Crash Expiry" option.
 
