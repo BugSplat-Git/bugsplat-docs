@@ -1,12 +1,14 @@
 # What is 'High Volume Fractional Crash Processing'?
 
-For many large applications, production crash volume is so big that processing a random percentage of crashes provides no loss of information, and doing so can lead to sizable cost savings as fewer crashes are fully processed.  This is useful as BugSplat enterprise plans are charged primarily based on crash volume.
+In large-scale application environments, managing production crashes efficiently is crucial. For enterprise-grade projects, the volume of crashes can be overwhelmingly high, yet processing a random subset of these crashes can yield comprehensive insights without compromising data quality. This technique is particularly advantageous for BugSplat's enterprise customers, as it offers a balance between thorough crash analysis and cost-effectiveness, with pricing primarily influenced by crash volume.
 
-**For example:** if your application crashes 50 million times per year, BugSplat can be configured to randomly select and fully process only 10% of those crashes.  This allows you to know exactly how often your app is crashing, collect statistically accurate information on crash groups, and still have plenty of searchable and fully-processed crash reports to use in your debug and support efforts.
+For instance, if your application encounters 15 million crashes in a year, BugSplat's system allows for the configuration of a percentage-based, random selection of crashes for full processing. This means that out of the 15 million, a predetermined, random subset is processed, providing a reliable overview of your application's crash patterns, detailed insights into various crash categories, and a robust set of fully processed, searchable crash reports to facilitate your debugging and customer support processes.
 
-**Details about High Volume Fractional Crash Processing:**
+Key Features of High Volume Fractional Crash Processing:
 
-* Available for Business and Pro customers.
-* Supports processing any percentage (1-99%) of crashes in your production databases&#x20;
-* Crash volume is billed at BugSplat standard enterprise rates, but you are billed only for the number of crashes processed.
-* The BugSplat web application will display fractional processing information so your team has visibility into the process.
+1. **Exclusively for Enterprise Customers**: This feature is specifically designed to address enterprise-level applications' high-volume crash analysis needs.
+2. **Randomized, Configurable Crash Processing**: BugSplat can be set to randomly process a specific percentage of crashes from your production databases, ensuring a representative sample without the need to process every single crash.
+3. **Billing Aligned with Processing**: Crash volume is billed at BugSplat standard enterprise rates, but you are billed only for the number of crashes processed.
+4. **Visibility into Processing Mechanics**: The BugSplat web application will display fractional processing information so your team has visibility into the process.
+
+This feature is crafted with the needs of developers and enterprises, aiming to provide a practical and cost-effective solution for managing and analyzing crash data at scale while maintaining data integrity and operational transparency.
