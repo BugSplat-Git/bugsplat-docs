@@ -27,7 +27,7 @@ Need help setting up your integration?  See the following instructions for some 
 * Azure Active Directory: [Setup Amazon Cognito User Pool with an Azure AD identity provider to perform single sign-on (SSO) authentication in mobile app](https://medium.com/@zippicoder/setup-aws-cognito-user-pool-with-an-azure-ad-identity-provider-to-perform-single-sign-on-sso-7ff5aa36fc2a)
 * Centrify: [Adding and configuring a Custom SAML application](https://docs.centrify.com/Content/Applications/AppsCustom/AddConfigSAML.htm)
 * G-Suite: [Set up your own custom SAML application](https://support.google.com/a/answer/6087519?hl=en)
-* Okta: [Integrating IdP Sign In with Amazon Cognito](https://github.com/aws-samples/amazon-cognito-example-for-external-idp/blob/master/docs/OktaInstructions.md)
+* Okta: [Okta as a SAML identity provider](https://repost.aws/knowledge-center/cognito-okta-saml-identity-provider)&#x20;
 * OneLogin: [How do I set up OneLogin as a SAML identity provider with an Amazon Cognito user pool?](https://aws.amazon.com/premiumsupport/knowledge-center/cognito-saml-onelogin/)
 * PingFederate: [PingOne for Enterprise Administration Guide: Add or update a SAML application](https://documentation.pingidentity.com/pingone/employeeSsoAdminGuide/index.shtml#enableAppWithoutURL.html)
 
