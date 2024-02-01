@@ -91,7 +91,7 @@ throw new Error("foobar!");
 
 Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption><p>Crash Page</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Crash Page</p></figcaption></figure>
 
 <figure><img src="../../../../.gitbook/assets/image (28).png" alt=""><figcaption><p>Crashes Page</p></figcaption></figure>
 

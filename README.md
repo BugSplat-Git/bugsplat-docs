@@ -102,6 +102,6 @@ Information that covers the who, what, when, where, and why's of BugSplat.
 
 Updates to the BugSplat web app, various SDK's, and other aspects of our services.
 
-{% content-ref url="http://127.0.0.1:5000/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/" %}
-[BugSplat Changelog](http://127.0.0.1:5000/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/)
+{% content-ref url="https://app.gitbook.com/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/" %}
+[BugSplat Changelog](https://app.gitbook.com/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/)
 {% endcontent-ref %}
