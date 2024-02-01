@@ -35,15 +35,17 @@ Note:  SSO integration is a premium feature that requires a BugSplat Enterprise 
 
 ## SSO Authorization
 
-You can optionally provide access to BugSplat databases by associating groups with each user that match groups assigned to your BugSplat databases.  If no user groups are provided, users can authenticate with BugSplat but won't have access to any company databases until you add them using the Users or Company pages.&#x20;
+You can optionally provide access to BugSplat databases by associating groups with each user that match groups assigned to your BugSplat databases.  If no user groups are provided, users can authenticate with BugSplat but won't have access to any company databases until you add them using the [Database Users](https://app.bugsplat.com/v2/database/users) or [Company Manage Users](https://app.bugsplat.com/v2/company/users) pages.&#x20;
 
-The SAML attribute [	http://schemas.xmlsoap.org/claims/Group](http://schemas.xmlsoap.org/claims/Group) provides BugSplat with a list of roles associated with a user at login.&#x20;
+Group memberships for each user are passed to BugSplat in the SAML 2.0 assertion. The “groups” attribute statement must include the name of each BugSplat database group to which the user should be added.
 
-Groups provided by SSO are matched to groups defined for each of your databases on the Integration page.  Each database has a group name for access and administration.
+Groups provided by SSO are matched to groups defined for each of your databases on the Integrations/SSO page.  Each database has a group name for access and administration.
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>SSO Group Definition</p></figcaption></figure>
 
 For example, you might assign the Groups "BsAccess" and "BsAdmin" to each BugSplat database.  Then, users who should have administrator rights would be assigned to the "BsAdmin" role, and users who needed only regular access would be assigned the "BsAccess" role.
+
+Note that the SSO groups will be copied from the current database when creating a new database.  So typically, once they are set up, no further group definition will be required.
 
 ### Skipping the BugSplat Login Dialog
 
