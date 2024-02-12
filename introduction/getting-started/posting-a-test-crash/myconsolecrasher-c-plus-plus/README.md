@@ -8,27 +8,23 @@ description: >-
 
 Before you enable your native Windows application with BugSplat technology, you may want to take a moment to experiment with our `myConsoleCrasher` sample application.
 
-First, login to BugSplat with user name `fred@bugsplat.com` and password `Flintstone`.
+To get started, download the BugSplat Microsoft Windows Native C++ SDK from the [Downloads](https://www.bugsplat.com/docs/sdk/) page. Once the contents of `BugSplatNative.zip` have been extracted, navigate to the `samples` folder and open the `myConsoleCrasher.vcxproj` file with Visual Studio.
 
-All of the crash reports in the `fred@bugsplat.com` account are actual crashes created with our sample applications. Reports from `myConsoleCrasher` are mixed in with reports from other applications on the [Crashes](https://app.bugsplat.com/v2/crashes) page.
+1. Open myConsoleCrasher.vcxproj with Visual Studio 2019+&#x20;
+2. Define values for `BUGSPLAT_DATABASE`, `APPLICATION_NAME`, and `APPLICATION_VERSION` in MyConsoleCrasher\MyConsoleCrasher.h
+3. Create a Client ID and Client Secret pair for your BugSplat database on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page
+4. Create a file `MyConsoleCrasher\Scripts\env.ps1` and populate it with the following (being sure to substitute your `{{id}}` and `{{secret}}` values from the previous step):
 
-To view just the `myConsoleCrasher` crashes, filter using the drop-down menu in the header of the application column:
+```
+$BUGSPLAT_CLIENT_ID = "{{id}}"
+$BUGSPLAT_CLIENT_SECRET = "{{secret}}"
+```
 
-![Search for Crashes Containing MyConsoleCrasher](../../../../.gitbook/assets/my-console-crasher-search.png)
-
-Next, download the BugSplat Microsoft Windows Native C++ SDK from the [Downloads](https://www.bugsplat.com/docs/sdk/) page. Once the SDK has downloaded, right click `BugSplatNative.zip` and choose and `Extract All`. Failing to extract the contents from the zip will result in numerous build failures. Once the contents of `BugSplatNative.zip` have been extracted navigate to the `samples` folder and open the `myConsoleCrasher.vcxproj` file with Visual Studio.
-
-Rebuild the project and run it outside of the Visual Studio debugger (Ctrl+F5). This is important since the debugger interferes with the BugSplat library’s exception handling. You should see a dialog such as that shown below (make sure to type something describing the crash so that you can identify it on the website):
+5. Rebuild the project and run it outside of the Visual Studio debugger (Ctrl+F5). This is important since the debugger interferes with the BugSplat library’s exception handling. You should see a dialog such as that shown below:
 
 ![BugSplat Crash Dialog](<../../../../.gitbook/assets/bugsplat-crash-dialog (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3) (2) (1) (2).png>)
 
-Click the `Send Error Report` button and voilà! The report will be sent! On the BugSplat website while logged in to the `fred@bugsplat.com` account, look for the crash report with the description you entered.
-
-You also can easily modify `myConsoleCrasher` so that crash reports are sent to a database in your account instead. Just modify the following line in `myConsoleCrasher.cpp`, changing `Fred` to the name of your database:
-
-```
-mpSender = new MiniDmpSender(L"Fred", L"myConsoleCrasher", L"1.0", NULL);
-```
+Enter some descriptive text to help you identify the crash you are about to upload.  Click the `Send Error Report` button, and voilà!  The report will be sent! On the BugSplat website, look for the crash report with the description you entered.
 
 Finally, experiment with other features of the library by examining the `myConsoleCrasher` source code and supplying different command-line arguments.
 
