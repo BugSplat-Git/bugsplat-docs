@@ -4,6 +4,6 @@ BugSplat has implemented processes to support SOC 2 based on the Trust Services 
 
 BugSplat has created a Systems Description (or Section 3), conducted an annual risk assessment, identified applicable risk mitigation strategies, completed and reviewed information security policies and procedures, and prepared an internal controls matrix.
 
-BugSplat has partnered with [SecureFrame](https://secureframe.com/) to implement our security framework. Additional supporting documents regarding the BugSplat SOC 2 program, results of BugSplat's SOC-2 audit, and other information are available to customers and curious parties under NDA.
+BugSplat has partnered with [SecureFrame](https://secureframe.com/) to implement our security framework. Additional supporting documents regarding the BugSplat SOC 2 program, results of BugSplat's SOC-2 audit, and other information are [available to customers and curious parties under NDA](bugsplat-security-program-inquirys.md).
 
 Please contact [support@bugsplat.com](mailto:support@bugsplat.com) for follow-up questions.
