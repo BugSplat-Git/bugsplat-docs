@@ -116,6 +116,7 @@
   * [Managing Versions](introduction/production/managing-versions.md)
   * [Security and Compliance](introduction/production/security-privacy-and-compliance/README.md)
     * [Security Program](introduction/production/security-privacy-and-compliance/security-program.md)
+    * [BugSplat Security Program Inquirys](introduction/production/security-privacy-and-compliance/bugsplat-security-program-inquirys.md)
     * [SOC 2](introduction/production/security-privacy-and-compliance/soc-2.md)
     * [GDPR](introduction/production/security-privacy-and-compliance/gdpr.md)
     * [Avoid Collecting Personally Identifiable Information (PII)](introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md)
