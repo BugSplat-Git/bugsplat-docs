@@ -39,7 +39,7 @@
       * [Ionic](introduction/getting-started/integrations/mobile/ionic.md)
       * [iOS](introduction/getting-started/integrations/mobile/ios.md)
       * [React Native](introduction/getting-started/integrations/mobile/react-native.md)
-    * [🕸 Web](introduction/getting-started/integrations/web/README.md)
+    * [🕸️ Web](introduction/getting-started/integrations/web/README.md)
       * [Angular](introduction/getting-started/integrations/web/angular.md)
       * [JavaScript](introduction/getting-started/integrations/web/javascript.md)
       * [React](introduction/getting-started/integrations/web/react.md)
