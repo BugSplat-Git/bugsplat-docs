@@ -81,7 +81,7 @@ After posting an error, navigate to the [Crashes](https://app.bugsplat.com/v2/cr
 
 That’s it! Your application is now configured to post error reports to BugSplat.
 
-## API
+## 🧩 API
 
 In addition to the configuration demonstrated above, there are a few public methods that can be used to customize your BugSplat integration:
 
@@ -95,6 +95,6 @@ async bugsplat.post(error, options); // Posts an arbitrary Error object to BugSp
 // Returns a promise that resolves with properties: error (if there was an error posting to BugSplat), response (the response from the BugSplat crash post API), and original (the error passed by bugsplat.post)
 ```
 
-## Contributing
+## 🤝 Contributing
 
 BugSplat loves open-source software! Please check out our project on [GitHub](https://github.com/BugSplat-Git/bugsplat-js) and send us a Pull Request.
