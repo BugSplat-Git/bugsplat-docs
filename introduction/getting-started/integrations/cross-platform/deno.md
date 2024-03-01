@@ -97,4 +97,4 @@ async bugsplat.post(error, options); // Posts an arbitrary Error object to BugSp
 
 ## Contributing
 
-BugSplat loves open-source software! Please check out our project on [GitHub](https://github.com/BugSplat-Git/bugsplat-deno) and send us a Pull Request.
+BugSplat loves open-source software! Please check out our project on [GitHub](https://github.com/BugSplat-Git/bugsplat-js) and send us a Pull Request.
