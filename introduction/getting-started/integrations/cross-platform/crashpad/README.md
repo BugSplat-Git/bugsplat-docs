@@ -6,7 +6,7 @@
 **Want help building Crashpad?** View our step-by-step guide to help you more quickly get started [here](how-to-build-google-crashpad.md).
 {% endhint %}
 
-Crashpad is the latest open-source crash reporting tool built by Google and is the successor to the popular Breakpad crash reporter. Crashpad allows you to submit minidumps to a configured URL after a crash occurs in your product. The official Crashpad documentation is available [here](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md).  Crashpad and Breakpad are 'wire compatible.'  The crash reports created by both systems are processed similarly on our backend.
+Crashpad is the latest open-source crash reporting tool built by Google and is the successor to the popular Breakpad crash reporter. Crashpad allows you to submit minidumps to a configured URL after a crash occurs in your product. The official Crashpad documentation is available [here](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md). Crashpad and Breakpad are 'wire compatible.' The crash reports created by both systems are processed similarly on our backend.
 
 ## Tutorial
 
@@ -121,11 +121,7 @@ Link your application with the appropriate version of the Crashpad libraries `cl
 
 #### Step 5
 
-Upload symbols for your application to generate symbolic call stacks. Our sample project uses the BugSplat `SendPdbs` utility to upload .exe, .dll and .pdb files. This is the preferred approach for Windows products. Additional information can be found on our [SendPdbs page](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
-
-#### Step 6
-
-BugSplat also supports symbol files using the Crashpad `.sym` file format. This format is required for platforms other than Windows. To upload your application's `.sym` files manually, please see this [doc](../../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use the Breakpad [symupload](how-to-build-google-crashpad.md#windows-4) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.
+Upload symbol files to BugSplat. To upload your application's `.sym` files manually, please see this [doc](../../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use the Breakpad [symupload](how-to-build-google-crashpad.md#windows-4) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.
 
 {% hint style="warning" %}
 Ensure the `path`and`url`are wrapped in double quotes when using`symupload`
@@ -137,11 +133,11 @@ symupload "<file.exe|file.dll>" "https://{database}.bugsplat.com/post/bp/symbol/
 
 #### Breakpad symbols for non-Windows platforms
 
-Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step.  You must first run the Breakpad utility `dump_syms` to create `.sym` files from your local executable files.  Then use `symupload` to upload the symbols to BugSplat. &#x20;
+Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step. You must first run the Breakpad utility `dump_syms` to create `.sym` files from your local executable files. Then use `symupload` to upload the symbols to BugSplat.
 
-Operating system symbol files can be uploaded in a similar manner.  You may be able to find symbolic debug files for your operating system.  If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated.  Since OS symbols change infrequently, they are a good candidate to store in a [Common Symbol Libarary](../../../../development/working-with-symbol-files/common-symbols.md).
+Operating system symbol files can be uploaded in a similar manner. You may be able to find symbolic debug files for your operating system. If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated. Since OS symbols change infrequently, they are a good candidate to store in a [Common Symbol Library](../../../../development/working-with-symbol-files/common-symbols.md).   Note, Windows OS symbols are loaded automatically by BugSplat.
 
-#### Step 7
+#### Step 6
 
 Trigger a crash in your application. The crash report should be available immediately on the BugSplat website.
 
@@ -155,8 +151,4 @@ The BugSplat database for your crash reports is created on the [Manage Database]
 
 Compiler optimizations can cause a mismatch between the line numbers in crash reports and the actual line numbers in your code. BugSplat recommends turning off compiler optimizations to ensure that the line numbers in your crash reports match the line numbers in your code. To turn off optimizations in Visual Studio, right click your project and navigate to **Properties > C/C++ > Optimization > Optimization** and set the value to **Disabled (/Od)**.
 
-### Processing as Windows Native
-
-BugSplat can process Crashpad crashes reported from Windows operating systems with our Windows backend, rather than the Breakpad backend. The advantage of this approach is that BugSplat can resolve Windows OS symbols automatically.
-
-To configure your Breakpad crashes to be processed by our Windows backend, create unique AppName/AppVersion combinations for the Windows versions of your application and upload `.pdb`, `.dll` and `.exe` files (rather than .sym files). The presence of `.pdb`, `.dll` or `.exe` files in the symbol store is what triggers the use of the Windows backend. Uploading Windows symbols can be done via our manual symbol upload page or by our automated tool [SendPdbs](../../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
+###
