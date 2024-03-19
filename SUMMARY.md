@@ -208,10 +208,13 @@
 * [Partnerships](about/partnerships/README.md)
   * [LootLocker](about/partnerships/lootlocker.md)
   * [EQU8](about/partnerships/equ8.md)
-* [Misc.](about/misc./README.md)
+* [Misc](about/misc./README.md)
+  * [Promotions](about/misc./promotions.md)
+  * [March 2024 - Game Developer Free Months of Service](about/misc./march-2024-game-developer-free-months-of-service.md)
   * [Giveaways](about/misc./giveaways/README.md)
     * [October 9-23, 2023](about/misc./giveaways/october-9-23-2023.md)
     * [November 15-30, 2023](about/misc./giveaways/november-15-30-2023.md)
+    * [March 18 - April 03, 2024](about/misc./giveaways/march-18-april-03-2024.md)
 
 ## 🔀 Changelog
 
