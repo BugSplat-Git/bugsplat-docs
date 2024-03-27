@@ -165,18 +165,18 @@ Uploads an XML crash report and can be used to create reports for languages and 
 
 #### Request Body
 
-| Name                                         | Type   | Description                                                      |
-| -------------------------------------------- | ------ | ---------------------------------------------------------------- |
-| file<mark style="color:red;">\*</mark>       | FILE   | File POST parameter. This file can optionally be zip compressed. |
-| other files                                  | FILE   | Any additional file POSTs will be attached to the crash report.  |
-| appName<mark style="color:red;">\*</mark>    | String | Application name                                                 |
-| appVersion<mark style="color:red;">\*</mark> | String | Application version                                              |
-| appKey                                       | String | BugSplat crash key                                               |
-| user                                         | String | User reporting the crash                                         |
-| email                                        | String | Email of user                                                    |
-| description                                  | String | User description of the problem                                  |
-| ipAddress                                    | String | IP Address of machine generating report                          |
-| notes                                        | string | Arbitrary additional data about the crash report                 |
+| Name                                         | Type   | Description                                                               |
+| -------------------------------------------- | ------ | ------------------------------------------------------------------------- |
+| file<mark style="color:red;">\*</mark>       | FILE   | XML file containing crash report. File name must be **bsCrashReport.xml** |
+| other files                                  | FILE   | Any additional file POSTs will be attached to the crash report.           |
+| appName<mark style="color:red;">\*</mark>    | String | Application name                                                          |
+| appVersion<mark style="color:red;">\*</mark> | String | Application version                                                       |
+| appKey                                       | String | BugSplat crash key                                                        |
+| user                                         | String | User reporting the crash                                                  |
+| email                                        | String | Email of user                                                             |
+| description                                  | String | User description of the problem                                           |
+| ipAddress                                    | String | IP Address of machine generating report                                   |
+| notes                                        | string | Arbitrary additional data about the crash report                          |
 
 {% tabs %}
 {% tab title="200: OK " %}
