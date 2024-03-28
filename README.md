@@ -1,30 +1,35 @@
 ---
 description: >-
   Technical documentation, platform integration guides, crash reporting best
-  practices, and other useful information from BugSplat
+  practices, and other useful information from BugSplat.  We're excited you're
+  here!
 ---
 
 # Welcome
 
 ### **Hi there 👋**
 
-BugSplat is a crash reporting, error reporting, and bug tracking tool that helps developers efficiently identify and fix defects in order to support more stable applications.
+BugSplat is a crash-reporting, error-reporting, and bug-tracking tool that helps developers efficiently identify and fix defects in order to support more stable applications.
 
 {% content-ref url="introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md" %}
 [quickly-submitting-your-first-crash-in-under-5-minutes.md](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 {% endcontent-ref %}
 
-In these documents, you’ll find everything you need to get fully up to speed with BugSplat. This includes [getting started guides](introduction/getting-started/),[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of [3rd-party tool integrations](introduction/development/integrating-with-tools/), a [walkthrough of using the web application](introduction/development/using-the-app.md), links to our[ webservices (API)](introduction/development/web-services/api/), and much more.
+These documents contain everything you need to get fully up to speed with BugSplat. This includes [getting started guides](introduction/getting-started/),[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of [3rd-party tool integrations](introduction/development/integrating-with-tools/), a [walkthrough of using the web application](introduction/development/using-the-app.md), links to our[ webservices (API)](introduction/development/web-services/api/), and much more.
 
 <figure><img src=".gitbook/assets/bs-video-game-banner-wide-logo-powered-reddit.png" alt=""><figcaption></figcaption></figure>
 
 Use the links below to begin navigating these docs. If you can’t find something use the left-hand menu or the handy search bar in the top right.
 
-If you need any support please reach out to us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app window, or ping us on our [Discord](https://discord.gg/K4KjjRV5ve).
+If you need any support please contact us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app chat window, or ping us on our [Discord](https://discord.gg/K4KjjRV5ve).
+
+{% hint style="warning" %}
+We've made a few changes to our pricing model.  These changes went live on March 29th 2024.  To learn more please read more here -> [updates-to-bugsplat-pricing-plans-march-2024.md](administration/billing/plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-march-2024.md "mention")
+{% endhint %}
 
 ## Introduction
 
-Whether you're new to BugSplat, or simply setting up a new project, our getting started resources make the process straightforward.
+Whether you're new to BugSplat or simply setting up a new project, our resources for getting started make the process straightforward.
 
 {% content-ref url="introduction/getting-started/" %}
 [getting-started](introduction/getting-started/)

@@ -1,42 +1,32 @@
 # Good Causes
 
-### Overview
+At BugSplat, we're dedicated to supporting initiatives that drive positive change across various critical areas such as human rights, world poverty, environmental sustainability, and addressing underrepresentation in tech. Our commitment extends beyond our services; we're also pledging 1% of our profits to causes that align with these values, partnering with organizations like [Stripe Climate](https://climate.stripe.com/mbVoun) to contribute to global environmental efforts.
 
-We're committed to supporting those who are giving back and making a real difference in important fields.  We're commited to giving 1% of profits to good caused like [OneTreePlanted](../../../about/who-is-bugsplat/charitable-giving.md#one-tree-planted).
+#### **Free Plan for Good Causes**
 
-Because of that, BugSplat has an Extended Free Tier Plan for anyone working on human rights, world poverty, environmental sustainability, or underrepresentation in tech.&#x20;
+To empower non-profit organizations and projects making significant impacts in their fields, BugSplat offers a Free Plan for Good Causes. This plan mirrors the benefits of our Education Plan, providing the base features of our Team Plan at no cost to support the technological needs of your mission-driven projects.
 
-We also give a 10% discount to any [Pledge 1%](https://pledge1percent.org/) company.
+* **Eligibility:** If you're part of an organization working towards advancements in human rights, combating world poverty, promoting environmental sustainability, or tackling underrepresentation in tech, you may qualify for our Extended Free Tier Plan. This plan offers an annual allowance of 25,000 monthly crashes and 250GB of storage, along with access to our suite of debugging tools.
+* **Yearly Renewal:** We understand the ongoing nature of good causes, which is why we offer the possibility of extending this plan year by year, provided your project continues to meet our non-profit criteria.
+* **Support for Pledge 1% Members:** In addition, we're proud to support companies participating in the Pledge 1% movement by offering a 10% discount on our monthly and annually paid Team and Business plans. This offer does not apply to Enterprise plans but signifies our support for businesses committed to giving back.
 
-If you're wondering if you qualify but are not sure, please send an email to [hi@bugsplat.com](mailto:hi@bugsplat.com) and tell us a little bit about yourself and your project.
+#### **How to Apply**
 
-### Here are the rules:
+If you believe your project or organization qualifies for our Free Plan for Good Causes, or if you're a Pledge 1% company looking to take advantage of our discount, please reach out to us at hi@bugsplat.com. Share a bit about your work, your impact, and how BugSplat can support your goals. Our team is eager to learn about your initiatives and discuss how we can contribute to your success.
 
-If you're a member of a company or organization that you believe might fit the above criteria and benefit from crash or error reporting, you likely qualify for our Extended Free Tier Plan.
+#### **Supporting BugSplat**
 
-For users and teams that qualify, you'll get annual 50,000 free monthly errors and crashes plus integrations with defect trackers.
+While there's no expectation for reciprocation, any support for BugSplat—whether through positive mentions online or including a link to our website in your documentation—is greatly appreciated. As a bootstrapped startup, our growth is fueled by the positive word-of-mouth from users like you.
 
-If you're wondering if you qualify but are not sure, please send an email to our product manager Joey (joey@bugsplat.com) and tell him a little bit about yourself and your project or community.
+Through the Free Plan for Good Causes, BugSplat reaffirms its dedication to supporting projects that strive for a better world. We're here to provide the tools you need, so you can focus on the impactful work you do.
 
-#### How long does this plan last?
-
-This plan lasts as long as your open-source project remains in good standing with BugSplat and stays a not-for-profit, non-revenue generating project.
-
-#### How can I support BugSplat during the free plan?
-
-First off, it's very nice that you're thinking of us. We're touched.&#x20;
-
-There is absolutely no responsibility on your part to help us in exchange for getting free crash reporting. &#x20;
-
-If you're determined to be super nice - how dare you - you could mention us positively online or to your friends and coworkers.  Please also consider including a link to our website in your documentation.
-
-BugSplat is a [bootstrapped startup](https://www.bugsplat.com/about/) and we grow largely on the back of positive word of mouth from our users.
+***
 
 ### How to get started
 
-To get started with the Good Causes Free Tier Plan, follow the below steps:&#x20;
+To get started with the Good Causes Free Tier Plan, follow the below steps:
 
 1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up).
 2. Follow the [Gettings Started](../../../introduction/getting-started/) docs to set up your account.
-3. Send us an email at [hi@bugsplat.com](mailto:hi@bugsplat.com) asking for the Education Free Plan. Make sure to include a bit telling us about your project.&#x20;
+3. Send us an email at [hi@bugsplat.com](mailto:hi@bugsplat.com) asking for the Education Free Plan. Make sure to include a bit telling us about your project.
 4. Gain approval and get access to the Open-Source Free Tier Plan.
