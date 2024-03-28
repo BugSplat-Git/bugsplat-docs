@@ -6,13 +6,15 @@
 
 ## Introduction
 
-BugSplat offers a variety of plan types built to cover everyone from individual developers to large businesses managing many teams. Plans come in several different levels which allow for users to customize what they purchase to fit their specific needs.
+BugSplat offers a variety of plan types built to cover everyone from individual developers to large businesses managing many teams. Plans come in several different levels, allowing users to customize what they purchase to fit their specific needs.
+
+Check out our full Plans Page here -> [https://www.bugsplat.com/plans/](https://www.bugsplat.com/plans/)
 
 This guide is for users interested in upgrading to a paid account and BugSplat account holders looking to upgrade to a larger plan or manage their current one.
 
 Note that only [non-restricted users](../introduction/user-permissions.md) can change billing settings. If you cannot view these pages, please request access from a non-restricted team member.
 
-Do you have questions about plans and billing? Please contact sales at [sales@bugsplat.com](mailto:sales@bugsplat.com), reach out via our in-app chat, or ask us a question on [Discord](https://discord.com/invite/K4KjjRV5ve).
+Do you have questions about plans and billing? Please contact sales at [sales@bugsplat.com](mailto:sales@bugsplat.com), via our in-app chat, or ask us a question on [Discord](https://discord.com/invite/K4KjjRV5ve).
 
 ## Choosing a plan
 
@@ -20,7 +22,7 @@ At BugSplat, we offer a range of plans tailored to meet the needs of projects an
 
 **Free Plan**
 
-Designed for supporting small projects just getting off the ground, our Free Plan offers an accessible entry point with essential features to manage crashes and errors effectively. This plan allows for up to three user logins and includes one user group, ensuring your team can collaborate efficiently from the start. With 100MB of included storage and a 1-month data retention policy, small teams can monitor and address up to 15,000 crashes and errors per month. This plan also provides full data on crash and error events, intelligent crash grouping, automated symbol uploads, GitHub integration, and email notifications, laying a solid foundation for initial project development and debugging processes.
+Designed to support small projects that are just getting off the ground, our Free Plan offers an accessible entry point with essential features to manage crashes and errors effectively. This plan allows for up to three user logins and includes one user group, ensuring your team can collaborate efficiently from the start. With 100MB of included storage and a 1-month data retention policy, small teams can monitor and address up to 15,000 crashes and errors per month. This plan also provides full data on crash and error events, intelligent crash grouping, automated symbol uploads, GitHub integration, and email notifications, laying a solid foundation for initial project development and debugging processes.
 
 **Team Plan**
 
