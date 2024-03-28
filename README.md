@@ -24,7 +24,7 @@ Use the links below to begin navigating these docs. If you can’t find somethin
 If you need any support please contact us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app chat window, or ping us on our [Discord](https://discord.gg/K4KjjRV5ve).
 
 {% hint style="warning" %}
-We've made a few changes to our pricing model.  These changes went live on March 29th 2024.  To learn more please read more here -> [updates-to-bugsplat-pricing-plans-march-2024.md](administration/billing/plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-march-2024.md "mention")
+We've made a few changes to how we structure pricing.  These changes went live on March 28th, 2024.  To learn more, please read more here -> [updates-to-bugsplat-pricing-plans-march-2024.md](administration/billing/plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-march-2024.md "mention")
 {% endhint %}
 
 ## Introduction

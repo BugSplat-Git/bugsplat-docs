@@ -5,7 +5,7 @@ The [Billing](https://app.bugsplat.com/v2/company/billing) page allows users to 
 If you have any questions or want further confirmation, please email [sales](mailto:sales@bugsplat.com).
 
 {% hint style="warning" %}
-We've made a few changes to our pricing model.  These changes went live on March 29th, 2024.  To learn more, please read more here -> [updates-to-bugsplat-pricing-plans-march-2024.md](plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-march-2024.md "mention")
+We've made a few changes to how we structure pricing.  These changes went live on March 28th, 2024.  To learn more, please read more here -> [updates-to-bugsplat-pricing-plans-march-2024.md](plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-march-2024.md "mention")
 {% endhint %}
 
 ### Quick Links
