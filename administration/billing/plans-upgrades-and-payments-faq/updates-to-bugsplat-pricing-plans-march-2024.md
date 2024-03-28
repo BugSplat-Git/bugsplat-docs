@@ -1,6 +1,6 @@
 # Updates to BugSplat Pricing Plans - March 2024
 
-Greetings, BugSplat Community! It’s Joey, the Product Manager here. We’re rolling out some significant changes to our pricing plans aimed at making BugSplat’s crash reporting service even more accessible and aligned with your needs. Our updates are designed to simplify the selection process, ensure you’re getting incredible value, and directly address the feedback we’ve received from our dedicated user base.
+Greetings, BugSplat Community!  We’re rolling out some significant changes to our pricing plans aimed at making BugSplat’s crash reporting service even more accessible and aligned with your needs. Our updates are designed to simplify the selection process, ensure you’re getting incredible value, and directly address the feedback we’ve received from our dedicated user base.
 
 **What’s New**
 
