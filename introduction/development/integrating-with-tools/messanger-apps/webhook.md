@@ -9,7 +9,7 @@ BugSplat’s Webhook integration allows your team to configure custom notificati
 3. Under the **Webhook** section, enter the URL of the webhook you would like to invoke and click **Update**.
 4. Use the toggle buttons to set your notification preferences. You can be notified for each new report or unique report group.
 
-Once configured, BugSplat will post an object that matches the following interface to your Webhook. Unlike other notifications, there is no maximum throughput limitation.
+Once configured, BugSplat will post an object that matches the following interface to your Webhook. Unlike other notifications, Webhook crash notifications have no maximum throughput limitation.
 
 ## Webhook Notification
 
