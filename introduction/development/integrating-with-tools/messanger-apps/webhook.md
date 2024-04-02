@@ -11,80 +11,34 @@ BugSplat’s Webhook integration allows your team to configure custom notificati
 
 Once configured, BugSplat will post an object that matches the following interface to your Webhook with a maximum throughput of one notification per minute.
 
-{% swagger method="post" path="your-domain.com/path/to/your/webhook" baseUrl="https://" summary="Webhook Notification" %}
-{% swagger-description %}
+## Webhook Notification
+
+<mark style="color:green;">`POST`</mark> `https://your-domain.com/path/to/your/webhook`
+
 Notification payload for new BugSplat report or new BugSplat group
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="id" type="number" required="false" %}
-BugSplat ID for new report
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="crashTypeId" type="number" %}
-Enum representing platform used to post report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="parentStackKeyId" type="string" %}
-BugSplat ID for report group before grouping rules were applied
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="stackKeyId" type="number" %}
-BugSplat ID for report group
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="stackKeyName" type="string" %}
-Function name and line number used to group the report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="database" type="string" %}
-BugSplat database where report is stored
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="application" type="string" %}
-Application name associated with report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="version" type="string" %}
-Versions associated with report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="key" type="string" %}
-Identifier for specific flavor of application associated with report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="user" type="string" %}
-End-user associated with generated report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="email" type="string " %}
-End-user's email associated with generated report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="ipAddress" type="string" %}
-End-user's IP address (can be obfuscated via Options page)
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="mfa" type="string" %}
-Hash representing report call stack
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="exceptionCode" type="string" %}
-Code associated with issue that caused the report to be generated
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="exceptionMessage" type="string" %}
-Message associated with issue that caused the report to be generated
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="received" type="datetime" %}
-Time-stamp of generated report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="reportXml" type="string" %}
-XML doc representing the fully processed BugSplat report
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="debugOutput" type="string" %}
-Output generated when running the debugger
-{% endswagger-parameter %}
-{% endswagger %}
+| Name             | Type     | Description                                                          |
+| ---------------- | -------- | -------------------------------------------------------------------- |
+| id               | number   | BugSplat ID for new report                                           |
+| crashTypeId      | number   | Enum representing platform used to post report                       |
+| parentStackKeyId | string   | BugSplat ID for report group before grouping rules were applied      |
+| stackKeyId       | number   | BugSplat ID for report group                                         |
+| newStackKeyId    | boolean  | True if this is the first occurence of stackKeyId                    |
+| stackKeyName     | string   | Function name and line number used to group the report               |
+| stackId          | number   | Unique call stack identifier                                         |
+| newStackId       | boolean  | True if this is the first occurence of stackId                       |
+| database         | string   | BugSplat database where report is stored                             |
+| application      | string   | Application name associated with report                              |
+| version          | string   | Versions associated with report                                      |
+| key              | string   | Identifier for specific flavor of application associated with report |
+| user             | string   | End-user associated with generated report                            |
+| email            | string   | End-user's email associated with generated report                    |
+| ipAddress        | string   | End-user's IP address (can be obfuscated via Options page)           |
+| mfa              | string   | Hash representing report call stack                                  |
+| exceptionCode    | string   | Code associated with issue that caused the report to be generated    |
+| exceptionMessage | string   | Message associated with issue that caused the report to be generated |
+| received         | datetime | Time-stamp of generated report                                       |
+| reportXml        | string   | XML doc representing the fully processed BugSplat report             |
+| debugOutput      | string   | Output generated when running the debugger                           |
