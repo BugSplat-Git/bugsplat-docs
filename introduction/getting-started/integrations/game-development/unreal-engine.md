@@ -1,8 +1,8 @@
 # Unreal Engine
 
-BugSplat’s Unreal Engine integration supports capturing crashes on Windows, macOS, Linux, iOS, Android, Xbox, and PlayStation games, with support for the Nintendo Switch coming soon. BugSplat also supports both Windows and Linux servers.
+BugSplat’s Unreal Engine integration supports capturing crashes on Windows, macOS, Linux, iOS, Android, Xbox, and PlayStation games. Support for the Nintendo Switch is coming soon. BugSplat also supports both Windows and Linux servers.
 
-There are two options for configuring BugSplat. If you are integrating BugSplat for your organization that uses a dedicated build machine, please continue reading. If you are a developer looking to try BugSplat on your local machine, we've created a [Plugin](unreal-engine/unreal-engine-plugin.md) to help you get started.
+There are two options for configuring BugSplat. If you are integrating BugSplat for an organization that uses a dedicated build machine, please continue reading. If you are a developer looking to try BugSplat on your local machine, we've created a [Plugin](unreal-engine/unreal-engine-plugin.md) to help you get started.
 
 Additionally, if you want to integrate BugSplat on iOS and Android, please refer to our [Plugin](unreal-engine/unreal-engine-plugin.md) page.
 
@@ -16,7 +16,7 @@ Add a step to your build pipeline that uploads `.exe`, `.dll`, and `.pdb` files 
 
 ```bash
 cd {your build folder}
-symbol-upload.exe -i {client id} -s {client secret} -b {database} -a {appName} -v {appVersion} -f "*.pdb;*.dll;*.exe"
+symbol-upload-windows.exe -i {client id} -s {client secret} -b {database} -a {appName} -v {appVersion} -f "*.pdb;*.dll;*.exe"
 ```
 
 The `appName` and `appVersion` parameters will be associated with your uploaded symbols, allowing logical grouping of files within BugSplat for easier symbol management. BugSplat will automatically remove symbol stores that have not been accessed recently. See our [FAQ](../../../../education/faq/how-do-i-remove-symbol-files.md#automatically) for a description of these rules.
@@ -33,7 +33,7 @@ Package your game, and check the **Include Crash Reporter** and **Include Debug 
 
 Sending crash reports to BugSplat can be done via a simple configuration change to Unreal Engine's [CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/).
 
-There are two options for configuring CrashReportClient. The first option is modifying the `DefaultEngine.ini` file for an engine install or engine source checkout. Modifying the engine's config file is the easiest approach but has the downside of affecting every game you build with this version. Alternatively, you can add `DefaultEngine.ini` to a specific path in your packaged build directory, which will overwrite values specified by the engine.
+There are two options for configuring CrashReportClient. The first option is modifying the `DefaultEngine.ini` file for an engine install or source build. Modifying the engine's config file is the easiest approach but has the downside of affecting every game you build with this version. Alternatively, you can add `DefaultEngine.ini` to a specific path in your packaged build directory, which will overwrite values specified by the engine.
 
 #### Option 1: Editor and Engine Crashes
 
@@ -58,7 +58,7 @@ DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}"
 Replace `{database}`, `{appName}`, and `{appVersion}` with the names of your BugSplat database, application name, and version. The appName and appVersion parameters will be assigned to each crash report posted to your database, allowing you to group and filter crashes within BugSplat. These parameters should match the corresponding values used for SendPdbs.
 
 {% hint style="warning" %}
-**Be sure to URL encode spaces and special characters in {appName} or {appVersion}**&#x20;
+**Be sure to URL encode spaces and special characters in {appName} or {appVersion}**
 {% endhint %}
 
 #### Unreal Engine 4.25 and older
@@ -77,7 +77,7 @@ Run your game. For testing, a crash can be forced from the console using the com
 
 ### Optional: Customize Crash Report Client
 
-The default CrashReportClient contains text that explains to the user that the crash reports are being sent to Epic. By overwriting the CrashReportClient configuration settings crash reports are instead sent to BugSplat. It is a good idea to change the text and rebuild CrashReportClient. Customizing CrashReportClient requires rebuilding the engine source.
+The default CrashReportClient contains text explaining to the user that the crash reports are being sent to Epic. However, by overwriting the CrashReportClient configuration settings, crash reports are instead sent to BugSplat. It is a good idea to change the text and rebuild CrashReportClient. Customizing CrashReportClient requires rebuilding the engine source.
 
 Please see our [blog](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/) for more information on how to [customize Unreal's CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/).
 
@@ -88,11 +88,19 @@ Special instructions for Linux servers:
 * Package the crash reporter with your Linux server build by adding the `-CrashReporter` flag to `PackageBuildLinuxServer.bat`
 * Force a test crash by running your server executable with the option `-ExecCmds="debug crash"`
 
-Symbolic call stacks are resolved if you deploy symbols on your server.  This is the typical case.  However, if symbols aren't available locally, upload the Unreal Linux custom symbol files (.sym extension) using SendPdbs.&#x20;
+Symbolic call stacks are resolved if you deploy symbols on your server. This is the typical case. However, if symbols aren't available locally, upload the Unreal Linux custom symbol files (`.psym` extension) using [symbol-upload](https://github.com/BugSplat-Git/symbol-upload).
+
+## iOS 🍎
+
+You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash reports. Additionally, you'll need to upload `.dSYM` files for function names and line numbers to be included in crash reports. Symbol files can be uploaded automatically by invoking [symbol-upload](https://github.com/BugSplat-Git/symbol-upload).
+
+## Android 🤖
+
+You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) with the `-m` flag.
 
 ## Licensee Builds 🤝
 
-Some forks of Unreal (e.g. Oculus) are set up as a "Licensee" build. Regardless of other settings, crash reports won't be sent because of this [block of code](https://github.com/EpicGames/UnrealEngine/blob/5ccd1d8b91c944d275d04395a037636837de2c56/Engine/Source/Runtime/Core/Private/Unix/UnixPlatformCrashContext.cpp#L594-L600):
+Some forks of Unreal (e.g., Oculus) are set up as a "Licensee" build. Regardless of other settings, crash reports won't be sent because of this [block of code](https://github.com/EpicGames/UnrealEngine/blob/5ccd1d8b91c944d275d04395a037636837de2c56/Engine/Source/Runtime/Core/Private/Unix/UnixPlatformCrashContext.cpp#L594-L600):
 
 ```cpp
 if (BuildSettings::IsLicenseeVersion() && !UD_EDITOR)
@@ -117,4 +125,4 @@ We extract metadata from `CrashContext.runtime-xml` file attached to Unreal Engi
 
 ## Forwarding Crashes to Epic Games 📤
 
-If you'd like to forward crashes to the original `DataRouterUrl` specified in `DefaultEngine.ini` you can enable the **Forward Crashes** option under the Privacy tab on the [Settings](https://app.bugsplat.com/v2/database/privacy) page. Forwarding crash reports to Epic is useful when the underlying engine causes a crash in your game and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes that were successfully forwarded to Epic.
+If you'd like to forward crashes to the original `DataRouterUrl` specified in `DefaultEngine.ini` you can enable the **Forward Crashes** option under the Privacy tab on the [Settings](https://app.bugsplat.com/v2/database/privacy) page. Forwarding crash reports to Epic is useful when the underlying engine causes a crash in your game, and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes successfully forwarded to Epic.
