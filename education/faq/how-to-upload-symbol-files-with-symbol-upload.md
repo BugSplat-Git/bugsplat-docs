@@ -120,7 +120,7 @@ Credentials can be provided to symbol-upload via the `-u` and `-p` command-line 
 
 ### Example
 
-The following is an example of how to invoke symbol-upload and search a directory recursively for `.dll`, `.pdb`, and `.exe` files. Replace the values of `your-bugsplat-database`, `your-email`, and `your-password` with your BugSplat database, email, and password. You can specify a glob for the `-f` argument to match for files based on a pattern.
+The following is an example of how to invoke symbol-upload and search a directory recursively for `.dll`, `.pdb`, and `.exe` files. Replace the values of `your-bugsplat-database`, `your-email`, and `your-password` with your BugSplat database, email, and password. You can specify a [glob](https://github.com/isaacs/node-glob) for the `-f` argument to match for files based on a pattern.
 
 ```
 symbol-upload -b your-bugsplat-database -a my-awesome-app -v 1.0 -u your-email -p your-password -d "/path/to/build -f "**/*.+(exe|dll|pdb)"
