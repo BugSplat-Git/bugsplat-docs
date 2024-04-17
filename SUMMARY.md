@@ -149,6 +149,7 @@
   * [Manually Upload Crash Reports to BugSplat](education/faq/manually-post-crash-reports-to-bugsplat.md)
   * [How to configure proxy settings in BugSplat](education/faq/how-to-configure-proxy-settings-in-bugsplat.md)
   * [Using BugSplat's public database](education/faq/using-bugsplats-public-database.md)
+  * [How to Upload Symbol Files with Symbol-Upload](education/faq/how-to-upload-symbol-files-with-symbol-upload.md)
   * [Using SendPdbs to Automatically Upload Symbol Files](education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)
   * [Why Group Crashes?](education/faq/how-and-why-to-group-crashes.md)
   * [Uploading third-party DLLs without PDB files](education/faq/uploading-third-party-dlls-without-pdb-files.md)
