@@ -2,7 +2,7 @@
 
 ## Overview 👀
 
-Symbol-upload is a cross-platform BugSplat application that automatically uploads [symbol files](../../introduction/development/working-with-symbol-files/) as part of your build process. Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
+Symbol-upload is a cross-platform application that automatically uploads [symbol files](../../introduction/development/working-with-symbol-files/) as part of your build process and is the successor of [SendPdbs](using-sendpdbs-to-automatically-upload-symbol-files.md). Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
 
 Prebuilt binaries of [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) can be downloaded on the [GitHub releases page](https://github.com/BugSplat-Git/symbol-upload/releases). Alternatively, symbol-upload can be installed by [npm](https://npmjs.com/package/@bugsplat/symbol-upload) and used as a [CLI tool](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#command-line) or a [javascript library](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#api). We also provide a [GitHub Action](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#action) that can be added to your build workflow.
 
@@ -127,6 +127,14 @@ symbol-upload -b your-bugsplat-database -a my-awesome-app -v 1.0 -u your-email -
 ```
 
 You can use the `-r` flag to remove a symbol store instead of uploading. This is helpful when you create a new build but don't want to increment the build number.
+
+### Apple <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
+
+MacOS and iOS builds typically generate `.app` or `.xcarchive` files. To upload bundled `.dSYM` files, point symbol-upload at the `.app` or `.xcarchive` file, and use a glob that instructs symbol-upload to search for `.dSYM` files recursively.
+
+```
+symbol-upload ... -d "/path/to/build.xcarchive -f "**/*.dSYM"
+```
 
 ### Dump Syms <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
 

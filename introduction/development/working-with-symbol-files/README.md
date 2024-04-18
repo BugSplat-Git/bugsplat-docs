@@ -1,22 +1,24 @@
 # Symbol Files
 
-Symbol files are a critical component of getting useful data from your crashes. Windows, Breakpad, Crashpad, Mac, and some JavaScript applications require [symbol files](../../../education/bugsplat-terminology.md#symbols) to be uploaded to generate call stacks containing function names and line numbers. The symbol upload process can be automated as part of your build. Symbols are required by many of our SDKs and can be uploaded and managed via the [Versions](https://app.bugsplat.com/v2/versions) page.
+Symbol files are critical to getting useful data from your crashes. [Windows](../../getting-started/integrations/desktop/cplusplus/), [Breakpad](../../getting-started/integrations/cross-platform/breakpad.md), [Crashpad](../../getting-started/integrations/cross-platform/crashpad/), [MacOS](../../getting-started/integrations/desktop/macos.md), and some [JavaScript](../../getting-started/integrations/web/javascript.md) applications require symbol files to be uploaded to generate call stacks containing function names and line numbers. The symbol upload process can be automated as part of your build. Many of our SDKs require symbols and can be uploaded and managed via the [Versions](https://app.bugsplat.com/v2/versions) page.
 
 For additional information regarding Symbol files, please visit the [documentation](../../../) specific to your application's platform
 
 ### What are Symbols?
 
-Symbols are files that contain information to map information in the minidump file to file names and line numbers in source code.
+Symbols are files containing information to map the minidump file contents to file names and line numbers in source code.
 
 ### Using Symbols
 
-For Windows [C++](../../getting-started/integrations/desktop/cplusplus/) and [.NET](../../getting-started/integrations/cross-platform/dot-net-standard.md) applications, symbols are files with **.exe**, **.pdb** and **.dll** extensions and can be uploaded automatically via [SendPdbs](../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md).
+[Windows C++](../../getting-started/integrations/desktop/cplusplus/) and [.NET](../../getting-started/integrations/desktop/windows-dot-net-framework.md) symbol files have **.exe**, **.pdb**, and **.dll** extensions.
 
-For [Crashpad](../../getting-started/integrations/cross-platform/crashpad/) applications, symbols are files with **.sym** extensions and can be uploaded automatically via [symupload](https://github.com/google/breakpad/blob/main/docs/processor\_design.md#processing).
+For [Crashpad](../../getting-started/integrations/cross-platform/crashpad/) applications, symbols files contain **.sym** extensions
 
-For [macOS](../../getting-started/integrations/desktop/macos.md) applications, symbols are files with **.app** and **.dSYM** extensions and can be uploaded automatically in a post-archive build action.
+For [macOS](../../getting-started/integrations/desktop/macos.md) applications, symbols files end with a **.dSYM** extension.
 
-For TypeScript and [JavaScript](../../getting-started/integrations/web/javascript.md) applications, symbols are files with a **.js.map** extension and can be uploaded automatically via [@bugsplat/symbol-upload](https://www.npmjs.com/package/@bugsplat/symbol-upload).
+For TypeScript and [JavaScript](../../getting-started/integrations/web/javascript.md) applications, symbols are files with a **.js.map** extension.
+
+Symbol files can be uploaded via [symbol-upload](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md). Additionally, Crashpad **.sym** files can be [generated automatically](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md#improving-upload-speeds-1) by invoking symbol-upload with the `-m` argument.
 
 ![](<../../../.gitbook/assets/Screen Shot 2021-07-14 at 4.39.12 PM.png>)
 
