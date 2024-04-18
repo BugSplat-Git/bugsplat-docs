@@ -3,7 +3,3 @@
 {% embed url="https://www.bugsplat.com/platforms/cpp/api" %}
 
 {% embed url="https://www.bugsplat.com/platforms/net/api" %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
