@@ -10,13 +10,12 @@ Endpoint to help your team to upload existing crashes and migrate from an existi
 
 <mark style="color:green;">`POST`</mark> `https://{database}.bugsplat.com/api/upload/manual/crash`
 
-Migrate crash minidump files to BugSplat from your existing crash report solution. Note, this endpoint is not suitable for production crash volumes
+Migrate crash minidump files to BugSplat from your existing crash report solution. Note, this endpoint is not suitable for production crash volumes.  Replace {database} with the name of your BugSplat database.
 
 #### Request Body
 
 | Name                                         | Type   | Description                                                                                                                                                                |
 | -------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| database<mark style="color:red;">\*</mark>   | string | Adds the crash to this BugSplat database                                                                                                                                   |
 | appName<mark style="color:red;">\*</mark>    | string | Application name that generated the corresponding minidump file. This must match the application name used to upload symbol files.                                         |
 | appVersion<mark style="color:red;">\*</mark> | string | Application version that generated the corresponding minidump file. This must match the version used to upload symbol files.                                               |
 | minidump<mark style="color:red;">\*</mark>   | file   | Minidump file to upload                                                                                                                                                    |
