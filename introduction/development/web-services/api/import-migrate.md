@@ -6,52 +6,29 @@ description: API Documentation for the BugSplat Crashes Endpoint
 
 Endpoint to help your team to upload existing crashes and migrate from an existing crash report solution to BugSplat. This endpoint is not suitable for production crash volumes.
 
-{% swagger method="post" path="/api/upload/manual/crash" baseUrl="https://app.bugsplat.com" summary="Crash Import" %}
-{% swagger-description %}
-Migrate crash minidump files to BugSplat from your existing crash report solution.  Note, this endpoint is not suiteable for production crash volumes
-{% endswagger-description %}
+## Crash Import
 
-{% swagger-parameter in="body" name="database" type="string" required="true" %}
-Adds the crash to this BugSplat database
-{% endswagger-parameter %}
+<mark style="color:green;">`POST`</mark> `https://{database}.bugsplat.com/api/upload/manual/crash`
 
-{% swagger-parameter in="body" name="appName" type="string" required="true" %}
-Application name that generated the corresponding minidump file. This must match the application name used to upload symbol files.
-{% endswagger-parameter %}
+Migrate crash minidump files to BugSplat from your existing crash report solution. Note, this endpoint is not suitable for production crash volumes
 
-{% swagger-parameter in="body" name="appVersion" type="string" required="true" %}
-Application version that generated the corresponding minidump file. This must match the version used to upload symbol files.
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="minidump" type="file" required="true" %}
-Minidump file to upload
-{% endswagger-parameter %}
+| Name                                         | Type   | Description                                                                                                                                                                |
+| -------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| database<mark style="color:red;">\*</mark>   | string | Adds the crash to this BugSplat database                                                                                                                                   |
+| appName<mark style="color:red;">\*</mark>    | string | Application name that generated the corresponding minidump file. This must match the application name used to upload symbol files.                                         |
+| appVersion<mark style="color:red;">\*</mark> | string | Application version that generated the corresponding minidump file. This must match the version used to upload symbol files.                                               |
+| minidump<mark style="color:red;">\*</mark>   | file   | Minidump file to upload                                                                                                                                                    |
+| crashTypeId                                  | int    | TypeId for the corresponding minidump. 1=Windows Native, 6=Breakpad/Crashpad, 8=.NET Framework, 15=Unity Native Windows, 16=Unreal Engine (Linux Server), 17=Unreal Engine |
+| appKey                                       | string | Optional appKey value                                                                                                                                                      |
+| description                                  | string | Optional description value                                                                                                                                                 |
+| email                                        | string | Optional email value                                                                                                                                                       |
+| ipAddress                                    | string | Optional IP Address value                                                                                                                                                  |
+| user                                         | string | Optional user value                                                                                                                                                        |
 
-{% swagger-parameter in="body" name="crashTypeId" type="int" required="false" %}
-TypeId for the corresponding minidump. 1=Windows Native, 6=Breakpad/Crashpad, 8=.NET Framework, 15=Unity Native Windows, 16=Unreal Engine (Linux Server), 17=Unreal Engine
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="appKey" type="string" %}
-Optional appKey value
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="description" type="string" %}
-Optional description value
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="email" type="string" %}
-Optional email value
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="ipAddress" type="string" %}
-Optional IP Address value
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="user" type="string" %}
-Optional user value
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 {
     status: "success",
@@ -59,5 +36,5 @@ Optional user value
     techSupportUrl: "https://fred.bugsplat.com/browse/support/?stackKeyId=5555&vendor=Fred&key=*Default*"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
