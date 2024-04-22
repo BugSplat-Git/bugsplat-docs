@@ -138,6 +138,7 @@
 * [Videos](education/videos/README.md)
   * [BugSplat Product Walkthrough](education/videos/bugsplat-product-walkthrough.md)
 * [FAQs](education/faq/README.md)
+  * [How Do I Upload Crashes with Python](education/faq/how-do-i-upload-crashes-with-python.md)
   * [How Do I Remove Symbol Files?](education/faq/how-do-i-remove-symbol-files.md)
   * [Crash details 'Active Thread'](education/faq/crash-details-active-thread.md)
   * [How long does it take to process a crash?](education/faq/how-long-does-it-take-to-process-a-crash.md)
