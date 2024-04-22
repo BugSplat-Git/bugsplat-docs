@@ -10,16 +10,20 @@ This endpoint supports paging, filtering, and grouping queries. More information
 
 Get a list of crashes that have been posted to BugSplat
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/allcrash" method="get" summary="Crashes" %}
-{% swagger-description %}
+## Crashes
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/allcrash`
+
 Get a list of crashes for a database. This query supports paging, filtering, and grouping. More information on how to use paging, filtering, and grouping can be found here. All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, stackKey, appName, ipAddress, etc.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing crash data
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200" description="" %}
+| Name     | Type   | Description                             |
+| -------- | ------ | --------------------------------------- |
+| database | string | BugSplat database containing crash data |
+
+{% tabs %}
+{% tab title="200 " %}
 ```
 [
   {
@@ -54,7 +58,7 @@ BugSplat database containing crash data
       }
     ]
   }
-This ]
+]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
