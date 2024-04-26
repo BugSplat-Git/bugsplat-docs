@@ -120,10 +120,13 @@ To upload crash reports to BugSplat, recompile with `bSendUnattendedBugReports =
 
 We extract metadata from `CrashContext.runtime-xml` file attached to Unreal Engine crash reports. In addition to the values that are provided by prebuilt versions of Unreal Engine, we support a few values our customers have added to their customized engine builds. You can add the following XML fields as child properties of `RuntimeProperties`:
 
-| Name                   | Description                           |
-| ---------------------- | ------------------------------------- |
-| BugSplatNotes          | A value persisted to the Notes column |
-| BugSplatApplicationKey | A value persisted to the Key column   |
+| Name              | Description                             |
+| ----------------- | --------------------------------------- |
+| \<BugSplat>       | Opening tag for all BugSplat XML fields |
+| \<Notes>          | A value persisted to the Notes column   |
+| \<ApplicationKey> | A value persisted to the Key column     |
+| \<Attribute>      |                                         |
+| \</BugSplat>      | End of BugSplat XML                     |
 
 ## Forwarding Crashes to Epic Games 📤
 
