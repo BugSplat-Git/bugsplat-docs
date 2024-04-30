@@ -15,9 +15,13 @@ You may choose to add BugSplat through the Unreal Marketplace or add the plugin 
 3. Create a `BugSplat` folder in the `Plugins` folder and copy the contents of the [bugsplat-unreal](https://github.com/BugSplat-Git/bugsplat-unreal) repo into the `BugSplat` folder.
 4. In the Unreal Editor, ensure you can access the BugSplat plugin via `Edit > Project Settings` and scroll to the `BugSplat` section under `Plugins`.
 
+{% hint style="info" %}
+If you update the BugSplat plug-in or build a new version of Unreal Engine from source, you might need to regenerate BugSplat's build scripts. Interacting with any field in the BugSplat plugin will regenerate the build scripts.
+{% endhint %}
+
 ## ⚙️ Configuration
 
-BugSplat's Unreal plugin currently supports adding crash reporting to Windows, macOS, Linux, Android, and iOS games. With a few clicks, the BugSplat plugin can be configured to automatically upload symbol files so crash report stack traces display function names and line numbers.
+BugSplat's Unreal plugin supports adding crash reporting to Windows, macOS, Linux, Android, and iOS games. With a few clicks, the BugSplat plugin can be configured to automatically upload symbol files so crash report stack traces display function names and line numbers.
 
 To get started, generate a Client ID and Client Secret via the [Integrations](https://app.bugsplat.com/v2/database/integrations) page.
 
