@@ -107,6 +107,7 @@
       * [Versions](introduction/development/web-services/api/versions.md)
     * [Crash Post Endpoints](introduction/development/web-services/crash.md)
     * [OAuth2](introduction/development/web-services/oauth2.md)
+    * [Defect Tracker Options](introduction/development/web-services/defect-tracker-options.md)
     * [Paging, Filtering, and Grouping](introduction/development/web-services/paging-filtering-and-grouping.md)
     * [Platform Specific API's](introduction/development/web-services/platform-specific-apis/README.md)
       * [C++ Native API](https://www.bugsplat.com/platforms/cpp/api/)
