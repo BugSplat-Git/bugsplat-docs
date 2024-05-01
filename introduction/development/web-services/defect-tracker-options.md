@@ -4,7 +4,7 @@ description: To create or update a defect tracker integration, use the following
 
 # Defect Tracker Options
 
-## DefectTracking&#x20;
+## DefectTracker&#x20;
 
 <mark style="color:green;">`GET`</mark> `https://app.bugsplat.com/api/options/defectTracker`
 
