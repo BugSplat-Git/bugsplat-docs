@@ -36,6 +36,14 @@ Auto-group rules are processed in a specific, consistent order that cannot be ch
 When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
 {% endhint %}
 
+### Options
+
+BugSplat can also ignore specific parts of the call stack when creating groups. By default, BugSplat will group items that match based on function name only. At the top of the Grouping page you'll find the options **Include module name**, **Include line number**, and **Include address offset**. Enabling these settings will include the respective properties in the group calculation.
+
+The module name is the name of the library or executable that added the frame to the stack. The line number is the line of source code where the function crashed, and the address offset is the instruction pointer offset. The hex offset is only considered for grouping stack frames that are not symbolicated.
+
+With all settings enabled, groups would be created by a match on the entire string `MyConsoleCrasher!Crash(42)`, where `MyConsoleCrasher` is the module name, and `42` is the line number. A group would also be created by a full match on the unsymbolicated frame `MyConsoleCrasher!Crash+0xfff`, where `0xfff` is the address offset. With all options disabled groups would be created by a match on just the function name `Crash`.
+
 ### Crashes Page
 
 The [**Crashes**](https://app.bugsplat.com/v2/crashes) page displays a list of reports and their associated group under the **Stack Key** column. We've added a rule that effectively skips `KERNELBASE!RaiseException` and the reports are now grouped by the next frame in the stack `MyConsoleCrasher!_CxxThrowException(75)`. To see the report's stack trace, click the value in the **ID** column.
