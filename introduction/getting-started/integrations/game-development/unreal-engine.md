@@ -127,6 +127,4 @@ The following XML fields, if created as child properties of `RuntimeProperties,`
 | \<BugSplatNotes>          | Sets the value of the crash Notes field  |
 | \<BugSplatApplicationKey> | Sets the value of the crash Key field    |
 
-## Forwarding Crashes to Epic Games 📤
-
-If you'd like to forward crashes to the original `DataRouterUrl` specified in `DefaultEngine.ini` you can enable the **Forward Crashes** option under the Privacy tab on the [Settings](https://app.bugsplat.com/v2/database/privacy) page. Forwarding crash reports to Epic is useful when the underlying engine causes a crash in your game, and you are working with Epic Games to resolve the issue. If the Forward to Epic option is enabled, an Epic Correlation-ID will be added to the description of all Unreal Engine crashes successfully forwarded to Epic.
+##
