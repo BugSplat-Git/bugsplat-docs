@@ -118,7 +118,7 @@ To upload crash reports to BugSplat, recompile with `bSendUnattendedBugReports =
 
 ## Custom Fields 📝
 
-We extract metadata from the `CrashContext.runtime-xml` file attached to Unreal Engine crash reports and convert those values into crash attributes that can be displayed in the web application.  Customers can add their own data to this file by creating a custom Unreal Engine build.  See the [Epic documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/crash-reporting-in-unreal-engine) for information on adding additional data. &#x20;
+We extract metadata from the `CrashContext.runtime-xml` file attached to Unreal Engine crash reports and convert those values into crash attributes that can be displayed in the web application.  Customers can add their own data to this file by creating a custom Unreal Engine build.  See the [Epic crash reporter documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/crash-reporting-in-unreal-engine) for information on adding additional data. &#x20;
 
 The following XML fields, if created as child properties of `RuntimeProperties,`can be used to set the BugSplat crash Notes and Key fields
 
