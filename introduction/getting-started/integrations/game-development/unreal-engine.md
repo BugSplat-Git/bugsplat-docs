@@ -127,4 +127,3 @@ The following XML fields, if created as child properties of `RuntimeProperties,`
 | \<BugSplatNotes>          | Sets the value of the crash Notes field  |
 | \<BugSplatApplicationKey> | Sets the value of the crash Key field    |
 
-##
