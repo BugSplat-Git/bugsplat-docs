@@ -7,7 +7,7 @@ This allows for teams to build issues that contain full crash information like s
 **Note** that you can see our doc for automatically creating issues in your defect tracker from BugSplat databases [here](auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md).
 
 {% hint style="warning" %}
-Some organizations restrict access to their issue tracker by IP address. If you need to allow access for BugSplat, add the IP address [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home) to your allowlist.
+Some organizations restrict access to their issue tracker by IP address. If you need to allow access for BugSplat, add the IP address [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home) to your whitelist.
 {% endhint %}
 
 {% content-ref url="jira.md" %}
