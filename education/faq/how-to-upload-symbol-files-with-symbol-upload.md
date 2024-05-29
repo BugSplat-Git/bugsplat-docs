@@ -140,6 +140,25 @@ symbol-upload ... -d "/path/to/build.xcarchive -f "**/*.dSYM"
 
 BugSplat can generate [Crashpad symbol files](https://github.com/google/breakpad/blob/master/docs/symbol\_files.md) as part of the upload process. The Crashpad symbol files have a `.sym` format and are useful for cross-platform applications. BugSplat has integrated [Mozilla's dump-syms](https://github.com/mozilla/dump\_syms) into symbol-upload, which allows developers to skip building Breakpad. To generate a `.sym` file at upload time, specify the `-m` flag when invoking symbol-upload.
 
+### GitHub Actions
+
+The symbol-upload repo also includes a GitHub Action that's compatible with the default Windows, macOS, and Linux images. Here's a snippet you can add to your workflow:
+
+```yaml
+- name: Symbols 📦
+      uses: BugSplat-Git/symbol-upload@main
+      with:
+        clientId: "${{ secrets.SYMBOL_UPLOAD_CLIENT_ID }}"
+        clientSecret: "${{ secrets.SYMBOL_UPLOAD_CLIENT_SECRET }}"
+        database: "${{ secrets.BUGSPLAT_DATABASE }}"
+        application: "MyConsoleCrasher"
+        version: "1.0.0"
+        files: "*.{pdb,exe,dll}"
+        directory: "BugSplat\\Win32\\release"
+```
+
+We have also created an [example repo](https://github.com/BugSplat-Git/github-action-example) demonstrating how to use the @bugsplat/symbol-upload action to upload symbols to BugSplat.
+
 ### Improving Upload Speeds <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
 
 Customers located far away from our US-East hosting location, especially those with high-latency and high-bandwidth connections, sometimes report slow upload speeds. We have several reports of significantly faster uploads after following the advice in the Microsoft technical note: [https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/tcpip-performance-known-issues](https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/tcpip-performance-known-issues)
