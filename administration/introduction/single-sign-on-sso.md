@@ -41,7 +41,7 @@ Group memberships for each user are passed to BugSplat in the SAML 2.0 assertion
 
 Groups provided by SSO are matched to groups defined for each of your databases on the Integrations/SSO page.  Each database has a group name for access and administration.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>SSO Group Definition</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>SSO Group Definition</p></figcaption></figure>
 
 For example, you might assign the Groups "BsAccess" and "BsAdmin" to each BugSplat database.  Then, users who should have administrator rights would be assigned to the "BsAdmin" role, and users who needed only regular access would be assigned the "BsAccess" role.
 
