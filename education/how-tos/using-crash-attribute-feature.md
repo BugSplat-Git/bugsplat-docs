@@ -11,7 +11,7 @@
 
 **Implementation:**
 
-* **Integration:** Refer to the BugSplat C++ Native SDK or the BugSplat GDK for desktop and Xbox platforms for example code demonstrating the creation of custom crash attributes.
+* **Integration:** Refer to the [BugSplat C++ Native SDK](../../introduction/getting-started/integrations/desktop/cplusplus/) or the [BugSplat GDK for desktop and Xbox platforms](../../introduction/getting-started/integrations/game-development/xbox.md) for example code demonstrating the creation of custom crash attributes.
 * **Platform Support:** Support for additional platforms is forthcoming.
 
 **Support:** For any issues or inquiries, please reach out to us at support@bugsplat.com. Our team is dedicated to helping you optimize your BugSplat integration and ensuring your application performs seamlessly.
