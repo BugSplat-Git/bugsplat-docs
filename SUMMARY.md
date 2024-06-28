@@ -135,7 +135,7 @@
   * [Crash Dialog Branding](education/how-tos/customize-the-crash-dialog.md)
   * [Reprocess Crashes](education/how-tos/reprocessing-crashes.md)
   * [Batch Reprocess Crashes](education/how-tos/batch-reprocess-crashes.md)
-  * [Using Crash Attribute Feature](education/how-tos/using-crash-attribute-feature.md)
+  * [Using the Crash Attribute Feature](education/how-tos/using-the-crash-attribute-feature.md)
   * [Send Feedback](education/how-tos/sending-feedback.md)
 * [Videos](education/videos/README.md)
   * [BugSplat Product Walkthrough](education/videos/bugsplat-product-walkthrough.md)

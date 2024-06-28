@@ -1,4 +1,4 @@
-# Using Crash Attribute Feature
+# Using the Crash Attribute Feature
 
 **Overview:** BugSplat introduces the Custom Crash Report Attributes feature, enabling the addition of user-defined attributes to crash reports. These attributes consist of name-value pairs that can be integrated into your application’s crash reporting setup. Each custom attribute can be displayed as a column on the crashes page, and all attributes are visible on the crash detail pages.
 
