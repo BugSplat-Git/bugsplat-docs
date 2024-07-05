@@ -121,21 +121,20 @@ Link your application with the appropriate version of the Crashpad libraries `cl
 
 #### Step 5
 
-Upload symbol files to BugSplat. To upload your application's `.sym` files manually, please see this [doc](../../../../development/working-with-symbol-files/how-to-manually-upload-symbols.md). Alternatively, you can use the Breakpad [symupload](how-to-build-google-crashpad.md#windows-4) utility to automate the symbol upload process. Run the following command replacing `{database}`, `{appName}` and `{appVersion}` with values specific to your BugSplat database and symbol store.
+You will need to generate and upload `.sym` files to BugSplat to generate function names and line numbers in the stack traces of your crash reports. BugSplat's [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) tool can be used conveniently to generate and upload `.sym` files with a single terminal command. Download a copy of symbol-upload from [GitHub](https://github.com/BugSplat-Git/symbol-upload) or install it via [npm](https://npmjs.com/package/@bugsplat/symbol-upload).
 
-{% hint style="warning" %}
-Ensure the `path`and`url`are wrapped in double quotes when using`symupload`
-{% endhint %}
+Once you have symbol-upload downloaded or installed, modify the following command to suit your needs.
 
 ```bash
-symupload "<file.exe|file.dll>" "https://{database}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={appName}&appVer={appVersion}"
+symbol-upload-windows -b "fred" ^
+    -a "myCrashpadCrasher" ^
+    -v "1.0" ^
+    -u "fred@bugsplat.com" ^
+    -p "Flintstone" ^
+    -d "C:\\path\\to\\build\\output" ^
+    -f "*.{pdb,exe,dll}" ^
+    --dumpSyms
 ```
-
-#### Breakpad symbols for non-Windows platforms
-
-Breakpad symbol uploads for platforms other than Windows (e.g. Linux, Mac) require an additional step. You must first run the Breakpad utility `dump_syms` to create `.sym` files from your local executable files. Then use `symupload` to upload the symbols to BugSplat.
-
-Operating system symbol files can be uploaded in a similar manner. You may be able to find symbolic debug files for your operating system. If these are available when dump\_syms is run, your OS call stack functions will be fully symbolicated. Since OS symbols change infrequently, they are a good candidate to store in a [Common Symbol Library](../../../../development/working-with-symbol-files/common-symbols.md).   Note, Windows OS symbols are loaded automatically by BugSplat.
 
 #### Step 6
 
@@ -145,10 +144,10 @@ Trigger a crash in your application. The crash report should be available immedi
 
 ### Databases
 
-The BugSplat database for your crash reports is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. Typically you will create a new database for each major release of your product.
+The BugSplat database for your crash reports is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. Typically, you will create a new database for each major release of your product.
 
 ### Optimizations
 
-Compiler optimizations can cause a mismatch between the line numbers in crash reports and the actual line numbers in your code. BugSplat recommends turning off compiler optimizations to ensure that the line numbers in your crash reports match the line numbers in your code. To turn off optimizations in Visual Studio, right click your project and navigate to **Properties > C/C++ > Optimization > Optimization** and set the value to **Disabled (/Od)**.
+Compiler optimizations can cause a mismatch between the line numbers in crash reports and the actual line numbers in your code. BugSplat recommends turning off compiler optimizations to ensure that the line numbers in your crash reports match the line numbers in your code. To turn off optimizations in Visual Studio, right-click your project and navigate to **Properties > C/C++ > Optimization > Optimization,** and set the value to **Disabled (/Od)**.
 
 ###

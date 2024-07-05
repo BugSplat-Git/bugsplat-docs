@@ -62,4 +62,4 @@ It's crucial that you re-upload symbols each time you build your application. Ot
 
 If you've set everything up correctly, your crash report should look like this:
 
-<figure><img src="../../../../.gitbook/assets/image (51).png" alt=""><figcaption><p>MyUbunuCrasher Crash on BugSplat</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (51).png" alt=""><figcaption><p>MyUbuntuCrasher Crash on BugSplat</p></figcaption></figure>
