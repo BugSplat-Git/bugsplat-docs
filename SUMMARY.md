@@ -170,7 +170,7 @@
 ## 🏢 Administration
 
 * [Billing](administration/billing/README.md)
-  * [Free Trial Overivew](administration/billing/free-trial.md)
+  * [Free Trial Overview](administration/billing/free-trial.md)
   * [Plans and Billing Overview](administration/billing/plans-and-billing-guide.md)
   * [How to Sign Up for a BugSplat Plan](administration/billing/how-to-sign-up-for-a-bugsplat-plan.md)
   * [Upgrading, Changing, or Canceling Your Plan](administration/billing/upgrading-changing-or-canceling-your-plan/README.md)
