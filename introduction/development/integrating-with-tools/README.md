@@ -1,4 +1,4 @@
-# 3rd Party Tools
+# Integrations and Third Party Tools
 
 Integrate BugSplat with your toolset to bring crash and other application performance data to improve your pre-existing workflow.
 
@@ -58,10 +58,10 @@ BugSplat connects with popular defect trackers allowing users to create new issu
 [auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md](issue-trackers/auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md)
 {% endcontent-ref %}
 
-### Request a Tool Integration
+### Request an Integration
 
-We take user requests for new tool integrations seriously. If you're not seeing a critical tool for your workflow, reach out and let us know.
+We take user requests for new tool integrations seriously. Contact us via the methods listed in the link below, and let us know which tool you'd like to see next!
 
-{% content-ref url="broken-reference/" %}
-[broken-reference](broken-reference/)
+{% content-ref url="../../../administration/contact-us.md" %}
+[contact-us.md](../../../administration/contact-us.md)
 {% endcontent-ref %}
