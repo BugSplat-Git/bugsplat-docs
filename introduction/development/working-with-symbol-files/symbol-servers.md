@@ -10,7 +10,7 @@ BugSplat can access symbol files over HTTP and HTTPS. This method also supports 
 
 ### AWS S3
 
-For AWS S3 symbol servers, ensure your symbol file names are all converted to lowercase. Additionally, you'll want to create a minimally permissive [IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_users\_create.html#id\_users\_create\_console) so that BugSplat can access your S3 bucket. Modify this example policy and attach it to your newly created IAM User.
+For AWS S3 symbol servers, you'll want to create a minimally permissive [IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_users\_create.html#id\_users\_create\_console) so that BugSplat can access your S3 bucket. Modify this example policy and attach it to your newly created IAM User.
 
 ```json
 {
@@ -24,8 +24,8 @@ For AWS S3 symbol servers, ensure your symbol file names are all converted to lo
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws:s3:::bugsplat-dave-test",
-                "arn:aws:s3:::bugsplat-dave-test/*"
+                "arn:aws:s3:::{your-s3-bucket}",
+                "arn:aws:s3:::{your-s3-bucket}/*"
             ]
         }
     ]
