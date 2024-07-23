@@ -67,6 +67,7 @@
     * [Common Symbols](introduction/development/working-with-symbol-files/common-symbols.md)
     * [How to Manually Upload Symbols](introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md)
     * [Source Maps](introduction/development/working-with-symbol-files/source-maps.md)
+    * [Symbol Servers](introduction/development/working-with-symbol-files/symbol-servers.md)
     * [Working with Symbol Files in Windows Environments](introduction/development/working-with-symbol-files/working-with-windows-symbols-in-bugsplat.md)
   * [Searching](introduction/development/searching/README.md)
     * [Table Filtering](introduction/development/searching/search.md)

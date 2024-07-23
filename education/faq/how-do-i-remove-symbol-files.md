@@ -14,4 +14,4 @@ BugSplat will automatically remove unreferenced symbols in large symbol sets. If
 
 Symbol stores can be removed by navigating to the [Versions](https://app.bugsplat.com/v2/versions) page. Click the checkbox next to the versions containing symbols you want to remove. Click the **Delete Symbols** button to remove the symbols for the selected versions.
 
-<figure><img src="../../.gitbook/assets/output (1).gif" alt=""><figcaption><p>Removing Symbols Manually</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/output (1) (1).gif" alt=""><figcaption><p>Removing Symbols Manually</p></figcaption></figure>
