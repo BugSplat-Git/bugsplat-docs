@@ -1,12 +1,12 @@
 # Jira
 
-BugSplat's Jira integration allows your team to create defects with a few clicks. Links from BugSplat to Jira allow for quick navigation from defects to crash reports and back. Defects created from BugSplat automatically include symbolic call stack information and other crash-specific data.
+BugSplat's Jira integration allows your team to create defects with a few clicks. Links from BugSplat to Jira allow for quick navigation from defects to crash reports. Defects created from BugSplat automatically include symbolic call stack information and other crash-specific data.
 
 ### Integrating Jira and BugSplat
 
 1. Login to your account.
-2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**, select **Jira** from the options shown.
-3. Enter your **Username**, **Password**, **URL**, and **Issue Type** into the appropriate boxes.
+2. Click the Gear icon (⚙️) at the top right of the page and navigate to the [Database Settings](https://app.bugsplat.com/v2/database/integrations) page, and under **Database > Integrations >** **Defect Tracker**, select **Jira** from the options shown.
+3. Enter your **Username**, **Token**, **URL**, and **Issue Type** into the appropriate boxes. For Jira Cloud, use an [API Token](https://id.atlassian.com/manage-profile/security/api-tokens) in the **Token** field. For self-hosted Jira Server use your account's password for the **Token** field.
 4. Click **Apply**.
 5. Once a connection to Jira has been established, you can select one of your projects from the project dropdown list.
 6. After selecting your desired project, click **Apply** again.
