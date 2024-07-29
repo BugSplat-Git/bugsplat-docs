@@ -174,6 +174,69 @@ bugsplat.ShouldPostException = (ex) =>
 };
 ```
 
+#### Support Response
+
+BugSplat has the ability to display a support response to users who encounter a crash. You can show your users a generalized support response for all crashes, or a custom support response that corresponds to the type of crash that occurred. Defining a support response allows you to alert users that bug has been fixed in a new version, or that they need to update their graphics drivers.
+
+Next, pass a callback to `bugsplat.Post`. In the callback handler add code to open the support response in the user's browser. A full example can be seen in [ErrorGenerator.cs](https://github.com/BugSplat-Git/bugsplat-unity/blob/main/Samples\~/my-unity-crasher/Scripts/ErrorGenerator.cs).
+
+```csharp
+private string infoUrl = "";
+
+public void Event_CatchExceptionThenPostNewBugSplat()
+{
+    try
+    {
+        GenerateSampleStackFramesAndThrow();
+    }
+    catch (Exception ex)
+    {
+        var options = new ReportPostOptions()
+        {
+            Description = "a new description"
+        };
+
+        StartCoroutine(bugsplat.Post(ex, options, ExceptionCallback));
+    }
+}
+
+void ExceptionCallback(ExceptionReporterPostResult result)
+{
+    UnityEngine.Debug.Log($"Exception post callback result: {result.Message}");
+
+    if (result.Response == null) {
+        return;
+    }
+
+    UnityEngine.Debug.Log($"BugSplat Status: {result.Response.status}");
+    UnityEngine.Debug.Log($"BugSplat Crash ID: {result.Response.crashId}");
+    UnityEngine.Debug.Log($"BugSplat Support URL: {result.Response.infoUrl}");
+
+    infoUrl = result.Response.infoUrl;
+}
+
+private void OpenUrl(string url)
+{
+    var escaped = url.Replace("?", "\\?").Replace("&", "\\&").Replace(" ", "%20").Replace("!", "\\!");
+
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_WSA
+    Process.Start(url);
+#elif UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
+    Process.Start("open", escaped);
+#elif UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
+    Process.Start("xdg-open", escaped);
+#else
+    UnityEngine.Debug.Log($"OpenUrl unsupported platform: {Application.platform}");
+#endif
+}
+```
+
+When an exception occurs, a page similar to the following will open in the user's browser on Windows, macOS, and Linux.
+
+<figure><img src="https://private-user-images.githubusercontent.com/2646053/353250070-3a3d6f82-e3bf-42bc-ae7f-582ba35cd499.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjIyOTEyMTQsIm5iZiI6MTcyMjI5MDkxNCwicGF0aCI6Ii8yNjQ2MDUzLzM1MzI1MDA3MC0zYTNkNmY4Mi1lM2JmLTQyYmMtYWU3Zi01ODJiYTM1Y2Q0OTkucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI0MDcyOSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNDA3MjlUMjIwODM0WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZTU5N2U0NzY0YTczMTUyZTg1ZWY0OTUxYjU4OWIzMDZkNTdkMWYzZWY4MmEzYWZjNDJmNjc4NmYyYjkwNmUxMyZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmYWN0b3JfaWQ9MCZrZXlfaWQ9MCZyZXBvX2lkPTAifQ.S8SNMKBVLZf4WhKxArRH6hQrFKUOnoKw6Toba9BFcvc" alt=""><figcaption><p>BugSplat Support Response Page</p></figcaption></figure>
+
+More information on support responses can be found [here](../../../production/setting-up-custom-support-responses.md).
+
 ### 🪟 Windows
 
 BugSplat can be configured to upload Windows minidumps created by the `UnityCrashHandler`. BugSplat will automatically pull Unity Player symbols from the [Unity Symbol Server](https://docs.unity3d.com/Manual/WindowsDebugging.html). If your game contains Native Windows C++ plugins, `.dll` and `.pdb` files in the `Assets/Plugins/x86` and `Assets/Plugins/x86_64` folders will be uploaded by BugSplat's PostBuild script and used in symbolication.
