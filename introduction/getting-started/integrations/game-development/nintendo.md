@@ -1,11 +1,7 @@
----
-description: Use BugSplat to track live crashes in your Nintendo Switch game projects
----
-
 # Nintendo Switch
 
-### **🍄 Coming soon! 🍄**&#x20;
+Using BugSplat allows developers to automatically track crashes in your Nintendo Switch games in both development and production.
 
-BugSplat will soon be shipping our integration for the Nintendo Switch console.&#x20;
+Access to Nintendo support is restricted to certified Nintendo developers.
 
-Please contact the support ([support@bugsplat.com](mailto:support@bugsplat.com)) team to register your interest in using BugSplat in your game project.  We will be selecting several teams for a closed beta release in the near future.&#x20;
+Please contact [support@bugsplat.com](mailto:support@bugsplat.com) to verify your Nintendo developer status and learn more about BugSplat's Switch support.
