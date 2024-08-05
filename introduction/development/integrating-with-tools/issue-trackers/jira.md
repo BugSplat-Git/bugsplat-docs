@@ -24,7 +24,7 @@ The optional **Assignee ID** field requires the Atlassian user ID when using Jir
 
 3\. Click the link to view the new Jira issue created by BugSplat.
 
-![Creating a Jira Issue from BugSplat](../../../../.gitbook/assets/creating-defect.gif)
+<figure><img src="../../../../.gitbook/assets/output (4).gif" alt=""><figcaption><p>Create a Jira Issue with BugSplat</p></figcaption></figure>
 
 ### Automated Defect Creation
 
