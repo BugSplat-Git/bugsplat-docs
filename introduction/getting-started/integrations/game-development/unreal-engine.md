@@ -18,7 +18,7 @@ Add a step to your build pipeline that uploads `.exe`, `.dll`, and `.pdb` files 
 
 ```bash
 cd {your build folder}
-symbol-upload-windows.exe -i {client id} -s {client secret} -b {database} -a {appName} -v {appVersion} -f "*.pdb;*.dll;*.exe"
+symbol-upload-windows.exe -i {client id} -s {client secret} -b {database} -a {appName} -v {appVersion} -f "**/*.{pdb,exe,dll}"
 ```
 
 The `appName` and `appVersion` parameters will be associated with your uploaded symbols, allowing logical grouping of files within BugSplat for easier symbol management. BugSplat will automatically remove symbol stores that have not been accessed recently. See our [FAQ](../../../../education/faq/how-do-i-remove-symbol-files.md#automatically) for a description of these rules.
