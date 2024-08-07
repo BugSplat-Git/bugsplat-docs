@@ -88,7 +88,7 @@
       * [Assembla](introduction/development/integrating-with-tools/issue-trackers/assembla.md)
       * [Fogbugz](introduction/development/integrating-with-tools/issue-trackers/fogbugz.md)
       * [Monday.com](introduction/development/integrating-with-tools/issue-trackers/monday.md)
-      * [Gitlab](introduction/development/integrating-with-tools/issue-trackers/gitlab.md)
+      * [GitLab](introduction/development/integrating-with-tools/issue-trackers/gitlab.md)
       * [YouTrack](introduction/development/integrating-with-tools/issue-trackers/youtrack.md)
       * [Auto-Creating Defects from BugSplat Databases in Attached Third-Party Issue Trackers](introduction/development/integrating-with-tools/issue-trackers/auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md)
   * [API](introduction/development/web-services/README.md)

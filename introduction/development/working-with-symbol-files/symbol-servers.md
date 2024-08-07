@@ -6,7 +6,7 @@ BugSplat can process crashes using symbol files stored in external symbol server
 
 BugSplat can access symbol files over HTTP and HTTPS. This method also supports [Windows SymStore/SymProxy](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/symbol-stores-and-symbol-servers) symbol servers. To connect an HTTP symbol server to BugSplat, navigate to the [Symbols](https://app.bugsplat.com/v2/database/symbols?) page. Click the **+ Add Server** button, add a **URL** value, and click **OK**.
 
-<figure><img src="../../../.gitbook/assets/output.gif" alt=""><figcaption><p>Adding an External HTTP Symbol Server</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/output (1).gif" alt=""><figcaption><p>Adding an External HTTP Symbol Server</p></figcaption></figure>
 
 ### AWS S3
 
@@ -34,4 +34,4 @@ For AWS S3 symbol servers, you'll want to create a minimally permissive [IAM Use
 
 Once you create your IAM user, generate an [access key/secret](https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_credentials\_access-keys.html) to allow BugSplat to access your S3 bucket. Navigate to the [Symbols](https://app.bugsplat.com/v2/database/symbols) page and click **+ Add Server**. Select **AWS-S3** in the **Type** dropdown. Enter values for **URL**, **Region**, **Access Key**, **Secret Key**, and click **OK.**
 
-<figure><img src="../../../.gitbook/assets/output (1).gif" alt=""><figcaption><p>Adding an External S3 Symbol Server</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/output (1) (1).gif" alt=""><figcaption><p>Adding an External S3 Symbol Server</p></figcaption></figure>
