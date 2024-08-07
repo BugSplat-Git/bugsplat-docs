@@ -1,7 +1,5 @@
 # GitLab
 
-## GitLab
-
 {% hint style="info" %}
 BugSplat's GitLab integration is in beta. Please message us if you want to request a feature or report a bug.
 {% endhint %}
