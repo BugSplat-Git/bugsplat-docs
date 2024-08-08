@@ -4,8 +4,6 @@ Current account holders interested in updating their plan to a different level (
 
 Note that if you do not see an option to navigate to the Billing page it's likely because you are a Restricted Users. Please contact a [Non-Restricted](../../introduction/user-permissions.md) user on your team to gain access to [Billing](../).
 
-{Insert Image}
-
 This will bring up the Set Plan Details pop-up where account holders can update key settings for their account.
 
 Once the desired change has been made click '{Button Name}' to confirm the changes.
@@ -18,7 +16,7 @@ This will bring you to the plan management portal where users can manage their a
 
 ![](../../../.gitbook/assets/billing-management-potral.png)
 
-Here, account holders can update their credit card, billing address, and email that receives billing information. This page is also where account holders can add VAT information.
+Here, account holders can update their credit card, billing address, and email to receive billing information. This page is also where account holders can add VAT information.
 
 ### View and Download Billing History (Invoices and Receipts)
 

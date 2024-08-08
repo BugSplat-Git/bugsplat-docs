@@ -179,6 +179,7 @@
     * [Upgrading or Downgrading Your Plan](administration/billing/upgrading-changing-or-canceling-your-plan/upgrading-or-downgrading-your-plan.md)
     * [Adding Additional Crashes and Storage Space](administration/billing/upgrading-changing-or-canceling-your-plan/adding-additional-users-and-apps-to-your-plan.md)
     * [Updating Credit Card and Billing Information and Viewing Billing History](administration/billing/upgrading-changing-or-canceling-your-plan/managing-payment-details.md)
+    * [Updating Tax and VAT Information](administration/billing/upgrading-changing-or-canceling-your-plan/updating-tax-and-vat-information.md)
     * [Canceling Your Plan](administration/billing/upgrading-changing-or-canceling-your-plan/canceling-your-plan.md)
   * [Free and Discounted Plans](administration/billing/free-plans-from-bugsplat/README.md)
     * [Free Plan Overview](administration/billing/free-plans-from-bugsplat/standard-free-plan.md)
