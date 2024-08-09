@@ -15,7 +15,7 @@ BugSplat allows your team to create issues in [GitLab](https://gitlab.com) with 
 5. Once you have connected to GitLab, you can select one of your projects from the **Projects** dropdown list.
 6. After selecting your desired board, click **Update** again.
 
-#### Push a new Item to GitLab <a href="#push-a-new-item-to-monday.com" id="push-a-new-item-to-monday.com"></a>
+#### Push a New Item to GitLab
 
 1. Use the **Create Defect** button to create a new item on the crashes page or a crash group page to push a new item to GitLab.
 2. Enter relevant details and click the **Submit** button to create the defect.
