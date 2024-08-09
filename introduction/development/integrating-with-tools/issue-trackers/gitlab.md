@@ -6,7 +6,7 @@ BugSplat's GitLab integration is in beta. Please message us if you want to reque
 
 BugSplat allows your team to create issues in [GitLab](https://gitlab.com) with a few clicks. Our integration adds valuable crash data to your GitLab issues and links to the BugSplat dashboard so your team can quickly switch between looking at BugSplat and your GitLab repos.
 
-#### Integrating GitLab and BugSplat <a href="#integrating-monday.com-and-bugsplat" id="integrating-monday.com-and-bugsplat"></a>
+#### Integrating GitLab and BugSplat
 
 1. Login to your account.
 2. Click the Gear icon (⚙️) at the top right of the page and navigate to the [Database Settings](https://app.bugsplat.com/v2/database/integrations) page, and under **Database > Integrations >** **Defect Tracker**, select **GitLab** from the options shown.
