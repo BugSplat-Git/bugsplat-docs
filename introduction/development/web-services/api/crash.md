@@ -6,20 +6,21 @@ description: API Documentation for the BugSplat Crashes Endpoint
 
 Get the data related to an individual crash or schedule a crash to be reprocessed.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/crash/data" method="get" summary="Crash" %}
-{% swagger-description %}
-Returns call stack and associated metadata for the specified crash. Also returns a processed property with the value of 0 if the crash is still processing, the value 1 if the crashing thread has been processed, and the value 2 if the crashing thread, background threads, and debugger output have been processed.
-{% endswagger-description %}
+## Crash
 
-{% swagger-parameter in="query" name="id" type="number" required="true" %}
-The ID of the specified crash
-{% endswagger-parameter %}
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/crash/details`
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing the specified crash
-{% endswagger-parameter %}
+Returns call stack and associated metadata for the specified crash. Also returns a processed property with the value of 0 if the crash is still processing, the value 1 if the crashing thread has been processed, and the value 2 if the crashing thread, background threads, and debugger output have been processed. The `dumpfile` property contains a pre-signed URL where you can download a zip file that contains the crash file and attachments.
 
-{% swagger-response status="200" description="" %}
+#### Query Parameters
+
+| Name                                 | Type   | Description                                      |
+| ------------------------------------ | ------ | ------------------------------------------------ |
+| id<mark style="color:red;">\*</mark> | number | The ID of the specified crash                    |
+| database                             | string | BugSplat database containing the specified crash |
+
+{% tabs %}
+{% tab title="200 " %}
 ```
 {
     "id": 103182,
@@ -45,10 +46,6 @@ BugSplat database containing the specified crash
     "defectLabel": "Jira TEST-36428",
     "stackKeyDefectUrl": "",
     "stackKeyDefectLabel": "",
-    "additionalFiles": [
-        "1UIT1KP4.xml",
-        "myConsoleCrasherMCKL3N14.dmp"
-    ],
     "events": [
         {
             "id": "99",
@@ -243,35 +240,33 @@ BugSplat database containing the specified crash
         ]
      
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/crash/reprocess" method="post" summary="Reprocess" %}
-{% swagger-description %}
-Add a crash to BugSplat's queue for reprocessing. A maximum of 10 crashes can in the queue for reprocessing. To reprocess more crashes please 
+## Reprocess
+
+<mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/crash/reprocess`
+
+Add a crash to BugSplat's queue for reprocessing. A maximum of 10 crashes can in the queue for reprocessing. To reprocess more crashes please
 
 [contact us](../../../../administration/contact-us.md)
 
 .
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="id" type="number" required="true" %}
-The ID of the specified crash
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing the specified crash
-{% endswagger-parameter %}
+| Name                                 | Type        | Description                                                                             |
+| ------------------------------------ | ----------- | --------------------------------------------------------------------------------------- |
+| id<mark style="color:red;">\*</mark> | number      | The ID of the specified crash                                                           |
+| database                             | string      | BugSplat database containing the specified crash                                        |
+| force                                | true\|false | Use true if you would like to reprocess a crash when no new symbols have been detected. |
 
-{% swagger-parameter in="query" name="force" type="true|false" %}
-Use true if you would like to reprocess a crash when no new symbols have been detected.
-{% endswagger-parameter %}
-
-{% swagger-response status="202: Accepted" description="" %}
+{% tabs %}
+{% tab title="202: Accepted " %}
 ```
 {
     "success": true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
