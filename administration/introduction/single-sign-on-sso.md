@@ -53,6 +53,6 @@ If SSO Groups are provided to BugSplat, they will override any existing database
 
 SSO users can avoid the standard BugSplat login dialog (and thus avoid entering their email address) by saving a link with the following form:
 
-[`https://cognito.bugsplat.com/authorize?idp_identifier={your corporate domain}&redirect_uri=https://app.bugsplat.com/cognito/redirect.php&response_type=code&client_id=2cto7q004s89cid304op4sfc&scope=email%20openid%20profile`](https://cognito.bugsplat.com/authorize?idp\_identifier=imprivata.com\&redirect\_uri=https://app.bugsplat.com/cognito/redirect.php\&response\_type=code\&client\_id=2cto7q004s89cid304op4sfc\&scope=email%20openid%20profile%20aws.cognito.signin.user.admin)
+`https://cognito.bugsplat.com/oauth2/authorize?response_type=code&client_id=2cto7q004s89cid304op4sfc&redirect_uri=https%3A%2F%2Fapp.bugsplat.com%2Fcognito%2Fredirect.php&identity_provider={your corporate domain}&scope=openid`
 
 Replace {your corporate domain} with the domain name of your organization e.g. `acme.com`
