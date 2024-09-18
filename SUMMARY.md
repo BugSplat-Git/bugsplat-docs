@@ -148,6 +148,7 @@
   * [How BugSplat handles large crash volumes](education/faq/how-bugsplat-handles-large-crash-volumes.md)
   * [Add Custom Branding to Support Response](education/faq/add-custom-branding-to-support-response.md)
   * [Finding Missing Reports](education/faq/finding-missing-reports.md)
+  * [Using Darkmode](education/faq/using-darkmode.md)
   * [Does BugSplat have an effect on application performance?](education/faq/does-bugsplat-have-an-effect-on-application-performance.md)
   * [Manually Upload Crash Reports to BugSplat](education/faq/manually-post-crash-reports-to-bugsplat.md)
   * [How to configure proxy settings in BugSplat](education/faq/how-to-configure-proxy-settings-in-bugsplat.md)
