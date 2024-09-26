@@ -146,6 +146,7 @@
   * [Crash details 'Active Thread'](education/faq/crash-details-active-thread.md)
   * [How long does it take to process a crash?](education/faq/how-long-does-it-take-to-process-a-crash.md)
   * [How BugSplat handles large crash volumes](education/faq/how-bugsplat-handles-large-crash-volumes.md)
+  * [How Does Crash Rate Limiting Work?](education/faq/how-does-crash-rate-limiting-work.md)
   * [Add Custom Branding to Support Response](education/faq/add-custom-branding-to-support-response.md)
   * [Finding Missing Reports](education/faq/finding-missing-reports.md)
   * [Using Dark Mode](education/faq/using-dark-mode.md)

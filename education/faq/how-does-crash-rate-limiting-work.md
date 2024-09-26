@@ -1,0 +1,19 @@
+# How Does Crash Rate Limiting Work?
+
+BugSplat enforces rate limits on crash reports to prevent rapid exhaustion of your monthly crash allocation in a short period of time. This policy ensures consistent usage of your crash reporting capacity over the duration of your subscription period, avoiding sudden spikes that could cause you to exceed your monthly limit unexpectedly.
+
+**How Rate Limiting Works:** Rate limiting is designed to control how many crash reports can be sent to BugSplat over short periods. This protects your monthly crash allowance from being quickly depleted by sudden spikes in crashes.
+
+To determine the rate limit, BugSplat first calculates the average number of crashes per minute that your subscription allows. We then set the rate limit at **10x** this average value. This allows flexibility for temporary increases in crash volume while maintaining protection against sustained high-frequency bursts that could exhaust your limit prematurely.
+
+For example, if your plan allows for **100,000 crashes per month**, BugSplat calculates the average number of crashes per minute based on that allowance. The rate limit is then set at **10 times** the average, ensuring that brief spikes in crash reports can be accommodated without exceeding your monthly limit too quickly.
+
+**Why Rate Limiting Is Important:** Rate limiting helps prevent your crash reports from being exhausted too quickly due to short-term increases in crashes. By capping the number of crashes allowed per minute to a level that's **10x** the average, BugSplat ensures you have enough capacity throughout the month to handle expected and unexpected crash volume. This system balances flexibility and protection, ensuring that short-term spikes don't jeopardize your ability to report crashes over time.
+
+**Key Points:**
+
+* BugSplat calculates an average crash rate based on your monthly crash allocation.
+* The rate limit is set to **10x** your average crash rate to handle temporary surges.
+* This prevents your crash reports from exhausting too quickly within any given month.
+
+By following this rate-limiting structure, you can manage your crash reports effectively while ensuring that sudden bursts in crash volume won’t deplete your monthly allocation too early.
