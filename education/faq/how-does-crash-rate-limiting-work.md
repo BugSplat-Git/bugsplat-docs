@@ -8,12 +8,3 @@ To determine the rate limit, BugSplat first calculates the average number of cra
 
 For example, if your plan allows for **100,000 crashes per month**, BugSplat calculates the average number of crashes per minute based on that allowance. The rate limit is then set at **10 times** the average, ensuring that brief spikes in crash reports can be accommodated without exceeding your monthly limit too quickly.
 
-**Why Rate Limiting Is Important:** Rate limiting helps prevent your crash reports from being exhausted too quickly due to short-term increases in crashes. By capping the number of crashes allowed per minute to a level that's **10x** the average, BugSplat ensures you have enough capacity throughout the month to handle expected and unexpected crash volume. This system balances flexibility and protection, ensuring that short-term spikes don't jeopardize your ability to report crashes over time.
-
-**Key Points:**
-
-* BugSplat calculates an average crash rate based on your monthly crash allocation.
-* The rate limit is set to **10x** your average crash rate to handle temporary surges.
-* This prevents your crash reports from exhausting too quickly within any given month.
-
-By following this rate-limiting structure, you can manage your crash reports effectively while ensuring that sudden bursts in crash volume won’t deplete your monthly allocation too early.
