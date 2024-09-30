@@ -10,15 +10,15 @@ BugSplat's [Summary](https://app.bugsplat.com/v2/summary) page is a table of cra
 
 BugSplat has a set of customizable rules that skip over functions that are typically not interesting to application developers. Our default rules are designed to get you started quickly and can be modified as required for each crash report database.
 
-The auto-group rules are pattern-based matching rules that skip irrelevant stack frames and create more meaningful crash groups. The three types of rules are **group by**, **group after,** and **ignore** frames. Rules are defined per platform and can be specified to match either the function or file portion of the call stack.
+The auto-group rules are pattern-based matching rules that skip irrelevant stack frames and create more meaningful crash groups. The three types of rules are **group by**, **ignore**, and **ignore frames up to and including**. Rules are defined per platform and can be specified to match either the **function** or **file** portion of the call stack.
 
-You can view and change Auto-Group rules on the [Settings/Grouping](https://app.bugsplat.com/v2/rules) page.
+You can view and change Auto-Group rules on the [Rules](https://app.bugsplat.com/v2/rules) page.
 
-Let's take a look at how BugSplat groups a report with the Windows OS function `KERNELBASE!RaiseException` at the top of the stack. Our default rule is shown below:
+Let's look at how BugSplat groups a report with the Windows OS function `KERNELBASE!RaiseException` at the top of the stack. Our default rule is shown below:
 
 <figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Default Ignore Rule</p></figcaption></figure>
 
-This rule, for Windows Native C++ crash types, **groups after** any stack frame where the function matches `KERNELBASE*`. When BugSplat processes reports containing `KERNELBASE!RaiseException`, the rule matches and crashes will automatically be grouped by the following frame of the call stack. Group after rules are useful for excluding frames that are known to be common error conditions. \\
+By default, BugSplat groups crashes by the function at the top of the call stack. When BugSplat processes reports containing `KERNELBASE!RaiseException` at the top of the stack, the **ignore** rule matches and crashes will automatically be grouped by the following frame of the call stack. To group deeper in the call stack, you can combine multiple **ignore** rules. Alternatively, you can use **ignore frames up to and including** rules to group after a specified pattern that matches anywhere in the call stack. Ignore rules are useful for excluding frames that are known to be common error conditions.
 
 Developers can also add rules that **group by** frames matching certain patterns. **Group by** rules are useful for including items that can be identified as belonging to your application. For example, you might choose **group by** to specify a file matching a path on your build machine, or a function matching your main application's module.
 
@@ -28,17 +28,17 @@ Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/G
 
 Auto-group rules are processed in a specific, consistent order that cannot be changed. The rules engine follows the logic below:
 
-* If there are any **group by** stack frame matches, select the top-most matching frame as the candidate frame. Use the resulting frame for grouping. Don't process any more rules.
-* If there are any **group after** stack frame matches, select the lower-most matching frame as the candidate frame. Starting with this frame, skip over any frames that match the **ignore** rules until finding the first frame that isn't to be ignored. Use the resulting frame for grouping. Don't process any more rules.
+* If there are any **group by** rule matches, select the top-most matching frame as the candidate frame. Use the resulting frame for grouping. Don't process any more rules.
+* If there are any **ignore frames up to and including** rule matches, select the lower-most matching frame as the candidate frame. Starting with the candidate frame, skip over any frames that match the **ignore** rules until a frame that doesn't match any ignore rules is found. Use the resulting frame for grouping. Don't process any more rules.
 * At this point, neither **group by** nor **group after** rules matched any stack frames. The rules engine will apply the **ignore** rules starting with the top stack frame, skipping over any frames that match the **ignore** rules until it finds the first frame that isn't to be ignored. The resulting frame is used for grouping.
 
 {% hint style="info" %}
-When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please reach out to [Support](mailto:support@bugsplat.com).
+When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please contact [Support](mailto:support@bugsplat.com).
 {% endhint %}
 
 ### Options
 
-BugSplat can also ignore specific parts of the call stack when creating groups. By default, BugSplat will group items that match based on function name only. At the top of the Grouping page you'll find the options **Include module name**, **Include line number**, and **Include address offset**. Enabling these settings will include the respective properties in the group calculation.
+BugSplat can also ignore specific parts of the call stack when creating groups. By default, BugSplat will group items that match based on function name only. At the top of the [Rules](https://app.bugsplat.com/v2/rules) page you'll find the options **include module name**, **include line number**, and **include address offset**. Enabling these settings will include the respective properties in the group calculation.
 
 The module name is the name of the library or executable that added the frame to the stack. The line number is the line of source code where the function crashed, and the address offset is the instruction pointer offset. The hex offset is only considered for grouping stack frames that are not symbolicated.
 
@@ -56,7 +56,7 @@ On the **Crash** page, scroll down to the list of stack frames for the crashing 
 
 <figure><img src="../../.gitbook/assets/crash-expanded-frame.png" alt=""><figcaption><p>Crash Page with Stack Frame Expanded</p></figcaption></figure>
 
-We can click **Group Rules** and add another rule that **groups after** stack frames where the function matches the glob `*_CXXThrowException*`. After creating this rule and reprocessing the crash report, you will see the correct grouping.
+We can click **Group Rules** and add another rule that **ignores frames up to and including** stack frames where the function matches the glob `*_CXXThrowException*`. After creating this rule and reprocessing the crash report, you will see the correct grouping.
 
 ### Summary Page
 
