@@ -2,12 +2,13 @@
 
 ## Overview
 
-BugSplatDotNetStandard allows you to capture and track exceptions on all .NET Standard 2.0 [platforms](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This includes:
+BugSplatDotNetStandard lets you capture and track exceptions on all .NET Standard 2.0 [platforms](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This includes:
 
-* .NET Core
-* Universal Windows Platform (UWP)
-* Xamarin
+* .NET 5+
+* .NET Framework
+* Maui
 * Mono
+* Unity
 
 ## Configuration
 
@@ -23,7 +24,7 @@ After you've installed the NuGet package, add a using statement for the `BugSpla
 using BugSplatDotNetStandard;
 ```
 
-Create a new instance of `BugSplat` providing it your database, application, and version. It's best to do this at the entry point of your application. Several defaults can be provided to BugSplat. You can provide default values for things such as description, email, key, user and file attachments.
+Create a new instance of `BugSplat` providing it your database, application, and version. It's best to do this at the entry point of your application. Several defaults can be provided to BugSplat. You can provide default values for description, email, key, user, file attachments, and attributes.
 
 ```csharp
 var bugsplat = new BugSplat(database, application, version);
@@ -32,6 +33,7 @@ bugsplat.Description = "the default description";
 bugsplat.Email = "fred@bugsplat.com";
 bugsplat.Key = "the key!";
 bugsplat.User = "Fred";
+bugsplat.Attributes.Add("key", "value");
 ```
 
 The `Post` method can be used to send Exception objects to BugSplat.
