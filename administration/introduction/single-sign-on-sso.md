@@ -37,8 +37,6 @@ Note:  SSO integration is a premium feature that requires a BugSplat Enterprise 
 
 You can optionally provide access to BugSplat databases by associating groups with each user that match groups assigned to your BugSplat databases.  If no user groups are provided, users can authenticate with BugSplat but won't have access to any company databases until you add them using the [Database Users](https://app.bugsplat.com/v2/database/users) or [Company Manage Users](https://app.bugsplat.com/v2/company/users) pages.&#x20;
 
-Group memberships for each user are passed to BugSplat in the SAML 2.0 assertion. The “groups” attribute statement must include the name of each BugSplat database group to which the user should be added.
-
 Groups provided by SSO are matched to groups defined for each of your databases on the Integrations/SSO page.  Each database has a group name for access and administration.
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>SSO Group Definition</p></figcaption></figure>
