@@ -170,6 +170,17 @@ Test BugSplat by throwing a new error in either the main or renderer process:
 throw new Error("BugSplat!");
 ```
 
+You may see the following error in the console:
+
+<pre><code><strong>Refused to connect to 'https://fred.bugsplat.com/post/js/' because it violates the following Content Security Policy directive: "default-src 'self'". 
+</strong></code></pre>
+
+If you see this error, modify your index.html file to allow report upload from the renderer process:
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' https://your-database.bugsplat.com 'unsafe-eval'"/>
+```
+
 ### Uploading Source Maps
 
 If you're using TypeScript or another language that compiles to JavaScript, BugSplat can map uglified and minified JavaScript function names, file names, and line numbers back to their original values via [source maps](../../../development/working-with-symbol-files/source-maps.md).
