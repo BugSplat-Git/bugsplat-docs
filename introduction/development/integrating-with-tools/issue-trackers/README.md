@@ -10,10 +10,6 @@ This allows teams to build issues that contain full crash information, like symb
 
 **Note** you can see our doc for automatically creating issues in your defect tracker from BugSplat databases [here](auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md).
 
-{% content-ref url="assembla.md" %}
-[assembla.md](assembla.md)
-{% endcontent-ref %}
-
 {% content-ref url="azure-devops.md" %}
 [azure-devops.md](azure-devops.md)
 {% endcontent-ref %}

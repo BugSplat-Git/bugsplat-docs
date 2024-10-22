@@ -82,7 +82,6 @@
       * [Email](introduction/development/integrating-with-tools/messanger-apps/email.md)
       * [Webhook](introduction/development/integrating-with-tools/messanger-apps/webhook.md)
     * [Issue Trackers](introduction/development/integrating-with-tools/issue-trackers/README.md)
-      * [Assembla](introduction/development/integrating-with-tools/issue-trackers/assembla.md)
       * [Azure DevOps](introduction/development/integrating-with-tools/issue-trackers/azure-devops.md)
       * [Favro](introduction/development/integrating-with-tools/issue-trackers/favro.md)
       * [Fogbugz](introduction/development/integrating-with-tools/issue-trackers/fogbugz.md)

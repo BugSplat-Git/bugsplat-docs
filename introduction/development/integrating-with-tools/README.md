@@ -40,8 +40,8 @@ BugSplat connects with popular defect trackers allowing users to create new issu
 [azure-devops.md](issue-trackers/azure-devops.md)
 {% endcontent-ref %}
 
-{% content-ref url="issue-trackers/assembla.md" %}
-[assembla.md](issue-trackers/assembla.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="issue-trackers/fogbugz.md" %}
