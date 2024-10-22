@@ -84,7 +84,6 @@
     * [Issue Trackers](introduction/development/integrating-with-tools/issue-trackers/README.md)
       * [Azure DevOps](introduction/development/integrating-with-tools/issue-trackers/azure-devops.md)
       * [Favro](introduction/development/integrating-with-tools/issue-trackers/favro.md)
-      * [Fogbugz](introduction/development/integrating-with-tools/issue-trackers/fogbugz.md)
       * [Jira](introduction/development/integrating-with-tools/issue-trackers/jira.md)
       * [GitHub Issues](introduction/development/integrating-with-tools/issue-trackers/github-issues.md)
       * [GitLab](introduction/development/integrating-with-tools/issue-trackers/gitlab.md)

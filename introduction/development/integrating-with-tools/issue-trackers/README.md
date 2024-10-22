@@ -30,10 +30,6 @@ This allows teams to build issues that contain full crash information, like symb
 [favro.md](favro.md)
 {% endcontent-ref %}
 
-{% content-ref url="fogbugz.md" %}
-[fogbugz.md](fogbugz.md)
-{% endcontent-ref %}
-
 {% content-ref url="monday.md" %}
 [monday.md](monday.md)
 {% endcontent-ref %}

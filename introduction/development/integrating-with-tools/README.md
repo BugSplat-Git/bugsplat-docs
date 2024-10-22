@@ -44,8 +44,8 @@ BugSplat connects with popular defect trackers allowing users to create new issu
 [Broken link](broken-reference)
 {% endcontent-ref %}
 
-{% content-ref url="issue-trackers/fogbugz.md" %}
-[fogbugz.md](issue-trackers/fogbugz.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="issue-trackers/youtrack.md" %}
