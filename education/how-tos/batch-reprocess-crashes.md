@@ -1,14 +1,14 @@
 ---
 description: >-
   Learn how to batch reprocess multiple reports with BugSplat and easily apply
-  updated symbols or grouping rules to your crashes or errors
+  updated symbols or grouping rules to your crashes or errors.
 ---
 
 # Batch Reprocess Crashes
 
-This guide will teach you how to reprocess multiple crashes simultaneously via the BugSplat UI. This is a new feature that works in conjunction with the ability to [reprocess individual reports](reprocessing-crashes.md).
+This guide will teach you how to reprocess multiple crashes simultaneously via the BugSplat UI. This new feature works in conjunction with the ability to [reprocess individual reports](reprocessing-crashes.md).
 
-Reprocessing crashes is a valuable feature that lets you update crash reports when symbols are added after the crashes were initially reported, when auto-group rules have changed, or other issues have occurred with a group of crashes.&#x20;
+Reprocessing crashes is a valuable feature that lets you update crash reports when symbols are added after the crashes were initially reported, when auto-group rules have changed, or when other issues have occurred with a group of crashes.&#x20;
 
 Follow these steps to learn how to batch reprocess crashes.
 
@@ -40,7 +40,7 @@ Reprocessing crashes is a valuable tool for maintaining accurate and up-to-date 
     <figure><img src="../../.gitbook/assets/batch-reprocess-issues.png" alt=""><figcaption></figcaption></figure>
 
     </div>
-5. Review reprocessed crashes to see if this has fixed your initial, underlying issue.
+5. Review reprocessed crashes to see if this has fixed your issue.
 
 {% embed url="https://bugsplat.wistia.com/medias/nloa2jqhdw" %}
 Watch Reprocess in action!
@@ -54,4 +54,4 @@ Watch Reprocess in action!
 
 ### Conclusion
 
-That's it! By reprocessing crashes in the current view on BugSplat, you can easily apply updated symbols or new auto-group rules to your crash reports. Just remember that reprocessing up to 50 crashes may take a few minutes to complete, so feel free to grab a coffee or engage in other activities during this time.
+That's it! By reprocessing crashes in the current view on BugSplat, you can easily apply updated symbols or new auto-group rules to your crash reports. Remember that reprocessing up to 50 crashes may take a few minutes, so feel free to grab a coffee or engage in other activities during this time.

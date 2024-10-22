@@ -137,6 +137,7 @@
   * [Batch Reprocess Crashes](education/how-tos/batch-reprocess-crashes.md)
   * [Using the Crash Attribute Feature](education/how-tos/using-the-crash-attribute-feature.md)
   * [Send Feedback](education/how-tos/sending-feedback.md)
+  * [Remove Crashes](education/how-tos/remove-crashes.md)
 * [Videos](education/videos/README.md)
   * [BugSplat Product Walkthrough](education/videos/bugsplat-product-walkthrough.md)
 * [FAQs](education/faq/README.md)
