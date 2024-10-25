@@ -31,6 +31,8 @@ Package your game, and check the **Include Crash Reporter** and **Include Debug 
 
 ![UE4\_PackagingSetttings](../../../../.gitbook/assets/unreal-packaging-settings.png)
 
+If you're building via the command line, please add the `-CrashReporter` flag to your build arguments to ensure CrashReportClient is included in your build output.
+
 ### Configuring Crash Report Client
 
 Sending crash reports to BugSplat can be done via a simple configuration change to Unreal Engine's [CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/).
