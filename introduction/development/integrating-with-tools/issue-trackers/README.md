@@ -1,7 +1,7 @@
 # Issue Trackers
 
 {% hint style="warning" %}
-Some organizations restrict access to their issue tracker by IP address. If you need to allow access to BugSplat, add the IP address [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home) to your whitelist.
+Some organizations restrict access to their issue tracker by IP address. If you need to allow access to BugSplat, add the IP addresses [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home), [3.93.104.250](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#ElasticIpDetails:AllocationId=eipalloc-0da0d84b88eed6812), and [34.194.164.107](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#ElasticIpDetails:AllocationId=eipalloc-0cd966956c064a2e4) to your whitelist.
 {% endhint %}
 
 BugSplat connects with popular defect trackers, allowing users to create new issues with a few clicks directly from a crash or stack key.

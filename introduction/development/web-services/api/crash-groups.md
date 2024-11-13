@@ -10,16 +10,20 @@ These endpoints support paging, filtering, and grouping queries. More informatio
 
 Get a summary of all [crash groups](../../../../education/bugsplat-terminology.md#crash-group), get a list of crashes in a particular group, or detailed information on individual crash groups that share a common function name and line number at the top of the call stack and have been grouped at a lower level of the call stack.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/summary" method="get" summary="Summary" %}
-{% swagger-description %}
+## Summary
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/summary`
+
 Returns crash summary data. Supports paging and filtering using column names startDate, endDate, stackKey, stackKeyId, crashSum, userSum, subKeyDepth, defectId, comments, subject.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing summary data
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200" description="" %}
+| Name     | Type   | Description                               |
+| -------- | ------ | ----------------------------------------- |
+| database | string | BugSplat database containing summary data |
+
+{% tabs %}
+{% tab title="200 " %}
 ```
 [
     {
@@ -44,23 +48,25 @@ BugSplat database containing summary data
     }
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/keycrash" method="get" summary="Key Crash" %}
-{% swagger-description %}
-Get a list of crashes for a particular crash group (aka Stack Key). This query supports paging, filtering, and grouping. More information on how to use paging, filtering, and grouping can be found here. All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, email, IpAddress etc.
-{% endswagger-description %}
+## Key Crash
 
-{% swagger-parameter in="query" name="stackKeyId" type="number" %}
-ID for the desired crash group
-{% endswagger-parameter %}
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/keycrash`
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing crash data
-{% endswagger-parameter %}
+Get a list of crashes for a particular crash group (aka Stack Key). This query supports paging, filtering, and grouping. More information on how to use paging, filtering, and grouping can be found [here](https://docs.bugsplat.com/introduction/development/web-services/paging-filtering-and-grouping). All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, email, IpAddress etc.
 
-{% swagger-response status="200" description="" %}
+#### Query Parameters
+
+| Name          | Type      | Description                                                                          |
+| ------------- | --------- | ------------------------------------------------------------------------------------ |
+| stackKeyId    | number    | ID for the desired crash group                                                       |
+| database      | string    | BugSplat database containing crash data                                              |
+| crashTimeSpan | parameter | If present, the firstCrashTime and lastCrashTime values will be returned in PageData |
+
+{% tabs %}
+{% tab title="200 " %}
 ```
 [
   {
@@ -115,5 +121,5 @@ BugSplat database containing crash data
   }
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
