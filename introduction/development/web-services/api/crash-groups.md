@@ -14,7 +14,7 @@ Get a summary of all [crash groups](../../../../education/bugsplat-terminology.m
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/summary`
 
-Returns crash summary data. Supports paging and filtering using column names startDate, endDate, stackKey, stackKeyId, crashSum, userSum, subKeyDepth, defectId, comments, subject.
+Returns crash summary data. Supports paging and filtering using column names firstReport, lastReport, stackKey, stackKeyId, crashSum, userSum, subKeyDepth, defectId, comments, techSupportSubject.
 
 #### Query Parameters
 
