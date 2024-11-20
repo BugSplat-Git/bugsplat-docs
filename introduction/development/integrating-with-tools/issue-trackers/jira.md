@@ -26,6 +26,20 @@ The optional **Assignee ID** field requires the Atlassian user ID when using Jir
 
 <figure><img src="../../../../.gitbook/assets/output (4).gif" alt=""><figcaption><p>Create a Jira Issue with BugSplat</p></figcaption></figure>
 
+### Bi-Directional Status Syncing
+
+BugSplat can listen to status updates on issues from Jira and update a defect group's status accordingly. Similarly, when a defect group's state is updated in BugSplat, the update can be pushed to Jira, which allows the two systems to stay synchronized.
+
+To configure bi-directional Jira synchronization, perform the following steps:
+
+1. Create a Jira System webhook via ⚙️ > System > Webhooks
+2. Generate a webhook secret and copy the secret value
+3. Configure the webhook to emit events for **Issue Updated**
+4. Navigate to BugSplat's Defect Tracker Integration page
+5. Enter values for **Webhook Secret**, **Open Status**, and **Closed Status**
+
+You can test the integration by linking a Jira issue to a BugSplat defect. Set the BugSplat status to Open or Closed. When the status changes in BugSplat, the Jira status should be set to the value you entered for **Open Status** and **Closed Status,** respectively.
+
 ### Automated Defect Creation
 
 Want to create issues in Jira automatically for each new crash or crash group? Check out the document on auto-creating defects in your third-party defect tracker tool [here](auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md).
