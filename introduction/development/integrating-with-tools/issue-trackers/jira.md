@@ -32,11 +32,12 @@ BugSplat can listen to status updates on issues from Jira and update a defect gr
 
 To configure bi-directional Jira synchronization, perform the following steps:
 
-1. Create a Jira System webhook via **⚙️ > System > Webhooks**
-2. Generate a webhook secret and copy the secret value
-3. Configure the webhook to emit events for **Issue Updated**
-4. Navigate to BugSplat's [Defect Tracker Integration](https://app.bugsplat.com/v2/database/integrations#defect-trackers) page
-5. Enter values for **Webhook Secret**, **Open Status**, and **Closed Status**
+1. Create a Jira System webhook via **⚙️ > System > WebHooks**
+2. Set the WebHook URL value to `https://app.bugsplat.com/api/webhook/jira.php?database=your-bugsplat-database`, being sure to use the name of your BugSplat database&#x20;
+3. Generate a **WebHook Secret** and copy the secret value
+4. Configure the webhook to emit events for **Issue Updated**
+5. Navigate to BugSplat's [Defect Tracker Integration](https://app.bugsplat.com/v2/database/integrations#defect-trackers) page
+6. Enter values for **Webhook Secret**, **Open Status**, and **Closed Status**
 
 You can test the integration by linking a Jira issue to a BugSplat defect. Set the BugSplat status to Open or Closed. When the status changes in BugSplat, the Jira status should be set to the value you entered for **Open Status** and **Closed Status,** respectively.
 
