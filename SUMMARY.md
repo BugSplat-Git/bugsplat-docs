@@ -199,6 +199,7 @@
   * [Migrating Databases](administration/account-managment/how-to-migrate-databases-between-users-and-accounts.md)
   * [Deleting Databases](administration/account-managment/deleting-databases.md)
   * [Deleting a Company Account](administration/account-managment/permanently-deleting-a-company-account.md)
+  * [Changing Company Name](administration/account-managment/changing-company-name.md)
 * [User Management](administration/introduction/README.md)
   * [User Permissions](administration/introduction/user-permissions.md)
   * [Deleting a User](administration/introduction/permanently-deleting-a-user-account.md)
