@@ -23,7 +23,7 @@ If you update the BugSplat plug-in or build a new version of Unreal Engine from 
 
 BugSplat's Unreal plugin supports adding crash reporting to Windows, macOS, Linux, Android, and iOS games. With a few clicks, the BugSplat plugin can be configured to automatically upload symbol files so crash report stack traces display function names and line numbers.
 
-To get started, generate a Client ID and Client Secret via the [Integrations](https://app.bugsplat.com/v2/database/integrations) page.
+To get started, generate a Client ID and Client Secret via the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth?database=Fred#oauth) page.
 
 Next, open the BugSplat plugin menu in the Unreal Editor via `Edit > Project Settings`. Scroll to the `BugSplat` section of `Project Settings` and add values for `Database`, `Application`, `Version`, `Client ID`, and `Client Secret`:
 
