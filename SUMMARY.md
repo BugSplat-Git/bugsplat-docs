@@ -235,6 +235,7 @@
     * [March 18 - April 03, 2024](about/misc/giveaways/march-18-april-03-2024.md)
     * [November 15-30, 2023](about/misc/giveaways/november-15-30-2023.md)
     * [October 9-23, 2023](about/misc/giveaways/october-9-23-2023.md)
+  * [November 21–28, 2024](about/misc/november-21-28-2024.md)
 
 ## 🔀 Changelog
 
