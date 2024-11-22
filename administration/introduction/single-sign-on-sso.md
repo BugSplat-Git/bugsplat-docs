@@ -45,7 +45,7 @@ For example, you might assign the Groups "BsAccess" and "BsAdmin" to each BugSpl
 
 Note that the SSO groups will be copied from the current database when creating a new database.  So typically, once they are set up, no further group definition will be required.
 
-If SSO Groups are provided to BugSplat, they will override any existing database access permissions.  At login time, a user's permissions are reset according to the group rules.  After a user logs into BugSplat, you can view their updated access rules on the [Database Users](https://app.bugsplat.com/v2/database/users) or [Company Manage Users](https://app.bugsplat.com/v2/company/users) pages.
+If SSO Groups are provided to BugSplat, they will override any existing database access permissions.  At login time, a user's permissions are reset according to the group rules.  After a user logs into BugSplat, you can view their updated access rules on the [Database Users](https://app.bugsplat.com/v2/database/users) or [Company Manage Users](https://app.bugsplat.com/v2/company/users) pages.  You may have to make the "SSO Groups" column visible to view this information.
 
 ### Skipping the BugSplat Login Dialog
 
