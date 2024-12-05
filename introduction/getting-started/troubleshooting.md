@@ -1,3 +1,9 @@
+---
+description: >-
+  BugSplat helps troubleshoot crash reporting issues, including why crashes are
+  rejected, such as exceeding size limits or frequent submissions.
+---
+
 # Troubleshooting
 
 We try our best to make it easy to integrate with BugSplat. However, sometimes problems do arise, and not everything goes as planned. The following is a self-service troubleshooting guide that can help you fix common problems that occur when integrating with BugSplat.

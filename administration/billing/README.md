@@ -22,6 +22,10 @@ We've made a few changes to how we structure pricing.  These changes went live o
 [how-to-sign-up-for-a-bugsplat-plan.md](how-to-sign-up-for-a-bugsplat-plan.md)
 {% endcontent-ref %}
 
+{% content-ref url="viewing-account-usage.md" %}
+[viewing-account-usage.md](viewing-account-usage.md)
+{% endcontent-ref %}
+
 {% content-ref url="upgrading-changing-or-canceling-your-plan/upgrading-or-downgrading-your-plan.md" %}
 [upgrading-or-downgrading-your-plan.md](upgrading-changing-or-canceling-your-plan/upgrading-or-downgrading-your-plan.md)
 {% endcontent-ref %}

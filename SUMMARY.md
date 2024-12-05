@@ -178,6 +178,7 @@
   * [Free Trial Overview](administration/billing/free-trial.md)
   * [Plans and Billing Overview](administration/billing/plans-and-billing-guide.md)
   * [How to Sign Up for a BugSplat Plan](administration/billing/how-to-sign-up-for-a-bugsplat-plan.md)
+  * [Viewing Account Usage](administration/billing/viewing-account-usage.md)
   * [Upgrading, Changing, or Canceling Your Plan](administration/billing/upgrading-changing-or-canceling-your-plan/README.md)
     * [Upgrading or Downgrading Your Plan](administration/billing/upgrading-changing-or-canceling-your-plan/upgrading-or-downgrading-your-plan.md)
     * [Adding Additional Crashes and Storage Space](administration/billing/upgrading-changing-or-canceling-your-plan/adding-additional-users-and-apps-to-your-plan.md)
