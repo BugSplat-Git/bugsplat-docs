@@ -16,9 +16,9 @@ This may happen as part of our normal crash-handling protocol.
     When your application is experiencing crash volume well above its normal level or well beyond the rate provided by your subscription, a percentage of the crash reports will be rejected.
 
     This high-volume rejection keeps unusual periods of crash activity from rapidly exhausting your BugSplat subscription. Again, BugSplat allows you to see your overall volume accurately on the Overview page.
-3.  **Crashes submitted with a POST size larger than our 50 MB limit.**
+3.  **Crashes submitted with a POST size larger than our 100 MB limit.**
 
-    Our current crash POST size limit is 50 MB. This is much bigger than the data BugSplat sends as part of the crash report, but if you are adding additional log files to your crash reports, please keep their total size under fifty megabytes to ensure that crash reports are not rejected.
+    Our current crash POST size limit is 100 MB. This is much bigger than the data BugSplat sends as part of the crash report, but if you are adding additional log files to your crash reports, please keep their total size under fifty megabytes to ensure that crash reports are not rejected.
 4.  **Reports were from a retired version.**
 
     If you are missing crash reports check to make sure they were not from a version you have previously retired. You can do this by visiting the [Versions](https://app.bugsplat.com/v2/versions) page.
