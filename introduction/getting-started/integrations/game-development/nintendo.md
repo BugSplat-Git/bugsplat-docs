@@ -1,17 +1,15 @@
 # Nintendo Switch
 
-BugSplat allows developers to automatically track crashes in your Nintendo Switch games, both during development and in production.
+BugSplat enables developers to automatically track crashes in Nintendo Switch games during development and production.
 
-Access to BugSplat's Nintendo Switch support is restricted to certified Nintendo developers. To get started, follow these steps:
+Access to BugSplat’s Nintendo Switch support is available exclusively to certified Nintendo developers. To get started, follow these steps:
 
-1. **Certify Your Nintendo Developer Status**\
-   Log in to your Nintendo Developer account at [https://developer.nintendo.com/](https://developer.nintendo.com/).\
-   Navigate to **Switch > Middleware > BugSplat** and complete the **BugSplat - Nintendo Developer Authorization** form.
-   * Fill out the required fields on this form and submit it.
-   * The information will be sent to BugSplat for verification of your NDA status.
-2. **Verification and Next Steps**\
-   Once BugSplat receives confirmation from Nintendo, we will verify your developer status and provide access to:
-   * Downloads for the necessary tools
-   * Documentation for integrating BugSplat crash reporting into your Nintendo Switch games
+1. **Verify Your Developer Status**\
+   Log in to your Nintendo Developer account at [https://developer.nintendo.com/](https://developer.nintendo.com/), and navigate to the **Switch > Middleware** section.\
+   Locate **BugSplat** and complete the required authorization process. This step ensures that BugSplat can verify your certification as a Nintendo developer.
+2. **Access Tools and Documentation**\
+   Once your status is confirmed by Nintendo, BugSplat will provide you with the resources needed to integrate crash reporting into your Nintendo Switch games, including:
+   * Access to relevant tools
+   * Integration documentation tailored for Nintendo Switch
 
-For any questions or assistance, contact us at **support@bugsplat.com**.
+If you have questions or need assistance, reach out to **support@bugsplat.com**.
