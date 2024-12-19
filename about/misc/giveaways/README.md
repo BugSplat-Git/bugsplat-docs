@@ -15,6 +15,10 @@ layout:
 
 # Giveaways
 
+{% content-ref url="december-19-29-2024.md" %}
+[december-19-29-2024.md](december-19-29-2024.md)
+{% endcontent-ref %}
+
 {% content-ref url="november-21-28-2024.md" %}
 [november-21-28-2024.md](november-21-28-2024.md)
 {% endcontent-ref %}
