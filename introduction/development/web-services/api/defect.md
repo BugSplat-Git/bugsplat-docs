@@ -6,56 +6,51 @@ description: API Documentation for the BugSplat Defect Endpoint
 
 Operations related to BugSplat's connection with the defect tracker configured on the specified database.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/logDefect" method="get" summary="Defect" %}
-{% swagger-description %}
+## Defect
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/logDefect`
+
 Returns information regarding linked defects for a given crash (using id) or crash group (using stackKeyId).
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database to query
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="stackKeyId" type="number" %}
-Crash group to query
-{% endswagger-parameter %}
+| Name       | Type   | Description                |
+| ---------- | ------ | -------------------------- |
+| database   | string | BugSplat database to query |
+| stackKeyId | number | Crash group to query       |
+| id         | number | Crash Id to query          |
 
-{% swagger-parameter in="query" name="id" type="number" %}
-Crash Id to query
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "status": "success",
     "current_server_time": 1629833567,
     "message": "success",
     "id": 1,
     "defectId": 1
-
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/logDefect" method="post" summary="Defect" %}
-{% swagger-description %}
+## Defect
+
+<mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/logDefect`
+
 Create an issue in the associated defect tracker
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="stackKeyId" type="number" %}
-Id of the crash group being used to create a new issue
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="id" type="number" %}
-Id of the crash being used to create a new issue
-{% endswagger-parameter %}
+| Name       | Type   | Description                                            |
+| ---------- | ------ | ------------------------------------------------------ |
+| stackKeyId | number | Id of the crash group being used to create a new issue |
+| id         | number | Id of the crash being used to create a new issue       |
+| database   | string | BugSplat database containing the crashId or stackKeyId |
 
-{% swagger-parameter in="body" name="database" type="string" %}
-BugSplat database containing the crashId or stackKeyId
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "status": "success",
     "current_server_time": 1629834214,
@@ -64,28 +59,26 @@ BugSplat database containing the crashId or stackKeyId
     "defectId": 1
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/logDefect" method="delete" summary="Defect" %}
-{% swagger-description %}
+## Defect
+
+<mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/logDefect`
+
 Removes a defect association from BugSplat. This method will not remove the issue from the associated issue tracker.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="stackKeyId" type="string" %}
-Crash group for which the defect association will be removed
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="id" type="number" %}
-Crash id for which the defect association will be removed
-{% endswagger-parameter %}
+| Name       | Type   | Description                                                  |
+| ---------- | ------ | ------------------------------------------------------------ |
+| stackKeyId | string | Crash group for which the defect association will be removed |
+| id         | number | Crash id for which the defect association will be removed    |
+| database   | string | BugSplat database containing the crashId or stackKeyId       |
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing the crashId or stackKeyId
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "status": "success",
     "current_server_time": 1629834172,
@@ -93,5 +86,5 @@ BugSplat database containing the crashId or stackKeyId
     "id": 1
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}

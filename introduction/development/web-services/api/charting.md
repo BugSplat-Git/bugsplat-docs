@@ -6,33 +6,25 @@ description: API Documentation for the BugSplat Charting Endpoints
 
 Get the number of crashes posted to BugSplat over time. This data can be filtered by application names, application versions, crash group (stack key), start date and end date.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/crashHistory" method="get" summary="Crash History" %}
-{% swagger-description %}
+## Crash History
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/crashHistory`
+
 Returns chartable crash data for the specified database, appNames, appVersions, startDate, and endDate.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="endDate" type="string" %}
-ISO 8601 timestamp representing the end date of the specified time period
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="startDate" type="string" %}
-ISO 8601 timestamp representing the start date of the specified time period
-{% endswagger-parameter %}
+| Name        | Type   | Description                                                                 |
+| ----------- | ------ | --------------------------------------------------------------------------- |
+| database    | string | BugSplat database containing crash history                                  |
+| appVersions | array  | Comma-separated list of versions to query                                   |
+| appNames    | array  | Comma-separated list of applications to query                               |
+| startDate   | string | ISO 8601 timestamp representing the start date of the specified time period |
+| endDate     | string | ISO 8601 timestamp representing the end date of the specified time period   |
 
-{% swagger-parameter in="query" name="appVersions" type="array" %}
-Comma-separated list of versions to query
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="appNames" type="array" %}
-Comma-separated list of applications to query
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing crash history
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "TotalRows": 1,
     "TotalCrashes": 20,
@@ -57,24 +49,36 @@ BugSplat database containing crash history
     ]
 D}
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/stackKeyDailyVolume" method="get" summary="Stack Key Daily Volume" %}
-{% swagger-description %}
-Returns chartable volumes for a given database and a comma-separated list of stackKeyIds.
-{% endswagger-description %}
+### Curl Example
 
-{% swagger-parameter in="query" name="stackKeyIds" type="array" %}
-Comma-separated list of stackKeyIds to query
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing a list of stackKeyIds
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+```bash
+curl --location 'https://app.bugsplat.com/api/crashHistory?database=fred&appNames=MyConsoleCrasher&startDate=2024-12-31T16%3A44%3A50.099Z&endDate=2025-01-07T16%3A48%3A50.099Z' \
+--header 'Authorization: Bearer ••••••'
 ```
+
+## Stack Key Daily Volume
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/stackKeyDailyVolume`
+
+Returns chartable volumes for a given database and a comma-separated list of stackKeyIds.
+
+#### Query Parameters
+
+| Name           | Type   | Description                                                                 |
+| -------------- | ------ | --------------------------------------------------------------------------- |
+| database       | string | BugSplat database containing a list of stackKeyIds                          |
+| stackKeyIds\[] | array  | Comma-separated list of stackKeyIds to query                                |
+| appNames       | array  | Comma-separated list of applications to query                               |
+| versions       | array  | Comma-separated list of versions to query                                   |
+| stateDate      | date   | ISO 8601 timestamp representing the start date of the specified time period |
+| endDate        | date   | ISO 8601 timestamp representing the end date of the specified time period   |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 [
     [
         "Date",
@@ -86,5 +90,12 @@ BugSplat database containing a list of stackKeyIds
     ]
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
+
+### Curl Example
+
+```bash
+curl --location --globoff 'https://app.bugsplat.com/api/stackKeyDailyVolume?database=fred&appNames=MyConsoleCrasher&stackKeyIds[]=10315&versions=2025.1.7.0&startDate=2024-12-31T16%3A44%3A50.099Z&endDate=2025-01-07T16%3A48%3A50.099Z' \
+--header 'Authorization: ••••••'
+```

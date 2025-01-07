@@ -1,43 +1,10 @@
 # Crash Post Endpoints
 
-The following documentation describes how customers can POST crashes directly to BugSplat via a suite of endpoints specific to their BugSplat database. It is important that all these crashes are uploaded via your BugSplat subdomain to ensure that they are not rejected by our backend.
+Most crash uploads to BugSplat are done via pre-signed URLs. However, some platforms do not support uploading via pre-signed URLs. The following documentation describes how customers can POST crashes directly to BugSplat via a suite of endpoints specific to their BugSplat database.
 
-## Xbox
-
-<mark style="color:green;">`POST`</mark> `https://{{database}}.bugsplat.com/post/xbox/crash`
-
-Uploads an Xbox crash report and optional metadata
-
-#### Path Parameters
-
-| Name                                             | Type   | Description                                                          |
-| ------------------------------------------------ | ------ | -------------------------------------------------------------------- |
-| \{{database\}}<mark style="color:red;">\*</mark> | string | Replace the subdomain value with the value of your BugSplat database |
-
-#### Request Body
-
-| Name                                         | Type   | Description                                                                                                                             |
-| -------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| minidump<mark style="color:red;">\*</mark>   | object | The minidump file to be uploaded                                                                                                        |
-| appName<mark style="color:red;">\*</mark>    | string | <p>Name of the crashing application.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols.</p> |
-| appVersion<mark style="color:red;">\*</mark> | string | <p>Crashing application's version.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols</p>    |
-| appKey                                       | string | Optional application identifier that provides extra data for searching and grouping                                                     |
-| description                                  | string | Optional description of why the crash occurred                                                                                          |
-| email                                        | string | Optional email address for the user that crashed                                                                                        |
-| ipAddress                                    | string | Optional IP address of the crashing user                                                                                                |
-| user                                         | string | Optional username for the user that crashed                                                                                             |
-
-{% tabs %}
-{% tab title="200 " %}
-```
-{
-    "status": "success",
-    "crashId": 1,
-    "techSupportUrl": "https://app.bugsplat.com/browse/crashInfo.php?vendor=fred&version=1.0&key=key&id=99999999&row=1"
-}
-```
-{% endtab %}
-{% endtabs %}
+{% hint style="warning" %}
+&#x20;All these crashes must be uploaded via your BugSplat subdomain (e.g., https://your-database.bugsplat.com) to ensure that our backend accepts them.
+{% endhint %}
 
 ## PlayStation 4
 
@@ -105,7 +72,7 @@ Uploads a Playstation 5 crash report, extracts user data and user files
 
 ## Crashpad
 
-<mark style="color:green;">`POST`</mark> `{{database}}.bugsplat.com/post/bp/crash/crashpad.php`
+<mark style="color:green;">`POST`</mark> `https://{{database}}.bugsplat.com/post/bp/crash/crashpad.php`
 
 Uploads a Crashpad crash report with optional metadata.
 
@@ -139,17 +106,6 @@ Uploads a Crashpad crash report with optional metadata.
 ```
 {% endtab %}
 {% endtabs %}
-
-### Example
-
-The following is an example that uses curl to demonstrate posting a crash to BugSplat. Be sure to update the value of `{{database}}` with the value of your BugSplat database.
-
-```
-curl --request POST 'https://{{database}}.bugsplat.com/post/xbox/crash' \
---form 'appName="my-xbox-crasher"' \
---form 'appVersion="1.0.0"' \
---form 'minidump=@"/path/to/minidump.dmp"'
-```
 
 ## XML
 

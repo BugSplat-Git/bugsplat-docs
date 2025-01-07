@@ -4,7 +4,7 @@ BugSplat provides RESTful web services to access data on our backend. The BugSpl
 
 Want to see our API in action? Open your web browser inspector to see how our web application uses the endpoints below!
 
-Most API endpoints support a "database={name}" parameter, used to specify which BugSplat database to use. In the absence of this parameter, the current (default) database will be selected.
+Most API endpoints support a "database={name}" parameter to specify which BugSplat database to use. Without this parameter, the current (default) database will be selected.
 
 {% content-ref url="charting.md" %}
 [charting.md](charting.md)
@@ -50,7 +50,7 @@ Most API endpoints support a "database={name}" parameter, used to specify which 
 [versions.md](versions.md)
 {% endcontent-ref %}
 
-### Example
+### Curl Example
 
 You can access the web services with a variety of tools. Here’s an example using Curl to connect to the Fred database:
 
@@ -61,14 +61,20 @@ curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/allCrash?database=F
 curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/api/crash/data?id=58464&database=Fred"
 ```
 
-Escaping special characters in email and password fields can be challenging.  If your authentication isn't working, try posting to httpbin.org/post and check the parameters that are returned.  You may need to URL-encode the email and password values.  For example:
+Escaping special characters in email and password fields can be challenging.  If your authentication isn't working, try posting to [httpbin.org/post](https://httpbin.org/post) and check the parameters that are returned.  You may need to URL-encode the email and password values.  For example:
 
 ```
 curl --data "email=test+app@bugsplat.com&password=ABCHi&898S$QQ" https://httpbin.org/post
 ```
 
+### Postman Collection
 
+Several of our API endpoints can be tested via our public [Postman collection](https://bugsplat.postman.co/workspace/BugSplat-Workspace~ecb07661-2da6-4df3-8931-6f33716a3a0a/collection/17303573-62ceafb9-cb92-4535-9d00-96c76f8a742e?action=share\&creator=17303573).
+
+First, click the top-level `BugSplat Public` collection folder, select the `Variables`tab, and input variables as necessary. You can make most requests automatically by providing values for `client_id`and `client_secret` generated on our Integrations page.
+
+For requests requiring additional permissions, you'll need to run the `Admin/Authenticate` request. Clear your Postman cookies before switching from OAuth2 to Admin/Authenticate.
 
 ## Special Rules for POST Requests
 
-When POSTing data to BugSplat endpoints additional steps are required to meet our Cross Site Request Forgery (XSRF) safety checks. After authenticating you will receive a cookie named `xsrf-token`. Send the xsrf-token key/value as a **header** in all POST requests.
+When POSTing data to BugSplat endpoints, additional steps are required to meet our Cross-Site Request Forgery (XSRF) safety checks. After authenticating, you will receive a cookie named `xsrf-token`. Send the xsrf-token key/value as a **header** in all POST requests.

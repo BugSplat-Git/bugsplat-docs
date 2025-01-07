@@ -6,60 +6,87 @@ description: API Documentation for the BugSplat Databases Endpoint
 
 Operations related to a user or company's databases in BugSplat. Get a list of databases for the currently authenticated user or company, create a new database, transfer a database's ownership to another company, or delete a database.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/databases" method="get" summary="Databases" %}
-{% swagger-description %}
+## Databases
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/databases`
+
 Returns databases for the current user or a company specified by companyId.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="companyId" type="number" %}
-ID of the company that owns the databases
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200" description="" %}
-```
+| Name      | Type   | Description                               |
+| --------- | ------ | ----------------------------------------- |
+| companyId | number | ID of the company that owns the databases |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 [{
     "dbName": "Fred",
     "companyId": "545",
     "companyName": "BugSplat Public Testing",
     "Volume30Day": "1075",
     "Volume365Day": "8868",
-    "CrashDataDays": "6544"}]
+    "CrashDataDays": "6544"
+}]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/databases" method="post" summary="Databases" %}
-{% swagger-description %}
+### Curl Example
+
+```bash
+curl --location 'https://app.bugsplat.com/api/databases' \
+--header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA'
+```
+
+## Databases
+
+<mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/databases`
+
 Create a new database for the current user. Default values for the new database are copied from the current database.
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="database" type="string" required="true" %}
-Name of the database being created
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-response status="200" description="" %}
-```
+| Name                                       | Type   | Description                        |
+| ------------------------------------------ | ------ | ---------------------------------- |
+| database<mark style="color:red;">\*</mark> | string | Name of the database being created |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "status": "success",
-    "database": "fred"}
+    "database": "fred"
+}
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/databases" method="put" summary="Databases" %}
-{% swagger-description %}
+### Curl Example
+
+```bash
+curl --location 'https://app.bugsplat.com/api/databases' \
+--header 'xsrf-token: ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
+--header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
+--form 'database="postman-4f17b3f4-7ff0-497c-b3ec-94b333c05bd6"'
+```
+
+## Databases
+
+<mark style="color:orange;">`PUT`</mark> `https://app.bugsplat.com/api/databases`
+
 Transfer the ownership of a database to a different company.
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="companyId" type="number" %}
-ID of the company the database is being transferred to
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="database" type="string" %}
-Name of the database being transferred
-{% endswagger-parameter %}
+| Name      | Type   | Description                                            |
+| --------- | ------ | ------------------------------------------------------ |
+| companyId | number | ID of the company the database is being transferred to |
+| database  | string | Name of the database being transferred                 |
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```
 {
     "status": "success",
@@ -67,19 +94,23 @@ Name of the database being transferred
     "companyId": 25
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/databases" method="delete" summary="Databases" %}
-{% swagger-description %}
+## Databases
+
+<mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/databases`
+
 Deletes a database and all associated data from BugSplat. This action is irreversible
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database to delete
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200" description="" %}
+| Name     | Type   | Description                 |
+| -------- | ------ | --------------------------- |
+| database | string | BugSplat database to delete |
+
+{% tabs %}
+{% tab title="200 " %}
 ```
 {
     "status": "success",
@@ -87,5 +118,5 @@ BugSplat database to delete
     "deleted":true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}

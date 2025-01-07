@@ -21,7 +21,7 @@ Returns call stack and associated metadata for the specified crash. Also returns
 
 {% tabs %}
 {% tab title="200 " %}
-```
+```json
 {
     "id": 103182,
     "stackKeyId": 5555,
@@ -243,15 +243,18 @@ Returns call stack and associated metadata for the specified crash. Also returns
 {% endtab %}
 {% endtabs %}
 
+### Curl Example
+
+```bash
+curl --location 'https://app.bugsplat.com/api/crash/details?database=fred&id=132547' \
+--header 'Authorization: Bearer ••••••'
+```
+
 ## Reprocess
 
 <mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/crash/reprocess`
 
-Add a crash to BugSplat's queue for reprocessing. A maximum of 10 crashes can in the queue for reprocessing. To reprocess more crashes please
-
-[contact us](../../../../administration/contact-us.md)
-
-.
+Add a crash to BugSplat's queue for reprocessing. A maximum of 50 crashes can be in the queue for reprocessing. To reprocess more crashes, please [contact us](../../../../administration/contact-us.md).
 
 #### Query Parameters
 
@@ -263,10 +266,20 @@ Add a crash to BugSplat's queue for reprocessing. A maximum of 10 crashes can in
 
 {% tabs %}
 {% tab title="202: Accepted " %}
-```
+```json
 {
     "success": true
 }
 ```
 {% endtab %}
 {% endtabs %}
+
+### Curl Example
+
+```bash
+curl --location 'https://app.bugsplat.com/api/crash/reprocess' \
+--header 'Authorization: Bearer ••••••' \
+--form 'database="fred"' \
+--form 'id="132445"' \
+--form 'force="true"'
+```

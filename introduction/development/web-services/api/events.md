@@ -6,25 +6,22 @@ description: API Documentation for the BugSplat Events Endpoint
 
 Get a list of events, or post a new event for a given Crash ID or Crash Group (Stack Key) ID.
 
-{% swagger method="get" path="/api/events" baseUrl="https://app.bugsplat.com" summary="Events" %}
-{% swagger-description %}
-Get all events associated with a Crash Id or Crash Group (Stack Key).
-{% endswagger-description %}
+## Events
 
-{% swagger-parameter in="query" name="stackKeyId" type="number" %}
-Crash group to fetch events for.
-{% endswagger-parameter %}
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/events`
 
-{% swagger-parameter in="query" name="crashId" type="number" %}
-Crash id to fetch events for.
-{% endswagger-parameter %}
+Get all events associated with a Crash Group (Stack Key).
 
-{% swagger-parameter in="query" name="database" type="string" %}
-Name of the database containing the specified Crash Id or Crash Group (Stack Key).
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200: OK" description="" %}
-```javascript
+| Name       | Type   | Description                                                                        |
+| ---------- | ------ | ---------------------------------------------------------------------------------- |
+| database   | string | Name of the database containing the specified Crash Id or Crash Group (Stack Key). |
+| stackKeyId | number | Crash group to fetch events for.                                                   |
+
+{% tabs %}
+{% tab title="200: OK " %}
+```json
 {
   "status": "success",
   "events": [
@@ -41,36 +38,44 @@ Name of the database containing the specified Crash Id or Crash Group (Stack Key
   ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger method="post" path="/api/events/comment" baseUrl="https://app.bugsplat.com" summary="Comment" %}
-{% swagger-description %}
-Post a new comment for a given Crash Id or Crash Group (Stack Key).
-{% endswagger-description %}
+### Curl Example
 
-{% swagger-parameter in="query" name="message" type="string" required="true" %}
-Markdown string containing the body of the comment to post.
-{% endswagger-parameter %}
+```bash
+curl --location 'https://app.bugsplat.com/api/events?database=fred&stackKeyId=10315' \
+--header 'Authorization: Bearer ••••••'
+```
 
-{% swagger-parameter in="query" name="stackKeyId" type="number" %}
-Crash group to fetch events for.
-{% endswagger-parameter %}
+## Comment
 
-{% swagger-parameter in="query" name="crashId" type="number" %}
-Crash Id to fetch events for.
-{% endswagger-parameter %}
+<mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/events/comment`
 
-{% swagger-parameter in="query" name="database" type="string" %}
-Name of the database that contains the specified Crash Id or Crash Group (Stack Key).
-{% endswagger-parameter %}
+Post a new comment for a given Crash Group (Stack Key).
 
-{% swagger-response status="200: OK" description="" %}
-```javascript
+#### Query Parameters
+
+| Name                                      | Type   | Description                                                                           |
+| ----------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
+| database                                  | string | Name of the database that contains the specified Crash Id or Crash Group (Stack Key). |
+| message<mark style="color:red;">\*</mark> | string | Markdown string containing the body of the comment to post.                           |
+| stackKeyId                                | number | Crash group to comment on                                                             |
+
+{% tabs %}
+{% tab title="200: OK " %}
+```json
 {
     "status": "success",
     "messageId": 127
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
+
+### Curl Example
+
+```bash
+curl --location --request POST 'https://app.bugsplat.com/api/events/comment?database=fred&stackKeyId=10315&message=hello%20from%20**postman**!%20%F0%9F%91%8B' \
+--header 'Authorization: Bearer ••••••' 
+```

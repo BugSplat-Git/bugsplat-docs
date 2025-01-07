@@ -24,7 +24,7 @@ Returns crash summary data. Supports paging and filtering using column names fir
 
 {% tabs %}
 {% tab title="200 " %}
-```
+```json
 [
     {
         "Database": "tormore",
@@ -51,11 +51,18 @@ Returns crash summary data. Supports paging and filtering using column names fir
 {% endtab %}
 {% endtabs %}
 
+### Curl Example
+
+```bash
+curl --location 'https://app.bugsplat.com/api/summary' \
+--header 'Authorization: Bearer ••••••'
+```
+
 ## Key Crash
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/keycrash`
 
-Get a list of crashes for a particular crash group (aka Stack Key). This query supports paging, filtering, and grouping. More information on how to use paging, filtering, and grouping can be found [here](https://docs.bugsplat.com/introduction/development/web-services/paging-filtering-and-grouping). All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, email, IpAddress etc.
+Get a list of crashes for a particular crash group (aka Stack Key). This query supports paging, filtering, and grouping. More information on paging, filtering, and grouping can be found [here](https://docs.bugsplat.com/introduction/development/web-services/paging-filtering-and-grouping). All the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, email, IpAddress, etc.
 
 #### Query Parameters
 
@@ -67,7 +74,7 @@ Get a list of crashes for a particular crash group (aka Stack Key). This query s
 
 {% tabs %}
 {% tab title="200 " %}
-```
+```json
 [
   {
     "Database": "Fred",
@@ -123,3 +130,10 @@ Get a list of crashes for a particular crash group (aka Stack Key). This query s
 ```
 {% endtab %}
 {% endtabs %}
+
+### Curl Example
+
+```bash
+curl --location 'https://app.bugsplat.com/api/keycrash?database=fred&stackKeyId=10315' \
+--header 'Authorization: Bearer ••••••'
+```

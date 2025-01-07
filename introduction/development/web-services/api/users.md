@@ -5,22 +5,26 @@ description: API Documentation for the BugSplat Users Endpoint
 # Users
 
 {% hint style="info" %}
-This endpoint supports paging, and filtering queries. More information paging filtering, and grouping is available [here](../paging-filtering-and-grouping.md).
+This endpoint supports paging and filtering queries. More information paging, filtering, and grouping is available [here](../paging-filtering-and-grouping.md).
 {% endhint %}
 
 Get a list of users, add a user, or remove a user from a specified database.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/users" method="get" summary="Users" %}
-{% swagger-description %}
+## Users
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/user/users`
+
 Returns a list of users and access rights for the specified database.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database containing users
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200" description="" %}
-```
+| Name     | Type   | Description                        |
+| -------- | ------ | ---------------------------------- |
+| database | string | BugSplat database containing users |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 [
   {
     "Database": "Fred",
@@ -36,52 +40,78 @@ BugSplat database containing users
   }
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/users" method="post" summary="Users" %}
-{% swagger-description %}
-Adds a new user to the specified database.
-{% endswagger-description %}
+### Curl Example
 
-{% swagger-parameter in="body" name="username" type="string" %}
-Email of user to be added to the database
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="database" type="string" %}
-BugSplat database to add the user to
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+```bash
+curl --location 'https://app.bugsplat.com/api/user/users?database=fred' \
+--header 'Authorization: Bearer ••••••'
 ```
+
+## Users
+
+<mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/user/users`
+
+Adds a new user to the specified database.
+
+#### Request Body
+
+| Name     | Type   | Description                               |
+| -------- | ------ | ----------------------------------------- |
+| database | string | BugSplat database to add the user to      |
+| username | string | Email of user to be added to the database |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "status": "success",
     "username": "fred@bugsplat.com",
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/users" method="delete" summary="Users" %}
-{% swagger-description %}
-Removes a user from the specified database. The authenticated user must not be a restricted user for this call to succeed.
-{% endswagger-description %}
+### Curl Example
 
-{% swagger-parameter in="query" name="uId" type="number" %}
-Id of the user to remove
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="database" type="string" %}
-BugSplat database that contains the user
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+```bash
+curl --location 'https://app.bugsplat.com/api/user/users' \
+--header 'xsrf-token: ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
+--header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
+--form 'database="fred"' \
+--form 'username="name@test.com"'
 ```
+
+## Users
+
+<mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/user/users`
+
+Removes a user from the specified database. The authenticated user must not be restricted for this call to succeed.
+
+#### Query Parameters
+
+| Name     | Type   | Description                              |
+| -------- | ------ | ---------------------------------------- |
+| database | string | BugSplat database that contains the user |
+| username | number | Email of the user to remove              |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "status": "success",
     "uId": 55411,
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
+### Curl Example
+
+```bash
+curl --location --request DELETE 'https://app.bugsplat.com/api/user/users?database=fred&username=name%40test.com' \
+--header 'xsrf-token: ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
+--header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA'
+```

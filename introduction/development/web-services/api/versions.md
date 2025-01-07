@@ -5,22 +5,26 @@ description: API Documentation for the BugSplat Versions Endpoint
 # Versions
 
 {% hint style="info" %}
-This endpoint supports paging, and filtering queries. More information paging filtering, and grouping is available [here](../paging-filtering-and-grouping.md).
+This endpoint supports paging, and filtering queries. More information on paging, filtering, and grouping is available [here](../paging-filtering-and-grouping.md).
 {% endhint %}
 
 Get a list stats for crashes that have been posted separated by application and version, create a new version, or set the retired and full dumps flags on a specified version.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/versions" method="get" summary="Versions" %}
-{% swagger-description %}
+## Versions
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/versions`
+
 Returns a list of versions in a given database.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="database" type="string" required="false" %}
-BugSplat database containing symbol stores
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200" description="" %}
-```
+| Name     | Type   | Description                                |
+| -------- | ------ | ------------------------------------------ |
+| database | string | BugSplat database containing symbol stores |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 [
     {
         "Database": "Fred",
@@ -160,36 +164,35 @@ BugSplat database containing symbol stores
     }
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/versions" method="post" summary="Versions" %}
-{% swagger-description %}
-Used to create a new version and returns a pre-signed URL that can be used to upload new symbol files.
-{% endswagger-description %}
+### Curl Example
 
-{% swagger-parameter in="body" name="symFileName" type="string" required="false" %}
-Filename of the symbol file being uploaded to the symbol store via the returned pre-signed URL.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="size" type="number" required="false" %}
-Size of symbol file being uploaded to the symbol store via the returned pre-signed URL. Enter 0 to create a placeholder symbol store
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="appVersion" type="string" required="true" %}
-Version of the application symbols being stored in the new symbol store
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="appName" type="string" required="true" %}
-Name of application symbols being stored in the new symbol store
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="database" type="string" required="false" %}
-BugSplat database in which the symbol store should be created
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+```bash
+curl --location 'https://app.bugsplat.com/api/versions?database=fred' \
+--header 'Authorization: Bearer ••••••'
 ```
+
+## Versions
+
+<mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/versions`
+
+Used to create a new version and returns a pre-signed URL that can be used to upload new symbol files.
+
+#### Request Body
+
+| Name                                         | Type   | Description                                                                                                                          |
+| -------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| database                                     | string | BugSplat database in which the symbol store should be created                                                                        |
+| appVersion<mark style="color:red;">\*</mark> | string | Version of the application symbols being stored in the new symbol store                                                              |
+| appName<mark style="color:red;">\*</mark>    | string | Name of application symbols being stored in the new symbol store                                                                     |
+| symFileName                                  | string | Filename of the symbol file being uploaded to the symbol store via the returned pre-signed URL.                                      |
+| size                                         | number | Size of symbol file being uploaded to the symbol store via the returned pre-signed URL. Enter 0 to create a placeholder symbol store |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "Status": "Success",
     "url": "",
@@ -198,44 +201,40 @@ BugSplat database in which the symbol store should be created
     "appVersion": "1.0"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/versions" method="put" summary="Versions" %}
-{% swagger-description %}
-Used to set the retired and fullDumps flags for a specified version.
-{% endswagger-description %}
+### Curl Example
 
-{% swagger-parameter in="body" name="fullDumps" type="0|1" required="false" %}
-Flag indicating that the BugSplat Native and .NET SDKs should generate and upload
-
-[full memory dumps](../../../getting-started/integrations/desktop/cplusplus/full-memory-dumps.md)
-
-. This feature incurs additional costs.
-
-[Contact us](../../../../administration/contact-us.md)
-
-to enable full memory dumps for your account.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="retired" type="0|1" required="false" %}
-Flag indicating that the version should be marked as retired. Crash reports for retired versions will not be ingested or processed.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="appVersion" type="string" required="true" %}
-Version of application for which the retired/fullDumps flags should be updated
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="appName" type="string" required="true" %}
-Name of application for which the retired/fullDumps flags should be updated
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="database" type="string" required="false" %}
-BugSplat database in which the symbol store should be created
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+```bash
+curl --location 'https://app.bugsplat.com/api/versions' \
+--header 'Authorization: Bearer ••••••' \
+--form 'database="fred"' \
+--form 'appName="Postman"' \
+--form 'appVersion="1.2.3"' \
+--form 'size="0"' \
+--form 'symFileName="test.pdb"'
 ```
+
+## Versions
+
+<mark style="color:orange;">`PUT`</mark> `https://app.bugsplat.com/api/versions`
+
+Used to set the retired and fullDumps flags for a specified version.
+
+#### Request Body
+
+| Name                                         | Type   | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| database                                     | string | BugSplat database in which the symbol store should be created                                                                                                                                                                                                                                                                                                                         |
+| appVersion<mark style="color:red;">\*</mark> | string | Version of application for which the retired/fullDumps flags should be updated                                                                                                                                                                                                                                                                                                        |
+| appName<mark style="color:red;">\*</mark>    | string | Name of application for which the retired/fullDumps flags should be updated                                                                                                                                                                                                                                                                                                           |
+| fullDumps                                    | 0\|1   | <p>Flag indicating that the BugSplat Native and .NET SDKs should generate and upload</p><p><a href="../../../getting-started/integrations/desktop/cplusplus/full-memory-dumps.md">full memory dumps</a></p><p>. This feature incurs additional costs.</p><p><a href="../../../../administration/contact-us.md">Contact us</a></p><p>to enable full memory dumps for your account.</p> |
+| retired                                      | 0\|1   | Flag indicating that the version should be marked as retired. Crash reports for retired versions will not be ingested or processed.                                                                                                                                                                                                                                                   |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "Status": "Success",
     "database": "Fred",
@@ -243,27 +242,28 @@ BugSplat database in which the symbol store should be created
     "retired": 1
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger method="delete" path="/api/versions" baseUrl="https://app.bugsplat.com" summary="Versions" %}
-{% swagger-description %}
+## Versions
+
+<mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/versions`
+
 Remove symbols from a specified version or versions.
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="database" type="string" required="true" %}
-BugSplat database containing versions with symbols for removal
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="path" name="appName" type="string" %}
-Single application name to remove symbols for, required if appVersion is set
-{% endswagger-parameter %}
+| Name                                       | Type   | Description                                                                                                                                             |
+| ------------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| database<mark style="color:red;">\*</mark> | string | BugSplat database containing versions with symbols for removal                                                                                          |
+| appName                                    | string | Single application name to remove symbols for, required if appVersion is set                                                                            |
+| appVersion                                 | string | Single application version to remove symbols for, required if appName is set                                                                            |
+| appVersions                                | array  | Multi-dimensional array of appName and appVersion for symbol removal eg `app0,version0,app1,version1`.  Required if appName and appVersion are not set. |
 
-{% swagger-parameter in="path" name="appVersion" type="string" %}
-Single application version to remove symbols for, required if appName is set
-{% endswagger-parameter %}
+### Curl Example
 
-{% swagger-parameter in="path" name="appVersions" type="array" %}
-Multi-dimensional array of appName and appVersion for symbol removal eg `app0,version0,app1,version1`.  Required if appName and appVersion are not set.
-{% endswagger-parameter %}
-{% endswagger %}
+```bash
+curl --location --request DELETE 'https://app.bugsplat.com/api/versions?database=fred&appName=Postman&appVersion=1.2.3' \
+--header 'Authorization: Bearer ••••••'
+```
+
