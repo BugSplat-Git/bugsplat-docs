@@ -3,6 +3,8 @@ description: >-
   Technical documentation, platform integration guides, crash reporting best
   practices, and other useful information from BugSplat.  We're excited you're
   here!
+cover: .gitbook/assets/bs-video-game-banner-wide-logo-powered-gitbook.png
+coverY: 0
 ---
 
 # Welcome
@@ -16,8 +18,6 @@ BugSplat is a crash-reporting, error-reporting, and bug-tracking tool that helps
 {% endcontent-ref %}
 
 These documents contain everything you need to get fully up to speed with BugSplat. This includes [getting started guides](introduction/getting-started/),[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of [3rd-party tool integrations](introduction/development/integrating-with-tools/), a [walkthrough of using the web application](introduction/development/using-the-app.md), links to our[ webservices (API)](introduction/development/web-services/api/), and much more.
-
-<figure><img src=".gitbook/assets/bs-video-game-banner-wide-logo-powered-reddit.png" alt=""><figcaption></figcaption></figure>
 
 Use the links below to begin navigating these docs. If you can’t find something use the left-hand menu or the handy search bar in the top right.
 
