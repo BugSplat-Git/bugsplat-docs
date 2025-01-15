@@ -114,6 +114,7 @@
       * [.NET API](https://www.bugsplat.com/platforms/net/api/)
 * [Production](introduction/production/README.md)
   * [Managing Versions](introduction/production/managing-versions.md)
+  * [🆕 Regression Alerts](introduction/production/regression-alerts.md)
   * [Security and Compliance](introduction/production/security-privacy-and-compliance/README.md)
     * [Security Program](introduction/production/security-privacy-and-compliance/security-program.md)
     * [BugSplat Security Program Inquirys](introduction/production/security-privacy-and-compliance/bugsplat-security-program-inquirys.md)
