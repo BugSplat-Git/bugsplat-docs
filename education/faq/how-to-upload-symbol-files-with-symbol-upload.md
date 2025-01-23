@@ -7,7 +7,11 @@ Symbol-upload is a cross-platform application that automatically uploads [symbol
 Prebuilt binaries of [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) can be downloaded on the [GitHub releases page](https://github.com/BugSplat-Git/symbol-upload/releases). Alternatively, symbol-upload can be installed by [npm](https://npmjs.com/package/@bugsplat/symbol-upload) and used as a [CLI tool](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#command-line) or a [javascript library](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#api). We also provide a [GitHub Action](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#action) that can be added to your build workflow.
 
 {% hint style="warning" %}
-If you download symbol-upload-macos via a web browser, Gatekeeper will block the application from running. To add the application to the system's allow list, right-click symbol-upload-macos in Finder and choose **Open**.
+If you download symbol-upload-macos via a web browser, Gatekeeper will block the application from running. To add the application to the system's allow list, run the following command in terminal
+
+```bash
+xattr -r -d com.apple.quarantine ./symbol-upload-macos
+```
 {% endhint %}
 
 Feel free to send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. However, by default, each symbol file must be smaller than 4 GB.
@@ -138,7 +142,7 @@ symbol-upload ... -d "/path/to/build.xcarchive -f "**/*.dSYM"
 
 ### Dump Syms <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
 
-BugSplat can generate [Crashpad symbol files](https://github.com/google/breakpad/blob/master/docs/symbol\_files.md) as part of the upload process. The Crashpad symbol files have a `.sym` format and are useful for cross-platform applications. BugSplat has integrated [Mozilla's dump-syms](https://github.com/mozilla/dump\_syms) into symbol-upload, which allows developers to skip building Breakpad. To generate a `.sym` file at upload time, specify the `-m` flag when invoking symbol-upload.
+BugSplat can generate [Crashpad symbol files](https://github.com/google/breakpad/blob/master/docs/symbol_files.md) as part of the upload process. The Crashpad symbol files have a `.sym` format and are useful for cross-platform applications. BugSplat has integrated [Mozilla's dump-syms](https://github.com/mozilla/dump_syms) into symbol-upload, which allows developers to skip building Breakpad. To generate a `.sym` file at upload time, specify the `-m` flag when invoking symbol-upload.
 
 ### GitHub Actions
 
