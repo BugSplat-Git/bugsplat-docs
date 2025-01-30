@@ -53,8 +53,6 @@ BugSplat's never been afraid of a little color - or a lot of color - in our bran
 
 Our crash box is the consumer-facing portion of our crash reporting tool. As such, it follows the same guidelines as the rest of our brand.
 
-Some monthly plans require that you use our standard crash box (see below).
-
 ![BugSplat Crash Dialog](<../../.gitbook/assets/bugsplat-crash-dialog (2) (2) (2) (2) (2) (2) (2) (2) (2) (2).png>)
 
 Most implementations of BugSplat do not require you to use our branded crash dialog shown above. That said, we love and appreciate when our users keep our crash dialog or give us a 'shoutout' somewhere on the box.
@@ -71,6 +69,6 @@ Be sure to send us an image of your customized crash box. If it's really cool, w
 
 ![Isadora](<../../.gitbook/assets/bugsplat-crash-dialog-windows (1) (1) (1) (1) (1) (1).png>)
 
-![Moonman](../../.gitbook/assets/moonman\_crash\_box-2.png)
+![Moonman](../../.gitbook/assets/moonman_crash_box-2.png)
 
 ![SketchUp](../../.gitbook/assets/sketchup-crash-dialog.png)
