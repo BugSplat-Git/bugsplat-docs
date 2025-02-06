@@ -1,292 +1,286 @@
 # macOS
 
-## Requirements
+### Introduction 👋
 
-* BugSplatMac supports macOS 10.7 and later.
-* BugSplatMac supports x86\_64 and Apple Silicon applications
+BugSplat.xcframework enables posting crash reports from iOS, macOS, and Mac Catalyst applications to BugSplat. Visit [bugsplat.com](https://www.bugsplat.com/) for more information and to sign up for an account.
 
-## Integration
+### Requirements 📋
 
-BugSplatMac supports multiple methods for installing the library in a project.
+* BugSplat for iOS supports iOS 13 and later.
+* BugSplat for macOS supports macOS 10.13 and later.
 
-### Installation with CocoaPods
+### Integration 🏗️
 
-CocoaPods is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like BugSplatMac in your projects. You can install it with the following command:
+BugSplat supports multiple methods for installing the xcfamework in a project.
 
-```bash
-$ gem install cocoapods
-```
+#### Swift Package Manager (SPM)
 
-#### Podfile
-
-To integrate BugSplatMac into your Xcode project using CocoaPods, specify it in your `Podfile`:
+Add the following URL to your project's `Additional Package Dependencies`:
 
 ```
-target 'TargetName' do
-pod 'BugsplatMac'
-end
+https://github.com/BugSplat-Git/bugsplat-apple
 ```
 
-Then, run the following command:
+#### Manual Setup
 
-```bash
-$ pod install
+To manually install BugSplat.xcframework in your project:
+
+1. Download the latest release from the [Releases](https://github.com/BugSPlat-Git/bugsplat-apple/releases) page. The release will contain a zip file with the xcframework.
+2. Unzip the archive.
+3. In Xcode, select your app target, then go to the General tab, scroll down to Framework, Libraries, and Embedded Content, then click the "+" and navigate to locate the unzipped BugSplat.xcframework. Once added, select Embed & Sign.
+
+### Usage 🧑‍💻
+
+#### Configuration
+
+BugSplat requires a few Xcode configuration steps to integrate the xcframework with your BugSplat account.
+
+Add the following case-sensitive key to your app's `Info.plist` replacing `DATABASE_NAME` with your customer-specific BugSplat database name.
+
+```xml
+<key>BugSplatDatabase</key>
+<string>DATABASE_NAME</string>
 ```
-
-The pod install command creates an xcworkspace file next to your application's xcodeproj file. Open the `.xcworkspace` file in lieu of the .`xcodeproj` file to ensure `BugsplatMac.framework` is included in your build.
-
-### **Installation with Carthage**
-
-Carthage is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with Homebrew using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-To integrate BugsplatMac into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```
-github "BugsplatGit/BugsplatMac"
-```
-
-Run `carthage` to build the framework and drag the built `BugsplatMac.framework` into your Xcode project.
-
-### Manual Setup
-
-To use this library in your project manually you may:
-
-1. Download the latest [release](https://github.com/BugSplatGit/BugSplatMac/releases) which is provided as a zip file
-2. Unzip the archive and add BugsplatMac.framework to your Xcode project
-3. Drag & drop `BugsplatMac.framework` from your window in the `Finder` into your project in Xcode and move it to the desired location in the `Project Navigator`
-4. A popup will appear. Select `Create groups for any added folders` and set the checkmark for your target. Then click `Finish`.
-5. Configure the framework to be copied into your app bundle:
-   * Click on your project in the `Project Navigator` (⌘+1).
-   * Click your target in the project editor.
-   * Click on the `Build Phases` tab.
-   * Click the `Add Build Phase` button at the bottom and choose `Add Copy Files`.
-   * Click the disclosure triangle next to the new build phase.
-   * Choose `Frameworks` from the Destination list.
-   * Drag `BugsplatMac` from the Project Navigator left sidebar to the list in the new Copy Files phase.
-
-## Usage
-
-### Configuration
-
-BugSplatMac requires a few configuration steps in order to integrate the framework with your Bugsplat account.
-
-#### Step 1
-
-Add the following key to your app's `Info.plist` replacing `DATABASE_NAME` with your BugSplat database.
-
-```markup
-<key>BugsplatServerURL</key>
-<string>https://DATABASE_NAME.bugsplat.com/</string>
-```
-
-#### Step 2
 
 {% hint style="info" %}
-You must upload a `.xcarchive` or `.dSYM` containing your app's binary and symbols to the BugSplat server in order to symbolicate crash reports.
+For macOS apps, you must enable `Outgoing network connections (client)` in the Signing & Capabilities of the Target.
 {% endhint %}
 
-Create a `~/.bugsplat.conf` file to store your Bugsplat credentials
+#### Symbol Upload
 
-```
-BUGSPLAT_USER='<username>'
-BUGSPLAT_PASS='<password>'
-```
+To symbolicate crash reports, you must upload your app's `dSYM` files to the BugSplat server. There are scripts to help with this.
 
-Add the `upload-archive.sh` script located in `Bugsplat.framework/Versions/A/Resources` as an Archive **Post-action** in your build scheme. The script will be invoked when archiving completes which will upload the .xcarchive to BugSplat for processing. You can view the script output in `/tmp/bugsplat-upload.log`. To share amongst your team, mark the scheme as **Shared**.
-
-![macOS Archive Post-Actions Script](../../../../.gitbook/assets/macos-archive-post-actions-script.png)
-
-### Initialization
-
-```objectivec
-@import BugsplatMac;
-```
-
-```objectivec
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-  [[BugsplatStartupManager sharedManager] start];                          
-}
-```
-
-### Crash Reporter UI Customization
-
-#### Custom Banner Image
-
-Bugsplat provides the ability to configure a custom image to be displayed in the crash reporter UI for branding purposes. The image view dimensions are 440x110 and will scale down proportionately. There are 2 ways developers can provide an image:
-
-1. Set the image property directly on BugsplatStartupManager
-2. Provide an image named `bugsplat-logo` in the main app bundle or asset catalog
-
-#### User Details
-
-Set `askUserDetails` to `NO` in order to prevent the name and email fields from displaying in the crash reporter UI
-
-```objectivec
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    [BugsplatStartupManager sharedManager].delegate = self
-    [BugsplatStartupManager sharedManager].askUserDetails = NO;
-    [[BugsplatStartupManager sharedManager] start];
-}
-```
-
-#### Auto Submit
-
-Set `autoSubmitCrashReport` to `YES` in order to send crash reports to the server automatically without presenting the crash reporter dialogue. Defaults to `NO`.
-
-```objectivec
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    [BugsplatStartupManager sharedManager].delegate = self
-    [BugsplatStartupManager sharedManager].autoSubmitCrashReport = YES;
-    [[BugsplatStartupManager sharedManager] start];
-}
-```
-
-#### Persist User Details
-
-Set `persistUserDetails` to `YES` to save and restore the user's name and email when presenting the crash reporter dialogue. Defaults to `NO`.
-
-```objectivec
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    [BugsplatStartupManager sharedManager].delegate = self
-    [BugsplatStartupManager sharedManager].persistUserDetails = YES;
-    [[BugsplatStartupManager sharedManager] start];
-}
-```
-
-#### Expiration Time
-
-Set `expirationTimeInterval` to a desired value (in seconds) whereby if the difference in time between when the crash occurred and next launch is greater than the set expiration time, auto send the report without presenting the crash reporter dialogue. Defaults to `-1`, which represents no expiration.
-
-```objectivec
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    [BugsplatStartupManager sharedManager].delegate = self
-    [BugsplatStartupManager sharedManager].expirationTimeInterval = 2200;
-    [[BugsplatStartupManager sharedManager] start];
-}
-```
-
-### Attachments
-
-Bugsplat supports uploading attachments with crash reports. There's a delegate method provided by `BugsplatStartupManagerDelegate` that can be implemented to provide an attachment to be uploaded.
-
-```objectivec
-- (NSArray<BugsplatAttachment *> *)attachmentsForBugsplatStartupManager:(BugsplatStartupManager *)bugsplatStartupManager
-{
-    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"generated" withExtension:@"json"];
-    NSData *data = [NSData dataWithContentsOfURL:fileURL];
-
-    NSMutableArray *attachments = [[NSMutableArray alloc] init];
-
-    for (NSUInteger i = 0; i < 4; i++)
-    {
-        BugsplatAttachment *attachment = [[BugsplatAttachment alloc] initWithFilename:[NSString stringWithFormat:@"generated%@.json", @(i)]
-                                                                       attachmentData:data
-                                                                          contentType:@"application/json"];
-
-        [attachments addObject:attachment];
-    }
-
-
-    return attachments;
-}
-```
-
-### **Localization**
-
-The BugSplat crash dialogue can be localized and supports 8 languages out of the box.
-
-* English
-* Finnish
-* French
-* German
-* Italian
-* Japanese
-* Norwegian
-* Swedish
-
-Additional languages may be supported by adding the language bundle and strings file to `BugsplatMac.framework/Versions/A/Frameworks/HockeySDK.framework/Versions/A/Resources/`
-
-### Command Line Utility support
-
-#### Step 1
-
-Add "Other Linker Flags" build setting to embed Info.plist **`-sectcreate __TEXT __info_plist "$(SRCROOT)/BugsplatTesterCLI/Info.plist"`**
-
-#### Step 2
-
-Add `@executable_path/` to "Runtime Search Paths" build setting
-
-#### Step 3
-
-Follow the main configuration steps listed above, however, use upload-archive-cl.sh for uploading archives.
-
-#### Step 4
-
-Initialize as follows:
-
-```
-[BugsplatStartupManager sharedManager].autoSubmitCrashReport = YES;
-[BugsplatStartupManager sharedManager].askUserDetails = NO;
-[[BugsplatStartupManager sharedManager] start];
-```
-
-#### Step 5
-
-Given the "Runtime Search Paths" setting change in step 2, be sure any 3rd party dependencies are located in the same directory as the CLI program so they can be found at runtime.
-
-## Sample Application
-
-We have provided BugsplatTester as a sample application for you to test BugSplat. The quickest way to test BugSplat is to do the following:
-
-#### Step 1
-
-Clone the [BugsplatMac](https://github.com/BugSplatGit/BugsplatMac) repo and run the following:
+Download BugSplat's cross-platform tool, [symbol-upload-macos](https://docs.bugsplat.com/education/faq/how-to-upload-symbol-files-with-symbol-upload) for Apple Silicon by entering the following command in your terminal.
 
 ```bash
-git submodule init
-git submodule update
+curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos"
 ```
 
-#### Step 2
+Alternatively, you can download the Intel version via the following command.
 
-Open the `BugsplatTester.xcworkspace` file. Edit the current scheme and uncheck **Debug executable** in the Run section, close the scheme editor and run the application.
+```bash
+curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos-intel"
+```
 
-#### Step 3
+Make `symbol-upload-macos` executable
 
-Click the **Crash** button when prompted.
+```bash
+chmod +x symbol-upload-macos
+```
 
-#### Step 4
+Several options exist to integrate `symbol-upload-macos` into the app build process.
 
-Click the run button a second time in Xcode. The BugSplat crash dialog will appear the next time the app is launched.
+* Create an Xcode build-phase script to upload dSYM files after every build. See example script [Symbol\_Upload\_Examples/Build-Phase-symbol-upload.sh](https://github.com/BugSplat-Git/bugsplat-apple/blob/main/Symbol_Upload_Examples/Build-Phase-symbol-upload.sh)
+* Create an Xcode Archive post-action script in the target's Build Scheme in order to upload dSYM files after the app is archived and ready for submission to TestFlight or the App Store. See example script [Symbol\_Upload\_Examples/Archive-post-action-upload.sh](https://github.com/BugSplat-Git/bugsplat-apple/blob/main/Symbol_Upload_Examples/Archive-post-action-upload.sh)
+* Manually upload an `xcarchive` or `dSYM` file generated by Xcode via BugSplat's [Versions](https://app.bugsplat.com/v2/versions) page.
 
-#### Step 5
+{% hint style="info" %}
+For the build-phase script to create dSYM files, change Build Settings `DEBUG_INFORMATION_FORMAT` from `DWARF` to `DWARF with dSYM File`. See inline notes within each script for modifications to Xcode Build Settings required for each script to work.
+{% endhint %}
 
-Fill out the crash dialog and submit the crash report.
+Please refer to our [documentation](https://docs.bugsplat.com/education/faq/how-to-upload-symbol-files-with-symbol-upload) to learn more about how to use `symbol-upload-macos`.
 
-#### Step 6
+#### Initialization
 
-Visit BugSplat's [Crashes](https://app.bugsplat.com/v2/crashes) page. When prompted for credentials enter user **fred@bugsplat.com** and password **Flintstone**. The crash you posted from BugsplatTester should be at the top of the list of crashes.
+Several iOS and macOS test app examples are included within the [Example\_Apps](https://github.com/BugSplat-Git/bugsplat-apple/blob/main/Example_Apps) folder to show how simple and quickly BugSplat can be integrated into an app, and ready to submit crash reports.
 
-#### Step 7
+You can instantiate BugSplat by following the language-specific examples below.
 
-Click the link in the **ID** column to view more details about your crash.
+**Swift (UIKit)**
 
-#### Step 8
+```swift
+import BugSplat
 
-You will notice there are no function names or line numbers, this is because you need to upload the application's xcarchive. See the [Configuration](macos.md#configuration) section above for more information.
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Initialize BugSplat
+        BugSplat.shared().delegate = self
+        BugSplat.shared().autoSubmitCrashReport = false
+        BugSplat.shared().start()
 
-#### Step 9
+        return true
+    }
+}
 
-Repeat this process with the executable from the xcarchive you created with BugsplatTester. To find the executable within the xcarchive, right click the xcarchive in finder and select **Show Package Contents**. The executable should be located in `.../Products/Applications`. BugSplat will display function names and line numbers for all crashes posted from this executable.
+extension AppDelegate: BugSplatDelegate {
+    // MARK: BugSplatDelegate
+    func bugSplatWillSendCrashReport(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplatWillSendCrashReportsAlways(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplatDidFinishSendingCrashReport(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplatWillCancelSendingCrashReport(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplatWillShowSubmitCrashReportAlert(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplat(_ bugSplat: BugSplat, didFailWithError error: Error) {
+        print("\(#file) - \(#function)")
+    }
+}
+```
+
+**Swift (SwiftUI)**
+
+```swift
+import BugSplat
+
+@main
+struct BugSplatTestSwiftUIApp: App {
+    private let bugSplat = BugSplatInitializer()
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+
+@objc class BugSplatInitializer: NSObject, BugSplatDelegate {
+    override init() {
+        super.init()
+        BugSplat.shared().delegate = self
+        BugSplat.shared().autoSubmitCrashReport = false
+        BugSplat.shared().start()
+    }
+
+    // MARK: BugSplatDelegate
+    func bugSplatWillSendCrashReport(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplatWillSendCrashReportsAlways(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplatDidFinishSendingCrashReport(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplatWillCancelSendingCrashReport(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplatWillShowSubmitCrashReportAlert(_ bugSplat: BugSplat) {
+        print("\(#file) - \(#function)")
+    }
+
+    func bugSplat(_ bugSplat: BugSplat, didFailWithError error: Error) {
+        print("\(#file) - \(#function)")
+    }
+}
+```
+
+**Obj-C**
+
+```objectivec
+#import "BugSplatMac/BugSplatMac.h"
+
+@interface AppDelegate () <BugSplatDelegate>
+@end
+
+@implementation AppDelegate
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // Initialize BugSplat
+    [[BugSplat shared] setDelegate:self];
+    [[BugSplat shared] setAutoSubmitCrashReport:NO];
+    [[BugSplat shared] start];
+}
+
+#pragma mark - BugSplatDelegate
+
+- (void)bugSplatWillSendCrashReport:(BugSplat *)bugSplat {
+    NSLog(@"bugSplatWillSendCrashReport called");
+}
+
+- (void)bugSplatWillSendCrashReportsAlways:(BugSplat *)bugSplat {
+    NSLog(@"bugSplatWillSendCrashReportsAlways called");
+}
+
+- (void)bugSplatDidFinishSendingCrashReport:(BugSplat *)bugSplat {
+    NSLog(@"bugSplatDidFinishSendingCrashReport called");
+}
+
+- (void)bugSplatWillCancelSendingCrashReport:(BugSplat *)bugSplat {
+    NSLog(@"bugSplatWillCancelSendingCrashReport called");
+}
+
+- (void)bugSplatWillShowSubmitCrashReportAlert:(BugSplat *)bugSplat {
+    NSLog(@"bugSplatWillShowSubmitCrashReportAlert called");
+}
+
+- (void)bugSplat:(BugSplat *)bugSplat didFailWithError:(NSError *)error {
+    NSLog(@"bugSplat:didFailWithError: %@", [error localizedDescription]);
+}
+```
+
+#### Crash Reporter Customization
+
+There are several ways to customize your BugSplat crash reporter.
+
+**Custom Banner Image**
+
+* BugSplat for macOS provides the ability to configure a custom image to be displayed in the crash reporter UI for branding purposes. The image view dimensions are 440x110 and will scale down proportionately. There are 2 ways developers can provide an image:
+  1. Set the image property directly on BugSplat
+  2. Provide an image named `bugsplat-logo` in the main app bundle or asset catalog
+
+**User Details**
+
+* Set `askUserDetails` to `NO` to prevent the name and email fields from displaying in the crash reporter UI. Defaults to `YES`.
+
+**Auto Submit**
+
+* By default, BugSplat will auto-submit crash reports for iOS and prompt the end user to submit a crash report for macOS. This default can be changed using a BugSplat property autoSubmitCrashReport. Set `autoSubmitCrashReport` to `YES` in order to send crash reports to the server automatically without presenting the crash reporter dialogue.
+
+**Persist User Details**
+
+* Set `persistUserDetails` to `YES` to save and restore the user's name and email when presenting the crash reporter dialogue. Defaults to `NO`.
+
+**Expiration Time**
+
+* Set `expirationTimeInterval` to a desired value (in seconds) whereby if the difference in time between when the crash occurred and the next launch is greater than the set expiration time, auto-send the report without presenting the crash reporter dialogue. Defaults to `-1`, which represents no expiration.
+
+**Attachments**
+
+Bugsplat supports uploading attachments with crash reports. There's a delegate method provided by `BugSplatDelegate` that can be implemented to provide attachments to be uploaded.
+
+**Bitcode**
+
+Bitcode was introduced by Apple to allow apps sent to the App Store to be recompiled by Apple itself and apply the latest optimization. Bitcode has now been officially deprecated by Apple and should be removed or disabled. If Bitcode is enabled, the symbols generated for your app in the store will be different than the ones from your own build system. We recommend that you disable bitcode in order for BugSplat to reliably symbolicate crash reports. Disabling bitcode significantly simplifies symbols management and currently doesn't have any known downsides for iOS apps.
+
+**Localization**
+
+For macOS, the BugSplat crash dialogue can be localized and supports 8 languages out of the box.
+
+1. English
+2. Finnish
+3. French
+4. German
+5. Italian
+6. Japanese
+7. Norwegian
+8. Swedish
+
+Additional languages may be supported by adding the language bundle and strings file to `BugSplat.xcframework/macos-arm64_x86_64/BugSplatMac.framework/Versions/A/Frameworks/HockeySDK.framework/Resources/`
+
+### Sample Applications 🧑‍🏫
+
+`Example_Apps` includes several iOS and macOS BugSplat Test apps. Integrating BugSpat only requires the xcframework, and a few lines of code.
+
+1. Clone the [bugsplat-apple repo](https://github.com/BugSplat-Git/bugsplat-apple).
+2. Open an example Xcode project from `Example_Apps`. For iOS, set the destination to be your iOS device. After running from Xcode, stop the process and relaunch from the iOS device directly.
+3. Once the app launches, click the "crash" button when prompted.
+4. Relaunch the app on the iOS device. At this point a crash report should be submitted to bugsplat.com
+5. Visit BugSplat's [Crashes](https://app.bugsplat.com/v2/crashes) page. When prompted for credentials, enter user `fred@bugsplat.com` and password `Flintstone`. The crash you posted from BugSplatTester should be at the top of the list of crashes.
+6. Click the "Crash ID" link to view more details about your crash.
