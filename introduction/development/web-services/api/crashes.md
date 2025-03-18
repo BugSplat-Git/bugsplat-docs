@@ -14,7 +14,7 @@ Get a list of crashes that have been posted to BugSplat
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/crashes`
 
-Get a list of crashes for a database. This query supports paging, filtering, and grouping. More information on how to use paging, filtering, and grouping can be found here. All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, stackKey, appName, ipAddress, etc.
+Get a list of crashes for a database. This query supports paging, filtering, and grouping.  All of the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, stackKey, appName, ipAddress, etc. &#x20;
 
 #### Query Parameters
 
