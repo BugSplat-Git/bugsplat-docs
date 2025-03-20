@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # EQU8
 
 There's a lot to consider when building a game, but one thing that a team shouldn't have to worry about is expensive and difficult to maintain tools.
@@ -20,7 +24,6 @@ With new games raising $2M or $10M or more during development, there's too much 
 
 Cheaters and game crashes ruin games. With BugSplat and EQU8 teams have the tools they need to give their game its best chance at success.
 
-Sign up today and get 50,000 crash reports for free from BugSplat and $10k in credits \(six months free after open beta - whichever comes first\) of EQU8's anti-cheat software.
+Sign up today and get 50,000 crash reports for free from BugSplat and $10k in credits (six months free after open beta - whichever comes first) of EQU8's anti-cheat software.
 
 Interested in learning more? Contact us at [hi@bugsplat.com](mailto:hi@bugsplat.com)
-

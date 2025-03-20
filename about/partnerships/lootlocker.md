@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # LootLocker
 
 We're excited to announce our partnership with our friends at [LootLocker!](https://lootlocker.com/) This partnership will make finding, diagnosing, and fixing crashes and game bugs a more integral part of the development and post-release process in LootLocker.
