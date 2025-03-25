@@ -120,12 +120,32 @@ To upload crash reports to BugSplat, recompile with `bSendUnattendedBugReports =
 
 ## Custom Fields 📝
 
-We extract metadata from the `CrashContext.runtime-xml` file attached to Unreal Engine crash reports and convert those values into crash attributes that can be displayed in the web application.  Customers can add their own data to this file by creating a custom Unreal Engine build.  See the [Epic crash reporter documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/crash-reporting-in-unreal-engine) for information on adding additional data. &#x20;
+BugSplat extracts metadata from the `CrashContext.runtime-xml` file attached to Unreal Engine crash reports and convert those values into [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md) that can be displayed in the web application. See the [Unreal Engine Crash Reporting documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/crash-reporting-in-unreal-engine) for information on adding additional data.
 
-The following XML fields, if created as child properties of `RuntimeProperties,`can be used to set the BugSplat crash Notes and Key fields
+The following XML fields, if created as child properties of `RuntimeProperties` or `GameData` can be used to set the BugSplat crash Notes and Key fields.&#x20;
 
-| XML Tag Name              | Description                              |
-| ------------------------- | ---------------------------------------- |
-| \<BugSplatNotes>          | Sets the value of the crash Notes field  |
-| \<BugSplatApplicationKey> | Sets the value of the crash Key field    |
+| Property               | Description                              |
+| ---------------------- | ---------------------------------------- |
+| BugSplatNotes          | Sets the value of the crash Notes field  |
+| BugSplatApplicationKey | Sets the value of the crash Key field    |
 
+All other properties will be parsed as [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md).
+
+```cpp
+#include "MyUnrealCrasherGameModeBase.h"
+#include "GenericPlatform/GenericPlatformCrashContext.h"
+
+AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
+{
+    // BugSplat Key field - used to display different flavors of the support response page at crash time
+    FGenericCrashContext::SetGameData(TEXT("BugSplatApplicationKey"), TEXT("en-US"));
+
+    // BugSplat Notes field - used for arbitrary extra crash context
+    FGenericCrashContext::SetGameData(TEXT("BugSplatNotes"), TEXT("Development Build"));
+
+    // GameData values will be parsed as Attributes by BugSplat
+    FGenericCrashContext::SetGameData(TEXT("CurrentWorld"), TEXT("Alpha Centari"));
+    FGenericCrashContext::SetGameData(TEXT("GamePads"), TEXT("1"));
+    FGenericCrashContext::SetGameData(TEXT("IsExternalQABuild"), TEXT("true"));
+}
+```
