@@ -15,30 +15,27 @@ Once configured, BugSplat will post an object that matches the following interfa
 
 <mark style="color:green;">`POST`</mark> `https://your-domain.com/path/to/your/webhook`
 
-Notification payload for new BugSplat report or new BugSplat group
+Notification payload for new BugSplat report or new BugSplat group. &#x20;
 
 #### Request Body
 
-| Name             | Type     | Description                                                          |
-| ---------------- | -------- | -------------------------------------------------------------------- |
-| id               | number   | BugSplat ID for new report                                           |
-| crashTypeId      | number   | Enum representing platform used to post report                       |
-| parentStackKeyId | string   | BugSplat ID for report group before grouping rules were applied      |
-| stackKeyId       | number   | BugSplat ID for report group                                         |
-| newStackKeyId    | boolean  | True if this is the first occurence of stackKeyId                    |
-| stackKeyName     | string   | Function name and line number used to group the report               |
-| stackId          | number   | Unique call stack identifier                                         |
-| newStackId       | boolean  | True if this is the first occurence of stackId                       |
-| database         | string   | BugSplat database where report is stored                             |
-| application      | string   | Application name associated with report                              |
-| version          | string   | Versions associated with report                                      |
-| key              | string   | Identifier for specific flavor of application associated with report |
-| user             | string   | End-user associated with generated report                            |
-| email            | string   | End-user's email associated with generated report                    |
-| ipAddress        | string   | End-user's IP address (can be obfuscated via Options page)           |
-| mfa              | string   | Hash representing report call stack                                  |
-| exceptionCode    | string   | Code associated with issue that caused the report to be generated    |
-| exceptionMessage | string   | Message associated with issue that caused the report to be generated |
-| received         | datetime | Time-stamp of generated report                                       |
-| reportXml        | string   | XML doc representing the fully processed BugSplat report             |
-| debugOutput      | string   | Output generated when running the debugger                           |
+| Name             | Type         | Description                                                                |
+| ---------------- | ------------ | -------------------------------------------------------------------------- |
+| notificationType | string       | <p>Type of notification:  "NewReport", or</p><p>"NewGroup"</p>             |
+| id               | number       | BugSplat crash ID for new report                                           |
+| crashType        | string       | String representing platform used to post report                           |
+| stackKeyId       | number       | BugSplat ID for report group                                               |
+| stackId          | number       | Unique call stack identifier                                               |
+| stackKeyName     | string       | Function name and line number used to group the report                     |
+| callstack        | string array | Call stack                                                                 |
+| database         | string       | BugSplat database where report is stored                                   |
+| application      | string       | Application name associated with report                                    |
+| version          | string       | Versions associated with report                                            |
+| key              | string       | Identifier for specific flavor of application associated with report       |
+| user             | string       | End-user associated with generated report                                  |
+| email            | string       | End-user's email associated with generated report                          |
+| ipAddress        | string       | End-user's IP address (can be obfuscated via Options page)                 |
+| hash             | string       | Hash representing unique report call stack.  Not available for all crashes |
+| exceptionCode    | string       | Code associated with issue that caused the report to be generated          |
+| exceptionMessage | string       | Message associated with issue that caused the report to be generated       |
+| received         | datetime     | Time-stamp of generated report                                             |
