@@ -69,9 +69,9 @@ curl --data "email=test+app@bugsplat.com&password=ABCHi&898S$QQ" https://httpbin
 
 ### Postman Collection
 
-Several of our API endpoints can be tested via our public [Postman collection](https://bugsplat.postman.co/workspace/BugSplat-Workspace~ecb07661-2da6-4df3-8931-6f33716a3a0a/collection/17303573-62ceafb9-cb92-4535-9d00-96c76f8a742e?action=share\&creator=17303573).
+Several of our API endpoints can be tested via our public [Postman collection](https://www.postman.com/bugsplat/bugsplat-public-workspace/overview).
 
-First, click the top-level `BugSplat Public` collection folder, select the `Variables`tab, and input variables as necessary. You can make most requests automatically by providing values for `client_id`and `client_secret` generated on our Integrations page.
+First, click the top-level `BugSplat` collection folder, select the `Variables` tab, and input variables as necessary. You can make most requests automatically by providing values for `client_id`and `client_secret` generated on our Integrations page.
 
 For requests requiring additional permissions, you'll need to run the `Admin/Authenticate` request. Clear your Postman cookies before switching from OAuth2 to Admin/Authenticate.
 
