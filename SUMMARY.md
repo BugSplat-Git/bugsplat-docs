@@ -233,6 +233,7 @@
   * [Promotions](about/misc/promotions/README.md)
     * [March 2024 - Game Developer Free Months of Service](about/misc/promotions/march-2024-game-developer-free-months-of-service.md)
   * [Giveaways](about/misc/giveaways/README.md)
+    * [April 8 - April 22,  2025](about/misc/giveaways/april-8-april-22-2025.md)
     * [Feb 18 - March 17, 2025](about/misc/giveaways/feb-18-march-17-2025.md)
     * [Jan 15 -  Feb 13, 2025](about/misc/giveaways/jan-15-feb-13-2025.md)
     * [December 19-29, 2024](about/misc/giveaways/december-19-29-2024.md)
@@ -244,7 +245,6 @@
     * [March 18 - April 03, 2024](about/misc/giveaways/march-18-april-03-2024.md)
     * [November 15-30, 2023](about/misc/giveaways/november-15-30-2023.md)
     * [October 9-23, 2023](about/misc/giveaways/october-9-23-2023.md)
-    * [April 8 - April 22,  2025](about/misc/giveaways/april-8-april-22-2025.md)
 
 ## 🔀 Changelog
 

@@ -4,7 +4,7 @@ BugSplat 2025 Annual User Feedback Survey Giveaway Terms and Conditions
 
 NO PURCHASE, DONATION, OR PAYMENT OF ANY KIND IS NECESSARY TO ENTER OR WIN. A PURCHASE DOES NOT INCREASE YOUR CHANCES OF WINNING. VOID WHERE PROHIBITED BY LAW.
 
-Disclaimer: BugSplat, LLC is not affiliated with, endorsed by, or in a partnership with Amazon.com. The prizes for this giveaway were independently selected and funded by BugSplat.
+Disclaimer: BugSplat, LLC is not affiliated with, endorsed by, or in a partnership with Headphones.com. The prizes for this giveaway were independently selected and funded by BugSplat.
 
 1.  Giveaway Period
 
@@ -25,7 +25,7 @@ Disclaimer: BugSplat, LLC is not affiliated with, endorsed by, or in a partnersh
     By submitting a survey response, participants agree to these terms and conditions.
 3.  Prizes
 
-    Three (3) winners will each receive one (1) $150 USD Amazon.com gift card.
+    Three (3) winners will each receive one (1) $150 USD Headphones.com gift card.
 
 Prize Details:
 
@@ -45,7 +45,7 @@ Prize Details:
 5\. Eligibility
 
 ```
-- Open to individuals who are legal residents and physically located in regions where Amazon.com gift cards are valid and deliverable.
+- Open to individuals who are legal residents and physically located in regions where Headphones.com gift cards are valid and deliverable.
 - Participants must be of the legal age of majority in their country of residence as of the date of entry.
 - Ineligible Participants: BugSplat employees, contractors, their immediate family members, or anyone residing in their households are not eligible to participate.
 - Participants are responsible for ensuring compliance with local laws regarding giveaways.
