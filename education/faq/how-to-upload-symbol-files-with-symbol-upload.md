@@ -4,7 +4,13 @@
 
 Symbol-upload is a cross-platform application that automatically uploads [symbol files](../../introduction/development/working-with-symbol-files/) as part of your build process and is the successor of [SendPdbs](using-sendpdbs-to-automatically-upload-symbol-files.md). Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
 
-Prebuilt binaries of [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) can be downloaded on the [GitHub releases page](https://github.com/BugSplat-Git/symbol-upload/releases). Alternatively, symbol-upload can be installed by [npm](https://npmjs.com/package/@bugsplat/symbol-upload) and used as a [CLI tool](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#command-line) or a [javascript library](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#api). We also provide a [GitHub Action](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#action) that can be added to your build workflow.
+The symbol-upload tool can be installed by [npm](https://npmjs.com/package/@bugsplat/symbol-upload) and used as a [CLI tool](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#command-line) or a [javascript library](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#api). We also provide a [GitHub Action](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#action) that can be added to your build workflow.
+
+```bash
+npm i -g @bugsplat/symbol-upload
+```
+
+Alternatively, you can use one of the following terminal commands to download prebuilt binaries of [symbol-upload](https://github.com/BugSplat-Git/symbol-upload), or download with your web browser via the [GitHub releases page](https://github.com/BugSplat-Git/symbol-upload/releases).
 
 {% hint style="warning" %}
 If you download symbol-upload-macos via a web browser, Gatekeeper will block the application from running. To add the application to the system's allow list, run the following command in terminal
@@ -14,16 +20,32 @@ xattr -r -d com.apple.quarantine ./symbol-upload-macos
 ```
 {% endhint %}
 
-Feel free to send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. However, by default, each symbol file must be smaller than 4 GB.
+#### Windows
 
-A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. BugSplat's backend automatically removes symbol stores that haven't been accessed recently. Using our web application, you can manually delete a symbol store.
+```powershell
+Invoke-WebRequest -Uri "https://app.bugsplat.com/download/symbol-upload-windows.exe" -OutFile "symbol-upload-windows.exe"
+```
+
+#### macOS
+
+```bash
+curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos" && chmod +x symbol-upload-macos
+```
+
+#### Linux
+
+```bash
+curl -sL -O  "https://app.bugsplat.com/download/symbol-upload-linux" && chmod +x symbol-upload-linux
+```
+
+A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. BugSplat's backend automatically removes symbol stores that haven't been accessed recently. Using our web application, you can manually delete a symbol store. Send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. However, by default, each symbol file must be smaller than 4 GB.
 
 ## Using symbol-upload 🧑‍💻
 
 Running symbol-upload in a command window without any arguments shows the following usage information:
 
 ```
-@bugsplat/symbol-upload v8.0.5
+@bugsplat/symbol-upload v10.1.7
 
   symbol-upload contains a command line utility and a set of libraries to help  
   you upload symbol files to BugSplat.                                          
