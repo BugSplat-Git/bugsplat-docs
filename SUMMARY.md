@@ -121,7 +121,7 @@
     * [Security Program](introduction/production/security-privacy-and-compliance/security-program.md)
     * [BugSplat Security Program Inquirys](introduction/production/security-privacy-and-compliance/bugsplat-security-program-inquirys.md)
     * [SOC 2](introduction/production/security-privacy-and-compliance/soc-2.md)
-    * [GDPR](introduction/production/security-privacy-and-compliance/gdpr.md)
+    * [GDPR & UK GDPR Compliance](introduction/production/security-privacy-and-compliance/gdpr.md)
     * [Avoid Collecting Personally Identifiable Information (PII)](introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md)
     * [Crash Expiry](introduction/production/security-privacy-and-compliance/crash-expiry.md)
     * [Terms](introduction/production/security-privacy-and-compliance/terms.md)
