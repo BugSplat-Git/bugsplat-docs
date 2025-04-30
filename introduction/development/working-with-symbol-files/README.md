@@ -2,7 +2,7 @@
 
 Symbol files are critical to getting useful data from your crashes. [Windows](../../getting-started/integrations/desktop/cplusplus/), [Breakpad](../../getting-started/integrations/cross-platform/breakpad.md), [Crashpad](../../getting-started/integrations/cross-platform/crashpad/), [MacOS](../../getting-started/integrations/desktop/macos.md), [Xbox](../../getting-started/integrations/game-development/xbox.md), [PlayStation](../../getting-started/integrations/game-development/playstation.md), [Nintendo](../../getting-started/integrations/game-development/nintendo.md), and some [JavaScript](../../getting-started/integrations/web/javascript.md) applications require uploading symbol files to generate call stacks that contain function names and line numbers. The symbol upload process can be automated as part of your build. Many of our SDKs require symbols, which can be uploaded and managed via the [Versions](https://app.bugsplat.com/v2/versions) page.
 
-For additional information regarding Symbol files, please visit the [documentation](../../../) specific to your application's platform.
+For additional information regarding Symbol files, please visit the [documentation](../../getting-started/integrations/) specific to your application's platform.
 
 ### What are Symbols?
 
