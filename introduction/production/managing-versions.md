@@ -1,10 +1,16 @@
-# Managing Versions
+---
+description: BugSplat's Versions Page
+---
+
+# Versions
+
+The [Versions](https://app.bugsplat.com/v2/versions) page lists each unique application name and version sent to BugSplat. It displays the first and last report dates of each crash report. If symbols have been uploaded with this application name/version, the symbol size will be greater than zero.
 
 ### Adding and Removing Symbols
 
 Symbol files can be added and removed via the [Versions](https://app.bugsplat.com/v2/versions) page. Symbol files are required for BugSplat to display call stacks with function names and line numbers. BugSplat will automatically clean up symbol files that are no longer in use, and in most cases, you will not need to remove symbol files manually. If you uploaded incorrect symbol files, uploaded duplicates, or have uploaded extraneous symbol files, we recommend removing unnecessary files so that BugSplat can process your crashes as fast as possible.
 
-Symbols are typically uploaded using command line tools (such as [symbol-upload](../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md)) as part of your build process. If you'd like to add Symbol files manually, you can use the **Upload Symbols** button to upload symbols for a new version or expand a row to upload symbols to an existing version. For more information on manually uploading symbols, please visit this [link](../development/working-with-symbol-files/how-to-manually-upload-symbols.md). To remove symbol files, expand a row that corresponds to the version you'd like to remove and click the **Delete** button.
+Symbols are typically uploaded using command line tools (such as [symbol-upload](../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md)) as part of your build process. If you'd like to add Symbol files manually, you can use the **Upload Symbols** button to upload symbols for a new version or expand a row to upload symbols to an existing version. For more information on manually uploading symbols, please visit this [link](../development/working-with-symbol-files/how-to-manually-upload-symbols.md). To remove symbol files, expand a row that corresponds to the version you'd like to remove and click the **Delete** button.  Note that the row showing the application name/version will not be deleted, but it will show a size of zero.
 
 ![Managing Symbols on the Versions Page](<../../.gitbook/assets/image (4).png>)
 
