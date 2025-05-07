@@ -1,12 +1,10 @@
 # Using SendPdbs to Automatically Upload Symbol Files
 
 {% hint style="info" %}
-SendPdbs is BugSplat's legacy symbol upload tool. For new projects, please consider using our new cross-platform tool [symbol-upload](how-to-upload-symbol-files-with-symbol-upload.md).
+SendPdbs is BugSplat's legacy symbol upload tool.  Please upgrade to our new cross-platform tool, [symbol-upload](how-to-upload-symbol-files-with-symbol-upload.md).
 {% endhint %}
 
 SendPdbs.exe is a BugSplat application used to automate the upload of Windows symbols and executables. Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
-
-Download SendPdbs from [here](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs). The application is also included in the BugSplat Windows SDKs.
 
 Feel free to send symbols to BugSplat for every build on your build/integration server. There is no limit on the total amount of symbols you can post to BugSplat. However, by default, any single symbol file must be smaller than 4 GB.
 
