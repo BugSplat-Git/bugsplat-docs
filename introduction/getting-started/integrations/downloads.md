@@ -8,25 +8,25 @@ description: >-
 
 ### :computer: Desktop
 
-|                          |                                                                            |
-| ------------------------ | -------------------------------------------------------------------------- |
-| Windows (Native C++)     | [Download](https://app.bugsplat.com/browse/download\_item.php?item=native) |
-| Windows (.NET Framework) | [Download](https://app.bugsplat.com/browse/download\_item.php?item=dotnet) |
-| macOS                    | See platform docs ([here](desktop/macos.md))                               |
-| Linux                    | See platform docs ([here](desktop/linux.md))                               |
+|                          |                                                                           |
+| ------------------------ | ------------------------------------------------------------------------- |
+| Windows (Native C++)     | [Download](https://app.bugsplat.com/browse/download_item.php?item=native) |
+| Windows (.NET Framework) | [Download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) |
+| macOS                    | See platform docs ([here](desktop/macos.md))                              |
+| Linux                    | See platform docs ([here](desktop/linux.md))                              |
 
 ### :twisted\_rightwards\_arrows: Cross-Platform
 
-|               |                                                                               |
-| ------------- | ----------------------------------------------------------------------------- |
-| .NET Standard | See platform docs ([here](cross-platform/dot-net-standard.md))                |
-| Crashpad      | [Download](https://app.bugsplat.com/browse/download\_item.php/?item=crashpad) |
-| Deno          | See platform docs ([here](cross-platform/deno.md))                            |
-| Electron      | See platform docs ([here](cross-platform/electron.md))                        |
-| Java          | [Download](https://app.bugsplat.com/browse/download\_item.php/?item=java)     |
-| Node.js       | See platform docs ([here](cross-platform/node.js.md))                         |
-| Python        | See platform docs ([here](cross-platform/python.md))                          |
-| Qt            | See platform docs ([here](cross-platform/qt.md))                              |
+|               |                                                                              |
+| ------------- | ---------------------------------------------------------------------------- |
+| .NET Standard | See platform docs ([here](cross-platform/dot-net-standard.md))               |
+| Crashpad      | [Download](https://app.bugsplat.com/browse/download_item.php/?item=crashpad) |
+| Deno          | See platform docs ([here](cross-platform/deno.md))                           |
+| Electron      | See platform docs ([here](cross-platform/electron.md))                       |
+| Java          | [Download](https://app.bugsplat.com/browse/download_item.php/?item=java)     |
+| Node.js       | See platform docs ([here](cross-platform/node.js.md))                        |
+| Python        | See platform docs ([here](cross-platform/python.md))                         |
+| Qt            | See platform docs ([here](cross-platform/qt.md))                             |
 
 ### :video\_game: Game Development
 
@@ -58,7 +58,6 @@ description: >-
 
 ### Symbols
 
-|                  |                                                                                      |
-| ---------------- | ------------------------------------------------------------------------------------ |
-| BugSplatSendPdbs | [Download](https://app.bugsplat.com/browse/download\_item.php?item=sendpdbs)         |
-| symbol-upload    | See GitHub releases ([here](https://github.com/BugSplat-Git/symbol-upload/releases)) |
+|               |                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------ |
+| symbol-upload | See GitHub releases ([here](https://github.com/BugSplat-Git/symbol-upload/releases)) |
