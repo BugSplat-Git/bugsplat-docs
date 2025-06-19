@@ -52,6 +52,7 @@
       * [Address Sanitizer Reports](introduction/getting-started/posting-a-test-crash/myconsolecrasher-c-plus-plus/address-sanitizer-reports.md)
     * [my-android-crasher](https://github.com/BugSplat-Git/my-android-crasher)
     * [my-angular-crasher](https://github.com/BugSplat-Git/bugsplat-ng)
+    * [my-cmake-crasher](https://github.com/BugSplat-Git/my-cmake-crasher)
     * [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)
     * [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher)
     * [my-node-crasher](https://github.com/BugSplat-Git/my-node-crasher)

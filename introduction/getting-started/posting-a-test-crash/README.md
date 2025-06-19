@@ -8,6 +8,7 @@ Questions? Please get in touch with us via [Discord](https://discord.gg/K4KjjRV5
 | ------------- | ------------------------------------------------------------------------------------------ |
 | Android       | [my-android-crasher](https://github.com/BugSplat-Git/my-android-crasher)                   |
 | Angular       | [my-angular-crasher](https://github.com/BugSplat-Git/bugsplat-ng)                          |
+| CMake         | [my-cmake-crasher](https://github.com/BugSplat-Git/my-cmake-crasher)                       |
 | Electron      | [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)                 |
 | iOS           | [BugSplatTester](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)    |
 | Java          | [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher) |
