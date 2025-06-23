@@ -8,9 +8,7 @@ Crashpad is a cross-platform system for end-to-end crash reporting. Crashpad sup
 
 ## Installing depot\_tools
 
-The Chromium [depot\_tools](https://chromium.googlesource.com/chromium/tools/depot\_tools.git) are a set of tools that are required to build Crashpad. The documentation claims that Python 2.7 is a requirement for depot\_tools, however since checking out Crashpad uses only a subset of the depot tools Python 3+ worked fine for BugSplat.
-
-Run the following terminal commands below to clone `depot_tools` and add the tools to your system PATH variable. Be sure to change `/path/to/depot_tools` to the path where you cloned depot\_tools.
+The Chromium [depot\_tools](https://chromium.googlesource.com/chromium/tools/depot_tools.git) are a set of tools that are required to build Crashpad. Run the following terminal commands below to clone `depot_tools` and add the tools to your system `PATH` variable. Be sure to change `/path/to/depot_tools` to the path where you cloned depot\_tools.
 
 ### **macOS**
 
@@ -55,11 +53,7 @@ gclient sync
 
 ## Building Crashpad
 
-Crashpad uses `gn` to generate `ninja` build files.
-
-{% hint style="info" %}
-By default `gn` generates a configuration for building static libraries. If you would like to build dynamic libraries see this [post](https://stackoverflow.com/questions/55302553/how-to-build-dynamic-shared-libraries-of-crashpad) on Stack Overflow.
-{% endhint %}
+Crashpad uses `gn` to generate `ninja` build files. You'll need to ensure you've installed a C++ compiler such as [MSVC](https://visualstudio.microsoft.com/), [gcc](https://gcc.gnu.org/), or [clang](https://clang.llvm.org/). For Linux, you'll also need to install `build-essential` and `libcurl4-openssl-dev` .
 
 ### **Generating Build Configuration**
 
@@ -68,7 +62,17 @@ cd ~/crashpad/crashpad
 gn gen out/Default
 ```
 
+You can supply multiple arguments to customize your build, depending on the desired target OS and processor architecture. If you omit these values, [gn](https://gn.googlesource.com/gn/+/main/docs/quick_start.md) will use values that match the current system.
+
+For Windows, you will likely want to build Crashpad as a dynamic library. You can do this by passing `extra_cflags="/MD"` for release configurations and `extra_cflags="/MDd"` for debug configurations. Be sure to double-check that you're escaping special characters correctly, as the following command syntax can vary depending on whether you're using CMD or PowerShell.
+
+```bash
+gn gen out/Default --args="extra_cflags=\"/MD\""
+```
+
 ### **Building with Ninja**
+
+Once you've generated your build config, use [ninja](https://ninja-build.org/) to build your Crashpad configuration.
 
 ```bash
 ninja -C out/Default
@@ -76,15 +80,15 @@ ninja -C out/Default
 
 ## Integrating Crashpad
 
-Building Crashpad generates several files that need to be linked with an application in order to generate crash reports.
+The Crashpad build generates several libraries that must be specified in the arguments passed to your application's linker.
 
 ### **macOS & Linux**
 
 At a minimum, macOS and Linux applications need to be linked with `out/Default/obj/client/libcommon.a`, `out/Default/obj/client/libclient.a`, `out/Default/obj/util/libutil.a`, and `out/Default/obj/third_party/mini_chromium/mini_chromium/base/libbase.a`.
 
-MacOS application will need to link with `out/Default/obj/util/libmig_output.a` as well.
+A macOS application will need to link with `out/Default/obj/util/libmig_output.a` as well.
 
-When building Linux applications, `libbase.a` needs to be the last Crashpad file specified in the build arguments or the application will not build.
+When building Linux applications, `libbase.a` must be the last Crashpad file specified in the build arguments, or the application will not build.
 
 Additionally, `~/crashpad/crashpad` and `~/crashpad/crashpad/third_party/mini_chromium/mini_chromium` need to be added as include directories.
 
@@ -98,7 +102,7 @@ Finally, `out\Default\crashpad_handler.exe` needs to be deployed with the applic
 
 ## Configuring Crashpad
 
-Add the following includes to the entry point of the application.
+Add the following includes to your application's entry point.
 
 ```cpp
 #include "client/crashpad_client.h"
@@ -162,7 +166,7 @@ bool initializeCrashpad() {
   unique_ptr<CrashReportDatabase> database = CrashReportDatabase::Initialize(reportsDir);
   if (database == NULL) return false;
 
-  // File paths of attachments to uploaded with minidump file at crash time - default upload limit is 2MB
+  // File paths of attachments to be uploaded with the minidump file at crash time - default upload limit is 2MB
   vector<FilePath> attachments;
   FilePath attachment(exeDir + "/path/to/attachment.txt");
   attachments.push_back(attachment);
@@ -254,7 +258,7 @@ int main(int argc, char *argv[]) {
 
 ## Generating Symbols
 
-Generating sym files requires the `dump_syms` tool from the repository of Crashpad’s predecessor, [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/). Dump\_syms creates [sym files](https://github.com/google/breakpad/blob/master/docs/symbol\_files.md) from executable binaries so that minidumps can be symbolicated to determine the function names, file names, and line numbers in the call stack.
+Generating sym files requires the `dump_syms` tool from the repository of Crashpad’s predecessor, [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/). Dump\_syms creates [sym files](https://github.com/google/breakpad/blob/master/docs/symbol_files.md) from executable binaries, which allow minidumps to be symbolicated with function names, file names, and line numbers in the call stack.
 
 ```bash
 mkdir ~/breakpad
@@ -286,9 +290,9 @@ dump_syms /path/to/myApp.out > myApp.out.sym
 
 The `dump_syms` functionality is built into the `symupload` utility and can be skipped if the application will be symbolicated remotely. Run `dump_syms` only if the application will be symbolicated locally or the sym file will be uploaded to a remote server via some means other than `symupload`.
 
-In order for `symupload.exe` to generate the correct output, applications must be built with symbolic information so that each `exe` and `dll` file generates a corresponding `pdb` file. Generated `pdb` files must contain full debug information. With Visual Studio, full debug information can be generated with the `/Zi` compiler argument and the `/DEBUG:FULL` linker argument. Failure to specify either the `/Zi` or `/DEBUG:FULL` arguments will result in dump\_syms outputting incorrect sym file data. Additionally, the output `pdb` file must be in the same folder as the corresponding `exe` or `dll` file otherwise `dump_syms.exe` will fail.
+For `symupload.exe` to generate the correct output, applications must be built with symbolic information so that each `exe` and `dll` file generates a corresponding `pdb` file. Generated `pdb` files must contain full debug information. With Visual Studio, full debug information can be generated with the `/Zi` compiler argument and the `/DEBUG:FULL` linker argument. Failure to specify either the `/Zi` or `/DEBUG:FULL` arguments will result in dump\_syms outputting incorrect sym file data. Additionally, the output `pdb` file must be in the same folder as the corresponding `exe` or `dll` file otherwise `dump_syms.exe` will fail.
 
-In order to run `symupload.exe` a copy of `msdia140.dll` must be placed in the same folder. If [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/productinfo/2017-redistribution-vs#dia-sdk) is installed this file can be found at `[VisualStudioFolder]\DIA SDK\bin\amd64\msdia140.dll`. Copy `msdia140.dll` into the same folder as `symupload.exe` and run `symupload.exe`.
+To run `symupload.exe` a copy of `msdia140.dll` must be placed in the same folder. If [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/productinfo/2017-redistribution-vs#dia-sdk) is installed this file can be found at `[VisualStudioFolder]\DIA SDK\bin\amd64\msdia140.dll`. Copy `msdia140.dll` into the same folder as `symupload.exe` and run `symupload.exe`.
 
 ```bash
 symupload.exe "path/to/myApp.exe" "https://fred.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName=myApp&appVer=1.0.0"
@@ -310,9 +314,9 @@ symupload "/path/to/myApp.sym" "https://fred.bugsplat.com/post/bp/symbol/breakpa
 
 ### **Windows**
 
-In order to use `symupload` applications must be built with symbolic information so that each `exe` and `dll` file generates a corresponding `pdb` file. Generated `pdb` files must contain full debug information. Full debug information can be generated with the `/Zi` compiler argument and the `/DEBUG:FULL` linker argument. Failure to specify either the `/Zi` or `/DEBUG:FULL` arguments will result in `symupload` failing entirely. The output `pdb` file must be in the same folder as the corresponding `exe` or `dll` file.
+To use `symupload` , applications must be built with symbolic information so that each `exe` and `dll` file generates a corresponding `pdb` file. Generated `pdb` files must contain full debug information. Full debug information can be generated with the `/Zi` compiler argument and the `/DEBUG:FULL` linker argument. Failure to specify either the `/Zi` or `/DEBUG:FULL` arguments will result in `symupload` failing. The output `pdb` file must be in the same folder as the corresponding `exe` or `dll` file.
 
-In order to run `symupload.exe` a copy of `msdia140.dll` must be placed in the same folder. If [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/productinfo/2017-redistribution-vs#dia-sdk) is installed this file can be found at `[VisualStudioFolder]\DIA SDK\bin\amd64\msdia140.dll`. Copy msdia140.dll into the same folder as symupload.exe and run symupload.exe.
+To run `symupload.exe` a copy of `msdia140.dll` must be placed in the same folder. If [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/productinfo/2017-redistribution-vs#dia-sdk) is installed, this file can be found at `[VisualStudioFolder]\DIA SDK\bin\amd64\msdia140.dll`. Copy msdia140.dll into the same folder as symupload.exe and run symupload.exe.
 
 ```bash
 symupload.exe "/path/to/myApp.exe" "https://fred.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName=myApp&appVer=1.0.0"
@@ -322,7 +326,7 @@ Symupload can be built from source so that the debugger can be used for troubles
 
 ## Symbolicating Crash Reports
 
-`Minidump_stackwalk` is another tool in the [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/) repository that is responsible for the symbolication of minidump files. In order to correctly symbolicate minidumps, sym files need to be nested at least 2 folders deep. The topmost parent folder’s name must equal the sym files module name. The first child folder’s name must equal the module id. Additionally, the sym file name must also match the module name. The module id and module name can be found in the [module record](https://github.com/google/breakpad/blob/master/docs/symbol\_files.md#module-records) of the sym file.
+`Minidump_stackwalk` is another tool in the [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/) repository that is responsible for the symbolication of minidump files. In order to correctly symbolicate minidumps, sym files need to be nested at least 2 folders deep. The topmost parent folder’s name must equal the sym files module name. The first child folder’s name must equal the module id. Additionally, the sym file name must also match the module name. The module id and module name can be found in the [module record](https://github.com/google/breakpad/blob/master/docs/symbol_files.md#module-records) of the sym file.
 
 For example the module `myApp` with the module id `1A67F3DEAACA3B209D9992871B2620AA0` must be located at `/path/to/symbols/myApp/1A67F3DEAACA3B209D9992871B2620AA0/myApp.sym`.
 
@@ -358,10 +362,10 @@ Most issues symbolicating dump files can be traced back to mismatched module ids
 
 ## References
 
-1. [https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot\_tools/docs/html/depot\_tools\_tutorial.html#\_setting\_up](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot\_tools/docs/html/depot\_tools\_tutorial.html#\_setting\_up)
+1. [https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot\_tools/docs/html/depot\_tools\_tutorial.html#\_setting\_up](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)
 2. [https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md)
 3. [https://groups.google.com/a/chromium.org/forum/#!topic/crashpad-dev/XVggc7kvlNs](https://groups.google.com/a/chromium.org/forum/#!topic/crashpad-dev/XVggc7kvlNs)
 4. [https://docs.bugsplat.com/introduction/getting-started/integrations/cross-platform/crashpad](https://docs.bugsplat.com/introduction/getting-started/integrations/cross-platform/crashpad)
-5. [https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation)
-6. [https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md#build-process-specifics\_symbol-generation](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md#build-process-specifics\_symbol-generation)
+5. [https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation](https://github.com/google/breakpad/blob/master/docs/getting_started_with_breakpad.md#build-process-specificssymbol-generation)
+6. [https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting\_started\_with\_breakpad.md#build-process-specifics\_symbol-generation](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#build-process-specifics_symbol-generation)
 7. [https://www.chromium.org/developers/decoding-crash-dumps](https://www.chromium.org/developers/decoding-crash-dumps)

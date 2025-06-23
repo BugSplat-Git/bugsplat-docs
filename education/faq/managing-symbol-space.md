@@ -28,7 +28,7 @@ Using BugSplat's web application, you can manually remove symbol stores.&#x20;
 
 
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Manage Symbols Using our API
 

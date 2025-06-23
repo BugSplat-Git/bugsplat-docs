@@ -22,7 +22,7 @@ $BUGSPLAT_CLIENT_SECRET = "{{secret}}"
 
 5. Check the permissions of MyConsoleCrasher\Scripts\SendPdbs.ps1.  Make sure this file is not blocked for execution.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 6. Rebuild the project and run it outside of the Visual Studio debugger (Ctrl+F5). This is important since the debugger interferes with the BugSplat library’s exception handling. You should see a dialog such as that shown below:
 
