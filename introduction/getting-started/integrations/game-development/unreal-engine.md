@@ -124,28 +124,24 @@ BugSplat extracts metadata from the `CrashContext.runtime-xml` file attached to 
 
 The following XML fields, if created as child properties of `RuntimeProperties` or `GameData` can be used to set the BugSplat crash Notes and Key fields.&#x20;
 
-| Property               | Description                              |
-| ---------------------- | ---------------------------------------- |
-| BugSplatNotes          | Sets the value of the crash Notes field  |
-| BugSplatApplicationKey | Sets the value of the crash Key field    |
+<table><thead><tr><th width="374">Property</th><th>Description</th></tr></thead><tbody><tr><td>BugSplatApplicationKey</td><td>Sets the value of the crash Key field</td></tr><tr><td>BugSplatEmail</td><td>Sets the value of the crash Email field</td></tr><tr><td>BugSplatNotes</td><td>Sets the value of the crash Notes field </td></tr><tr><td>BugSplatUser</td><td>Sets the value of the crash User field</td></tr></tbody></table>
 
 All other properties will be parsed as [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md).
 
-```cpp
-#include "MyUnrealCrasherGameModeBase.h"
+<pre class="language-cpp"><code class="lang-cpp">#include "MyUnrealCrasherGameModeBase.h"
 #include "GenericPlatform/GenericPlatformCrashContext.h"
 
 AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
 {
-    // BugSplat Key field - used to display different flavors of the support response page at crash time
-    FGenericCrashContext::SetGameData(TEXT("BugSplatApplicationKey"), TEXT("en-US"));
-
-    // BugSplat Notes field - used for arbitrary extra crash context
+<strong>    // BugSplat override fields for overriding values on the Crash Details page
+</strong>    FGenericCrashContext::SetGameData(TEXT("BugSplatApplicationKey"), TEXT("en-US"));
+    FGenericCrashContext::SetGameData(TEXT("BugSplatEmail"), TEXT("fred@bugsplat.com"));
     FGenericCrashContext::SetGameData(TEXT("BugSplatNotes"), TEXT("Development Build"));
+    FGenericCrashContext::SetGameData(TEXT("BugSplatUser"), TEXT("wonderfulmuffin27"));
 
     // GameData values will be parsed as Attributes by BugSplat
     FGenericCrashContext::SetGameData(TEXT("CurrentWorld"), TEXT("Alpha Centari"));
     FGenericCrashContext::SetGameData(TEXT("GamePads"), TEXT("1"));
     FGenericCrashContext::SetGameData(TEXT("IsExternalQABuild"), TEXT("true"));
 }
-```
+</code></pre>
