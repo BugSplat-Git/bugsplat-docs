@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # 🆕 Regression Alerts
 
 BugSplat can be configured to notify developers when a defect marked as Closed recurs in a newer version of their software. Crash groups can have one of three statuses: Open, Closed, and Regression. A regression happens when a crash group is marked as closed, but an instance of the crash occurs in a newer version.

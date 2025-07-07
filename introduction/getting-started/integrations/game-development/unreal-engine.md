@@ -75,6 +75,32 @@ For capturing crashes in packaged games in Unreal Engine 4.26 and newer, copy`De
 
 If `DefaultEngine.ini` already exists, add the snippet above anywhere in the file. There are multiple `DefaultEngine.ini` files in your tree. Ensure you edit the right DefaultEngine.ini file; otherwise, crash reports will not be sent to BugSplat.
 
+### Timeouts
+
+When a user submits a crash report, it can take a considerable amount of time to upload, depending on the size of the crashing application, the contents of the crash report, and the user's network connection. Sometimes, the crash upload can fail because Unreal Engine's default HTTP timeout is 30 seconds. You can check if you're experiencing this issue by reviewing the Error page.
+
+<figure><img src="../../../../.gitbook/assets/image (55).png" alt="Unreal upload size mismatch error"><figcaption></figcaption></figure>
+
+The simplest way to fix this issue is to add the following to `[Your Game]/Config/DefaultEngine.ini`:
+
+```ini
+[HTTP]
+HttpConnectionTimeout=90
+HttpActivityTimeout=90
+HttpTotalTimeout=90
+```
+
+Alternatively, you can change the upload timeout for the crash upload without affecting the rest of the engine by modifying [CrashUpload.cpp](https://github.com/EpicGames/UnrealEngine/blob/803688920e030c9a86c3659ac986030fba963833/Engine/Source/Runtime/CrashReportCore/Private/CrashUpload.cpp#L815-L825).
+
+```diff
+auto Request = CreateHttpRequest();
+Request->SetVerb(TEXT("POST"));
+Request->SetHeader(TEXT("Content-Type"), TEXT("application/octet-stream"));
+Request->SetURL(DataRouterUrl + UrlParams);
++ Request->SetTimeout(90.0f);
+Request->SetContent(CompressedData.Data);
+```
+
 ### Trigger a Crash
 
 Run your game. For testing, a crash can be forced from the console using the command "debug crash". After posting the crash report, log in to BugSplat to view the report.
