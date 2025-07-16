@@ -12,7 +12,7 @@ Get a summary of all [crash groups](../../../../education/bugsplat-terminology.m
 
 ## Summary
 
-<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/summary`
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/summary`
 
 Returns crash summary data. Supports paging and filtering using column names firstReport, lastReport, stackKey, stackKeyId, crashSum, userSum, subKeyDepth, defectId, comments, techSupportSubject.
 
@@ -25,28 +25,26 @@ Returns crash summary data. Supports paging and filtering using column names fir
 {% tabs %}
 {% tab title="200 " %}
 ```json
-[
-    {
-        "Database": "tormore",
-        "PageData": null,
-        "Rows": [
-            {
-                "stackKey": "myConsoleCrasher+0x12b5",
-                "stackKeyId": "208",
-                "lastReport": "2021-08-24T17:59:30Z",
-                "firstReport": "2021-07-29T12:06:05Z",
-                "crashSum": "178",
-                "userSum": "7",
-                "techSupportSubject": null,
-                "defectId": null,
-                "stackKeyDefectUrl": null,
-                "stackKeyDefectLabel": null,
-                "comments": "Dave left a comment",
-                "subKeyDepth": "1"
-            }
-        ]
-    }
-]
+{
+    "Database": "tormore",
+    "PageData": null,
+    "Rows": [
+        {
+            "stackKey": "myConsoleCrasher+0x12b5",
+            "stackKeyId": "208",
+            "lastReport": "2021-08-24T17:59:30Z",
+            "firstReport": "2021-07-29T12:06:05Z",
+            "crashSum": "178",
+            "userSum": "7",
+            "techSupportSubject": null,
+            "defectId": null,
+            "stackKeyDefectUrl": null,
+            "stackKeyDefectLabel": null,
+            "comments": "Dave left a comment",
+            "subKeyDepth": "1"
+        }
+    ]
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -54,7 +52,7 @@ Returns crash summary data. Supports paging and filtering using column names fir
 ### Curl Example
 
 ```bash
-curl --location 'https://app.bugsplat.com/api/summary' \
+curl --location 'https://app.bugsplat.com/api/v2/summary' \
 --header 'Authorization: Bearer ••••••'
 ```
 
