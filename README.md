@@ -3,8 +3,20 @@ description: >-
   Technical documentation, platform integration guides, crash reporting best
   practices, and other useful information from BugSplat.  We're excited you're
   here!
-cover: .gitbook/assets/bugsplat_banner_video-game.png
-coverY: 0
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
 ---
 
 # Welcome
