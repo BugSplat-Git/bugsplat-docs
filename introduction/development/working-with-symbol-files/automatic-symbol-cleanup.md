@@ -14,11 +14,10 @@ Note that symbol files that are shared between symbol stores (i.e., have been up
 
 **Cleanup Rules**
 
-&#x20; 1\.  Symbol stores not referenced by a crash report in more than 90 days will be removed.&#x20;
-
+1. Symbol stores not referenced by a crash report in more than 90 days will be removed.&#x20;
 2. New symbol stores not referenced by a crash report within 15 days will be removed.
 3. Individual symbol files not accessed in 90 days will be removed.
 
 {% hint style="info" %}
-Avoid uploading common symbols with every build. Library symbols that change infrequently should be placed in a dedicated symbol store rather than being re-uploaded with each new build of your application. This prevents the 15-day "new symbol store" rule from repeatedly resetting and ensures more efficient cleanup.
+Avoid uploading common symbols with every build. Library symbols that change infrequently should be placed in a dedicated symbol store rather than being re-uploaded with each new build of your application. This allows the 15-day "new symbol store" rule to remove individual builds that aren't referenced and ensures more efficient cleanup.
 {% endhint %}
