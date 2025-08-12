@@ -38,7 +38,7 @@ curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos" && chmod +x 
 curl -sL -O  "https://app.bugsplat.com/download/symbol-upload-linux" && chmod +x symbol-upload-linux
 ```
 
-A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. BugSplat's backend automatically removes symbol stores that haven't been accessed recently. Using our web application, you can manually delete a symbol store. Send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. However, by default, each symbol file must be smaller than 4 GB.
+A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. BugSplat's backend automatically removes symbols that haven't been accessed recently. Using our web application, you can manually delete a symbol store. Send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. However, by default, each symbol file must be smaller than 4 GB.
 
 ## Using symbol-upload 🧑‍💻
 
