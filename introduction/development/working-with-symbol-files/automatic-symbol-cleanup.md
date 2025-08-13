@@ -6,11 +6,9 @@ description: How symbol files are automatically removed
 
 BugSplat will automatically remove symbols that haven't been recently accessed.  Symbols consume storage space in your account, so removing unused symbols can help reduce storage costs.  For many customers, our automatic rules need no further explanation.  However, if your symbol storage space is large and you are interested in optimizing costs, read on!
 
-BugSplat organizes database symbols into 'symbol stores,' which are just groups of symbols identified by their application name and version.  However, symbol files themselves are stored using a unique debug identifier, which is part of the symbol file content. &#x20;
-
 Once a database contains more than 5 gigabytes of symbol data, our cleanup algorithm will automatically remove symbols that have not been referenced recently.  In addition to automatic cleanup, you can also manually delete symbol stores using our web application.
 
-Note that symbol files that are shared between symbol stores (i.e., have been uploaded multiple times) will only be deleted when no symbol store references the file.
+Note that symbol files that are shared between [symbol stores](../../../education/bugsplat-terminology.md#symbol-store) (i.e., have been uploaded multiple times) will only be deleted when no symbol store references the file.
 
 **Cleanup Rules**
 
