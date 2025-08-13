@@ -2,9 +2,9 @@
 
 ### App
 
-**Apps** are one level of how BugSplat organizes crash and error reports to keep them organized and easy to navigate for the teams working on them. &#x20;
+**Apps** are one level of how BugSplat organizes crash and error reports to keep them organized and easy to navigate for the teams working on them.
 
-It is best practice to keep back-end and client reports from a single Application separate. Using more than two 'apps' can provide for further organization and customization. &#x20;
+It is best practice to keep back-end and client reports from a single Application separate. Using more than two 'apps' can provide for further organization and customization.
 
 ### Call-Stack
 
@@ -12,11 +12,11 @@ These are the active subroutines of your program at some point in time. In the B
 
 ### **Company**
 
-The umbrella under which all [Databases](bugsplat-terminology.md#database) are organized.   Customizable inside of Settings at any time, name your company something recognizable to your overall organization (like your full company name). &#x20;
+The umbrella under which all [Databases](bugsplat-terminology.md#database) are organized. Customizable inside of Settings at any time, name your company something recognizable to your overall organization (like your full company name).
 
 ### Crash Dialog
 
-The **Crash Dialog** box is the end-user, customer-facing aspect of BugSplat. This box appears when an application configured to send crash data to BugSplat runs into a crash defect while in use. At this point, the dialog box prompts the end-user to provide an account of the events leading up to the crash as well as their name and email address.&#x20;
+The **Crash Dialog** box is the end-user, customer-facing aspect of BugSplat. This box appears when an application configured to send crash data to BugSplat runs into a crash defect while in use. At this point, the dialog box prompts the end-user to provide an account of the events leading up to the crash as well as their name and email address.
 
 * [Adding your company or project's custom branding to the crash dialog box](how-tos/customize-the-crash-dialog.md).
 * [Avoid collecting personally identifiable information through the crash dialog bo](../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md)
@@ -63,11 +63,15 @@ This is one level of the call stack.
 
 ### Subkey
 
-Subkey is a now-retired term for a [Crash Group](bugsplat-terminology.md#crash-groups).&#x20;
+Subkey is a now-retired term for a [Crash Group](bugsplat-terminology.md#crash-groups).
+
+### Symbol Store
+
+A Symbol Store is a collection of symbols associated with an application name and application version.  The Symbol Store is used as a grouping mechanism, allowing the removal of a set of symbols.&#x20;
 
 ### Symbols
 
-Symbol files contain information to map information in a crash report to file names and line numbers in the source code.
+Symbol files contain information to map information in a crash report to file names and line numbers in the source code.  Symbol files have a unique ID assigned to them at creation time by the compiler.  Symbol files are stored by this unique ID and associated with Symbol Stores using internal logic.
 
 ### Users
 
@@ -79,7 +83,7 @@ This is the unexpected exception where the surrounding code does not have the lo
 
 ### Version
 
-Typically, companies will create a new version of their application for each new build.  This is especially helpful because symbol files are uploaded into a 'symbol store' identified by the database, application name, and application version.
+Typically, companies will create a new version of their application for each new build. This is especially helpful because symbol files are uploaded into a 'symbol store' identified by the database, application name, and application version.
 
 Using versions is a useful way to track crashes that you want to keep separate. Many users find value in comparing and tracking crash rates, top crashes, and particularly tricky-to-fix crashes across multiple versions.
 
