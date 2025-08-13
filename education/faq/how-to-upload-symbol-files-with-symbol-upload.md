@@ -111,10 +111,6 @@ Links
   💌 support@bugsplat.com 
 ```
 
-### Authentication
-
-Credentials can be provided to symbol-upload via the `-u` and `-p` command-line arguments. OAuth2 Client ID and Client Secret credentials can also be provided for authentication via the `-i` and `-s` arguments and are created on the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.
-
 ### Example
 
 The following is an example of how to invoke symbol-upload and search a directory recursively for `.dll`, `.pdb`, and `.exe` files. Replace the values of `your-bugsplat-database`, `your-email`, and `your-password` with your BugSplat database, email, and password. You can specify a [glob](https://github.com/isaacs/node-glob) for the `-f` argument to match for files based on a pattern.
@@ -124,6 +120,10 @@ symbol-upload -b your-bugsplat-database -a my-awesome-app -v 1.0 -u your-email -
 ```
 
 You can use the `-r` flag to remove a symbol store instead of uploading. This is helpful when you create a new build but don't want to increment the build number.
+
+### Authentication
+
+Credentials can be provided to symbol-upload via the `-u` and `-p` command-line arguments. OAuth2 Client ID and Client Secret credentials can also be provided for authentication via the `-i` and `-s` arguments and are created on the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.
 
 ### Apple <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
 
