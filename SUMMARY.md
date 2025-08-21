@@ -217,7 +217,7 @@
   * [Multi-Factor Authentication (MFA)](administration/introduction/multi-factor-authentication-mfa.md)
   * [Enforce MFA](administration/introduction/enforce-mfa.md)
   * [Adding New Users in Companies with Multiple Databases](administration/introduction/adding-new-users-in-companies-with-multiple-databases.md)
-* [Contact us](administration/contact-us.md)
+* [Contact Us](administration/contact-us.md)
 
 ## 🐛 About
 
