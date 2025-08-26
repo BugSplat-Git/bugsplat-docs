@@ -28,12 +28,12 @@ Auto-Group rules are matched via [glob patterns](https://en.wikipedia.org/wiki/G
 
 Auto-group rules are processed in a specific, consistent order that cannot be changed. The rules engine follows the logic below:
 
-* If there are any **group by** rule matches, select the top-most matching frame as the candidate frame. Use the resulting frame for grouping. Don't process any more rules.
+* If there are any **group-by** rule matches, select the top-most matching frame as the candidate frame. Use the resulting frame for grouping. Don't process any more rules.
 * If there are any **ignore frames up to and including** rule matches, select the lower-most matching frame as the candidate frame. Starting with the candidate frame, skip over any frames that match the **ignore** rules until a frame that doesn't match any ignore rules is found. Use the resulting frame for grouping. Don't process any more rules.
-* At this point, neither **group by** nor **group after** rules matched any stack frames. The rules engine will apply the **ignore** rules starting with the top stack frame, skipping over any frames that match the **ignore** rules until it finds the first frame that isn't to be ignored. The resulting frame is used for grouping.
+* At this point, neither **group-by** nor **group-after** rules matched any stack frames. The rules engine will apply the **ignore** rules starting with the top stack frame, skipping over any frames that match the **ignore** rules until it finds the first frame that isn't to be ignored. The resulting frame is used for grouping.
 
 {% hint style="info" %}
-When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. If you'd like to batch reprocess crashes to apply new rules, please contact [Support](mailto:support@bugsplat.com).
+When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. To apply new rules, you can reprocess up to 50 reports at a time via the [Batch Reprocess](../../education/how-tos/batch-reprocess-crashes.md) button on the Crashes page. If you'd like to reprocess more than 50 crashes at a time, please contact [Support](mailto:support@bugsplat.com).
 {% endhint %}
 
 ### Options
@@ -60,6 +60,6 @@ We can click **Group Rules** and add another rule that **ignores frames up to an
 
 ### Summary Page
 
-Once new grouping rules have been applied, navigate to the [**Summary**](https://app.bugsplat.com/v2/summary) page to view an overview of groups in the selected database. The **Summary** page provides report counts for all of the various groups. Targeting groups with the highest report **Count** will generally give teams the best return on their efforts. Another interesting metric to target is **Users Affected,** which represents the number of unique users that ran into a specific problem during the selected time frame.
+Once new grouping rules have been applied, navigate to the [**Summary**](https://app.bugsplat.com/v2/summary) page to view an overview of groups in the selected database. The **Summary** page provides report counts for all of the various groups. Targeting groups with the highest report **Count** will generally give teams the best return on their efforts. Another interesting metric to target is **Users Affected,** which represents the number of unique users who ran into a specific problem during the selected time frame.
 
 <figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Summary Page</p></figcaption></figure>
