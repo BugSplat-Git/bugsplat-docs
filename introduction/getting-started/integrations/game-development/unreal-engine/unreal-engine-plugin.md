@@ -23,7 +23,7 @@ To get started, generate a Client ID and Client Secret via the [Integrations](ht
 
 Next, open the BugSplat plugin menu in the Unreal Editor via `Edit > Project Settings`. Scroll to the `BugSplat` section of `Project Settings` and add values for `Database`, `Application`, `Version`, `Client ID`, and `Client Secret`:
 
-<figure><img src="https://private-user-images.githubusercontent.com/2646053/265874303-c386a288-31e7-475d-adb8-9bef0506272b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTQwODYwOTgsIm5iZiI6MTc1NDA4NTc5OCwicGF0aCI6Ii8yNjQ2MDUzLzI2NTg3NDMwMy1jMzg2YTI4OC0zMWU3LTQ3NWQtYWRiOC05YmVmMDUwNjI3MmIucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDgwMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTA4MDFUMjIwMzE4WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9OGM2NjNhNDNkZGUwMzBmOWMxNjc1MzM0MDljYTcyNDVhZTJhYmQwZDM1MjVlYjBiNjRhODA0NjIxM2E2YTVkYiZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.B3wIqsFC_u6Da95Dx9vHUSzoQzMUH51hJUgisiIFyuw" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 #### Windows, macOS, and Linux
 
