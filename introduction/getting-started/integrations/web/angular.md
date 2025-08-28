@@ -71,11 +71,9 @@ throw new Error("foobar!");
 
 Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat, and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
-&#x20;
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://private-user-images.githubusercontent.com/2646053/281606771-e23000df-edd1-41f4-b463-c1ce6475d9ad.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTYzODEwMzMsIm5iZiI6MTc1NjM4MDczMywicGF0aCI6Ii8yNjQ2MDUzLzI4MTYwNjc3MS1lMjMwMDBkZi1lZGQxLTQxZjQtYjQ2My1jMWNlNjQ3NWQ5YWQucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDgyOCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTA4MjhUMTEzMjEzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9NjNiMDFjMWVlZjM4NjY1OWUxZDAxNDg0MTZjN2I4MTQ4NzM4N2FlZTllOGQ4OGVjMmU4ZjdmYjI0MTgzOTk0ZiZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.k4RhmeuqR7L8kckI_UoMmGVsyI9wRcMHozwwiWa-DW8" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="https://private-user-images.githubusercontent.com/2646053/281606673-24a2df50-e9c0-4d36-b9f5-ce9a7b47b526.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTYzODEwMzMsIm5iZiI6MTc1NjM4MDczMywicGF0aCI6Ii8yNjQ2MDUzLzI4MTYwNjY3My0yNGEyZGY1MC1lOWMwLTRkMzYtYjlmNS1jZTlhN2I0N2I1MjYucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDgyOCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTA4MjhUMTEzMjEzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9NGY1NjI1ZmNlZmFmMzJjMWI5OWVhMTY4MDUzOWUzZmE1OTM1MGRlYmI0NDhkZDAyMThiYzg5YTkwNTVjZDkwNyZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.C10LTFZn3RoXYoYp3lLL2QYF9Ld2eHgGWMi5KbNZFeo" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🗺 Source Maps
 
