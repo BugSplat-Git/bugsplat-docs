@@ -60,7 +60,7 @@ Uploads a Playstation 5 crash report, extracts user data and user files
 
 {% tabs %}
 {% tab title="200 " %}
-```
+```json
 {
     "status": "success",
     "crashId": 1,
@@ -150,6 +150,8 @@ Uploads an XML crash report and can be used to create reports for languages and 
 
 ```xml
 <report>
+    <platform>Windows</platform>
+    <os>Windows 10 Version 20348 MP (4 procs) Free x86 compatible</os>
     <process>
         <exception>
             <code>FATAL ERROR</code>
