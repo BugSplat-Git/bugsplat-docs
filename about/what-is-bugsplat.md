@@ -25,6 +25,8 @@ BugSplat is the developer's go-to toolbox for finding, understanding, and fixing
 
 When a crash event occurs, BugSplat captures data critical for understanding the underlying defect. This data is presented in a familiar “debugger” view which allows developers to triage crashes as if the crash was captured locally on their own machine.
 
+<figure><img src="../.gitbook/assets/unreal-crash-page_e9Dj3.webp" alt=""><figcaption></figcaption></figure>
+
 With BugSplat, developers can identify more issues during testing, monitor the quality of their shipped applications, and improve their workflow around development and support.
 
 Overall, applications that use BugSplat are more stable, crash less often, and become cheaper and easier to support.
