@@ -56,10 +56,10 @@ BugSplat's [symbol-upload](https://docs.bugsplat.com/education/faq/how-to-upload
 
 We offer a few tools that you can use to verify the GUIDs of symbols on your local system.
 
-{% @github-files/github-code-block url="https://github.com/BugSplat-Git/pdb-guid" %}
+{% embed url="https://github.com/BugSplat-Git/pdb-guid" %}
 
-{% @github-files/github-code-block url="https://github.com/BugSplat-Git/macho-uuid" %}
+{% embed url="https://github.com/BugSplat-Git/macho-uuid" %}
 
-{% @github-files/github-code-block url="https://github.com/BugSplat-Git/elfy" %}
+{% embed url="https://github.com/BugSplat-Git/elfy" %}
 
 Additionally, several other tools can be used to get GUIDs from symbol files. For Windows, you can use [dumpbin](https://learn.microsoft.com/en-us/cpp/build/reference/dumpbin-reference?view=msvc-170) and [symchk](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/symchk-command-line-options). On macOS, [dwarfdump](https://llvm.org/docs/CommandGuide/llvm-dwarfdump.html) will report the symbol's GUID. For Crashpad, the GUID can be found on the first line of each `.sym` file.
