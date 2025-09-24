@@ -175,6 +175,7 @@
     * [What should I do if I get a BugSplat?](education/faq/common-end-user-questions/what-should-i-do-if-i-get-a-bugsplat.md)
     * [What is BsSndRpt.exe?](education/faq/common-end-user-questions/what-is-bssndrpt-exe.md)
     * [My software just crashed. Should I contact BugSplat for help?](education/faq/common-end-user-questions/my-software-just-crashed.-should-i-contact-bugsplat-for-help.md)
+  * [Why are Crashes Missing Symbols, Function Names, and/or Line Numbers?](education/faq/why-are-crashes-missing-symbols-function-names-and-or-line-numbers.md)
 
 ## 🏢 Administration
 
