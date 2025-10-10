@@ -1,13 +1,15 @@
 # Getting Started
 
-Getting up and running with BugSplat is a well-documented and straightforward process that has been followed by thousands of developers and honed by constant iterations from the BugSplat support team. Following the six steps listed below is the quickest way to get started. It generally takes about as much time as to drink a [large mug](https://shop.spacex.com/collections/accessories/products/occupy-mars-heat-sensitive-terraforming-mug-new) of coffee.  You can also post a sample crash i[n under 5 minutes](quickly-submitting-your-first-crash-in-under-5-minutes.md).
+Getting up and running with BugSplat is a well-documented and straightforward process that has been followed by thousands of developers and honed by constant iterations from the BugSplat support team. Following the six steps listed below is the quickest way to get started. It generally takes about as much time as to drink a [large mug](https://shop.spacex.com/collections/accessories/products/occupy-mars-heat-sensitive-terraforming-mug-new) of coffee. You can also post a sample crash [in under 5 minutes](quickly-submitting-your-first-crash-in-under-5-minutes.md).
+
+{% embed url="https://bugsplat.wistia.com/medias/qp13mure3h" %}
 
 ## ✍️ The BugSplat 6-Step Checklist
 
-1. [Sign up for a BugSplat account ](signing-up-for-an-account-with-bugsplat.md)
+1. [Sign up for a BugSplat account](signing-up-for-an-account-with-bugsplat.md)
 2. [Create a database](create-a-new-database-in-bugsplat.md)
 3. [Integrate with your application](integrations/)
-4. [Submit a sample crash ](posting-a-test-crash/)
+4. [Submit a sample crash](posting-a-test-crash/)
 5. [Add your team members](adding-uses-to-your-account.md)
 6. [Learn to use the app](../development/)
 
