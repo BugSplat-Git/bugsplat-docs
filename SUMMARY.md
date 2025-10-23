@@ -50,7 +50,7 @@
   * [Platform Samples](introduction/getting-started/posting-a-test-crash/README.md)
     * [BugSplatTester (iOS)](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)
     * [BugSplatTester (macOS)](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)
-    * [myConsoleCrasher (C++)](introduction/getting-started/posting-a-test-crash/myconsolecrasher-c-plus-plus/README.md)
+    * [MyConsoleCrasher (C++)](introduction/getting-started/posting-a-test-crash/myconsolecrasher-c-plus-plus/README.md)
       * [Address Sanitizer Reports](introduction/getting-started/posting-a-test-crash/myconsolecrasher-c-plus-plus/address-sanitizer-reports.md)
     * [my-android-crasher](https://github.com/BugSplat-Git/my-android-crasher)
     * [my-angular-crasher](https://github.com/BugSplat-Git/bugsplat-ng)
