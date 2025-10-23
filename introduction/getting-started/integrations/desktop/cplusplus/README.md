@@ -2,26 +2,26 @@
 
 ## Overview
 
-This document explains how your Microsoft Visual C++ application can be modified to provide full debug information to the BugSplat web application when it crashes.
+This document explains how your Microsoft Visual C++ application can be modified to provide full debug information to the BugSplat web application when it crashes. &#x20;
+
+If you've used an older version of this library, our [porting guide](bugsplat-native-upgrade-guide.md) might be useful. &#x20;
 
 ### First steps
 
-To begin [Download](https://app.bugsplat.com/browse/download\_item.php?item=native) and unzip the BugSplat software development kit for Microsoft Visual C++.
+To begin [Download](https://app.bugsplat.com/browse/download_item.php?item=native) and unzip the BugSplat software development kit for Microsoft Visual C++.
 
-To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [myConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/). You can find the Visual Studio project file located in your download folder at `...\BugSplatNative\BugSplat\samples\myConsoleCrasher\myConsoleCrasher.vcxproj`.
-
-Run the sample application without the debugger attached to post a sample crash report to our [public database](../../../../../education/faq/using-bugsplats-public-database.md).
-
-You may also want to browse the [BugSplat Native API](https://www.bugsplat.com/platforms/cpp/api/) documentation.
+To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [myConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit.
 
 ### Generating crash reports with your application
 
 Add BugSplat to your application using the following steps:
 
 * Include **`BugSplat.h`**.
-* Create an instance of MiniDmpSender following the example in myConsoleCrasher. The MiniDmpSender constructor requires three parameters: BugSplat database, application name and version. The BugSplat database is created and selected on the Databases page. Typically, you will create a new database for each major release of your product. You supply application name and version to match your product release. These same values must be used when uploading symbol files for your application.
+* Create an instance of BugSplat following the example in myConsoleCrasher. The BugSplat constructor requires three parameters: BugSplat database, application name and version. The BugSplat database is created and selected on the Databases page. Typically, you will create a new database for each major release of your product. You supply the application name and version to match your product release. These same values are typically used when uploading symbol files for your application.  Learn more about symbol uploads at [symbol-upload](../../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md).
 * Link your application to **`BugSplat.lib`**.
-* Add **`BsSndRpt.exe`**, **`BugSplat.dll`**, and **`BugSplatRC.dll`** to your application's installer.
+* Add **`BugSplatMonitor.exe`**, **`BugSplatWer.dll`**, and **`BugSplatRC.dll`** to your application's installer.
+
+Note that WinUI applications require special setup.  We have a sample WinUI project that we can send upon request.  If interested, please get in touch with support@bugsplat.com.
 
 You should modify your build settings so that symbol files are created for release builds, e.g.,
 
@@ -29,27 +29,13 @@ You should modify your build settings so that symbol files are created for relea
 
 ![Microsoft Visual Studio C++ Debugging Properties](../../../../../.gitbook/assets/microsoft-cpp-configuration-debugging.png)
 
-**Note:** To get fully detailed call stacks and variable names for each crash on the BugSplat website, every time you build a release version of your application for distribution or internal testing, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product on the [Versions](https://app.bugsplat.com/v2/versions) page. Better yet, use the [symbol-upload](../../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) application as part of your build process to automate symbol upload to BugSplat.
+**Note:** To get complete symbolicated call stacks and variable names for each crash, every time you build a release version of your application for distribution or internal testing, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product.  Use the [symbol-upload](../../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) application as part of your build process to automate symbol upload to BugSplat.
 
-Test your application by forcing a crash and verifying that the BugSplat dialog appears and that crashes are posted to your BugSplat account.
+Test your application by forcing a crash, verifying that the BugSplat dialog appears, and that crashes are posted to your BugSplat account.
 
-**Finally**, make sure to check that symbol names in the call stack are resolved correctly. If they aren’t, double-check that the correct version of symbol files and all executables for your application have been uploaded on the [Versions](https://app.bugsplat.com/v2/versions) page.
+**Finally**, make sure to check that symbol names in the call stack are resolved correctly. If they aren’t, double-check that the correct version of symbol files and all executables for your application have been uploaded to BugSplat.
 
-## Toolset Considerations
-
-MyConsoleCrasher targets the v120\_xp toolset which is not installed by later versions of Visual Studio. To build MyConsoleCrasher you may need to update the project's toolset and platform version.
-
-The following steps are for Visual Studio 2017, other versions of Visual Studio may require slightly different steps.
-
-To update your project's toolset and platform version, right click your project in Visual Studio, then choose Properties. In the properties menu, change "Platform Toolset" to a version available in your environment and click OK to save your changes.
-
-![Microsoft Visual Studio C++ Platform Toolset](../../../../../.gitbook/assets/microsoft-cpp-configuration-platform-toolset.png)
-
-Close the properties menu and right click the project again. This time choose the option to "Retarget Projects". Choose Windows SDK Version 10.\* and click OK. You should now be able to build MyConsoleCrasher.
-
-![C++ Visual Studio Retarget Projects](../../../../../.gitbook/assets/microsoft-cpp-retarget-project.png)
-
-## Further options
+#### Crash Dialog
 
 Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box ](../../../../../education/how-tos/customize-the-crash-dialog.md)page.
 
