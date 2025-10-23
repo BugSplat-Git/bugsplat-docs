@@ -173,7 +173,7 @@ void CreateXmlReport(const wchar_t* xmlReport);
 
 * `xmlReport` - XML-formatted report string
 
-**Note:** See myConsoleCrasher.cpp for XML schema examples.
+**Note:** See MyConsoleCrasher.cpp for XML schema examples.
 
 #### CreateAsanReport
 
@@ -218,14 +218,10 @@ void ClearAttachments();
 #### PostCrash
 
 ```cpp
-void PostCrash(const wchar_t* crashFolder);
+void PostCrash();
 ```
 
 **Description:** Posts a single crash report and removes the folder after successful upload.
-
-**Parameters:**
-
-* `crashFolder` - Path to the folder containing crash artifacts
 
 #### PostAllCrashes
 
@@ -314,6 +310,14 @@ const wchar_t* GetLogFilePath();
 **Description:** Returns the path to the BugSplat log file.
 
 **Returns:** Path string to log file
+
+#### CleanupExceptionSystem
+
+```cpp
+void CleanupExceptionSystem();
+```
+
+**Description:** Explicitly remove BugSplat's current working folder, log file, and crash state file. This function is needed on Xbox because the system terminates the monitor program and doesn't give it a chance to exit.
 
 ***
 
