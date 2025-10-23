@@ -305,16 +305,6 @@ void SetSuspendingState(BOOL status);
 
 * `status` - Suspension status flag
 
-#### GetCrashStoragePath
-
-```cpp
-const wchar_t* GetCrashStoragePath();
-```
-
-**Description:** Returns the base path where crash reports are stored.
-
-**Returns:** Path string to crash storage directory
-
 #### GetLogFilePath
 
 ```cpp
