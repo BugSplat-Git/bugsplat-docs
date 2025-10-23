@@ -24,7 +24,7 @@ Add BugSplat to your application using the following steps:
 
 1. Link with **`BugSplat.lib`** and **`BugSplatSharedMemory.lib`** by adding these items to `Linker > Input > Additional Dependencies`.
 2. Add **`BugSplatMonitor.exe`**, **`BugSplatWer.dll`**, and **`BugSplatRc.dll`** to your application's installer.
-3. Ensure your installer runs with Administrator privileges and create a `RuntimeExceptionHelperModules` registry with a key name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-native-upgrade-guide.md#registry-changes).
+3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-native-upgrade-guide.md#registry-changes).
 
 <figure><img src="../../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
 
