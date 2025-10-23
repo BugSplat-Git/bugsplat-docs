@@ -48,7 +48,15 @@ symbol-upload-windows.exe -b your-database -a your-app -v your-version -i your-c
 To get complete symbolicated call stacks and variable names for each crash, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product every time you build a release version of your application for distribution or internal testing.
 {% endhint %}
 
-Test your application by forcing a crash. Verify that the BugSplat dialog appears, and that crashes are posted to your BugSplat account. Ensure that symbol names in the call stack are resolved correctly. If they aren’t, double-check that the correct version of symbol files and all executables for your application have been uploaded to BugSplat.
+### Verification ✅
+
+Test your application by forcing a crash.
+
+```cpp
+*(volatile int *)0 = 0;
+```
+
+Verify that the BugSplat dialog appears, and that crashes are posted to your BugSplat account. Ensure that symbol names in the call stack are resolved correctly. If they aren’t, double-check that the correct version of symbol files and all executables for your application have been uploaded to BugSplat.
 
 If everything was configured correctly, you should see a crash report that looks like this in your BugSplat database.
 
