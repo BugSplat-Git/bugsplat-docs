@@ -1,7 +1,7 @@
 # Unreal Engine Plugin
 
 {% hint style="danger" %}
-The symbol upload step in this plugin is designed for developer evaluation only! Do not release builds with Client ID and Client Secret in DefaultEngine.ini. Instead, configure an explicit [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) step as part of your production build pipeline.
+The symbol-upload step in this plugin is designed for developer evaluation only! Do not release builds with Client ID and Client Secret in DefaultEngine.ini. Instead, configure an explicit [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) step as part of your production build pipeline.
 {% endhint %}
 
 ### 🏗 Installation
