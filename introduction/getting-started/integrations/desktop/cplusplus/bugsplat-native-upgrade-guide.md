@@ -18,7 +18,7 @@ BugSplat now integrates with the local WER service to capture crashes that canno
 
 The BugSplat constructor initialization flags have been removed. Options can be configured after the BugSplat instance is initialized. Here are the new methods for configuring these options.
 
-<table><thead><tr><th width="272.421875">Flag</th><th>New Method or Behavior</th></tr></thead><tbody><tr><td>MDSF_USEGUARDMEMORY</td><td><code>g_bugSplat->AllocGuardMemory(guardMemorySizeInBytes);</code> A 3-MB guard buffer is allocated by default.</td></tr><tr><td>MDSF_NONINTERACTIVE</td><td><code>g_BugSplat->SetQuietMode(true);</code></td></tr><tr><td>MDSF_FORCEEXIT</td><td>BugSplat's global exception filter always exits. Provide your own global exception filter to override.</td></tr><tr><td>MDSF_PREVENTHIJACKING</td><td>BugSplat now always attempts to keep our exception filter in place.</td></tr><tr><td>MDSF_DETECTHANGS</td><td><code>g_bugsplat->SetHangDetectionTimeout(detectionSeconds);</code> with detectionSeconds set to 0 to disable.</td></tr><tr><td>MDSF_SUSPENDALLTHREADS</td><td>No longer applicable since minidumps are now created by the external BugSplatMonitor process.</td></tr><tr><td>MDSF_LOGCONSOLE, MDSF_LOGFILE, MDSF_LOG_VERBOSE</td><td>BugSplat now always provides log files, and there is no longer a verbose option.</td></tr></tbody></table>
+<table><thead><tr><th width="272.421875">Flag</th><th>New Method or Behavior</th></tr></thead><tbody><tr><td>MDSF_USEGUARDMEMORY</td><td><code>g_bugSplat.AllocGuardMemory(guardMemorySizeInBytes);</code> A 3-MB guard buffer is allocated by default.</td></tr><tr><td>MDSF_NONINTERACTIVE</td><td><code>g_BugSplat.SetQuietMode(true);</code></td></tr><tr><td>MDSF_FORCEEXIT</td><td>BugSplat's global exception filter always exits. Provide your own global exception filter to override.</td></tr><tr><td>MDSF_PREVENTHIJACKING</td><td>BugSplat now always attempts to keep our exception filter in place.</td></tr><tr><td>MDSF_DETECTHANGS</td><td><code>g_bugsplat.SetHangDetectionTimeout(detectionSeconds);</code> with detectionSeconds set to 0 to disable.</td></tr><tr><td>MDSF_SUSPENDALLTHREADS</td><td>No longer applicable since minidumps are now created by the external BugSplatMonitor process.</td></tr><tr><td>MDSF_LOGCONSOLE, MDSF_LOGFILE, MDSF_LOG_VERBOSE</td><td>BugSplat now always provides log files, and there is no longer a verbose option.</td></tr></tbody></table>
 
 #### **Function Name Changes**
 
@@ -37,7 +37,7 @@ Several of the BugSplat method names have been changed:
 
 #### **Obsolete Functions**
 
-`g_bugSplat->setCallback` The callback function has been removed. If you wish to perform tasks at crash time, provide your own global exception filter function. An example of this can be found in the MyConsoleCrasher example program.
+`g_bugSplat.setCallback` The callback function has been removed. If you wish to perform tasks at crash time, provide your own global exception filter function. An example of this can be found in the MyConsoleCrasher example program.
 
 ### Build Changes
 
