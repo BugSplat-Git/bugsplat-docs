@@ -34,7 +34,7 @@ Add BugSplat to your application using the following steps:
 ```cpp
 #include "BugSplat.h"
 
-BugSplat g_BugSplat = BugSplat(BUGSPLAT_DATABASE, APPLICATION_NAME, APPLICATION_VERSION);
+BugSplat g_BugSplat(BUGSPLAT_DATABASE, APPLICATION_NAME, APPLICATION_VERSION);
 ```
 
 6. Modify your build settings so that symbol files are created for release builds. Set `C/C++ > General > Debug Information Format` to `Program Database /Zi`. Be sure to also set `Linker > Debugging > Generate Debug Info` to `Yes (/DEBUG)`.
