@@ -283,3 +283,72 @@ curl --location 'https://app.bugsplat.com/api/crash/reprocess' \
 --form 'id="132445"' \
 --form 'force="true"'
 ```
+
+## Notes
+
+<mark style="color:blue;">`POST`</mark> `https://app.bugsplat.com/api/crash/notes`
+
+Update the notes field for a specific crash.
+
+#### Form Data
+
+| Name     | Type   | Description                             |
+| -------- | ------ | --------------------------------------- |
+| database | string | BugSplat database containing crash data |
+| id       | int    | Crash ID                                |
+| notes    | string | New value for notes                     |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
+{
+  "database": "Fred",
+  "pageData": {
+    "defectTracker": true,
+    "defectTrackerType": "GitHub"
+  },
+  "rows": [
+    {
+      "id": "140612",
+      "status": "0",
+      "stackId": "19187",
+      "stackKey": "myConsoleCrasher+0x12b5",
+      "stackKeyId": "9579",
+      "appName": "myConsoleCrasher",
+      "appVersion": "1.048",
+      "appDescription": "appKey",
+      "userDescription": "A default user description",
+      "user": "TestUser",
+      "email": "TestUser@bugsplat.com",
+      "IpAddress": "34.225.87.xxxx",
+      "crashTime": "2025-10-30T20:52:24Z",
+      "defectId": null,
+      "defectUrl": "",
+      "defectLabel": "",
+      "skDefectId": null,
+      "skDefectUrl": "",
+      "skDefectLabel": "",
+      "Comments": "",
+      "skComments": "",
+      "crashTypeId": "1",
+      "exceptionCode": "c0000005",
+      "exceptionMessage": "Access violation",
+      "attributes": "{}",
+      "lineNumber": null,
+      "groupByCount": null
+    }
+  ]
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Curl Example
+
+```bash
+curl --location 'https://app.bugsplat.com/api/crash/notes' \
+--header 'Authorization: Bearer ••••••' \
+--form 'database="fred"' \
+--form 'id="132445"' \
+--form 'notes="test"'
+```

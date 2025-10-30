@@ -58,73 +58,64 @@ curl --location 'https://app.bugsplat.com/api/v2/summary' \
 
 ## Key Crash
 
-<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/keycrash`
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/keycrash`
 
-Get a list of crashes for a particular crash group (aka Stack Key). This query supports paging, filtering, and grouping. More information on paging, filtering, and grouping can be found [here](https://docs.bugsplat.com/introduction/development/web-services/paging-filtering-and-grouping). All the property keys in the Rows object can be used as column values for filtering and grouping e.g. id, email, IpAddress, etc.
+Obtain a list of crashes for a specific crash group (also known as Stack Key). This query supports paging, filtering, and grouping. For more information on paging, filtering, and grouping, please refer to this [link](../paging-filtering-and-grouping.md). All the property keys in the Rows object can be used as column values for filtering and grouping, such as id, email, and IP address.
 
 #### Query Parameters
 
-| Name          | Type      | Description                                                                          |
-| ------------- | --------- | ------------------------------------------------------------------------------------ |
-| stackKeyId    | number    | ID for the desired crash group                                                       |
-| database      | string    | BugSplat database containing crash data                                              |
-| crashTimeSpan | parameter | If present, the firstCrashTime and lastCrashTime values will be returned in PageData |
+| Name       | Type   | Description                             |
+| ---------- | ------ | --------------------------------------- |
+| database   | string | BugSplat database containing crash data |
+| stackKeyId | number | ID for the desired crash group          |
 
 {% tabs %}
 {% tab title="200 " %}
 ```json
-[
-  {
-    "Database": "Fred",
-    "PageData": {
-      "stackKeyId": 5555,
-      "stackKey": "myConsoleCrasher!MemoryException(150)",
-      "isSubBucket": false,
-      "isSubKeyedStack": false,
-      "defectTracker": true,
-      "defectTrackerType": "Jira",
-      "stackKeyDefectId": 0,
-      "stackKeyComments": "This is a critical defect - needs to be fixed for our upcoming version release",
-      "firstCrashTime": "2019-06-20T19:11:32Z",
-      "lastCrashTime": "2021-08-19T10:42:33Z",
-      "events": [
-        {
-          "id": "71",
-          "type": "Comment",
-          "timestamp": "2021-06-23T14:30:07Z",
-          "uId": "27578",
-          "username": "fred@bugsplat.com",
-          "firstName": "Fred",
-          "lastName": "Flintstone",
-          "message": "# Here is markup\r\n* one\\ud83d\\ude0e\r\n* two\r\n* three "
-        },
-      ]
-    },
-    "Rows": [
-      {
-        "id": "103146",
-        "appName": "myConsoleCrasher",
-        "appVersion": "2021.8.19.0",
-        "appDescription": "",
-        "crashTime": "2021-08-19T10:42:33Z",
-        "user": "f2cb32166f77f33e80311be40c97466e",
-        "email": "d000fa8829a03739863dbe3379e1568f",
-        "userDescription": "This is the default user crash description.",
-        "IpAddress": "54.144.81.xxxx",
-        "defectId": null,
-        "defectUrl": "",
-        "defectLabel": "",
-        "skDefectUrl": "",
-        "skDefectLabel": "",
-        "Comments": null,
-        "crashTypeId": "1",
-        "exceptionCode": "c0000005",
-        "exceptionMessage": "Access violation",
-        "groupByCount": null
-      }
-    ]
-  }
-]
+{
+  "database": "Fred",
+  "pageData": {
+    "stackKeyId": 10999,
+    "stackKey": "MyConsoleCrasher!MemoryException(238)",
+    "defectTracker": true,
+    "defectTrackerType": "GitHub",
+    "stackKeyDefectId": 0,
+    "stackKeyComments": null,
+    "stackKeyDefectUrl": "",
+    "stackKeyDefectLabel": "",
+    "firstCrashTime": "2025-10-24T00:58:00Z",
+    "lastCrashTime": "2025-10-24T01:35:00Z",
+    "events": []
+  },
+  "rows": [
+    {
+      "status": "0",
+      "id": "140577",
+      "stackId": "26497",
+      "stackKey": "MyConsoleCrasher!MemoryException(238)",
+      "stackKeyId": "10999",
+      "appName": "MyConsoleCrasher",
+      "appVersion": "1.0.0",
+      "appDescription": "",
+      "crashTime": "2025-10-24T01:35:47Z",
+      "user": "Fred",
+      "email": "fred@bugsplat.com",
+      "userDescription": "This is the default user crash description.",
+      "IpAddress": "71.117.187.xxxx",
+      "defectId": null,
+      "defectUrl": "",
+      "defectLabel": "",
+      "skDefectUrl": "",
+      "skDefectLabel": "",
+      "Comments": "Additional 'notes' data supplied through API",
+      "crashTypeId": "1",
+      "exceptionCode": "c0000005",
+      "exceptionMessage": "Access violation",
+      "attributes": "{}",
+      "groupByCount": null
+    }
+  ]
+}
 ```
 {% endtab %}
 {% endtabs %}
