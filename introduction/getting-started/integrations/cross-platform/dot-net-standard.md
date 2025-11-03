@@ -1,5 +1,9 @@
 # .NET Standard
 
+{% hint style="info" %}
+We have a new cross-platform .NET SDK available for early-access testing. If you're interested in using our latest SDK, please email [support@bugsplat.com](mailto:support@bugsplat.com).
+{% endhint %}
+
 ## Overview
 
 BugSplatDotNetStandard lets you capture and track exceptions on all .NET Standard 2.0 [platforms](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This includes:

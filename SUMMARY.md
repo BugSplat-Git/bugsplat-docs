@@ -14,7 +14,7 @@
         * [BugSplat for Windows Dependencies](introduction/getting-started/integrations/desktop/cplusplus/dependencies.md)
         * [BugSplat for Windows Upgrade Guide](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md)
         * [BugSplat for Windows API Documentation](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation.md)
-      * [Windows (.NET Framework)](introduction/getting-started/integrations/desktop/windows-dot-net-framework.md)
+      * [.NET Framework (Deprecated)](introduction/getting-started/integrations/desktop/windows-dot-net-framework.md)
       * [macOS](introduction/getting-started/integrations/desktop/macos.md)
       * [Linux](introduction/getting-started/integrations/desktop/linux.md)
     * [🔀 Cross-Platform](introduction/getting-started/integrations/cross-platform/README.md)
