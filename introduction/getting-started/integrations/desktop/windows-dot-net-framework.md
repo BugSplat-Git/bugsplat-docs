@@ -1,6 +1,6 @@
 # .NET Framework (Deprecated)
 
-{% hint style="info" %}
+{% hint style="warning" %}
 BugSplat's .NET Framework SDK is deprecated. We have a new cross-platform .NET SDK available for early-access testing. If you're interested in using our latest SDK, please email [support@bugsplat.com](mailto:support@bugsplat.com).
 {% endhint %}
 
