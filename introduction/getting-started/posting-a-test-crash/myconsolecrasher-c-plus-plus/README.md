@@ -1,14 +1,14 @@
 ---
 description: >-
   Testing Windows Native C++ crashes with the sample application
-  ‘myConsoleCrasher’
+  'MyConsoleCrasher'
 ---
 
 # MyConsoleCrasher (C++)
 
 Before you enable BugSplat in your Windows C++ application, you may want to take a moment to experiment with our `MyConsoleCrasher` sample application.
 
-To get started, download the BugSplat Microsoft Windows Native C++ SDK by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=native). Download and unzip the contents of `BugSplatNative.zip`. After extracting the downloaded SDK, navigate to the `Samples` folder and open the `MyConsoleCrasher.vcxproj` file with Visual Studio.
+To get started, download the BugSplat SDK for Windows by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=native). Download and unzip the contents of `BugSplatNative.zip`. After extracting the downloaded SDK, navigate to the `Samples` folder and open the `MyConsoleCrasher.vcxproj` file with Visual Studio.
 
 1. Open `MyConsoleCrasher.vcxproj` with Visual Studio 2022+
 2. Define values for `BUGSPLAT_DATABASE`, `APPLICATION_NAME`, and `APPLICATION_VERSION` in `Samples\MyConsoleCrasher\MyConsoleCrasher.h`

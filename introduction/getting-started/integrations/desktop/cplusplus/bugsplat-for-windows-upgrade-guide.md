@@ -1,8 +1,8 @@
 ---
-description: Upgrading from versions of BugSplatNative prior to 7.0.0
+description: Upgrading from versions of BugSplat for Windows prior to 7.0.0
 ---
 
-# BugSplat Native Upgrade Guide
+# BugSplat for Windows Upgrade Guide
 
 The BugSplat Windows/Xbox SDK underwent a significant upgrade in version 7.0.0. Customers upgrading from earlier versions can use this guide to assist their migration.&#x20;
 
@@ -43,7 +43,7 @@ Several of the BugSplat method names have been changed:
 
 Add the `/GS` compiler flag to both Debug and Release configurations to enable checking stack overrun conditions.
 
-Link with `BugSplat.lib` and `BugSplatSharedMemory.lib`.
+Link with `BugSplat.lib` .
 
 Copy `BugSplatMonitor.exe`, `BugSplatWer.dll,` and `BugSplatRc.dll` to your executable folder
 

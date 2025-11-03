@@ -1,7 +1,7 @@
-# BugSplat Crash Reporting Library for Windows (Native C++)
+# BugSplat for Windows (C++)
 
 {% hint style="info" %}
-Need help upgrading from an older version of BugSplat? Check out our [upgrade guide](bugsplat-native-upgrade-guide.md) to get started.
+Need help upgrading from an older version of BugSplat? Check out our [upgrade guide](bugsplat-for-windows-upgrade-guide.md) to get started.
 {% endhint %}
 
 ### Overview 👀
@@ -12,7 +12,7 @@ This document explains how to modify your Microsoft Visual C++ application to pr
 
 To begin, [download](https://app.bugsplat.com/browse/download_item.php?item=native) and unzip the BugSplat SDK for Microsoft Visual C++.
 
-To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [myConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit.
+To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [MyConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit.
 
 ### Integration 🏗️
 
@@ -22,9 +22,9 @@ For WinUI 3 applications, BugSplat must be registered as a WER [RuntimeException
 
 Add BugSplat to your application using the following steps:
 
-1. Link with **`BugSplat.lib`** and **`BugSplatSharedMemory.lib`** by adding these items to `Linker > Input > Additional Dependencies`.
+1. Link with **`BugSplat.lib`**  by adding an entry to `Linker > Input > Additional Dependencies`.
 2. Add **`BugSplatMonitor.exe`**, **`BugSplatWer.dll`**, and **`BugSplatRc.dll`** to your application's installer.
-3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-native-upgrade-guide.md#registry-changes).
+3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-for-windows-upgrade-guide.md#registry-changes).
 
 <figure><img src="../../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
 
