@@ -5,14 +5,14 @@ description: API Documentation for the BugSplat Versions Endpoint
 # Versions
 
 {% hint style="info" %}
-This endpoint supports paging, and filtering queries. More information on paging, filtering, and grouping is available [here](../paging-filtering-and-grouping.md).
+This endpoint supports paging and filtering queries. For more information on paging, filtering, and grouping, please visit this [link](../paging-filtering-and-grouping.md).
 {% endhint %}
 
-Get a list stats for crashes that have been posted separated by application and version, create a new version, or set the retired and full dumps flags on a specified version.
+Get a list of stats for crashes separated by application and version, create a new version, or set the retired and full dumps flags on a specified version.
 
 ## Versions
 
-<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/versions`
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/versions`
 
 Returns a list of versions in a given database.
 
