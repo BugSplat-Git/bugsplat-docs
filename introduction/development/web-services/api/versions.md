@@ -25,144 +25,25 @@ Returns a list of versions in a given database.
 {% tabs %}
 {% tab title="200 " %}
 ```json
-[
+{
+  "database": "Fred",
+  "pageData": [],
+  "rows": [
     {
-        "Database": "Fred",
-        "PageData": null,
-        "Rows": [
-            {
-                "symbolId": "163434",
-                "appName": "myConsoleCrasher",
-                "version": "2022.4.20.0",
-                "size": "14.6255",
-                "lastUpdate": "2022-04-20T14:20:14Z",
-                "lastReport": "2022-04-20T14:20:14Z",
-                "firstReport": "2022-04-20T02:06:31Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163348",
-                "appName": "myConsoleCrasher",
-                "version": "2022.4.19.0",
-                "size": "37.3619",
-                "lastUpdate": "2022-04-19T19:55:42Z",
-                "lastReport": "2022-04-19T19:55:42Z",
-                "firstReport": "2022-04-19T00:52:34Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163338",
-                "appName": "myDotNetCrasher",
-                "version": "2022.4.19.0",
-                "size": "4.1651",
-                "lastUpdate": "2022-04-19T18:03:25Z",
-                "lastReport": "2022-04-19T18:03:25Z",
-                "firstReport": "2022-04-19T00:03:49Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163242",
-                "appName": "myConsoleCrasher",
-                "version": "2022.4.18.0",
-                "size": "49.7142",
-                "lastUpdate": "2022-04-18T19:55:30Z",
-                "lastReport": "2022-04-18T19:55:30Z",
-                "firstReport": "2022-04-18T00:55:05Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163232",
-                "appName": "myDotNetCrasher",
-                "version": "2022.4.18.0",
-                "size": "4.2373",
-                "lastUpdate": "2022-04-18T18:03:24Z",
-                "lastReport": "2022-04-18T18:03:24Z",
-                "firstReport": "2022-04-18T00:02:59Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163162",
-                "appName": "myConsoleCrasher",
-                "version": "2022.4.17.0",
-                "size": "37.3619",
-                "lastUpdate": "2022-04-17T19:52:27Z",
-                "lastReport": "2022-04-17T19:52:27Z",
-                "firstReport": "2022-04-17T00:51:10Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163152",
-                "appName": "myDotNetCrasher",
-                "version": "2022.4.17.0",
-                "size": "4.2329",
-                "lastUpdate": "2022-04-17T18:03:28Z",
-                "lastReport": "2022-04-17T18:03:28Z",
-                "firstReport": "2022-04-17T00:03:07Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163062",
-                "appName": "myConsoleCrasher",
-                "version": "2022.4.16.0",
-                "size": "48.5396",
-                "lastUpdate": "2022-04-16T19:57:59Z",
-                "lastReport": "2022-04-16T19:57:59Z",
-                "firstReport": "2022-04-16T00:52:51Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163052",
-                "appName": "myDotNetCrasher",
-                "version": "2022.4.16.0",
-                "size": "4.3028",
-                "lastUpdate": "2022-04-16T18:02:53Z",
-                "lastReport": "2022-04-16T18:02:53Z",
-                "firstReport": "2022-04-16T00:03:40Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            },
-            {
-                "symbolId": "163020",
-                "appName": "myConsoleCrasher",
-                "version": "2022.4.15.0",
-                "size": "25.6763",
-                "lastUpdate": "2022-04-15T19:51:33Z",
-                "lastReport": "2022-04-15T19:51:33Z",
-                "firstReport": "2022-04-15T16:29:47Z",
-                "reportsPerDay": null,
-                "fullDumps": "0",
-                "rejectedCount": "0",
-                "retired": "0"
-            }
-        ]
+      "symbolId": "489912",
+      "appName": "MyConsoleCrasher",
+      "version": "7.0.1",
+      "size": "46.1987",
+      "lastUpdate": "2025-11-01T00:31:20Z",
+      "lastReport": "2025-10-31T00:24:07Z",
+      "firstReport": "2025-10-31T00:24:07Z",
+      "reportsPerDay": null,
+      "fullDumps": "0",
+      "rejectedCount": "0",
+      "retired": "0"
     }
-]
+  ]
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -176,7 +57,7 @@ curl --location 'https://app.bugsplat.com/api/versions?database=fred' \
 
 ## Versions
 
-<mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/versions`
+<mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/v2/versions`
 
 Used to create a new version and returns a pre-signed URL that can be used to upload new symbol files.
 
@@ -218,7 +99,7 @@ curl --location 'https://app.bugsplat.com/api/versions' \
 
 ## Versions
 
-<mark style="color:orange;">`PUT`</mark> `https://app.bugsplat.com/api/versions`
+<mark style="color:orange;">`PUT`</mark> `https://app.bugsplat.com/api/v2/versions`
 
 Used to set the retired and fullDumps flags for a specified version.
 
@@ -247,7 +128,7 @@ Used to set the retired and fullDumps flags for a specified version.
 
 ## Versions
 
-<mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/versions`
+<mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/v2/versions`
 
 Remove symbols from a specified version or versions.
 
