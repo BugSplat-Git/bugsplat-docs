@@ -161,9 +161,9 @@ AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
 {
 <strong>    // BugSplat override fields for overriding values on the Crash Details page
 </strong>    FGenericCrashContext::SetGameData(TEXT("BugSplatApplicationKey"), TEXT("en-US"));
-    FGenericCrashContext::SetGameData(TEXT("BugSplatEmail"), TEXT("fred@bugsplat.com"));
     FGenericCrashContext::SetGameData(TEXT("BugSplatNotes"), TEXT("Development Build"));
-    FGenericCrashContext::SetGameData(TEXT("BugSplatUser"), TEXT("wonderfulmuffin27"));
+    FGenericCrashContext::SetGameData(TEXT("UserEmail"), TEXT("fred@bugsplat.com"));
+    FGenericCrashContext::SetGameData(TEXT("UserName"), TEXT("wonderfulmuffin27"));
 
     // GameData values will be parsed as Attributes by BugSplat
     FGenericCrashContext::SetGameData(TEXT("CurrentWorld"), TEXT("Alpha Centari"));
