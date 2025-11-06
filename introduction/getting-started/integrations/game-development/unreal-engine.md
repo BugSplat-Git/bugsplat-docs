@@ -148,9 +148,9 @@ To upload crash reports to BugSplat, recompile with `bSendUnattendedBugReports =
 
 BugSplat extracts metadata from the `CrashContext.runtime-xml` file attached to Unreal Engine crash reports and convert those values into [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md) that can be displayed in the web application. See the [Unreal Engine Crash Reporting documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/crash-reporting-in-unreal-engine) for information on adding additional data.
 
-The following XML fields, if created as child properties of `RuntimeProperties` or `GameData` can be used to set the BugSplat crash Notes and Key fields.&#x20;
+The following XML fields, if created as child properties of `RuntimeProperties` or `GameData` can be used to set the specified BugSplat crash fields.&#x20;
 
-<table><thead><tr><th width="374">Property</th><th>Description</th></tr></thead><tbody><tr><td>BugSplatApplicationKey</td><td>Sets the value of the crash Key field</td></tr><tr><td>BugSplatEmail</td><td>Sets the value of the crash Email field</td></tr><tr><td>BugSplatNotes</td><td>Sets the value of the crash Notes field </td></tr><tr><td>BugSplatUser</td><td>Sets the value of the crash User field</td></tr></tbody></table>
+<table><thead><tr><th width="374">Property</th><th>Description</th></tr></thead><tbody><tr><td>BugSplatApplicationKey</td><td>Sets the value of the crash Key field</td></tr><tr><td>BugSplatNotes</td><td>Sets the value of the crash Notes field </td></tr><tr><td>UserEmail</td><td>Sets the value of the crash Email field</td></tr><tr><td>UserName</td><td>Sets the value of the crash User field.  The UserID URL parameter will take precedence if it is set.</td></tr></tbody></table>
 
 All other properties will be parsed as [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md).
 
