@@ -12,12 +12,12 @@ This document explains how to modify your Microsoft Visual C++ application to pr
 
 To begin, [download](https://app.bugsplat.com/browse/download_item.php?item=native) and unzip the BugSplat SDK for Microsoft Visual C++.
 
-To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [MyConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit.
+To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [MyConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit and is also available on [GitHub](https://github.com/BugSplat-Git/Samples).
 
 ### Integration 🏗️
 
 {% hint style="warning" %}
-For WinUI 3 applications, BugSplat must be registered as a WER [RuntimeExceptionModule](https://learn.microsoft.com/en-us/windows/win32/api/werapi/nf-werapi-werregisterruntimeexceptionmodule). This process is demonstrated in our sample WinUI project that we can send upon request. If you are interested, please contact [support@bugsplat.com](mailto:support@bugsplat.com).
+For WinUI 3 applications, BugSplat must be registered as a WER [RuntimeExceptionModule](https://learn.microsoft.com/en-us/windows/win32/api/werapi/nf-werapi-werregisterruntimeexceptionmodule). This process is demonstrated in the MyWinUI3Crasher sample, which is available in the SDK and on [GitHub](https://github.com/BugSplat-Git/Samples).&#x20;
 {% endhint %}
 
 Add BugSplat to your application using the following steps:
