@@ -94,7 +94,7 @@
       * [GitLab](introduction/development/integrating-with-tools/issue-trackers/gitlab.md)
       * [Monday.com](introduction/development/integrating-with-tools/issue-trackers/monday.md)
       * [YouTrack](introduction/development/integrating-with-tools/issue-trackers/youtrack.md)
-      * [Auto-Creating Defects from BugSplat Databases in Attached Third-Party Issue Trackers](introduction/development/integrating-with-tools/issue-trackers/auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md)
+      * [Automatic Issue Creation for Defect Tracker Integrations](introduction/development/integrating-with-tools/issue-trackers/auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md)
   * [API](introduction/development/web-services/README.md)
     * [Web Application Endpoints](introduction/development/web-services/api/README.md)
       * [Charting](introduction/development/web-services/api/charting.md)

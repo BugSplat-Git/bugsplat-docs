@@ -22,7 +22,7 @@ $BUGSPLAT_CLIENT_SECRET = "your-client-secret"
 
 5. Set the command-line arguments for the project to `/MemoryException`, or one of the other supported arguments from the sample's source code, to test various crashes. To set the command-line arguments, right-click the `MyConsoleCrasher` project and select **Properties > Debugging > Command Arguments**.
 
-<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Rebuild the project and run it outside of the Visual Studio debugger (Ctrl+F5). This is important since the debugger interferes with the BugSplat library’s exception handling. You should see a dialog such as that shown below:
 

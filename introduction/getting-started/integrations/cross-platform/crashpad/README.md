@@ -190,7 +190,7 @@ symbol-upload-windows -b "your-database-here" ^
 
 Trigger a crash in your application. The crash report should be available immediately on the BugSplat website. Click on the link in the `ID` column. If everything worked correctly, you should see something that resembles the following.
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>BugSplat Crash Details Page</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>BugSplat Crash Details Page</p></figcaption></figure>
 
 ## Additional Considerations 🤔
 
