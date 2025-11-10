@@ -65,7 +65,7 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\R
 
 Here is that value shown highlighted in the registry editor for one of our sample applications:
 
-<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 By default, WER will stop creating crash dumps after it has seen a few of the same type. To disable this, create the following registry key:&#x20;
 
@@ -79,7 +79,7 @@ Add the following values under the new key you created:
 
 Here's an example of this shown in the registry editor:
 
-<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 For additional information, see [https://learn.microsoft.com/en-us/windows/win32/wer/wer-settings](https://learn.microsoft.com/en-us/windows/win32/wer/wer-settings)
 
