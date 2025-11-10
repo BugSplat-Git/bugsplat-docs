@@ -26,5 +26,5 @@ BugSplat allows your team to create items on [Monday.com](https://monday.com/) w
 
 ### Automated Defect Creation
 
-Want to create issues in Monday.com automatically for each new crash or crash group? Check out the document on auto-creating defects in your third-party defect tracker tool [here](auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md).
+Want to create issues in Monday.com automatically for each new crash or crash group? Check out the document on auto-creating defects in your third-party defect tracker tool [here](automatic-issue-creation.md).
 

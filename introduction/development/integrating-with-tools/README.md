@@ -2,7 +2,7 @@
 
 Integrate BugSplat with your toolset to bring crash and other application performance data to improve your pre-existing workflow.
 
-**Note** that you can see our doc for automatically creating issues in your defect tracker from BugSplat databases [here](issue-trackers/auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md).
+**Note** that you can see our doc for automatically creating issues in your defect tracker from BugSplat databases [here](issue-trackers/automatic-issue-creation.md).
 
 ### Configurable Alerts
 
@@ -54,8 +54,8 @@ BugSplat connects with popular defect trackers allowing users to create new issu
 
 ### Additional Features
 
-{% content-ref url="issue-trackers/auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md" %}
-[auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md](issue-trackers/auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md)
+{% content-ref url="issue-trackers/automatic-issue-creation.md" %}
+[automatic-issue-creation.md](issue-trackers/automatic-issue-creation.md)
 {% endcontent-ref %}
 
 ### Request an Integration

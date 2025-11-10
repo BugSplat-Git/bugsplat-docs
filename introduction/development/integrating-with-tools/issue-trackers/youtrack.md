@@ -25,4 +25,4 @@ You can find **Username**, **API Token**, and **URL** on the YouTrack Hub Integr
 
 ### Automated Defect Creation
 
-Want to create issues in Jira automatically for each new crash or crash group? Check out the document on auto-creating defects in your third-party defect tracker tool [here](auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md).
+Want to create issues in Jira automatically for each new crash or crash group? Check out the document on auto-creating defects in your third-party defect tracker tool [here](automatic-issue-creation.md).

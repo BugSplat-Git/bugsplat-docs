@@ -8,7 +8,7 @@ BugSplat connects with popular defect trackers, allowing users to create new iss
 
 This allows teams to build issues that contain full crash information, like symbolic call stacks, as well as other crash-specific data that can help your team crush bugs faster. Issues created from BugSplat also include hyperlinks that allow users to quickly navigate between issues and the crash or stack key associated with them.
 
-**Note** you can see our doc for automatically creating issues in your defect tracker from BugSplat databases [here](auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md).
+**Note** you can see our doc for automatically creating issues in your defect tracker from BugSplat databases [here](automatic-issue-creation.md).
 
 {% content-ref url="azure-devops.md" %}
 [azure-devops.md](azure-devops.md)
@@ -40,7 +40,7 @@ This allows teams to build issues that contain full crash information, like symb
 
 ### Additional Features
 
-{% content-ref url="auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md" %}
-[auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md](auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers.md)
+{% content-ref url="automatic-issue-creation.md" %}
+[automatic-issue-creation.md](automatic-issue-creation.md)
 {% endcontent-ref %}
 
