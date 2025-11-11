@@ -1,6 +1,6 @@
 # Why are Crashes Missing Symbols, Function Names, and/or Line Numbers?
 
-To get the most out of BugSplat, it's essential to configure symbol uploads for each released version of your application. For most platforms, you'll need to upload `.dll`, `.pdb`, `.exe`, `.elf`, `.so`, and/or `.sym`, files to get function names and line numbers in reports. Symbol files are matched to crash reports by a GUID that needs to be an exact match. BugSplat can't calculate function names and line numbers if the symbol files are from a different build or have been modified by a build process such as code signing or anti-cheat.&#x20;
+To get the most out of BugSplat, it's essential to configure symbol uploads for each released version of your application. For most platforms, you'll need to upload `.dll`, `.pdb`, `.exe`, `.elf`, `.so`, and/or `.sym` files to get function names and line numbers in reports. Symbol files are matched to crash reports by a GUID that needs to be an exact match. BugSplat can't calculate function names and line numbers if the symbol files are from a different build or have been modified by a build process such as code signing or anti-cheat.&#x20;
 
 {% hint style="info" %}
 Symbolication of executables that use anti-cheat typically requires additional configuration within BugSplat.&#x20;
