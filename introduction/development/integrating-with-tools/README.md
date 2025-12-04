@@ -40,12 +40,12 @@ BugSplat connects with popular defect trackers allowing users to create new issu
 [azure-devops.md](issue-trackers/azure-devops.md)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="/broken/pages/-MeRotKdqt1dHxyC6joj" %}
+[Broken link](/broken/pages/-MeRotKdqt1dHxyC6joj)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="/broken/pages/-MeRpC22m6lBXSetioJF" %}
+[Broken link](/broken/pages/-MeRpC22m6lBXSetioJF)
 {% endcontent-ref %}
 
 {% content-ref url="issue-trackers/youtrack.md" %}
