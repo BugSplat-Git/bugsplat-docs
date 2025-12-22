@@ -89,7 +89,7 @@ curl --location 'https://app.bugsplat.com/api/crashes' \
 --form 'pagesize="50"'
 ```
 
-### Delete Crashes
+## Delete Crashes
 
 <mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/crashes.php`
 
