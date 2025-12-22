@@ -6,7 +6,7 @@ description: API Documentation for the BugSplat Crashes Endpoint
 
 Get the data related to an individual crash or schedule a crash to be reprocessed.
 
-## Crash
+## Get Crash
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/crash/details`
 
@@ -284,7 +284,7 @@ curl --location 'https://app.bugsplat.com/api/crash/reprocess' \
 --form 'force="true"'
 ```
 
-## Notes
+## Update Notes
 
 <mark style="color:blue;">`POST`</mark> `https://app.bugsplat.com/api/crash/notes`
 

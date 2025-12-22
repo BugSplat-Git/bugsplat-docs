@@ -10,7 +10,7 @@ This endpoint supports paging and filtering queries. For more information on pag
 
 Get a list of stats for crashes separated by application and version, create a new version, or set the retired and full dumps flags on a specified version.
 
-## Versions
+## Get Versions
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/versions`
 
@@ -55,7 +55,7 @@ curl --location 'https://app.bugsplat.com/api/versions?database=fred' \
 --header 'Authorization: Bearer ••••••'
 ```
 
-## Versions
+## Create Versions
 
 <mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/v2/versions`
 
@@ -97,7 +97,7 @@ curl --location 'https://app.bugsplat.com/api/versions' \
 --form 'symFileName="test.pdb"'
 ```
 
-## Versions
+## Update Versions
 
 <mark style="color:orange;">`PUT`</mark> `https://app.bugsplat.com/api/v2/versions`
 
@@ -126,7 +126,7 @@ Used to set the retired and fullDumps flags for a specified version.
 {% endtab %}
 {% endtabs %}
 
-## Versions
+## Delete Versions
 
 <mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/v2/versions`
 

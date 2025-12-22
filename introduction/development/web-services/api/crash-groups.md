@@ -10,11 +10,11 @@ These endpoints support paging, filtering, and grouping queries. More informatio
 
 Get a summary of all [crash groups](../../../../education/bugsplat-terminology.md#crash-group), get a list of crashes in a particular group, or detailed information on individual crash groups that share a common function name and line number at the top of the call stack and have been grouped at a lower level of the call stack.
 
-## Summary
+## Get Summary
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/summary`
 
-Returns crash summary data. Supports paging and filtering using column names firstReport, lastReport, stackKey, stackKeyId, crashSum, userSum, subKeyDepth, defectId, comments, techSupportSubject.
+Returns crash summary data. Supports paging and filtering using column names firstReport, lastReport, stackKey, stackKeyId, crashSum, userSum, subKeyDepth, defectId, comments, and techSupportSubject.
 
 #### Query Parameters
 
@@ -56,7 +56,7 @@ curl --location 'https://app.bugsplat.com/api/v2/summary' \
 --header 'Authorization: Bearer ••••••'
 ```
 
-## Key Crash
+## Get Key Crash
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/keycrash`
 

@@ -6,7 +6,7 @@ description: API Documentation for the BugSplat Databases Endpoint
 
 Operations related to a user or company's databases in BugSplat. Get a list of databases for the currently authenticated user or company, create a new database, transfer a database's ownership to another company, or delete a database.
 
-## Databases
+## Get Databases
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/databases`
 
@@ -40,7 +40,7 @@ curl --location 'https://app.bugsplat.com/api/databases' \
 --header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA'
 ```
 
-## Databases
+## Create Database
 
 <mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/databases`
 
@@ -72,11 +72,11 @@ curl --location 'https://app.bugsplat.com/api/databases' \
 --form 'database="postman-4f17b3f4-7ff0-497c-b3ec-94b333c05bd6"'
 ```
 
-## Databases
+## Update Databases
 
 <mark style="color:orange;">`PUT`</mark> `https://app.bugsplat.com/api/databases`
 
-Transfer the ownership of a database to a different company.
+Transfer ownership of a database to another company.
 
 #### Request Body
 
@@ -87,7 +87,7 @@ Transfer the ownership of a database to a different company.
 
 {% tabs %}
 {% tab title="200 " %}
-```
+```json
 {
     "status": "success",
     "database": "fred",
@@ -97,7 +97,7 @@ Transfer the ownership of a database to a different company.
 {% endtab %}
 {% endtabs %}
 
-## Databases
+## Delete Database
 
 <mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/databases`
 
@@ -115,7 +115,7 @@ Deletes a database and all associated data from BugSplat. This action is irrever
 {
     "status": "success",
     "database": "fred",
-    "deleted":true
+    "deleted": true
 }
 ```
 {% endtab %}

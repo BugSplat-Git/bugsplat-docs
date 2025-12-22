@@ -6,33 +6,25 @@ description: API Documentation for the BugSplat User (GDPR) Endpoint
 
 User data endpoints for GDPR compliance. Get or delete the data associated with a specified user.
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/user/userData" method="get" summary="User Data" %}
-{% swagger-description %}
+## Get User Data
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/user/userData`
+
 Returns crash reports containing specified email, username, or IP Address. Only one of the following query params can be specified at a time: email, username, ipAddress.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="ipAddress" type="string" required="false" %}
-IP Address of user to search for
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="username" type="string" required="false" %}
-Username of user to search for
-{% endswagger-parameter %}
+| Name      | Type    | Description                                                               |
+| --------- | ------- | ------------------------------------------------------------------------- |
+| ipAddress | string  | IP Address of user to search for                                          |
+| username  | string  | Username of user to search for                                            |
+| email     | string  | Email of user to search for                                               |
+| database  | string  | BugSplat database to query for user data                                  |
+| companyId | integer | Company identifier.  If supplied, all company databases will be queried.  |
 
-{% swagger-parameter in="query" name="email" type="string" required="false" %}
-Email of user to search for
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="database" type="string" required="false" %}
-BugSplat database to query for user data
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="companyId" type="integer" %}
-Company identifier.  If supplied, all company databases will be queried.&#x20;
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "Status": "Success",
     "crashes": [
@@ -47,39 +39,31 @@ Company identifier.  If supplied, all company databases will be queried.&#x20;
     ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://app.bugsplat.com" path="/api/user/userData" method="delete" summary="User Data" %}
-{% swagger-description %}
+## Delete User Data
+
+<mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/user/userData`
+
 Destroys the PII data associated with each matching crash report. This process will obfuscate email, username, and IP Address and delete the crash upload file. Only one of the following query params can be specified at a time: email, username, ipAddress.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="ipAddress" type="string" required="false" %}
-IP Address of the user whose data will be deleted
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="username" type="string" required="false" %}
-Username of the user whose data will be deleted
-{% endswagger-parameter %}
+| Name      | Type    | Description                                                                    |
+| --------- | ------- | ------------------------------------------------------------------------------ |
+| ipAddress | string  | IP Address of the user whose data will be deleted                              |
+| username  | string  | Username of the user whose data will be deleted                                |
+| email     | string  | Email of the user whose data will be deleted                                   |
+| database  | string  | A single BugSplat database to process                                          |
+| companyId | integer | Company identifier.  If supplied all company-owned databases will be processed |
 
-{% swagger-parameter in="query" name="email" type="string" required="false" %}
-Email of the user whose data will be deleted
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="database" type="string" required="false" %}
-A single BugSplat database to process
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="companyId" type="integer" %}
-Company identifier.  If supplied all company-owned databases will be processed
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```
+{% tabs %}
+{% tab title="200 " %}
+```json
 {
     "Status": "Success"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}

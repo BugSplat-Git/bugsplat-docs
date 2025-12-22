@@ -6,7 +6,7 @@ description: API Documentation for the BugSplat Company Endpoint
 
 Get or set information about your company in BugSplat for Billing purposes.
 
-## Company
+## Get Company
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/company`
 
@@ -40,7 +40,7 @@ curl --location 'https://app.bugsplat.com/api/company?database=fred' \
 --header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA'
 ```
 
-## Company
+## Update Company
 
 <mark style="color:orange;">`PUT`</mark> `https://app.bugsplat.com/api/company`
 

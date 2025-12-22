@@ -8,11 +8,11 @@ description: API Documentation for the BugSplat Crashes Endpoint
 This endpoint supports paging, filtering, and grouping queries. For more information on paging, filtering, and grouping, please visit this [link](../paging-filtering-and-grouping.md).
 {% endhint %}
 
-## Crashes
+## Get Crashes
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/crashes`
 
-Get a list of crashes for a database. This query supports paging, filtering, and grouping.  All of the property keys in the Rows object can be used as column values for filtering and grouping, e.g., id, stackKey, appName, ipAddress, etc. &#x20;
+Get a list of crashes for a database. This query supports paging, filtering, and grouping. All of the property keys in the Rows object can be used as column values for filtering and grouping, e.g., id, stackKey, appName, ipAddress, etc.
 
 #### Query Parameters
 
@@ -87,4 +87,32 @@ curl --location 'https://app.bugsplat.com/api/crashes' \
 --form 'groupscount="0"' \
 --form 'pagenum="0"' \
 --form 'pagesize="50"'
+```
+
+### Delete Crashes
+
+<mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/crashes.php`
+
+Delete one or more crashes by ID. The maximum batch size per call is 50.
+
+#### Query Parameters
+
+| Name     | Type   | Description                             |
+| -------- | ------ | --------------------------------------- |
+| database | string | BugSplat database containing crash data |
+| ids      | string | Comma-separated list of crash IDs       |
+
+{% tabs %}
+{% tab title="200 " %}
+```
+(empty response body)
+```
+{% endtab %}
+{% endtabs %}
+
+### Curl Example
+
+```bash
+curl --location --request DELETE 'https://app.bugsplat.com/api/crashes.php?database=Fred&ids=141072%2C141070' \
+--header 'Authorization: Bearer ••••••'
 ```

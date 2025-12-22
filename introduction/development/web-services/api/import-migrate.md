@@ -6,11 +6,11 @@ description: API Documentation for the BugSplat Crashes Endpoint
 
 Endpoint to help your team to upload existing crashes and migrate from an existing crash report solution to BugSplat. This endpoint is not suitable for production crash volumes.
 
-## Crash Import
+## Upload Crash
 
 <mark style="color:green;">`POST`</mark> `https://{database}.bugsplat.com/api/upload/manual/crash`
 
-Migrate crash minidump files to BugSplat from your existing crash report solution. Note, this endpoint is not suitable for production crash volumes.  Replace {database} with the name of your BugSplat database.
+Migrate crash minidump files to BugSplat from your existing crash report solution. Note: this endpoint is not suitable for production crash volumes.  Replace {database} with the name of your BugSplat database.
 
 #### Request Body
 

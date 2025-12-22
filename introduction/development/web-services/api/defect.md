@@ -6,7 +6,7 @@ description: API Documentation for the BugSplat Defect Endpoint
 
 Operations related to BugSplat's connection with the defect tracker configured on the specified database.
 
-## Defect
+## Get Defect
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/logDefect`
 
@@ -34,7 +34,7 @@ Returns information regarding linked defects for a given crash (using id) or cra
 {% endtab %}
 {% endtabs %}
 
-## Defect
+## Create Defect
 
 <mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/logDefect`
 
@@ -62,7 +62,7 @@ Create an issue in the associated defect tracker
 {% endtab %}
 {% endtabs %}
 
-## Defect
+## Remove Defect
 
 <mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/logDefect`
 

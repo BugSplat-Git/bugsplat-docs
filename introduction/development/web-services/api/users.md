@@ -10,7 +10,7 @@ This endpoint supports paging and filtering queries. More information paging, fi
 
 Get a list of users, add a user, or remove a user from a specified database.
 
-## Users
+## Get Users
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/user/users`
 
@@ -50,7 +50,7 @@ curl --location 'https://app.bugsplat.com/api/user/users?database=fred' \
 --header 'Authorization: Bearer ••••••'
 ```
 
-## Users
+## Add Users
 
 <mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/user/users`
 
@@ -84,7 +84,7 @@ curl --location 'https://app.bugsplat.com/api/user/users' \
 --form 'username="name@test.com"'
 ```
 
-## Users
+## Delete Users
 
 <mark style="color:red;">`DELETE`</mark> `https://app.bugsplat.com/api/user/users`
 

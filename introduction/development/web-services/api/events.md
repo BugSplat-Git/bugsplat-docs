@@ -6,7 +6,7 @@ description: API Documentation for the BugSplat Events Endpoint
 
 Get a list of events, or post a new event for a given Crash ID or Crash Group (Stack Key) ID.
 
-## Events
+## Get Events
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/events`
 
@@ -48,7 +48,7 @@ curl --location 'https://app.bugsplat.com/api/events?database=fred&stackKeyId=10
 --header 'Authorization: Bearer ••••••'
 ```
 
-## Comment
+## Add Comment
 
 <mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/events/comment`
 
