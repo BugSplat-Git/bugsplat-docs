@@ -5,7 +5,7 @@
 The recommended method for uploading crash reports to BugSplat is via presigned URLs. This approach is more efficient and scalable than direct POST uploads. The process involves three steps:
 
 1. Request a presigned upload URL from BugSplat
-2. Upload your crash file and attachments directly to the presigned URL
+2. Upload your zipped crash file and attachments directly to the presigned URL
 3. Commit the upload to finalize processing
 
 For a complete working example, see the [python-crash-upload](https://github.com/BugSplat-Git/python-crash-upload) repository.
