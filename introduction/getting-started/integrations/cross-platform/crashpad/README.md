@@ -169,6 +169,10 @@ Call `initializeCrashpad` using parameters specific to your application for `dbN
 initializeCrashpad(BUGSPLAT_DATABASE, BUGSPLAT_APP_NAME, BUGSPLAT_APP_VERSION);
 ```
 
+#### Attributes
+
+BugSplat will parse the `annotations` fields as attributes that can be configured as searchable columns within the BugSplat web app. For more information, please refer to the [Crash Attributes documentation](../../../../../education/how-tos/using-the-crash-attribute-feature.md).
+
 ## Symbol Uploads 🗺️
 
 You will need to generate and upload `.sym` files to BugSplat to generate function names and line numbers in the stack traces of your crash reports. BugSplat's [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) tool can be used conveniently to generate and upload `.sym` files with a single terminal command. Download a copy of symbol-upload from [GitHub](https://github.com/BugSplat-Git/symbol-upload) or install it via [npm](https://npmjs.com/package/@bugsplat/symbol-upload).
