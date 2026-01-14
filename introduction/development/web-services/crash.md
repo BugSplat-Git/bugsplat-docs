@@ -1,6 +1,152 @@
-# Crash Post Endpoints
+# Crash Upload Endpoints
 
-Most crash uploads to BugSplat are done via pre-signed URLs. However, some platforms do not support uploading via pre-signed URLs. The following documentation describes how customers can POST crashes directly to BugSplat via a suite of endpoints specific to their BugSplat database.
+## Presigned URL Upload (Recommended)
+
+The recommended method for uploading crash reports to BugSplat is via presigned URLs. This approach is more efficient and scalable than direct POST uploads. The process involves three steps:
+
+1. Request a presigned upload URL from BugSplat
+2. Upload your crash file directly to the presigned URL
+3. Commit the upload to finalize processing
+
+For a complete working example, see the [python-crash-upload](https://github.com/BugSplat-Git/python-crash-upload) repository.
+
+{% hint style="info" %}
+Before uploading, zip your crash file (e.g., minidump) to reduce transfer size. The MD5 hash used in the commit step should be calculated from the zipped file.
+{% endhint %}
+
+### Step 1: Get Presigned Upload URL
+
+<mark style="color:blue;">`GET`</mark> `https://{{database}}.bugsplat.com/api/getCrashUploadUrl`
+
+Requests a presigned URL for uploading a crash file to BugSplat's storage.
+
+#### Path Parameters
+
+| Name                                             | Type   | Description                                                          |
+| ------------------------------------------------ | ------ | -------------------------------------------------------------------- |
+| \{{database\}}<mark style="color:red;">\*</mark> | string | Replace the subdomain value with the value of your BugSplat database |
+
+#### Query Parameters
+
+| Name                                            | Type   | Description                              |
+| ----------------------------------------------- | ------ | ---------------------------------------- |
+| database<mark style="color:red;">\*</mark>      | string | Your BugSplat database name              |
+| appName<mark style="color:red;">\*</mark>       | string | Name of the crashing application         |
+| appVersion<mark style="color:red;">\*</mark>    | string | Version of the crashing application      |
+| crashPostSize<mark style="color:red;">\*</mark> | number | Size of the zipped crash file in bytes   |
+
+{% tabs %}
+{% tab title="200: OK" %}
+```json
+{
+    "url": "https://s3.amazonaws.com/bucket/path?presigned-params..."
+}
+```
+{% endtab %}
+
+{% tab title="429: Too Many Requests" %}
+```json
+{
+    "error": "Too many requests"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Step 2: Upload to Presigned URL
+
+<mark style="color:purple;">`PUT`</mark> `{{presigned_url}}`
+
+Upload the zipped crash file directly to the presigned URL returned from Step 1.
+
+#### Headers
+
+| Name                                             | Type   | Description                              |
+| ------------------------------------------------ | ------ | ---------------------------------------- |
+| Content-Type<mark style="color:red;">\*</mark>   | string | Must be `application/octet-stream`       |
+| Content-Length<mark style="color:red;">\*</mark> | string | Size of the zipped crash file in bytes   |
+
+#### Request Body
+
+The raw binary content of your zipped crash file.
+
+{% tabs %}
+{% tab title="200: OK" %}
+Empty response body indicates successful upload.
+{% endtab %}
+{% endtabs %}
+
+### Step 3: Commit the Upload
+
+<mark style="color:green;">`POST`</mark> `https://{{database}}.bugsplat.com/api/commitS3CrashUpload`
+
+Commits the uploaded crash file for processing by BugSplat.
+
+#### Path Parameters
+
+| Name                                             | Type   | Description                                                          |
+| ------------------------------------------------ | ------ | -------------------------------------------------------------------- |
+| \{{database\}}<mark style="color:red;">\*</mark> | string | Replace the subdomain value with the value of your BugSplat database |
+
+#### Request Body (multipart/form-data)
+
+| Name                                          | Type   | Description                                                                           |
+| --------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
+| database<mark style="color:red;">\*</mark>    | string | Your BugSplat database name                                                           |
+| appName<mark style="color:red;">\*</mark>     | string | Name of the crashing application                                                      |
+| appVersion<mark style="color:red;">\*</mark>  | string | Version of the crashing application                                                   |
+| crashType<mark style="color:red;">\*</mark>   | string | Type of crash (see Crash Type Reference below)                                        |
+| crashTypeId<mark style="color:red;">\*</mark> | string | Numeric identifier for the crash type (see Crash Type Reference below)                |
+| s3key<mark style="color:red;">\*</mark>       | string | The presigned URL returned from Step 1 (used as the S3 key reference)                 |
+| md5<mark style="color:red;">\*</mark>         | string | MD5 hash of the zipped crash file for integrity verification                          |
+
+{% tabs %}
+{% tab title="200: OK" %}
+```json
+{
+    "status": "success",
+    "crashId": 1,
+    "techSupportUrl": "https://app.bugsplat.com/browse/crashInfo.php?vendor=fred&version=1.0&key=key&id=99999999&row=1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Crash Type Reference
+
+Use the following `crashType` and `crashTypeId` values when committing uploads:
+
+| Platform              | crashType             | crashTypeId | Description                                      |
+| --------------------- | --------------------- | ----------- | ------------------------------------------------ |
+| Windows               | `Windows.Native`      | 1           | Native Windows minidumps (x86/x64)               |
+| .NET                  | `DotNet`              | 2           | Legacy .NET crash reports                        |
+| .NET                  | `DotNetDmp`           | 8           | .NET minidumps                                   |
+| .NET Standard         | `DotNetStandard`      | 18          | .NET Core, UWP, and .NET Standard                |
+| macOS                 | `PLCrashReporter`     | 13          | PLCrashReporter format                           |
+| Crashpad/Breakpad     | `Crashpad`            | 6           | Cross-platform Crashpad/Breakpad minidumps       |
+| Java                  | `Java`                | 4           | Java crash reports                               |
+| JavaScript            | `JavaScript`          | 14          | Browser JavaScript errors                        |
+| Angular               | `Angular`             | 19          | Angular framework errors                         |
+| Node.js               | `NodeJs`              | 20          | Node.js crash reports                            |
+| Electron              | `Electron`            | 22          | Electron application crashes                     |
+| Python                | `Python`              | 23          | Python crash reports                             |
+| Unity (Managed)       | `Unity`               | 12          | Unity managed/C# crash reports                   |
+| Unity (Native)        | `UnityNative`         | 15          | Unity native crash dumps                         |
+| Unreal Engine         | `UE4Native`           | 17          | UE4/UE5 Windows crash reports                    |
+| Unreal Engine (Linux) | `UE4LinuxServer`      | 16          | UE4/UE5 Linux server crash reports               |
+| Unreal Engine (Mac)   | `UE4Mac`              | 33          | UE4/UE5 macOS crash reports                      |
+| iOS                   | `iOS`                 | 26          | iOS crash reports                                |
+| PlayStation 4         | `PlayStation4`        | 28          | PS4 crash reports                                |
+| PlayStation 5         | `PlayStation5`        | 29          | PS5 crash reports                                |
+| Xbox                  | `Xbox`                | 27          | Xbox crash reports                               |
+| Nintendo              | `Nintendo`            | 35          | Nintendo Switch crash reports                    |
+| XML                   | `XmlReport`           | 21          | Custom XML-formatted crash reports               |
+
+---
+
+## Direct POST Endpoints
+
+Most crash uploads to BugSplat are done via pre-signed URLs as described above. However, some platforms do not support uploading via pre-signed URLs. The following documentation describes how customers can POST crashes directly to BugSplat via a suite of endpoints specific to their BugSplat database.
 
 {% hint style="warning" %}
 &#x20;All these crashes must be uploaded via your BugSplat subdomain (e.g., https://your-database.bugsplat.com) to ensure that our backend accepts them.
