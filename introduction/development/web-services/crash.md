@@ -5,20 +5,20 @@
 The recommended method for uploading crash reports to BugSplat is via presigned URLs. This approach is more efficient and scalable than direct POST uploads. The process involves three steps:
 
 1. Request a presigned upload URL from BugSplat
-2. Upload your crash file directly to the presigned URL
+2. Upload your crash file and attachments directly to the presigned URL
 3. Commit the upload to finalize processing
 
 For a complete working example, see the [python-crash-upload](https://github.com/BugSplat-Git/python-crash-upload) repository.
 
 {% hint style="info" %}
-Before uploading, zip your crash file (e.g., minidump) to reduce transfer size. The MD5 hash used in the commit step should be calculated from the zipped file.
+Before uploading, zip your crash file (e.g., minidump) and all attachments to reduce transfer size. The MD5 hash used in the commit step should be calculated from the zipped file.
 {% endhint %}
 
 ### Step 1: Get Presigned Upload URL
 
 <mark style="color:blue;">`GET`</mark> `https://{{database}}.bugsplat.com/api/getCrashUploadUrl`
 
-Requests a presigned URL for uploading a crash file to BugSplat's storage.
+Requests a presigned URL for uploading a zip file to BugSplat's storage.
 
 #### Path Parameters
 
@@ -30,7 +30,6 @@ Requests a presigned URL for uploading a crash file to BugSplat's storage.
 
 | Name                                            | Type   | Description                              |
 | ----------------------------------------------- | ------ | ---------------------------------------- |
-| database<mark style="color:red;">\*</mark>      | string | Your BugSplat database name              |
 | appName<mark style="color:red;">\*</mark>       | string | Name of the crashing application         |
 | appVersion<mark style="color:red;">\*</mark>    | string | Version of the crashing application      |
 | crashPostSize<mark style="color:red;">\*</mark> | number | Size of the zipped crash file in bytes   |
@@ -57,7 +56,7 @@ Requests a presigned URL for uploading a crash file to BugSplat's storage.
 
 <mark style="color:purple;">`PUT`</mark> `{{presigned_url}}`
 
-Upload the zipped crash file directly to the presigned URL returned from Step 1.
+Upload the zipped crash and attachments directly to the presigned URL returned from Step 1.
 
 #### Headers
 
@@ -92,7 +91,6 @@ Commits the uploaded crash file for processing by BugSplat.
 
 | Name                                          | Type   | Description                                                                           |
 | --------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
-| database<mark style="color:red;">\*</mark>    | string | Your BugSplat database name                                                           |
 | appName<mark style="color:red;">\*</mark>     | string | Name of the crashing application                                                      |
 | appVersion<mark style="color:red;">\*</mark>  | string | Version of the crashing application                                                   |
 | crashType<mark style="color:red;">\*</mark>   | string | Type of crash (see Crash Type Reference below)                                        |
@@ -255,7 +253,7 @@ Uploads a Crashpad crash report with optional metadata.
 
 ## XML
 
-<mark style="color:green;">`POST`</mark> `{{database}}.bugsplat.com/post/xml/index.php`
+<mark style="color:green;">`POST`</mark> `https://{{database}}.bugsplat.com/post/xml/index.php`
 
 Uploads an XML crash report and can be used to create reports for languages and platforms not directly supported by BugSplat.
 
