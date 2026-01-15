@@ -23,19 +23,22 @@ Notification payload for new BugSplat report or new BugSplat group. &#x20;
 | ---------------- | ------------ | ------------------------------------------------------------------------------------------------ |
 | notificationType | string       | <p>Type of notification:  "NewReport", or</p><p>"NewGroup"</p>                                   |
 | id               | number       | BugSplat crash ID for new report                                                                 |
-| crashType        | string       | String representing platform used to post report                                                 |
+| crashTypeId      | number       | Numeric identifier for the platform used to post report                                          |
 | stackKeyId       | number       | BugSplat ID for report group                                                                     |
 | stackId          | number       | Unique call stack identifier                                                                     |
 | stackKeyName     | string       | Function name and line number used to group the report                                           |
-| callstack        | string array | Call stack.  This may be empty if BugSplat matches an existing crash using the crash hash field. |
+| callstack        | object array | Array of stack frame objects. May be empty if BugSplat matches an existing crash using the hash. |
 | database         | string       | BugSplat database where report is stored                                                         |
 | application      | string       | Application name associated with report                                                          |
-| version          | string       | Versions associated with report                                                                  |
+| version          | string       | Version associated with report                                                                   |
 | key              | string       | Identifier for specific flavor of application associated with report                             |
 | user             | string       | End-user associated with generated report                                                        |
 | email            | string       | End-user's email associated with generated report                                                |
 | ipAddress        | string       | End-user's IP address (can be obfuscated via Options page)                                       |
-| hash             | string       | Hash representing unique report call stack.  Not available for all crashes                       |
+| hash             | string       | Hash representing unique report call stack. Not available for all crashes.                       |
 | exceptionCode    | string       | Code associated with issue that caused the report to be generated                                |
 | exceptionMessage | string       | Message associated with issue that caused the report to be generated                             |
-| received         | datetime     | Time-stamp of generated report                                                                   |
+| received         | datetime     | Timestamp of generated report                                                                    |
+| platform         | string       | Human-readable platform name (e.g., "Windows", "macOS", "Crashpad/Breakpad", "Unity")            |
+| crashFileUrl     | string       | Presigned URL to download the crash file. URL expires after a limited time.                      |
+| attributes       | object       | Key-value pairs of custom attributes submitted with the crash report                             |
