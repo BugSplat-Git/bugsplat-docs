@@ -11,7 +11,7 @@ The recommended method for uploading crash reports to BugSplat is via presigned 
 For a complete working example, see the [python-crash-upload](https://github.com/BugSplat-Git/python-crash-upload) repository.
 
 {% hint style="info" %}
-Before uploading, zip your crash file (e.g., minidump) and all attachments to reduce transfer size. The MD5 hash used in the commit step should be calculated from the zipped file.
+Before uploading, zip your crash file (e.g., minidump) and all attachments to reduce transfer size.
 {% endhint %}
 
 ### Step 1: Get Presigned Upload URL
@@ -28,17 +28,21 @@ Requests a presigned URL for uploading a zip file to BugSplat's storage.
 
 #### Query Parameters
 
-| Name                                            | Type   | Description                              |
-| ----------------------------------------------- | ------ | ---------------------------------------- |
-| appName<mark style="color:red;">\*</mark>       | string | Name of the crashing application         |
-| appVersion<mark style="color:red;">\*</mark>    | string | Version of the crashing application      |
-| crashPostSize<mark style="color:red;">\*</mark> | number | Size of the zipped crash file in bytes   |
+| Name                                            | Type   | Description                                                            |
+| ----------------------------------------------- | ------ | ---------------------------------------------------------------------- |
+| appName<mark style="color:red;">\*</mark>       | string | Name of the crashing application                                       |
+| appVersion<mark style="color:red;">\*</mark>    | string | Version of the crashing application                                    |
+| crashPostSize<mark style="color:red;">\*</mark> | number | Size of the zipped crash file in bytes                                 |
+| fullDumpFlag                                    | number | Set to 1 for full memory dumps (bypasses size limit check). Default: 0 |
+| internalIP                                      | string | Internal IP address of the crashing machine                            |
 
 {% tabs %}
 {% tab title="200: OK" %}
 ```json
 {
-    "url": "https://s3.amazonaws.com/bucket/path?presigned-params..."
+    "status": "success",
+    "url": "https://s3.amazonaws.com/bucket/path?presigned-params...",
+    "contentType": "application/zip, application/octet-stream"
 }
 ```
 {% endtab %}
@@ -89,14 +93,24 @@ Commits the uploaded crash file for processing by BugSplat.
 
 #### Request Body (multipart/form-data)
 
-| Name                                          | Type   | Description                                                                           |
-| --------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
-| appName<mark style="color:red;">\*</mark>     | string | Name of the crashing application                                                      |
-| appVersion<mark style="color:red;">\*</mark>  | string | Version of the crashing application                                                   |
-| crashType<mark style="color:red;">\*</mark>   | string | Type of crash (see Crash Type Reference below)                                        |
-| crashTypeId<mark style="color:red;">\*</mark> | string | Numeric identifier for the crash type (see Crash Type Reference below)                |
-| s3key<mark style="color:red;">\*</mark>       | string | The presigned URL returned from Step 1 (used as the S3 key reference)                 |
-| md5<mark style="color:red;">\*</mark>         | string | MD5 hash of the zipped crash file for integrity verification                          |
+| Name                                         | Type   | Description                                                                              |
+| -------------------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
+| appName<mark style="color:red;">\*</mark>    | string | Name of the crashing application                                                         |
+| appVersion<mark style="color:red;">\*</mark> | string | Version of the crashing application                                                      |
+| s3Key<mark style="color:red;">\*</mark>      | string | The presigned URL returned from Step 1 (used as the S3 key reference)                    |
+| crashType                                    | string | Type of crash (see Crash Type Reference below). Default: "Windows.Native"                |
+| crashTypeId                                  | number | Numeric identifier for the crash type (alternative to crashType string)                  |
+| fullDumpFlag                                 | number | Set to 1 for full memory dumps. Default: 0                                               |
+| appKey                                       | string | Application key for additional identification                                            |
+| description                                  | string | User-provided crash description                                                          |
+| user                                         | string | Username or identifier of the user who experienced the crash                             |
+| email                                        | string | Email address of the user who experienced the crash                                      |
+| internalIP                                   | string | Internal IP address of the crashing machine                                              |
+| notes                                        | string | Additional notes about the crash                                                         |
+| processor                                    | string | Processor/server identifier for crash processing                                         |
+| crashTime                                    | string | Timestamp of when the crash occurred (ISO format). Default: current time                 |
+| attributes                                   | string | JSON string of custom attributes to associate with the crash                             |
+| crashHash                                    | string | Hash of the crash for deduplication purposes                                             |
 
 {% tabs %}
 {% tab title="200: OK" %}
@@ -104,7 +118,9 @@ Commits the uploaded crash file for processing by BugSplat.
 {
     "status": "success",
     "crashId": 1,
-    "techSupportUrl": "https://app.bugsplat.com/browse/crashInfo.php?vendor=fred&version=1.0&key=key&id=99999999&row=1"
+    "stackKeyId": 5555,
+    "messageId": 12345,
+    "infoUrl": "https://app.bugsplat.com/browse/crashInfo.php?vendor=fred&version=1.0&key=key&id=99999999&row=1"
 }
 ```
 {% endtab %}
