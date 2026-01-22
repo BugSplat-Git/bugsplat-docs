@@ -313,21 +313,6 @@ Bugsplat supports uploading attachments with crash reports. There's a delegate m
 
 Bitcode was introduced by Apple to allow apps sent to the App Store to be recompiled by Apple itself and apply the latest optimization. Bitcode has now been officially deprecated by Apple and should be removed or disabled. If Bitcode is enabled, the symbols generated for your app in the store will be different than the ones from your own build system. We recommend that you disable bitcode in order for BugSplat to reliably symbolicate crash reports. Disabling bitcode significantly simplifies symbols management and currently doesn't have any known downsides for iOS apps.
 
-**Localization**
-
-For macOS, the BugSplat crash dialogue can be localized and supports 8 languages out of the box.
-
-1. English
-2. Finnish
-3. French
-4. German
-5. Italian
-6. Japanese
-7. Norwegian
-8. Swedish
-
-Additional languages may be supported by adding the language bundle and strings file to `BugSplat.xcframework/macos-arm64_x86_64/BugSplatMac.framework/Versions/A/Resources/`
-
 ### Sample Applications 🧑‍🏫
 
 `Example_Apps` includes several iOS and macOS BugSplat Test apps. Integrating BugSplat only requires the xcframework and a few lines of code.
