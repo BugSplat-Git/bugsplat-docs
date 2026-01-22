@@ -25,9 +25,9 @@ https://github.com/BugSplat-Git/bugsplat-apple
 
 To manually install BugSplat.xcframework in your project:
 
-1. Download the latest release from the [Releases](https://github.com/BugSPlat-Git/bugsplat-apple/releases) page. The release will contain a zip file with the xcframework.
+1. Download the latest release (BugSplat.xcframework.zip) from the [Releases](https://github.com/BugSPlat-Git/bugsplat-apple/releases) page. The zip will contain BugSplat.xcframework.
 2. Unzip the archive.
-3. In Xcode, select your app target, then go to the General tab, scroll down to Framework, Libraries, and Embedded Content, then click the "+" and navigate to locate the unzipped BugSplat.xcframework. Once added, select Embed & Sign.
+3. In Xcode, select your app target, then go to the General tab, scroll down to Framework, Libraries, and Embedded Content, then click the "+" and navigate to where you unzipped the archive in step 2. Select BugSplat.xcframework, then tap the "Add" button. Once added, select Embed & Sign.
 
 ### Usage 🧑‍💻
 
@@ -239,6 +239,46 @@ BugSplat.shared().setValue("Value of Attribute", forAttribute: "AttributeName")
 
 Please see the framework-specific [sample applications](macos.md#sample-applications) for more examples demonstrating how to use attributes.
 
+#### Application Name and Version
+
+By default, BugSplat uses values from your app's `Info.plist` (`CFBundleDisplayName`/`CFBundleName` for application name and `CFBundleShortVersionString` for version). You can override these values programmatically:
+
+```swift
+BugSplat.shared().applicationName = "MyCustomAppName"
+BugSplat.shared().applicationVersion = "2.0.0-beta"
+BugSplat.shared().start()
+```
+
+```objectivec
+[[BugSplat shared] setApplicationName:@"MyCustomAppName"];
+[[BugSplat shared] setApplicationVersion:@"2.0.0-beta"];
+[[BugSplat shared] start];
+```
+
+#### Application Key
+
+Set an `appKey` to identify your application build, environment, or user locale. In the BugSplat dashboard, you can configure custom localized support responses for crash groups based on the `appKey` value using the "Support Response" button on the Crash Group page. See [Support Responses](https://docs.bugsplat.com/introduction/production/setting-up-custom-support-responses) for more information.
+
+```swift
+BugSplat.shared().appKey = "en-US"
+```
+
+```objectivec
+[[BugSplat shared] setAppKey:@"en-US"];
+```
+
+#### Notes
+
+Add arbitrary additional data to include with crash reports. Notes can also be modified in the BugSplat dashboard after a crash is submitted.
+
+```swift
+BugSplat.shared().notes = "Debug build, feature-x enabled"
+```
+
+```objectivec
+[[BugSplat shared] setNotes:@"Debug build, feature-x enabled"];
+```
+
 #### Crash Reporter Customization
 
 There are several ways to customize your BugSplat crash reporter.
@@ -255,7 +295,7 @@ There are several ways to customize your BugSplat crash reporter.
 
 **Auto Submit**
 
-* By default, BugSplat will auto-submit crash reports for iOS and prompt the end user to submit a crash report for macOS. This default can be changed using a BugSplat property autoSubmitCrashReport. Set `autoSubmitCrashReport` to `YES` in order to send crash reports to the server automatically without presenting the crash reporter dialogue.
+* By default, BugSplat will auto-submit crash reports for iOS and prompt the end user to submit a crash report for macOS. This default can be changed using the `autoSubmitCrashReport` property. Set `autoSubmitCrashReport` to `YES` in order to send crash reports to the server automatically without presenting the crash reporter dialogue. On iOS, when set to `NO`, the user is presented with an alert with options: "Send", "Don't Send", and "Always Send".
 
 **Persist User Details**
 
@@ -273,27 +313,12 @@ Bugsplat supports uploading attachments with crash reports. There's a delegate m
 
 Bitcode was introduced by Apple to allow apps sent to the App Store to be recompiled by Apple itself and apply the latest optimization. Bitcode has now been officially deprecated by Apple and should be removed or disabled. If Bitcode is enabled, the symbols generated for your app in the store will be different than the ones from your own build system. We recommend that you disable bitcode in order for BugSplat to reliably symbolicate crash reports. Disabling bitcode significantly simplifies symbols management and currently doesn't have any known downsides for iOS apps.
 
-**Localization**
-
-For macOS, the BugSplat crash dialogue can be localized and supports 8 languages out of the box.
-
-1. English
-2. Finnish
-3. French
-4. German
-5. Italian
-6. Japanese
-7. Norwegian
-8. Swedish
-
-Additional languages may be supported by adding the language bundle and strings file to `BugSplat.xcframework/macos-arm64_x86_64/BugSplatMac.framework/Versions/A/Frameworks/HockeySDK.framework/Resources/`
-
 ### Sample Applications 🧑‍🏫
 
-`Example_Apps` includes several iOS and macOS BugSplat Test apps. Integrating BugSpat only requires the xcframework, and a few lines of code.
+`Example_Apps` includes several iOS and macOS BugSplat Test apps. Integrating BugSplat only requires the xcframework and a few lines of code.
 
 1. Clone the [bugsplat-apple repo](https://github.com/BugSplat-Git/bugsplat-apple).
-2. Open an example Xcode project from `Example_Apps`. For iOS, set the destination to be your iOS device. After running from Xcode, stop the process and relaunch from the iOS device directly.
+2. Open `BugSplat.xcworkspace` in Xcode. This workspace contains the SDK and all example apps. Select an example app scheme to run. For iOS, set the destination to be your iOS device. After running from Xcode, stop the process and relaunch from the iOS device directly.
 3. Once the app launches, click the "crash" button when prompted.
 4. Relaunch the app on the iOS device. At this point a crash report should be submitted to bugsplat.com
 5. Visit BugSplat's [Crashes](https://app.bugsplat.com/v2/crashes) page. When prompted for credentials, enter user `fred@bugsplat.com` and password `Flintstone`. The crash you posted from BugSplatTester should be at the top of the list of crashes.
