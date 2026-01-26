@@ -22,7 +22,7 @@ At BugSplat, we offer a range of plans tailored to meet the needs of projects an
 
 **Free Plan**
 
-Designed to support small projects that are just getting off the ground, our Free Plan offers an accessible entry point with essential features to manage crashes and errors effectively. This plan allows for up to three user logins and includes one user group, ensuring your team can collaborate efficiently from the start. With 100MB of included storage and a 1-month data retention policy, small teams can monitor and address up to 15,000 crashes and errors per month. This plan also provides full data on crash and error events, intelligent crash grouping, automated symbol uploads, GitHub integration, and email notifications, laying a solid foundation for initial project development and debugging processes.
+Designed to support small projects that are just getting off the ground, our Free Plan offers an accessible entry point with essential features to manage crashes and errors effectively. This plan allows for up to three user logins and includes one user group, ensuring your team can collaborate efficiently from the start. With 100GB of included storage and a 1-month data retention policy, small teams can monitor and address up to 15,000 crashes and errors per month. This plan also provides full data on crash and error events, intelligent crash grouping, automated symbol uploads, GitHub integration, and email notifications, laying a solid foundation for initial project development and debugging processes.
 
 **Team Plan**
 
