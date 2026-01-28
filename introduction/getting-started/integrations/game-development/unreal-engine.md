@@ -128,6 +128,12 @@ You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash
 
 You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) with the `-m` flag.
 
+## Check, Verify, and Ensure Reporting ✅
+
+Unreal Engine's `check`, `verify`, and `ensure` macros can all send crash reports to BugSplat. Checks and Verifies report automatically since they terminate the application. Ensures require additional configuration—in Shipping builds, you'll need to set `bUseChecksInShipping = true` in your `*.Target.cs` file to keep them active.
+
+For the complete guide on configuring ensure reporting, controlling report volume, and troubleshooting, see [Unreal Assert, Check, and Ensure Reporting](unreal-engine/unreal-assert-check-and-ensure-reporting.md).
+
 ## Licensee Builds 🤝
 
 Some forks of Unreal (e.g., Oculus) are set up as a "Licensee" build. Regardless of other settings, crash reports won't be sent because of this [block of code](https://github.com/EpicGames/UnrealEngine/blob/5ccd1d8b91c944d275d04395a037636837de2c56/Engine/Source/Runtime/Core/Private/Unix/UnixPlatformCrashContext.cpp#L594-L600):
