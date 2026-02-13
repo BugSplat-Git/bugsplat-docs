@@ -57,10 +57,16 @@ Your installer must install `BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSp
 
 To enable BugSplat to register for WER callbacks, register the `BugSplatWer.dll` module as shown below.  This registry entry should be a `DWORD` whose name is the path to the `BugSplatWer.dll` file installed in the same location as your executable. The value should be `0`.
 
-Create the WER registry key at the following location:
+Most applications should create the WER registry key at the following location:
 
 ```
 Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules
+```
+
+However, 32-bit applications must create the WER registry key at a different location:
+
+```
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules
 ```
 
 Here is that value shown highlighted in the registry editor for one of our sample applications:
