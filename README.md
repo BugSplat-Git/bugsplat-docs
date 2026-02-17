@@ -3,20 +3,6 @@ description: >-
   Technical documentation, platform integration guides, crash reporting best
   practices, and other useful information from BugSplat.  We're excited you're
   here!
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
 ---
 
 # Welcome
