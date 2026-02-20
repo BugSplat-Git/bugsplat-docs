@@ -12,9 +12,13 @@ Note that symbol files that are shared between [symbol stores](../../../educatio
 
 **Cleanup Rules**
 
-1. Symbol stores not referenced by a crash report in more than **90 days** will be removed.&#x20;
+1. Symbol stores not referenced by a crash report in more than the configured expiry period (default **90 days**) will be removed.&#x20;
 2. New symbol stores not referenced by a crash report within **15 days** will be removed.
-3. Individual symbol files not accessed in more than **90 days** will be removed.
+3. Individual symbol files not accessed in more than the configured expiry period (default **90 days**) will be removed.
+
+{% hint style="info" %}
+You can configure the symbol expiry period for your database on the [Symbols](https://app.bugsplat.com/v2/database/symbols) settings page. The default value is 90 days.
+{% endhint %}
 
 {% hint style="info" %}
 Avoid uploading common symbols with every build. Library symbols that change infrequently should be placed in a dedicated symbol store rather than being re-uploaded with each new build of your application. This allows the 15-day "new symbol store" rule to remove individual builds that aren't referenced and ensures more efficient cleanup.

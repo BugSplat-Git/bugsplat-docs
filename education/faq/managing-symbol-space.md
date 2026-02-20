@@ -17,7 +17,7 @@ BugSplat implements automatic cleanup rules to manage symbol stores and remove u
 2. **New Symbol Data Cleanup**:
    * Newly uploaded symbols not referenced by any crash report within 15 days of being posted will be removed.&#x20;
 3. **Inactivity-Based Removal**:
-   * BugSplat will automatically remove symbol stores that haven't been accessed recently.  Symbol stores not referenced by crash reports in over 90 days will be automatically removed.  (The Versions page will show a size of zero.)
+   * BugSplat will automatically remove symbol stores that haven't been accessed recently.  By default, symbol stores not referenced by crash reports in over 90 days will be automatically removed.  (The Versions page will show a size of zero.)  You can configure this period on the [Symbols](https://app.bugsplat.com/v2/database/symbols) settings page.
 
 #### Manual Removal of Symbol Stores
 
