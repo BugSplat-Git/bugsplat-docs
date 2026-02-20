@@ -8,7 +8,7 @@ There are a few ways that symbol files can be removed from BugSplat.
 
 ### Automatically
 
-BugSplat will automatically remove unreferenced symbols in large symbol sets. If your database contains more than 5 gigabytes of symbol data, our cleanup algorithm will automatically remove symbols not referenced by a crash report in more than 90 days. Additionally, newly posted symbols not referenced by a crash report within 15 days will be removed.
+BugSplat will automatically remove unreferenced symbols in large symbol sets. If your database contains more than 5 gigabytes of symbol data, our cleanup algorithm will automatically remove symbols not referenced by a crash report in more than the configured expiry period (default 90 days). Additionally, newly posted symbols not referenced by a crash report within 15 days will be removed. You can configure the symbol expiry period on the [Symbols](https://app.bugsplat.com/v2/database/symbols) settings page.
 
 ### Manually
 
