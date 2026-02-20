@@ -6,6 +6,16 @@ BugSplat can process crashes using symbol files stored in external symbol server
 Some organizations restrict access to their symbol servers by IP address. To allow access to BugSplat, add the IP addresses [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home), [3.93.104.250](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#ElasticIpDetails:AllocationId=eipalloc-0da0d84b88eed6812), and [34.194.164.107](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#ElasticIpDetails:AllocationId=eipalloc-0cd966956c064a2e4) to your whitelist.
 {% endhint %}
 
+### Directory Structure
+
+The [symbol-upload](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) tool can be used to create a [SymSrv](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure for Windows symbols that is compatible with both BugSplat and [Microsoft Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2022#configure-location-of-symbol-files-and-loading-options). Additionally, symbol-upload can also create a SymSrv directory structure for macOS and Crashpad symbols that is compatible with BugSplat.
+
+To upload symbols to a local directory, provide the `-l` flag and a path where the symbols will be copied.
+
+```bash
+symbol-upload -f "**/*.{pdb,exe,dll}" -l "C:\path\to\output"
+```
+
 ### HTTPS
 
 BugSplat can access symbol files over HTTPS. This method also supports [Windows SymStore/SymProxy](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/symbol-stores-and-symbol-servers) symbol servers. To connect an HTTPS symbol server to BugSplat, navigate to the [Symbols](https://app.bugsplat.com/v2/database/symbols?) page. Click the **+ Add Server** button, and add a **Host** value.
@@ -18,7 +28,7 @@ When testing a path, BugSplat will make a **HEAD** request to **http\[s]://usern
 
 ### AWS S3
 
-For AWS S3 symbol servers, you'll want to create a minimally permissive [IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) so that BugSplat can access your S3 bucket. Modify this example policy and attach it to your newly created IAM User.
+For AWS S3 symbol servers, create a minimally permissive [IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) so BugSplat can access your S3 bucket. Modify this example policy and attach it to your newly created IAM User.
 
 ```json
 {
