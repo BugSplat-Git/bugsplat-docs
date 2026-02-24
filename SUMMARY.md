@@ -103,6 +103,7 @@
       * [Crash](introduction/development/web-services/api/crash.md)
       * [Crashes](introduction/development/web-services/api/crashes.md)
       * [Crash Groups](introduction/development/web-services/api/crash-groups.md)
+      * [Dashboard](introduction/development/web-services/api/dashboard.md)
       * [Databases](introduction/development/web-services/api/databases.md)
       * [Defect](introduction/development/web-services/api/defect.md)
       * [Events](introduction/development/web-services/api/events.md)
