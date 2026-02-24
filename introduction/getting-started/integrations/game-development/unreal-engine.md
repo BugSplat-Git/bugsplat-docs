@@ -4,7 +4,7 @@
 If you are a developer looking to try BugSplat on your local machine, we've created a [Plugin](unreal-engine/unreal-engine-plugin.md) to help you get started.
 {% endhint %}
 
-BugSplat’s Unreal Engine integration supports capturing crashes on Windows, macOS, Linux, iOS, Android, Xbox, and PlayStation games. Support for the Nintendo Switch is coming soon. BugSplat also supports both Windows and Linux servers.
+BugSplat’s Unreal Engine integration supports capturing crashes on Windows, macOS, Linux, iOS, Android, Xbox, PlayStation and Switch 2 games. BugSplat also supports both Windows and Linux servers.
 
 There are two options for configuring BugSplat. If you are integrating BugSplat for an organization that uses a dedicated build machine, please continue reading.&#x20;
 
