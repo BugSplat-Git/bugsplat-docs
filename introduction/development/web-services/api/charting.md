@@ -21,6 +21,7 @@ Returns chartable crash data for the specified database, appNames, appVersions, 
 | appNames    | array  | Comma-separated list of applications to query                               |
 | startDate   | string | ISO 8601 timestamp representing the start date of the specified time period |
 | endDate     | string | ISO 8601 timestamp representing the end date of the specified time period   |
+| timezone    | string | UTC offset (e.g. `+05:30`, `-07:00`). Shifts daily buckets to local day boundaries. Defaults to `+00:00` |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -73,8 +74,9 @@ Returns chartable volumes for a given database and a comma-separated list of sta
 | stackKeyIds\[] | array  | Comma-separated list of stackKeyIds to query                                |
 | appNames       | array  | Comma-separated list of applications to query                               |
 | versions       | array  | Comma-separated list of versions to query                                   |
-| stateDate      | date   | ISO 8601 timestamp representing the start date of the specified time period |
+| startDate      | date   | ISO 8601 timestamp representing the start date of the specified time period |
 | endDate        | date   | ISO 8601 timestamp representing the end date of the specified time period   |
+| timezone       | string | UTC offset (e.g. `+05:30`, `-07:00`). Shifts daily and hourly buckets to local time boundaries. Defaults to `+00:00` |
 
 {% tabs %}
 {% tab title="200 " %}
