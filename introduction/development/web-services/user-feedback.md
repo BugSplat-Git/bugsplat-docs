@@ -10,9 +10,11 @@ When a user feedback report is posted to BugSplat:
 * The **description** becomes the exception message, providing additional context
 * Reports appear alongside crash reports in the BugSplat dashboard with the platform label "User Feedback"
 
-## XML Format
+## File Formats
 
-User feedback reports are uploaded as a file named `feedback.xml` with the following format:
+User feedback reports can be uploaded as either `feedback.xml` or `feedback.json`.
+
+### XML
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -22,14 +24,25 @@ User feedback reports are uploaded as a file named `feedback.xml` with the follo
 </feedback>
 ```
 
-| Element       | Required | Description                                         |
-| ------------- | -------- | --------------------------------------------------- |
-| `title`       | Yes      | Short summary of the feedback (becomes stack key)   |
-| `description` | No       | Detailed description of the issue (can be empty)    |
-
 {% hint style="info" %}
 Special XML characters in title and description (`&`, `<`, `>`, `"`, `'`) must be escaped using standard XML entities.
 {% endhint %}
+
+### JSON
+
+```json
+{
+  "title": "Login button does not respond",
+  "description": "Tapping login on iPhone does nothing."
+}
+```
+
+### Fields
+
+| Field         | Required | Description                                         |
+| ------------- | -------- | --------------------------------------------------- |
+| `title`       | Yes      | Short summary of the feedback (becomes stack key)   |
+| `description` | No       | Detailed description of the issue (can be empty)    |
 
 ## Uploading via Presigned URL
 
@@ -40,7 +53,7 @@ Use `crashType=User.Feedback` (or `crashTypeId=36`) when committing the upload i
 ### Quick Reference
 
 1. **Step 1** — `GET /api/getCrashUploadUrl` to get a presigned upload URL
-2. **Step 2** — `PUT` the zipped `feedback.xml` to the presigned URL
+2. **Step 2** — `PUT` the zipped `feedback.xml` (or `feedback.json`) to the presigned URL
 3. **Step 3** — `POST /api/commitS3CrashUpload` with `crashType=User.Feedback`
 
 Optional fields on commit: `user`, `email`, `description`, `appKey`, `attributes`
