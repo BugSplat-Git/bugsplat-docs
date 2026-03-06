@@ -113,6 +113,7 @@
       * [Users](introduction/development/web-services/api/users.md)
       * [Versions](introduction/development/web-services/api/versions.md)
     * [Crash Post Endpoints](introduction/development/web-services/crash.md)
+    * [User Feedback](introduction/development/web-services/user-feedback.md)
     * [OAuth2](introduction/development/web-services/oauth2.md)
     * [Defect Tracker Options](introduction/development/web-services/defect-tracker-options.md)
     * [Paging, Filtering, and Grouping](introduction/development/web-services/paging-filtering-and-grouping.md)

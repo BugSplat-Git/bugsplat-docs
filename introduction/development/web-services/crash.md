@@ -155,6 +155,7 @@ Use the following `crashType` and `crashTypeId` values when committing uploads:
 | Xbox                  | `Xbox`                | 27          | Xbox crash reports                               |
 | Nintendo              | `Nintendo`            | 35          | Nintendo Switch crash reports                    |
 | XML                   | `XmlReport`           | 21          | Custom XML-formatted crash reports               |
+| User Feedback         | `User.Feedback`       | 36          | User-submitted feedback and bug reports          |
 
 ---
 
