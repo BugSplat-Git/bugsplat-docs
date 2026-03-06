@@ -12,7 +12,7 @@ When a user feedback report is posted to BugSplat:
 
 ## XML Format
 
-User feedback reports are uploaded as a file named `bsCrashReport.xml` with the following format:
+User feedback reports are uploaded as a file named `feedback.xml` with the following format:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -40,7 +40,7 @@ Use `crashType=User.Feedback` (or `crashTypeId=36`) when committing the upload i
 ### Quick Reference
 
 1. **Step 1** — `GET /api/getCrashUploadUrl` to get a presigned upload URL
-2. **Step 2** — `PUT` the zipped `bsCrashReport.xml` to the presigned URL
+2. **Step 2** — `PUT` the zipped `feedback.xml` to the presigned URL
 3. **Step 3** — `POST /api/commitS3CrashUpload` with `crashType=User.Feedback`
 
 Optional fields on commit: `user`, `email`, `description`, `appKey`, `attributes`
