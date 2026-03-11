@@ -75,4 +75,17 @@ Once you've posted a crash, navigate to the Crashes page and click the link in t
 
 ![](<../../../../.gitbook/assets/image (5).png>)
 
+### User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+```python
+bugsplat.post_feedback(
+    'Login button broken',
+    description='Nothing happens when I tap it',
+    email='jane@example.com',
+    user='Jane'
+)
+```
+
 Thanks for using BugSplat ❤️
