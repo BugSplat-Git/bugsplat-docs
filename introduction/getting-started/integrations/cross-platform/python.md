@@ -84,7 +84,23 @@ bugsplat.post_feedback(
     'Login button broken',
     description='Nothing happens when I tap it',
     email='jane@example.com',
-    user='Jane'
+    user='Jane',
+    app_key='en-US'
+)
+```
+
+To include file attachments such as screenshots or log files:
+
+```python
+bugsplat.post_feedback(
+    'Login button broken',
+    description='Nothing happens when I tap it',
+    email='jane@example.com',
+    user='Jane',
+    additional_file_paths=[
+        './path/to/screenshot.png',
+        './path/to/log.txt'
+    ]
 )
 ```
 
