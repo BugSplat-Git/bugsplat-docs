@@ -177,3 +177,26 @@ AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
     FGenericCrashContext::SetGameData(TEXT("IsExternalQABuild"), TEXT("true"));
 }
 </code></pre>
+
+## User Feedback 💬
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+The BugSplat Unreal plugin provides a Blueprint-callable function for submitting feedback:
+
+### C++
+
+```cpp
+#include "BugSplatFeedback.h"
+
+UBugSplatFeedback::PostFeedback(
+    TEXT("Login button broken"),
+    TEXT("Nothing happens when I tap it"),
+    TEXT("Jane"),
+    TEXT("jane@example.com")
+);
+```
+
+### Blueprints
+
+Call the **Post Feedback** node from `BugSplatFeedback`, providing a title, description, user name, and email.
