@@ -66,6 +66,16 @@ If everything was configured correctly, you should see a crash report that looks
 
 Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box](../../../../../education/how-tos/customize-the-crash-dialog.md) page.
 
+## User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+Call `PostFeedback` on your `MiniDmpSender` instance:
+
+```cpp
+bool success = mpSender->PostFeedback(L"Login button broken", L"Nothing happens when I tap it");
+```
+
 ## Dependencies
 
 See technology dependencies on our [dependencies page](dependencies.md).
