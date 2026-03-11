@@ -322,6 +322,29 @@ In addition to crash reporting, BugSplat supports collecting non-crashing user f
                              description:@"Nothing happens when I tap it"
                                 userName:@"Jane"
                                userEmail:@"jane@example.com"
+                                  appKey:@"en-US"
+                             attachments:nil
+                              completion:^(NSError *error) {
+    if (error) {
+        NSLog(@"Feedback failed: %@", error);
+    } else {
+        NSLog(@"Feedback submitted successfully");
+    }
+}];
+```
+
+To include file attachments such as screenshots:
+
+```objectivec
+BugSplatAttachment *screenshot = [[BugSplatAttachment alloc] initWithFilename:@"screenshot.png"
+                                                              attachmentData:imageData
+                                                                 contentType:@"image/png"];
+[[BugSplat shared] postFeedbackWithTitle:@"Login button broken"
+                             description:@"Nothing happens when I tap it"
+                                userName:@"Jane"
+                               userEmail:@"jane@example.com"
+                                  appKey:nil
+                             attachments:@[screenshot]
                               completion:^(NSError *error) {
     if (error) {
         NSLog(@"Feedback failed: %@", error);
