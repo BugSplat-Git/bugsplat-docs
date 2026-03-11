@@ -89,6 +89,28 @@ Click the link in the **ID** column to see details about the crash:
 
 That’s it! Your application is now configured to post crash reports to BugSplat.
 
+## User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+```csharp
+await bugsplat.PostFeedback("Login button broken", "Nothing happens when I tap it");
+```
+
+You can customize feedback submissions with `FeedbackPostOptions`:
+
+```csharp
+var options = new FeedbackPostOptions()
+{
+    Email = "jane@example.com",
+    User = "Jane",
+    Key = "settings-page"
+};
+options.Attachments.Add(new FileInfo("/path/to/screenshot.png"));
+
+await bugsplat.PostFeedback("UI rendering issue", "The sidebar overlaps the main content.", options);
+```
+
 ### 👷 Support
 
 If you have any additional questions, please email our [support](mailto:support@bugsplat.com) team, join us on [Discord](https://discord.gg/K4KjjRV5ve), or reach out via the chat in our web application.
