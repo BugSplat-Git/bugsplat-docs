@@ -209,6 +209,42 @@ bootstrapApplication(AppComponent, {
 .catch(err => console.log(err));
 ```
 
+### 💬 User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+Inject the `BugSplat` service and call `postFeedback`:
+
+```typescript
+import { Component } from '@angular/core';
+import { BugSplat } from 'bugsplat-ng';
+
+@Component({ ... })
+export class FeedbackComponent {
+  constructor(private bugsplat: BugSplat) {}
+
+  async submitFeedback() {
+    await this.bugsplat.postFeedback('Login button broken', {
+      description: 'Nothing happens when I tap it',
+      email: 'jane@example.com',
+    });
+  }
+}
+```
+
+You can also attach files such as screenshots:
+
+```typescript
+async submitWithScreenshot(file: File) {
+  await this.bugsplat.postFeedback('UI rendering issue', {
+    description: 'The sidebar overlaps the main content.',
+    attachments: [
+      { filename: file.name, data: file },
+    ],
+  });
+}
+```
+
 ### 🧑‍🏫 Sample
 
 This repository includes a sample `my-angular-crasher` application that has been pre-configured with BugSplat. Get started by cloning the repository and navigating to the root of the project:
