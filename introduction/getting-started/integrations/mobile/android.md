@@ -192,10 +192,26 @@ In addition to native crash reporting via Crashpad, the BugSplat Android SDK sup
 import com.bugsplat.android.BugSplat;
 
 // Async (spawns a background thread)
-BugSplat.postFeedback(context, "Login button broken", "Nothing happens when I tap it", "Jane", "jane@example.com");
+BugSplat.postFeedback(database, application, version,
+    "Login button broken", "Nothing happens when I tap it",
+    "Jane", "jane@example.com", "en-US");
 
 // Synchronous (call from your own background thread)
-BugSplat.postFeedbackBlocking(context, "Login button broken", "Nothing happens when I tap it", "Jane", "jane@example.com");
+boolean success = BugSplat.postFeedbackBlocking(database, application, version,
+    "Login button broken", "Nothing happens when I tap it",
+    "Jane", "jane@example.com", "en-US");
+```
+
+To include file attachments such as screenshots or log files:
+
+```java
+List<File> attachments = Arrays.asList(
+    new File("/path/to/screenshot.png"),
+    new File("/path/to/log.txt")
+);
+BugSplat.postFeedback(database, application, version,
+    "Login button broken", "Nothing happens when I tap it",
+    "Jane", "jane@example.com", "en-US", attachments);
 ```
 
 ### Symbols

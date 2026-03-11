@@ -78,10 +78,36 @@ In addition to crash reporting, BugSplat supports collecting non-crashing user f
 BugSplat.postFeedback("Login button broken");
 ```
 
-You can also provide a description:
+You can also provide a description and optional settings via `BugSplatPostOptions`:
 
 ```java
-BugSplat.postFeedback("Login button broken", "Nothing happens when I tap it");
+BugSplat.postFeedback(
+    "Login button broken",
+    "Nothing happens when I tap it",
+    new BugSplatPostOptions() {{
+        setEmail("jane@example.com");
+        setUser("Jane");
+        setKey("en-US");
+    }}
+);
+```
+
+To include file attachments such as screenshots or log files:
+
+```java
+List<File> attachments = Arrays.asList(
+    new File("/path/to/screenshot.png"),
+    new File("/path/to/log.txt")
+);
+BugSplat.postFeedback(
+    "Login button broken",
+    "Nothing happens when I tap it",
+    new BugSplatPostOptions() {{
+        setEmail("jane@example.com");
+        setUser("Jane");
+    }},
+    attachments
+);
 ```
 
 ### 🗺️ Samples
