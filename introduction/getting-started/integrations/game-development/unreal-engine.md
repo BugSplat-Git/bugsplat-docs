@@ -190,13 +190,31 @@ The BugSplat Unreal plugin provides a Blueprint-callable function for submitting
 #include "BugSplatFeedback.h"
 
 UBugSplatFeedback::PostFeedback(
+    TEXT("Login button broken"),       // Title (becomes stack key)
+    TEXT("Nothing happens when I tap it"), // Description
+    TEXT("Jane"),                       // User
+    TEXT("jane@example.com"),          // Email
+    TArray<FString>(),                 // Attachment paths
+    TEXT("en-US")                      // AppKey (optional)
+);
+```
+
+To include file attachments such as screenshots or log files:
+
+```cpp
+TArray<FString> Attachments;
+Attachments.Add(FPaths::ProjectSavedDir() / TEXT("screenshot.png"));
+Attachments.Add(FPaths::ProjectSavedDir() / TEXT("log.txt"));
+
+UBugSplatFeedback::PostFeedback(
     TEXT("Login button broken"),
     TEXT("Nothing happens when I tap it"),
     TEXT("Jane"),
-    TEXT("jane@example.com")
+    TEXT("jane@example.com"),
+    Attachments
 );
 ```
 
 ### Blueprints
 
-Call the **Post Feedback** node from `BugSplatFeedback`, providing a title, description, user name, and email.
+Call the **Post Feedback** node from `BugSplatFeedback`, providing a title, description, user name, email, optional file attachment paths, and an optional application key.
