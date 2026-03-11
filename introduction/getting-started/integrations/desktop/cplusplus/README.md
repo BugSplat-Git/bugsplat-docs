@@ -70,11 +70,27 @@ Instructions for modifying the default crash dialog can be found on the [Windows
 
 In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
 
-Call `PostFeedback` on your `MiniDmpSender` instance:
+Set user details and an application key, then call `PostFeedback` on your `BugSplat` instance:
 
 ```cpp
-bool success = mpSender->PostFeedback(L"Login button broken", L"Nothing happens when I tap it");
+g_BugSplat.SetUser(L"Jane");
+g_BugSplat.SetEmail(L"jane@example.com");
+g_BugSplat.SetKey(L"en-US");
+
+bool success = g_BugSplat.PostFeedback(L"Login button broken", L"Nothing happens when I tap it");
 ```
+
+To include file attachments such as screenshots or log files:
+
+```cpp
+std::vector<const wchar_t*> attachments = {
+    L"C:\\path\\to\\screenshot.png",
+    L"C:\\path\\to\\log.txt"
+};
+bool success = g_BugSplat.PostFeedback(L"Login button broken", L"Nothing happens when I tap it", attachments);
+```
+
+You can also add attachments individually with `AddAttachment()` before calling `PostFeedback()`. All attachments are cleared after each feedback upload.
 
 ## Dependencies
 
