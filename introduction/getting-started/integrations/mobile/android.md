@@ -184,6 +184,36 @@ private fun writeLogFile() {
 }
 ```
 
+### User Feedback
+
+In addition to native crash reporting via Crashpad, the BugSplat Android SDK supports collecting non-crashing user feedback such as bug reports and feature requests from the Java layer. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+```java
+import com.bugsplat.android.BugSplat;
+
+// Async (spawns a background thread)
+BugSplat.postFeedback(database, application, version,
+    "Login button broken", "Nothing happens when I tap it",
+    "Jane", "jane@example.com", "en-US");
+
+// Synchronous (call from your own background thread)
+boolean success = BugSplat.postFeedbackBlocking(database, application, version,
+    "Login button broken", "Nothing happens when I tap it",
+    "Jane", "jane@example.com", "en-US");
+```
+
+To include file attachments such as screenshots or log files:
+
+```java
+List<File> attachments = Arrays.asList(
+    new File("/path/to/screenshot.png"),
+    new File("/path/to/log.txt")
+);
+BugSplat.postFeedback(database, application, version,
+    "Login button broken", "Nothing happens when I tap it",
+    "Jane", "jane@example.com", "en-US", attachments);
+```
+
 ### Symbols
 
 To ensure that your crash reports contain function names and line numbers you'll need to add an option to your build configuration that prevents symbolic information from being stripped. To prevent symbols from being stripped, add the following to your `build.gradle` file:
