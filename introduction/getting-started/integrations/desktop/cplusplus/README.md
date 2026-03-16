@@ -66,6 +66,32 @@ If everything was configured correctly, you should see a crash report that looks
 
 Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box](../../../../../education/how-tos/customize-the-crash-dialog.md) page.
 
+## User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+Set user details and an application key, then call `PostFeedback` on your `BugSplat` instance:
+
+```cpp
+g_BugSplat.SetUser(L"Jane");
+g_BugSplat.SetEmail(L"jane@example.com");
+g_BugSplat.SetKey(L"en-US");
+
+bool success = g_BugSplat.PostFeedback(L"Login button broken", L"Nothing happens when I tap it");
+```
+
+To include file attachments such as screenshots or log files:
+
+```cpp
+std::vector<const wchar_t*> attachments = {
+    L"C:\\path\\to\\screenshot.png",
+    L"C:\\path\\to\\log.txt"
+};
+bool success = g_BugSplat.PostFeedback(L"Login button broken", L"Nothing happens when I tap it", attachments);
+```
+
+You can also add attachments individually with `AddAttachment()` before calling `PostFeedback()`. All attachments passed to `PostFeedback` are cleared after each feedback upload whereas attachments added via `AddAttachment()` are added the current report and future reports during the current session.
+
 ## Dependencies
 
 See technology dependencies on our [dependencies page](dependencies.md).

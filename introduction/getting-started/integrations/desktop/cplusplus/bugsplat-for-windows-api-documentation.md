@@ -197,11 +197,25 @@ void CreateAsanReport(const char* asanReport);
 void AddAttachment(const wchar_t* filepath);
 ```
 
-**Description:** Adds a file to be included with crash reports.
+**Description:** Adds a file to be included with crash reports and feedback uploads.
 
 **Parameters:**
 
 * `filepath` - Full path to the file to attach
+
+#### RemoveAttachment
+
+```cpp
+bool RemoveAttachment(const wchar_t* filepath);
+```
+
+**Description:** Removes a single file attachment from the attachment list.
+
+**Parameters:**
+
+* `filepath` - Full path to the file to remove
+
+**Returns:** `true` if the file was found and removed, `false` otherwise
 
 #### ClearAttachments
 
@@ -210,6 +224,30 @@ void ClearAttachments();
 ```
 
 **Description:** Removes all previously added file attachments.
+
+***
+
+### User Feedback
+
+#### PostFeedback
+
+```cpp
+bool PostFeedback(const wchar_t* title,
+                  const wchar_t* description = L"",
+                  const std::vector<const wchar_t*>& attachments = {});
+```
+
+**Description:** Posts non-crashing user feedback such as bug reports or feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+**Parameters:**
+
+* `title` - Feedback title, used as the stack key for grouping
+* `description` - Optional description of the feedback (default: empty string)
+* `attachments` - Optional list of file paths to include with the feedback (default: empty)
+
+**Returns:** `true` if the feedback was posted successfully, `false` otherwise
+
+**Note:** Attachments passed via the `attachments` parameter are automatically removed after upload. Attachments added via `AddAttachment()` are not affected.
 
 ***
 
