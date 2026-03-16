@@ -96,10 +96,10 @@ await bugsplat.postFeedback('Login button broken', {
 });
 ```
 
-The Node.js SDK also provides `postFeedbackWithFiles` which reads files from disk and includes them as attachments:
+You can also include file attachments by passing `additionalFilePaths`. The SDK reads the files from disk and uploads them automatically:
 
 ```typescript
-await bugsplat.postFeedbackWithFiles('UI rendering issue', {
+await bugsplat.postFeedback('UI rendering issue', {
   description: 'The sidebar overlaps the main content.',
   additionalFilePaths: ['/path/to/screenshot.png'],
 });
