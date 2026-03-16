@@ -90,7 +90,7 @@ std::vector<const wchar_t*> attachments = {
 bool success = g_BugSplat.PostFeedback(L"Login button broken", L"Nothing happens when I tap it", attachments);
 ```
 
-You can also add attachments individually with `AddAttachment()` before calling `PostFeedback()`. All attachments are cleared after each feedback upload.
+You can also add attachments individually with `AddAttachment()` before calling `PostFeedback()`. All attachments passed to `PostFeedback` are cleared after each feedback upload whereas attachments added via `AddAttachment()` are added the current report and future reports during the current session.
 
 ## Dependencies
 
