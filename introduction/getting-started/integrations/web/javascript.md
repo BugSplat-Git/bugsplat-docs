@@ -70,6 +70,30 @@ Trigger an error to see it reported in BugSplat
 throw new Error('todo bg');
 ```
 
+### 💬 User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+```javascript
+await bugsplat.postFeedback('Login button broken', {
+    description: 'Nothing happens when I tap it',
+    email: 'jane@example.com',
+});
+```
+
+You can also attach files such as screenshots:
+
+```javascript
+const screenshot = document.querySelector('input[type="file"]').files[0];
+
+await bugsplat.postFeedback('UI rendering issue', {
+    description: 'The sidebar overlaps the main content.',
+    attachments: [
+        { filename: 'screenshot.png', data: screenshot },
+    ],
+});
+```
+
 ### 🧪 Sample
 
 Clone the [my-javascript-crasher](https://github.com/BugSplat-Git/my-javascript-crasher) repository

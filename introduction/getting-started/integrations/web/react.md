@@ -458,6 +458,63 @@ function withErrorBoundary<P extends Record<string, unknown>>(
 function useErrorHandler(errorProp?: unknown): (error: unknown) => void;
 ```
 
+## User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+### Using the `useFeedback` hook
+
+The `@bugsplat/react` package provides a `useFeedback` hook for submitting feedback:
+
+```jsx
+import { useFeedback } from '@bugsplat/react';
+
+function FeedbackForm() {
+  const { postFeedback, loading, error } = useFeedback();
+
+  const handleSubmit = async () => {
+    await postFeedback('Login button broken', {
+      description: 'Nothing happens when I tap it',
+      email: 'jane@example.com',
+    });
+  };
+
+  return (
+    <button onClick={handleSubmit} disabled={loading}>
+      Send Feedback
+    </button>
+  );
+}
+```
+
+### Attaching files
+
+You can attach files such as screenshots:
+
+```jsx
+const handleSubmit = async (file: File) => {
+  await postFeedback('UI rendering issue', {
+    description: 'The sidebar overlaps the main content.',
+    attachments: [
+      { filename: file.name, data: file },
+    ],
+  });
+};
+```
+
+### Using the client directly
+
+You can also call `postFeedback` directly on the BugSplat client instance:
+
+```jsx
+import { getBugSplat } from '@bugsplat/react';
+
+const client = getBugSplat();
+await client.postFeedback('Feature request', {
+  description: 'It would be great to have dark mode.',
+});
+```
+
 ## Test Suite
 
 This package contains both unit and integration tests. To run them, use the package.json scripts provided.

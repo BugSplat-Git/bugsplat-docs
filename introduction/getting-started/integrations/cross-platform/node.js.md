@@ -85,6 +85,26 @@ bugsplat.post(error, options); // Aysnc function that posts an arbitrary Error o
 view rawbugsplat-node-api.js hosted with ❤ by GitHub
 ```
 
+### User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+```typescript
+await bugsplat.postFeedback('Login button broken', {
+  description: 'Nothing happens when I tap it',
+  email: 'jane@example.com',
+});
+```
+
+You can also include file attachments by passing `additionalFilePaths`. The SDK reads the files from disk and uploads them automatically:
+
+```typescript
+await bugsplat.postFeedback('UI rendering issue', {
+  description: 'The sidebar overlaps the main content.',
+  additionalFilePaths: ['/path/to/screenshot.png'],
+});
+```
+
 ### Additional Considerations
 
 It is recommended that you exit and restart your application after an uncaughtException or unhandledRejection occurs. Packages such as [pm2](https://www.npmjs.com/package/pm2) and [forever](https://www.npmjs.com/package/forever) can be configured to restart your application.
