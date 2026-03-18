@@ -8,7 +8,7 @@ description: List of Deprecated API endpoints that are scheduled for removal
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/crashHistory`
 
-Returns chartable crash data for the specified database, appNames, appVersions, startDate, and endDate. This endpoint shows crash ingestion stats for subscription purposes. Crashes are logged as they are ingested and may have occurred on different dates (e.g. sent at next launch). For an accurate accounting of crashes by date please use the /api/crashes endpoint or webhook.
+Returns chartable report ingestion data for the specified database, appNames, appVersions, startDate, and endDate. This endpoint shows report ingestion, rejection, and ignored (retired) stats for subscription purposes. Crashes are logged as they are ingested and may have occurred on different dates (e.g. sent at next launch). For accurate accounting of crashes by date please use the [Crashes](crashes.md) endpoint or [webhook](../../integrating-with-tools/messanger-apps/webhook.md).
 
 {% hint style="info" %}
 #### Deprecation Note
