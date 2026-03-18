@@ -1,26 +1,30 @@
 ---
-description: API Documentation for the BugSplat Charting Endpoints
+description: List of Deprecated API endpoints that are scheduled for removal
 ---
 
-# Charting
-
-Get the number of crashes posted to BugSplat over time. This data can be filtered by application names, application versions, crash group (stack key), start date and end date.
+# Deprecated
 
 ## Crash History
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/crashHistory`
 
-Returns chartable crash data for the specified database, appNames, appVersions, startDate, and endDate.
+Returns chartable crash data for the specified database, appNames, appVersions, startDate, and endDate. This endpoint shows crash ingestion stats for subscription purposes. Crashes are logged as they are ingested and may have occurred on different dates (e.g. sent at next launch). For an accurate accounting of crashes by date please use the /api/crashes endpoint or webhook.
+
+{% hint style="info" %}
+#### Deprecation Note
+
+This endpoint is deprecated and may be removed in the future. Use the [Dashboard](dashboard.md) endpoint moving forward
+{% endhint %}
 
 #### Query Parameters
 
-| Name        | Type   | Description                                                                 |
-| ----------- | ------ | --------------------------------------------------------------------------- |
-| database    | string | BugSplat database containing crash history                                  |
-| appVersions | array  | Comma-separated list of versions to query                                   |
-| appNames    | array  | Comma-separated list of applications to query                               |
-| startDate   | string | ISO 8601 timestamp representing the start date of the specified time period |
-| endDate     | string | ISO 8601 timestamp representing the end date of the specified time period   |
+| Name        | Type   | Description                                                                                              |
+| ----------- | ------ | -------------------------------------------------------------------------------------------------------- |
+| database    | string | BugSplat database containing crash history                                                               |
+| appVersions | array  | Comma-separated list of versions to query                                                                |
+| appNames    | array  | Comma-separated list of applications to query                                                            |
+| startDate   | string | ISO 8601 timestamp representing the start date of the specified time period                              |
+| endDate     | string | ISO 8601 timestamp representing the end date of the specified time period                                |
 | timezone    | string | UTC offset (e.g. `+05:30`, `-07:00`). Shifts daily buckets to local day boundaries. Defaults to `+00:00` |
 
 {% tabs %}
@@ -68,14 +72,14 @@ Returns chartable volumes for a given database and a comma-separated list of sta
 
 #### Query Parameters
 
-| Name           | Type   | Description                                                                 |
-| -------------- | ------ | --------------------------------------------------------------------------- |
-| database       | string | BugSplat database containing a list of stackKeyIds                          |
-| stackKeyIds\[] | array  | Comma-separated list of stackKeyIds to query                                |
-| appNames       | array  | Comma-separated list of applications to query                               |
-| versions       | array  | Comma-separated list of versions to query                                   |
-| startDate      | date   | ISO 8601 timestamp representing the start date of the specified time period |
-| endDate        | date   | ISO 8601 timestamp representing the end date of the specified time period   |
+| Name           | Type   | Description                                                                                                          |
+| -------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
+| database       | string | BugSplat database containing a list of stackKeyIds                                                                   |
+| stackKeyIds\[] | array  | Comma-separated list of stackKeyIds to query                                                                         |
+| appNames       | array  | Comma-separated list of applications to query                                                                        |
+| versions       | array  | Comma-separated list of versions to query                                                                            |
+| startDate      | date   | ISO 8601 timestamp representing the start date of the specified time period                                          |
+| endDate        | date   | ISO 8601 timestamp representing the end date of the specified time period                                            |
 | timezone       | string | UTC offset (e.g. `+05:30`, `-07:00`). Shifts daily and hourly buckets to local time boundaries. Defaults to `+00:00` |
 
 {% tabs %}
