@@ -10,19 +10,19 @@ Get a consolidated summary of crash data for the dashboard page. This endpoint r
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/dashboard`
 
-Returns a consolidated dashboard summary for the specified database and time range, including crash volume, crash history chart data, recent crashes, status counts, and top stack keys.
+Returns a consolidated dashboard summary for the specified database and time range, including report volume, report history chart data, recent reports, status counts, and top report groups. Reports are counted as they are ingested and may have occurred on different dates (e.g. sent at next launch). For accurate accounting of reports by date please use the [Crashes](crashes.md) endpoint or [webhook](../../integrating-with-tools/messanger-apps/webhook.md).
 
 #### Query Parameters
 
-| Name        | Type   | Description                                                                 |
-| ----------- | ------ | --------------------------------------------------------------------------- |
-| database    | string | **Required.** BugSplat database name                                        |
-| startDate   | string | ISO 8601 timestamp for the start of the time range. Omit for All Time.     |
-| endDate     | string | ISO 8601 timestamp for the end of the time range. Omit for All Time.       |
-| appNames    | string | Comma-separated list of application names to filter by                      |
-| appVersions | string | Comma-separated list of application versions to filter by                   |
-| timezone    | string | UTC offset (e.g. `+05:30`). Defaults to `+00:00`                           |
-| interval    | string | `hourly` or `daily`. Defaults to `daily`                                    |
+| Name        | Type   | Description                                                            |
+| ----------- | ------ | ---------------------------------------------------------------------- |
+| database    | string | **Required.** BugSplat database name                                   |
+| startDate   | string | ISO 8601 timestamp for the start of the time range. Omit for All Time. |
+| endDate     | string | ISO 8601 timestamp for the end of the time range. Omit for All Time.   |
+| appNames    | string | Comma-separated list of application names to filter by                 |
+| appVersions | string | Comma-separated list of application versions to filter by              |
+| timezone    | string | UTC offset (e.g. `+05:30`). Defaults to `+00:00`                       |
+| interval    | string | `hourly` or `daily`. Defaults to `daily`                               |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -90,16 +90,16 @@ Returns a consolidated dashboard summary for the specified database and time ran
 
 ### Response Fields
 
-| Field          | Type   | Description                                                                                      |
-| -------------- | ------ | ------------------------------------------------------------------------------------------------ |
-| status         | string | `"success"` on success                                                                           |
-| database       | string | The database name                                                                                |
-| volume30Day    | number | Total crash count in the last 30 days                                                            |
-| crashDataDays  | number | Number of days of crash data available                                                           |
-| crashHistory   | object | Chart data for crash volume over time. Contains `totalRows`, `totalCrashes`, and `rows` array    |
-| recentCrashes  | array  | The 5 most recent crashes in the time range                                                      |
-| statusCounts   | object | Crash group status breakdown for `current` and `previous` time periods                           |
-| topStackKeys   | array  | Top 6 stack keys by crash count in the time range                                                |
+| Field         | Type   | Description                                                                                   |
+| ------------- | ------ | --------------------------------------------------------------------------------------------- |
+| status        | string | `"success"` on success                                                                        |
+| database      | string | The database name                                                                             |
+| volume30Day   | number | Total crash count in the last 30 days                                                         |
+| crashDataDays | number | Number of days of crash data available                                                        |
+| crashHistory  | object | Chart data for crash volume over time. Contains `totalRows`, `totalCrashes`, and `rows` array |
+| recentCrashes | array  | The 5 most recent crashes in the time range                                                   |
+| statusCounts  | object | Crash group status breakdown for `current` and `previous` time periods                        |
+| topStackKeys  | array  | Top 6 stack keys by crash count in the time range                                             |
 
 ### Curl Example
 
