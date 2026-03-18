@@ -4,7 +4,7 @@ description: API Documentation for the BugSplat Dashboard Endpoint
 
 # Dashboard
 
-Get a consolidated summary of crash data for the dashboard page. This endpoint returns crash volume, crash history, recent crashes, status counts, and top stack keys in a single request.
+Get a consolidated summary of report data for the dashboard page. This endpoint returns report volume, report history, recent crashes, status counts, and top report groups a single request.
 
 ## Dashboard Summary
 
