@@ -333,7 +333,7 @@ The following API methods are available to help you customize BugSplat to fit yo
 In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
 
 ```csharp
-var bugsplat = FindObjectOfType<BugSplatManager>().BugSplat;
+var bugsplat = FindFirstObjectByType<BugSplatManager>().BugSplat;
 StartCoroutine(bugsplat.PostFeedback("Login button broken", "Nothing happens when I tap it"));
 ```
 
