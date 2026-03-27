@@ -177,3 +177,95 @@ AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
     FGenericCrashContext::SetGameData(TEXT("IsExternalQABuild"), TEXT("true"));
 }
 </code></pre>
+
+## User Feedback 💬
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+The BugSplat Unreal plugin provides two ways to collect user feedback:
+
+### Built-in Feedback Dialog
+
+The plugin includes a ready-to-use feedback dialog. To add it to your game:
+
+1. Open any Widget Blueprint (e.g., your HUD or main menu).
+2. Add a **Button** widget and position it where you'd like the feedback trigger to appear.
+3. In the button's **Events** section, click the **+** next to **On Clicked**.
+4. In the Event Graph, search for **Show Feedback Dialog** (under the BugSplat category) and connect it to the On Clicked event.
+
+The dialog includes a subject field, optional description, and an "Include application logs" checkbox that attaches the Unreal Engine log file. Crash context attributes (engine version, platform, CPU, GPU, memory, OS) are included automatically with every submission.
+
+### Custom Feedback UI
+
+If you'd prefer to build your own feedback UI, call `UBugSplatFeedback::PostFeedback` directly. It reads Database, Application, and Version from your plugin settings and handles the HTTP submission, crash context attributes, and file attachments.
+
+#### C++
+
+```cpp
+#include "BugSplatFeedback.h"
+
+// Simple feedback
+UBugSplatFeedback::PostFeedback(
+    TEXT("Login button broken"),            // Title (required)
+    TEXT("Nothing happens when I tap it"),  // Description
+    TArray<FString>()                       // Attachments
+);
+```
+
+To include file attachments, user info, and custom attributes:
+
+```cpp
+#include "BugSplatFeedback.h"
+
+TArray<FString> Attachments;
+Attachments.Add(UBugSplatFeedback::GetLogFilePath());
+Attachments.Add(FPaths::ProjectSavedDir() / TEXT("screenshot.png"));
+
+TMap<FString, FString> CustomAttributes;
+CustomAttributes.Add(TEXT("Level"), TEXT("Tutorial_03"));
+CustomAttributes.Add(TEXT("PlaytimeMinutes"), TEXT("42"));
+
+UBugSplatFeedback::PostFeedback(
+    TEXT("Login button broken"),        // Title (required)
+    TEXT("Nothing happens when I tap"), // Description
+    Attachments,                        // File paths
+    TEXT("Jane"),                        // User
+    TEXT("jane@example.com"),           // Email
+    TEXT(""),                            // AppKey
+    CustomAttributes                    // Merged with crash context attributes
+);
+```
+
+The full `PostFeedback` signature:
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `Title` | Yes | Brief summary of the feedback (becomes the stack key) |
+| `Description` | No | Additional details |
+| `Attachments` | No | Array of absolute file paths to attach |
+| `User` | No | Username of the person submitting |
+| `Email` | No | Email of the person submitting |
+| `AppKey` | No | Application key |
+| `CustomAttributes` | No | Key-value pairs merged with crash context attributes |
+
+#### Handling completion (C++)
+
+For C++ callers that need to handle success or failure (e.g., to update your own UI), use `PostFeedbackWithCallback`:
+
+```cpp
+UBugSplatFeedback::PostFeedbackWithCallback(
+    TEXT("My title"), TEXT("Details"), Attachments,
+    TEXT(""), TEXT(""), TEXT(""), TMap<FString, FString>(),
+    FBugSplatFeedbackComplete::CreateLambda([](bool bSuccess, int32 HttpStatusCode)
+    {
+        if (bSuccess) { /* show success */ }
+        else { /* show error */ }
+    })
+);
+```
+
+#### Blueprints
+
+Call the **Post Feedback** node from `BugSplatFeedback`. The advanced parameters (User, Email, AppKey, CustomAttributes) are collapsed by default — expand the node to access them. Use the **Get Log File Path** node to get the path to the current Unreal Engine log file.
+
+For the full API, see [`BugSplatFeedback.h`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Public/BugSplatFeedback.h). The built-in dialog in [`BugSplatFeedbackDialog.cpp`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Private/BugSplatFeedbackDialog.cpp) serves as a reference implementation.
