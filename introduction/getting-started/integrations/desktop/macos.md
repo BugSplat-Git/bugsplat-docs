@@ -313,6 +313,47 @@ Bugsplat supports uploading attachments with crash reports. There's a delegate m
 
 Bitcode was introduced by Apple to allow apps sent to the App Store to be recompiled by Apple itself and apply the latest optimization. Bitcode has now been officially deprecated by Apple and should be removed or disabled. If Bitcode is enabled, the symbols generated for your app in the store will be different than the ones from your own build system. We recommend that you disable bitcode in order for BugSplat to reliably symbolicate crash reports. Disabling bitcode significantly simplifies symbols management and currently doesn't have any known downsides for iOS apps.
 
+### 💬 User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+```objectivec
+[[BugSplat shared] postFeedback:@"Login button broken"
+                    description:@"Nothing happens when I tap it"
+                       userName:@"Jane"
+                      userEmail:@"jane@example.com"
+                         appKey:@"pro-tier"
+                    attachments:nil
+                     completion:^(NSError *error) {
+    if (error) {
+        NSLog(@"Feedback failed: %@", error);
+    } else {
+        NSLog(@"Feedback submitted successfully");
+    }
+}];
+```
+
+To include file attachments such as screenshots:
+
+```objectivec
+BugSplatAttachment *screenshot = [[BugSplatAttachment alloc] initWithFilename:@"screenshot.png"
+                                                              attachmentData:imageData
+                                                                 contentType:@"image/png"];
+[[BugSplat shared] postFeedback:@"Login button broken"
+                    description:@"Nothing happens when I tap it"
+                       userName:@"Jane"
+                      userEmail:@"jane@example.com"
+                         appKey:nil
+                    attachments:@[screenshot]
+                     completion:^(NSError *error) {
+    if (error) {
+        NSLog(@"Feedback failed: %@", error);
+    } else {
+        NSLog(@"Feedback submitted successfully");
+    }
+}];
+```
+
 ### Sample Applications 🧑‍🏫
 
 `Example_Apps` includes several iOS and macOS BugSplat Test apps. Integrating BugSplat only requires the xcframework and a few lines of code.
