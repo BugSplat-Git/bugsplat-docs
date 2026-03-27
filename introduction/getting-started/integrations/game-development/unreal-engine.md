@@ -207,12 +207,12 @@ If you'd prefer to build your own feedback UI, call `UBugSplatFeedback::PostFeed
 // Simple feedback
 UBugSplatFeedback::PostFeedback(
     TEXT("Login button broken"),            // Title (required)
-    TEXT("Nothing happens when I tap it"),  // Description (optional)
-    TArray<FString>()                       // Attachments (optional)
+    TEXT("Nothing happens when I tap it"),  // Description
+    TArray<FString>()                       // Attachments
 );
 ```
 
-To include file attachments such as screenshots or log files:
+To include file attachments, user info, and custom attributes:
 
 ```cpp
 #include "BugSplatFeedback.h"
@@ -221,15 +221,35 @@ TArray<FString> Attachments;
 Attachments.Add(UBugSplatFeedback::GetLogFilePath());
 Attachments.Add(FPaths::ProjectSavedDir() / TEXT("screenshot.png"));
 
+TMap<FString, FString> CustomAttributes;
+CustomAttributes.Add(TEXT("Level"), TEXT("Tutorial_03"));
+CustomAttributes.Add(TEXT("PlaytimeMinutes"), TEXT("42"));
+
 UBugSplatFeedback::PostFeedback(
-    TEXT("Login button broken"),
-    TEXT("Nothing happens when I tap it"),
-    Attachments
+    TEXT("Login button broken"),        // Title (required)
+    TEXT("Nothing happens when I tap"), // Description
+    Attachments,                        // File paths
+    TEXT("Jane"),                        // User
+    TEXT("jane@example.com"),           // Email
+    TEXT(""),                            // AppKey
+    CustomAttributes                    // Merged with crash context attributes
 );
 ```
 
+The full `PostFeedback` signature:
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `Title` | Yes | Brief summary of the feedback (becomes the stack key) |
+| `Description` | No | Additional details |
+| `Attachments` | No | Array of absolute file paths to attach |
+| `User` | No | Username of the person submitting |
+| `Email` | No | Email of the person submitting |
+| `AppKey` | No | Application key |
+| `CustomAttributes` | No | Key-value pairs merged with crash context attributes |
+
 #### Blueprints
 
-Call the **Post Feedback** node from `BugSplatFeedback`, providing a title, optional description, and optional array of file paths to attach. Use the **Get Log File Path** node to get the path to the current Unreal Engine log file.
+Call the **Post Feedback** node from `BugSplatFeedback`. The advanced parameters (User, Email, AppKey, CustomAttributes) are collapsed by default — expand the node to access them. Use the **Get Log File Path** node to get the path to the current Unreal Engine log file.
 
 For the full API, see [`BugSplatFeedback.h`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Public/BugSplatFeedback.h). The built-in dialog in [`BugSplatFeedbackDialog.cpp`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Private/BugSplatFeedbackDialog.cpp) serves as a reference implementation.
