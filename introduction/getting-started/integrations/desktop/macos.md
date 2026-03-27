@@ -318,13 +318,13 @@ Bitcode was introduced by Apple to allow apps sent to the App Store to be recomp
 In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
 
 ```objectivec
-[[BugSplat shared] postFeedbackWithTitle:@"Login button broken"
-                             description:@"Nothing happens when I tap it"
-                                userName:@"Jane"
-                               userEmail:@"jane@example.com"
-                                  appKey:@"en-US"
-                             attachments:nil
-                              completion:^(NSError *error) {
+[[BugSplat shared] postFeedback:@"Login button broken"
+                    description:@"Nothing happens when I tap it"
+                       userName:@"Jane"
+                      userEmail:@"jane@example.com"
+                         appKey:@"pro-tier"
+                    attachments:nil
+                     completion:^(NSError *error) {
     if (error) {
         NSLog(@"Feedback failed: %@", error);
     } else {
@@ -339,13 +339,13 @@ To include file attachments such as screenshots:
 BugSplatAttachment *screenshot = [[BugSplatAttachment alloc] initWithFilename:@"screenshot.png"
                                                               attachmentData:imageData
                                                                  contentType:@"image/png"];
-[[BugSplat shared] postFeedbackWithTitle:@"Login button broken"
-                             description:@"Nothing happens when I tap it"
-                                userName:@"Jane"
-                               userEmail:@"jane@example.com"
-                                  appKey:nil
-                             attachments:@[screenshot]
-                              completion:^(NSError *error) {
+[[BugSplat shared] postFeedback:@"Login button broken"
+                    description:@"Nothing happens when I tap it"
+                       userName:@"Jane"
+                      userEmail:@"jane@example.com"
+                         appKey:nil
+                    attachments:@[screenshot]
+                     completion:^(NSError *error) {
     if (error) {
         NSLog(@"Feedback failed: %@", error);
     } else {
