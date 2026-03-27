@@ -248,6 +248,22 @@ The full `PostFeedback` signature:
 | `AppKey` | No | Application key |
 | `CustomAttributes` | No | Key-value pairs merged with crash context attributes |
 
+#### Handling completion (C++)
+
+For C++ callers that need to handle success or failure (e.g., to update your own UI), use `PostFeedbackWithCallback`:
+
+```cpp
+UBugSplatFeedback::PostFeedbackWithCallback(
+    TEXT("My title"), TEXT("Details"), Attachments,
+    TEXT(""), TEXT(""), TEXT(""), TMap<FString, FString>(),
+    FBugSplatFeedbackComplete::CreateLambda([](bool bSuccess, int32 HttpStatusCode)
+    {
+        if (bSuccess) { /* show success */ }
+        else { /* show error */ }
+    })
+);
+```
+
 #### Blueprints
 
 Call the **Post Feedback** node from `BugSplatFeedback`. The advanced parameters (User, Email, AppKey, CustomAttributes) are collapsed by default — expand the node to access them. Use the **Get Log File Path** node to get the path to the current Unreal Engine log file.
