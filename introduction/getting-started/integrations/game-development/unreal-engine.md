@@ -182,39 +182,54 @@ AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
 
 In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
 
-The BugSplat Unreal plugin provides a Blueprint-callable function for submitting feedback:
+The BugSplat Unreal plugin provides two ways to collect user feedback:
 
-### C++
+### Built-in Feedback Dialog
+
+The plugin includes a ready-to-use feedback dialog. To add it to your game:
+
+1. Open any Widget Blueprint (e.g., your HUD or main menu).
+2. Add a **Button** widget and position it where you'd like the feedback trigger to appear.
+3. In the button's **Events** section, click the **+** next to **On Clicked**.
+4. In the Event Graph, search for **Show Feedback Dialog** (under the BugSplat category) and connect it to the On Clicked event.
+
+The dialog includes a subject field, optional description, and an "Include application logs" checkbox that attaches the Unreal Engine log file. Crash context attributes (engine version, platform, CPU, GPU, memory, OS) are included automatically with every submission.
+
+### Custom Feedback UI
+
+If you'd prefer to build your own feedback UI, call `UBugSplatFeedback::PostFeedback` directly. It reads Database, Application, and Version from your plugin settings and handles the HTTP submission, crash context attributes, and file attachments.
+
+#### C++
 
 ```cpp
 #include "BugSplatFeedback.h"
 
+// Simple feedback
 UBugSplatFeedback::PostFeedback(
-    TEXT("Login button broken"),       // Title (becomes stack key)
-    TEXT("Nothing happens when I tap it"), // Description
-    TEXT("Jane"),                       // User
-    TEXT("jane@example.com"),          // Email
-    TArray<FString>(),                 // Attachment paths
-    TEXT("en-US")                      // AppKey (optional)
+    TEXT("Login button broken"),            // Title (required)
+    TEXT("Nothing happens when I tap it"),  // Description (optional)
+    TArray<FString>()                       // Attachments (optional)
 );
 ```
 
 To include file attachments such as screenshots or log files:
 
 ```cpp
+#include "BugSplatFeedback.h"
+
 TArray<FString> Attachments;
+Attachments.Add(UBugSplatFeedback::GetLogFilePath());
 Attachments.Add(FPaths::ProjectSavedDir() / TEXT("screenshot.png"));
-Attachments.Add(FPaths::ProjectSavedDir() / TEXT("log.txt"));
 
 UBugSplatFeedback::PostFeedback(
     TEXT("Login button broken"),
     TEXT("Nothing happens when I tap it"),
-    TEXT("Jane"),
-    TEXT("jane@example.com"),
     Attachments
 );
 ```
 
-### Blueprints
+#### Blueprints
 
-Call the **Post Feedback** node from `BugSplatFeedback`, providing a title, description, user name, email, optional file attachment paths, and an optional application key.
+Call the **Post Feedback** node from `BugSplatFeedback`, providing a title, optional description, and optional array of file paths to attach. Use the **Get Log File Path** node to get the path to the current Unreal Engine log file.
+
+For the full API, see [`BugSplatFeedback.h`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Public/BugSplatFeedback.h). The built-in dialog in [`BugSplatFeedbackDialog.cpp`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Private/BugSplatFeedbackDialog.cpp) serves as a reference implementation.
