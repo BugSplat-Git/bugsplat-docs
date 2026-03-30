@@ -4,9 +4,9 @@
 If you are a developer looking to try BugSplat on your local machine, we've created a [Plugin](unreal-engine/unreal-engine-plugin.md) to help you get started.
 {% endhint %}
 
-BugSplat’s Unreal Engine integration supports capturing crashes on Windows, macOS, Linux, iOS, Android, Xbox, PlayStation and Switch 2 games. BugSplat also supports both Windows and Linux servers.
+BugSplat’s Unreal Engine integration supports capturing crashes, errors, and user feedback in Windows, macOS, Linux, iOS, Android, Xbox, PlayStation and Switch 2 games. BugSplat also supports both Windows and Linux servers.
 
-There are two options for configuring BugSplat. If you are integrating BugSplat for an organization that uses a dedicated build machine, please continue reading.&#x20;
+There are two options for configuring BugSplat. If you are integrating BugSplat for an organization that uses a dedicated build machine, please continue reading.
 
 ## Windows 🪟
 
@@ -134,29 +134,13 @@ Unreal Engine's `check`, `verify`, and `ensure` macros can all send crash report
 
 For the complete guide on configuring ensure reporting, controlling report volume, and troubleshooting, see [Unreal Assert, Check, and Ensure Reporting](unreal-engine/unreal-assert-check-and-ensure-reporting.md).
 
-## Licensee Builds 🤝
-
-Some forks of Unreal (e.g., Oculus) are set up as a "Licensee" build. Regardless of other settings, crash reports won't be sent because of this [block of code](https://github.com/EpicGames/UnrealEngine/blob/5ccd1d8b91c944d275d04395a037636837de2c56/Engine/Source/Runtime/Core/Private/Unix/UnixPlatformCrashContext.cpp#L594-L600):
-
-```cpp
-if (BuildSettings::IsLicenseeVersion() && !UD_EDITOR)
-{
-    // do not send unattended reports in licensees' builds except for the editor, where it is governed
-    bSendUnattendedBugReports = false;
-    bAgreeToCrashUpload = false;
-    bSendUsageData = false;
-}
-```
-
-To upload crash reports to BugSplat, recompile with `bSendUnattendedBugReports = true`.
-
 ## Custom Fields 📝
 
 BugSplat extracts metadata from the `CrashContext.runtime-xml` file attached to Unreal Engine crash reports and convert those values into [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md) that can be displayed in the web application. See the [Unreal Engine Crash Reporting documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/crash-reporting-in-unreal-engine) for information on adding additional data.
 
-The following XML fields, if created as child properties of `RuntimeProperties` or `GameData` can be used to set the specified BugSplat crash fields.&#x20;
+The following XML fields, if created as child properties of `RuntimeProperties` or `GameData` can be used to set the specified BugSplat crash fields.
 
-<table><thead><tr><th width="374">Property</th><th>Description</th></tr></thead><tbody><tr><td>BugSplatApplicationKey</td><td>Sets the value of the crash Key field</td></tr><tr><td>BugSplatNotes</td><td>Sets the value of the crash Notes field </td></tr><tr><td>UserEmail</td><td>Sets the value of the crash Email field</td></tr><tr><td>UserName</td><td>Sets the value of the crash User field.  The UserID URL parameter will take precedence if it is set.</td></tr></tbody></table>
+<table><thead><tr><th width="374">Property</th><th>Description</th></tr></thead><tbody><tr><td>BugSplatApplicationKey</td><td>Sets the value of the crash Key field</td></tr><tr><td>BugSplatNotes</td><td>Sets the value of the crash Notes field</td></tr><tr><td>UserEmail</td><td>Sets the value of the crash Email field</td></tr><tr><td>UserName</td><td>Sets the value of the crash User field. The UserID URL parameter will take precedence if it is set.</td></tr></tbody></table>
 
 All other properties will be parsed as [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md).
 
@@ -180,92 +164,20 @@ AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
 
 ## User Feedback 💬
 
-In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title. For more information about how to add user feedback to your game please refer to the [BugSplat Unreal Plugin](unreal-engine/unreal-engine-plugin.md#user-feedback) documentation.
 
-The BugSplat Unreal plugin provides two ways to collect user feedback:
+## Licensee Builds 🤝
 
-### Built-in Feedback Dialog
-
-The plugin includes a ready-to-use feedback dialog. To add it to your game:
-
-1. Open any Widget Blueprint (e.g., your HUD or main menu).
-2. Add a **Button** widget and position it where you'd like the feedback trigger to appear.
-3. In the button's **Events** section, click the **+** next to **On Clicked**.
-4. In the Event Graph, search for **Show Feedback Dialog** (under the BugSplat category) and connect it to the On Clicked event.
-
-The dialog includes a subject field, optional description, and an "Include application logs" checkbox that attaches the Unreal Engine log file. Crash context attributes (engine version, platform, CPU, GPU, memory, OS) are included automatically with every submission.
-
-### Custom Feedback UI
-
-If you'd prefer to build your own feedback UI, call `UBugSplatFeedback::PostFeedback` directly. It reads Database, Application, and Version from your plugin settings and handles the HTTP submission, crash context attributes, and file attachments.
-
-#### C++
+Some forks of Unreal (e.g., Oculus) are set up as a "Licensee" build. Regardless of other settings, crash reports won't be sent because of this [block of code](https://github.com/EpicGames/UnrealEngine/blob/5ccd1d8b91c944d275d04395a037636837de2c56/Engine/Source/Runtime/Core/Private/Unix/UnixPlatformCrashContext.cpp#L594-L600):
 
 ```cpp
-#include "BugSplatFeedback.h"
-
-// Simple feedback
-UBugSplatFeedback::PostFeedback(
-    TEXT("Login button broken"),            // Title (required)
-    TEXT("Nothing happens when I tap it"),  // Description
-    TArray<FString>()                       // Attachments
-);
+if (BuildSettings::IsLicenseeVersion() && !UD_EDITOR)
+{
+    // do not send unattended reports in licensees' builds except for the editor, where it is governed
+    bSendUnattendedBugReports = false;
+    bAgreeToCrashUpload = false;
+    bSendUsageData = false;
+}
 ```
 
-To include file attachments, user info, and custom attributes:
-
-```cpp
-#include "BugSplatFeedback.h"
-
-TArray<FString> Attachments;
-Attachments.Add(UBugSplatFeedback::GetLogFilePath());
-Attachments.Add(FPaths::ProjectSavedDir() / TEXT("screenshot.png"));
-
-TMap<FString, FString> CustomAttributes;
-CustomAttributes.Add(TEXT("Level"), TEXT("Tutorial_03"));
-CustomAttributes.Add(TEXT("PlaytimeMinutes"), TEXT("42"));
-
-UBugSplatFeedback::PostFeedback(
-    TEXT("Login button broken"),        // Title (required)
-    TEXT("Nothing happens when I tap"), // Description
-    Attachments,                        // File paths
-    TEXT("Jane"),                        // User
-    TEXT("jane@example.com"),           // Email
-    TEXT(""),                            // AppKey
-    CustomAttributes                    // Merged with crash context attributes
-);
-```
-
-The full `PostFeedback` signature:
-
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `Title` | Yes | Brief summary of the feedback (becomes the stack key) |
-| `Description` | No | Additional details |
-| `Attachments` | No | Array of absolute file paths to attach |
-| `User` | No | Username of the person submitting |
-| `Email` | No | Email of the person submitting |
-| `AppKey` | No | Application key |
-| `CustomAttributes` | No | Key-value pairs merged with crash context attributes |
-
-#### Handling completion (C++)
-
-For C++ callers that need to handle success or failure (e.g., to update your own UI), use `PostFeedbackWithCallback`:
-
-```cpp
-UBugSplatFeedback::PostFeedbackWithCallback(
-    TEXT("My title"), TEXT("Details"), Attachments,
-    TEXT(""), TEXT(""), TEXT(""), TMap<FString, FString>(),
-    FBugSplatFeedbackComplete::CreateLambda([](bool bSuccess, int32 HttpStatusCode)
-    {
-        if (bSuccess) { /* show success */ }
-        else { /* show error */ }
-    })
-);
-```
-
-#### Blueprints
-
-Call the **Post Feedback** node from `BugSplatFeedback`. The advanced parameters (User, Email, AppKey, CustomAttributes) are collapsed by default — expand the node to access them. Use the **Get Log File Path** node to get the path to the current Unreal Engine log file.
-
-For the full API, see [`BugSplatFeedback.h`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Public/BugSplatFeedback.h). The built-in dialog in [`BugSplatFeedbackDialog.cpp`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Private/BugSplatFeedbackDialog.cpp) serves as a reference implementation.
+To upload crash reports to BugSplat, recompile with `bSendUnattendedBugReports = true`.
