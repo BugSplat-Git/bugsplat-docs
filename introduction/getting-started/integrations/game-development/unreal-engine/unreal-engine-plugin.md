@@ -308,7 +308,7 @@ If everything is configured correctly, you should see something that resembles t
 
 <figure><img src="../../../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
-### User Feedback 💬
+### 💬 User Feedback
 
 In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
 
