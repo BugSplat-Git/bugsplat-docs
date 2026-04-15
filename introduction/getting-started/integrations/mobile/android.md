@@ -262,7 +262,7 @@ tasks.whenTaskAdded { task ->
 
 See [`example/build.gradle`](https://github.com/BugSplat-Git/bugsplat-android/blob/main/example/build.gradle) in the SDK repo for the complete, copy-pasteable implementation.
 
-Get your `clientId` and `clientSecret` from [app.bugsplat.com/v2/account](https://app.bugsplat.com/v2/account) → Integrations → OAuth2.
+Get your `clientId` and `clientSecret` from the [BugSplat Integrations page](https://app.bugsplat.com/v2/database/integrations#oauth).
 
 #### 2. Built-in Programmatic Upload
 
