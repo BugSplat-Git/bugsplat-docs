@@ -63,6 +63,45 @@ dependencies {
 
 ### Usage 🧑‍💻
 
+#### Loading config from local.properties (recommended)
+
+Keeping your `database`, `application`, and `version` values in one place avoids drift between runtime (`BugSplat.init`) and symbol upload. The pattern most BugSplat users adopt:
+
+**1.** Add the database name to the gitignored `local.properties`:
+
+```properties
+bugsplat.database=your_database
+```
+
+**2.** In your app module's `build.gradle`, load it and expose it (plus `applicationId` and `versionName`) as `BuildConfig` fields:
+
+```gradle
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
+}
+
+android {
+    defaultConfig {
+        applicationId "com.example.myapp"
+        versionName "1.0.0"
+
+        buildConfigField "String", "BUGSPLAT_DATABASE",
+            "\"${localProps.getProperty('bugsplat.database')}\""
+        buildConfigField "String", "BUGSPLAT_APP_NAME",
+            "\"${applicationId}\""
+        buildConfigField "String", "BUGSPLAT_APP_VERSION",
+            "\"${versionName}\""
+    }
+    buildFeatures { buildConfig true }
+}
+```
+
+{% hint style="info" %}
+This same `bugsplat.database` value is picked up by the symbol upload task below, so there's a single source of truth across the whole build. See [`example/build.gradle`](https://github.com/BugSplat-Git/bugsplat-android/blob/main/example/build.gradle) for the complete setup.
+{% endhint %}
+
 #### Initialization
 
 Initialize BugSplat from your launch `Activity` — typically in `onCreate`:
@@ -76,7 +115,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BugSplat.init(this, "your_database", "your_app_name", "1.0.0");
+        BugSplat.init(
+            this,
+            BuildConfig.BUGSPLAT_DATABASE,
+            BuildConfig.BUGSPLAT_APP_NAME,
+            BuildConfig.BUGSPLAT_APP_VERSION
+        );
     }
 }
 ```
@@ -89,7 +133,12 @@ import com.bugsplat.android.BugSplat
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        BugSplat.init(this, "your_database", "my-app", "1.0.0")
+        BugSplat.init(
+            this,
+            BuildConfig.BUGSPLAT_DATABASE,
+            BuildConfig.BUGSPLAT_APP_NAME,
+            BuildConfig.BUGSPLAT_APP_VERSION
+        )
     }
 }
 ```
@@ -103,7 +152,13 @@ Attach arbitrary key/value pairs to crash reports. Attributes can be set at init
 Map<String, String> attributes = new HashMap<>();
 attributes.put("environment", "development");
 attributes.put("build_flavor", "internal");
-BugSplat.init(this, "fred", "my-app", "1.0.0", attributes);
+BugSplat.init(
+    this,
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
+    attributes
+);
 
 // Or at any time after init
 BugSplat.setAttribute("user_tier", "premium");
@@ -119,7 +174,13 @@ Attach files to crash reports by passing their paths to `init`:
 ```java
 String attachmentPath = getFileStreamPath("log.txt").getAbsolutePath();
 String[] attachments = new String[]{attachmentPath};
-BugSplat.init(this, "fred", "my-app", "1.0.0", attachments);
+BugSplat.init(
+    this,
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
+    attachments
+);
 ```
 
 #### ANR Detection
@@ -155,9 +216,9 @@ Submit non-crashing feedback (bug reports, feature requests) using `BugSplat.pos
 ```java
 // Async (returns immediately, runs on background thread)
 BugSplat.postFeedback(
-    "fred",                     // database
-    "my-app",                   // application
-    "1.0.0",                    // version
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
     "Login button broken",      // title (required)
     "Nothing happens on tap",   // description
     "Jane",                     // user
@@ -167,7 +228,9 @@ BugSplat.postFeedback(
 
 // Blocking variant (returns true on success)
 boolean ok = BugSplat.postFeedbackBlocking(
-    "fred", "my-app", "1.0.0",
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
     "Login button broken", "Nothing happens on tap",
     "Jane", "jane@example.com", null
 );
@@ -180,7 +243,9 @@ List<File> attachments = new ArrayList<>();
 attachments.add(new File(getFilesDir(), "app.log"));
 
 BugSplat.postFeedback(
-    "fred", "my-app", "1.0.0",
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
     "Login button broken", "Nothing happens on tap",
     "Jane", "jane@example.com", null,
     attachments
@@ -195,7 +260,9 @@ attributes.put("environment", "production");
 attributes.put("user_tier", "premium");
 
 BugSplat.postFeedback(
-    "fred", "my-app", "1.0.0",
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
     "Login button broken", "Nothing happens on tap",
     "Jane", "jane@example.com", null,
     null,        // attachments
