@@ -126,7 +126,7 @@ BugSplat.init(this, "fred", "my-app", "1.0.0", attachments);
 
 `bugsplat-android` automatically detects and reports Application Not Responding (ANR) events on Android 11+ (API 30+) using the [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo) API.
 
-When the system kills your app due to an ANR, the event is recorded by Android. On the next app launch, the SDK queries `ActivityManager.getHistoricalProcessExitReasons()` for new ANRs, reads the system-provided thread dump, and uploads it to BugSplat. ANR reports appear alongside crashes with the **"Android ANR"** type.
+When the system kills your app due to an ANR, the event is recorded by Android. On the next app launch, the SDK queries `ActivityManager.getHistoricalProcessExitReasons()` for new ANRs, reads the system-provided thread dump, and uploads it to BugSplat. ANR reports appear alongside crashes with the **"Android.ANR"** type.
 
 The thread dump includes:
 
@@ -184,6 +184,22 @@ BugSplat.postFeedback(
     "Login button broken", "Nothing happens on tap",
     "Jane", "jane@example.com", null,
     attachments
+);
+```
+
+Custom key/value attributes can also be attached to the feedback report. They're JSON-encoded into the `attributes` field on the commit request:
+
+```java
+Map<String, String> attributes = new HashMap<>();
+attributes.put("environment", "production");
+attributes.put("user_tier", "premium");
+
+BugSplat.postFeedback(
+    "fred", "my-app", "1.0.0",
+    "Login button broken", "Nothing happens on tap",
+    "Jane", "jane@example.com", null,
+    null,        // attachments
+    attributes
 );
 ```
 
