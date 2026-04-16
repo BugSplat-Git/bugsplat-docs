@@ -150,7 +150,7 @@ BugSplat.hang();
 
 #### User Feedback
 
-Submit non-crashing feedback (bug reports, feature requests) using `BugSplat.postFeedback`. Feedback reports appear in BugSplat with the **"UserFeedback"** type.
+Submit non-crashing feedback (bug reports, feature requests) using `BugSplat.postFeedback`. Feedback reports appear in BugSplat with the **"User Feedback"** type.
 
 ```java
 // Async (returns immediately, runs on background thread)
