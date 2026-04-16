@@ -1,264 +1,415 @@
 # Android
 
-## Introduction
+### Introduction 👋
 
-The [Android NDK](https://developer.android.com/ndk) is a set of tools for building native C++ applications for Android. BugSplat recommends using [Crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to handle native crashes in Android NDK applications. Before integrating your application with BugSplat, make sure to review the [Getting Started](../../) resources and complete the simple startup tasks listed below.
+The `bugsplat-android` library enables posting native crash reports, Application Not Responding (ANR) events, and user feedback to BugSplat from Android devices. Visit [bugsplat.com](https://www.bugsplat.com/) for more information and to sign up for an account.
 
-BugSplat also provides a reference Android Studio project [my-android-crasher](https://github.com/BugSplat-Git/my-android-crasher) that includes [pre-built Crashpad libraries](https://github.com/BugSplat-Git/my-android-crasher/tree/master/app/src/main/cpp/crashpad/lib), shows how to [initialize Crashpad](https://github.com/BugSplat-Git/my-android-crasher/blob/e02e0b7afbf85912bdf03a25ea652daebde15e72/app/src/main/cpp/native-lib.cpp#L18-L69), demonstrates how to link with the Crashpad libraries and and copy the necessary files to your APK via [CMakeLists.txt](https://github.com/BugSplat-Git/my-android-crasher/blob/master/app/src/main/cpp/CMakeLists.txt).
+### Requirements 📋
 
-## Building Crashpad
+* **Android Gradle Plugin (AGP)**: 8.5.1 or higher (for 16KB page size support)
+* **Android NDK**: r27 or higher recommended
+* **minSdkVersion**: 21 or higher
+* **targetSdkVersion**: 35 or higher recommended
 
 {% hint style="info" %}
-For an in depth guide that discusses how to build Crashpad, please see this [article](../cross-platform/crashpad/how-to-build-google-crashpad.md).
+Starting November 1st, 2025, Google Play requires all new apps and updates targeting Android 15+ to [support 16 KB page sizes](https://developer.android.com/guide/practices/page-sizes). The BugSplat Android SDK is built with 16KB ELF alignment to comply with this requirement.
 {% endhint %}
 
-To build Crashpad you'll first need to download a copy of the Chromium [depot\_tools](https://dev.chromium.org/developers/how-tos/install-depot-tools). Once you have downloaded `depot_tools`, you'll need to add the parent folder to your system's `PATH` environment variable. After adding `depot_tools` to your systems `PATH`, run the following commands to download the Crashpad repository:
+### Integration 🏗️
 
-```bash
-mkdir ~/crashpad
-cd ~/crashpad
-fetch crashpad
-cd crashpad
-```
+`bugsplat-android` supports multiple installation methods.
 
-Next you'll need to generate Crashpad build configurations for each [Android ABI](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/android\_build\_instructions.md#figuring-out-target\_cpu) your application supports. Generate build configurations for the `target_cpu` values `arm`, `arm64`, `x86`, and `x64`:
+#### Gradle (Recommended)
 
-```bash
-gn gen out/arm64-v8a --args='target_os="android" target_cpu="arm64" android_ndk_root="[Path to Android SDK]/ndk/21.4.7075529" android_api_level=21'
-```
+Add the BugSplat dependency to your app's `build.gradle` file:
 
-Build each of build configurations:
-
-```
-ninja -C out/arm64-v8a
-```
-
-## Integrating Crashpad
-
-Once Crashpad has been built you'll need to add the relevant include directories to your project. Copy all of the Crashpad `.h` files to the directory `app/src/main/cpp/crashpad/include`. Next, add the include directories your project's `CMakeLists.txt` file:
-
-```
-# Crashpad Headers
-include_directories(${PROJECT_SOURCE_DIR}/crashpad/include/ ${PROJECT_SOURCE_DIR}/crashpad/include/third_party/mini_chromium/mini_chromium/)
-```
-
-After adding the include directories, you'll need to add the Crashpad static libraries to your project. You'll need to add a set of Crashpad libraries for each ABI your application supports. From the `/crashpad/out/Debug/{{ABI}}` directory you'll want to copy the `client`, `util` and `third_party/mini_chromium/mini_chromium/base` folders to `app/src/main/cpp/crashpad/lib/{{ABI}}`.
-
-![BugSplat Android Libs Crashpad Folders](../../../../.gitbook/assets/android-crashpad-libs.png)
-
-Once all of the Crashpad libraries have been copied to your project directory, add the following to your project's `CMakeLists.txt` file to link the Crashpad libraries:
-
-```
-# Crashpad Libraries
-add_library(crashpad_client STATIC IMPORTED)
-set_property(TARGET crashpad_client PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/crashpad/lib/${ANDROID_ABI}/client/libcrashpad_client.a)
-
-add_library(crashpad_util STATIC IMPORTED)
-set_property(TARGET crashpad_util PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/crashpad/lib/${ANDROID_ABI}/util/libcrashpad_util.a)
-
-add_library(base STATIC IMPORTED)
-set_property(TARGET base PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/crashpad/lib/${ANDROID_ABI}/base/libbase.a)
-
-# Specifies the target library
-target_link_libraries(  
-    native-lib
-    crashpad_client
-    crashpad_util
-    base
-)
-```
-
-Additionally, you'll need ship a copy of the `crashpad_handler` executable with your application. To do this, you'll need to rename `crashpad_handler` to `libcrashpad_handler.so` otherwise it will be ignored by the APK bundler. Copy `libcrashpad_handler.so` to `app/src/main/cpp/crashpad/lib/{{ABI}}` for each Crashpad ABI architecture. Add the following snippet to `CMakeLists.txt` so that `libcrashpad_handler.so` is copied to your device and made available at runtime:
-
-```
-# Crashpad Handler
-add_library(crashpad_handler SHARED IMPORTED)
-set_property(TARGET crashpad_handler PROPERTY IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/crashpad/lib/${ANDROID_ABI}/libcrashpad_handler.so)
-```
-
-## Configuring Crashpad
-
-To enable Crashpad in your application you'll need to configure the Crashpad handler with your BugSplat database, application name and application version. The following snippet will configure the Crashpad handler:
-
-```cpp
-#include <jni.h>
-#include <string>
-#include <unistd.h>
-#include "client/crashpad_client.h"
-#include "client/crash_report_database.h"
-#include "client/settings.h"
-
-using namespace base;
-using namespace crashpad;
-using namespace std;
-
-extern "C" JNIEXPORT jboolean JNICALL
-Java_com_example_androidcrasher_MainActivity_initializeCrashpad(
-    JNIEnv* env,
-    jobject /* this */
-) {
-
-    string dataDir = "/data/data/com.example.androidcrasher";
-
-    // Crashpad file paths
-    FilePath handler(dataDir + "/lib/libcrashpad_handler.so");
-    FilePath reportsDir(dataDir + "/crashpad");
-    FilePath metricsDir(dataDir + "/crashpad");
-
-    // Crashpad upload URL for BugSplat database
-    string url = "http://{{database}}.bugsplat.com/post/bp/crash/crashpad.php";
-
-    // Crashpad annotations
-    map<string, string> annotations;
-    annotations["format"] = "minidump";           // Required: Crashpad setting to save crash as a minidump
-    annotations["database"] = "{{database}}";     // Required: BugSplat database
-    annotations["product"] = "{{appName}}";       // Required: BugSplat appName
-    annotations["version"] = "{{appVersion}}";    // Required: BugSplat appVersion
-    annotations["key"] = "Key";                   // Optional: BugSplat key field
-    annotations["user"] = "fred@bugsplat.com";    // Optional: BugSplat user email
-    annotations["list_annotations"] = "Sample comment"; // Optional: BugSplat crash description
-
-    // Crashpad arguments
-    vector<string> arguments;
-    arguments.push_back("--no-rate-limit");
-
-    // Crashpad local database
-    unique_ptr<CrashReportDatabase> crashReportDatabase = CrashReportDatabase::Initialize(reportsDir);
-    if (crashReportDatabase == NULL) return false;
-
-    // Enable automated crash uploads
-    Settings *settings = crashReportDatabase->GetSettings();
-    if (settings == NULL) return false;
-    settings->SetUploadsEnabled(true);
-
-    // File paths of attachments to be uploaded with the minidump file at crash time - default bundle limit is 20MB
-    vector<FilePath> attachments;
-    FilePath attachment(dataDir + "/files/attachment.txt");
-    attachments.push_back(attachment);
-
-    // Start Crashpad crash handler
-    static CrashpadClient *client = new CrashpadClient();
-    bool status = client->StartHandlerAtCrash(handler, reportsDir, metricsDir, url, annotations, arguments, attachments);
-    return status;
+```gradle
+dependencies {
+    implementation 'com.bugsplat:bugsplat-android:1.2.1'
 }
 ```
 
-Be sure to update the values for `database`, `appName`, `appVersion` and `packageName`to values specific to your application. Next add a call to `initializeCrashpad` at the entry point of your application. The following example defines `initializeCrashpad` as a native C++ function and calls it using Kotlin from MainActivity:
+BugSplat is hosted on Maven Central, which is included by default in most Android projects. If needed, ensure `mavenCentral()` is in your `settings.gradle.kts`:
 
 ```kotlin
-// MainActivity entry point
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-
-    // Example of a call to a native method
-    sample_text.text = if (initializeCrashpad()) "initialized" else "fail"
-}
-
-// Declare native C++ method
-external fun initializeCrashpad(): Boolean
-```
-
-To test the attachments feature, use Java or Kotlin to write a text file. The following is a Kotlin snippet that creates a file `attachment.txt`:
-
-```kotlin
-// MainActivity entry point
-override fun onCreate(savedInstanceState: Bundle?) {
-    writeLogFile()
-    ...
-}
-
-private fun writeLogFile() {
-    try {
-        val outputStreamWriter = OutputStreamWriter(
-        applicationContext.openFileOutput(
-                "attachment.txt",
-                Context.MODE_PRIVATE
-            )
-        )
-        outputStreamWriter.write("BugSplat rocks!")
-        outputStreamWriter.close()
-    } catch (e: IOException) {
-        Log.e("Exception", "File write failed: " + e.toString())
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
     }
 }
 ```
 
-### User Feedback
+#### Manual Setup
 
-In addition to native crash reporting via Crashpad, the BugSplat Android SDK supports collecting non-crashing user feedback such as bug reports and feature requests from the Java layer. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+To integrate BugSplat using the AAR file:
+
+1. Go to the [Releases](https://github.com/BugSplat-Git/bugsplat-android/releases) page and download the latest `bugsplat-android-x.y.z.aar` file.
+2. Copy the AAR into your app module's `libs/` directory.
+3. In your app-level `build.gradle`, add:
+
+```gradle
+dependencies {
+    implementation files('libs/bugsplat-android-x.y.z.aar')
+}
+```
+
+4. In your `AndroidManifest.xml`, add the required permissions:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+
+### Usage 🧑‍💻
+
+#### Loading config from local.properties (recommended)
+
+Keeping your `database`, `application`, and `version` values in one place avoids drift between runtime (`BugSplat.init`) and symbol upload. The pattern most BugSplat users adopt:
+
+**1.** Add the database name to the gitignored `local.properties`:
+
+```properties
+bugsplat.database=your_database
+```
+
+**2.** In your app module's `build.gradle`, load it and expose it (plus `applicationId` and `versionName`) as `BuildConfig` fields:
+
+```gradle
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
+}
+
+android {
+    defaultConfig {
+        applicationId "com.example.myapp"
+        versionName "1.0.0"
+
+        buildConfigField "String", "BUGSPLAT_DATABASE",
+            "\"${localProps.getProperty('bugsplat.database')}\""
+        buildConfigField "String", "BUGSPLAT_APP_NAME",
+            "\"${applicationId}\""
+        buildConfigField "String", "BUGSPLAT_APP_VERSION",
+            "\"${versionName}\""
+    }
+    buildFeatures { buildConfig true }
+}
+```
+
+{% hint style="info" %}
+This same `bugsplat.database` value is picked up by the symbol upload task below, so there's a single source of truth across the whole build. See [`example/build.gradle`](https://github.com/BugSplat-Git/bugsplat-android/blob/main/example/build.gradle) for the complete setup.
+{% endhint %}
+
+#### Initialization
+
+Initialize BugSplat from your launch `Activity` — typically in `onCreate`:
+
+**Java**
 
 ```java
 import com.bugsplat.android.BugSplat;
 
-// Async (spawns a background thread)
-BugSplat.postFeedback(database, application, version,
-    "Login button broken", "Nothing happens when I tap it",
-    "Jane", "jane@example.com", "en-US");
-
-// Synchronous (call from your own background thread)
-boolean success = BugSplat.postFeedbackBlocking(database, application, version,
-    "Login button broken", "Nothing happens when I tap it",
-    "Jane", "jane@example.com", "en-US");
-```
-
-To include file attachments such as screenshots or log files:
-
-```java
-List<File> attachments = Arrays.asList(
-    new File("/path/to/screenshot.png"),
-    new File("/path/to/log.txt")
-);
-BugSplat.postFeedback(database, application, version,
-    "Login button broken", "Nothing happens when I tap it",
-    "Jane", "jane@example.com", "en-US", attachments);
-```
-
-### Symbols
-
-To ensure that your crash reports contain function names and line numbers you'll need to add an option to your build configuration that prevents symbolic information from being stripped. To prevent symbols from being stripped, add the following to your `build.gradle` file:
-
-```
-android {
-  ...
-  // Add this directly under the android section in app/src/build.gradle
-  packagingOptions{
-    doNotStrip "*/armeabi/*.so"
-    doNotStrip "*/armeabi-v7a/*.so"
-    doNotStrip "*/x86/*.so"
-    doNotStrip "*/x86_64/*.so"
-  }
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        BugSplat.init(
+            this,
+            BuildConfig.BUGSPLAT_DATABASE,
+            BuildConfig.BUGSPLAT_APP_NAME,
+            BuildConfig.BUGSPLAT_APP_VERSION
+        );
+    }
 }
 ```
 
-Next, you will need to generate and upload `.sym` files to BugSplat. To generate symbols for your Android NDK library you will need to build the Breakpad tool `dump_syms` on a Linux machine. For more information about building Breakpad tools on Linux please see this [document](../cross-platform/crashpad/how-to-build-google-crashpad.md#generating-symbols).
+**Kotlin**
 
-Once you've built `dump_syms` on a Linux system, run `dump_syms` on a Linux machine passing it the path to your Android library:
+```kotlin
+import com.bugsplat.android.BugSplat
 
-```bash
-./dump_syms path/to/app/build/intermediates/merged_native_libs/debug/out/lib/x86/my-lib.so > /my-lib.so.sym
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        BugSplat.init(
+            this,
+            BuildConfig.BUGSPLAT_DATABASE,
+            BuildConfig.BUGSPLAT_APP_NAME,
+            BuildConfig.BUGSPLAT_APP_VERSION
+        )
+    }
+}
 ```
 
-You can also run the Linux version of `dump_syms` using compatible Linux emulator on [macOS](https://github.com/linux-noah/noah) or [Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Examples of how to run a Linux build of `dump_syms` on macOS and Windows can be found in the [tools](https://github.com/BugSplat-Git/AndroidCrasher/tree/master/tools) section of the AndroidCrasher repository.
+#### Custom Attributes
 
-If you're developing on an macOS or Linux system, build the Breakpad tool `symupload` on your local system. Upload the generated `.sym` file by running `symupload`. Be sure to replace the `{{database}}`, `{{application}}` and `{{version}}` with the values you used in the Configuring Crashpad section:
+Attach arbitrary key/value pairs to crash reports. Attributes can be set at init time or updated at any time afterward:
 
-```bash
-symupload "/path/to/my-lib.so.sym" "https://{{database}}.bugsplat.com/post/bp/symbol/breakpadsymbols.php?appName={{application}}&appVer={{version}}"
+```java
+// At init
+Map<String, String> attributes = new HashMap<>();
+attributes.put("environment", "development");
+attributes.put("build_flavor", "internal");
+BugSplat.init(
+    this,
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
+    attributes
+);
+
+// Or at any time after init
+BugSplat.setAttribute("user_tier", "premium");
+BugSplat.removeAttribute("user_tier");
 ```
 
-If you're developing on Windows, `symupload` will not upload your Android `.sym` files. As an alternative, the AndroidCrasher [tools](https://github.com/BugSplat-Git/AndroidCrasher/tree/master/tools) folder provides and example PowerShell [script](https://github.com/BugSplat-Git/AndroidCrasher/blob/master/tools/symupload-windows.ps1) that will upload `.sym` files to BugSplat.
+Keys and values are each limited to 255 bytes.
 
-After each release build you'll need to generate and upload `.sym` files making sure to increment the version number each time. The version number from the Configuring Crashpad section must match the version number in your upload URL.
+#### Attachments
 
-### Generating a Crash Report
+Attach files to crash reports by passing their paths to `init`:
 
-Force a crash in your application after Crashpad has been initialized:
-
-```cpp
-*(volatile int *)0 = 0;
+```java
+String attachmentPath = getFileStreamPath("log.txt").getAbsolutePath();
+String[] attachments = new String[]{attachmentPath};
+BugSplat.init(
+    this,
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
+    attachments
+);
 ```
 
-After you've submitted a crash report, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes?database=Fred\&c0=appName\&f0=CONTAINS\&v0=AndroidCrasher) page. Click the link in the `ID` column to see the details of your crash report. The following image is from our sample `AndroidCrasher` application:
+#### ANR Detection
 
-![BugSplat Android NDK Crash](../../../../.gitbook/assets/android-crash.png)
+`bugsplat-android` automatically detects and reports Application Not Responding (ANR) events on Android 11+ (API 30+) using the [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo) API.
+
+When the system kills your app due to an ANR, the event is recorded by Android. On the next app launch, the SDK queries `ActivityManager.getHistoricalProcessExitReasons()` for new ANRs, reads the system-provided thread dump, and uploads it to BugSplat. ANR reports appear alongside crashes with the **"Android.ANR"** type.
+
+The thread dump includes:
+
+* Full Java stack traces for all threads in the process
+* Native stack frames with BuildIds (symbolicated against uploaded `.sym` files)
+* Lock contention information
+
+ANR detection is enabled automatically when you call `BugSplat.init()` — no additional configuration required. The SDK persists the timestamp of the last reported ANR in `SharedPreferences` to avoid duplicate uploads.
+
+{% hint style="info" %}
+ANR detection requires Android 11+ (API 30+). On older versions, `ApplicationExitInfo` is unavailable and ANR detection is silently disabled.
+{% endhint %}
+
+To test ANR detection, call `BugSplat.hang()` from the main thread:
+
+```java
+// Blocks the main thread in a native infinite loop.
+// Tap the screen to trigger the system ANR dialog (~5s).
+BugSplat.hang();
+```
+
+#### User Feedback
+
+Submit non-crashing feedback (bug reports, feature requests) using `BugSplat.postFeedback`. Feedback reports appear in BugSplat with the **"User Feedback"** type.
+
+```java
+// Async (returns immediately, runs on background thread)
+BugSplat.postFeedback(
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
+    "Login button broken",      // title (required)
+    "Nothing happens on tap",   // description
+    "Jane",                     // user
+    "jane@example.com",         // email
+    null                        // appKey
+);
+
+// Blocking variant (returns true on success)
+boolean ok = BugSplat.postFeedbackBlocking(
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
+    "Login button broken", "Nothing happens on tap",
+    "Jane", "jane@example.com", null
+);
+```
+
+File attachments can be included by passing a `List<File>`:
+
+```java
+List<File> attachments = new ArrayList<>();
+attachments.add(new File(getFilesDir(), "app.log"));
+
+BugSplat.postFeedback(
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
+    "Login button broken", "Nothing happens on tap",
+    "Jane", "jane@example.com", null,
+    attachments
+);
+```
+
+Custom key/value attributes can also be attached to the feedback report. They're JSON-encoded into the `attributes` field on the commit request:
+
+```java
+Map<String, String> attributes = new HashMap<>();
+attributes.put("environment", "production");
+attributes.put("user_tier", "premium");
+
+BugSplat.postFeedback(
+    BuildConfig.BUGSPLAT_DATABASE,
+    BuildConfig.BUGSPLAT_APP_NAME,
+    BuildConfig.BUGSPLAT_APP_VERSION,
+    "Login button broken", "Nothing happens on tap",
+    "Jane", "jane@example.com", null,
+    null,        // attachments
+    attributes
+);
+```
+
+#### Native Library Packaging
+
+To ensure native libraries (and their debug info) are properly deployed, configure your app's `build.gradle`:
+
+```gradle
+android {
+    defaultConfig {
+        ndk {
+            // Match the ABI filters from the library
+            abiFilters 'arm64-v8a', 'x86_64', 'armeabi-v7a'
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            keepDebugSymbols += ['**/*.so']
+            // Use uncompressed shared libraries with 16KB zip alignment
+            // (required for Android 15+ devices with 16KB page sizes).
+            useLegacyPackaging false
+        }
+        doNotStrip '**/*.so'
+    }
+}
+```
+
+### Symbol Upload 🔣
+
+To symbolicate native stack frames in crash and ANR reports, upload your app's unstripped `.so` files to BugSplat as Breakpad `.sym` files. There are three ways to do this.
+
+#### 1. Gradle Build Integration (Recommended)
+
+Wire symbol upload into your Gradle build so it runs automatically after `assembleDebug` / `assembleRelease`. Credentials are loaded from the gitignored `local.properties` to avoid committing them.
+
+**Step 1 — Add credentials to `local.properties`:**
+
+```properties
+bugsplat.database=your_database
+bugsplat.clientId=your_client_id
+bugsplat.clientSecret=your_client_secret
+```
+
+**Step 2 — In `build.gradle`, load credentials and register per-ABI upload tasks:**
+
+```gradle
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
+}
+
+ext {
+    bugsplatDatabase = localProps.getProperty('bugsplat.database')
+    bugsplatClientId = localProps.getProperty('bugsplat.clientId', '')
+    bugsplatClientSecret = localProps.getProperty('bugsplat.clientSecret', '')
+    bugsplatAppName = android.defaultConfig.applicationId
+    bugsplatAppVersion = android.defaultConfig.versionName
+}
+
+// See the example app for the full implementation, which:
+//  - Downloads the symbol-upload binary if not present
+//  - Registers per-ABI upload tasks (one per ABI in defaultConfig.ndk.abiFilters)
+//  - Chains the per-ABI tasks serially in an AllAbis task via mustRunAfter
+//    (the symbol-upload binary uses a shared temp dir)
+//  - Reads merged_native_libs from AGP 8.6+ intermediate path:
+//    build/intermediates/merged_native_libs/{buildType}/merge{BuildType}NativeLibs/out/lib/{abi}/
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleDebug') {
+        task.finalizedBy(tasks.named('uploadBugSplatSymbolsDebugAllAbis'))
+    }
+}
+```
+
+See [`example/build.gradle`](https://github.com/BugSplat-Git/bugsplat-android/blob/main/example/build.gradle) in the SDK repo for the complete, copy-pasteable implementation.
+
+Get your `clientId` and `clientSecret` from the [BugSplat Integrations page](https://app.bugsplat.com/v2/database/integrations#oauth).
+
+#### 2. Built-in Programmatic Upload
+
+The SDK exposes `BugSplat.uploadSymbols` to upload symbols at runtime (useful if you need to kick this off from app code rather than Gradle):
+
+```java
+// Async
+BugSplat.uploadSymbols(
+    context,
+    "your_database",
+    "your_app",
+    "1.0.0",
+    "your_client_id",
+    "your_client_secret",
+    nativeLibsDir
+);
+
+// Blocking
+try {
+    BugSplat.uploadSymbolsBlocking(
+        context, "your_database", "your_app", "1.0.0",
+        "your_client_id", "your_client_secret", nativeLibsDir
+    );
+} catch (IOException e) {
+    Log.e("MyApp", "Failed to upload symbols", e);
+}
+```
+
+This requires bundling the `symbol-upload` binary in your app's assets. See the [Example App README](https://github.com/BugSplat-Git/bugsplat-android/blob/main/example/README.md) for details.
+
+#### 3. Command-Line Tool
+
+You can also invoke [`symbol-upload`](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) directly from the command line:
+
+```sh
+# Download the binary
+curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos" && chmod +x symbol-upload-macos
+
+# Upload .sym files generated from unstripped .so files
+./symbol-upload-macos \
+    -b DATABASE -a APPLICATION -v VERSION \
+    -i CLIENT_ID -s CLIENT_SECRET \
+    -d /path/to/native/libs \
+    -f "**/*.so" -m
+```
+
+Please refer to the [symbol-upload documentation](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) for full usage details.
+
+### Sample Application 🧑‍🏫
+
+The `bugsplat-android` repository includes a full example app that demonstrates:
+
+* Initializing the SDK at app startup
+* Triggering a native crash
+* Triggering an ANR (via `BugSplat.hang()`) to test ANR detection and native frame symbolication
+* Submitting user feedback via a dialog
+* Setting custom attributes via a dialog
+* Uploading symbols via Gradle
+
+To run it:
+
+1. Clone [`bugsplat-android`](https://github.com/BugSplat-Git/bugsplat-android).
+2. Open in Android Studio.
+3. Add your BugSplat credentials to `local.properties` as described in the **Symbol Upload** section above.
+4. Select the `example` run configuration and click Run.
+
+See the [Example App README](https://github.com/BugSplat-Git/bugsplat-android/blob/main/example/README.md) for more details.
