@@ -130,6 +130,50 @@ The `fallback` prop accepts a React node or a render function:
 </ErrorBoundary>
 ```
 
+#### User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title. This works on all platforms — iOS, Android, and Web.
+
+Submit feedback imperatively from anywhere after `init()`:
+
+```typescript
+import { postFeedback } from '@bugsplat/expo';
+
+const result = await postFeedback('Login button broken', {
+  description: 'Nothing happens when I tap sign in',
+});
+console.log(result.success ? `Feedback #${result.crashId} posted` : result.error);
+```
+
+**Options:**
+
+* `description?: string` — Longer body of the feedback
+* `user?: string` — Override default user name
+* `email?: string` — Override default user email
+* `appKey?: string` — Override default app key
+
+Or drive a feedback form with the `useFeedback` hook, which tracks loading and error state:
+
+```tsx
+import { useFeedback } from '@bugsplat/expo';
+
+function FeedbackForm() {
+  const { postFeedback, loading, error } = useFeedback();
+
+  return (
+    <Button
+      title={loading ? 'Sending…' : 'Send feedback'}
+      disabled={loading}
+      onPress={() =>
+        postFeedback('Login button broken', {
+          description: 'Nothing happens when I tap sign in',
+        })
+      }
+    />
+  );
+}
+```
+
 #### User Info
 
 Update user info for subsequent reports:
