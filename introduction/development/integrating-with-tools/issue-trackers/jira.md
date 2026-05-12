@@ -6,7 +6,7 @@ BugSplat's Jira integration allows your team to create defects with a few clicks
 
 1. Login to your account.
 2. Click the Gear icon (⚙️) at the top right of the page and navigate to the [Database Settings](https://app.bugsplat.com/v2/database/integrations) page, and under **Database > Integrations >** **Defect Tracker**, select **Jira** from the options shown.
-3. Enter your **Username**, **Token**, **URL**, and **Issue Type** into the appropriate boxes. For Jira Cloud, use an [API Token](https://id.atlassian.com/manage-profile/security/api-tokens) in the **Token** field. For self-hosted Jira Server use your account's password for the **Token** field.
+3. Enter your **Username**, **Token**, **URL**, and **Issue Type** into the appropriate boxes. For Jira Cloud, use an [API Token](https://id.atlassian.com/manage-profile/security/api-tokens) in the **Token** field. For self-hosted Jira Server use your account's password for the **Token** field. Always enter your normal site URL (e.g. `https://your-site.atlassian.net`) in the **URL** field — BugSplat detects how to route API requests automatically based on the token type.
 4. Click **Apply**.
 5. Once a connection to Jira has been established, you can select one of your projects from the project dropdown list.
 6. After selecting your desired project, click **Apply** again.
@@ -14,6 +14,26 @@ BugSplat's Jira integration allows your team to create defects with a few clicks
 
 {% hint style="info" %}
 The optional **Assignee ID** field requires the Atlassian user ID when using Jira Cloud. Jira Server doesn't support user IDs, so use the user name.
+{% endhint %}
+
+#### Required scopes for scoped (granular) API tokens
+
+BugSplat supports both **classic (unscoped)** Atlassian API tokens and the newer **scoped (granular)** API tokens. Classic tokens grant all of the issuing user's permissions and don't require scope selection. Scoped tokens follow least-privilege and must be created with the scopes listed below; missing any scope will cause Create Defect or status sync to fail with a 401 or 403.
+
+**Read scopes**
+
+* `read:jira-work`
+* `read:issue:jira`
+* `read:project:jira`
+
+**Write scopes**
+
+* `write:jira-work`
+* `write:issue:jira`
+* `write:comment:jira`
+
+{% hint style="info" %}
+When you save your Jira settings, BugSplat validates the credentials against Atlassian and auto-detects whether to route API calls through the tenant URL (classic tokens) or through `api.atlassian.com` (scoped tokens). Customer-facing links from BugSplat to Jira always point at your tenant URL regardless of which token type you use.
 {% endhint %}
 
 ### Creating an Issue in Jira
