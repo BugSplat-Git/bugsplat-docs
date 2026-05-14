@@ -6,7 +6,7 @@ BugSplat's Jira integration allows your team to create defects with a few clicks
 
 1. Login to your account.
 2. Click the Gear icon (⚙️) at the top right of the page and navigate to the [Database Settings](https://app.bugsplat.com/v2/database/integrations) page, and under **Database > Integrations >** **Defect Tracker**, select **Jira** from the options shown.
-3. Enter your **Username**, **Token**, **URL**, and **Issue Type** into the appropriate boxes. For Jira Cloud, use an [API Token](https://id.atlassian.com/manage-profile/security/api-tokens) in the **Token** field. For self-hosted Jira Server use your account's password for the **Token** field. Always enter your normal site URL (e.g. `https://your-site.atlassian.net`) in the **URL** field — BugSplat detects how to route API requests automatically based on the token type.
+3. Enter your **Username**, **Token**, **URL**, and **Issue Type** into the appropriate boxes. For Jira Cloud, use an [API Token](https://id.atlassian.com/manage-profile/security/api-tokens) in the **Token** field. For self-hosted Jira Server use your account's password for the **Token** field.
 4. Click **Apply**.
 5. Once a connection to Jira has been established, you can select one of your projects from the project dropdown list.
 6. After selecting your desired project, click **Apply** again.
@@ -31,10 +31,6 @@ BugSplat supports both **classic (unscoped)** Atlassian API tokens and the newer
 * `write:jira-work`
 * `write:issue:jira`
 * `write:comment:jira`
-
-{% hint style="info" %}
-When you save your Jira settings, BugSplat validates the credentials against Atlassian and auto-detects whether to route API calls through the tenant URL (classic tokens) or through `api.atlassian.com` (scoped tokens). Customer-facing links from BugSplat to Jira always point at your tenant URL regardless of which token type you use.
-{% endhint %}
 
 ### Creating an Issue in Jira
 
