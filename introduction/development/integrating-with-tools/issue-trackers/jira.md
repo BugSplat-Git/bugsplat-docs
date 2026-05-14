@@ -16,6 +16,22 @@ BugSplat's Jira integration allows your team to create defects with a few clicks
 The optional **Assignee ID** field requires the Atlassian user ID when using Jira Cloud. Jira Server doesn't support user IDs, so use the user name.
 {% endhint %}
 
+#### Required scopes for scoped (granular) API tokens
+
+BugSplat supports both **classic (unscoped)** Atlassian API tokens and the newer **scoped (granular)** API tokens. Classic tokens grant all of the issuing user's permissions and don't require scope selection. Scoped tokens follow least-privilege and must be created with the scopes listed below; missing any scope will cause Create Defect or status sync to fail with a 401 or 403.
+
+**Read scopes**
+
+* `read:jira-work`
+* `read:issue:jira`
+* `read:project:jira`
+
+**Write scopes**
+
+* `write:jira-work`
+* `write:issue:jira`
+* `write:comment:jira`
+
 ### Creating an Issue in Jira
 
 1\. Create a new defect from the crashes page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the **Create Defect** button.
