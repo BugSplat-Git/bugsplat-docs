@@ -284,6 +284,40 @@ UBugSplatAttributes::SetAttribute(TEXT("userId"), TEXT("12345"));
 
 `SetAttribute` is also available as a Blueprint node under the BugSplat category.
 
+**Hang Detection (iOS and Android)**
+
+The BugSplat plugin reports fatal hangs on both mobile platforms — Application Not Responding (ANR) on Android and main-thread hangs on iOS. Reports surface in the BugSplat dashboard with crash types **`Android.ANR`** and **`App Hang (Fatal)`** respectively. Both flows upload on the launch *after* the hang, using the same pipeline as crash reports.
+
+On Android, detection is automatic once `Enable Android Crash Reporting` is checked. It uses the [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo) API and requires Android 11+ (API 30+); on older versions it is silently a no-op. See the [Android ANR Detection](../../mobile/android.md#anr-detection) docs for SDK-level detail.
+
+On iOS, the plugin enables `enableHangDetection` with a `hangDetectionThreshold` of `2.0` seconds during init — no app code is required beyond having `Enable iOS Crash Reporting` checked. Only fatal hangs (watchdog kill or force-quit) are reported; hangs where the main thread eventually resumes are discarded. See the [iOS Hang Detection](../../mobile/ios.md#hang-detection) docs for the underlying behavior and configuration knobs.
+
+{% hint style="info" %}
+iOS hang detection is suppressed while a debugger is attached. To verify on-device, detach the debugger and launch the app from the home screen before triggering a hang.
+{% endhint %}
+
+To trigger a test hang from Blueprint or C++, the plugin exposes:
+
+```cpp
+// Blueprint-callable. On Android, blocks the main thread via BugSplat.hang();
+// on iOS, sleeps the main thread until the OS watchdog terminates the app.
+// On desktop, logs a warning and is a no-op.
+UFUNCTION(BlueprintCallable, Category = "BugSplat")
+static void GenerateHang();
+
+// BlueprintPure platform checks. Use IsMobile to gate UI to Android + iOS.
+UFUNCTION(BlueprintPure, Category = "BugSplat")
+static bool IsAndroid();
+
+UFUNCTION(BlueprintPure, Category = "BugSplat")
+static bool IsIOS();
+
+UFUNCTION(BlueprintPure, Category = "BugSplat")
+static bool IsMobile();
+```
+
+A typical demo wiring binds a button's `OnClicked` to `GenerateHang` and its `Visibility` to a function returning `Visible` when `IsMobile` is true and `Collapsed` otherwise. After a hang, relaunch the app once — the report uploads in the background on init.
+
 #### Xbox and PlayStation
 
 BugSplat can provide instructions for implementing Unreal crash reporting on Xbox and PlayStation. Please email us at [support@bugsplat.com](mailto:support@bugsplat.com) for more info.
