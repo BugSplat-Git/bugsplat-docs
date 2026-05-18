@@ -270,6 +270,27 @@ BugSplat.postFeedback(
 );
 ```
 
+**Shake-to-Feedback**
+
+A common UX pattern for beta builds is to open the feedback dialog when the user shakes the device. The SDK doesn't ship a built-in shake detector, but it's a small amount of code on top of `SensorManager` — register for `Sensor.TYPE_ACCELEROMETER`, watch for a few accelerometer samples above ~2.7G inside a 1s window, then invoke whichever UI surfaces your `postFeedback` call:
+
+```java
+SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+sm.registerListener(new SensorEventListener() {
+    @Override public void onSensorChanged(SensorEvent e) {
+        float gx = e.values[0] / SensorManager.GRAVITY_EARTH;
+        float gy = e.values[1] / SensorManager.GRAVITY_EARTH;
+        float gz = e.values[2] / SensorManager.GRAVITY_EARTH;
+        if (Math.sqrt(gx*gx + gy*gy + gz*gz) > 2.7f) {
+            showFeedbackDialog();  // your UI that calls BugSplat.postFeedback
+        }
+    }
+    @Override public void onAccuracyChanged(Sensor s, int a) {}
+}, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_UI);
+```
+
+See [`ShakeDetector.java`](https://github.com/BugSplat-Git/bugsplat-android/blob/main/example/src/main/java/com/bugsplat/example/ShakeDetector.java) in the example app for a copy-pasteable implementation that adds debouncing and a cooldown to avoid spurious triggers.
+
 #### Native Library Packaging
 
 To ensure native libraries (and their debug info) are properly deployed, configure your app's `build.gradle`:
@@ -401,7 +422,7 @@ The `bugsplat-android` repository includes a full example app that demonstrates:
 * Initializing the SDK at app startup
 * Triggering a native crash
 * Triggering an ANR (via `BugSplat.hang()`) to test ANR detection and native frame symbolication
-* Submitting user feedback via a dialog
+* Submitting user feedback via a dialog (also openable by shaking the device)
 * Setting custom attributes via a dialog
 * Uploading symbols via Gradle
 
