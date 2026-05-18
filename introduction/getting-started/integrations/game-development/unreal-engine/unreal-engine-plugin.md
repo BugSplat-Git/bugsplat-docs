@@ -284,7 +284,7 @@ UBugSplatAttributes::SetAttribute(TEXT("userId"), TEXT("12345"));
 
 `SetAttribute` is also available as a Blueprint node under the BugSplat category.
 
-**Hang Detection (iOS and Android)**
+##### Hang Detection (iOS and Android)
 
 The BugSplat plugin reports fatal hangs on both mobile platforms — Application Not Responding (ANR) on Android and main-thread hangs on iOS. Reports appear alongside crashes in the BugSplat dashboard and upload on the launch *after* the hang.
 
