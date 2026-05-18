@@ -313,6 +313,67 @@ Bugsplat supports uploading attachments with crash reports. There's a delegate m
 
 Bitcode was introduced by Apple to allow apps sent to the App Store to be recompiled by Apple itself and apply the latest optimization. Bitcode has now been officially deprecated by Apple and should be removed or disabled. If Bitcode is enabled, the symbols generated for your app in the store will be different than the ones from your own build system. We recommend that you disable bitcode in order for BugSplat to reliably symbolicate crash reports. Disabling bitcode significantly simplifies symbols management and currently doesn't have any known downsides for iOS apps.
 
+#### User Feedback
+
+In addition to crash reporting, BugSplat for Apple platforms can submit non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+```swift
+BugSplat.shared().postFeedback(
+    title: "Login button broken",
+    description: "Nothing happens when I tap it",
+    userName: "Jane",
+    userEmail: "jane@example.com",
+    appKey: "en-US",
+    attachments: nil
+) { error in
+    if let error = error {
+        print("Feedback failed: \(error)")
+    }
+}
+```
+
+```objectivec
+[[BugSplat shared] postFeedback:@"Login button broken"
+                    description:@"Nothing happens when I tap it"
+                       userName:@"Jane"
+                      userEmail:@"jane@example.com"
+                         appKey:@"en-US"
+                    attachments:nil
+                     completion:^(NSError * _Nullable error) {
+    if (error) {
+        NSLog(@"Feedback failed: %@", error);
+    }
+}];
+```
+
+`userName`, `userEmail`, and `appKey` fall back to the corresponding properties on `BugSplat.shared()` when passed as `nil`. To include screenshots or log files, pass an array of `BugSplatAttachment` objects in the `attachments` parameter.
+
+#### Hang Detection
+
+BugSplat can detect fatal main-thread hangs and upload them on the next launch using the same pipeline as crash reports. When enabled, BugSplat monitors the main runloop and, if it stays in the processing phase for longer than the configured threshold, persists a hang report. If the app is then terminated without the main thread recovering (a launch/resume watchdog kill or user force-quit), the report is uploaded on the next launch. Non-fatal hangs — those where the main thread eventually resumes — are discarded automatically.
+
+Enable hang detection by setting `enableHangDetection` to `YES` **before** calling `start`. `start` must be invoked on the main thread when this property is enabled.
+
+```swift
+BugSplat.shared().enableHangDetection = true
+BugSplat.shared().hangDetectionThreshold = 2.0 // optional, defaults to 2.0 seconds
+BugSplat.shared().start()
+```
+
+```objectivec
+[[BugSplat shared] setEnableHangDetection:YES];
+[[BugSplat shared] setHangDetectionThreshold:2.0]; // optional, defaults to 2.0 seconds
+[[BugSplat shared] start];
+```
+
+Hang reports carry the exception name `App Hang (Fatal)` and include attributes prefixed with `bugsplat-hang-` (duration, detection time, app state, launch id) that can be used to correlate them with crashes from the same launch.
+
+{% hint style="info" %}
+Detection is suppressed while a debugger is attached. macOS apps have no UIApplication background state, so detection runs whenever the app is launched. Command-line tools can opt in, but be aware that any code path that blocks the main thread without pumping the runloop (for example `std::getline` on stdin) will look like a hang until the runloop runs again.
+{% endhint %}
+
+The `hangDetectionThreshold` property accepts values in seconds. Typical production values are between 1.0 and 5.0 seconds. Pick a value that comfortably exceeds any work your app may legitimately do on the main thread (image decoding, JSON parsing, etc.) to avoid false positives. Values below `0.1` are clamped to `0.1`.
+
 ### Sample Applications 🧑‍🏫
 
 `Example_Apps` includes several iOS and macOS BugSplat Test apps. Integrating BugSplat only requires the xcframework and a few lines of code.
