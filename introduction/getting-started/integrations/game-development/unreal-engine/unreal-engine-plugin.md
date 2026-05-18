@@ -286,7 +286,7 @@ UBugSplatAttributes::SetAttribute(TEXT("userId"), TEXT("12345"));
 
 **Hang Detection (iOS and Android)**
 
-The BugSplat plugin reports fatal hangs on both mobile platforms — Application Not Responding (ANR) on Android and main-thread hangs on iOS. Reports surface in the BugSplat dashboard with crash types **`Android.ANR`** and **`App Hang (Fatal)`** respectively. Both flows upload on the launch *after* the hang, using the same pipeline as crash reports.
+The BugSplat plugin reports fatal hangs on both mobile platforms — Application Not Responding (ANR) on Android and main-thread hangs on iOS. Reports appear alongside crashes in the BugSplat dashboard and upload on the launch *after* the hang.
 
 On Android, detection is automatic once `Enable Android Crash Reporting` is checked. It uses the [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo) API and requires Android 11+ (API 30+); on older versions it is silently a no-op. See the [Android ANR Detection](../../mobile/android.md#anr-detection) docs for SDK-level detail.
 

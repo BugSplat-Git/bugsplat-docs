@@ -122,11 +122,11 @@ Symbolic call stacks are resolved if you deploy symbols on your server. This is 
 
 ## iOS 🍎
 
-You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash reports. Additionally, you'll need to upload `.dSYM` files for function names and line numbers to be included in crash reports. Symbol files can be uploaded automatically by invoking [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md).
+You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash reports. Additionally, you'll need to upload `.dSYM` files for function names and line numbers to be included in crash reports. Symbol files can be uploaded automatically by invoking [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md). The BugSplat Unreal plugin also reports fatal main-thread hangs on iOS — see the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
 
 ## Android 🤖
 
-You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) with the `-m` flag.
+You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) with the `-m` flag. Application Not Responding (ANR) events are reported automatically on Android 11+ — see the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
 
 ## Check, Verify, and Ensure Reporting ✅
 
