@@ -292,9 +292,29 @@ When you build your app for Android, be sure to set `Create symbols.zip` to `Deb
 
 <figure><img src="../../../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
+#### ANR Detection
+
+When native crash reporting is enabled, the bugsplat-unity plugin also reports ANRs (Application Not Responding events). No additional configuration is required.
+
+On the next app launch, the SDK queries the OS for ANRs that occurred during the previous session, reads the system-provided thread dump, and uploads it to BugSplat. ANR reports appear alongside crashes with the **`Android.ANR`** type. The sample project's **Hang / ANR** button triggers an ANR for testing.
+
+{% hint style="info" %}
+ANR detection requires Android 11 (API level 30) or higher at runtime. On older versions it is silently disabled, while native crash reporting continues to work.
+{% endhint %}
+
 ### 🍎 iOS
 
-The bugsplat-unity plugin supports crash reporting for native C++ crashes on iOS via bugsplat-ios. To configure crash reporting for iOS, set the `UseNativeCrashReportingForIos` and `UploadDebugSymbolsForIos` properties to `true` on the BugSplatManager instance.
+The bugsplat-unity plugin supports crash reporting for native C++ crashes on iOS via bugsplat-apple. To configure crash reporting for iOS, set the `UseNativeCrashReportingForIos` and `UploadDebugSymbolsForIos` properties to `true` on the BugSplatManager instance.
+
+#### Hang Detection
+
+When native crash reporting is enabled, the bugsplat-unity plugin also detects fatal main-thread hangs. No additional configuration is required.
+
+If the main thread stays unresponsive past the detection threshold and the app is then terminated without recovering — by the OS watchdog at launch or resume, or by the user force-quitting — BugSplat uploads a hang report on the next launch. Hangs the app recovers from are not reported. Hang reports carry the exception name **`App Hang (Fatal)`**. The sample project's **Hang / ANR** button triggers a hang for testing.
+
+{% hint style="info" %}
+Hang detection is suppressed while a debugger is attached. Test it on a build run without the Xcode debugger.
+{% endhint %}
 
 ### 🧩 API
 
