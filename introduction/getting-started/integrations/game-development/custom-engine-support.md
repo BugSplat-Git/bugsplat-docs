@@ -1,7 +1,5 @@
 # Custom Engine Support
 
-## Custom Engine Support
-
 BugSplat supports crash reporting for engines and frameworks not listed in our official documentation.
 
 ### How it works
