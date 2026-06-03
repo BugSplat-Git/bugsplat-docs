@@ -37,6 +37,7 @@
         * [Unreal Assert, Check, and Ensure Reporting](introduction/getting-started/integrations/game-development/unreal-engine/unreal-assert-check-and-ensure-reporting.md)
       * [Unity](introduction/getting-started/integrations/game-development/unity.md)
       * [Xbox](introduction/getting-started/integrations/game-development/xbox.md)
+      * [Custom Engine Support](introduction/getting-started/integrations/game-development/custom-engine-support.md)
     * [📱 Mobile](introduction/getting-started/integrations/mobile/README.md)
       * [Android](introduction/getting-started/integrations/mobile/android.md)
       * [Ionic](introduction/getting-started/integrations/mobile/ionic.md)
