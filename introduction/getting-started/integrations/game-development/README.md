@@ -16,7 +16,11 @@ Game engines are some of the largest and most complicated codebases that develop
 [unity.md](unity.md)
 {% endcontent-ref %}
 
-### Game Consoles&#x20;
+{% content-ref url="custom-engine-support.md" %}
+[custom-engine-support.md](custom-engine-support.md)
+{% endcontent-ref %}
+
+### Game Consoles
 
 {% content-ref url="nintendo.md" %}
 [nintendo.md](nintendo.md)
@@ -30,9 +34,6 @@ Game engines are some of the largest and most complicated codebases that develop
 [xbox.md](xbox.md)
 {% endcontent-ref %}
 
-
-
 {% hint style="info" %}
-**Not finding what you're looking for?**  Please reach out to [support@bugsplat.com](mailto:support@bugsplat.com) to request the language or environment you'd like BugSplat to integrate with next!
+**Not finding what you're looking for?** Please reach out to [support@bugsplat.com](mailto:support@bugsplat.com) to request the language or environment you'd like BugSplat to integrate with next!
 {% endhint %}
-
