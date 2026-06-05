@@ -166,6 +166,22 @@ AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
 
 In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title. For more information about how to add user feedback to your game please refer to the [BugSplat Unreal Plugin](unreal-engine/unreal-engine-plugin.md#user-feedback) documentation.
 
+## Support Response 🆘
+
+BugSplat can display a custom support message to your end users immediately after a crash is submitted. Messages are configured per crash group and application key in the BugSplat web app. For a full walkthrough, see our blog post: [Bringing Custom Crash Responses to Unreal Engine](https://blog.bugsplat.com/bringing-custom-crash-responses-to-unreal-engine/).
+
+### Delivering Localized Responses
+
+To deliver localized support responses, append a `BugSplatApplicationKey` query parameter to your `DataRouterUrl`. BugSplat will use that value to look up the matching support message and include a link to it in the crash post response:
+
+```
+DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}?BugSplatApplicationKey=en-US"
+```
+
+For a dynamically chosen key — for example, one that reflects the user's system language — you'll need a [customized CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/) that appends the parameter at runtime before posting the crash report.
+
+Alternatively, you can set `BugSplatApplicationKey` via `SetGameData` in your game code (see [Custom Fields](#custom-fields-)), which the backend will extract from `CrashContext.runtime-xml` and store with the crash record.
+
 ## Licensee Builds 🤝
 
 Some forks of Unreal (e.g., Oculus) are set up as a "Licensee" build. Regardless of other settings, crash reports won't be sent because of this [block of code](https://github.com/EpicGames/UnrealEngine/blob/5ccd1d8b91c944d275d04395a037636837de2c56/Engine/Source/Runtime/Core/Private/Unix/UnixPlatformCrashContext.cpp#L594-L600):
