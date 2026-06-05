@@ -168,7 +168,13 @@ In addition to crash reporting, BugSplat supports collecting non-crashing user f
 
 ## Support Response 🆘
 
-BugSplat can display a custom support message to your end users immediately after a crash is submitted. You can append a `BugSplatApplicationKey` query parameter to your `DataRouterUrl` to control which message is shown, making it possible to deliver localized responses to your players using a [customized CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/). For example: `DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}?BugSplatApplicationKey=en-US"`. For a full walkthrough, see [Bringing Custom Crash Responses to Unreal Engine](https://blog.bugsplat.com/bringing-custom-crash-responses-to-unreal-engine/).
+BugSplat can display a custom support message to your end users immediately after a crash is submitted. You can append a `BugSplatApplicationKey` query parameter to your `DataRouterUrl` to control which message is shown, making it possible to deliver localized responses to your players using a [customized CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/).
+
+```ini
+DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}?BugSplatApplicationKey=en-US"
+```
+
+For a full walkthrough, see [Bringing Custom Crash Responses to Unreal Engine](https://blog.bugsplat.com/bringing-custom-crash-responses-to-unreal-engine/).
 
 ## Licensee Builds 🤝
 
