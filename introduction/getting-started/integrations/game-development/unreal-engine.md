@@ -168,19 +168,7 @@ In addition to crash reporting, BugSplat supports collecting non-crashing user f
 
 ## Support Response 🆘
 
-BugSplat can display a custom support message to your end users immediately after a crash is submitted. Messages are configured per crash group and application key in the BugSplat web app. For a full walkthrough, see our blog post: [Bringing Custom Crash Responses to Unreal Engine](https://blog.bugsplat.com/bringing-custom-crash-responses-to-unreal-engine/).
-
-### Delivering Localized Responses
-
-To deliver localized support responses, append a `BugSplatApplicationKey` query parameter to your `DataRouterUrl`. BugSplat will use that value to look up the matching support message and include a link to it in the crash post response:
-
-```
-DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}?BugSplatApplicationKey=en-US"
-```
-
-For a dynamically chosen key — for example, one that reflects the user's system language — you'll need a [customized CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/) that appends the parameter at runtime before posting the crash report.
-
-Alternatively, you can set `BugSplatApplicationKey` via `SetGameData` in your game code (see [Custom Fields](#custom-fields-)), which the backend will extract from `CrashContext.runtime-xml` and store with the crash record.
+BugSplat can display a custom support message to your end users immediately after a crash is submitted. You can append a `BugSplatApplicationKey` query parameter to your `DataRouterUrl` to control which message is shown, making it possible to deliver localized responses to your players using a [customized CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/). For example: `DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}?BugSplatApplicationKey=en-US"`. For a full walkthrough, see [Bringing Custom Crash Responses to Unreal Engine](https://blog.bugsplat.com/bringing-custom-crash-responses-to-unreal-engine/).
 
 ## Licensee Builds 🤝
 
