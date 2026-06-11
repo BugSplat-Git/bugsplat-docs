@@ -395,6 +395,73 @@ inline void SetPerThreadCRTExceptionBehavior();
 
 ***
 
+### C API (BugSplatC.h)
+
+In addition to the `BugSplat` C++ class, the SDK exposes a flat C API declared in **`BugSplatC.h`**. The C API manages a single process-wide `BugSplat` instance and is the interface exported by the dynamic library, **`BugSplat.dll`**. Because only the C ABI crosses the DLL boundary, consumers of `BugSplat.dll` do not need to match the SDK's runtime library setting (`/MT` vs `/MD`), and any language with C FFI support (C#, Rust, Python, etc.) can call these functions directly.
+
+**Linkage:**
+
+* **Dynamic:** link the import library `dynamic\BugSplat.lib` and ship `BugSplat.dll` with your application. This is the default when including `BugSplatC.h` with no extra defines.
+* **Static:** the C API is also compiled into the static `BugSplat.lib` — define `BUGSPLAT_STATIC` before including `BugSplatC.h`.
+
+All strings are null-terminated UTF-16 (`wchar_t*`). Boolean parameters and return values use `int` (`0`/`1`) for ABI stability.
+
+#### BugSplat\_Init
+
+```c
+int BugSplat_Init(const wchar_t* database, const wchar_t* appName, const wchar_t* appVersion);
+```
+
+**Description:** Initializes crash reporting and installs the unhandled exception filter. Call once, early in your application's lifetime.
+
+**Returns:** `1` on success, `0` if already initialized or if any argument is null.
+
+#### BugSplat\_IsInitialized
+
+```c
+int BugSplat_IsInitialized(void);
+```
+
+**Description:** Returns `1` if `BugSplat_Init` has been called successfully, `0` otherwise.
+
+#### Forwarding Functions
+
+The remaining functions forward to the equivalent `BugSplat` class methods documented above:
+
+| C function                          | Class method               |
+| ----------------------------------- | -------------------------- |
+| `BugSplat_SetKey`                   | `SetKey`                   |
+| `BugSplat_SetUser`                  | `SetUser`                  |
+| `BugSplat_SetEmail`                 | `SetEmail`                 |
+| `BugSplat_SetUserDescription`       | `SetUserDescription`       |
+| `BugSplat_SetNotes`                 | `SetNotes`                 |
+| `BugSplat_SetAttribute`             | `SetAttribute`             |
+| `BugSplat_AddAttachment`            | `AddAttachment`            |
+| `BugSplat_RemoveAttachment`         | `RemoveAttachment`         |
+| `BugSplat_SetQuietMode`             | `SetQuietMode`             |
+| `BugSplat_SetHangDetectionTimeout`  | `SetHangDetectionTimeout`  |
+| `BugSplat_PostAllCrashesAsync`      | `PostAllCrashesAsync`      |
+
+#### C API Example
+
+```c
+#include "BugSplatC.h"
+
+int main() {
+    BugSplat_Init(L"MyDatabase", L"MyApp", L"1.0.0");
+    BugSplat_SetUser(L"john.doe");
+    BugSplat_SetEmail(L"john.doe@example.com");
+    BugSplat_SetQuietMode(1);
+    BugSplat_PostAllCrashesAsync();
+
+    // Your application code here...
+
+    return 0;
+}
+```
+
+***
+
 ### Usage Examples
 
 #### Basic Initialization

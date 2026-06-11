@@ -48,6 +48,31 @@ symbol-upload-windows.exe -b your-database -a your-app -v your-version -i your-c
 To get complete symbolicated call stacks and variable names for each crash, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product every time you build a release version of your application for distribution or internal testing.
 {% endhint %}
 
+### Dynamic Library 🔗
+
+The SDK also ships as a dynamic library, **`BugSplat.dll`**, with a flat C API declared in **`BugSplatC.h`**. The DLL exposes the same crash reporting engine as `BugSplat.lib` through `BugSplat_*` functions. Choose the dynamic library when:
+
+* You don't want your runtime library setting (`/MT` vs `/MD`) coupled to BugSplat's — only the C ABI crosses the DLL boundary, so your application's CRT choice doesn't need to match the SDK's.
+* You're calling BugSplat from another language (C#, Rust, Python, etc.) via P/Invoke or FFI.
+
+To integrate the dynamic library, follow the steps above with these differences:
+
+1. Link with the import library **`dynamic\BugSplat.lib`** instead of the static `BugSplat.lib`, and include **`BugSplatC.h`** instead of `BugSplat.h`.
+2. Ship **`BugSplat.dll`** alongside your executable, in addition to `BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSplatRc.dll`.
+3. Initialize BugSplat with the C API:
+
+```cpp
+#include "BugSplatC.h"
+
+BugSplat_Init(BUGSPLAT_DATABASE, APPLICATION_NAME, APPLICATION_VERSION);
+BugSplat_SetUser(L"fred");
+BugSplat_SetAttribute(L"branch", L"main");
+```
+
+{% hint style="info" %}
+The C API is also available to static library consumers — define `BUGSPLAT_STATIC` before including `BugSplatC.h`. See the [API documentation](bugsplat-for-windows-api-documentation.md#c-api-bugsplatc.h) for the full list of `BugSplat_*` functions.
+{% endhint %}
+
 ### Verification ✅
 
 Test your application by forcing a crash.
