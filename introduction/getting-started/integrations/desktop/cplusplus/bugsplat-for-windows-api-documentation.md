@@ -442,6 +442,10 @@ The remaining functions forward to the equivalent `BugSplat` class methods docum
 | `BugSplat_SetHangDetectionTimeout`  | `SetHangDetectionTimeout`  |
 | `BugSplat_PostAllCrashesAsync`      | `PostAllCrashesAsync`      |
 | `BugSplat_CreateXmlReport`          | `CreateXmlReport`          |
+| `BugSplat_CreateAsanReport`         | `CreateAsanReport`         |
+| `BugSplat_SetMiniDumpType`          | `SetMiniDumpType`          |
+
+`BugSplat_SetMiniDumpType` takes the Windows `MINIDUMP_TYPE` flags as an `int`. `BugSplat_CreateAsanReport` takes a `const char*` (ASan reports are ASCII/UTF-8 text).
 
 #### BugSplat\_PostFeedback
 
@@ -464,6 +468,19 @@ int BugSplat_PostFeedback(const wchar_t* title,
 **Returns:** `1` on success, `0` on failure.
 
 **Note:** The C++ `BugSplat::PostFeedback` takes a `std::vector`, which cannot cross the DLL boundary. The C entry point takes an `(array, count)` pair instead so the C ABI stays free of STL types and remains compatible with `/MT` and non-C++ consumers.
+
+#### BugSplat\_GenerateDump
+
+```c
+void BugSplat_GenerateDump(void* exceptionPointers, int dumpType);
+```
+
+**Description:** Generates a crash report from caller-supplied exception information without terminating the process. Most applications do not need this — the exception filter installed by `BugSplat_Init` already captures unhandled crashes automatically. Use it only when you run your own exception handler and want to report a specific exception.
+
+**Parameters:**
+
+* `exceptionPointers` - An `EXCEPTION_POINTERS*` as provided by the OS inside an SEH `__except` filter (`GetExceptionInformation()`) or an unhandled-exception-filter callback. It is passed as `void*` so the header carries no `<windows.h>` dependency; it is not a value you construct.
+* `dumpType` - A combination of Windows `MINIDUMP_TYPE` flags, or a negative value to use the SDK default.
 
 #### C API Example
 
