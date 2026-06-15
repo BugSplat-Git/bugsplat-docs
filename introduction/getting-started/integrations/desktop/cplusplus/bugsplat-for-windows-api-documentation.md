@@ -441,6 +441,29 @@ The remaining functions forward to the equivalent `BugSplat` class methods docum
 | `BugSplat_SetQuietMode`             | `SetQuietMode`             |
 | `BugSplat_SetHangDetectionTimeout`  | `SetHangDetectionTimeout`  |
 | `BugSplat_PostAllCrashesAsync`      | `PostAllCrashesAsync`      |
+| `BugSplat_CreateXmlReport`          | `CreateXmlReport`          |
+
+#### BugSplat\_PostFeedback
+
+```c
+int BugSplat_PostFeedback(const wchar_t* title,
+                          const wchar_t* description,
+                          const wchar_t* const* attachments,
+                          int attachmentCount);
+```
+
+**Description:** Posts non-crashing user feedback such as a bug report or feature request. The title is used as the stack key for grouping feedback in the dashboard.
+
+**Parameters:**
+
+* `title` - Feedback title (also the grouping key)
+* `description` - Optional description; may be `NULL` (treated as empty)
+* `attachments` - Optional array of file paths, or `NULL` for none. These are included only in this feedback upload and do not affect attachments added via `BugSplat_AddAttachment`
+* `attachmentCount` - Number of entries in `attachments` (0 if none)
+
+**Returns:** `1` on success, `0` on failure.
+
+**Note:** The C++ `BugSplat::PostFeedback` takes a `std::vector`, which cannot cross the DLL boundary. The C entry point takes an `(array, count)` pair instead so the C ABI stays free of STL types and remains compatible with `/MT` and non-C++ consumers.
 
 #### C API Example
 
