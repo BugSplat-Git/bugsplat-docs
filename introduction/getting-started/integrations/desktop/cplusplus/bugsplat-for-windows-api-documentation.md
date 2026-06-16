@@ -143,6 +143,18 @@ void SetHangDetectionTimeout(int ms);
 
 * `ms` - Timeout in milliseconds (default: 5000). Use 0 to disable hang detection.
 
+#### SetTerminateAfterCrash
+
+```cpp
+void SetTerminateAfterCrash(bool terminate);
+```
+
+**Description:** Controls how the process ends after a crash report is created and uploaded. When `false` (the default), the handler calls `exit()`, which runs full C-runtime shutdown. When `true`, it calls `TerminateProcess` instead — a hard termination that avoids CRT-shutdown hangs in complex hosts (for example, a Unity standalone player whose process can hang on `exit()` after the report is sent). The dump is created and uploaded before either path, so reporting is unaffected.
+
+**Parameters:**
+
+* `terminate` - `true` to hard-terminate after a crash, `false` (default) to `exit()`
+
 ***
 
 ### Crash Detection & Reporting
@@ -440,6 +452,7 @@ The remaining functions forward to the equivalent `BugSplat` class methods docum
 | `BugSplat_RemoveAttachment`         | `RemoveAttachment`         |
 | `BugSplat_SetQuietMode`             | `SetQuietMode`             |
 | `BugSplat_SetHangDetectionTimeout`  | `SetHangDetectionTimeout`  |
+| `BugSplat_SetTerminateAfterCrash`   | `SetTerminateAfterCrash`   |
 | `BugSplat_PostAllCrashesAsync`      | `PostAllCrashesAsync`      |
 | `BugSplat_CreateXmlReport`          | `CreateXmlReport`          |
 | `BugSplat_CreateAsanReport`         | `CreateAsanReport`         |
