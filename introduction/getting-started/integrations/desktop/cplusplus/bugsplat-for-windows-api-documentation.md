@@ -143,17 +143,23 @@ void SetHangDetectionTimeout(int ms);
 
 * `ms` - Timeout in milliseconds (default: 5000). Use 0 to disable hang detection.
 
-#### SetTerminateAfterCrash
+#### SetCrashCompletionBehavior
 
 ```cpp
-void SetTerminateAfterCrash(bool terminate);
+enum class BugSplatCrashCompletion { Exit = 0, Terminate = 1, ContinueSearch = 2 };
+
+void SetCrashCompletionBehavior(BugSplatCrashCompletion behavior);
 ```
 
-**Description:** Controls how the process ends after a crash report is created and uploaded. When `false` (the default), the handler calls `exit()`, which runs full C-runtime shutdown. When `true`, it calls `TerminateProcess` instead — a hard termination that avoids CRT-shutdown hangs in complex hosts (for example, a Unity standalone player whose process can hang on `exit()` after the report is sent). The dump is created and uploaded before either path, so reporting is unaffected.
+**Description:** Controls what the crash handler does after the crash report has been created and uploaded. The dump is captured and sent before any of these paths, so reporting is unaffected by the choice:
+
+* `Exit` (default) - calls `exit()`, which runs full C-runtime shutdown.
+* `Terminate` - calls `TerminateProcess`, a hard termination that avoids CRT-shutdown hangs in complex hosts (for example, a Unity standalone player whose process can hang on `exit()` after the report is sent).
+* `ContinueSearch` - returns `EXCEPTION_CONTINUE_SEARCH` from the unhandled-exception filter, handing control to the operating system's default unhandled-exception handling (Windows Error Reporting, or an attached debugger) instead of ending the process itself.
 
 **Parameters:**
 
-* `terminate` - `true` to hard-terminate after a crash, `false` (default) to `exit()`
+* `behavior` - one of the `BugSplatCrashCompletion` values above (default `Exit`)
 
 ***
 
@@ -452,7 +458,7 @@ The remaining functions forward to the equivalent `BugSplat` class methods docum
 | `BugSplat_RemoveAttachment`         | `RemoveAttachment`         |
 | `BugSplat_SetQuietMode`             | `SetQuietMode`             |
 | `BugSplat_SetHangDetectionTimeout`  | `SetHangDetectionTimeout`  |
-| `BugSplat_SetTerminateAfterCrash`   | `SetTerminateAfterCrash`   |
+| `BugSplat_SetCrashCompletionBehavior` | `SetCrashCompletionBehavior` |
 | `BugSplat_PostAllCrashesAsync`      | `PostAllCrashesAsync`      |
 | `BugSplat_CreateXmlReport`          | `CreateXmlReport`          |
 | `BugSplat_CreateAsanReport`         | `CreateAsanReport`         |
