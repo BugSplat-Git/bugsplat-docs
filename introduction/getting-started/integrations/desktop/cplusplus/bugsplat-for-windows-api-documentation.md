@@ -161,6 +161,18 @@ void SetCrashCompletionBehavior(BugSplatCrashCompletion behavior);
 
 * `behavior` - one of the `BugSplatCrashCompletion` values above (default `Exit`)
 
+#### SetCrashType
+
+```cpp
+void SetCrashType(int crashTypeId);
+```
+
+**Description:** Overrides the BugSplat crash type id stamped on uploaded crashes. By default native crashes are uploaded as `Native` (id `1`). Set this when a higher-level integration needs the server to process the crash differently — for example, a Unity IL2CPP integration sets `15` (`UnityNative`: "a native crash with an additional file containing the managed call stack"), which is the crash type the BugSplat backend uses to apply `LineNumberMappings.json` and symbolicate managed (C#) frames.
+
+**Parameters:**
+
+* `crashTypeId` - the BugSplat crash type id (default `1` = Native; `15` = UnityNative)
+
 ***
 
 ### Crash Detection & Reporting
@@ -459,6 +471,7 @@ The remaining functions forward to the equivalent `BugSplat` class methods docum
 | `BugSplat_SetQuietMode`             | `SetQuietMode`             |
 | `BugSplat_SetHangDetectionTimeout`  | `SetHangDetectionTimeout`  |
 | `BugSplat_SetCrashCompletionBehavior` | `SetCrashCompletionBehavior` |
+| `BugSplat_SetCrashType`               | `SetCrashType`               |
 | `BugSplat_PostAllCrashesAsync`      | `PostAllCrashesAsync`      |
 | `BugSplat_CreateXmlReport`          | `CreateXmlReport`          |
 | `BugSplat_CreateAsanReport`         | `CreateAsanReport`         |
