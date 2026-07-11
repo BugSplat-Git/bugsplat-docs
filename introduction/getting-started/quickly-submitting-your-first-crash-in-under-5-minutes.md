@@ -4,9 +4,10 @@ Submitting a sample crash to your new BugSplat account is a quick and straightfo
 
 1. [Sign up ](https://app.bugsplat.com/v2/sign-up)for a new account
 2. Use the onboarding tool to create a new database
-3. Select your first platform or SDK from our list of 25+ SDKs
-4. Select the "In a Hurry" button at the bottom right of the docs to skip the full integration process for now and post a sample crash
-5. Explore your new BugSplat account and see the data you can get from a crashed app
+3. Add tools and team members
+4. Select your first platform or SDK from our list of 25+ SDKs
+5. Select the "Post sample crash" button to skip the full integration process for now and post a sample crash
+6. Explore your new BugSplat account and see the data you can get from a crashed app
 
 ### Step 1: Sign Up for a New Account
 
@@ -30,7 +31,7 @@ BugSplat supports [a wide range of platforms and SDKs](integrations/), providing
 
 ### Step 4: Submitting a Sample Crash
 
-Once you've selected your platform or SDK, you'll be taken to our documentation page. To quickly submit a sample crash without going through the full integration process, scroll down to the bottom right of the page and click the button labeled "**In a hurry? Post a sample crash instead**." This allows you to skip the full integration process for now and submit a sample crash directly.
+Once you've selected your platform or SDK, you'll be taken to our documentation page. To quickly submit a sample crash without going through the full integration process, click the "**Post sample crash**" button in the sidebar status card. This allows you to skip the full integration process for now and submit a sample crash directly.
 
 <figure><img src="../../.gitbook/assets/post_sample_crash-4.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -38,7 +39,7 @@ Once you've selected your platform or SDK, you'll be taken to our documentation 
 
 Congratulations! You've successfully submitted a sample crash to your new BugSplat account. Take a moment to explore your BugSplat account and discover the valuable data you can obtain from a crashed application. This data will empower you to identify and resolve issues in your software more efficiently, saving you time and energy in the long run.
 
-Remember, if you want to navigate back to the onboarding flow and complete the full integration process with BugSplat, you can do so at any time by clicking the BugSplat logo in the top left corner of the screen.  You can also click this link --> [https://app.bugsplat.com/v2/welcome](https://app.bugsplat.com/v2/welcome)
+Remember, if you want to navigate back to the onboarding flow and complete the full integration process with BugSplat, you can do so at any time by clicking this link --> [https://app.bugsplat.com/v2/welcome](https://app.bugsplat.com/v2/welcome)
 
 <figure><img src="../../.gitbook/assets/post_sample_crash-5.png" alt="" width="563"><figcaption></figcaption></figure>
 
