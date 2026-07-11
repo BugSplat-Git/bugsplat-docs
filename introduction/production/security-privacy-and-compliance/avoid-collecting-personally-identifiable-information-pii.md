@@ -1,6 +1,6 @@
 # Avoid Collecting Personally Identifiable Information (PII)
 
-For Business and Enterprise plans, Bugsplat account-holders have the option to prevent the collection of personally identifiable information from your users.
+For all plans except Free (Team plan or higher required to upgrade), Bugsplat account-holders have the option to prevent the collection of personally identifiable information from your users.
 
 **Steps to mask and obfuscate personally identifiable information:**
 
