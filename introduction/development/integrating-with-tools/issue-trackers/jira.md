@@ -6,11 +6,11 @@ BugSplat's Jira integration allows your team to create defects with a few clicks
 
 1. Login to your account.
 2. Click the Gear icon (⚙️) at the top right of the page and navigate to the [Database Settings](https://app.bugsplat.com/v2/database/integrations) page, and under **Database > Integrations >** **Defect Tracker**, select **Jira** from the options shown.
-3. Enter your **Username**, **Token**, **URL**, and **Issue Type** into the appropriate boxes. For Jira Cloud, use an [API Token](https://id.atlassian.com/manage-profile/security/api-tokens) in the **Token** field. For self-hosted Jira Server use your account's password for the **Token** field.
-4. Click **Apply**.
+3. Enter your **Username**, **Token**, and **URL** into the appropriate boxes. For Jira Cloud, use an [API Token](https://id.atlassian.com/manage-profile/security/api-tokens) in the **Token** field. For self-hosted Jira Server use your account's password for the **Token** field.
+4. Click **Update**.
 5. Once a connection to Jira has been established, you can select one of your projects from the project dropdown list.
-6. After selecting your desired project, click **Apply** again.
-7. Add additional data in any of the other fields.
+6. After selecting your desired project, click **Update** again.
+7. Add additional data in any of the other fields, including the optional **Issue Type** field.
 
 {% hint style="info" %}
 The optional **Assignee ID** field requires the Atlassian user ID when using Jira Cloud. Jira Server doesn't support user IDs, so use the user name.

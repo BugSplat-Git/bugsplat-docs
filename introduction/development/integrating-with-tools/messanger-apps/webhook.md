@@ -42,3 +42,5 @@ Notification payload for new BugSplat report or new BugSplat group. &#x20;
 | platform         | string       | Human-readable platform name (e.g., "Windows", "macOS", "Crashpad/Breakpad", "Unity")            |
 | crashFileUrl     | string       | Presigned URL to download the crash file. URL expires after a limited time.                      |
 | attributes       | object       | Key-value pairs of custom attributes submitted with the crash report                             |
+| crashTime        | datetime     | Timestamp of when the crash occurred                                                             |
+| userDescription  | string       | End-user's description of the crash, if provided                                                 |

@@ -23,7 +23,7 @@ Very best,
 3. Under the **Slack** section, click the **Add to Slack** button.
 4. You’ll be prompted to confirm your identity and choose which channel you would like the notifications posted to.
 5. Select **Authorize**.
-6. Use the toggle buttons to set your notification preferences. You can choose to be notified for each new report or each new unique report group.
+6. Use the toggle buttons to set your notification preferences: **New Report Notifications**, **New Group Notifications**, and **Regression Alerts**.
 7. Use the **Fields** dropdown to select the fields you'd like to include in your notifications.
 
 <figure><img src="../../../../.gitbook/assets/slack.gif" alt=""><figcaption><p>Configuring BugSplat's Slack Integration</p></figcaption></figure>

@@ -42,11 +42,13 @@ Create an issue in the associated defect tracker
 
 #### Request Body
 
-| Name       | Type   | Description                                            |
-| ---------- | ------ | ------------------------------------------------------ |
-| stackKeyId | number | Id of the crash group being used to create a new issue |
-| id         | number | Id of the crash being used to create a new issue       |
-| database   | string | BugSplat database containing the crashId or stackKeyId |
+| Name         | Type   | Description                                                       |
+| ------------ | ------ | ------------------------------------------------------------------ |
+| stackKeyId   | number | Id of the crash group being used to create a new issue             |
+| id           | number | Id of the crash being used to create a new issue                   |
+| database     | string | BugSplat database containing the crashId or stackKeyId             |
+| notes        | string | Optional note attached to the new defect                           |
+| linkDefectId | string | Optional id of an existing defect to link instead of creating a new one |
 
 {% tabs %}
 {% tab title="200 " %}

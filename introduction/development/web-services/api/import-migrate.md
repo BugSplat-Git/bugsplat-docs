@@ -32,7 +32,7 @@ Migrate crash minidump files to BugSplat from your existing crash report solutio
 {
     status: "success",
     crashId: 1,
-    techSupportUrl: "https://fred.bugsplat.com/browse/support/?stackKeyId=5555&vendor=Fred&key=*Default*"
+    techSupportUrl: "https://app.bugsplat.com/browse/crashInfo.php?vendor=Fred&version=1.0.0.0&key=*Default*&id=1&row=1"
 }
 ```
 {% endtab %}

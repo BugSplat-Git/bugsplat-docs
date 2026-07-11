@@ -41,8 +41,10 @@ Special XML characters in title and description (`&`, `<`, `>`, `"`, `'`) must b
 
 | Field         | Required | Description                                         |
 | ------------- | -------- | --------------------------------------------------- |
-| `title`       | Yes      | Short summary of the feedback (becomes stack key)   |
-| `description` | No       | Detailed description of the issue (can be empty)    |
+| `title`       | No\*     | Short summary of the feedback (becomes stack key); if omitted, a truncated `description` is used instead |
+| `description` | No\*     | Detailed description of the issue (can be empty)    |
+
+\* At least one of `title` or `description` must be provided.
 
 ## Uploading via Presigned URL
 
@@ -60,11 +62,10 @@ Optional fields on commit: `user`, `email`, `description`, `appKey`, `attributes
 
 ## JS API Client
 
-The [`bugsplat-js-api-client`](https://github.com/BugSplat-Git/bugsplat-js-api-client) package provides a `postUserFeedback()` helper that handles XML generation and upload:
+The [`@bugsplat/js-api-client`](https://github.com/BugSplat-Git/bugsplat-js-api-client) package provides a `postUserFeedback()` helper that handles JSON generation and upload:
 
 ```typescript
-import { CrashPostClient } from 'bugsplat-js-api-client';
-import { postUserFeedback } from 'bugsplat-js-api-client/src/post/user-feedback';
+import { CrashPostClient, postUserFeedback } from '@bugsplat/js-api-client';
 
 const client = new CrashPostClient('your-database');
 
@@ -75,3 +76,7 @@ await postUserFeedback(client, 'MyApp', '1.0.0', {
     email: 'jane@example.com',
 });
 ```
+
+{% hint style="warning" %}
+`postUserFeedback()` currently uploads the raw `feedback.json` payload without zipping it. Since the presigned upload URL always targets a `.zip` key and the backend expects a zip archive, reports submitted this way will not process correctly. Until this is fixed, use the manual upload flow described above with a zipped `feedback.xml` or `feedback.json` file.
+{% endhint %}

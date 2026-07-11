@@ -254,7 +254,7 @@ curl --location 'https://app.bugsplat.com/api/crash/details?database=fred&id=132
 
 <mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/crash/reprocess`
 
-Add a crash to BugSplat's queue for reprocessing. A maximum of 50 crashes can be in the queue for reprocessing. To reprocess more crashes, please [contact us](../../../../administration/contact-us.md).
+Add a crash to BugSplat's queue for reprocessing. A maximum of 60 crashes can be in the queue for reprocessing. To reprocess more crashes, please [contact us](../../../../administration/contact-us.md).
 
 #### Query Parameters
 
@@ -302,42 +302,10 @@ Update the notes field for a specific crash.
 {% tab title="200 " %}
 ```json
 {
+  "status": "success",
   "database": "Fred",
-  "pageData": {
-    "defectTracker": true,
-    "defectTrackerType": "GitHub"
-  },
-  "rows": [
-    {
-      "id": "140612",
-      "status": "0",
-      "stackId": "19187",
-      "stackKey": "myConsoleCrasher+0x12b5",
-      "stackKeyId": "9579",
-      "appName": "myConsoleCrasher",
-      "appVersion": "1.048",
-      "appDescription": "appKey",
-      "userDescription": "A default user description",
-      "user": "TestUser",
-      "email": "TestUser@bugsplat.com",
-      "IpAddress": "34.225.87.xxxx",
-      "crashTime": "2025-10-30T20:52:24Z",
-      "defectId": null,
-      "defectUrl": "",
-      "defectLabel": "",
-      "skDefectId": null,
-      "skDefectUrl": "",
-      "skDefectLabel": "",
-      "Comments": "",
-      "skComments": "",
-      "crashTypeId": "1",
-      "exceptionCode": "c0000005",
-      "exceptionMessage": "Access violation",
-      "attributes": "{}",
-      "lineNumber": null,
-      "groupByCount": null
-    }
-  ]
+  "id": 140612,
+  "notes": "test"
 }
 ```
 {% endtab %}

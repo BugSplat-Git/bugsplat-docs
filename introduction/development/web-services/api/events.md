@@ -17,6 +17,7 @@ Get all events associated with a Crash Group (Stack Key).
 | Name       | Type   | Description                                                                        |
 | ---------- | ------ | ---------------------------------------------------------------------------------- |
 | database   | string | Name of the database containing the specified Crash Id or Crash Group (Stack Key). |
+| crashId    | number | Crash to fetch events for.                                                         |
 | stackKeyId | number | Crash group to fetch events for.                                                   |
 
 {% tabs %}
@@ -59,6 +60,7 @@ Post a new comment for a given Crash Group (Stack Key).
 | Name                                      | Type   | Description                                                                           |
 | ----------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
 | database                                  | string | Name of the database that contains the specified Crash Id or Crash Group (Stack Key). |
+| crashId                                   | number | Crash to comment on                                                                   |
 | message<mark style="color:red;">\*</mark> | string | Markdown string containing the body of the comment to post.                           |
 | stackKeyId                                | number | Crash group to comment on                                                             |
 

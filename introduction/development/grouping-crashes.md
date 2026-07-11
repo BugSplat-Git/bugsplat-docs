@@ -33,7 +33,7 @@ Auto-group rules are processed in a specific, consistent order that cannot be ch
 * At this point, neither **group-by** nor **group-after** rules matched any stack frames. The rules engine will apply the **ignore** rules starting with the top stack frame, skipping over any frames that match the **ignore** rules until it finds the first frame that isn't to be ignored. The resulting frame is used for grouping.
 
 {% hint style="info" %}
-When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. To apply new rules, you can reprocess up to 50 reports at a time via the [Batch Reprocess](../../education/how-tos/batch-reprocess-crashes.md) button on the Crashes page. If you'd like to reprocess more than 50 crashes at a time, please contact [Support](mailto:support@bugsplat.com).
+When you specify a new Auto-Group rule, it will be applied to newly processed and reprocessed crashes only. To apply new rules, you can reprocess up to 50 reports at a time via the [Reprocess](../../education/how-tos/batch-reprocess-crashes.md) button on the Crashes page. If you'd like to reprocess more than 50 crashes at a time, please contact [Support](mailto:support@bugsplat.com).
 {% endhint %}
 
 ### Options
@@ -46,7 +46,7 @@ With all settings enabled, groups would be created by a match on the entire stri
 
 ### Crashes Page
 
-The [**Crashes**](https://app.bugsplat.com/v2/crashes) page displays a list of reports and their associated group under the **Stack Key** column. We've added a rule that effectively skips `KERNELBASE!RaiseException` and the reports are now grouped by the next frame in the stack `MyConsoleCrasher!_CxxThrowException(75)`. To see the report's stack trace, click the value in the **ID** column.
+The [**Crashes**](https://app.bugsplat.com/v2/crashes) page displays a list of reports and their associated group under the **Group** column. We've added a rule that effectively skips `KERNELBASE!RaiseException` and the reports are now grouped by the next frame in the stack `MyConsoleCrasher!_CxxThrowException(75)`. To see the report's stack trace, click the value in the **ID** column.
 
 <figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Crash Page</p></figcaption></figure>
 

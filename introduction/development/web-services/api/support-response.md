@@ -30,7 +30,8 @@ Returns the subject and raw markdown body contents for a Support Response page t
     "appKey": "*Default*",
     "subject": "",
     "content": "",
-    "allkeys": null
+    "allkeys": null,
+    "crashId": 12345
 }
 ```
 {% endtab %}
@@ -46,8 +47,8 @@ Create a new Support Response page for a specified stackKeyId and appKey.
 
 | Name                                         | Type   | Description                                                                                                                                |
 | -------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| content<mark style="color:red;">\*</mark>    | string | Markdown contents of the Support Response page's body.                                                                                     |
-| subject<mark style="color:red;">\*</mark>    | string | The subject line to be displayed to an end-user.                                                                                           |
+| content                                      | string | Markdown contents of the Support Response page's body.                                                                                     |
+| subject                                      | string | The subject line to be displayed to an end-user.                                                                                           |
 | appKey                                       | string | An appKey used to display a targeted version of the Support Response page. This is useful for displaying localized Support Response pages. |
 | stackKeyId<mark style="color:red;">\*</mark> | number | The Crash Group (Stack Key) ID of the specified crash                                                                                      |
 | database                                     | string | BugSplat database containing the specified crash                                                                                           |
@@ -76,8 +77,8 @@ Update a Support Response page for a specified stackKeyId and appKey.
 
 | Name                                         | Type   | Description                                                                                                                                |
 | -------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| content<mark style="color:red;">\*</mark>    | string | Markdown contents of the Support Response page's body.                                                                                     |
-| subject<mark style="color:red;">\*</mark>    | string | The subject line to be displayed to an end-user.                                                                                           |
+| content                                      | string | Markdown contents of the Support Response page's body.                                                                                     |
+| subject                                      | string | The subject line to be displayed to an end-user.                                                                                           |
 | appKey                                       | string | An appKey used to display a targeted version of the Support Response page. This is useful for displaying localized Support Response pages. |
 | stackKeyId<mark style="color:red;">\*</mark> | number | The Crash Group (Stack Key) ID of the specified crash                                                                                      |
 | database                                     | string | BugSplat database containing the specified crash                                                                                           |

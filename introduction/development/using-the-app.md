@@ -48,15 +48,11 @@ Finally, if a specific crash seems important and worthy of further investigation
 
 The **Crash** page allows users to get information critical for understanding and fixing the defect which originally caused the issue.
 
-### User Details
+### Report Details
 
-The **User Details** component contains information about the user who experienced a crash. The User Details table will display who crashed, where they crashed (IP address), and the description provided by the user in the crash dialog. This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md) — like it is in the image below.
+The **Report Details** panel contains information about the crash and the user who experienced it. It displays who crashed, where they crashed (IP address), and the description provided by the user in the crash dialog, as well as details such as the crashing function, line number where the crash occurred, information regarding what type of crash took place, when the crash happened, and what OS and SDK the crashing application was running on. This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md) — like it is in the image below.
 
 ![](<../../.gitbook/assets/screen-shot-2021-07-16-at-3.08.42-pm (1) (1).png>)
-
-### Crash Details
-
-The **Crash Details** component summarizes the details of a specific crash. The Crash Details component contains information such as the crashing function, line number where the crash occurred, information regarding what type of crash took place, when the crash happened, what OS and SDK the crashing application was running on, and more.
 
 ![](../../.gitbook/assets/crash-details-modal.png)
 
@@ -68,15 +64,15 @@ The **Method** column contains a list of functions in the stack trace of the thr
 
 Clicking the **>** (greater than symbol) in the left-most column will expand the **Row Details** view.
 
-The **Row Details** view will display the **Grouping Rules** and **Create Group** buttons that will allow you to [modify the way your reports are grouped](grouping-crashes.md). Grouping at a different level of the call stack is called [subkeying](../../education/bugsplat-terminology.md#subkey) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
+The **Row Details** view will display the **Group Rules**, **Ignore Function**, and **Ignore File** buttons that will allow you to [modify the way your reports are grouped](grouping-crashes.md). Grouping at a different level of the call stack is called [subkeying](../../education/bugsplat-terminology.md#subkey) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
 
-Additionally, for [Windows Native](../getting-started/integrations/desktop/cplusplus/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments.](https://www.bugsplat.com/blog/development/local-variables-function-arguments/)
+Additionally, for [Windows Native](../getting-started/integrations/desktop/cplusplus/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments.](https://blog.bugsplat.com/local-variables-function-arguments/)
 
 The Crash page includes valuable information like crash time, environment, corresponding function name and line number, containing [stack key](../../education/bugsplat-terminology.md#stack-key), and much more.
 
 ### Additional Information
 
-All data covered to this point on the Crash page are found under the **Crash Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Debugger Output**, and **Attachments** — use the tabs found above the **User Details** module.
+All data covered to this point on the Crash page are found under the **Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Attributes**, **Debugger Output**, and **Attachments** — use the tabs found above the **Report Details** module.
 
 ![](<../../.gitbook/assets/viewing-tabs-crashreport (1).gif>)
 

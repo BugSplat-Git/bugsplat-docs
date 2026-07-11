@@ -10,7 +10,7 @@ BugSplat provides the capability to auto-create issues in third-party issue trac
 
 To set up the feature, follow these steps:
 
-1. Navigate to the [Defect Tracker](https://app.bugsplat.com/v2/database/integrations) tab of the Database settings page
+1. Navigate to the [Defect Trackers](https://app.bugsplat.com/v2/database/integrations) tab of the Database settings page
 2. Follow the instructions to configure your [Defect Tracker](../#issue-trackers) if you haven't already
 3. Enable the **New Crashes** or **New Groups** setting. Consider setting the **Group Threshold** value to ensure that new groups have multiple crashes before an issue is pushed to your Defect Tracker.
 4. Save your settings.
@@ -22,7 +22,7 @@ Once these steps are completed, BugSplat will automatically create issues in you
 There are two primary options for auto-creating defects:
 
 1. **Creating a new linked issue with every new crash**: This option will generate a new issue in your linked third-party tracker for each new crash recorded in BugSplat.
-2. **Creating a new linked issue for every new type of crash group:** This option generates a new issue for each unique type of crash group that is recorded. You can also set a threshold for the number of crashes in a group that are needed before an automatic issue is created. By setting this `Group Threshold` value to  `0`, an issue will be created for every new crash group.
+2. **Creating a new linked issue for every new type of crash group:** This option generates a new issue for each unique type of crash group that is recorded. You can also set a threshold for the number of crashes in a group that are needed before an automatic issue is created. By setting this `Group Threshold` value to `1`, an issue will be created for every new crash group.
 
 #### Feedback and Feature Requests
 

@@ -20,7 +20,7 @@ Enter values in the **Application** and **Version** fields if they are displayed
 
 Drag and drop the files you would like to upload, or use the **Select Files** link to choose the files in your system file explorer.
 
-Choose all of the symbol files that correspond to your application. Windows symbol files have `.exe`, `.dll`, and `.pdb` file extensions. MacOS symbol files can be extracted from a `.xcarchive` (must be zipped before uploading), or you can upload `.dSYM` files. Crashpad and Breakpad symbol files have a `.sym` file extension. TypeScript and JavaScript symbol files have a `.js.map` extension.
+Choose all of the symbol files that correspond to your application. Windows symbol files have `.exe`, `.dll`, and `.pdb` file extensions. MacOS symbol files can be extracted from a `.xcarchive`, or you can upload `.dSYM` files. Crashpad and Breakpad symbol files have a `.sym` file extension. TypeScript and JavaScript symbol files have a `.js.map` extension.
 
 ## Step 5
 

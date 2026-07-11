@@ -14,7 +14,7 @@ Get a summary of all [crash groups](../../../../education/bugsplat-terminology.m
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/summary`
 
-Returns crash summary data. Supports paging and filtering using column names firstReport, lastReport, stackKey, stackKeyId, crashSum, userSum, subKeyDepth, defectId, comments, and techSupportSubject.
+Returns crash summary data. Supports paging and filtering using column names firstReport, lastReport, stackKey, stackKeyId, crashSum, userSum, defectId, comments, and techSupportSubject.
 
 #### Query Parameters
 
@@ -26,9 +26,9 @@ Returns crash summary data. Supports paging and filtering using column names fir
 {% tab title="200 " %}
 ```json
 {
-    "Database": "tormore",
-    "PageData": null,
-    "Rows": [
+    "database": "tormore",
+    "pageData": null,
+    "rows": [
         {
             "stackKey": "myConsoleCrasher+0x12b5",
             "stackKeyId": "208",
@@ -40,8 +40,7 @@ Returns crash summary data. Supports paging and filtering using column names fir
             "defectId": null,
             "stackKeyDefectUrl": null,
             "stackKeyDefectLabel": null,
-            "comments": "Dave left a comment",
-            "subKeyDepth": "1"
+            "comments": "Dave left a comment"
         }
     ]
 }
@@ -123,6 +122,6 @@ Obtain a list of crashes for a specific crash group (also known as Stack Key). T
 ### Curl Example
 
 ```bash
-curl --location 'https://app.bugsplat.com/api/keycrash?database=fred&stackKeyId=10315' \
+curl --location 'https://app.bugsplat.com/api/v2/keycrash?database=fred&stackKeyId=10315' \
 --header 'Authorization: Bearer ••••••'
 ```

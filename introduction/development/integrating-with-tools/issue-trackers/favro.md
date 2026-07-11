@@ -9,8 +9,8 @@ BugSplat allows your team to create cards in [Favro](https://favro.com/) with a 
 #### Integrating Favro and BugSplat
 
 1. Create an API token in Favro via **My Profile > API Tokens > Create New Token**
-2. Navigate to the **⚙️ > Integrations > Defect Tracker** page in BugSplat
-3. Select **Favro** and click the **Integrate** button
+2. Navigate to the **⚙️ > Integrations > Defect Trackers** page in BugSplat
+3. Select **Favro** and click the **Connect** button
 4. Enter your **Email** and **Token** and click **Update**
 5. You should now see a list of organizations. Choose the correct organization and click **Update**
 6. You should now see a list of widgets. Choose a widget and click **Update**

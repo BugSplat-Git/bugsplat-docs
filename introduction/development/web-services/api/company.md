@@ -14,9 +14,10 @@ Returns information about the queried company by companyId.
 
 #### Query Parameters
 
-| Name                                        | Type   | Description                |
-| ------------------------------------------- | ------ | -------------------------- |
-| companyId<mark style="color:red;">\*</mark> | number | ID of the company to query |
+| Name      | Type   | Description                                                      |
+| --------- | ------ | ------------------------------------------------------------------ |
+| companyId | number | ID of the company to query. Required if `database` is not provided. |
+| database  | string | Name of the database to resolve the company from. Required if `companyId` is not provided. |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -26,6 +27,8 @@ Returns information about the queried company by companyId.
   companyName: "BugSplat Public Testing",
   subscriptionId: 1732,
   birthdate: "0000-00-00 00:00:00",
+  mfaRequired: false,
+  upgradePageShown: false,
   licensedLimitExceededCount: 0,
   licensedLimitExceededDate: null,
 }
@@ -48,9 +51,10 @@ Set the name of the specified company by companyId.
 
 #### Query Parameters
 
-| Name                                        | Type   | Description                 |
-| ------------------------------------------- | ------ | --------------------------- |
-| companyId<mark style="color:red;">\*</mark> | number | ID of the company to update |
+| Name      | Type   | Description                                                        |
+| --------- | ------ | -------------------------------------------------------------------- |
+| companyId | number | ID of the company to update. Required if `database` is not provided. |
+| database  | string | Name of the database to resolve the company from. Required if `companyId` is not provided. |
 
 #### Request Body
 
@@ -61,14 +65,7 @@ Set the name of the specified company by companyId.
 {% tabs %}
 {% tab title="200 " %}
 ```json
-{
-  companyId: 545,
-  companyName: "BugSplat Public Testing",
-  subscriptionId: 1732,
-  birthdate: "0000-00-00 00:00:00",
-  licensedLimitExceededCount: 0,
-  licensedLimitExceededDate: null
-}
+true
 ```
 {% endtab %}
 {% endtabs %}

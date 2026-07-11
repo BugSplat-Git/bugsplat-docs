@@ -17,8 +17,8 @@ Returns a consolidated dashboard summary for the specified database and time ran
 | Name        | Type   | Description                                                            |
 | ----------- | ------ | ---------------------------------------------------------------------- |
 | database    | string | **Required.** BugSplat database name                                   |
-| startDate   | string | ISO 8601 timestamp for the start of the time range. Omit for All Time. |
-| endDate     | string | ISO 8601 timestamp for the end of the time range. Omit for All Time.   |
+| startDate   | string | ISO 8601 timestamp for the start of the time range. If omitted, defaults to 365 days before `endDate`. |
+| endDate     | string | ISO 8601 timestamp for the end of the time range. If omitted, defaults to the current time.   |
 | appNames    | string | Comma-separated list of application names to filter by                 |
 | appVersions | string | Comma-separated list of application versions to filter by              |
 | timezone    | string | UTC offset (e.g. `+05:30`). Defaults to `+00:00`                       |
@@ -48,6 +48,7 @@ Returns a consolidated dashboard summary for the specified database and time ran
             }
         ]
     },
+    "lastCrashTime": "2026-02-20T12:05:00Z",
     "recentCrashes": [
         {
             "id": 1,
@@ -82,7 +83,9 @@ Returns a consolidated dashboard summary for the specified database and time ran
             "stackKeyId": 42,
             "crashSum": 150
         }
-    ]
+    ],
+    "totalThrottled": 3,
+    "totalThrottledPrevious": 2
 }
 ```
 {% endtab %}
@@ -97,9 +100,12 @@ Returns a consolidated dashboard summary for the specified database and time ran
 | volume30Day   | number | Total crash count in the last 30 days                                                         |
 | crashDataDays | number | Number of days of crash data available                                                        |
 | crashHistory  | object | Chart data for crash volume over time. Contains `totalRows`, `totalCrashes`, and `rows` array |
+| lastCrashTime | string | ISO 8601 timestamp of the most recent crash overall, not limited by the requested time range or filters. `null` if no crashes exist |
 | recentCrashes | array  | The 5 most recent crashes in the time range                                                   |
 | statusCounts  | object | Crash group status breakdown for `current` and `previous` time periods                        |
 | topStackKeys  | array  | Top 6 stack keys by crash count in the time range                                             |
+| totalThrottled | number | Total number of throttled crashes in the time range                                          |
+| totalThrottledPrevious | number | Total number of throttled crashes in the previous time period                        |
 
 ### Curl Example
 
@@ -108,12 +114,14 @@ curl --location 'https://app.bugsplat.com/api/dashboard?database=fred&startDate=
 --header 'Authorization: Bearer ••••••'
 ```
 
-### Curl Example (All Time)
+### Curl Example (Default Date Range)
 
 ```bash
 curl --location 'https://app.bugsplat.com/api/dashboard?database=fred' \
 --header 'Authorization: Bearer ••••••'
 ```
+
+Omitting `startDate` and `endDate` does not return all-time data; it defaults to the last 365 days.
 
 ### Curl Example (with filters)
 
