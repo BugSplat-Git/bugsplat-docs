@@ -12,7 +12,7 @@ BugSplat's [`@bugsplat/expo`](https://www.npmjs.com/package/@bugsplat/expo) pack
 
 ### Requirements 📋
 
-* The `bugsplat-android` SDK requires Android minSdk 26 (Android 8.0+).
+* The `bugsplat-android` SDK requires Android minSdk 21 or higher.
 * An [Expo](https://expo.dev/) managed or bare workflow project.
 
 ### Installation 🏗️
@@ -37,7 +37,7 @@ Add the BugSplat config plugin to your `app.json` or `app.config.js`. Credential
       }],
       ["expo-build-properties", {
         "android": {
-          "minSdkVersion": 26
+          "minSdkVersion": 21
         }
       }]
     ]
@@ -46,14 +46,14 @@ Add the BugSplat config plugin to your `app.json` or `app.config.js`. Credential
 ```
 
 {% hint style="info" %}
-If your project's `minSdkVersion` is already >= 26, the `expo-build-properties` plugin is not needed.
+If your project's `minSdkVersion` is already >= 21, the `expo-build-properties` plugin is not needed.
 {% endhint %}
 
 #### Plugin Options
 
 | Option | Required | Description |
 |--------|----------|-------------|
-| `database` | No | BugSplat database name (can also be set via `init()` or `BUGSPLAT_DATABASE` env var) |
+| `database` | **Yes** | BugSplat database name |
 | `enableSymbolUpload` | No | Enable automatic symbol upload for iOS (dSYMs) and Android (.so files) |
 | `symbolUploadClientId` | No | BugSplat API client ID (or set `BUGSPLAT_CLIENT_ID` env var) |
 | `symbolUploadClientSecret` | No | BugSplat API client secret (or set `BUGSPLAT_CLIENT_SECRET` env var) |

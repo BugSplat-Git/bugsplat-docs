@@ -61,7 +61,7 @@ bool minidumpCallback(
   parameters[L"ver"] = L"1.0";
   parameters[L"email"] = L"fred@bugsplat.com";
   parameters[L"comments"] = L"BugSplat rocks!";
-  files[L"upload_file_minidump"] = MinidumpDescriptor.path();
+  files[L"upload_file_minidump"] = dump_path;
   ReportResult reportResult = reportSender->SendCrashReport(bugSplatUrl, parameters, files, &exceptionCode);
 }
 ```

@@ -58,7 +58,7 @@ include_directories(
 
 ## Code Integration 🧑‍💻
 
-The [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad) repo provides a [my-cmake-crasher](https://github.com/bobbyg603/bugsplat-crashpad/blob/main/main.cpp) sample application that demonstrates how to configure Crashpad. The following code snippets are from the [my-cmake-crasher example](https://github.com/bobbyg603/bugsplat-crashpad/blob/main/main.cpp).
+The [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad) repo provides a [my-cmake-crasher](https://github.com/BugSplat-Git/bugsplat-crashpad/blob/main/main.cpp) sample application that demonstrates how to configure Crashpad. The following code snippets are from the [my-cmake-crasher example](https://github.com/BugSplat-Git/bugsplat-crashpad/blob/main/main.cpp).
 
 ### Includes and Namespaces
 
@@ -77,7 +77,7 @@ using namespace std;
 
 Copy the `initializeCrashpad` and `getExecutableDir` methods from the BugSplat sample. The Crashpad `url` and parameters `format`, `database`, `product` and `version` are required to upload crash reports to BugSplat. You can optionally specify values for the parameters `user`, `list_annotations`, and `key` which will be tracked with each crash report.
 
-The following snippet is for Windows. Please see [my-cmake-crasher](https://github.com/bobbyg603/bugsplat-crashpad/blob/main/main.cpp) for macOS, and Linux compatible code changes.
+The following snippet is for Windows. Please see [my-cmake-crasher](https://github.com/BugSplat-Git/bugsplat-crashpad/blob/main/main.cpp) for macOS, and Linux compatible code changes.
 
 ```cpp
 // Function to initialize Crashpad with BugSplat integration

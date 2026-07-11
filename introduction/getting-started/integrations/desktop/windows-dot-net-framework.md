@@ -10,8 +10,6 @@ The BugSplat .NET SDK supports applications written using the [Microsoft Common 
 
 To get started, make sure to [log in](https://app.bugsplat.com/cognito/login) using your email address and [download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) the BugSplat software development kit for .NET Framework / C# applications.
 
-To get a feel for the BugSplat service before enabling your application, feel free to experiment with the myDotNetCrasher sample application, which is part of the BugSplat software development kit.
-
 Instructions for modifying the default crash dialog are on the [Windows Dialog Box](../../../../education/how-tos/customize-the-crash-dialog.md) page.
 
 ## Integration
@@ -19,7 +17,7 @@ Instructions for modifying the default crash dialog are on the [Windows Dialog B
 In a few simple steps, your .NET application can be modified to provide full debug information on the BugSplat website when it crashes.
 
 1. Add a reference to "BugSplatDotNet.dll".
-2. Add a call to BugSplat.CrashReporter.Init and add the BugSplat exception handlers for the appropriate set of system exceptions. As shown in the myDotNetCrasher sample app, this takes just a few lines of code.
+2. Add a call to BugSplat.CrashReporter.Init and add the BugSplat exception handlers for the appropriate set of system exceptions. This takes just a few lines of code.
    * The initialization call requires three parameters: BugSplat database, application name, and version. You supply the application name and version.
    * The BugSplat database is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. Typically, you will create a new database for each major release of your product.
 3. Add `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRc.dll` to your application's installer.
@@ -31,7 +29,7 @@ In a few simple steps, your .NET application can be modified to provide full deb
 ![Advanced Build Settings for .NET Applications](../../../../.gitbook/assets/buildNet3-11-e1410469012133.png)
 
 {% hint style="info" %}
-After each build you should upload the new executable and files. The [myDotNetCrasher sample app](windows-dot-net-framework.md) uses a Visual Studio post build event to automate this step.
+After each build you should upload the new executable and files. Consider using a Visual Studio post build event to automate this step.
 {% endhint %}
 
 {% hint style="danger" %}

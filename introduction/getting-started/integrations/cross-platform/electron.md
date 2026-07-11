@@ -76,7 +76,7 @@ If your application uses a [node native addon](https://nodejs.org/api/addons.htm
 Use [@bugsplat/symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md#improving-upload-speeds-1) and the `-m` argument to generate and upload `.sym` files from your application binaries automatically. You can run symbol-upload without any arguments to view all available options.
 
 ```bash
-npx symbol-upload -u you@email.com -p password -d ./dist -f "**/*.node" -m
+npx @bugsplat/symbol-upload -u you@email.com -p password -d ./dist -f "**/*.node" -m
 ```
 
 Alternatively, you can add a build step to generate and upload `.sym` files for your node native addon using standard Breakpad tools. To generate symbol files, you can run [dump\_syms](crashpad/how-to-build-google-crashpad.md#generating-symbols) with a path to a `.node` file after the Node Native Module build or rebuild step if you're using a tool like [electron-rebuild](https://github.com/electron/electron-rebuild). Once you've generated a `.sym` file for your `.node` native module, the `.sym` file can be uploaded via [symupload](crashpad/how-to-build-google-crashpad.md#uploading-symbols), or manually on the [Versions](https://app.bugsplat.com/v2/versions?database=Fred) page.
@@ -115,7 +115,7 @@ bugsplat.setDefaultAppKey(appKey); // Additional metadata that can be queried vi
 bugsplat.setDefaultUser(user); // The name or id of your user
 bugsplat.setDefaultEmail(email); // The email of your user 
 bugsplat.setDefaultDescription(description); // A description placeholder that can be overridden at crash time
-bugsplat.setDefaultAdditionalFilePaths([paths]); // Paths to files to be sent to BugSplat at post time (limit 1MB) 
+bugsplat.setDefaultAdditionalFilePaths([paths]); // Paths to files to be sent to BugSplat at post time (limit 10MB) 
 bugsplat.postAndExit(error, options); // Wrapper for post that calls process.exit(1) after posting error to BugSplat
 bugsplat.post(error, options); // Aysnc function that posts an arbitrary Error object to BugSplat
 // If the values options.appKey, options.user, options.email, options.description, options.additionalFilePaths are set the corresponding default values will be overwritten
@@ -191,7 +191,7 @@ To upload source maps, add a symbol-upload script that uploads all your build's 
 {
   ...
   "scripts": {
-    "upload-source-maps": "npx symbol-upload -u you@email.com -p password -d ./dist -f \"**/*.js.map\""
+    "upload-source-maps": "npx @bugsplat/symbol-upload -u you@email.com -p password -d ./dist -f \"**/*.js.map\""
   }
 }
 ```

@@ -35,7 +35,7 @@ BugSplat leverages Unreal's `CrashReportClient` to provide crash reporting for W
 
 <figure><img src="../../../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
 
-To configure `CrashReportClient` to post to BugSplat, the `DataRouterUrl` value needs to be added to `DefaultEngine.ini`. The `bugsplat-unreal` plugin automatically updates the value for `DataRouterUrl` when the `Update Engine DefaultEngine.ini` option is enabled. Please note the `DataRouterUrl` value is global and is shared across all packaged builds created by the affected engine. To override the `DataRouterUrl` value a package build uses, you may optionally use the `Update Packaged Game INI` button under the `Tools` section.
+To configure `CrashReportClient` to post to BugSplat, the `DataRouterUrl` value needs to be added to `DefaultEngine.ini`. The `bugsplat-unreal` plugin automatically updates the value for `DataRouterUrl` when the `Update Engine DataRouterUrl` option is enabled. Please note the `DataRouterUrl` value is global and is shared across all packaged builds created by the affected engine. To override the `DataRouterUrl` value a package build uses, you may optionally use the `Update Packaged Game INI` button under the `Tools` section.
 
 In order to get function names and line numbers in crash reports, you'll need to upload your game's `.exe`, `.dll`, and `.pdb` files. To upload debug symbols for reach build, ensure that the `Enable Automatic Symbol Uploads` option is selected. When selected, a script to execute [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) will be added to the `PostBuildSteps` field in `BugSplat.uplugin`. The symbol upload script will run automatically when your game is built.
 
@@ -332,7 +332,7 @@ UE_LOG(LogTemp, Fatal, TEXT("BugSplat!"));
 
 Run your application and submit a crash report.
 
-On Desktops, submit a crash report via the Unreal CrashReportClient dialog that appears at crash time. We have developed a handy guide on how you can customize the Unreal CrashReportClient dialog that is available [here](https://www.bugsplat.com/blog/game-dev/customizing-unreal-engine-crash-dialog/).
+On Desktops, submit a crash report via the Unreal CrashReportClient dialog that appears at crash time. We have developed a handy guide on how you can customize the Unreal CrashReportClient dialog that is available [here](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/).
 
 On iOS, after a crash occurs, restart the game and tap the `Send Report` option when prompted. On Android, crashes are submitted automatically at crash time.
 
@@ -370,9 +370,13 @@ If you'd prefer to build your own feedback UI, call `UBugSplatFeedback::PostFeed
 
 // Simple feedback
 UBugSplatFeedback::PostFeedback(
-    TEXT("Login button broken"),            // Title (required)
-    TEXT("Nothing happens when I tap it"),  // Description
-    TArray<FString>()                       // Attachments
+    TEXT("Login button broken"),           // Title (required)
+    TEXT("Nothing happens when I tap it"), // Description
+    TArray<FString>(),                     // Attachments
+    TEXT(""),                              // User
+    TEXT(""),                              // Email
+    TEXT(""),                              // AppKey
+    TMap<FString, FString>()               // CustomAttributes
 );
 ```
 
