@@ -1,6 +1,6 @@
 # Finding Missing Reports
 
-In some situations, you may be missing a crash report you know was sent to BugSplat, or you might notice a difference in the total crash volume shown on the Overview page versus what is reported on your [Crashes](https://app.bugsplat.com/v2/crashes) and [Summary](https://app.bugsplat.com/v2/summary) pages.
+In some situations, you may be missing a crash report you know was sent to BugSplat, or you might notice a difference in the total crash volume shown on the Dashboard page versus what is reported on your [Crashes](https://app.bugsplat.com/v2/crashes) and [Summary](https://app.bugsplat.com/v2/summary) pages.
 
 This may happen as part of our normal crash-handling protocol.
 
@@ -15,7 +15,7 @@ This may happen as part of our normal crash-handling protocol.
 
     When your application is experiencing crash volume well above its normal level or well beyond the rate provided by your subscription, a percentage of the crash reports will be rejected.
 
-    This high-volume rejection keeps unusual periods of crash activity from rapidly exhausting your BugSplat subscription. Again, BugSplat allows you to see your overall volume accurately on the Overview page.
+    This high-volume rejection keeps unusual periods of crash activity from rapidly exhausting your BugSplat subscription. Again, BugSplat allows you to see your overall volume accurately on the Dashboard page.
 3.  **Crashes submitted with a POST size larger than our 100 MB limit.**
 
     Our current crash POST size limit is 100 MB. This is much bigger than the data BugSplat sends as part of the crash report, but if you are adding additional log files to your crash reports, please keep their total size under fifty megabytes to ensure that crash reports are not rejected.

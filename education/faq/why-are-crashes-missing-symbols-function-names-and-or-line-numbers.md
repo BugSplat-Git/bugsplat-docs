@@ -36,7 +36,7 @@ Clicking the link in the **Application** column navigates to the [Symbols](https
 
 The BugSplat backend can access files across symbol stores. Associating symbols with an application and version provides a logical grouping and makes cleanup easier, but it is not required to resolve symbols when processing a crash.
 
-You can search across symbol stores by clicking **View All Symbols**. Search by GUID to check if BugSplat has access to the correct symbols.&#x20;
+You can search across symbol stores by clicking **Clear filters**. Search by GUID to check if BugSplat has access to the correct symbols.&#x20;
 
 <figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption><p>Symbols Page No Results</p></figcaption></figure>
 

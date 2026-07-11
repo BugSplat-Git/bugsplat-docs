@@ -6,8 +6,8 @@ The **Method** column contains a list of methods in the stack trace of the threa
 
 Clicking the **>** (greater than symbol) in the left-most column will expand the **Row Details** view.
 
-The **Row Details** view will display the **Create Group** button that will allow you to create a [Group](../../introduction/development/grouping-crashes.md). Grouping at a different level of the call stack is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
+The **Row Details** view will display **Group Rules**, **Ignore Function**, and **Ignore File** buttons that will take you to the grouping rules screen where you can create a [Group](../../introduction/development/grouping-crashes.md). Grouping at a different level of the call stack is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
 
-Additionally, for [Windows Native](../../introduction/getting-started/integrations/desktop/cplusplus/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments](https://www.bugsplat.com/blog/development/local-variables-function-arguments/).
+Additionally, for [Windows Native](../../introduction/getting-started/integrations/desktop/cplusplus/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments](https://blog.bugsplat.com/local-variables-function-arguments/).
 
 When you land on the crash details page, BugSplat starts a debugging session in the background that will calculate additional information about the crash. This additional information includes the call stacks for the non-active threads, register values, loaded modules, and function argument and local variable values.  You will see a loading indicator when this information isn't yet available.

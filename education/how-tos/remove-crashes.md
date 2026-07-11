@@ -16,7 +16,7 @@ Removing crashes is a destructive action that can't be undone. Tread carefully!
 
 1. Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page and select your BugSplat database
 2. Filter and sort to a list of crashes that you would like to remove
-3. Carefully review the list of crashes in your current view. All crashes in the current view will be removed from your database.
+3. Carefully review the list of crashes in your current view, then check the box next to each crash you want to remove. Only the crashes you select will be removed from your database.
 4. Click the **🗑️ Delete** button to load a confirmation modal
 5. Click **Delete** in the confirmation modal to delete your crashes
 

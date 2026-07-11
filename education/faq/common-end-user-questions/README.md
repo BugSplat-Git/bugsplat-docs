@@ -38,7 +38,7 @@ As a crash reporter, BugSplat helps software companies understand how their appl
 
 Software companies that use BugSplat know that knowledge of software crashes will help them improve their applications.
 
-Today, BugSplat is used by many companies large and small to fix bugs in all kinds of software and video games. You can learn more about how BugSplat specifically helps companies fix bugs on our [Features](https://www.bugsplat.com/crash-reporting/) page.
+Today, BugSplat is used by many companies large and small to fix bugs in all kinds of software and video games. You can learn more about how BugSplat specifically helps companies fix bugs on our [Features](https://www.bugsplat.com/features/) page.
 
 ## Why did I get a BugSplat? <a href="#why_did_i_get_bugsplat" id="why_did_i_get_bugsplat"></a>
 
