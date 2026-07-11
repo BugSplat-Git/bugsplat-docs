@@ -1,6 +1,6 @@
 # Free Plan Overview
 
-BugSplat wants to help all hackers, those getting started, and do-it-yourselfers to have access to world-class crash reporting. Because of that, we provide a Free Plan that covers one user, one user group, up to 15,000 monthly errors and crashes and a suite of key features to help your project succeed.
+BugSplat wants to help all hackers, those getting started, and do-it-yourselfers to have access to world-class crash reporting. Because of that, we provide a Free Plan that covers 3 users, one user group, up to 15,000 monthly errors and crashes and a suite of key features to help your project succeed.
 
 #### How long does the free plan last?
 

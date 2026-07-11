@@ -34,7 +34,7 @@ At BugSplat, our diverse login methods cater to user preferences, ensuring a smo
     * Hit the "Sign in" button.
     * You will be asked for your corporate credentials if you aren't currently authenticated.
     *
-  * **Troubleshooting**: Having hiccups along the way? Don't hesitate to reach out to our tech support team (suuport@bugsplat.com).
+  * **Troubleshooting**: Having hiccups along the way? Don't hesitate to reach out to our tech support team (support@bugsplat.com).
   * **Interested in adding SSO to your account?:**  Learn more [here](single-sign-on-sso.md).
 
 ***

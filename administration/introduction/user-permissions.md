@@ -26,4 +26,4 @@ This page allows you to add or remove a user for the selected database.  In addi
 
 ![Request User Access](../../.gitbook/assets/users-page.png)
 
-Finally,  access to user permissions may be limited by your subscription level.  If you don't see the ability to restrict users, make sure to upgrade to a [Business level subscription](https://www.bugsplat.com/plans/).&#x20;
+Finally,  access to user permissions may be limited by your subscription level.  If you don't see the ability to restrict users, make sure to upgrade to a [Business level subscription](https://www.bugsplat.com/pricing/).&#x20;

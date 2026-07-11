@@ -14,8 +14,8 @@ Follow these simple steps to update your company name:
    At the top of the page, you’ll find a field where you can enter your new company name.
 3. **Hit 'Update'**\
    Once you’ve entered the new name, click the **'Update'** button.
-4. **Confirmation Modal**\
-   A confirmation modal will appear to verify the change.
+4. **Confirmation Message**\
+   A green "Company name updated successfully!" message will briefly appear to confirm the change.
 
 And that’s it! Your company name will now be updated.
 

@@ -12,7 +12,7 @@ To setup SSO, your corporate IT team needs the following information:
 
 BugSplat's user pool ID is: `us-east-1_rZndGLwmO`
 
-BugSplat's SSO domain prefix is [`https://cognito.bugsplat.com`](https://cognito.bugsplat.com/) This means our SAML assertion endpoint is: [https://cognito.bugsplat.com/saml2/idpresponse](https://cognito.bugsplat.com/saml2/idpresponse)
+BugSplat's SSO domain prefix is [`https://cognito.bugsplat.com`](https://app.bugsplat.com/cognito/login) This means our SAML assertion endpoint is: [https://cognito.bugsplat.com/saml2/idpresponse](https://cognito.bugsplat.com/saml2/idpresponse)
 
 Our SP urn is `urn:amazon:cognito:sp:us-east-1_rZndGLwmO`
 
@@ -38,7 +38,7 @@ Need help setting up your integration?  See the following instructions for some 
 <figure><img src="../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
 
 * OneLogin: [How do I set up OneLogin as a SAML identity provider with an Amazon Cognito user pool?](https://aws.amazon.com/premiumsupport/knowledge-center/cognito-saml-onelogin/)
-* PingFederate: [PingOne for Enterprise Administration Guide: Add or update a SAML application](https://documentation.pingidentity.com/pingone/employeeSsoAdminGuide/index.shtml#enableAppWithoutURL.html)
+* PingFederate: [PingOne for Enterprise Administration Guide: Add or update a SAML application](https://docs.pingidentity.com/pingoneforenterprise/pingone_for_enterprise/p14e_add_update_saml_application.html)
 
 Note:  SSO integration is a premium feature that requires a BugSplat Enterprise subscription.
 
@@ -52,7 +52,7 @@ Groups provided by SSO are matched to groups defined for each of your databases 
 
 For example, you might assign the Groups "BsAccess" and "BsAdmin" to each BugSplat database.  Then, users who should have administrator rights would be assigned to the "BsAdmin" role, and users who needed only regular access would be assigned the "BsAccess" role.
 
-Note that the SSO groups will be copied from the current database when creating a new database.  So typically, once they are set up, no further group definition will be required.
+Note that the SSO groups are **not** copied automatically when creating a new database.  Access and Admin Group names must be configured separately for each new database.
 
 If SSO Groups are provided to BugSplat, they will override any existing database access permissions as long as at least one of your databases is integrated with SSO.  At login time, a user's permissions are reset according to the group rules. &#x20;
 

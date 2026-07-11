@@ -8,7 +8,7 @@
 
 BugSplat offers a variety of plan types built to cover everyone from individual developers to large businesses managing many teams. Plans come in several different levels, allowing users to customize what they purchase to fit their specific needs.
 
-Check out our full Plans Page here -> [https://www.bugsplat.com/plans/](https://www.bugsplat.com/plans/)
+Check out our full Plans Page here -> [https://www.bugsplat.com/pricing/](https://www.bugsplat.com/pricing/)
 
 This guide is for users interested in upgrading to a paid account and BugSplat account holders looking to upgrade to a larger plan or manage their current one.
 
@@ -26,7 +26,7 @@ Designed to support small projects that are just getting off the ground, our Fre
 
 **Team Plan**
 
-Our Team Plan is best suited for growing apps and teams at any size company, enhancing everything offered in the Free Plan with additional capabilities to support expansion. It accommodates up to 10 user logins and maintains the structure of one user group, with a significant increase in storage to 250GB. Furthermore, this plan allows teams to add additional storage as needed and extends data retention to 3 months. Starting at 15,000 monthly crashes and errors, teams have the flexibility to add more crash volume anytime.&#x20;
+Our Team Plan is best suited for growing apps and teams at any size company, enhancing everything offered in the Free Plan with additional capabilities to support expansion. It accommodates up to 10 user logins and maintains the structure of one user group, with a significant increase in storage to 250GB. Furthermore, this plan allows teams to add additional storage as needed and extends data retention to 3 months. Starting at 25,000 monthly crashes and errors, teams have the flexibility to add more crash volume anytime.&#x20;
 
 The Team Plan also introduces defect tracker integrations (including Jira, Azure DevOps, Assembla, and YouTrack), notifications and alerts via platforms like Slack, Microsoft Teams, and Discord, customizable rules for crash grouping, and responsive email support. For teams looking to scale, both crashes can be increased up to 100,000 per month, and storage can be expanded up to 1,000GB.
 
@@ -46,7 +46,7 @@ Each of our plans is designed with flexibility in mind, allowing you to scale up
 
 ## Paying for your plan
 
-Upgrading your BugSplat plan is straightforward. Simply visit the Billing section under Admin settings in your account. Here, the "Update Plan" button allows you to choose between our Business or Team plans, set your desired monthly crash volume and storage, and select a billing frequency—monthly or yearly. After customizing your plan, click "Update" to review and enter your payment details.
+Upgrading your BugSplat plan is straightforward. Simply visit the Billing section under Company Settings in your account. Here, the "Change Plan" button allows you to choose between our Business or Team plans, set your desired monthly crash volume and storage, and select a billing frequency—monthly or yearly. After customizing your plan, click "Update" to review and enter your payment details.
 
 For Team and Business plans, we accept all major credit cards, and choosing an annual payment option provides a saving equivalent to two months, compared to monthly billing. Enterprise plans can be paid annually via bank transfer or check, offering flexibility for larger organizations.
 
@@ -54,7 +54,7 @@ This streamlined process ensures you can easily tailor BugSplat to your project'
 
 ### Modifying Your Plan
 
-Team and Business account holders at BugSplat can adjust their plan anytime during their billing cycle for added flexibility. To initiate changes, navigate to the Billing page in your account and select the "Update Plan" button. This feature empowers you to modify key aspects of your plan, including the plan type and monthly crash & error volume. Notably, you can now opt to increase your storage space to better suit your project needs. Additionally, there's the convenience of choosing to pay on an annual basis.
+Team and Business account holders at BugSplat can adjust their plan anytime during their billing cycle for added flexibility. To initiate changes, navigate to the Billing page in your account and select the "Change Plan" button. This feature empowers you to modify key aspects of your plan, including the plan type and monthly crash & error volume. Notably, you can now opt to increase your storage space to better suit your project needs. Additionally, there's the convenience of choosing to pay on an annual basis.
 
 All plan modifications are seamlessly integrated into your current billing cycle, with adjustments pro-rated to ensure fairness and accuracy in billing.
 

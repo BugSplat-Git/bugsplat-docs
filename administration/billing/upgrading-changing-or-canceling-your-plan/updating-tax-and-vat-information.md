@@ -5,7 +5,7 @@ Current account holders can now update their tax and VAT information through the
 To do this:
 
 1. Navigate to the Billing page in Settings at [https://app.bugsplat.com/v2/company/billing](https://app.bugsplat.com/v2/company/billing)
-2. Click on the 'Manage your plan' button
+2. Click on the 'Update Card' button
 
 This will bring you to the plan management portal where you can update various account details, including tax and VAT information.
 
