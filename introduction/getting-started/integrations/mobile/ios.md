@@ -317,7 +317,7 @@ There are several ways to customize your BugSplat crash reporter.
 
 **Attachments**
 
-Bugsplat supports uploading attachments with crash reports. There's a delegate method provided by `BugSplatDelegate` that can be implemented to provide attachments to be uploaded.
+BugSplat supports uploading attachments with crash reports. There's a delegate method provided by `BugSplatDelegate` that can be implemented to provide attachments to be uploaded.
 
 **Associating Per-Session Files with Crash Reports**
 
