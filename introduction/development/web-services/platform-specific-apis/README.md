@@ -11,5 +11,3 @@ This is our legacy link
 {% endembed %}
 
 
-
-{% embed url="https://www.bugsplat.com/platforms/net/api" %}
