@@ -6,7 +6,7 @@ To start using BugSplat, you'll need to create a database. You can create a data
 
 ### Create a Database via the Onboarding Tool 🧑‍🏫
 
-For new BugSplat users, creating a new database can be accomplished via the Onboarding process. After creating a new account, users will be prompted to create a database. You can return to the Onboarding process any time by clicking the bug in the top left corner.
+For new BugSplat users, creating a new database can be accomplished via the Onboarding process. After creating a new account, users will be prompted to create a database. You can return to the Onboarding process any time by navigating to the [Onboarding Tool](https://app.bugsplat.com/v2/welcome).
 
 <figure><img src="../../.gitbook/assets/onboarding-create-database.png" alt=""><figcaption><p>Create a Database via the Onboarding Tool</p></figcaption></figure>
 

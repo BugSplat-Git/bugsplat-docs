@@ -14,7 +14,7 @@ Modify the Visual Studio Include Directories so that the Address Sanitizer heade
 
 ## Modify Initialization Code
 
-To hook into the Address Sanitizer you will call **\_\_asan\_set\_error\_report\_callback** with the BugSplat **createAssanReport** method. To do this, we'll need a global instance of the BugSplat MiniDmpSender object and a new asanCallback function. See below for how you would modify our myConsoleCrasher sample program:
+To hook into the Address Sanitizer you will call **\_\_asan\_set\_error\_report\_callback** with the BugSplat **CreateAsanReport** method. To do this, we'll need a global instance of the BugSplat object and a new asanCallback function. See below for how you would modify our myConsoleCrasher sample program:
 
 ```cpp
 ...
@@ -22,11 +22,11 @@ To hook into the Address Sanitizer you will call **\_\_asan\_set\_error\_report\
 ...
 
 // Global BugSplat initialization. 
-MiniDmpSender* mpSender = new MiniDmpSender(L"YourDatabase", L"YourAppName", L"YourAppVersion", NULL, MDSF_USEGUARDMEMORY | MDSF_LOGFILE | MDSF_PREVENTHIJACKING);
+BugSplat g_BugSplat(L"YourDatabase", L"YourAppName", L"YourAppVersion");
 
 void asanCallback(const char* message)
 {
-   mpSender->createAsanReport(message);
+   g_BugSplat.CreateAsanReport(message);
 }
 
 int wmain(int argc, wchar_t** argv)

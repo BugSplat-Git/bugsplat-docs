@@ -22,7 +22,7 @@ Corporate firewalls or network policies can prevent connections to BugSplat. Ple
 
 ### The crash being uploaded is too large
 
-By default BugSplat accounts are limited to posting crash uploads that are no larger than 20MB (compressed). Abnormally large minidump, log files, and/or other attachments can cause crash uploads to be larger than your account's crash upload size limit. You can view BugSplat's [Errors](https://app.bugsplat.com/v2/errors) page to see if crash reports are being rejected due to size limit restrictions.
+By default BugSplat accounts are limited to posting crash uploads that are no larger than 100MB (compressed), with an additional 10MB allowance for .NET applications. Abnormally large minidump, log files, and/or other attachments can cause crash uploads to be larger than your account's crash upload size limit. You can view BugSplat's [Errors](https://app.bugsplat.com/v2/errors) page to see if crash reports are being rejected due to size limit restrictions.
 
 ### Crashes are being posted too frequently
 
@@ -62,8 +62,8 @@ Newer versions of symbol-upload and SendPdbs can be found on our [Downloads](int
 
 ### Max File Size Limit Exceeded
 
-By default, BugSplat will reject a request to upload any symbol file larger than 4 GB. This is a soft limit that our support team can raise. If you need to support an application with a symbol file greater than 4 GB please contact [support@bugsplat.com](mailto:support@bugsplat.com).
+By default, BugSplat will reject a request to upload any symbol file larger than 25 GB. This is a soft limit that our support team can raise. If you need to support an application with a symbol file greater than 25 GB please contact [support@bugsplat.com](mailto:support@bugsplat.com).
 
 **Table Max Size Limit Exceeded**
 
-By default, BugSplat will reject a request to upload symbols to a symbol store that will cause it to exceed a size of 8 GB. We reject symbol stores over 8 GB to encourage users to upload each build to a new symbol store (instead of uploading all builds to the same symbol store). You can create as many symbol stores as you like.
+By default, BugSplat will reject a request to upload symbols to a symbol store that will cause it to exceed a size of 100 GB. We reject symbol stores over 100 GB to encourage users to upload each build to a new symbol store (instead of uploading all builds to the same symbol store). You can create as many symbol stores as you like.
