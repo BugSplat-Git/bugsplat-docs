@@ -40,6 +40,15 @@ Add BugSplat to your application using the following steps:
 
 <figure><img src="../../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="warning" %}
+BugSplat's runtime files (`BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSplat.dll` if you use the dynamic library) depend on the **Visual C++ 2015–2022 runtime** — `MSVCP140.dll`, `VCRUNTIME140.dll`, and `VCRUNTIME140_1.dll` on x64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. If they're absent, your application will run normally but crash reporting will fail — end users may see a "MSVCP140.dll was not found" error at crash time.
+
+This applies even if your own application doesn't need the Visual C++ runtime (for example, if it's built with `/MT`). Make sure your installer either:
+
+* chains the [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer that **matches the architecture of the BugSplat files you ship** (`vc_redist.x64.exe`, `vc_redist.x86.exe`, or `vc_redist.arm64.exe`), or
+* copies `msvcp140.dll` and `vcruntime140.dll` (plus `vcruntime140_1.dll` on x64) from the redistributable into your application folder alongside the BugSplat runtime files.
+{% endhint %}
+
 4. Include **`BugSplat.h`** in your application's source.
 5. Create an instance of `BugSplat` following the example in [MyConsoleCrasher](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/). The BugSplat constructor requires three parameters: `database`, `application`, and `version`. A new BugSplat database can be created on the [Database](https://app.bugsplat.com/v2/database) page. Choose values for application name and version to match your product release. These same values are typically used when uploading symbol files for your application. Learn more about symbol uploads at [symbol-upload](../../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md).
 
