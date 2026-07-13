@@ -12,7 +12,7 @@ BugSplat's [`@bugsplat/expo`](https://www.npmjs.com/package/@bugsplat/expo) pack
 
 ### Requirements 📋
 
-* The `bugsplat-android` SDK requires Android minSdk 21 or higher.
+* The `bugsplat-android` SDK requires Android minSdk 26 (Android 8.0+).
 * An [Expo](https://expo.dev/) managed or bare workflow project.
 
 ### Installation 🏗️
@@ -37,7 +37,7 @@ Add the BugSplat config plugin to your `app.json` or `app.config.js`. Credential
       }],
       ["expo-build-properties", {
         "android": {
-          "minSdkVersion": 21
+          "minSdkVersion": 26
         }
       }]
     ]
@@ -46,7 +46,7 @@ Add the BugSplat config plugin to your `app.json` or `app.config.js`. Credential
 ```
 
 {% hint style="info" %}
-If your project's `minSdkVersion` is already >= 21, the `expo-build-properties` plugin is not needed.
+If your project's `minSdkVersion` is already >= 26, the `expo-build-properties` plugin is not needed.
 {% endhint %}
 
 #### Plugin Options
