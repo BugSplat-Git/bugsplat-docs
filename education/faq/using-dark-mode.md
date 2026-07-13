@@ -6,9 +6,8 @@ BugSplat now offers a Dark Mode, providing a comfortable viewing experience, esp
 
 You can easily switch between these modes yourself by following these steps:
 
-1. Look for the theme icon located next to the 'Splat' logo in the footer on the bottom right of the page.
-2. Click on the icon to open the theme selector.
-3. Choose between:
+1. Look for the theme selector located next to the 'Splat' logo in the footer on the bottom right of the page. It shows three icons side by side: a desktop, a sun, and a moon.
+2. Click the icon for the mode you want to use:
    * **Match System Settings:** This mode will adapt BugSplat's appearance to your current operating system's light or dark mode.
    * **Light Mode:** Forces the interface into a light theme, regardless of your system settings.
    * **Dark Mode:** Enables a dark theme for the interface, perfect for nighttime work or low-light environments.

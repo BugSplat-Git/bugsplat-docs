@@ -47,7 +47,7 @@ Running symbol-upload in a command window without any arguments shows the follow
 ```bash
 bobby@BugSplat % ~ % symbol-upload -h
 
-@bugsplat/symbol-upload v10.2.0
+@bugsplat/symbol-upload v10.5.0
 
   symbol-upload contains a command-line utility and a set of libraries to help  
   you upload symbol files to BugSplat.                                          
