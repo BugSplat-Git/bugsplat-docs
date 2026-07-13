@@ -21,7 +21,11 @@ After signing up, you'll be directed to the BugSplat onboarding tool. This tool 
 
 <figure><img src="../../.gitbook/assets/post_sample_crash-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Step 3: Select Your First Platform or SDK
+### Step 3: Add Tools and Team Members
+
+Before selecting a platform or SDK, use the onboarding tool to add your development tools and team members.
+
+### Step 4: Select Your First Platform or SDK
 
 BugSplat supports [a wide range of platforms and SDKs](integrations/), providing comprehensive crash reporting capabilities. Choose your platform or SDK from our extensive list of over 25 options. Select the one that matches your application's development environment.
 
@@ -29,13 +33,13 @@ BugSplat supports [a wide range of platforms and SDKs](integrations/), providing
 
 <figure><img src="../../.gitbook/assets/post_sample_crash-3.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Step 4: Submitting a Sample Crash
+### Step 5: Submitting a Sample Crash
 
 Once you've selected your platform or SDK, you'll be taken to our documentation page. To quickly submit a sample crash without going through the full integration process, click the "**Post sample crash**" button in the sidebar status card. This allows you to skip the full integration process for now and submit a sample crash directly.
 
 <figure><img src="../../.gitbook/assets/post_sample_crash-4.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Step 5: Explore Your New BugSplat Account
+### Step 6: Explore Your New BugSplat Account
 
 Congratulations! You've successfully submitted a sample crash to your new BugSplat account. Take a moment to explore your BugSplat account and discover the valuable data you can obtain from a crashed application. This data will empower you to identify and resolve issues in your software more efficiently, saving you time and energy in the long run.
 
