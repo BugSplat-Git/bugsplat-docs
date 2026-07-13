@@ -6,7 +6,7 @@ After signing up for a BugSplat account, it’s important to add your team membe
 
 To add a team member to all your company's databases, simply add them via the [Company](https://app.bugsplat.com/v2/company) page. They will receive an email providing a prompt about setting up their account.
 
-## Adding Team Members to a Specific Databases ⚽
+## Adding Team Members to Specific Databases ⚽
 
 Only need to add a team member to a specific subset of databases? Select the desired database, then navigate to its [Users](https://app.bugsplat.com/v2/database/users) page in Settings.
 
