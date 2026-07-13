@@ -24,7 +24,7 @@ To style the message, use Markdown. If you don't remember Markdown off the top o
 
 <figure><img src="../../.gitbook/assets/support-response-editor.png" alt=""><figcaption><p>Support Response Editor</p></figcaption></figure>
 
-Once you've defined your message, you can preview it using the button on the page's bottom left.
+Once you've defined your message, a live preview is shown in the **Preview** panel on the right side of the page. Click **Open in New Tab** at the bottom left to view the support response at its live URL.
 
 If the message or subject is left empty, the default tech support response (if one is defined) will be shown to users submitting crash reports.
 

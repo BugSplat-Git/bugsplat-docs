@@ -56,7 +56,7 @@ Some states do not allow the exclusion or limitation of incidental or consequent
 
 **Pricing**
 
-**Free Trial.** All new accounts are free for the first 30 days of use. This is BugSplat’s free trial period. BugSplat has a free tier for low volume accounts, which are not charged a subscription fee. However, crash reports may be rejected when the crash count exceeds the low volume limit Subscription. After the free trial period, you will be asked pay for the BugSplat services or your account will be terminated. Monthly subscriptions are available through our website. For additional information on pricing for your application, or for annual invoice subscriptions, please contact us at sales@bugsplat.com
+**Free Trial.** All new accounts are free for the first 14 days of use. This is BugSplat’s free trial period. BugSplat has a free tier for low volume accounts, which are not charged a subscription fee. However, crash reports may be rejected when the crash count exceeds the low volume subscription limit. After the free trial period, you will be asked to pay for the BugSplat services or your account will be terminated. Monthly subscriptions are available through our website. For additional information on pricing for your application, or for annual invoice subscriptions, please contact us at sales@bugsplat.com.
 
 **Miscellaneous**
 

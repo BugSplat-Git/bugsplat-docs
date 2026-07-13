@@ -1,8 +1,8 @@
 # 🆕 Regression Alerts
 
-BugSplat can be configured to notify developers when a defect marked as Closed recurs in a newer version of their software. Crash groups can have one of three statuses: Open, Closed, and Regression. A regression happens when a crash group is marked as closed, but an instance of the crash occurs in a newer version.
+BugSplat can be configured to notify developers when a defect marked as Closed recurs in a newer version of their software. Crash groups can have one of four statuses: Open, Closed, Regression, and Ignored. A regression happens when a crash group is marked as closed, but an instance of the crash occurs in a newer version.
 
-In BugSplat, developers can update the status of a group by clicking the Open, Closed, or Regression badge and selecting a new status.
+In BugSplat, developers can update the status of a group by clicking the Open, Closed, Regression, or Ignored badge and selecting a new status.
 
 <figure><img src="../../.gitbook/assets/status-open-closed.gif" alt=""><figcaption><p>Set the Status of a Group to Closed</p></figcaption></figure>
 
