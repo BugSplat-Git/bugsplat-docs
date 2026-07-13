@@ -50,7 +50,7 @@ Requests a presigned URL for uploading a zip file to BugSplat's storage.
 {% tab title="429: Too Many Requests" %}
 ```json
 {
-    "error": "Too many requests"
+    "message": "Too many requests"
 }
 ```
 {% endtab %}
@@ -128,7 +128,11 @@ Commits the uploaded crash file for processing by BugSplat.
 
 ### Crash Type Reference
 
-Use the following `crashType` and `crashTypeId` values when committing uploads:
+Use the following `crashType` and `crashTypeId` values when committing uploads.
+
+{% hint style="warning" %}
+The `crashType` string field only recognizes the following values (case-insensitive): `Windows.Native`, `Windows.NET`, `Unity.Native`, `Xml.Report`, `Asan.Report`, `unity`, `User.Feedback`, and `Android.ANR`. Any other `crashType` string (e.g. `Java`, `Electron`, `UnityNative`, `XmlReport`) is silently treated as `Windows.Native`. For all other platforms listed below, pass the numeric `crashTypeId` instead.
+{% endhint %}
 
 | Platform              | crashType             | crashTypeId | Description                                      |
 | --------------------- | --------------------- | ----------- | ------------------------------------------------ |
@@ -137,7 +141,7 @@ Use the following `crashType` and `crashTypeId` values when committing uploads:
 | .NET                  | `DotNetDmp`           | 8           | .NET minidumps                                   |
 | .NET Standard         | `DotNetStandard`      | 18          | .NET Core, UWP, and .NET Standard                |
 | macOS                 | `PLCrashReporter`     | 13          | PLCrashReporter format                           |
-| Crashpad/Breakpad     | `Crashpad`            | 6           | Cross-platform Crashpad/Breakpad minidumps       |
+| Crashpad/Breakpad     | `Crashpad`            | 5           | Cross-platform Crashpad/Breakpad minidumps       |
 | Java                  | `Java`                | 4           | Java crash reports                               |
 | JavaScript            | `JavaScript`          | 14          | Browser JavaScript errors                        |
 | Angular               | `Angular`             | 19          | Angular framework errors                         |
@@ -184,8 +188,8 @@ Uploads a Playstation 4 crash report, extracts user data and user files
 | Name                                          | Type   | Description                                                                                                                             |
 | --------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | corefile<mark style="color:red;">\*</mark>    | object | The core dump file to be uploaded                                                                                                       |
-| application<mark style="color:red;">\*</mark> | string | <p>Name of the crashing application.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols.</p> |
-| version<mark style="color:red;">\*</mark>     | string | <p>Crashing application's version.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols</p>    |
+| application                                    | string | <p>Name of the crashing application. Defaults to "unknown" if omitted.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols.</p> |
+| version                                        | string | <p>Crashing application's version. Defaults to "unknown" if omitted.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols</p>    |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -216,8 +220,8 @@ Uploads a Playstation 5 crash report, extracts user data and user files
 | Name                                          | Type   | Description                                                                                                                             |
 | --------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | corefile<mark style="color:red;">\*</mark>    | object | The core dump file to be uploaded                                                                                                       |
-| application<mark style="color:red;">\*</mark> | string | <p>Name of the crashing application.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols.</p> |
-| version<mark style="color:red;">\*</mark>     | string | <p>Crashing application's version.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols</p>    |
+| application                                    | string | <p>Name of the crashing application. Defaults to "unknown" if omitted.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols.</p> |
+| version                                        | string | <p>Crashing application's version. Defaults to "unknown" if omitted.</p><p><strong>IMPORTANT</strong></p><p>this value must match the value used to upload symbols</p>    |
 
 {% tabs %}
 {% tab title="200 " %}

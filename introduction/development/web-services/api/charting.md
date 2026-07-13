@@ -42,17 +42,21 @@ This endpoint is deprecated and may be removed in the future. Use the [Dashboard
                 {
                     "day": 738387,
                     "timestamp": 1629417600,
-                    "totalCrashCount": 20
+                    "totalCrashCount": 20,
+                    "throttleCrashCount": 0,
+                    "retireCrashCount": 0
                 },
                 {
                     "day": 738388,
                     "timestamp": 1629504000,
-                    "totalCrashCount": 0
+                    "totalCrashCount": 0,
+                    "throttleCrashCount": 0,
+                    "retireCrashCount": 0
                 }
             ]
         }
     ]
-D}
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -91,7 +95,7 @@ Returns chartable volumes for a given database and a comma-separated list of sta
         "myConsoleCrasher!MemoryException(150)"
     ],
     [
-        "2021-07-26",
+        "2021-07-26T00:00:00Z",
         14
     ]
 ]

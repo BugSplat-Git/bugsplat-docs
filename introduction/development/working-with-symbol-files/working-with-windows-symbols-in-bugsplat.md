@@ -10,7 +10,7 @@ At the top of the Crash page, you will see a warning if you're missing symbols.
 
 ![Missing Symbols Alert](../../../.gitbook/assets/windows-symbols-missing-symbols.png)
 
-Once the data is obtained, the Function, Location, Code, OS, and Explanation fields will be populated with all available information. If a crash is missing symbols, there will be various messages under the 'File' column in the 'Active Thread' tab indicating which symbols were missing. Make sure to upload the missing symbols (`.exe`,`.pdb`, and `.dll` files as indicated by the 'Active Thread' tab) to the symbol store for your application name and version via the [Versions](https://app.bugsplat.com/v2/versions) page.  Or use [symbol-upload](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) to upload symbols using the command line.  When uploading using [symbol-upload](https://docs.bugsplat.com/education/faq/how-to-upload-symbol-files-with-symbol-upload), symbols are matched to crashes by their internal GUID — the application name and version used when uploading do not need to match those of the crash report.
+Once the data is obtained, the Function, Location, Exception Code, Environment, and Exception Message fields will be populated with all available information. If a crash is missing symbols, there will be various messages under the 'File' column in the 'Active Thread' tab indicating which symbols were missing. Make sure to upload the missing symbols (`.exe`,`.pdb`, and `.dll` files as indicated by the 'Active Thread' tab) to the symbol store for your application name and version via the [Versions](https://app.bugsplat.com/v2/versions) page.  Or use [symbol-upload](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) to upload symbols using the command line.  When uploading using [symbol-upload](https://docs.bugsplat.com/education/faq/how-to-upload-symbol-files-with-symbol-upload), symbols are matched to crashes by their internal GUID — the application name and version used when uploading do not need to match those of the crash report.
 
 ![Missing Symbols in Active Thread](../../../.gitbook/assets/windows-symbols-active-thread.png)
 
@@ -22,8 +22,8 @@ The values under the status column are as follows:
 
 * **deferred**: the debugger doesn’t need the module’s exe, dll, or pdb files to unwind the stack.
 * **file not found**: the debugger needs the module’s exe, dll, or pdb files to unwind the stack, but the exe/dll with matching debug signature cannot be located.
-* **symbols not found**: the debugger needs the module’s exe, dll, or pdb files to unwind the stack and the matching exe/dll has been located, but not the symbols.
-* **pdb symbols**: debugger needs the module’s exe, dll, or pdb files to unwind the stack and they have been loaded successfully.
+* **no symbols loaded**: the debugger needs the module’s exe, dll, or pdb files to unwind the stack and the matching exe/dll has been located, but not the symbols.
+* **pdb symbols** (or **private pdb symbols**): debugger needs the module’s exe, dll, or pdb files to unwind the stack and they have been loaded successfully.
 
 Unfortunately, Microsoft doesn’t provide symbol information for all operating system modules, so “file not found” errors are fairly common.
 

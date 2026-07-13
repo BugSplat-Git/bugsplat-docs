@@ -7,7 +7,7 @@ The following URI parameters may be available:
 * **sortdatafield** - the sort column's datafield.
 * **sortorder** - the sort order - 'asc' or 'desc'
 * **pagenum** - the current page number when the paging feature is enabled. The first page is number 0.
-* **pagesize** - the number of rows in one page of data. Pagesize defaults to 100 and is capped at 10,000.
+* **pagesize** - the number of rows in one page of data. Pagesize defaults to 10 and is capped at 100,000.
 * **filterscount** - the number of filters in the query. Defaults to 0.
 * **filterdatafield#** - the filter column's datafield, or column name.
 * **filtervalue#** - the filter's value. The name for the first filter is "filtervalue0", for the second is "filtervalue1" and so on.

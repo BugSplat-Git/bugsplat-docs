@@ -22,12 +22,23 @@ Returns databases for the current user or a company specified by companyId.
 {% tab title="200 " %}
 ```json
 [{
+    "uId": 55411,
+    "dbId": 25,
     "dbName": "Fred",
-    "companyId": "545",
+    "rights": 1,
+    "companyId": 545,
     "companyName": "BugSplat Public Testing",
-    "Volume30Day": "1075",
-    "Volume365Day": "8868",
-    "CrashDataDays": "6544"
+    "Rights": 1
+}]
+```
+{% endtab %}
+
+{% tab title="200 (companyId) " %}
+```json
+[{
+    "dbName": "Fred",
+    "companyId": 545,
+    "companyName": "BugSplat Public Testing"
 }]
 ```
 {% endtab %}

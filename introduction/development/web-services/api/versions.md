@@ -18,9 +18,11 @@ Returns a list of versions in a given database.
 
 #### Query Parameters
 
-| Name     | Type   | Description                                |
-| -------- | ------ | ------------------------------------------ |
-| database | string | BugSplat database containing symbol stores |
+| Name                  | Type   | Description                                                                   |
+| --------------------- | ------ | ------------------------------------------------------------------------------ |
+| database              | string | BugSplat database containing symbol stores                                    |
+| crashCountStartDate   | string | Optional start date used to compute periodCrashCount for the returned versions |
+| crashCountEndDate     | string | Optional end date used to compute periodCrashCount for the returned versions   |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -40,7 +42,9 @@ Returns a list of versions in a given database.
       "reportsPerDay": null,
       "fullDumps": "0",
       "rejectedCount": "0",
-      "retired": "0"
+      "retired": "0",
+      "totalCrashCount": "0",
+      "periodCrashCount": "0"
     }
   ]
 }
@@ -51,7 +55,7 @@ Returns a list of versions in a given database.
 ### Curl Example
 
 ```bash
-curl --location 'https://app.bugsplat.com/api/versions?database=fred' \
+curl --location 'https://app.bugsplat.com/api/v2/versions?database=fred' \
 --header 'Authorization: Bearer ••••••'
 ```
 
@@ -65,11 +69,11 @@ Used to create a new version and returns a pre-signed URL that can be used to up
 
 | Name                                         | Type   | Description                                                                                                                          |
 | -------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| database                                     | string | BugSplat database in which the symbol store should be created                                                                        |
+| database<mark style="color:red;">\*</mark>  | string | BugSplat database in which the symbol store should be created                                                                        |
 | appVersion<mark style="color:red;">\*</mark> | string | Version of the application symbols being stored in the new symbol store                                                              |
 | appName<mark style="color:red;">\*</mark>    | string | Name of application symbols being stored in the new symbol store                                                                     |
-| symFileName                                  | string | Filename of the symbol file being uploaded to the symbol store via the returned pre-signed URL.                                      |
-| size                                         | number | Size of symbol file being uploaded to the symbol store via the returned pre-signed URL. Enter 0 to create a placeholder symbol store |
+| symFileName<mark style="color:red;">\*</mark> | string | Filename of the symbol file being uploaded to the symbol store via the returned pre-signed URL.                                      |
+| size<mark style="color:red;">\*</mark>       | number | Size of symbol file being uploaded to the symbol store via the returned pre-signed URL. Enter 0 to create a placeholder symbol store |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -88,7 +92,7 @@ Used to create a new version and returns a pre-signed URL that can be used to up
 ### Curl Example
 
 ```bash
-curl --location 'https://app.bugsplat.com/api/versions' \
+curl --location 'https://app.bugsplat.com/api/v2/versions' \
 --header 'Authorization: Bearer ••••••' \
 --form 'database="fred"' \
 --form 'appName="Postman"' \
@@ -107,7 +111,7 @@ Used to set the retired and fullDumps flags for a specified version.
 
 | Name                                         | Type   | Description                                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| database                                     | string | BugSplat database in which the symbol store should be created                                                                                                                                                                                                                                                                                                                         |
+| database<mark style="color:red;">\*</mark>  | string | BugSplat database in which the symbol store should be created                                                                                                                                                                                                                                                                                                                         |
 | appVersion<mark style="color:red;">\*</mark> | string | Version of application for which the retired/fullDumps flags should be updated                                                                                                                                                                                                                                                                                                        |
 | appName<mark style="color:red;">\*</mark>    | string | Name of application for which the retired/fullDumps flags should be updated                                                                                                                                                                                                                                                                                                           |
 | fullDumps                                    | 0\|1   | <p>Flag indicating that the BugSplat Native and .NET SDKs should generate and upload</p><p><a href="../../../getting-started/integrations/desktop/cplusplus/full-memory-dumps.md">full memory dumps</a></p><p>. This feature incurs additional costs.</p><p><a href="../../../../administration/contact-us.md">Contact us</a></p><p>to enable full memory dumps for your account.</p> |
@@ -144,7 +148,7 @@ Remove symbols from a specified version or versions.
 ### Curl Example
 
 ```bash
-curl --location --request DELETE 'https://app.bugsplat.com/api/versions?database=fred&appName=Postman&appVersion=1.2.3' \
+curl --location --request DELETE 'https://app.bugsplat.com/api/v2/versions?database=fred&appName=Postman&appVersion=1.2.3' \
 --header 'Authorization: Bearer ••••••'
 ```
 

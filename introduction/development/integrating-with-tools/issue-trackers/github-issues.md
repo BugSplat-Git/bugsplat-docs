@@ -6,10 +6,10 @@ BugSplat's GitHub Issues integration allows your team to create defects from cra
 
 1. Generate a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) (PAT) in GitHub. You may use a [classic PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-tokens-classic) or a [fine-grained PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens), ensuring you set the correct **Resource Owner**, select the correct **Repository**, and add **Issues Read/Write** permissions.
 2. [Login](https://app.bugsplat.com/cognito/login) to your BugSplat account.
-3. Click the Gear icon (⚙️) in the top right of the page and navigate to the [Database Settings](https://app.bugsplat.com/v2/database/integrations) page and under **Database > Integrations >** **Defect Tracker > GitHub Issues** from the options shown.
-4. Enter your GitHub **Username**, **API Token,** and **Repo Owner** into the appropriate boxes and click **Apply**.
+3. Click the Gear icon (⚙️) in the top right of the page and navigate to the [Database Settings](https://app.bugsplat.com/v2/database/integrations) page and under **Database > Integrations >** **Defect Trackers > GitHub** from the options shown.
+4. Enter your GitHub **Username**, **API Token,** and **Repo Owner** into the appropriate boxes and click **Update**.
 5. Select your desired project.
-6. Click **Apply** once more to complete the integration.
+6. Click **Update** once more to complete the integration.
 
 ### Creating a defect in GitHub Issues from a BugSplat crash report
 

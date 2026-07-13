@@ -27,16 +27,15 @@ Returns a list of users and access rights for the specified database.
 ```json
 [
   {
-    "Database": "Fred",
-    "PageData": null,
-    "Rows": [
-      {
-        "uId": "55411",
-        "username": "fred@bugsplat.com",
-        "lastLogin": "2021-08-25T21:02:56Z",
-        "Restricted": "1"
-      }
-    ]
+    "dbId": 4321,
+    "dbName": "Fred",
+    "uId": 55411,
+    "username": "fred@bugsplat.com",
+    "firstName": "Fred",
+    "lastName": "Flintstone",
+    "lastLogin": "2021-08-25T21:02:56Z",
+    "unrestricted": 1,
+    "ssoGroups": ""
   }
 ]
 ```
@@ -54,21 +53,24 @@ curl --location 'https://app.bugsplat.com/api/user/users?database=fred' \
 
 <mark style="color:green;">`POST`</mark> `https://app.bugsplat.com/api/user/users`
 
-Adds a new user to the specified database.
+Adds a new user to the specified database. `PUT` is also accepted at this same endpoint and behaves identically, including updating the `rights` of an existing user.
 
 #### Request Body
 
-| Name     | Type   | Description                               |
-| -------- | ------ | ----------------------------------------- |
-| database | string | BugSplat database to add the user to      |
-| username | string | Email of user to be added to the database |
+| Name     | Type   | Description                                                                     |
+| -------- | ------ | -------------------------------------------------------------------------------- |
+| database | string | BugSplat database to add the user to                                            |
+| username | string | Email of user to be added to the database                                       |
+| rights   | number | Optional. `1` for unrestricted access, `0` for restricted access (default `0`)  |
 
 {% tabs %}
 {% tab title="200 " %}
 ```json
 {
     "status": "success",
-    "username": "fred@bugsplat.com",
+    "companyId": 1234,
+    "database": 4321,
+    "uId": 55411
 }
 ```
 {% endtab %}
@@ -95,7 +97,7 @@ Removes a user from the specified database. The authenticated user must not be r
 | Name     | Type   | Description                              |
 | -------- | ------ | ---------------------------------------- |
 | database | string | BugSplat database that contains the user |
-| username | number | Email of the user to remove              |
+| username | string | Email of the user to remove              |
 
 {% tabs %}
 {% tab title="200 " %}

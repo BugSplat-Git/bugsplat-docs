@@ -42,7 +42,7 @@ Exchange a Client Id and Client Secret for a bearer token.
 ```
 {
   "token_type": "Bearer",
-  "expires_in": 3600,
+  "expires_in": 86400,
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9[...]"
 }
 ```

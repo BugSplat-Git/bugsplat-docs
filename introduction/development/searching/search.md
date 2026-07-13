@@ -1,6 +1,6 @@
 # Filtering
 
-To use the filtering tool first click on the button labeled 🔍 **Search** which can be found on the Crash, Summary, and Key Crash pages.
+To use the filtering tool first click on the button labeled **Add filter** which can be found on the Crashes, Summary, and Crash Group pages.
 
 Next, select a column to filter in the Search dropdown. After picking a column, select the desired search criteria and enter a value and click **Submit**. Repeat this process until you've found exactly what you're looking for.
 
@@ -14,8 +14,8 @@ BugSplat's data is grouped into various columns. Each column can hold 1 of 4 dat
 
 | **Type** | **Options**                                                                                                |
 | -------- | ---------------------------------------------------------------------------------------------------------- |
-| Text     | <p></p><p>equal to, not equal to, contains, does not contain, empty, not empty, starts with, ends with</p> |
-| Number   | equal to, not equal to, greater than, less than, empty, not empty                                          |
+| Text     | <p></p><p>equal to, not equal to, contains, does not contain, is in, is not in, empty, not empty, starts with, ends with</p> |
+| Number   | equal to, not equal to, greater than, less than, is in, is not in, empty, not empty                                          |
 | Date     | on or before, on or after                                                                                  |
 
 ### Sharing and Exporting Searches

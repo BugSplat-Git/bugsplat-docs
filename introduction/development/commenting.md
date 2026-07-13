@@ -4,7 +4,7 @@ BugSplat allows users to leave comments and have discussions about crashes and s
 
 ### Leaving Comments
 
-Using the **Activity** module found at the bottom of the [Crashes](using-the-app.md#crashes) and [Stack Key](using-the-app.md#stack-key) pages allows users to comment and discuss issues pertaining to the defect.  
+Using the **Activity** module found at the bottom of the [Crash](using-the-app.md#crash) and [Stack Key](using-the-app.md#stack-key) pages allows users to comment and discuss issues pertaining to the defect.  
 
 This can be a useful tool for making personal notes or for having a larger discussion with team members. 
 

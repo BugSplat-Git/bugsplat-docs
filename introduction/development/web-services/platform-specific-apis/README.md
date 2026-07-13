@@ -2,14 +2,10 @@
 
 Here is the current BugSplat API documentation
 
-{% embed url="https://www.bugsplat.com/platforms/cpp/api" %}
+{% embed url="https://docs.bugsplat.com/introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation" %}
 Latest version
 {% endembed %}
 
-{% embed url="https://www.bugsplat.com/platforms/cpp/api" %}
-This is our legacy link
-{% endembed %}
+<!-- Legacy embed removed (duplicate of 'Latest version') -->
 
 
-
-{% embed url="https://www.bugsplat.com/platforms/net/api" %}

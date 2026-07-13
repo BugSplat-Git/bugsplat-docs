@@ -12,7 +12,7 @@ Teams Webhook Walkthrough
 2. Login to [BugSplat](https://app.bugsplat.com/cognito/login) and navigate to the [Notifications](https://app.bugsplat.com/v2/database/integrations#notifications) page.
 3. Select the Database for which you'd like to configure alerts
 4. Under the **Teams** section, enter the webhook URL for your channel and click **Update**.
-5. Use the toggle buttons to set your notification preferences. You can be notified for each new report or unique report group.
+5. Use the toggle buttons to set your notification preferences: **New Report Notifications**, **New Group Notifications**, and **Regression Alerts**.
 6. Use the **Fields** dropdown to select the fields you want to include in your notifications.
 
 <figure><img src="../../../../.gitbook/assets/teams.gif" alt=""><figcaption><p>Configuring BugSplat's Teams Integration</p></figcaption></figure>

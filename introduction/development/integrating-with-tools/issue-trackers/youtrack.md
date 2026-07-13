@@ -6,14 +6,14 @@ YouTrack integration with BugSplat crash reports allows your team to create defe
 
 1. [Login](https://app.bugsplat.com/cognito/login) to your account.
 2. Click the Gear icon (⚙️) in the top right of the page and navigate to the Database Settings page, and under **Database > Integrations >** **Defect Tracker**, select **YouTrack** from the options shown.
-3. Enter your **Username**, YouTrack **API Token**, YouTrack **URL**, and any additional options, and click **Apply**.
+3. Enter your **Username**, YouTrack **API Token**, YouTrack **URL**, and any additional options.
 
 {% hint style="info" %}
 You can find **Username**, **API Token**, and **URL** on the YouTrack Hub Integration page. [Click to learn more](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html).
 {% endhint %}
 
 4. Select your desired **Project**.
-5. Click **Apply**.
+5. Click **Update**.
 
 ### Creating a defect in YouTrack from a BugSplat crash report
 
