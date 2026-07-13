@@ -22,7 +22,7 @@ Such flexibility supports the meticulous analysis and long-term storage of crash
 
 **How to Upgrade**
 
-1. **Accessing Your Plan Settings:** Begin by navigating to the Billing page within your BugSplat account. Here, you'll find the 'Update Plan' button, your gateway to adjusting your plan's parameters.
+1. **Accessing Your Plan Settings:** Begin by navigating to the Billing page within your BugSplat account. Here, you'll find the 'Change Plan' button, your gateway to adjusting your plan's parameters.
 2. **Customizing Your Plan:** Upon clicking 'Change Plan,' a user-friendly interface will emerge, presenting sliders or input fields to select your desired increase in crash volume and storage space. This intuitive design makes tailoring your plan to your specific needs both straightforward and precise.
 3. **Applying Your Changes:** After setting your new crash volume and storage preferences, simply hit 'Update.' Your plan will immediately reflect these changes, empowering you with enhanced capabilities to manage and analyze crashes and errors.
 

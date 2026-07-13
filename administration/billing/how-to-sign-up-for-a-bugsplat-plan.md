@@ -28,7 +28,7 @@ Whether you're still in your trial or using the Free Plan, upgrading is a breeze
 
 
     <figure><img src="../../.gitbook/assets/billing1.png" alt=""><figcaption></figcaption></figure>
-3.  **Choose Your Plan:** A payment model will pop up, allowing you to select between the Team or Business plans. Not sure which to choose? Our [Plans page](https://www.bugsplat.com/plans/) details the differences.
+3.  **Choose Your Plan:** A payment modal will pop up, allowing you to select between the Team or Business plans. Not sure which to choose? Our [Plans page](https://www.bugsplat.com/pricing/) details the differences.
 
 
 

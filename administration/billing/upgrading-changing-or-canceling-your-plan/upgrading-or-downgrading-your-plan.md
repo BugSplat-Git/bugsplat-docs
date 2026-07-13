@@ -2,7 +2,7 @@
 
 At BugSplat, we're committed to supporting the dynamic needs of your projects. Whether you're experiencing growth or adjusting project scopes, you have the flexibility to upgrade or downgrade your plan at any point during your billing cycle.
 
-**How to Make Changes:** To alter your plan, navigate to the [Billing page](https://app.bugsplat.com/v2/company/billing) in your BugSplat account and click "Update Plan." This allows you to adjust crucial aspects of your service, including the plan type, monthly crash & error volume, and storage capacity to suit your project's requirements. Additionally, for those looking to optimize budgeting, switching to an annual payment offers savings and convenience.
+**How to Make Changes:** To alter your plan, navigate to the [Billing page](https://app.bugsplat.com/v2/company/billing) in your BugSplat account and click "Change Plan." This allows you to adjust crucial aspects of your service, including the plan type, monthly crash & error volume, and storage capacity to suit your project's requirements. Additionally, for those looking to optimize budgeting, switching to an annual payment offers savings and convenience.
 
 **Integration of Plan Changes:** Adjustments to your plan, whether upgrades or downgrades, are seamlessly integrated into your current billing cycle, with pro-rated billing ensuring you only pay for what you use. Upgrades take effect immediately, offering instant access to expanded features or limits, while any unused portion of your plan is credited to your account.
 

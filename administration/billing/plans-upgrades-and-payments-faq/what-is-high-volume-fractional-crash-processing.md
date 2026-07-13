@@ -9,6 +9,5 @@ For instance, if your application encounters 15 million crashes in a year, BugSp
 1. **Exclusively for Enterprise Customers**: This feature is specifically designed to address enterprise-level applications' high-volume crash analysis needs.
 2. **Randomized, Configurable Crash Processing**: BugSplat can be set to randomly process a specific percentage of crashes from your production databases, ensuring a representative sample without the need to process every single crash.
 3. **Billing Aligned with Processing**: Crash volume is billed at BugSplat standard enterprise rates, but you are billed only for the number of crashes processed.
-4. **Visibility into Processing Mechanics**: The BugSplat web application will display fractional processing information so your team has visibility into the process.
 
 This feature is crafted with the needs of developers and enterprises, aiming to provide a practical and cost-effective solution for managing and analyzing crash data at scale while maintaining data integrity and operational transparency.
