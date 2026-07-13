@@ -48,7 +48,7 @@ Promise.reject(new Error('BugSplat!')).catch(async (error) => await bugsplat.pos
 try {
   throw new Error('BugSplat!');
 } catch (error) {
-  await bugsplat.post(error, options));
+  await bugsplat.post(error, options);
 }
 ```
 
@@ -77,12 +77,11 @@ bugsplat.setDefaultAppKey(appKey); // Additional metadata that can be queried vi
 bugsplat.setDefaultUser(user); // The name or id of your user
 bugsplat.setDefaultEmail(email); // The email of your user 
 bugsplat.setDefaultDescription(description); // A description placeholder that can be overridden at crash time
-bugsplat.setDefaultAdditionalFilePaths([paths]); // Paths to files to be sent to BugSplat at post time (limit 1MB) 
+bugsplat.setDefaultAdditionalFilePaths([paths]); // Paths to files to be sent to BugSplat at post time (limit 10MB) 
 bugsplat.postAndExit(error, options); // Wrapper for post that calls process.exit(1) after posting error to BugSplat
-bugsplat.post(error, options); // Aysnc function that posts an arbitrary Error object to BugSplat
+bugsplat.post(error, options); // Async function that posts an arbitrary Error object to BugSplat
 // If the values options.appKey, options.user, options.email, options.description, options.additionalFilePaths are set the corresponding default values will be overwritten
 // Returns a promise that resolves with properties: error (if there was an error posting to BugSplat), response (the response from the BugSplat crash post API), and original (the error passed by bugsplat.post)
-view rawbugsplat-node-api.js hosted with ❤ by GitHub
 ```
 
 ### User Feedback

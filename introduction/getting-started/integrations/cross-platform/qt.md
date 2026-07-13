@@ -211,10 +211,7 @@ bool initializeCrashpad(QString dbName, QString appName, QString appVersion)
     // Attachments to be uploaded alongside the crash - default bundle size limit is 20MB
     std::vector<FilePath> attachments;
     FilePath attachment(Paths::getPlatformString(crashpadPaths.getAttachmentPath()));
-#if defined(Q_OS_WINDOWS) || defined(Q_OS_LINUX)
-    // Crashpad hasn't implemented attachments on OS X yet
     attachments.push_back(attachment);
-#endif
 
     // Start crash handler
     CrashpadClient *client = new CrashpadClient();
@@ -353,7 +350,7 @@ After each build, you must re-upload symbol files. For best results, you should 
 
 ### **Windows**
 
-To generate and upload `.sym` files as part of your build, create a `symbols.sh` script that calls `symbol-upload-windows.exe`:
+To generate and upload `.sym` files as part of your build, create a `symbols.bat` script that calls `symbol-upload-windows.exe`:
 
 ```batch
 %1\Crashpad\Tools\Windows\symbol-upload-windows.exe -b %3 -a "%4" -v "%5" -d "%2" -f "%4.exe" -u "%6" -p "%7" -m
@@ -377,7 +374,7 @@ After each build, you must re-upload symbol files. For best results, you should 
 
 ### **Linux**
 
-To generate and upload `.sym` files as part of your build, create a `symbols.sh` script that calls `symbol-upload-macos`:
+To generate and upload `.sym` files as part of your build, create a `symbols.sh` script that calls `symbol-upload-linux`:
 
 ```bash
 #!/bin/bash

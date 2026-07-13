@@ -194,7 +194,7 @@ void CreateAsanReport(const char* asanReport);
 #### AddAttachment
 
 ```cpp
-void AddAttachment(const wchar_t* filepath);
+bool AddAttachment(const wchar_t* filepath);
 ```
 
 **Description:** Adds a file to be included with crash reports and feedback uploads.
@@ -202,6 +202,8 @@ void AddAttachment(const wchar_t* filepath);
 **Parameters:**
 
 * `filepath` - Full path to the file to attach
+
+**Returns:** `true` if the file was successfully added, `false` otherwise
 
 #### RemoveAttachment
 

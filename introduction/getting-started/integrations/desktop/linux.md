@@ -8,12 +8,13 @@ Before continuing with the tutorial, please review our [myUbuntuCrasher](https:/
 
 ## Tutorial
 
-The first step in integrating with Crashpad is ensuring your system has all the required dependencies. These dependencies include `git`, `python`, `llvm` and `clang++`. The following snippet will download and install all the dependencies on an Ubuntu system:
+The first step in integrating with Crashpad is ensuring your system has all the required dependencies. These dependencies include `git`, `git-lfs`, `llvm`, `build-essential` and `clang++`. The following snippet will download and install all the dependencies on an Ubuntu system:
 
 ```
 sudo apt-get install git
-sudo apt-get install python
+sudo apt-get install git-lfs
 sudo apt-get install llvm
+sudo apt-get install build-essential
 sudo apt-get install clang
 ```
 
@@ -38,6 +39,7 @@ clang++ -pthread $PROJECT_DIR/main.cpp \
   $CRASHPAD_DIR/lib/libbase.a \
   -I$CRASHPAD_DIR/include \
   -I$CRASHPAD_DIR/include/third_party/mini_chromium/mini_chromium \
+  -I$CRASHPAD_DIR/include/out/Default/gen \
   -o$OUT_DIR/$MODULE_NAME \
   -g \
   -Wl,--build-id

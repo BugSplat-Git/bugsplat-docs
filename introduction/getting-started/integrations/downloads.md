@@ -45,7 +45,7 @@ description: >-
 | Android      | See platform docs ([here](mobile/android.md)) |
 | Ionic        | See platform docs ([here](mobile/ionic.md))   |
 | iOS          | See platform docs ([here](mobile/ios.md))     |
-| React Native | See platform docs ([here](web/react.md))      |
+| React Native | See platform docs ([here](mobile/react-native.md)) |
 
 ### 🕸️ Web
 

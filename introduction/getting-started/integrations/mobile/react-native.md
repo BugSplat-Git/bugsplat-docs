@@ -53,7 +53,7 @@ If your project's `minSdkVersion` is already >= 26, the `expo-build-properties` 
 
 | Option | Required | Description |
 |--------|----------|-------------|
-| `database` | No | BugSplat database name (can also be set via `init()` or `BUGSPLAT_DATABASE` env var) |
+| `database` | **Yes** | BugSplat database name |
 | `enableSymbolUpload` | No | Enable automatic symbol upload for iOS (dSYMs) and Android (.so files) |
 | `symbolUploadClientId` | No | BugSplat API client ID (or set `BUGSPLAT_CLIENT_ID` env var) |
 | `symbolUploadClientSecret` | No | BugSplat API client secret (or set `BUGSPLAT_CLIENT_SECRET` env var) |

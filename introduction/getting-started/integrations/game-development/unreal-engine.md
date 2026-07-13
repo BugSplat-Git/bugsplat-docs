@@ -174,10 +174,10 @@ BugSplat can display a custom support message to your end users immediately afte
 DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}?BugSplatApplicationKey=en-US"
 ```
 
-Additionally, you can speed up the time it takes for BugSplat to return a response by including a `PCallstackHash` value.
+Additionally, you can speed up the time it takes for BugSplat to return a response by including a `PCallStackHash` value.
 
 ```ini
-DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}?BugSplatApplicationKey=en-US&PCallstackHash=BDC1CA7AD7CB73BC100C41E5AA322C243521BD59"
+DataRouterUrl="https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}?BugSplatApplicationKey=en-US&PCallStackHash=BDC1CA7AD7CB73BC100C41E5AA322C243521BD59"
 ```
 
 For a full walkthrough, see [Bringing Custom Crash Responses to Unreal Engine](https://blog.bugsplat.com/bringing-custom-crash-responses-to-unreal-engine/).

@@ -213,7 +213,7 @@ Utils.ForceCrash(ForcedCrashCategory.PureVirtualFunction);
 
 #### Windows Symbols
 
-To enable the uploading of plugin symbols, generate an OAuth2 Client ID and Client Secret on the BugSplat [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page. Add your Client ID and Client Secret to the `BugSplatOptions` object you generated in the [Configuration](https://github.com/BugSPlat-Git/bugsplat-unity#%E2%9A%99%EF%B8%8F-configuration) section. If your game contains Native Windows C++ plugins, `.dll` and `.pdb` files in the `Assets/Plugins/x86` and `Assets/Plugins/x86_64` folders will be uploaded by BugSplat's PostBuild script and used in symbolication.
+To enable the uploading of plugin symbols, generate an OAuth2 Client ID and Client Secret on the BugSplat [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page. Add your Client ID and Client Secret to the `BugSplatOptions` object you generated in the [Configuration](https://github.com/BugSPlat-Git/bugsplat-unity#%E2%9A%99%EF%B8%8F-configuration) section. Alternatively, you can set the `BUGSPLAT_CLIENT_ID` and `BUGSPLAT_CLIENT_SECRET` environment variables; if set, these are used instead of `SymbolUploadClientId`/`SymbolUploadClientSecret`. If your game contains Native Windows C++ plugins, `.dll` and `.pdb` files in the `Assets/Plugins/x86` and `Assets/Plugins/x86_64` folders will be uploaded by BugSplat's PostBuild script and used in symbolication.
 
 For IL2CPP builds, BugSplat will also upload `LineNumberMappings.json`. Line mappings allow BugSplat to replace generated C++ function names, file names, and line numbers with their original C# equivalents.
 
@@ -284,7 +284,7 @@ More information on support responses can be found [here](https://docs.bugsplat.
 
 The bugsplat-unity plugin supports crash reporting for native C++ crashes on Android via Crashpad. To configure crash reporting for Android, set the `UseNativeCrashReportingForAndroid` and `UploadDebugSymbolsForAndroid` properties to `true` on the BugSplatManager instance.
 
-You'll also need to configure the scripting backend to use IL2CPP, and target ARM64 (ARMV7a is not supported)
+You'll also need to configure the scripting backend to use IL2CPP, target ARM64 (ARMV7a is not supported), and set the Minimum API Level to Android 8.0 (API level 26) or higher.
 
 <figure><img src="../../../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
@@ -316,6 +316,12 @@ If the main thread stays unresponsive past the detection threshold and the app i
 Hang detection is suppressed while a debugger is attached. Test it on a build run without the Xcode debugger.
 {% endhint %}
 
+### 🖥 macOS
+
+The bugsplat-unity plugin supports native crash reporting on macOS via bugsplat-apple, which uses PLCrashReporter to capture crashes via Mach exception handling. Native macOS crash reporting requires the `IL2CPP` scripting backend.
+
+To configure crash reporting for macOS, set the `UseNativeCrashReportingForMac` and `UploadDebugSymbolsForMac` properties to `true` on your `BugSplatOptions` asset. For IL2CPP builds, BugSplat will upload dSYMs and `LineNumberMappings.json` for full symbolication.
+
 ### 🧩 API
 
 The following API methods are available to help you customize BugSplat to fit your needs.
@@ -325,7 +331,7 @@ The following API methods are available to help you customize BugSplat to fit yo
 | Setting                       | Description                                                                                |
 | ----------------------------- | ------------------------------------------------------------------------------------------ |
 | DontDestroyManagerOnSceneLoad | Should the BugSplat Manager persist through scene loads?                                   |
-| RegisterLogMessageRecieved    | Register a callback function and allow BugSplat to capture instances of LogType.Exception. |
+| RegisterLogMessageReceived    | Register a callback function and allow BugSplat to capture instances of LogType.Exception. |
 
 #### BugSplat Options
 
@@ -347,6 +353,8 @@ The following API methods are available to help you customize BugSplat to fit yo
 | ShouldPostException               | Settable guard function that is called before each BugSplat report is posted                                                                                                                                                                           |
 | SymbolUploadClientId              | An OAuth2 Client ID value used for uploading [symbol files](https://docs.bugsplat.com/introduction/development/working-with-symbol-files) generated via BugSplat's [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page     |
 | SymbolUploadClientSecret          | An OAuth2 Client Secret value used for uploading [symbol files](https://docs.bugsplat.com/introduction/development/working-with-symbol-files) generated via BugSplat's [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page |
+| UseNativeCrashReportingForMac     | Should BugSplat enable native crash reporting on macOS                                                                                                                                                                                                  |
+| UploadDebugSymbolsForMac          | Should BugSplat upload dSYMs and LineNumberMappings.json for macOS builds                                                                                                                                                                                |
 
 ### 💬 User Feedback
 

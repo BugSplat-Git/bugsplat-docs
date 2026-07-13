@@ -13,7 +13,7 @@ BugSplat allows developers to efficiently process crash reports from PlayStation
 Access to the BugSplat SDK is limited to certified PlayStation developers. If you are a registered PlayStation developer, you can request access to the SDK by clicking here → [https://p.siedev.net/tm/verify/bugsplat](https://p.siedev.net/tm/verify/bugsplat).
 
 \
-Once access is granted, you can download the SDK and find comprehensive instructions by navigating to the Console tab on the [Database Integrations](https://app.bugsplat.com/v2/database/integrations) page.
+Once access is granted, you can download the SDK and find comprehensive instructions by navigating to the Gaming Consoles tab on the [Database Integrations](https://app.bugsplat.com/v2/database/integrations) page.
 
 \
 For more information about PlayStation crash reporting with BugSplat, please contact us via email at [support@bugsplat.com](mailto:support@bugsplat.com).

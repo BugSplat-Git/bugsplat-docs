@@ -109,7 +109,7 @@ Add `SYMBOL_UPLOAD_CLIENT_ID` and `SYMBOL_UPLOAD_CLIENT_SECRET` environment vari
 
 ```
 SYMBOL_UPLOAD_CLIENT_ID=your-client-id
-SYMBOL_UPLOAD_PASSWORD=your-client-secret
+SYMBOL_UPLOAD_CLIENT_SECRET=your-client-secret
 ```
 
 Add a script to `package.json` that reads a `.env` file and calls `symbol-upload` to upload source maps after your production build. Replace `my-angular-crasher` with the name of your Angular project.
@@ -128,7 +128,7 @@ For best results, please upload source maps for every released version of your a
 
 You can post additional information by creating a service that implements ErrorHandler. In the `handlerError` method, make a call to `BugSplat.post` passing it the error and an optional options object:
 
-[my-angular-error-handler.ts](https://github.com/BugSplat-Git/bugsplat-ng/blob/master/src/app/my-angular-error-handler.ts)
+[my-angular-error-handler.ts](https://github.com/BugSplat-Git/bugsplat-ng/blob/main/projects/my-angular-crasher/src/app/my-angular-error-handler.ts)
 
 ```
 import { ErrorHandler, Injectable } from '@angular/core';
@@ -202,7 +202,7 @@ bootstrapApplication(AppComponent, {
     },
     {
       provide: BugSplatLogger,
-      useValue: new BugSplatLogger(BugSplatLogLevel.Log)
+      useValue: new BugSplatLogger(BugSplatLogLevel.log)
     }
   ]
 })

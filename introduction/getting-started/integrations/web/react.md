@@ -36,7 +36,7 @@ import * as packageJson from '../package.json';
 
 init({
   database: packageJson.database,
-  name: packageJson.name,
+  application: packageJson.name,
   version: packageJson.version,
 });
 

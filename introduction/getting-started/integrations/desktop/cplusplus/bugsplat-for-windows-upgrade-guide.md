@@ -26,7 +26,7 @@ Several of the BugSplat method names have been changed:
 
 | Old Method Name           | New Method Name    |
 | ------------------------- | ------------------ |
-| setDefaultUserName        | SetUserName        |
+| setDefaultUserName        | SetUser             |
 | setDefaultUserEmail       | SetEmail           |
 | setDefaultUserDescription | SetUserDescription |
 | setNotes                  | SetNotes           |

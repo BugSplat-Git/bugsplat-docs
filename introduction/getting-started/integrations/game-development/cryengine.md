@@ -2,7 +2,7 @@
 
 ## Building CRYENGINE
 
-To get function names and line numbers for internal CRYENGINE code you'll need to build CRYENGINE from source and generate `.pdb` files. Make sure to build the engine with the `Profile` configuration so that `.pdb` files are generated. The following video gives an overview of how to clone and build the CRYENGINE [source](https://github.com/CRYTEK/CRYENGINE):
+To get function names and line numbers for internal CRYENGINE code you'll need to build CRYENGINE from source and generate `.pdb` files. Make sure to build the engine with the `Profile` configuration so that `.pdb` files are generated. The following video gives an overview of how to clone and build the CRYENGINE [source](https://www.cryengine.com/docs/static/engines/cryengine-5/categories/23756813/pages/89457345):
 
 Next, upload all of the `.pdb`, `.dll` and `.exe` files in the `bin` folder using [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md). Make sure to note the application name, version and database as you'll need these values later.
 
@@ -30,7 +30,7 @@ Make sure to replace `{{application}}`, `{{version}}`, and `{{database}}` with v
 
 ### Building Your Game
 
-By default, building your game should output `.pdb` files so that minidumps can be debugged by a remote machine. If your build does not output `.pdb` files, you will need to change the [MSVC flags](https://github.com/CRYTEK/CRYENGINE/blob/release/Tools/CMake/CRYENGINE-MSVC.cmake) with `CMAKE` and regenerate the solution.
+By default, building your game should output `.pdb` files so that minidumps can be debugged by a remote machine. If your build does not output `.pdb` files, you will need to change the [MSVC flags](https://www.cryengine.com/docs/static/engines/cryengine-5/categories/23756816/pages/56658046) with `CMAKE` and regenerate the solution.
 
 ### Uploading Symbols
 
