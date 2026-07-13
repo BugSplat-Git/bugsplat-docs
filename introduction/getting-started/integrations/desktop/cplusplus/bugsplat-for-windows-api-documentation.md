@@ -431,8 +431,8 @@ In addition to the `BugSplat` C++ class, the SDK exposes a flat C API declared i
 
 **Linkage:**
 
-* **Dynamic:** link the import library `dynamic\BugSplat.lib` and ship `BugSplat.dll` with your application. This is the default when including `BugSplatC.h` with no extra defines.
-* **Static:** the C API is also compiled into the static `BugSplat.lib` — define `BUGSPLAT_STATIC` before including `BugSplatC.h`.
+* **Dynamic:** link the import library `lib\dll\BugSplat.lib` and ship `BugSplat.dll` with your application. This is the default when including `BugSplatC.h` with no extra defines.
+* **Static:** the C API is also compiled into both static flavors of `BugSplat.lib` (`lib\md` for `/MD` builds, `lib\mt` for `/MT` builds) — define `BUGSPLAT_STATIC` before including `BugSplatC.h`.
 
 All strings are null-terminated UTF-16 (`wchar_t*`). Boolean parameters and return values use `int` (`0`/`1`) for ABI stability.
 

@@ -12,6 +12,18 @@ This document explains how to modify your Microsoft Visual C++ application to pr
 
 To begin, [download](https://app.bugsplat.com/browse/download_item.php?item=native) and unzip the BugSplat SDK for Microsoft Visual C++.
 
+The SDK is organized per platform (`win32`, `x64`, `ARM64`) and configuration (`Release`, `Debug`):
+
+| Folder | Contents |
+| --- | --- |
+| `BugSplat\inc` | `BugSplat.h` (C++ API) and `BugSplatC.h` (C API) |
+| `BugSplat\<platform>\<config>\bin` | Runtime files that ship next to your executable: `BugSplatMonitor.exe`, `BugSplatRc.dll`, `BugSplatWer.dll`, and `BugSplat.dll` |
+| `BugSplat\<platform>\<config>\lib\md` | Static `BugSplat.lib` built with `/MD` (dynamic CRT) |
+| `BugSplat\<platform>\<config>\lib\mt` | Static `BugSplat.lib` built with `/MT` (static CRT) |
+| `BugSplat\<platform>\<config>\lib\dll` | Import library for `BugSplat.dll` |
+
+Link exactly one `BugSplat.lib` from the `lib` subfolder that matches your link model and runtime library setting, and ship the contents of `bin` with your application (`BugSplat.dll` is only needed if you link the import library).
+
 To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [MyConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit and is also available on [GitHub](https://github.com/BugSplat-Git/Samples).
 
 ### Integration 🏗️
@@ -22,8 +34,8 @@ For WinUI 3 applications, BugSplat must be registered as a WER [RuntimeException
 
 Add BugSplat to your application using the following steps:
 
-1. Link with **`BugSplat.lib`**  by adding an entry to `Linker > Input > Additional Dependencies`.
-2. Add **`BugSplatMonitor.exe`**, **`BugSplatWer.dll`**, and **`BugSplatRc.dll`** to your application's installer.
+1. Link with **`BugSplat.lib`**  by adding an entry to `Linker > Input > Additional Dependencies`, and add the matching folder to `Linker > General > Additional Library Directories` — `lib\md` if your application builds with `/MD` (the Visual Studio default), or `lib\mt` if it builds with `/MT`.
+2. Add **`BugSplatMonitor.exe`**, **`BugSplatWer.dll`**, and **`BugSplatRc.dll`** (from the SDK's `bin` folder) to your application's installer.
 3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-for-windows-upgrade-guide.md#registry-changes).
 
 <figure><img src="../../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
@@ -57,7 +69,7 @@ The SDK also ships as a dynamic library, **`BugSplat.dll`**, with a flat C API d
 
 To integrate the dynamic library, follow the steps above with these differences:
 
-1. Link with the import library **`dynamic\BugSplat.lib`** instead of the static `BugSplat.lib`, and include **`BugSplatC.h`** instead of `BugSplat.h`.
+1. Link with the import library **`lib\dll\BugSplat.lib`** instead of a static `BugSplat.lib`, and include **`BugSplatC.h`** instead of `BugSplat.h`.
 2. Ship **`BugSplat.dll`** alongside your executable, in addition to `BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSplatRc.dll`.
 3. Initialize BugSplat with the C API:
 
