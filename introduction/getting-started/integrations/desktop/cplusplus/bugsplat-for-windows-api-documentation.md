@@ -143,6 +143,36 @@ void SetHangDetectionTimeout(int ms);
 
 * `ms` - Timeout in milliseconds (default: 5000). Use 0 to disable hang detection.
 
+#### SetCrashCompletionBehavior
+
+```cpp
+enum class BugSplatCrashCompletion { Exit = 0, Terminate = 1, ContinueSearch = 2 };
+
+void SetCrashCompletionBehavior(BugSplatCrashCompletion behavior);
+```
+
+**Description:** Controls what the crash handler does after the crash report has been created and uploaded. The dump is captured and sent before any of these paths, so reporting is unaffected by the choice:
+
+* `Exit` (default) - calls `exit()`, which runs full C-runtime shutdown.
+* `Terminate` - calls `TerminateProcess`, a hard termination that avoids CRT-shutdown hangs in complex hosts (for example, a Unity standalone player whose process can hang on `exit()` after the report is sent).
+* `ContinueSearch` - returns `EXCEPTION_CONTINUE_SEARCH` from the unhandled-exception filter, handing control to the operating system's default unhandled-exception handling (Windows Error Reporting, or an attached debugger) instead of ending the process itself.
+
+**Parameters:**
+
+* `behavior` - one of the `BugSplatCrashCompletion` values above (default `Exit`)
+
+#### SetCrashType
+
+```cpp
+void SetCrashType(int crashTypeId);
+```
+
+**Description:** Overrides the BugSplat crash type id stamped on uploaded crashes. By default native crashes are uploaded as `Native` (id `1`). Set this when a higher-level integration needs the server to process the crash differently — for example, a Unity IL2CPP integration sets `15` (`UnityNative`: "a native crash with an additional file containing the managed call stack"), which is the crash type the BugSplat backend uses to apply `LineNumberMappings.json` and symbolicate managed (C#) frames.
+
+**Parameters:**
+
+* `crashTypeId` - the BugSplat crash type id (default `1` = Native; `15` = UnityNative)
+
 ***
 
 ### Crash Detection & Reporting
@@ -394,6 +424,115 @@ inline void SetPerThreadCRTExceptionBehavior();
 
 * Signal handling for SIGABRT
 * Abort behavior configuration
+
+***
+
+### C API (BugSplatC.h)
+
+In addition to the `BugSplat` C++ class, the SDK exposes a flat C API declared in **`BugSplatC.h`**. The C API manages a single process-wide `BugSplat` instance and is the interface exported by the dynamic library, **`BugSplat.dll`**. Because only the C ABI crosses the DLL boundary, consumers of `BugSplat.dll` do not need to match the SDK's runtime library setting (`/MT` vs `/MD`), and any language with C FFI support (C#, Rust, Python, etc.) can call these functions directly.
+
+**Linkage:**
+
+* **Dynamic:** link the import library `lib\dll\BugSplat.lib` and ship `BugSplat.dll` with your application. This is the default when including `BugSplatC.h` with no extra defines.
+* **Static:** the C API is also compiled into both static flavors of `BugSplat.lib` (`lib\md` for `/MD` builds, `lib\mt` for `/MT` builds) — define `BUGSPLAT_STATIC` before including `BugSplatC.h`.
+
+All strings are null-terminated UTF-16 (`wchar_t*`). Boolean parameters and return values use `int` (`0`/`1`) for ABI stability.
+
+#### BugSplat\_Init
+
+```c
+int BugSplat_Init(const wchar_t* database, const wchar_t* appName, const wchar_t* appVersion);
+```
+
+**Description:** Initializes crash reporting and installs the unhandled exception filter. Call once, early in your application's lifetime.
+
+**Returns:** `1` on success, `0` if already initialized or if any argument is null.
+
+#### BugSplat\_IsInitialized
+
+```c
+int BugSplat_IsInitialized(void);
+```
+
+**Description:** Returns `1` if `BugSplat_Init` has been called successfully, `0` otherwise.
+
+#### Forwarding Functions
+
+The remaining functions forward to the equivalent `BugSplat` class methods documented above:
+
+| C function                          | Class method               |
+| ----------------------------------- | -------------------------- |
+| `BugSplat_SetKey`                   | `SetKey`                   |
+| `BugSplat_SetUser`                  | `SetUser`                  |
+| `BugSplat_SetEmail`                 | `SetEmail`                 |
+| `BugSplat_SetUserDescription`       | `SetUserDescription`       |
+| `BugSplat_SetNotes`                 | `SetNotes`                 |
+| `BugSplat_SetAttribute`             | `SetAttribute`             |
+| `BugSplat_AddAttachment`            | `AddAttachment`            |
+| `BugSplat_RemoveAttachment`         | `RemoveAttachment`         |
+| `BugSplat_SetQuietMode`             | `SetQuietMode`             |
+| `BugSplat_SetHangDetectionTimeout`  | `SetHangDetectionTimeout`  |
+| `BugSplat_SetCrashCompletionBehavior` | `SetCrashCompletionBehavior` |
+| `BugSplat_SetCrashType`               | `SetCrashType`               |
+| `BugSplat_PostAllCrashesAsync`      | `PostAllCrashesAsync`      |
+| `BugSplat_CreateXmlReport`          | `CreateXmlReport`          |
+| `BugSplat_CreateAsanReport`         | `CreateAsanReport`         |
+| `BugSplat_SetMiniDumpType`          | `SetMiniDumpType`          |
+
+`BugSplat_SetMiniDumpType` takes the Windows `MINIDUMP_TYPE` flags as an `int`. `BugSplat_CreateAsanReport` takes a `const char*` (ASan reports are ASCII/UTF-8 text).
+
+#### BugSplat\_PostFeedback
+
+```c
+int BugSplat_PostFeedback(const wchar_t* title,
+                          const wchar_t* description,
+                          const wchar_t* const* attachments,
+                          int attachmentCount);
+```
+
+**Description:** Posts non-crashing user feedback such as a bug report or feature request. The title is used as the stack key for grouping feedback in the dashboard.
+
+**Parameters:**
+
+* `title` - Feedback title (also the grouping key)
+* `description` - Optional description; may be `NULL` (treated as empty)
+* `attachments` - Optional array of file paths, or `NULL` for none. These are included only in this feedback upload and do not affect attachments added via `BugSplat_AddAttachment`
+* `attachmentCount` - Number of entries in `attachments` (0 if none)
+
+**Returns:** `1` on success, `0` on failure.
+
+**Note:** The C++ `BugSplat::PostFeedback` takes a `std::vector`, which cannot cross the DLL boundary. The C entry point takes an `(array, count)` pair instead so the C ABI stays free of STL types and remains compatible with `/MT` and non-C++ consumers.
+
+#### BugSplat\_GenerateDump
+
+```c
+void BugSplat_GenerateDump(void* exceptionPointers, int dumpType);
+```
+
+**Description:** Generates a crash report from caller-supplied exception information without terminating the process. Most applications do not need this — the exception filter installed by `BugSplat_Init` already captures unhandled crashes automatically. Use it only when you run your own exception handler and want to report a specific exception.
+
+**Parameters:**
+
+* `exceptionPointers` - An `EXCEPTION_POINTERS*` as provided by the OS inside an SEH `__except` filter (`GetExceptionInformation()`) or an unhandled-exception-filter callback. It is passed as `void*` so the header carries no `<windows.h>` dependency; it is not a value you construct.
+* `dumpType` - A combination of Windows `MINIDUMP_TYPE` flags, or a negative value to use the SDK default.
+
+#### C API Example
+
+```c
+#include "BugSplatC.h"
+
+int main() {
+    BugSplat_Init(L"MyDatabase", L"MyApp", L"1.0.0");
+    BugSplat_SetUser(L"john.doe");
+    BugSplat_SetEmail(L"john.doe@example.com");
+    BugSplat_SetQuietMode(1);
+    BugSplat_PostAllCrashesAsync();
+
+    // Your application code here...
+
+    return 0;
+}
+```
 
 ***
 

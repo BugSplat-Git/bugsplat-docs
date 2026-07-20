@@ -12,6 +12,18 @@ This document explains how to modify your Microsoft Visual C++ application to pr
 
 To begin, [download](https://app.bugsplat.com/browse/download_item.php?item=native) and unzip the BugSplat SDK for Microsoft Visual C++.
 
+The SDK is organized per platform (`win32`, `x64`, `ARM64`) and configuration (`Release`, `Debug`):
+
+| Folder | Contents |
+| --- | --- |
+| `BugSplat\inc` | `BugSplat.h` (C++ API) and `BugSplatC.h` (C API) |
+| `BugSplat\<platform>\<config>\bin` | Runtime files that ship next to your executable: `BugSplatMonitor.exe`, `BugSplatRc.dll`, `BugSplatWer.dll`, and `BugSplat.dll` |
+| `BugSplat\<platform>\<config>\lib\md` | Static `BugSplat.lib` built with `/MD` (dynamic CRT) |
+| `BugSplat\<platform>\<config>\lib\mt` | Static `BugSplat.lib` built with `/MT` (static CRT) |
+| `BugSplat\<platform>\<config>\lib\dll` | Import library for `BugSplat.dll` |
+
+Link exactly one `BugSplat.lib` from the `lib` subfolder that matches your link model and runtime library setting, and ship the contents of `bin` with your application (`BugSplat.dll` is only needed if you link the import library).
+
 To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [MyConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit and is also available on [GitHub](https://github.com/BugSplat-Git/Samples).
 
 ### Integration 🏗️
@@ -22,11 +34,20 @@ For WinUI 3 applications, BugSplat must be registered as a WER [RuntimeException
 
 Add BugSplat to your application using the following steps:
 
-1. Link with **`BugSplat.lib`**  by adding an entry to `Linker > Input > Additional Dependencies`.
-2. Add **`BugSplatMonitor.exe`**, **`BugSplatWer.dll`**, and **`BugSplatRc.dll`** to your application's installer.
+1. Link with **`BugSplat.lib`**  by adding an entry to `Linker > Input > Additional Dependencies`, and add the matching folder to `Linker > General > Additional Library Directories` — `lib\md` if your application builds with `/MD` (the Visual Studio default), or `lib\mt` if it builds with `/MT`.
+2. Add **`BugSplatMonitor.exe`**, **`BugSplatWer.dll`**, and **`BugSplatRc.dll`** (from the SDK's `bin` folder) to your application's installer.
 3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-for-windows-upgrade-guide.md#registry-changes).
 
 <figure><img src="../../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="warning" %}
+BugSplat's runtime files (`BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSplat.dll` if you use the dynamic library) depend on the **Visual C++ 2015–2022 runtime** — `MSVCP140.dll`, `VCRUNTIME140.dll`, and `VCRUNTIME140_1.dll` on x64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. If they're absent, your application will run normally but crash reporting will fail — end users may see a "MSVCP140.dll was not found" error at crash time.
+
+This applies even if your own application doesn't need the Visual C++ runtime (for example, if it's built with `/MT`). Make sure your installer either:
+
+* chains the [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer that **matches the architecture of the BugSplat files you ship** (`vc_redist.x64.exe`, `vc_redist.x86.exe`, or `vc_redist.arm64.exe`), or
+* copies `msvcp140.dll` and `vcruntime140.dll` (plus `vcruntime140_1.dll` on x64) from the redistributable into your application folder alongside the BugSplat runtime files.
+{% endhint %}
 
 4. Include **`BugSplat.h`** in your application's source.
 5. Create an instance of `BugSplat` following the example in [MyConsoleCrasher](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/). The BugSplat constructor requires three parameters: `database`, `application`, and `version`. A new BugSplat database can be created on the [Database](https://app.bugsplat.com/v2/database) page. Choose values for application name and version to match your product release. These same values are typically used when uploading symbol files for your application. Learn more about symbol uploads at [symbol-upload](../../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md).
@@ -46,6 +67,31 @@ symbol-upload-windows.exe -b your-database -a your-app -v your-version -i your-c
 
 {% hint style="info" %}
 To get complete symbolicated call stacks and variable names for each crash, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product every time you build a release version of your application for distribution or internal testing.
+{% endhint %}
+
+### Dynamic Library 🔗
+
+The SDK also ships as a dynamic library, **`BugSplat.dll`**, with a flat C API declared in **`BugSplatC.h`**. The DLL exposes the same crash reporting engine as `BugSplat.lib` through `BugSplat_*` functions. Choose the dynamic library when:
+
+* You don't want your runtime library setting (`/MT` vs `/MD`) coupled to BugSplat's — only the C ABI crosses the DLL boundary, so your application's CRT choice doesn't need to match the SDK's.
+* You're calling BugSplat from another language (C#, Rust, Python, etc.) via P/Invoke or FFI.
+
+To integrate the dynamic library, follow the steps above with these differences:
+
+1. Link with the import library **`lib\dll\BugSplat.lib`** instead of a static `BugSplat.lib`, and include **`BugSplatC.h`** instead of `BugSplat.h`.
+2. Ship **`BugSplat.dll`** alongside your executable, in addition to `BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSplatRc.dll`.
+3. Initialize BugSplat with the C API:
+
+```cpp
+#include "BugSplatC.h"
+
+BugSplat_Init(BUGSPLAT_DATABASE, APPLICATION_NAME, APPLICATION_VERSION);
+BugSplat_SetUser(L"fred");
+BugSplat_SetAttribute(L"branch", L"main");
+```
+
+{% hint style="info" %}
+The C API is also available to static library consumers — define `BUGSPLAT_STATIC` before including `BugSplatC.h`. See the [API documentation](bugsplat-for-windows-api-documentation.md#c-api-bugsplatc.h) for the full list of `BugSplat_*` functions.
 {% endhint %}
 
 ### Verification ✅
