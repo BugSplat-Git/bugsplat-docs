@@ -33,6 +33,7 @@ This endpoint is deprecated and may be removed in the future. Use the [Dashboard
 {
     "TotalRows": 1,
     "TotalCrashes": 20,
+    "TotalUploaded": 18,
     "StartDay": 738387,
     "EndDay": 738388,
     "Rows": [
@@ -44,14 +45,16 @@ This endpoint is deprecated and may be removed in the future. Use the [Dashboard
                     "timestamp": 1629417600,
                     "totalCrashCount": 20,
                     "throttleCrashCount": 0,
-                    "retireCrashCount": 0
+                    "retireCrashCount": 0,
+                    "uploadedCount": 18
                 },
                 {
                     "day": 738388,
                     "timestamp": 1629504000,
                     "totalCrashCount": 0,
                     "throttleCrashCount": 0,
-                    "retireCrashCount": 0
+                    "retireCrashCount": 0,
+                    "uploadedCount": 0
                 }
             ]
         }

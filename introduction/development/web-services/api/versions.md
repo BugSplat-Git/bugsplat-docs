@@ -21,8 +21,8 @@ Returns a list of versions in a given database.
 | Name                  | Type   | Description                                                                   |
 | --------------------- | ------ | ------------------------------------------------------------------------------ |
 | database              | string | BugSplat database containing symbol stores                                    |
-| crashCountStartDate   | string | Optional start date used to compute periodCrashCount for the returned versions |
-| crashCountEndDate     | string | Optional end date used to compute periodCrashCount for the returned versions   |
+| crashCountStartDate   | string | Optional start date used to compute periodCrashCount and periodUploadedCount for the returned versions |
+| crashCountEndDate     | string | Optional end date used to compute periodCrashCount and periodUploadedCount for the returned versions   |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -44,7 +44,8 @@ Returns a list of versions in a given database.
       "rejectedCount": "0",
       "retired": "0",
       "totalCrashCount": "0",
-      "periodCrashCount": "0"
+      "periodCrashCount": "0",
+      "periodUploadedCount": "0"
     }
   ]
 }
