@@ -45,6 +45,8 @@ Returns a consolidated dashboard summary for the specified database and time ran
                         "day": 738387,
                         "timestamp": 1629417600,
                         "totalCrashCount": 20,
+                        "throttleCrashCount": 2,
+                        "retireCrashCount": 0,
                         "uploadedCount": 18
                     }
                 ]
@@ -103,7 +105,7 @@ Returns a consolidated dashboard summary for the specified database and time ran
 | volume30Day   | number | Total crash count in the last 30 days, counted when reports are accepted for upload. Includes reports that never finished uploading |
 | uploaded30Day | number | Number of crash reports that completed upload and were stored in the last 30 days. May be lower than `volume30Day` when clients abandon uploads |
 | crashDataDays | number | Number of days of crash data available                                                        |
-| crashHistory  | object | Chart data for crash volume over time. Contains `totalRows`, `totalCrashes`, `totalUploaded`, and `rows` array. Each series entry contains `totalCrashCount` and `uploadedCount` |
+| crashHistory  | object | Chart data for crash volume over time. Contains `totalRows`, `totalCrashes`, `totalUploaded`, and `rows` array. Each series entry contains `totalCrashCount`, `throttleCrashCount`, `retireCrashCount`, and `uploadedCount`. `totalCrashCount` already includes the throttled reports, so accepted-for-upload reports are `totalCrashCount - throttleCrashCount` |
 | lastCrashTime | string | ISO 8601 timestamp of the most recent crash overall, not limited by the requested time range or filters. `null` if no crashes exist |
 | recentCrashes | array  | The 5 most recent crashes in the time range                                                   |
 | statusCounts  | object | Crash group status breakdown for `current` and `previous` time periods                        |
