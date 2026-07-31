@@ -12,6 +12,8 @@ To get started, make sure to [log in](https://app.bugsplat.com/cognito/login) us
 
 Instructions for modifying the default crash dialog are on the [Windows Dialog Box](../../../../education/how-tos/customize-the-crash-dialog.md) page.
 
+Want to see a sample .NET application integrated with BugSplat? Check out [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher)!
+
 ## Integration
 
 In a few simple steps, your .NET application can be modified to provide full debug information on the BugSplat website when it crashes.

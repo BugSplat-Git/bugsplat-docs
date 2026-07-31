@@ -10,6 +10,8 @@ Crashpad is the latest open-source crash reporting tool built by Google and is t
 
 The official Crashpad documentation is available [here](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md).&#x20;
 
+Want to see a sample application integrated with Crashpad and BugSplat? Check out [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad)!
+
 ## Build Configuration 🏗️
 
 The first step to integrating Crashpad is to configure your build process. BugSplat provides pre-built versions of Crashpad that are updated monthly. You can find the prebuilt libraries on the [Releases](https://github.com/BugSplat-Git/bugsplat-crashpad/releases) page in the [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad/releases) repo. The [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad) repo also includes scripts that demonstrate how to build Crashpad on [Windows](https://github.com/BugSplat-Git/bugsplat-crashpad/blob/main/scripts/build_crashpad_windows_msvc.ps1), [macOS](https://github.com/BugSplat-Git/bugsplat-crashpad/blob/main/scripts/build_crashpad_macos.sh), and [Linux](https://github.com/BugSplat-Git/bugsplat-crashpad/blob/main/scripts/build_crashpad_linux.sh) with Chromium's [Depot Tools](https://www.chromium.org/developers/how-tos/depottools/).
