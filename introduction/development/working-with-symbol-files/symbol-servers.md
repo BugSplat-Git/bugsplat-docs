@@ -1,10 +1,20 @@
 # Symbol Servers
 
-BugSplat can process crashes using symbol files stored in external symbol servers. BugSplat supports accessing HTTP/HTTPS servers and Amazon S3 Buckets. BugSplat caches files from external symbol servers, ensuring fast crash calculation. Please note that if BugSplat requests a file not present on your external symbol server, it will not try to access the file again for 24 hours.
+BugSplat can process crashes using symbol files stored in external symbol servers. BugSplat supports accessing HTTP/HTTPS servers and Amazon S3 Buckets. BugSplat caches files from external symbol servers, ensuring fast crash calculation. Please note that if BugSplat requests a file not present on your external symbol server, it will not try to access the file again for 6 hours. See [Miss-Cache](symbol-servers.md#miss-cache) below.
 
 {% hint style="info" %}
 Some organizations restrict access to their symbol servers by IP address. To allow access to BugSplat, add the IP addresses [23.22.79.2](https://www.whatismyip.com/23.22.79.2/?iref=home), [3.93.104.250](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#ElasticIpDetails:AllocationId=eipalloc-0da0d84b88eed6812), and [34.194.164.107](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#ElasticIpDetails:AllocationId=eipalloc-0cd966956c064a2e4) to your whitelist.
 {% endhint %}
+
+### Miss-Cache
+
+If BugSplat processes a crash that needs a symbol file your external symbol server doesn't have yet (or refuses to deliver for any other reason), BugSplat records that miss and won't ask your server for that file again for 6 hours. This keeps a burst of crashes referencing an unavailable symbol from turning into a request storm against your server.
+
+The trade-off shows up when symbols arrive shortly after the crashes do. If you've recently uploaded symbols and call stacks still aren't resolving, the miss-cache is a likely culprit. Navigate to the [Symbols](https://app.bugsplat.com/v2/database/symbols) page, expand your symbol server's row, and click **Clear Miss-Cache**. BugSplat will report how many entries it dropped and will request those files from your server again on the next lookup.
+
+<figure><img src="../../../.gitbook/assets/clear-miss-cache.png" alt="Expanded symbol server row showing the Clear Miss-Cache button"><figcaption><p>Clearing the miss-cache for an external symbol server</p></figcaption></figure>
+
+Clearing the miss-cache only affects future symbol lookups. Crashes that were already processed without symbols need to be [reprocessed](../../../education/how-tos/reprocessing-crashes.md) to pick up the newly available symbol files.
 
 ### Directory Structure
 
