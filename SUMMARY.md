@@ -182,6 +182,7 @@
     * [What is BsSndRpt.exe?](education/faq/common-end-user-questions/what-is-bssndrpt-exe.md)
     * [My software just crashed. Should I contact BugSplat for help?](education/faq/common-end-user-questions/my-software-just-crashed.-should-i-contact-bugsplat-for-help.md)
   * [Why are Crashes Missing Symbols, Function Names, and/or Line Numbers?](education/faq/why-are-crashes-missing-symbols-function-names-and-or-line-numbers.md)
+  * [What IP Addresses Does BugSplat Use?](education/faq/what-ip-addresses-does-bugsplat-use.md)
 
 ## 🏢 Administration
 
