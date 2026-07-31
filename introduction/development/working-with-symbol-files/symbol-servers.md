@@ -8,7 +8,7 @@ Some organizations restrict access to their symbol servers by IP address. To all
 
 ### Miss-Cache
 
-If BugSplat processes a crash that needs a symbol file your external symbol server doesn't have yet, BugSplat records that miss and won't ask your server for that file again for 6 hours. This keeps a burst of crashes referencing an unavailable symbol from turning into a request storm against your server.
+If BugSplat processes a crash that needs a symbol file your external symbol server doesn't have yet (or refuses to deliver for any other reason), BugSplat records that miss and won't ask your server for that file again for 6 hours. This keeps a burst of crashes referencing an unavailable symbol from turning into a request storm against your server.
 
 The trade-off shows up when symbols arrive shortly after the crashes do. If you've recently uploaded symbols and call stacks still aren't resolving, the miss-cache is a likely culprit. Navigate to the [Symbols](https://app.bugsplat.com/v2/database/symbols) page, expand your symbol server's row, and click **Clear Miss-Cache**. BugSplat will report how many entries it dropped and will request those files from your server again on the next lookup.
 
