@@ -11,6 +11,8 @@ BugSplat's GitHub Issues integration allows your team to create defects from cra
 5. Select your desired project.
 6. Click **Update** once more to complete the integration.
 
+<figure><img src="../../../../.gitbook/assets/github-issues-integration-settings.png" alt="BugSplat GitHub Issues Defect Tracker settings"><figcaption><p>A completed GitHub Issues Defect Tracker configuration on the Database Settings page</p></figcaption></figure>
+
 ### Creating a defect in GitHub Issues from a BugSplat crash report
 
 1\. Create a new defect from the crash page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the **Create Defect** button.
