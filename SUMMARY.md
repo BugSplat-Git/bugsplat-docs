@@ -5,6 +5,7 @@
 ## 📌 Introduction
 
 * [Getting Started](introduction/getting-started/README.md)
+  * [🚀 Post Your First Crash (5 min)](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
   * [Signing Up](introduction/getting-started/signing-up-for-an-account-with-bugsplat.md)
   * [Creating a Database](introduction/getting-started/create-a-new-database-in-bugsplat.md)
   * [Platform Integrations](introduction/getting-started/integrations/README.md)
@@ -69,7 +70,6 @@
   * [Inviting Team Members](introduction/getting-started/adding-uses-to-your-account.md)
   * [Importing Crashes](introduction/getting-started/migrating-crashes-from-another-tool.md)
   * [Troubleshooting](introduction/getting-started/troubleshooting.md)
-  * [Quickly Submitting Your First Crash in Under 5 Minutes](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 * [Development](introduction/development/README.md)
   * [Using the App](introduction/development/using-the-app.md)
   * [Symbol Files](introduction/development/working-with-symbol-files/README.md)

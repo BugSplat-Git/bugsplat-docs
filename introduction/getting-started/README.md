@@ -1,6 +1,9 @@
 # Getting Started
 
-Getting up and running with BugSplat is a well-documented and straightforward process that has been followed by thousands of developers and honed by constant iterations from the BugSplat support team. Following the six steps listed below is the quickest way to get started. It generally takes about as much time as to drink a [large mug](https://shop.spacex.com/collections/accessories/products/occupy-mars-heat-sensitive-terraforming-mug-new) of coffee. You can also post a sample crash [in under 5 minutes](quickly-submitting-your-first-crash-in-under-5-minutes.md).
+Getting up and running with BugSplat is a well-documented, straightforward process that thousands of developers have followed. There are two ways to start:
+
+* **Just want to see it work?** [Post a sample crash in about 5 minutes](quickly-submitting-your-first-crash-in-under-5-minutes.md) — no code required.
+* **Ready to integrate your own app?** Follow the six steps below. It takes about as long as it does to drink a [large mug](https://shop.spacex.com/collections/accessories/products/occupy-mars-heat-sensitive-terraforming-mug-new) of coffee.
 
 {% embed url="https://bugsplat.wistia.com/medias/qp13mure3h" %}
 

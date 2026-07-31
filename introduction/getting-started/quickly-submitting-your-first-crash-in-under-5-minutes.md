@@ -1,5 +1,9 @@
 # Quickly Submitting Your First Crash in Under 5 Minutes
 
+{% hint style="success" %}
+This is the **fast lane**: you'll post a _sample_ crash using the in-app onboarding tool — without writing any code — just to see BugSplat in action. When you're ready to send crashes from your own application, follow the full [Getting Started](README.md) guide.
+{% endhint %}
+
 Submitting a sample crash to your new BugSplat account is a quick and straightforward process that can be completed in under 5 minutes. Follow the steps below to get started easily:
 
 1. [Sign up ](https://app.bugsplat.com/v2/sign-up)for a new account
