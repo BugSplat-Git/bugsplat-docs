@@ -8,11 +8,11 @@ If there's something you think we need to know - make sure to pass it along!
 
 ### In-app
 
-The first way to provide feedback is to use our product feedback tool which is found in our Intercom chat window at the bottom right of the app window.  
+The first way to provide feedback is to click the **Feedback** button — the megaphone icon in the left navigation — which opens our product feedback tool.  
 
 Our support team gets alerted as soon as any feature request or bug is submitted. 
 
-Note: If you don' see the Intercom chat window \(a  small blue circle at the bottom right of your app screen\) then it is likely getting blocked from loading by some tool in your browser.
+Note: The feedback tool loads through our Intercom integration. If clicking **Feedback** doesn't open anything, it is likely getting blocked from loading by some tool in your browser.
 
 ![](../../.gitbook/assets/feedback-bs.gif)
 
