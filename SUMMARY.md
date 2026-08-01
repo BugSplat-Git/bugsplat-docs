@@ -58,7 +58,7 @@
     * [my-angular-crasher](https://github.com/BugSplat-Git/bugsplat-ng)
     * [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad)
     * [my-cmake-crasher](https://github.com/BugSplat-Git/my-cmake-crasher)
-    * [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher)
+    * [MyDotnetCrasher (.NET)](introduction/getting-started/posting-a-test-crash/my-dotnet-crasher/README.md)
     * [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)
     * [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher)
     * [my-node-crasher](https://github.com/BugSplat-Git/my-node-crasher)
