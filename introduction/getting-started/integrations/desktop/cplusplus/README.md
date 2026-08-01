@@ -24,7 +24,7 @@ The SDK is organized per platform (`win32`, `x64`, `ARM64`) and configuration (`
 
 Link exactly one `BugSplat.lib` from the `lib` subfolder that matches your link model and runtime library setting, and ship the contents of `bin` with your application (`BugSplat.dll` is only needed if you link the import library).
 
-To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [MyConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit and is also available on [GitHub](https://github.com/BugSplat-Git/Samples/tree/main/Samples/MyConsoleCrasher).
+To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [MyConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit and is also available on [GitHub](https://github.com/BugSplat-Git/Samples/tree/main/Samples/MyConsoleCrasher). For a native desktop application example, see the [MyCrasher sample](https://github.com/BugSplat-Git/Samples/tree/main/Samples/MyCrasher) — an ATL/MFC Windows app.
 
 ### Integration 🏗️
 
