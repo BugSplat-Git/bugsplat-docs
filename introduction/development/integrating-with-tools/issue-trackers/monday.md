@@ -15,6 +15,8 @@ BugSplat allows your team to create items on [Monday.com](https://monday.com/) w
 5. Once you have connected to Monday.com, you can select one of your boards from the **Boards** dropdown list.
 6. After selecting your desired board, click **Update** again.
 
+<figure><img src="../../../../.gitbook/assets/monday-integration-settings.png" alt="BugSplat Monday.com Defect Tracker settings"><figcaption><p>A completed Monday.com Defect Tracker configuration on the Database Settings page</p></figcaption></figure>
+
 ### Push a new Item to Monday.com
 
 1. Use the **Create Defect** button to create a new item on the crashes page or a crash group page to push a new item to Monday.com.
