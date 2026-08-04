@@ -50,7 +50,7 @@ This applies even if your own application doesn't need the Visual C++ runtime (f
 {% endhint %}
 
 4. Include **`BugSplat.h`** in your application's source.
-5. Create an instance of `BugSplat` following the example in [MyConsoleCrasher](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/). The BugSplat constructor requires three parameters: `database`, `application`, and `version`. A new BugSplat database can be created on the [Database](https://app.bugsplat.com/v2/database) page. Choose values for application name and version to match your product release. These same values are typically used when uploading symbol files for your application. Learn more about symbol uploads at [symbol-upload](../../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md).
+5. Create an instance of `BugSplat` following the example in [MyConsoleCrasher](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/). The BugSplat constructor requires three parameters: `database`, `application`, and `version`. A new BugSplat database can be created on the [Database](https://app.bugsplat.com/v2/database) page. Choose values for application name and version to match your product release. These same values are typically used when uploading symbol files for your application. Learn more about symbol uploads at [symbol-upload](../../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md).
 
 ```cpp
 #include "BugSplat.h"

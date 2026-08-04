@@ -8,7 +8,7 @@ A reference client implementation can be found in our [@bugsplat/js-api-client](
 
 To authenticate via OAuth2 client credentials, you will need to create a Client ID and Client Secret pair on the OAuth Integrations page. When prompted, enter an application name and choose a desired scope.
 
-BugSplat scopes are hierarchical (not composable), and the available choices are either **symbols** or **restricted**. The only operation allowed by the **symbols** scope is [symbol upload](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md). The **restricted** scope provides read-only access to the [Charting](api/charting.md), [Crash](api/crash.md), [Crashes](api/crashes.md), [Summary](api/crash-groups.md#summary), [Versions](api/versions.md), and [Key Crash](api/crash-groups.md#key-crash) APIs
+BugSplat scopes are hierarchical (not composable), and the available choices are either **symbols** or **restricted**. The only operation allowed by the **symbols** scope is [symbol upload](../working-with-symbol-files/upload-symbols-with-symbol-upload.md). The **restricted** scope provides read-only access to the [Charting](api/charting.md), [Crash](api/crash.md), [Crashes](api/crashes.md), [Summary](api/crash-groups.md#summary), [Versions](api/versions.md), and [Key Crash](api/crash-groups.md#key-crash) APIs
 
 <figure><img src="../../../.gitbook/assets/oauth-scopes.gif" alt="Adding a New Application"><figcaption><p>Adding a New Application</p></figcaption></figure>
 

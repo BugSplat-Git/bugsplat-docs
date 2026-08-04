@@ -24,7 +24,7 @@ In a few simple steps, your .NET application can be modified to provide full deb
    * The BugSplat database is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. Typically, you will create a new database for each major release of your product.
 3. Add `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRc.dll` to your application's installer.
 4. Edit `BugSplatRc.dll` with Visual Studio if you wish to change the banner displayed when your application crashes.
-5. Add symbolic debug information to your release build. **Important!** To get symbolic stack reports, debug information ([pdb, dll, and executable files](../../../../education/faq/using-sendpdbs-to-automatically-upload-symbol-files.md)) needs to be uploaded to the BugSplat website along with your application’s executable files. Modify your build settings so that symbol files are created for Release builds, e.g.,
+5. Add symbolic debug information to your release build. **Important!** To get symbolic stack reports, debug information ([pdb, dll, and executable files](../../../development/working-with-symbol-files/sendpdbs-legacy.md)) needs to be uploaded to the BugSplat website along with your application’s executable files. Modify your build settings so that symbol files are created for Release builds, e.g.,
 
 ![Build Settings for .NET Applications](../../../../.gitbook/assets/buildNet2-e14105434665201.png)
 

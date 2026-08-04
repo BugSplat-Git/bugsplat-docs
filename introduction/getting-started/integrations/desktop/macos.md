@@ -50,7 +50,7 @@ For macOS apps, you must enable `Outgoing network connections (client)` in the S
 
 To symbolicate crash reports, you must upload your app's `dSYM` files to the BugSplat server. There are scripts to help with this.
 
-Download BugSplat's cross-platform tool, [symbol-upload-macos](https://docs.bugsplat.com/education/faq/how-to-upload-symbol-files-with-symbol-upload) for Apple Silicon by entering the following command in your terminal.
+Download BugSplat's cross-platform tool, [symbol-upload-macos](https://docs.bugsplat.com/introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload) for Apple Silicon by entering the following command in your terminal.
 
 ```bash
 curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos"
@@ -78,7 +78,7 @@ Several options exist to integrate `symbol-upload-macos` into the app build proc
 For the build-phase script to create dSYM files, change Build Settings `DEBUG_INFORMATION_FORMAT` from `DWARF` to `DWARF with dSYM File`. See inline notes within each script for modifications to Xcode Build Settings required for each script to work.
 {% endhint %}
 
-Please refer to our [documentation](https://docs.bugsplat.com/education/faq/how-to-upload-symbol-files-with-symbol-upload) to learn more about how to use `symbol-upload-macos`.
+Please refer to our [documentation](https://docs.bugsplat.com/introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload) to learn more about how to use `symbol-upload-macos`.
 
 #### Initialization
 

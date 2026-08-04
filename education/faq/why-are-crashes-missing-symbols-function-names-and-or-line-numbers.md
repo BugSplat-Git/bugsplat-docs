@@ -40,7 +40,7 @@ You can search across symbol stores by clicking **Clear filters**. Search by GUI
 
 <figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption><p>Symbols Page No Results</p></figcaption></figure>
 
-Searching the GUID `B60B580592334258BBB3B8CD5BA7B2BF2` yielded no results; therefore, BugSplat will be unable to resolve file names and line numbers. You will need to upload the correct symbols with [symbol-upload](how-to-upload-symbol-files-with-symbol-upload.md) or manually via the BugSplat [web application](../../introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md).
+Searching the GUID `B60B580592334258BBB3B8CD5BA7B2BF2` yielded no results; therefore, BugSplat will be unable to resolve file names and line numbers. You will need to upload the correct symbols with [symbol-upload](../../introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) or manually via the BugSplat [web application](../../introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md).
 
 Once the correct symbols have been uploaded, you will need to [reprocess](../how-tos/reprocessing-crashes.md) or [batch reprocess](../how-tos/batch-reprocess-crashes.md) crashes that rely on these symbols.
 
@@ -50,7 +50,7 @@ Once the correct symbols have been uploaded, you will need to [reprocess](../how
 BugSplat will cache missed lookups to external symbol servers for 6 hours. If you upload symbols after they were requested, those symbol lookups will be skipped until the miss-cache entry clears. You can clear it yourself from the [Symbols](https://app.bugsplat.com/v2/database/symbols) page — see [Miss-Cache](../../introduction/development/working-with-symbol-files/symbol-servers.md#miss-cache).
 {% endhint %}
 
-BugSplat's [symbol-upload](https://docs.bugsplat.com/education/faq/how-to-upload-symbol-files-with-symbol-upload) tool can be used to create a [SymSrv-compatible](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure that can be [self-hosted](how-to-upload-symbol-files-with-symbol-upload.md#self-hosted-symbol-servers). BugSplat supports connecting to external symbols via HTTP (including Azure Blob Storage) or AWS S3. Our backend will access the external symbols and cache them locally for faster lookup.
+BugSplat's [symbol-upload](https://docs.bugsplat.com/introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload) tool can be used to create a [SymSrv-compatible](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure that can be [self-hosted](../../introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md#self-hosted-symbol-servers). BugSplat supports connecting to external symbols via HTTP (including Azure Blob Storage) or AWS S3. Our backend will access the external symbols and cache them locally for faster lookup.
 
 ### Tools
 

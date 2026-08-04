@@ -18,7 +18,7 @@ Clearing the miss-cache only affects future symbol lookups. Crashes that were al
 
 ### Directory Structure
 
-The [symbol-upload](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) tool can be used to create a [SymSrv](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure for Windows symbols that is compatible with both BugSplat and [Microsoft Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2022#configure-location-of-symbol-files-and-loading-options). Additionally, symbol-upload can also create a SymSrv directory structure for macOS and Crashpad symbols that is compatible with BugSplat.
+The [symbol-upload](upload-symbols-with-symbol-upload.md) tool can be used to create a [SymSrv](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure for Windows symbols that is compatible with both BugSplat and [Microsoft Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2022#configure-location-of-symbol-files-and-loading-options). Additionally, symbol-upload can also create a SymSrv directory structure for macOS and Crashpad symbols that is compatible with BugSplat.
 
 To upload symbols to a local directory, provide the `-l` flag and a path where the symbols will be copied.
 
