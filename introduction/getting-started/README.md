@@ -1,6 +1,9 @@
 # Getting Started
 
-Getting up and running with BugSplat is a well-documented and straightforward process that has been followed by thousands of developers and honed by constant iterations from the BugSplat support team. Following the six steps listed below is the quickest way to get started. It generally takes about as much time as to drink a [large mug](https://shop.spacex.com/collections/accessories/products/occupy-mars-heat-sensitive-terraforming-mug-new) of coffee. You can also post a sample crash [in under 5 minutes](quickly-submitting-your-first-crash-in-under-5-minutes.md).
+Getting up and running with BugSplat is a well-documented, straightforward process that thousands of developers have followed. There are two ways to start:
+
+* **Just want to see it work?** [Post a sample crash in about 5 minutes](quickly-submitting-your-first-crash-in-under-5-minutes.md) — no code required.
+* **Ready to integrate your own app?** Follow the six steps below. It takes about as long as it does to drink a [large mug](https://shop.spacex.com/collections/accessories/products/occupy-mars-heat-sensitive-terraforming-mug-new) of coffee.
 
 {% embed url="https://bugsplat.wistia.com/medias/qp13mure3h" %}
 
@@ -8,16 +11,14 @@ Getting up and running with BugSplat is a well-documented and straightforward pr
 
 1. [Sign up for a BugSplat account](signing-up-for-an-account-with-bugsplat.md)
 2. [Create a database](create-a-new-database-in-bugsplat.md)
-3. [Integrate with your application](integrations/)
-4. [Submit a sample crash](posting-a-test-crash/)
-5. [Add your team members](adding-uses-to-your-account.md)
+3. [Add your team and tools](adding-uses-to-your-account.md)
+4. [Integrate your platform](integrations/)
+5. [Submit your first report](posting-a-test-crash/)
 6. [Learn to use the app](../development/)
 
 ## 🖇️ More Details
 
-Following the above steps will take new users from [creating](signing-up-for-an-account-with-bugsplat.md) and [configuring their account](create-a-new-database-in-bugsplat.md) through [integrating their application](integrations/) and[ posting a test crash](posting-a-test-crash/).
-
-Next, crash reporting is more [fun with friends](adding-uses-to-your-account.md) so adding team members to your BugSplat account is easy.
+Following the above steps takes new users from [creating an account](signing-up-for-an-account-with-bugsplat.md) and [database](create-a-new-database-in-bugsplat.md), through [adding your team and tools](adding-uses-to-your-account.md), to [integrating your application](integrations/) and [posting your first report](posting-a-test-crash/). Crash reporting is more fun with friends, so bring your team along early — it mirrors the in-app onboarding flow.
 
 Once these steps are complete, users should learn more about using the BugSplat app in the [Development](../development/) section which has a handy [walkthrough of the BugSplat application](../development/using-the-app.md), 3rd party integration guides, and much more.
 

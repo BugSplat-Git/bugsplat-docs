@@ -2,7 +2,6 @@
 description: >-
   BugSplat is the developer's go-to toolbox for finding, understanding, and
   fixing crashes.
-hidden: true
 ---
 
 # What is BugSplat?

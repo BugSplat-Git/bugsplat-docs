@@ -1,49 +1,92 @@
 ---
 description: >-
-  Technical documentation, platform integration guides, crash reporting best
-  practices, and other useful information from BugSplat.  We're excited you're
-  here!
+  BugSplat is the developer's toolbox for finding, understanding, and fixing
+  crashes. Start here — integrate crash reporting and see your first report in
+  minutes.
 ---
 
 # Welcome
 
-### **Hi there 👋**
+**BugSplat is the developer's go-to toolbox for finding, understanding, and fixing crashes.** When your application crashes in the field, BugSplat captures the data you need to understand it — a symbolicated call stack, the runtime environment, and any custom attributes you attach — and presents it in a familiar debugger view. The result: you can triage a production crash as if it happened on your own machine, ship more stable software, and spend less time supporting it.
 
-BugSplat is a crash-reporting, error-reporting, and bug-tracking tool that helps developers efficiently identify and fix defects in order to support more stable applications.
+<figure><img src=".gitbook/assets/unreal-crash-page_e9Dj3.webp" alt="A crash report shown in BugSplat's debugger view"><figcaption><p>Every crash, symbolicated and ready to triage.</p></figcaption></figure>
+
+## 🚀 Start here
+
+The fastest way to see BugSplat in action is to post a **sample crash** — no code required. It takes about five minutes.
 
 {% content-ref url="introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md" %}
 [quickly-submitting-your-first-crash-in-under-5-minutes.md](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 {% endcontent-ref %}
 
-These documents contain everything you need to get fully up to speed with BugSplat. This includes [getting started guides](introduction/getting-started/),[ tutorials for integrating our various platforms](introduction/getting-started/integrations/), overviews of [3rd-party tool integrations](introduction/development/integrating-with-tools/), a [walkthrough of using the web application](introduction/development/using-the-app.md), links to our[ webservices (API)](introduction/development/web-services/api/), and much more.
-
-Use the links below to begin navigating these docs. If you can’t find something use the left-hand menu or the handy search bar in the top right.
-
-If you need any support please contact us at [support@bugsplat.com](mailto:support@bugsplat.com), chat with us via the in-app chat window, or ping us on our [Discord](https://discord.gg/K4KjjRV5ve).
-
-## Introduction
-
-Whether you're new to BugSplat or simply setting up a new project, our resources for getting started make the process straightforward.
+Ready to wire up your own application? **Getting Started** is the full path — sign up, create a database, integrate your platform, and verify your first real crash.
 
 {% content-ref url="introduction/getting-started/" %}
 [getting-started](introduction/getting-started/)
 {% endcontent-ref %}
 
-{% content-ref url="introduction/development/" %}
-[development](introduction/development/)
+## 💻 Integrate your platform
+
+Pick your platform and follow its SDK guide. (Each guide assumes you've already [created a database](introduction/getting-started/create-a-new-database-in-bugsplat.md) — it takes about 30 seconds.)
+
+{% content-ref url="introduction/getting-started/integrations/desktop/" %}
+[desktop](introduction/getting-started/integrations/desktop/)
+{% endcontent-ref %}
+
+{% content-ref url="introduction/getting-started/integrations/cross-platform/" %}
+[cross-platform](introduction/getting-started/integrations/cross-platform/)
+{% endcontent-ref %}
+
+{% content-ref url="introduction/getting-started/integrations/game-development/" %}
+[game-development](introduction/getting-started/integrations/game-development/)
+{% endcontent-ref %}
+
+{% content-ref url="introduction/getting-started/integrations/mobile/" %}
+[mobile](introduction/getting-started/integrations/mobile/)
+{% endcontent-ref %}
+
+{% content-ref url="introduction/getting-started/integrations/web/" %}
+[web](introduction/getting-started/integrations/web/)
+{% endcontent-ref %}
+
+## 🛠️ Fix a problem
+
+Crashes not showing up, or arriving without symbols? Start with Troubleshooting.
+
+{% content-ref url="introduction/getting-started/troubleshooting.md" %}
+[troubleshooting.md](introduction/getting-started/troubleshooting.md)
+{% endcontent-ref %}
+
+* [My crash isn't showing up](introduction/getting-started/troubleshooting.md#missing-crashes)
+* [My crashes are missing symbols, function names, or line numbers](introduction/getting-started/troubleshooting.md#missing-symbols)
+
+## 🔌 API Reference
+
+Automate BugSplat and pull your crash data programmatically.
+
+{% content-ref url="introduction/development/web-services/README.md" %}
+[README.md](introduction/development/web-services/README.md)
+{% endcontent-ref %}
+
+## 📖 Using the app
+
+Once crashes are flowing, learn to triage them, group them, and route them to your team.
+
+{% content-ref url="introduction/development/using-the-app.md" %}
+[using-the-app.md](introduction/development/using-the-app.md)
+{% endcontent-ref %}
+
+{% content-ref url="introduction/development/integrating-with-tools/" %}
+[integrating-with-tools](introduction/development/integrating-with-tools/)
 {% endcontent-ref %}
 
 {% content-ref url="introduction/production/" %}
 [production](introduction/production/)
 {% endcontent-ref %}
 
-{% content-ref url="education/videos/" %}
-[videos](education/videos/)
-{% endcontent-ref %}
+## 🍎 Learn the concepts
 
-## **Education**
-
-Information helpful for understanding and using BugSplat, FAQ's, and answers to common questions.
+New to crash reporting, or want a reference for the terms and workflows?
 
 {% content-ref url="education/bugsplat-terminology.md" %}
 [bugsplat-terminology.md](education/bugsplat-terminology.md)
@@ -57,50 +100,26 @@ Information helpful for understanding and using BugSplat, FAQ's, and answers to 
 [faq](education/faq/)
 {% endcontent-ref %}
 
-{% content-ref url="education/faq/common-end-user-questions/" %}
-[common-end-user-questions](education/faq/common-end-user-questions/)
-{% endcontent-ref %}
+## 🏢 Admin & billing
 
-## Administration
-
-Documentation covering user management, account management, billing, and upgrades.
-
-{% content-ref url="administration/introduction/" %}
-[introduction](administration/introduction/)
+{% content-ref url="administration/billing/" %}
+[billing](administration/billing/)
 {% endcontent-ref %}
 
 {% content-ref url="administration/account-managment/" %}
 [account-managment](administration/account-managment/)
 {% endcontent-ref %}
 
-{% content-ref url="administration/billing/" %}
-[billing](administration/billing/)
-{% endcontent-ref %}
-
-{% content-ref url="administration/contact-us.md" %}
-[contact-us.md](administration/contact-us.md)
-{% endcontent-ref %}
-
-## About
-
-Information that covers the who, what, when, where, and why's of BugSplat.
+## 🐛 About BugSplat
 
 {% content-ref url="about/what-is-bugsplat.md" %}
 [what-is-bugsplat.md](about/what-is-bugsplat.md)
-{% endcontent-ref %}
-
-{% content-ref url="about/introduction.md" %}
-[introduction.md](about/introduction.md)
 {% endcontent-ref %}
 
 {% content-ref url="about/who-is-bugsplat/" %}
 [who-is-bugsplat](about/who-is-bugsplat/)
 {% endcontent-ref %}
 
-## Updates
+---
 
-Updates to the BugSplat web app, various SDK's, and other aspects of our services.
-
-{% content-ref url="https://app.gitbook.com/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/" %}
-[BugSplat Changelog](https://app.gitbook.com/o/-LBMgmIbZKqjzfg08G3A/s/sp3FI4nKN6iV03ORdA9B/)
-{% endcontent-ref %}
+Stuck or have a question? Email [support@bugsplat.com](mailto:support@bugsplat.com), use the in-app chat, or ping us on [Discord](https://discord.gg/K4KjjRV5ve). You can also search these docs from the bar in the top right.
