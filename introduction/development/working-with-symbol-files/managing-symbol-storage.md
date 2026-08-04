@@ -45,6 +45,6 @@ If BugSplat's automatic cleanup rules aren't optimal for your team, you can impl
 ### Best practices for managing symbol space
 
 * **Assign a unique version to each build.** This lets BugSplat's automatic cleanup rules remove symbols specific to builds that are no longer referenced.
-* **Upload only the symbols you need.** BugSplat automatically de-duplicates identical symbol files across builds, so there's no need to prune duplicates yourself — but skip third-party or system symbols you'll never need call stacks for.
+* **Upload only the symbols you need.** BugSplat automatically de-duplicates identical symbol files across builds, so there's no need to prune duplicates yourself — but skip third-party, system, or game editor symbols you'll never need call stacks for.
 * **Monitor symbol usage.** Keep an eye on the size of your symbol data and how often symbols are accessed so you can anticipate when automatic cleanup will occur.
 * **Use manual removal when needed.** Periodically review your symbol stores and delete those you no longer need.
