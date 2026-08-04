@@ -4,8 +4,8 @@
 
 ## 🚀 Getting Started
 
-* [Overview](introduction/getting-started/README.md)
-* [🚀 Post Your First Crash (5 min)](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
+* [Full Setup Guide](introduction/getting-started/README.md)
+* [🚀 Post Your First Crash in Five Minutes](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 * [Signing Up](introduction/getting-started/signing-up-for-an-account-with-bugsplat.md)
 * [Creating a Database](introduction/getting-started/create-a-new-database-in-bugsplat.md)
 * [Platform Samples](introduction/getting-started/posting-a-test-crash/README.md)
@@ -31,30 +31,27 @@
 
 ## 🧩 Integrations
 
-* [Overview](introduction/getting-started/integrations/README.md)
-* [💻 Desktop](introduction/getting-started/integrations/desktop/README.md)
+* [Choose Your Platform](introduction/getting-started/integrations/README.md)
+* [💻 Desktop Software](introduction/getting-started/integrations/desktop/README.md)
   * [BugSplat for Windows (C++)](introduction/getting-started/integrations/desktop/cplusplus/README.md)
     * [Full Memory Dumps](introduction/getting-started/integrations/desktop/cplusplus/full-memory-dumps.md)
     * [BugSplat for Windows Dependencies](introduction/getting-started/integrations/desktop/cplusplus/dependencies.md)
     * [BugSplat for Windows Upgrade Guide](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md)
     * [BugSplat for Windows API Documentation](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation.md)
   * [.NET Framework](introduction/getting-started/integrations/desktop/windows-dot-net-framework.md)
+  * [.NET Standard](introduction/getting-started/integrations/cross-platform/dot-net-standard.md)
   * [macOS](introduction/getting-started/integrations/desktop/macos.md)
   * [Linux](introduction/getting-started/integrations/desktop/linux.md)
-* [🔀 Cross-Platform](introduction/getting-started/integrations/cross-platform/README.md)
-  * [.NET Standard](introduction/getting-started/integrations/cross-platform/dot-net-standard.md)
-  * [Breakpad (Deprecated)](introduction/getting-started/integrations/cross-platform/breakpad.md)
+  * [Electron](introduction/getting-started/integrations/cross-platform/electron.md)
+  * [Qt](introduction/getting-started/integrations/cross-platform/qt.md)
+  * [Java](introduction/getting-started/integrations/cross-platform/java.md)
+  * [Python](introduction/getting-started/integrations/cross-platform/python.md)
   * [Crashpad](introduction/getting-started/integrations/cross-platform/crashpad/README.md)
     * [How to Build Google Crashpad](introduction/getting-started/integrations/cross-platform/crashpad/how-to-build-google-crashpad.md)
-  * [Deno](introduction/getting-started/integrations/cross-platform/deno.md)
-  * [Electron](introduction/getting-started/integrations/cross-platform/electron.md)
-  * [Java](introduction/getting-started/integrations/cross-platform/java.md)
-  * [Node.js](introduction/getting-started/integrations/cross-platform/node.js.md)
-  * [Python](introduction/getting-started/integrations/cross-platform/python.md)
-  * [Qt](introduction/getting-started/integrations/cross-platform/qt.md)
+  * [Breakpad (Deprecated)](introduction/getting-started/integrations/cross-platform/breakpad.md)
 * [🎮 Game Development](introduction/getting-started/integrations/game-development/README.md)
   * [CRYENGINE](introduction/getting-started/integrations/game-development/cryengine.md)
-  * [Nintendo Switch](introduction/getting-started/integrations/game-development/nintendo.md)
+  * [Nintendo Switch 2](introduction/getting-started/integrations/game-development/nintendo.md)
   * [PlayStation](introduction/getting-started/integrations/game-development/playstation.md)
   * [Unreal Engine](introduction/getting-started/integrations/game-development/unreal-engine.md)
     * [Unreal Engine Plugin](introduction/getting-started/integrations/game-development/unreal-engine/unreal-engine-plugin.md)
@@ -62,7 +59,7 @@
   * [Unity](introduction/getting-started/integrations/game-development/unity.md)
   * [Xbox](introduction/getting-started/integrations/game-development/xbox.md)
   * [Custom Engine Support](introduction/getting-started/integrations/game-development/custom-engine-support.md)
-* [📱 Mobile](introduction/getting-started/integrations/mobile/README.md)
+* [📱 Mobile Apps](introduction/getting-started/integrations/mobile/README.md)
   * [Android](introduction/getting-started/integrations/mobile/android.md)
   * [Ionic](introduction/getting-started/integrations/mobile/ionic.md)
   * [iOS](introduction/getting-started/integrations/mobile/ios.md)
@@ -72,11 +69,13 @@
   * [JavaScript](introduction/getting-started/integrations/web/javascript.md)
   * [React](introduction/getting-started/integrations/web/react.md)
   * [Vue](introduction/getting-started/integrations/web/vue.md)
+  * [Node.js](introduction/getting-started/integrations/cross-platform/node.js.md)
+  * [Deno](introduction/getting-started/integrations/cross-platform/deno.md)
 * [⌛ Downloads](introduction/getting-started/integrations/downloads.md)
 
 ## 📖 Guides
 
-* [Overview](introduction/development/README.md)
+* [Using BugSplat](introduction/development/README.md)
 * [Using the App](introduction/development/using-the-app.md)
 * [Symbol Files](introduction/development/working-with-symbol-files/README.md)
   * [Upload Symbols with symbol-upload](introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md)
@@ -124,7 +123,7 @@
 
 ## 🔌 API Reference
 
-* [Overview](introduction/development/web-services/README.md)
+* [Using the API](introduction/development/web-services/README.md)
 * [Web Application Endpoints](introduction/development/web-services/api/README.md)
   * [Company](introduction/development/web-services/api/company.md)
   * [Crash](introduction/development/web-services/api/crash.md)

@@ -4,3 +4,4 @@ redirects:
   education/faq/managing-symbol-space: introduction/development/working-with-symbol-files/managing-symbol-storage.md
   education/faq/how-do-i-remove-symbol-files: introduction/development/working-with-symbol-files/managing-symbol-storage.md
   introduction/development/working-with-symbol-files/automatic-symbol-cleanup: introduction/development/working-with-symbol-files/managing-symbol-storage.md
+  introduction/getting-started/integrations/cross-platform: introduction/getting-started/integrations/desktop/README.md

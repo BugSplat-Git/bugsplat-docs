@@ -40,7 +40,7 @@ This plan introduces advanced user management tools, PII obfuscation, API access
 
 Our Enterprise Plan is designed for companies managing big apps and/or multiple projects and teams, providing the most extensive support and customization options. It includes unlimited users and logins, unlimited user groups, and 1TB of storage, with the ability to add more as needed. Data retention is extended up to 1 year, with custom monthly crash and error limits tailored to your company's specific needs.&#x20;
 
-Additionally, this plan offers game console support (Xbox, PlayStation, and Nintendo), tiered discounts, custom agreements, support for full memory crash dumps, SSO integration with custom authentication providers, a private support channel (Discord or Slack), and much more, ensuring that enterprises have all the tools and support necessary for managing large-scale software projects efficiently.
+Additionally, this plan offers game console support (Xbox, PlayStation, and Nintendo Switch 2), tiered discounts, custom agreements, support for full memory crash dumps, SSO integration with custom authentication providers, a private support channel (Discord or Slack), and much more, ensuring that enterprises have all the tools and support necessary for managing large-scale software projects efficiently.
 
 Each of our plans is designed with flexibility in mind, allowing you to scale up as your projects grow. Whether you're just starting out or managing multiple large-scale applications, BugSplat has a plan that can meet your needs.
 

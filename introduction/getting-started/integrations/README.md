@@ -1,4 +1,4 @@
-# Platform Integrations
+# Choose Your Platform
 
 BugSplat works in a wide range of environments and languages to give developers the best possible data on their application defects—no matter where they are occurring.
 
@@ -16,10 +16,6 @@ If you are creating a new account, you'll have an option to access these documen
 
 {% content-ref url="desktop/" %}
 [desktop](desktop/)
-{% endcontent-ref %}
-
-{% content-ref url="cross-platform/" %}
-[cross-platform](cross-platform/)
 {% endcontent-ref %}
 
 {% content-ref url="game-development/" %}
