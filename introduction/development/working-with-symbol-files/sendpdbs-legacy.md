@@ -1,7 +1,7 @@
 # SendPdbs (Legacy)
 
 {% hint style="warning" %}
-SendPdbs is BugSplat's legacy, Windows-only symbol upload tool and is no longer the recommended approach. New integrations should use our cross-platform successor, [symbol-upload](upload-symbols-with-symbol-upload.md). This page is retained for teams still running SendPdbs.
+SendPdbs is BugSplat's legacy, Windows-only symbol upload tool and is no longer the recommended approach. New integrations should use our cross-platform successor, [symbol-upload](upload-symbols-with-symbol-upload.md). SendPdbs symbol uploads will no longer be supported as of 31-Dec-2026. This page is retained for teams still running SendPdbs.
 {% endhint %}
 
 SendPdbs.exe is a BugSplat application used to automate the upload of Windows symbols and executables. Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
