@@ -21,7 +21,7 @@ cd {your build folder}
 symbol-upload-windows.exe -i {client id} -s {client secret} -b {database} -a {appName} -v {appVersion} -f "**/*.{pdb,exe,dll}"
 ```
 
-The `appName` and `appVersion` parameters will be associated with your uploaded symbols, allowing logical grouping of files within BugSplat for easier symbol management. BugSplat will automatically remove symbol stores that have not been accessed recently. See our [FAQ](../../../development/working-with-symbol-files/automatic-symbol-cleanup.md#automatically) for a description of these rules.
+The `appName` and `appVersion` parameters will be associated with your uploaded symbols, allowing logical grouping of files within BugSplat for easier symbol management. BugSplat will automatically remove symbol stores that have not been accessed recently. See [Managing Symbol Storage](../../../development/working-with-symbol-files/managing-symbol-storage.md#automatic-symbol-cleanup) for a description of these rules.
 
 ### Packaging Settings
 

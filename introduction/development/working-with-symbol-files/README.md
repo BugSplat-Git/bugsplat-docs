@@ -32,8 +32,8 @@ Symbol files can be uploaded via [symbol-upload](upload-symbols-with-symbol-uplo
 [how-to-manually-upload-symbols.md](how-to-manually-upload-symbols.md)
 {% endcontent-ref %}
 
-{% content-ref url="automatic-symbol-cleanup.md" %}
-[automatic-symbol-cleanup.md](automatic-symbol-cleanup.md)
+{% content-ref url="managing-symbol-storage.md" %}
+[managing-symbol-storage.md](managing-symbol-storage.md)
 {% endcontent-ref %}
 
 {% content-ref url="source-maps.md" %}

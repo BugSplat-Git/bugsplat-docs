@@ -1,5 +1,6 @@
 redirects:
   education/faq/how-to-upload-symbol-files-with-symbol-upload: introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md
   education/faq/using-sendpdbs-to-automatically-upload-symbol-files: introduction/development/working-with-symbol-files/sendpdbs-legacy.md
-  education/faq/managing-symbol-space: introduction/development/working-with-symbol-files/automatic-symbol-cleanup.md
-  education/faq/how-do-i-remove-symbol-files: introduction/development/working-with-symbol-files/automatic-symbol-cleanup.md
+  education/faq/managing-symbol-space: introduction/development/working-with-symbol-files/managing-symbol-storage.md
+  education/faq/how-do-i-remove-symbol-files: introduction/development/working-with-symbol-files/managing-symbol-storage.md
+  introduction/development/working-with-symbol-files/automatic-symbol-cleanup: introduction/development/working-with-symbol-files/managing-symbol-storage.md

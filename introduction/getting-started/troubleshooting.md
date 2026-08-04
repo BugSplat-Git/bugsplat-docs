@@ -50,7 +50,7 @@ Applications that are protected by anti-cheat or copy protection software someti
 
 ### Deleted Symbols
 
-BugSplat may automatically delete your symbols under certain circumstances. If your database has less than 5 GB of data, you won't be affected. Larger stores that have new symbol files uploaded, but not referenced by a crash within the first 15 days, will be deleted. Additionally, symbol stores for versions that haven't had a crash posted within the configured expiry period (default 90 days) will be deleted. You can configure the symbol expiry period on the [Symbols](https://app.bugsplat.com/v2/database/symbols) settings page. For more information regarding symbol cleanup please see this [doc](../development/working-with-symbol-files/automatic-symbol-cleanup.md).
+BugSplat may automatically delete your symbols under certain circumstances. If your database has less than 5 GB of data, you won't be affected. Larger stores that have new symbol files uploaded, but not referenced by a crash within the first 15 days, will be deleted. Additionally, symbol stores for versions that haven't had a crash posted within the configured expiry period (default 90 days) will be deleted. You can configure the symbol expiry period on the [Symbols](https://app.bugsplat.com/v2/database/symbols) settings page. For more information regarding symbol cleanup please see this [doc](../development/working-with-symbol-files/managing-symbol-storage.md).
 
 ## Symbol Size Limit Exceeded
 

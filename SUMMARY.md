@@ -75,7 +75,7 @@
   * [Symbol Files](introduction/development/working-with-symbol-files/README.md)
     * [Upload Symbols with symbol-upload](introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md)
     * [How to Manually Upload Symbols](introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md)
-    * [Managing Symbol Storage](introduction/development/working-with-symbol-files/automatic-symbol-cleanup.md)
+    * [Managing Symbol Storage](introduction/development/working-with-symbol-files/managing-symbol-storage.md)
     * [Symbol Servers](introduction/development/working-with-symbol-files/symbol-servers.md)
     * [Working with Symbol Files in Windows Environments](introduction/development/working-with-symbol-files/working-with-windows-symbols-in-bugsplat.md)
     * [Source Maps](introduction/development/working-with-symbol-files/source-maps.md)
