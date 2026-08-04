@@ -22,12 +22,12 @@ Follow the links below for instructions on how to configure BugSplat in your app
 [vue.md](vue.md)
 {% endcontent-ref %}
 
-{% content-ref url="../cross-platform/electron.md" %}
-[electron.md](../cross-platform/electron.md)
+{% content-ref url="../desktop/electron.md" %}
+[electron.md](../desktop/electron.md)
 {% endcontent-ref %}
 
-{% content-ref url="../cross-platform/node.js.md" %}
-[node.js.md](../cross-platform/node.js.md)
+{% content-ref url="node.js.md" %}
+[node.js.md](node.js.md)
 {% endcontent-ref %}
 
 If a platform or framework your team is leveraging is not listed above, never fear! You can leverage our bugsplat [npm package](https://www.npmjs.com/package/bugsplat) to add error reporting to any browser-based app or [bugsplat-node](https://www.npmjs.com/package/bugsplat-node) to add error reporting to any Node.js based app.

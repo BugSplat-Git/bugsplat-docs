@@ -19,14 +19,14 @@ description: >-
 
 |               |                                                                              |
 | ------------- | ---------------------------------------------------------------------------- |
-| .NET Standard | See platform docs ([here](cross-platform/dot-net-standard.md))               |
+| .NET Standard | See platform docs ([here](desktop/dot-net-standard.md))               |
 | Crashpad      | [Download](https://app.bugsplat.com/browse/download_item.php/?item=crashpad) |
-| Deno          | See platform docs ([here](cross-platform/deno.md))                           |
-| Electron      | See platform docs ([here](cross-platform/electron.md))                       |
+| Deno          | See platform docs ([here](web/deno.md))                           |
+| Electron      | See platform docs ([here](desktop/electron.md))                       |
 | Java          | [Download](https://app.bugsplat.com/browse/download_item.php/?item=java)     |
-| Node.js       | See platform docs ([here](cross-platform/node.js.md))                        |
-| Python        | See platform docs ([here](cross-platform/python.md))                         |
-| Qt            | See platform docs ([here](cross-platform/qt.md))                             |
+| Node.js       | See platform docs ([here](web/node.js.md))                        |
+| Python        | See platform docs ([here](desktop/python.md))                         |
+| Qt            | See platform docs ([here](desktop/qt.md))                             |
 
 ### :video\_game: Game Development
 

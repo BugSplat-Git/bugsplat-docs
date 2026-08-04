@@ -2,7 +2,7 @@
 
 [MyDotnetCrasher](https://github.com/BugSplat-Git/my-dotnet-crasher) is a sample .NET 8 console application that demonstrates BugSplat crash reporting. It triggers a variety of .NET exceptions, captures them, and uploads the resulting crash reports so you can see how BugSplat symbolicates and groups them — without changing any of your own code.
 
-Under the hood it uses [BugSplatDotNetStandard](https://github.com/BugSplat-Git/bugsplat-dotnet-standard), the same library you'd add to your own application. For a full integration guide, see [.NET Standard](../../integrations/cross-platform/dot-net-standard.md).
+Under the hood it uses [BugSplatDotNetStandard](https://github.com/BugSplat-Git/bugsplat-dotnet-standard), the same library you'd add to your own application. For a full integration guide, see [.NET Standard](../../integrations/desktop/dot-net-standard.md).
 
 ### Prerequisites 🚦
 

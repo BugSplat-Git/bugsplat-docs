@@ -6,7 +6,7 @@
 Want to see a sample Electron application integrated with BugSplat? Check out [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)!
 {% endhint %}
 
-BugSplat supports the collection of both [electron.crashReporter](https://www.electronjs.org/docs/api/crash-reporter) (native) and [node.js](node.js.md) crash reports. Native crashes are generated via [Crashpad](https://github.com/chromium/crashpad) and BugSplat requires symbol files in order to calculate the call stack.
+BugSplat supports the collection of both [electron.crashReporter](https://www.electronjs.org/docs/api/crash-reporter) (native) and [node.js](../web/node.js.md) crash reports. Native crashes are generated via [Crashpad](https://github.com/chromium/crashpad) and BugSplat requires symbol files in order to calculate the call stack.
 
 BugSplat will automatically resolve Electron framework symbol files when calculating call stacks. However, if your application includes native add-ons or is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you will need to upload application-specific symbol files to see full native call stacks. All symbol files must be uploaded to BugSplat via [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), [symupload](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation), or manually via the [Versions page](https://app.bugsplat.com/v2/versions). More information about uploading symbol files to BugSplat can be found [here](crashpad/how-to-build-google-crashpad.md#uploading-symbols).
 
@@ -85,10 +85,10 @@ Verify that your node native addon `.sym` files show up on the [Versions](https:
 
 ## JavaScript/TypeScript Error Reporting 💥
 
-To configure reporting of JavaScript or TypeScript errors in your main and renderer processes, please see our [node.js](node.js.md) documentation for installing and configuring [bugsplat-node](https://github.com/BugSplat-Git/bugsplat-node).
+To configure reporting of JavaScript or TypeScript errors in your main and renderer processes, please see our [node.js](../web/node.js.md) documentation for installing and configuring [bugsplat-node](https://github.com/BugSplat-Git/bugsplat-node).
 
-{% content-ref url="node.js.md" %}
-[node.js.md](node.js.md)
+{% content-ref url="../web/node.js.md" %}
+[node.js.md](../web/node.js.md)
 {% endcontent-ref %}
 
 ### Installing bugsplat-node

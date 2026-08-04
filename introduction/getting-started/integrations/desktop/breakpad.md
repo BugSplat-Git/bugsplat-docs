@@ -1,12 +1,12 @@
 # Breakpad (Deprecated)
 
 {% hint style="danger" %}
-**Breakpad is the predecessor of Crashpad**. If you are configuring a new integration, please consider using our [Crashpad integration](crashpad/) instead.
+**Breakpad is the predecessor of Crashpad**. If you are configuring a new integration, please consider using our [Crashpad integration](crashpad) instead.
 {% endhint %}
 
 ## Overview
 
-Breakpad is the predecessor of Crashpad. If you are configuring a new integration, please consider using our [Crashpad integration](crashpad/) instead.
+Breakpad is the predecessor of Crashpad. If you are configuring a new integration, please consider using our [Crashpad integration](crashpad) instead.
 
 Google Breakpad is a crash reporting tool built by Google in C++. It allows you to submit minidumps to a configured URL as a crash happens. With Breakpad you can process crashes for [Windows](https://github.com/google/breakpad/blob/master/docs/windows\_client\_integration.md), [macOS](https://github.com/google/breakpad/blob/master/docs/mac\_breakpad\_starter\_guide.md), and [Linux](https://github.com/google/breakpad/blob/master/docs/linux\_starter\_guide.md) applications.
 

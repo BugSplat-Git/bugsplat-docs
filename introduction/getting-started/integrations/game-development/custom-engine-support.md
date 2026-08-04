@@ -4,7 +4,7 @@ BugSplat supports crash reporting for engines and frameworks not listed in our o
 
 ### How it works
 
-BugSplat's crash reporting is built on open standards. If your engine can produce a minidump, a [Breakpad](../cross-platform/breakpad.md)/[Crashpad](../cross-platform/crashpad/) report, a PLCrashReporter log (iOS/macOS), or expose a crash callback where you can invoke a handler, BugSplat can likely ingest and process your crashes. On Android and Linux, Crashpad is the supported path.
+BugSplat's crash reporting is built on open standards. If your engine can produce a minidump, a [Breakpad](../desktop/breakpad.md)/[Crashpad](../desktop/crashpad) report, a PLCrashReporter log (iOS/macOS), or expose a crash callback where you can invoke a handler, BugSplat can likely ingest and process your crashes. On Android and Linux, Crashpad is the supported path.
 
 ### Uploading crashes
 
