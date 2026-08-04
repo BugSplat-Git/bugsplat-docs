@@ -399,7 +399,7 @@ This requires bundling the `symbol-upload` binary in your app's assets. See the 
 
 #### 3. Command-Line Tool
 
-You can also invoke [`symbol-upload`](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) directly from the command line:
+You can also invoke [`symbol-upload`](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) directly from the command line:
 
 ```sh
 # Download the binary
@@ -413,7 +413,7 @@ curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos" && chmod +x 
     -f "**/*.so" -m
 ```
 
-Please refer to the [symbol-upload documentation](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) for full usage details.
+Please refer to the [symbol-upload documentation](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) for full usage details.
 
 ### Sample Application 🧑‍🏫
 

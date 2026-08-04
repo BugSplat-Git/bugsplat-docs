@@ -18,18 +18,26 @@ For [macOS](../../getting-started/integrations/desktop/macos.md) applications, s
 
 For TypeScript and [JavaScript](../../getting-started/integrations/web/javascript.md) applications, symbols are files with a **.js.map** extension.
 
-Symbol files can be uploaded via [symbol-upload](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md). Additionally, Crashpad **.sym** files can be [generated automatically](../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md#improving-upload-speeds-1) by invoking symbol-upload with the `-m` argument.
+Symbol files can be uploaded via [symbol-upload](upload-symbols-with-symbol-upload.md). Additionally, Crashpad **.sym** files can be [generated automatically](upload-symbols-with-symbol-upload.md#improving-upload-speeds-1) by invoking symbol-upload with the `-m` argument.
 
 <figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption><p>BugSplat Versions Page</p></figcaption></figure>
 
 ## Additional Resources
 
-{% content-ref url="source-maps.md" %}
-[source-maps.md](source-maps.md)
+{% content-ref url="upload-symbols-with-symbol-upload.md" %}
+[upload-symbols-with-symbol-upload.md](upload-symbols-with-symbol-upload.md)
 {% endcontent-ref %}
 
 {% content-ref url="how-to-manually-upload-symbols.md" %}
 [how-to-manually-upload-symbols.md](how-to-manually-upload-symbols.md)
+{% endcontent-ref %}
+
+{% content-ref url="managing-symbol-storage.md" %}
+[managing-symbol-storage.md](managing-symbol-storage.md)
+{% endcontent-ref %}
+
+{% content-ref url="source-maps.md" %}
+[source-maps.md](source-maps.md)
 {% endcontent-ref %}
 
 {% content-ref url="working-with-windows-symbols-in-bugsplat.md" %}

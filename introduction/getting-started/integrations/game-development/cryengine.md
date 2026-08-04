@@ -4,7 +4,7 @@
 
 To get function names and line numbers for internal CRYENGINE code you'll need to build CRYENGINE from source and generate `.pdb` files. Make sure to build the engine with the `Profile` configuration so that `.pdb` files are generated. The following video gives an overview of how to clone and build the CRYENGINE [source](https://www.cryengine.com/docs/static/engines/cryengine-5/categories/23756813/pages/89457345):
 
-Next, upload all of the `.pdb`, `.dll` and `.exe` files in the `bin` folder using [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md). Make sure to note the application name, version and database as you'll need these values later.
+Next, upload all of the `.pdb`, `.dll` and `.exe` files in the `bin` folder using [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md). Make sure to note the application name, version and database as you'll need these values later.
 
 ### Project Configuration
 
@@ -34,7 +34,7 @@ By default, building your game should output `.pdb` files so that minidumps can 
 
 ### Uploading Symbols
 
-Symbol files are required to display function names, file names and line numbers of source code in crash reports. Once you've built your project's solution, upload the resulting files in `bin` using [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md).
+Symbol files are required to display function names, file names and line numbers of source code in crash reports. Once you've built your project's solution, upload the resulting files in `bin` using [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md).
 
 ### Generating a Crash Report
 

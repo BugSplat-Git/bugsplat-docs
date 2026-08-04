@@ -1,8 +1,16 @@
-# How to Upload Symbol Files with Symbol-Upload
+---
+description: How to upload symbol files to BugSplat with symbol-upload — CLI usage, authentication, dSYM, self-hosted symbol servers, and GitHub Actions
+---
+
+# Upload Symbols with symbol-upload
 
 ## Overview 👀
 
-Symbol-upload is a cross-platform application that automatically uploads [symbol files](../../introduction/development/working-with-symbol-files/) as part of your build process and is the successor of [SendPdbs](using-sendpdbs-to-automatically-upload-symbol-files.md). Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
+Symbol-upload is a cross-platform application that automatically uploads [symbol files](README.md) as part of your build process and is the successor of [SendPdbs](sendpdbs-legacy.md). Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
+
+{% hint style="info" %}
+Uploaded symbols but still seeing missing function names or line numbers? See [Why are crashes missing symbols?](../../../education/faq/why-are-crashes-missing-symbols-function-names-and-or-line-numbers.md) to diagnose.
+{% endhint %}
 
 The symbol-upload tool can be installed by [npm](https://npmjs.com/package/@bugsplat/symbol-upload) and used as a [CLI tool](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#command-line) or a [javascript library](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#api). We also provide a [GitHub Action](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#action) that can be added to your build workflow.
 
@@ -38,7 +46,7 @@ curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos" && chmod +x 
 curl -sL -O  "https://app.bugsplat.com/download/symbol-upload-linux" && chmod +x symbol-upload-linux
 ```
 
-A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. BugSplat's backend automatically removes symbols that haven't been accessed recently. Using our web application, you can manually delete a symbol store. Send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. However, by default, each symbol file must be smaller than 4 GB.
+A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. Send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. By default, each symbol file must be smaller than **25 GB**, and each symbol store is limited to **100 GB** — both limits are configurable per database. BugSplat automatically removes symbols that haven't been referenced recently; see [Managing Symbol Storage](managing-symbol-storage.md) for the cleanup rules and how to remove symbols manually.
 
 ## Using symbol-upload 🧑‍💻
 
@@ -153,7 +161,7 @@ Next, use a sync tool to upload the directory to a cloud services provider. The 
 aws s3 sync . s3://your-bucket-name-here
 ```
 
-To connect BugSplat to your self-hosted symbol server, please refer to our Symbol Server [documentation](../../introduction/development/working-with-symbol-files/symbol-servers.md).
+To connect BugSplat to your self-hosted symbol server, please refer to our Symbol Server [documentation](symbol-servers.md).
 
 ### GitHub Actions
 

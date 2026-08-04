@@ -8,7 +8,7 @@ Want to see a sample Electron application integrated with BugSplat? Check out [m
 
 BugSplat supports the collection of both [electron.crashReporter](https://www.electronjs.org/docs/api/crash-reporter) (native) and [node.js](node.js.md) crash reports. Native crashes are generated via [Crashpad](https://github.com/chromium/crashpad) and BugSplat requires symbol files in order to calculate the call stack.
 
-BugSplat will automatically resolve Electron framework symbol files when calculating call stacks. However, if your application includes native add-ons or is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you will need to upload application-specific symbol files to see full native call stacks. All symbol files must be uploaded to BugSplat via [@bugsplat/symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md), [symupload](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation), or manually via the [Versions page](https://app.bugsplat.com/v2/versions). More information about uploading symbol files to BugSplat can be found [here](crashpad/how-to-build-google-crashpad.md#uploading-symbols).
+BugSplat will automatically resolve Electron framework symbol files when calculating call stacks. However, if your application includes native add-ons or is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you will need to upload application-specific symbol files to see full native call stacks. All symbol files must be uploaded to BugSplat via [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), [symupload](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation), or manually via the [Versions page](https://app.bugsplat.com/v2/versions). More information about uploading symbol files to BugSplat can be found [here](crashpad/how-to-build-google-crashpad.md#uploading-symbols).
 
 BugSplat-node can also be used to collect [uncaughtException](https://nodejs.org/api/process.html#process\_event\_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process\_event\_unhandledrejection) events in your application's JavaScript code.
 
@@ -73,7 +73,7 @@ Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat.
 
 If your application uses a [node native addon](https://nodejs.org/api/addons.html), you must generate and upload symbols for each binary and for every build.
 
-Use [@bugsplat/symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md#improving-upload-speeds-1) and the `-m` argument to generate and upload `.sym` files from your application binaries automatically. You can run symbol-upload without any arguments to view all available options.
+Use [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md#improving-upload-speeds-1) and the `-m` argument to generate and upload `.sym` files from your application binaries automatically. You can run symbol-upload without any arguments to view all available options.
 
 ```bash
 npx @bugsplat/symbol-upload -u you@email.com -p password -d ./dist -f "**/*.node" -m
@@ -81,7 +81,7 @@ npx @bugsplat/symbol-upload -u you@email.com -p password -d ./dist -f "**/*.node
 
 Alternatively, you can add a build step to generate and upload `.sym` files for your node native addon using standard Breakpad tools. To generate symbol files, you can run [dump\_syms](crashpad/how-to-build-google-crashpad.md#generating-symbols) with a path to a `.node` file after the Node Native Module build or rebuild step if you're using a tool like [electron-rebuild](https://github.com/electron/electron-rebuild). Once you've generated a `.sym` file for your `.node` native module, the `.sym` file can be uploaded via [symupload](crashpad/how-to-build-google-crashpad.md#uploading-symbols), or manually on the [Versions](https://app.bugsplat.com/v2/versions?database=Fred) page.
 
-Verify that your node native addon `.sym` files show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Be sure to upload symbols for each released version of your application. Integrate [@bugsplat/symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) or [symupload](crashpad/how-to-build-google-crashpad.md#uploading-symbols) into your build and release processes for best results.
+Verify that your node native addon `.sym` files show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Be sure to upload symbols for each released version of your application. Integrate [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) or [symupload](crashpad/how-to-build-google-crashpad.md#uploading-symbols) into your build and release processes for best results.
 
 ## JavaScript/TypeScript Error Reporting 💥
 

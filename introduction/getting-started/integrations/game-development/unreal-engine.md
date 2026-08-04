@@ -10,18 +10,18 @@ There are two options for configuring BugSplat. If you are integrating BugSplat 
 
 ## Windows 🪟
 
-You must upload symbol and executable files to create symbolic call stacks on Windows platforms. The easiest way to upload files is to use our [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) command line utility. You can download `symbol-upload` [here](https://github.com/BugSplat-Git/symbol-upload/releases).
+You must upload symbol and executable files to create symbolic call stacks on Windows platforms. The easiest way to upload files is to use our [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) command line utility. You can download `symbol-upload` [here](https://github.com/BugSplat-Git/symbol-upload/releases).
 
 ### Symbol Uploads
 
-Add a step to your build pipeline that uploads `.exe`, `.dll`, and `.pdb` files via [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md). We recommend creating an [OAuth Client ID/Client Secret](../../../development/web-services/oauth2.md#client-credentials) pair for authentication.
+Add a step to your build pipeline that uploads `.exe`, `.dll`, and `.pdb` files via [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md). We recommend creating an [OAuth Client ID/Client Secret](../../../development/web-services/oauth2.md#client-credentials) pair for authentication.
 
 ```bash
 cd {your build folder}
 symbol-upload-windows.exe -i {client id} -s {client secret} -b {database} -a {appName} -v {appVersion} -f "**/*.{pdb,exe,dll}"
 ```
 
-The `appName` and `appVersion` parameters will be associated with your uploaded symbols, allowing logical grouping of files within BugSplat for easier symbol management. BugSplat will automatically remove symbol stores that have not been accessed recently. See our [FAQ](../../../../education/faq/how-do-i-remove-symbol-files.md#automatically) for a description of these rules.
+The `appName` and `appVersion` parameters will be associated with your uploaded symbols, allowing logical grouping of files within BugSplat for easier symbol management. BugSplat will automatically remove symbol stores that have not been accessed recently. See [Managing Symbol Storage](../../../development/working-with-symbol-files/managing-symbol-storage.md#automatic-symbol-cleanup) for a description of these rules.
 
 ### Packaging Settings
 
@@ -118,15 +118,15 @@ Special instructions for Linux servers:
 * Package the crash reporter with your Linux server build by adding the `-CrashReporter` flag to `PackageBuildLinuxServer.bat`
 * Force a test crash by running your server executable with the option `-ExecCmds="debug crash"`
 
-Symbolic call stacks are resolved if you deploy symbols on your server. This is the typical case. However, if symbols aren't available locally, upload the Unreal Linux custom symbol files (`.psym` extension) using [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md).
+Symbolic call stacks are resolved if you deploy symbols on your server. This is the typical case. However, if symbols aren't available locally, upload the Unreal Linux custom symbol files (`.psym` extension) using [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md).
 
 ## iOS 🍎
 
-You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash reports. Additionally, you'll need to upload `.dSYM` files for function names and line numbers to be included in crash reports. Symbol files can be uploaded automatically by invoking [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md). The BugSplat Unreal plugin also reports fatal main-thread hangs on iOS — see the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
+You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash reports. Additionally, you'll need to upload `.dSYM` files for function names and line numbers to be included in crash reports. Symbol files can be uploaded automatically by invoking [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md). The BugSplat Unreal plugin also reports fatal main-thread hangs on iOS — see the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
 
 ## Android 🤖
 
-You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](../../../../education/faq/how-to-upload-symbol-files-with-symbol-upload.md) with the `-m` flag. Application Not Responding (ANR) events are reported automatically on Android 11+ — see the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
+You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) with the `-m` flag. Application Not Responding (ANR) events are reported automatically on Android 11+ — see the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
 
 ## Check, Verify, and Ensure Reporting ✅
 
