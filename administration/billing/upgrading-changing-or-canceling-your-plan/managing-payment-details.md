@@ -2,7 +2,7 @@
 
 Current account holders interested in updating their plan to a different level (Team or Business), adjusting the number of monthly reports, or adding/subtracting users and databases, should navigate to the [Billing](https://app.bugsplat.com/v2/company/billing) page in Settings and click on the button that says Change Plan (or Upgrade, for free/trial plans).
 
-Note that if you do not see an option to navigate to the Billing page it's likely because you are a Restricted Users. Please contact a [Non-Restricted](../../introduction/user-permissions.md) user on your team to gain access to [Billing](../).
+Note that if you do not see an option to navigate to the Billing page it's likely because you are a Restricted Users. Please contact a [Non-Restricted](../../user-management/user-permissions.md) user on your team to gain access to [Billing](../).
 
 This will bring up the Change Plan (or Purchase Plan) pop-up where account holders can update key settings for their account.
 

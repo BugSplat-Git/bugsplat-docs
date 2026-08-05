@@ -15,3 +15,14 @@ redirects:
   introduction/getting-started/integrations/cross-platform/crashpad/how-to-build-google-crashpad: introduction/getting-started/integrations/desktop/crashpad/how-to-build-google-crashpad.md
   introduction/getting-started/integrations/cross-platform/node.js: introduction/getting-started/integrations/web/node.js.md
   introduction/getting-started/integrations/cross-platform/deno: introduction/getting-started/integrations/web/deno.md
+  administration/introduction: administration/user-management/README.md
+  administration/introduction/user-permissions: administration/user-management/user-permissions.md
+  administration/introduction/permanently-deleting-a-user-account: administration/user-management/permanently-deleting-a-user-account.md
+  administration/introduction/requesting-access-to-your-teams-accounts: administration/user-management/requesting-access-to-your-teams-accounts.md
+  administration/introduction/login-page-and-options: administration/user-management/login-page-and-options.md
+  administration/introduction/password-settings-and-reset-options: administration/user-management/password-settings-and-reset-options/README.md
+  administration/introduction/password-settings-and-reset-options/required-password-reset-august-4th-2023: administration/user-management/password-settings-and-reset-options/required-password-reset-august-4th-2023.md
+  administration/introduction/single-sign-on-sso: administration/user-management/single-sign-on-sso.md
+  administration/introduction/multi-factor-authentication-mfa: administration/user-management/multi-factor-authentication-mfa.md
+  administration/introduction/enforce-mfa: administration/user-management/enforce-mfa.md
+  administration/introduction/adding-new-users-in-companies-with-multiple-databases: administration/user-management/adding-new-users-in-companies-with-multiple-databases.md

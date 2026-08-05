@@ -10,7 +10,7 @@ BugSplat works in a wide range of environments and languages to give developers 
 **Before you integrate:** [create a database](../create-a-new-database-in-bugsplat.md) first, which is where your application posts its crashes.
 {% endhint %}
 
-If you are creating a new account, you'll have an option to access these documents through the new user walkthrough tool which assists in the configuration and setup of new accounts.
+If you are creating a new account, you'll have an option to access these documents through the Onboarding Tool, which assists in the configuration and setup of new accounts.
 
 ### Integrations
 

@@ -14,7 +14,7 @@ At BugSplat, our diverse login methods cater to user preferences, ensuring a smo
     * Navigate to the BugSplat login page.
     * Enter your registered username and password.
     * Click on the "Sign in" button.
-  * **Further Information**: Need to reset your password?  Click on the 'Forgot your password?' link or check out [here](password-settings-and-reset-options/) to learn more.
+  * **Further Information**: Need to reset your password?  Click on the 'Forgot your password?' link or check out [here](password-settings-and-reset-options) to learn more.
 
 ***
 
