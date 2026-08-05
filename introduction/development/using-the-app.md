@@ -50,7 +50,7 @@ The **Crash** page allows users to get information critical for understanding an
 
 ### Report Details
 
-The **Report Details** panel contains information about the crash and the user who experienced it. It displays who crashed, where they crashed (IP address), and the description provided by the user in the crash dialog, as well as details such as the crashing function, line number where the crash occurred, information regarding what type of crash took place, when the crash happened, and what OS and SDK the crashing application was running on. This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md) — like it is in the image below.
+The **Report Details** panel contains information about the crash and the user who experienced it. It displays who crashed, where they crashed (IP address), and the description provided by the user in the crash dialog, as well as details such as the crashing function, line number where the crash occurred, information regarding what type of crash took place, when the crash happened, and what OS and SDK the crashing application was running on. This information is sometimes [obfuscated to protect users](../production/security-privacy-and-compliance/gdpr.md), like it is in the image below.
 
 ![](<../../.gitbook/assets/screen-shot-2021-07-16-at-3.08.42-pm (1) (1).png>)
 
@@ -72,7 +72,7 @@ The Crash page includes valuable information like crash time, environment, corre
 
 ### Additional Information
 
-All data covered to this point on the Crash page are found under the **Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Attributes**, **Debugger Output**, and **Attachments** — use the tabs found above the **Report Details** module.
+All data covered to this point on the Crash page are found under the **Overview** tab. To access additional information about crashes like **Other Threads**, **Registers**, **Modules**, **Attributes**, **Debugger Output**, and **Attachments**, use the tabs found above the **Report Details** module.
 
 ![](<../../.gitbook/assets/viewing-tabs-crashreport (1).gif>)
 

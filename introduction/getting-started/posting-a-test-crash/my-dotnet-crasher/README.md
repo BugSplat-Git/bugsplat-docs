@@ -1,6 +1,6 @@
 # MyDotnetCrasher (.NET)
 
-[MyDotnetCrasher](https://github.com/BugSplat-Git/my-dotnet-crasher) is a sample .NET 8 console application that demonstrates BugSplat crash reporting. It triggers a variety of .NET exceptions, captures them, and uploads the resulting crash reports so you can see how BugSplat symbolicates and groups them — without changing any of your own code.
+[MyDotnetCrasher](https://github.com/BugSplat-Git/my-dotnet-crasher) is a sample .NET 8 console application that demonstrates BugSplat crash reporting. It triggers a variety of .NET exceptions, captures them, and uploads the resulting crash reports so you can see how BugSplat symbolicates and groups them, without changing any of your own code.
 
 Under the hood it uses [BugSplatDotNetStandard](https://github.com/BugSplat-Git/bugsplat-dotnet-standard), the same library you'd add to your own application. For a full integration guide, see [.NET Standard](../../integrations/desktop/dot-net-standard.md).
 
@@ -21,13 +21,13 @@ cd my-dotnet-crasher
 
 Update the credentials in two places so reports and symbols land in your database.
 
-**`Program.cs`** — set the database, application, and version on the `Reporter`:
+In **`Program.cs`**, set the database, application, and version on the `Reporter`:
 
 ```csharp
 private static Reporter reporter = new Reporter("your-database", "MyDotnetCrasher", "1.0.0");
 ```
 
-**`MyDotnetCrasher.csproj`** — update the symbol upload step in the `UploadSymbols` target so your crashes include file names and line numbers:
+In **`MyDotnetCrasher.csproj`**, update the symbol upload step in the `UploadSymbols` target so your crashes include file names and line numbers:
 
 ```xml
 <Exec Command=".\Tools\symbol-upload-windows.exe -b your-database -a MyDotnetCrasher -v 1.0.0 -u your-email@example.com -p your-password -f &quot;**/*.{pdb,exe,dll}&quot; -d &quot;./bin&quot;"/>
@@ -62,7 +62,7 @@ The app catches the exception with a global handler, generates a Windows minidum
 
 ### 5. View the crash ✅
 
-Open the [Crashes](https://app.bugsplat.com/v2/crashes) page and select your database. Click a report's **ID** to see the symbolicated call stack — with file names and line numbers from the uploaded symbols — along with the exception message, the minidump, and system information. BugSplat automatically [groups](../../../development/grouping-crashes.md) similar crashes so you can prioritize by impact.
+Open the [Crashes](https://app.bugsplat.com/v2/crashes) page and select your database. Click a report's **ID** to see the symbolicated call stack (with file names and line numbers from the uploaded symbols), along with the exception message, the minidump, and system information. BugSplat automatically [groups](../../../development/grouping-crashes.md) similar crashes so you can prioritize by impact.
 
 {% hint style="info" %}
 Not seeing file names and line numbers? Confirm the symbol upload completed during `dotnet build`, and that the database, application, and version match between `Program.cs` and the symbol-upload command.

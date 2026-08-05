@@ -47,7 +47,7 @@ Once the correct symbols have been uploaded, you will need to [reprocess](../how
 ### External Symbol Servers
 
 {% hint style="danger" %}
-BugSplat will cache missed lookups to external symbol servers for 6 hours. If you upload symbols after they were requested, those symbol lookups will be skipped until the miss-cache entry clears. You can clear it yourself from the [Symbols](https://app.bugsplat.com/v2/database/symbols) page — see [Miss-Cache](../../introduction/development/working-with-symbol-files/symbol-servers.md#miss-cache).
+BugSplat will cache missed lookups to external symbol servers for 6 hours. If you upload symbols after they were requested, those symbol lookups will be skipped until the miss-cache entry clears. You can clear it yourself from the [Symbols](https://app.bugsplat.com/v2/database/symbols) page. See [Miss-Cache](../../introduction/development/working-with-symbol-files/symbol-servers.md#miss-cache).
 {% endhint %}
 
 BugSplat's [symbol-upload](https://docs.bugsplat.com/introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload) tool can be used to create a [SymSrv-compatible](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure that can be [self-hosted](../../introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md#self-hosted-symbol-servers). BugSplat supports connecting to external symbols via HTTP (including Azure Blob Storage) or AWS S3. Our backend will access the external symbols and cache them locally for faster lookup.

@@ -54,9 +54,9 @@ Use `crashType=User.Feedback` (or `crashTypeId=36`) when committing the upload i
 
 ### Quick Reference
 
-1. **Step 1** — `GET /api/getCrashUploadUrl` to get a presigned upload URL
-2. **Step 2** — `PUT` the zipped `feedback.xml` (or `feedback.json`) to the presigned URL
-3. **Step 3** — `POST /api/commitS3CrashUpload` with `crashType=User.Feedback`
+1. **Step 1:** `GET /api/getCrashUploadUrl` to get a presigned upload URL
+2. **Step 2:** `PUT` the zipped `feedback.xml` (or `feedback.json`) to the presigned URL
+3. **Step 3:** `POST /api/commitS3CrashUpload` with `crashType=User.Feedback`
 
 Optional fields on commit: `user`, `email`, `description`, `appKey`, `attributes`
 

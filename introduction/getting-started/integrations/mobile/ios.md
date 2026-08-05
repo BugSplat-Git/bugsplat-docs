@@ -391,7 +391,7 @@ BugSplatAttachment *screenshot = [[BugSplatAttachment alloc] initWithFilename:@"
 
 ### ⏱️ Hang Detection
 
-BugSplat can detect fatal main-thread hangs and upload them on the next launch using the same pipeline as crash reports. When enabled, BugSplat watches the main thread; if it stays unresponsive for longer than the configured threshold and the app is then terminated without the main thread recovering (a launch/resume watchdog kill or user force-quit), a hang report is uploaded on the next launch. Non-fatal hangs — those where the main thread eventually resumes — are discarded automatically.
+BugSplat can detect fatal main-thread hangs and upload them on the next launch using the same pipeline as crash reports. When enabled, BugSplat watches the main thread; if it stays unresponsive for longer than the configured threshold and the app is then terminated without the main thread recovering (a launch/resume watchdog kill or user force-quit), a hang report is uploaded on the next launch. Non-fatal hangs (those where the main thread eventually resumes) are discarded automatically.
 
 Enable hang detection by setting `enableHangDetection` to `YES` **before** calling `start`. `start` must be invoked on the main thread when this property is enabled.
 

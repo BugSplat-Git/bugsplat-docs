@@ -1,13 +1,13 @@
 # Choose Your Platform
 
-BugSplat works in a wide range of environments and languages to give developers the best possible data on their application defects—no matter where they are occurring.
+BugSplat works in a wide range of environments and languages to give developers the best possible data on their application defects, no matter where they are occurring.
 
 ![Click below to go to platform specific docs](<../../../.gitbook/assets/Screen Shot 2021-09-02 at 5.38.59 PM.png>)
 
 **Use the links below** for guides that will help you configure your application to send crash or error data to BugSplat across various languages and platforms.
 
 {% hint style="info" %}
-**Before you integrate:** [create a database](../create-a-new-database-in-bugsplat.md) first — it's where your application posts its crashes.
+**Before you integrate:** [create a database](../create-a-new-database-in-bugsplat.md) first, which is where your application posts its crashes.
 {% endhint %}
 
 If you are creating a new account, you'll have an option to access these documents through the new user walkthrough tool which assists in the configuration and setup of new accounts.
