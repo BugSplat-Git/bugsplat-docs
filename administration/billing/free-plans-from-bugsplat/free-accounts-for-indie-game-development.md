@@ -27,7 +27,7 @@ We hope the Indie Game Plan significantly contributes to your project's success.
 
 While there's no obligation to support us in return, we're grateful for any positive mentions or inclusion of a BugSplat link in your game's documentation. Our growth is driven by your success stories and the kind words you share about your experience with us.
 
-With the Indie Game Plan, BugSplat is committed to making your game development process smoother and more manageable, so you can focus on what you do best—creating amazing games.
+With the Indie Game Plan, BugSplat is committed to making your game development process smoother and more manageable, so you can focus on what you do best: creating amazing games.
 
 ***
 

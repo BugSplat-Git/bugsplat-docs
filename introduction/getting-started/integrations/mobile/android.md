@@ -104,7 +104,7 @@ This same `bugsplat.database` value is picked up by the symbol upload task below
 
 #### Initialization
 
-Initialize BugSplat from your launch `Activity` — typically in `onCreate`:
+Initialize BugSplat from your launch `Activity`, typically in `onCreate`:
 
 **Java**
 
@@ -195,7 +195,7 @@ The thread dump includes:
 * Native stack frames with BuildIds (symbolicated against uploaded `.sym` files)
 * Lock contention information
 
-ANR detection is enabled automatically when you call `BugSplat.init()` — no additional configuration required. The SDK persists the timestamp of the last reported ANR in `SharedPreferences` to avoid duplicate uploads.
+ANR detection is enabled automatically when you call `BugSplat.init()`, with no additional configuration required. The SDK persists the timestamp of the last reported ANR in `SharedPreferences` to avoid duplicate uploads.
 
 {% hint style="info" %}
 ANR detection requires Android 11+ (API 30+). On older versions, `ApplicationExitInfo` is unavailable and ANR detection is silently disabled.
@@ -272,7 +272,7 @@ BugSplat.postFeedback(
 
 **Shake-to-Feedback**
 
-A common UX pattern for beta builds is to open the feedback dialog when the user shakes the device. The SDK doesn't ship a built-in shake detector, but it's a small amount of code on top of `SensorManager` — register for `Sensor.TYPE_ACCELEROMETER`, watch for a few accelerometer samples above ~2.7G inside a 1s window, then invoke whichever UI surfaces your `postFeedback` call:
+A common UX pattern for beta builds is to open the feedback dialog when the user shakes the device. The SDK doesn't ship a built-in shake detector, but it's a small amount of code on top of `SensorManager`: register for `Sensor.TYPE_ACCELEROMETER`, watch for a few accelerometer samples above ~2.7G inside a 1s window, then invoke whichever UI surfaces your `postFeedback` call:
 
 ```java
 SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -324,7 +324,7 @@ To symbolicate native stack frames in crash and ANR reports, upload your app's u
 
 Wire symbol upload into your Gradle build so it runs automatically after `assembleDebug` / `assembleRelease`. Credentials are loaded from the gitignored `local.properties` to avoid committing them.
 
-**Step 1 — Add credentials to `local.properties`:**
+**Step 1: Add credentials to `local.properties`:**
 
 ```properties
 bugsplat.database=your_database
@@ -332,7 +332,7 @@ bugsplat.clientId=your_client_id
 bugsplat.clientSecret=your_client_secret
 ```
 
-**Step 2 — In `build.gradle`, load credentials and register per-ABI upload tasks:**
+**Step 2: In `build.gradle`, load credentials and register per-ABI upload tasks:**
 
 ```gradle
 def localProps = new Properties()

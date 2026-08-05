@@ -16,7 +16,7 @@ If you believe your project or organization qualifies for our Free Plan for Good
 
 #### **Supporting BugSplat**
 
-While there's no expectation for reciprocation, any support for BugSplat—whether through positive mentions online or including a link to our website in your documentation—is greatly appreciated. As a bootstrapped startup, our growth is fueled by the positive word-of-mouth from users like you.
+While there's no expectation for reciprocation, any support for BugSplat, whether through positive mentions online or including a link to our website in your documentation, is greatly appreciated. As a bootstrapped startup, our growth is fueled by the positive word-of-mouth from users like you.
 
 Through the Free Plan for Good Causes, BugSplat reaffirms its dedication to supporting projects that strive for a better world. We're here to provide the tools you need, so you can focus on the impactful work you do.
 

@@ -167,7 +167,7 @@ void SetCrashCompletionBehavior(BugSplatCrashCompletion behavior);
 void SetCrashType(int crashTypeId);
 ```
 
-**Description:** Overrides the BugSplat crash type id stamped on uploaded crashes. By default native crashes are uploaded as `Native` (id `1`). Set this when a higher-level integration needs the server to process the crash differently — for example, a Unity IL2CPP integration sets `15` (`UnityNative`: "a native crash with an additional file containing the managed call stack"), which is the crash type the BugSplat backend uses to apply `LineNumberMappings.json` and symbolicate managed (C#) frames.
+**Description:** Overrides the BugSplat crash type id stamped on uploaded crashes. By default native crashes are uploaded as `Native` (id `1`). Set this when a higher-level integration needs the server to process the crash differently. For example, a Unity IL2CPP integration sets `15` (`UnityNative`: "a native crash with an additional file containing the managed call stack"), which is the crash type the BugSplat backend uses to apply `LineNumberMappings.json` and symbolicate managed (C#) frames.
 
 **Parameters:**
 
@@ -434,7 +434,7 @@ In addition to the `BugSplat` C++ class, the SDK exposes a flat C API declared i
 **Linkage:**
 
 * **Dynamic:** link the import library `lib\dll\BugSplat.lib` and ship `BugSplat.dll` with your application. This is the default when including `BugSplatC.h` with no extra defines.
-* **Static:** the C API is also compiled into both static flavors of `BugSplat.lib` (`lib\md` for `/MD` builds, `lib\mt` for `/MT` builds) — define `BUGSPLAT_STATIC` before including `BugSplatC.h`.
+* **Static:** the C API is also compiled into both static flavors of `BugSplat.lib` (`lib\md` for `/MD` builds, `lib\mt` for `/MT` builds). Define `BUGSPLAT_STATIC` before including `BugSplatC.h`.
 
 All strings are null-terminated UTF-16 (`wchar_t*`). Boolean parameters and return values use `int` (`0`/`1`) for ABI stability.
 
@@ -509,7 +509,7 @@ int BugSplat_PostFeedback(const wchar_t* title,
 void BugSplat_GenerateDump(void* exceptionPointers, int dumpType);
 ```
 
-**Description:** Generates a crash report from caller-supplied exception information without terminating the process. Most applications do not need this — the exception filter installed by `BugSplat_Init` already captures unhandled crashes automatically. Use it only when you run your own exception handler and want to report a specific exception.
+**Description:** Generates a crash report from caller-supplied exception information without terminating the process. Most applications do not need this. The exception filter installed by `BugSplat_Init` already captures unhandled crashes automatically. Use it only when you run your own exception handler and want to report a specific exception.
 
 **Parameters:**
 

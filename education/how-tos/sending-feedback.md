@@ -8,7 +8,7 @@ If there's something you think we need to know - make sure to pass it along!
 
 ### In-app
 
-The first way to provide feedback is to click the **Feedback** button — the megaphone icon in the left navigation — which opens our product feedback tool.  
+The first way to provide feedback is to click the **Feedback** button (the megaphone icon in the left navigation), which opens our product feedback tool.  
 
 Our support team gets alerted as soon as any feature request or bug is submitted. 
 

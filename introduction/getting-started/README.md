@@ -2,7 +2,7 @@
 
 Getting up and running with BugSplat is a well-documented, straightforward process that thousands of developers have followed. There are two ways to start:
 
-* **Just want to see it work?** [Post a sample crash in about 5 minutes](quickly-submitting-your-first-crash-in-under-5-minutes.md) — no code required.
+* **Just want to see it work?** [Post a sample crash in about 5 minutes](quickly-submitting-your-first-crash-in-under-5-minutes.md), no code required.
 * **Ready to integrate your own app?** Follow the six steps below. It takes about as long as it does to drink a [large mug](https://shop.spacex.com/collections/accessories/products/occupy-mars-heat-sensitive-terraforming-mug-new) of coffee.
 
 {% embed url="https://bugsplat.wistia.com/medias/qp13mure3h" %}
@@ -18,11 +18,11 @@ Getting up and running with BugSplat is a well-documented, straightforward proce
 
 ## 🖇️ More Details
 
-Following the above steps takes new users from [creating an account](signing-up-for-an-account-with-bugsplat.md) and [database](create-a-new-database-in-bugsplat.md), through [adding your team and tools](adding-uses-to-your-account.md), to [integrating your application](integrations/) and [posting your first report](posting-a-test-crash/). Crash reporting is more fun with friends, so bring your team along early — it mirrors the in-app onboarding flow.
+Following the above steps takes new users from [creating an account](signing-up-for-an-account-with-bugsplat.md) and [database](create-a-new-database-in-bugsplat.md), through [adding your team and tools](adding-uses-to-your-account.md), to [integrating your application](integrations/) and [posting your first report](posting-a-test-crash/). Crash reporting is more fun with friends, so bring your team along early. It mirrors the in-app onboarding flow.
 
 Once these steps are complete, users should learn more about using the BugSplat app in the [Development](../development/) section which has a handy [walkthrough of the BugSplat application](../development/using-the-app.md), 3rd party integration guides, and much more.
 
-If at any point you get stuck and want some help—please reach out to us via our [Discord](https://discord.gg/K4KjjRV5ve) or by sending us an [email](mailto:support@bugsplat.com).
+If at any point you get stuck and want some help, please reach out to us via our [Discord](https://discord.gg/K4KjjRV5ve) or by sending us an [email](mailto:support@bugsplat.com).
 
 {% hint style="success" %}
 🧙‍♂️ **Attention new accounts**: You will also have the opportunity to follow these steps via the onboarding helper tool that's visible to new users right after they [create an account](signing-up-for-an-account-with-bugsplat.md).
