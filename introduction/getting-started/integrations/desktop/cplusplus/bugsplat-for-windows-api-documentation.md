@@ -456,6 +456,18 @@ int BugSplat_IsInitialized(void);
 
 **Description:** Returns `1` if `BugSplat_Init` has been called successfully, `0` otherwise.
 
+#### BugSplat\_IsWerEnabled
+
+```c
+int BugSplat_IsWerEnabled(void);
+```
+
+**Description:** Returns `1` if BugSplat's Windows Error Reporting runtime exception module is registered for this process, `0` otherwise. Fail-fast terminations — stack buffer overrun (`0xC0000409`), heap corruption (`0xC0000374`), and `__fastfail` — bypass the unhandled exception filter, so they are reported only when this returns `1`.
+
+Registration requires `BugSplatWer.dll` beside the host executable and a value naming its full path under `RuntimeExceptionHelperModules` (see [Registry Changes](bugsplat-for-windows-upgrade-guide.md#registry-changes)). It fails silently when either is missing, so check this at startup and warn during development.
+
+**Returns:** `1` if WER integration is registered, `0` otherwise.
+
 #### Forwarding Functions
 
 The remaining functions forward to the equivalent `BugSplat` class methods documented above:
