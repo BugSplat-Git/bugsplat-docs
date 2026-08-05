@@ -8,7 +8,7 @@ Dave and the gang had built and maintained crash reporting tools at much larger 
 
 1. Crash reporting was a nearly magical tool for finding and fixing crash defects.  \
 
-2. Software is better and more stable with crash reporting—so everyone should use it.\
+2. Software is better and more stable with crash reporting, so everyone should use it.\
 
 3. Building and supporting a crash reporter was a lot of work.\
 
@@ -27,7 +27,7 @@ What if you weren't a billion-dollar company? How could you dedicate six or eigh
 
 Even if you could afford to build a crash reporter, why spend the time, energy, and resources scaling up a new tool for the first time? Wouldn’t it be better to use a market-tested tool supported by experts?
 
-Sensing market and developer need—the team started building and expanding on the BugSplat project in 2003.
+Sensing market and developer need, the team started building and expanding on the BugSplat project in 2003.
 
 Nights and weekends were dedicated to development as the team fell quickly into the heady experience of building something new, fun, and exciting.
 

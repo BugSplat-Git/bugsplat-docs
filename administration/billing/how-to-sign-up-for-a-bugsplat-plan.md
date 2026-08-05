@@ -33,7 +33,7 @@ Whether you're still in your trial or using the Free Plan, upgrading is a breeze
 
 
     <figure><img src="../../.gitbook/assets/Choose-team-or-business.png" alt=""><figcaption></figcaption></figure>
-4.  **Customize Your Plan:** Select how many monthly crashes and errors you need and the amount of storage that suits your team. Then, decide if you want to pay monthly or annually—the latter saves you the equivalent of two months!
+4.  **Customize Your Plan:** Select how many monthly crashes and errors you need and the amount of storage that suits your team. Then, decide if you want to pay monthly or annually. The latter saves you the equivalent of two months!
 
 
 

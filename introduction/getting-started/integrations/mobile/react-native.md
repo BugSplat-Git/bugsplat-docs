@@ -76,13 +76,13 @@ await init('your-database', 'YourApp', '1.0.0', {
 
 **Options:**
 
-* `appKey?: string` — Queryable metadata key
-* `userName?: string` — User name for reports
-* `userEmail?: string` — User email for reports
-* `autoSubmitCrashReport?: boolean` — Auto-submit crashes (iOS only, default: `true`)
-* `attributes?: Record<string, string>` — Custom key-value attributes
-* `attachments?: string[]` — File paths to attach (native only)
-* `description?: string` — Default description
+* `appKey?: string`: Queryable metadata key
+* `userName?: string`: User name for reports
+* `userEmail?: string`: User email for reports
+* `autoSubmitCrashReport?: boolean`: Auto-submit crashes (iOS only, default: `true`)
+* `attributes?: Record<string, string>`: Custom key-value attributes
+* `attachments?: string[]`: File paths to attach (native only)
+* `description?: string`: Default description
 
 #### Reporting Errors
 
@@ -101,7 +101,7 @@ try {
 
 #### Error Boundary
 
-Wrap your component tree in `<ErrorBoundary>` to catch React render errors and report them to BugSplat automatically. This works on all platforms — iOS, Android, and Web.
+Wrap your component tree in `<ErrorBoundary>` to catch React render errors and report them to BugSplat automatically. This works on all platforms: iOS, Android, and Web.
 
 ```tsx
 import { ErrorBoundary } from '@bugsplat/expo';
@@ -132,7 +132,7 @@ The `fallback` prop accepts a React node or a render function:
 
 #### User Feedback
 
-In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title. This works on all platforms — iOS, Android, and Web.
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title. This works on all platforms: iOS, Android, and Web.
 
 Submit feedback imperatively from anywhere after `init()`:
 
@@ -147,10 +147,10 @@ console.log(result.success ? `Feedback #${result.crashId} posted` : result.error
 
 **Options:**
 
-* `description?: string` — Longer body of the feedback
-* `user?: string` — Override default user name
-* `email?: string` — Override default user email
-* `appKey?: string` — Override default app key
+* `description?: string`: Longer body of the feedback
+* `user?: string`: Override default user name
+* `email?: string`: Override default user email
+* `appKey?: string`: Override default app key
 
 Or drive a feedback form with the `useFeedback` hook, which tracks loading and error state:
 
@@ -242,7 +242,7 @@ Run `npx @bugsplat/symbol-upload --help` for all options.
 
 ### Testing Native Crashes 🧪
 
-To test native crash reporting, you must run a **release build** — the debugger intercepts crashes in debug builds.
+To test native crash reporting, you must run a **release build**, because the debugger intercepts crashes in debug builds.
 
 ```sh
 # iOS

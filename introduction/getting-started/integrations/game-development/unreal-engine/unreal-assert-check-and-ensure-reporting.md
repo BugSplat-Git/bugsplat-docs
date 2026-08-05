@@ -18,7 +18,7 @@ Unreal Engine has three types of assertions:
 
 There are two layers that control ensure crash reporting: **compile-time** and **runtime**.
 
-Compile-time: In Debug and Development builds, ensures are always compiled in (`DO_ENSURE=1`). In Test and Shipping builds, ensures are compiled out by default—they just evaluate the expression and return the result with no logging or reporting. To keep ensures active in Shipping, set `bUseChecksInShipping = true` in your `*.Target.cs` file (this also enables `USE_ENSURES_IN_SHIPPING` since it follows the check setting by default).
+Compile-time: In Debug and Development builds, ensures are always compiled in (`DO_ENSURE=1`). In Test and Shipping builds, ensures are compiled out by default. They just evaluate the expression and return the result with no logging or reporting. To keep ensures active in Shipping, set `bUseChecksInShipping = true` in your `*.Target.cs` file (this also enables `USE_ENSURES_IN_SHIPPING` since it follows the check setting by default).
 
 Runtime: Once ensures are compiled in, the CVar `core.EnsuresAreErrors` (default `1`) controls whether they actually send crash reports. When set to `1`, ensure failures log as errors and submit reports; when set to `0`, they log as warnings only and skip reporting entirely. You can set this via INI (`[SystemSettings]` section) or console command. There's also `core.EnsureAlwaysEnabled` (default `true`) which controls whether `ensureAlways` fires every time or just once per callsite like regular `ensure`. Finally, the `-nocrashreports` command-line flag disables all report submission regardless of other settings.
 

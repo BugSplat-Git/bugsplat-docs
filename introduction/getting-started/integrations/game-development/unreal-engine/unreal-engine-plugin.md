@@ -286,11 +286,11 @@ UBugSplatAttributes::SetAttribute(TEXT("userId"), TEXT("12345"));
 
 ##### Hang Detection (iOS and Android)
 
-The BugSplat plugin reports fatal hangs on both mobile platforms — Application Not Responding (ANR) on Android and main-thread hangs on iOS. Reports appear alongside crashes in the BugSplat dashboard and upload on the launch *after* the hang.
+The BugSplat plugin reports fatal hangs on both mobile platforms: Application Not Responding (ANR) on Android and main-thread hangs on iOS. Reports appear alongside crashes in the BugSplat dashboard and upload on the launch *after* the hang.
 
 On Android, detection is automatic once `Enable Android Crash Reporting` is checked. It uses the [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo) API and requires Android 11+ (API 30+); on older versions it is silently a no-op. See the [Android ANR Detection](../../mobile/android.md#anr-detection) docs for SDK-level detail.
 
-On iOS, the plugin enables `enableHangDetection` with a `hangDetectionThreshold` of `2.0` seconds during init — no app code is required beyond having `Enable iOS Crash Reporting` checked. Only fatal hangs (watchdog kill or force-quit) are reported; hangs where the main thread eventually resumes are discarded. See the [iOS Hang Detection](../../mobile/ios.md#hang-detection) docs for the underlying behavior and configuration knobs.
+On iOS, the plugin enables `enableHangDetection` with a `hangDetectionThreshold` of `2.0` seconds during init. No app code is required beyond having `Enable iOS Crash Reporting` checked. Only fatal hangs (watchdog kill or force-quit) are reported; hangs where the main thread eventually resumes are discarded. See the [iOS Hang Detection](../../mobile/ios.md#hang-detection) docs for the underlying behavior and configuration knobs.
 
 {% hint style="info" %}
 iOS hang detection is suppressed while a debugger is attached. To verify on-device, detach the debugger and launch the app from the home screen before triggering a hang.
@@ -316,7 +316,7 @@ UFUNCTION(BlueprintPure, Category = "BugSplat")
 static bool IsMobile();
 ```
 
-A typical demo wiring binds a button's `OnClicked` to `GenerateHang` and its `Visibility` to a function returning `Visible` when `IsMobile` is true and `Collapsed` otherwise. After a hang, relaunch the app once — the report uploads in the background on init.
+A typical demo wiring binds a button's `OnClicked` to `GenerateHang` and its `Visibility` to a function returning `Visible` when `IsMobile` is true and `Collapsed` otherwise. After a hang, relaunch the app once. The report uploads in the background on init.
 
 #### Xbox and PlayStation
 
@@ -434,7 +434,7 @@ UBugSplatFeedback::PostFeedbackWithCallback(
 
 #### Blueprints
 
-Call the **Post Feedback** node from `BugSplatFeedback`. The advanced parameters (User, Email, AppKey, CustomAttributes) are collapsed by default — expand the node to access them. Use the **Get Log File Path** node to get the path to the current Unreal Engine log file.
+Call the **Post Feedback** node from `BugSplatFeedback`. The advanced parameters (User, Email, AppKey, CustomAttributes) are collapsed by default. Expand the node to access them. Use the **Get Log File Path** node to get the path to the current Unreal Engine log file.
 
 For the full API, see [`BugSplatFeedback.h`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Public/BugSplatFeedback.h). The built-in dialog in [`BugSplatFeedbackDialog.cpp`](https://github.com/BugSplat-Git/bugsplat-unreal/blob/main/Source/BugSplatRuntime/Private/BugSplatFeedbackDialog.cpp) serves as a reference implementation.
 

@@ -1,5 +1,5 @@
 ---
-description: How to upload symbol files to BugSplat with symbol-upload — CLI usage, authentication, dSYM, self-hosted symbol servers, and GitHub Actions
+description: How to upload symbol files to BugSplat with symbol-upload, covering CLI usage, authentication, dSYM, self-hosted symbol servers, and GitHub Actions
 ---
 
 # Upload Symbols with symbol-upload
@@ -46,7 +46,7 @@ curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos" && chmod +x 
 curl -sL -O  "https://app.bugsplat.com/download/symbol-upload-linux" && chmod +x symbol-upload-linux
 ```
 
-A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. Send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. By default, each symbol file must be smaller than **25 GB**, and each symbol store is limited to **100 GB** — both limits are configurable per database. BugSplat automatically removes symbols that haven't been referenced recently; see [Managing Symbol Storage](managing-symbol-storage.md) for the cleanup rules and how to remove symbols manually.
+A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. Send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. By default, each symbol file must be smaller than **25 GB**, and each symbol store is limited to **100 GB**. Both limits are configurable per database. BugSplat automatically removes symbols that haven't been referenced recently; see [Managing Symbol Storage](managing-symbol-storage.md) for the cleanup rules and how to remove symbols manually.
 
 ## Using symbol-upload 🧑‍💻
 

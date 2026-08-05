@@ -310,7 +310,7 @@ The bugsplat-unity plugin supports crash reporting for native C++ crashes on iOS
 
 When native crash reporting is enabled, the bugsplat-unity plugin also detects fatal main-thread hangs. No additional configuration is required.
 
-If the main thread stays unresponsive past the detection threshold and the app is then terminated without recovering — by the OS watchdog at launch or resume, or by the user force-quitting — BugSplat uploads a hang report on the next launch. Hangs the app recovers from are not reported. Hang reports carry the exception name **`App Hang (Fatal)`**. The sample project's **Hang / ANR** button triggers a hang for testing.
+If the main thread stays unresponsive past the detection threshold and the app is then terminated without recovering (by the OS watchdog at launch or resume, or by the user force-quitting), BugSplat uploads a hang report on the next launch. Hangs the app recovers from are not reported. Hang reports carry the exception name **`App Hang (Fatal)`**. The sample project's **Hang / ANR** button triggers a hang for testing.
 
 {% hint style="info" %}
 Hang detection is suppressed while a debugger is attached. Test it on a build run without the Xcode debugger.

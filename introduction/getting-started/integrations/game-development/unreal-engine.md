@@ -122,15 +122,15 @@ Symbolic call stacks are resolved if you deploy symbols on your server. This is 
 
 ## iOS 🍎
 
-You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash reports. Additionally, you'll need to upload `.dSYM` files for function names and line numbers to be included in crash reports. Symbol files can be uploaded automatically by invoking [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md). The BugSplat Unreal plugin also reports fatal main-thread hangs on iOS — see the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
+You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash reports. Additionally, you'll need to upload `.dSYM` files for function names and line numbers to be included in crash reports. Symbol files can be uploaded automatically by invoking [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md). The BugSplat Unreal plugin also reports fatal main-thread hangs on iOS. See the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
 
 ## Android 🤖
 
-You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) with the `-m` flag. Application Not Responding (ANR) events are reported automatically on Android 11+ — see the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
+You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) with the `-m` flag. Application Not Responding (ANR) events are reported automatically on Android 11+. See the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
 
 ## Check, Verify, and Ensure Reporting ✅
 
-Unreal Engine's `check`, `verify`, and `ensure` macros can all send crash reports to BugSplat. Checks and Verifies report automatically since they terminate the application. Ensures require additional configuration—in Shipping builds, you'll need to set `bUseChecksInShipping = true` in your `*.Target.cs` file to keep them active.
+Unreal Engine's `check`, `verify`, and `ensure` macros can all send crash reports to BugSplat. Checks and Verifies report automatically since they terminate the application. Ensures require additional configuration: in Shipping builds, you'll need to set `bUseChecksInShipping = true` in your `*.Target.cs` file to keep them active.
 
 For the complete guide on configuring ensure reporting, controlling report volume, and troubleshooting, see [Unreal Assert, Check, and Ensure Reporting](unreal-engine/unreal-assert-check-and-ensure-reporting.md).
 

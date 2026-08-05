@@ -46,7 +46,7 @@ Each of our plans is designed with flexibility in mind, allowing you to scale up
 
 ## Paying for your plan
 
-Upgrading your BugSplat plan is straightforward. Simply visit the Billing section under Company Settings in your account. Here, the "Change Plan" button allows you to choose between our Business or Team plans, set your desired monthly crash volume and storage, and select a billing frequency—monthly or yearly. After customizing your plan, click "Update" to review and enter your payment details.
+Upgrading your BugSplat plan is straightforward. Simply visit the Billing section under Company Settings in your account. Here, the "Change Plan" button allows you to choose between our Business or Team plans, set your desired monthly crash volume and storage, and select a billing frequency: monthly or yearly. After customizing your plan, click "Update" to review and enter your payment details.
 
 For Team and Business plans, we accept all major credit cards, and choosing an annual payment option provides a saving equivalent to two months, compared to monthly billing. Enterprise plans can be paid annually via bank transfer or check, offering flexibility for larger organizations.
 

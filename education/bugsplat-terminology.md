@@ -43,7 +43,7 @@ This file contains the program state such as call stack, register values, loaded
 
 ### End-Users
 
-End-users are the people who experience and report crashes and errors. They have the option in BugSplat to leave their email and name when reporting crashes—although some BugSplat users choose to [obfuscate this information](../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md).
+End-users are the people who experience and report crashes and errors. They have the option in BugSplat to leave their email and name when reporting crashes, although some BugSplat users choose to [obfuscate this information](../introduction/production/security-privacy-and-compliance/avoid-collecting-personally-identifiable-information-pii.md).
 
 ### Error Handler
 
