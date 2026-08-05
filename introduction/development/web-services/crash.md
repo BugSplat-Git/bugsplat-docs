@@ -157,7 +157,7 @@ The `crashType` string field only recognizes the following values (case-insensit
 | PlayStation 4         | `PlayStation4`        | 28          | PS4 crash reports                                |
 | PlayStation 5         | `PlayStation5`        | 29          | PS5 crash reports                                |
 | Xbox                  | `Xbox`                | 27          | Xbox crash reports                               |
-| Nintendo              | `Nintendo`            | 35          | Nintendo Switch crash reports                    |
+| Nintendo Switch 2     | `Nintendo`            | 35          | Nintendo Switch 2 crash reports                  |
 | XML                   | `XmlReport`           | 21          | Custom XML-formatted crash reports               |
 | User Feedback         | `User.Feedback`       | 36          | User-submitted feedback and bug reports          |
 

@@ -1,4 +1,4 @@
-# API
+# Using the API
 
 Welcome to the BugSplat web services API Reference Documentation.
 

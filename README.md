@@ -7,9 +7,7 @@ description: >-
 
 # Welcome
 
-**BugSplat is the developer's go-to toolbox for finding, understanding, and fixing crashes.** When your application crashes in the field, BugSplat captures the data you need to understand it — a symbolicated call stack, the runtime environment, and any custom attributes you attach — and presents it in a familiar debugger view. The result: you can triage a production crash as if it happened on your own machine, ship more stable software, and spend less time supporting it.
-
-<figure><img src=".gitbook/assets/unreal-crash-page_e9Dj3.webp" alt="A crash report shown in BugSplat's debugger view"><figcaption><p>Every crash, symbolicated and ready to triage.</p></figcaption></figure>
+When your application crashes in the field, BugSplat captures what you need to understand it — a symbolicated call stack, the runtime environment, and the custom attributes you attach — and presents it in a familiar debugger view. You can triage a production crash as if it happened on your own machine, ship more stable software, and spend less time supporting it.
 
 ## 🚀 Start here
 
@@ -19,7 +17,7 @@ The fastest way to see BugSplat in action is to post a **sample crash** — no c
 [quickly-submitting-your-first-crash-in-under-5-minutes.md](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 {% endcontent-ref %}
 
-Ready to wire up your own application? **Getting Started** is the full path — sign up, create a database, integrate your platform, and verify your first real crash.
+Ready to wire up your own application? The **Full Setup Guide** walks you through it — sign up, create a database, integrate your platform, and verify your first real crash.
 
 {% content-ref url="introduction/getting-started/" %}
 [getting-started](introduction/getting-started/)
@@ -31,10 +29,6 @@ Pick your platform and follow its SDK guide. (Each guide assumes you've already 
 
 {% content-ref url="introduction/getting-started/integrations/desktop/" %}
 [desktop](introduction/getting-started/integrations/desktop/)
-{% endcontent-ref %}
-
-{% content-ref url="introduction/getting-started/integrations/cross-platform/" %}
-[cross-platform](introduction/getting-started/integrations/cross-platform/)
 {% endcontent-ref %}
 
 {% content-ref url="introduction/getting-started/integrations/game-development/" %}

@@ -1,6 +1,6 @@
-# Development
+# Using BugSplat
 
-This **Development** section includes articles that are useful for using BugSplat and getting the most out of the app. &#x20;
+This section includes articles that are useful for using BugSplat and getting the most out of the app. &#x20;
 
 [**Using the App**](using-the-app.md) - is a walkthrough of the different pages in the app, how to navigate inside the app, and how to begin using the app to view crash data. &#x20;
 

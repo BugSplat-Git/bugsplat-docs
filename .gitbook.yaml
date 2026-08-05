@@ -4,3 +4,14 @@ redirects:
   education/faq/managing-symbol-space: introduction/development/working-with-symbol-files/managing-symbol-storage.md
   education/faq/how-do-i-remove-symbol-files: introduction/development/working-with-symbol-files/managing-symbol-storage.md
   introduction/development/working-with-symbol-files/automatic-symbol-cleanup: introduction/development/working-with-symbol-files/managing-symbol-storage.md
+  introduction/getting-started/integrations/cross-platform: introduction/getting-started/integrations/desktop/README.md
+  introduction/getting-started/integrations/cross-platform/dot-net-standard: introduction/getting-started/integrations/desktop/dot-net-standard.md
+  introduction/getting-started/integrations/cross-platform/electron: introduction/getting-started/integrations/desktop/electron.md
+  introduction/getting-started/integrations/cross-platform/qt: introduction/getting-started/integrations/desktop/qt.md
+  introduction/getting-started/integrations/cross-platform/java: introduction/getting-started/integrations/desktop/java.md
+  introduction/getting-started/integrations/cross-platform/python: introduction/getting-started/integrations/desktop/python.md
+  introduction/getting-started/integrations/cross-platform/breakpad: introduction/getting-started/integrations/desktop/breakpad.md
+  introduction/getting-started/integrations/cross-platform/crashpad: introduction/getting-started/integrations/desktop/crashpad/README.md
+  introduction/getting-started/integrations/cross-platform/crashpad/how-to-build-google-crashpad: introduction/getting-started/integrations/desktop/crashpad/how-to-build-google-crashpad.md
+  introduction/getting-started/integrations/cross-platform/node.js: introduction/getting-started/integrations/web/node.js.md
+  introduction/getting-started/integrations/cross-platform/deno: introduction/getting-started/integrations/web/deno.md

@@ -1,4 +1,4 @@
-# Integrations and Third Party Tools
+# Alerts & Issue Trackers
 
 Integrate BugSplat with your toolset to bring crash and other application performance data to improve your pre-existing workflow.
 

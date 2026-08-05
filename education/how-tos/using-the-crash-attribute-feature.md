@@ -15,6 +15,6 @@ BugSplat supports user-defined metadata, also known as Custom Crash Attributes, 
 * For **Windows** and **Xbox**, refer to the [BugSplat for Windows C++ documentation](../../introduction/getting-started/integrations/desktop/cplusplus/);
 * For **PlayStation**, please refer to the documentation in the download found on the [Gaming Consoles](https://app.bugsplat.com/v2/database/integrations#consoles) tab on the Integrations page.
 * For **Apple** platforms, refer to the [macOS](../../introduction/getting-started/integrations/desktop/macos.md)/[iOS](../../introduction/getting-started/integrations/mobile/ios.md#attributes) documentation.
-* For **Linux**, **Crashpad**, **Qt**, **CMake**, and **Android,** BugSplat parses annotations as attributes. See the [Crashpad documentation](../../introduction/getting-started/integrations/cross-platform/crashpad/#initialization) for more info on how to add annotations.
+* For **Linux**, **Crashpad**, **Qt**, **CMake**, and **Android,** BugSplat parses annotations as attributes. See the [Crashpad documentation](../../introduction/getting-started/integrations/desktop/crashpad#initialization) for more info on how to add annotations.
 
 For any issues or inquiries, please reach out to us at support@bugsplat.com. Our team is dedicated to helping you optimize your BugSplat integration and ensuring your application's crash reporting performs seamlessly.

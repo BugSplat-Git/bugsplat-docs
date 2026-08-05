@@ -18,7 +18,7 @@ sudo apt-get install build-essential
 sudo apt-get install clang
 ```
 
-Next, you will need to build and integrate Crashpad with your application. For a step-by-step guide on how to build and integrate Crashpad please see this [doc](../cross-platform/crashpad/).
+Next, you will need to build and integrate Crashpad with your application. For a step-by-step guide on how to build and integrate Crashpad please see this [doc](crashpad).
 
 Once you've built and integrated Crashpad, you must ensure that your application is built with symbolic information and a build identifier. Symbolic information is required to map the stack trace in the minidump to function names and line numbers in your application's source. A build identifier is required so that `minidump_stackwalk` can match modules loaded at runtime with the corresponding `.sym` file.
 

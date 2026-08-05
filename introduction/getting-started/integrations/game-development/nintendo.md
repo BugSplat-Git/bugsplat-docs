@@ -1,8 +1,8 @@
-# Nintendo Switch
+# Nintendo Switch 2
 
-BugSplat enables developers to automatically track crashes in Nintendo Switch games during development and production.
+BugSplat enables developers to automatically track crashes in Nintendo Switch 2 games during development and production.
 
-Access to BugSplat’s Nintendo Switch support is available exclusively to certified Nintendo developers. To get started, follow these steps:
+Access to BugSplat’s Nintendo Switch 2 support is available exclusively to certified Nintendo developers. To get started, follow these steps:
 
 1. **Verify Your Developer Status**\
    Log in to your Nintendo Developer account at [https://developer.nintendo.com/](https://developer.nintendo.com/), and navigate to the **Switch > Middleware** section.\
