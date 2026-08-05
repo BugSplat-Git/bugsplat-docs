@@ -14,6 +14,6 @@ Docs to help you and your team more easily manage your BugSplat account and team
 [permanently-deleting-a-company-account.md](permanently-deleting-a-company-account.md)
 {% endcontent-ref %}
 
-{% content-ref url="../introduction/permanently-deleting-a-user-account.md" %}
-[permanently-deleting-a-user-account.md](../introduction/permanently-deleting-a-user-account.md)
+{% content-ref url="../user-management/permanently-deleting-a-user-account.md" %}
+[permanently-deleting-a-user-account.md](../user-management/permanently-deleting-a-user-account.md)
 {% endcontent-ref %}

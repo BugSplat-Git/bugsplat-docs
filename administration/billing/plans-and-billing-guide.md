@@ -12,7 +12,7 @@ Check out our full Plans Page here -> [https://www.bugsplat.com/pricing/](https:
 
 This guide is for users interested in upgrading to a paid account and BugSplat account holders looking to upgrade to a larger plan or manage their current one.
 
-Note that only [non-restricted users](../introduction/user-permissions.md) can change billing settings. If you cannot view these pages, please request access from a non-restricted team member.
+Note that only [non-restricted users](../user-management/user-permissions.md) can change billing settings. If you cannot view these pages, please request access from a non-restricted team member.
 
 Do you have questions about plans and billing? Please contact sales at [sales@bugsplat.com](mailto:sales@bugsplat.com), via our in-app chat, or ask us a question on [Discord](https://discord.com/invite/K4KjjRV5ve).
 

@@ -4,7 +4,7 @@ Enhance your organization's security and user management capabilities with our S
 
 SSO not only centralizes user management but also fortifies security by reducing the number of attack vectors and potential password vulnerabilities.&#x20;
 
-In addition to SSO, BugSplat also supports federated authentication using Google or GitHub sign-in. This feature is available on all plans and is controlled by individual users. Organizations cannot use it to centralize user management.  Learn more [here](password-settings-and-reset-options/).
+In addition to SSO, BugSplat also supports federated authentication using Google or GitHub sign-in. This feature is available on all plans and is controlled by individual users. Organizations cannot use it to centralize user management.  Learn more [here](password-settings-and-reset-options).
 
 ## SSO Authentication&#x20;
 
