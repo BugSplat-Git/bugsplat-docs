@@ -1,4 +1,4 @@
-# Full Setup Guide
+# 👀 Full Setup Guide
 
 Getting up and running with BugSplat is a well-documented, straightforward process that thousands of developers have followed. There are two ways to start:
 

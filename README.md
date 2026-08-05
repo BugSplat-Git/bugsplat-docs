@@ -1,23 +1,23 @@
 ---
 description: >-
   BugSplat is the developer's toolbox for finding, understanding, and fixing
-  crashes. Start here — integrate crash reporting and see your first report in
+  crashes. Start here to integrate crash reporting and see your first report in
   minutes.
 ---
 
 # Welcome
 
-When your application crashes in the field, BugSplat captures what you need to understand it — a symbolicated call stack, the runtime environment, and the custom attributes you attach — and presents it in a familiar debugger view. You can triage a production crash as if it happened on your own machine, ship more stable software, and spend less time supporting it.
+When your application crashes in the field, BugSplat captures what you need to understand it: a symbolicated call stack, the runtime environment, and the custom attributes you attach, all presented in a familiar debugger view. You can triage a production crash as if it happened on your own machine, ship more stable software, and spend less time supporting it.
 
 ## 🚀 Start here
 
-The fastest way to see BugSplat in action is to post a **sample crash** — no code required. It takes about five minutes.
+The fastest way to see BugSplat in action is to post a **sample crash**, no code required. It takes about five minutes.
 
 {% content-ref url="introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md" %}
 [quickly-submitting-your-first-crash-in-under-5-minutes.md](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 {% endcontent-ref %}
 
-Ready to wire up your own application? The **Full Setup Guide** walks you through it — sign up, create a database, integrate your platform, and verify your first real crash.
+Ready to wire up your own application? The **Full Setup Guide** walks you through it: sign up, create a database, integrate your platform, and verify your first real crash.
 
 {% content-ref url="introduction/getting-started/" %}
 [getting-started](introduction/getting-started/)
@@ -25,7 +25,7 @@ Ready to wire up your own application? The **Full Setup Guide** walks you throug
 
 ## 💻 Integrate your platform
 
-Pick your platform and follow its SDK guide. (Each guide assumes you've already [created a database](introduction/getting-started/create-a-new-database-in-bugsplat.md) — it takes about 30 seconds.)
+Pick your platform and follow its SDK guide. (Each guide assumes you've already [created a database](introduction/getting-started/create-a-new-database-in-bugsplat.md), which takes about 30 seconds.)
 
 {% content-ref url="introduction/getting-started/integrations/desktop/" %}
 [desktop](introduction/getting-started/integrations/desktop/)
