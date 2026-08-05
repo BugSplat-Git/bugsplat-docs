@@ -4,7 +4,7 @@
 
 ## 🚀 Getting Started
 
-* [Full Setup Guide](introduction/getting-started/README.md)
+* [👀 Full Setup Guide](introduction/getting-started/README.md)
 * [🚀 Post Your First Crash in Five Minutes](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
 * [Signing Up](introduction/getting-started/signing-up-for-an-account-with-bugsplat.md)
 * [Creating a Database](introduction/getting-started/create-a-new-database-in-bugsplat.md)
