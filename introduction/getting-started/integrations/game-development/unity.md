@@ -76,7 +76,7 @@ Finally, provide a valid `BugSplatOptions` to `BugSplatManager`.
 
 ### ⌨️ Usage
 
-If you're using `BugSplatOptions` and `BugSplatManager`, BugSplat automatically configures an `Application.logMessageReceived` handler that will post reports when it encounters a log message of type `Exception`. You can also extend your BugSplat integration and [customize report metadata](https://github.com/BugSPlat-Git/bugsplat-unity#adding-metadata), [report exceptions in try/catch blocks](https://github.com/BugSPlat-Git/bugsplat-unity#trycatch-reporting), [prevent repeated reports](https://github.com/BugSPlat-Git/bugsplat-unity#preventing-repeated-reports), and [upload windows minidumps](https://github.com/BugSPlat-Git/bugsplat-unity#windows) from native crashes.
+If you're using `BugSplatOptions` and `BugSplatManager`, BugSplat automatically configures an `Application.logMessageReceived` handler that will post reports when it encounters a log message of type `Exception`. You can also extend your BugSplat integration and [customize report metadata](https://github.com/BugSPlat-Git/bugsplat-unity#adding-metadata), [report exceptions in try/catch blocks](https://github.com/BugSPlat-Git/bugsplat-unity#trycatch-reporting), [prevent repeated reports](https://github.com/BugSPlat-Git/bugsplat-unity#preventing-repeated-reports), and [capture native crashes on Windows](https://github.com/BugSPlat-Git/bugsplat-unity#-windows).
 
 #### Adding Metadata
 
@@ -188,28 +188,9 @@ bugsplat.ShouldPostException = (ex) =>
 
 #### Windows Minidumps (Crashes)
 
-BugSplat can be configured to upload Windows minidumps created by the `UnityCrashHandler`. BugSplat will automatically pull Unity Player symbols from the [Unity Symbol Server](https://docs.unity3d.com/Manual/WindowsDebugging.html).
+As of 5.0.0, Windows crashes are captured natively rather than by reading minidumps written by the `UnityCrashHandler`. See [🪟 Windows](#windows) for setup.
 
-The methods `PostCrash`, `PostMostRecentCrash`, and `PostAllCrashes` can be used to upload minidumps to BugSplat. We recommend running `PostAllCrashes` when your game launches.
-
-```csharp
-void Start()
-{
-    bugsplat = FindObjectOfType<BugSplatManager>().BugSplat;
-    StartCoroutine(bugsplat.PostAllCrashes());
-}
-```
-
-Each of the methods that post crashes to BugSplat also accepts a `MinidumpPostOptions` parameter and a `callback`. The usage of `MinidumpPostOptions` and `callback` are nearly identical to the `ExceptionPostOptions` example listed above.
-
-You can generate a test crash on Windows with any of the following methods.
-
-```
-Utils.ForceCrash(ForcedCrashCategory.Abort);
-Utils.ForceCrash(ForcedCrashCategory.AccessViolation);
-Utils.ForceCrash(ForcedCrashCategory.FatalError);
-Utils.ForceCrash(ForcedCrashCategory.PureVirtualFunction);
-```
+`PostCrash`, `PostMostRecentCrash`, and `PostAllCrashes` have been removed — unsent native crash reports upload automatically at startup, so no launch-time call is needed. `Post(FileInfo minidump)` still works on all platforms if you have your own minidump files to submit.
 
 #### Windows Symbols
 
@@ -322,6 +303,57 @@ The bugsplat-unity plugin supports native crash reporting on macOS via bugsplat-
 
 To configure crash reporting for macOS, set the `UseNativeCrashReportingForMac` and `UploadDebugSymbolsForMac` properties to `true` on your `BugSplatOptions` asset. For IL2CPP builds, BugSplat will upload dSYMs and `LineNumberMappings.json` for full symbolication.
 
+### 🪟 Windows
+
+The bugsplat-unity plugin supports native crash reporting on Windows via [BugSplat for Windows](../desktop/cplusplus/). Unlike the other platforms, Windows native crash reporting works with **both** the `Mono` and `IL2CPP` scripting backends, on x86 (32-bit), x64, and Windows-on-ARM (ARM64).
+
+To configure crash reporting for Windows, set the `UseNativeCrashReportingForWindows` property to `true` on your `BugSplatOptions` asset.
+
+When native crash reporting is enabled:
+
+* Native crashes are captured at crash time and uploaded immediately. Reports that can't be uploaded — for example, when the user is offline — are uploaded automatically on the next launch.
+* `Player.log` is attached to native crash reports automatically.
+* The BugSplat crash dialog is shown by default. Set `WindowsShowCrashDialog` to `false` to send reports silently.
+* At build time, BugSplat copies `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll` next to your game's executable. **These files are required for crash reporting and must ship alongside your executable in your installer.**
+
+For IL2CPP builds, BugSplat copies `LineNumberMappings.json` into the build and uploads it with your symbols, so IL2CPP-generated C++ frames symbolicate back to C# method names, file names, and line numbers.
+
+{% hint style="info" %}
+The native library is a standard `/MD` binary and depends on the Microsoft Visual C++ Redistributable (`vcruntime140.dll`, `msvcp140.dll`), which Unity Windows players already require. If it is missing, native crash reporting fails to initialize with an error in the log and .NET exception reporting continues to work.
+{% endhint %}
+
+#### Windows Error Reporting
+
+Some crashes terminate a process without giving any in-process code a chance to run — most commonly stack buffer overruns (`0xC0000409`, which is also what `__fastfail` produces) and heap corruption (`0xC0000374`). BugSplat's crash handler never sees these, so Windows Error Reporting hands them over instead. That is what `BugSplatWer.dll` is for.
+
+Two things must be true for it to work:
+
+1. `BugSplatWer.dll` sits next to your game's executable. The post-build step already does this.
+2. A machine-wide registry value names that DLL's full path. Under `HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules`, add a `REG_DWORD` whose **name** is the absolute path to the installed `BugSplatWer.dll`. The data is ignored. This lives in `HKLM`, so it requires administrator rights.
+
+**Your installer is responsible for the second step**, and for removing the value on uninstall:
+
+```batch
+reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "C:\Program Files\MyGame\BugSplatWer.dll" /t REG_DWORD /d 0 /f
+reg delete "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "C:\Program Files\MyGame\BugSplatWer.dll" /f
+```
+
+The value name must match the installed path exactly, using backslashes. Moving or reinstalling the game to a different folder silently disarms it.
+
+For local builds, use **BugSplat > Windows > Register WER Handler** in the Unity editor. It asks for your built player, writes the value elevated, and reads it back to confirm. **Check WER Handler Registration** reports the current state.
+
+At runtime, `bugsplat.WindowsWerEnabled` reports whether the handler registered. When it hasn't, BugSplat logs what will be missed and how to fix it — a warning in development builds, informational otherwise. All other crashes are reported normally either way.
+
+{% hint style="info" %}
+If registration appears to succeed but `WindowsWerEnabled` stays `false`, check your endpoint-protection software — `RuntimeExceptionHelperModules` is a known persistence location and some products monitor or block writes to it.
+{% endhint %}
+
+#### Windows Hang Detection
+
+Set `WindowsHangDetectionTimeoutMs` to a non-zero value to report hangs when your game's main thread stops responding for longer than the configured timeout. When a hang is detected, BugSplat captures a hang report, uploads it, and **terminates the hung process**.
+
+Hang detection is **disabled by default** (`0`) because long frames — loading screens, synchronous asset operations — can be falsely reported as hangs, and a false positive terminates your game. If you enable it, choose a timeout comfortably longer than your longest expected frame.
+
 ### 🧩 API
 
 The following API methods are available to help you customize BugSplat to fit your needs.
@@ -355,6 +387,9 @@ The following API methods are available to help you customize BugSplat to fit yo
 | SymbolUploadClientSecret          | An OAuth2 Client Secret value used for uploading [symbol files](https://docs.bugsplat.com/introduction/development/working-with-symbol-files) generated via BugSplat's [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page |
 | UseNativeCrashReportingForMac     | Should BugSplat enable native crash reporting on macOS                                                                                                                                                                                                  |
 | UploadDebugSymbolsForMac          | Should BugSplat upload dSYMs and LineNumberMappings.json for macOS builds                                                                                                                                                                                |
+| UseNativeCrashReportingForWindows | Should BugSplat enable native crash reporting on Windows. Works with both Mono and IL2CPP                                                                                                                                                               |
+| WindowsShowCrashDialog            | Show the BugSplat crash dialog when a native crash occurs on Windows (default). When disabled, reports are sent silently                                                                                                                                |
+| WindowsHangDetectionTimeoutMs     | Native hang detection timeout in milliseconds for Windows. 0 (default) disables hang detection                                                                                                                                                          |
 
 ### 💬 User Feedback
 
