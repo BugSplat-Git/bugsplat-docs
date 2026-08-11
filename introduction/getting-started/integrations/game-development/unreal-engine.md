@@ -140,9 +140,9 @@ BugSplat extracts metadata from the `CrashContext.runtime-xml` file attached to 
 
 The following XML fields, if created as child properties of `RuntimeProperties` or `GameData` can be used to set the specified BugSplat crash fields.
 
-<table><thead><tr><th width="374">Property</th><th>Description</th></tr></thead><tbody><tr><td>BugSplatApplicationKey</td><td>Sets the value of the crash Key field</td></tr><tr><td>BugSplatNotes</td><td>Sets the value of the crash Notes field</td></tr><tr><td>UserEmail</td><td>Sets the value of the crash Email field</td></tr><tr><td>UserName</td><td>Sets the value of the crash User field. The UserID URL parameter will take precedence if it is set.</td></tr></tbody></table>
+<table><thead><tr><th width="374">Property</th><th>Description</th></tr></thead><tbody><tr><td>BugSplatApplicationKey</td><td>Sets the value of the crash Key field</td></tr><tr><td>BugSplatDescription</td><td>Sets the value of the crash Description field</td></tr><tr><td>BugSplatNotes</td><td>Sets the value of the crash Notes field</td></tr><tr><td>UserEmail</td><td>Sets the value of the crash Email field</td></tr><tr><td>UserName</td><td>Sets the value of the crash User field. The UserID URL parameter will take precedence if it is set.</td></tr></tbody></table>
 
-All other properties will be parsed as [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md).
+The BugSplat properties are [reserved attribute names](../../../../education/how-tos/using-the-crash-attribute-feature.md#reserved-attribute-names) that work from any platform that sends attributes, not just Unreal's CrashContext XML. All other properties will be parsed as [Attributes](../../../../education/how-tos/using-the-crash-attribute-feature.md).
 
 <pre class="language-cpp"><code class="lang-cpp">#include "MyUnrealCrasherGameModeBase.h"
 #include "GenericPlatform/GenericPlatformCrashContext.h"
@@ -151,6 +151,7 @@ AMyUnrealCrasherGameModeBase::AMyUnrealCrasherGameModeBase()
 {
 <strong>    // BugSplat override fields for overriding values on the Crash Details page
 </strong>    FGenericCrashContext::SetGameData(TEXT("BugSplatApplicationKey"), TEXT("en-US"));
+    FGenericCrashContext::SetGameData(TEXT("BugSplatDescription"), TEXT("Crashed while loading level 2"));
     FGenericCrashContext::SetGameData(TEXT("BugSplatNotes"), TEXT("Development Build"));
     FGenericCrashContext::SetGameData(TEXT("UserEmail"), TEXT("fred@bugsplat.com"));
     FGenericCrashContext::SetGameData(TEXT("UserName"), TEXT("wonderfulmuffin27"));

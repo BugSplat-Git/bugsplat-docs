@@ -17,4 +17,16 @@ BugSplat supports user-defined metadata, also known as Custom Crash Attributes, 
 * For **Apple** platforms, refer to the [macOS](../../introduction/getting-started/integrations/desktop/macos.md)/[iOS](../../introduction/getting-started/integrations/mobile/ios.md#attributes) documentation.
 * For **Linux**, **Crashpad**, **Qt**, **CMake**, and **Android,** BugSplat parses annotations as attributes. See the [Crashpad documentation](../../introduction/getting-started/integrations/desktop/crashpad#initialization) for more info on how to add annotations.
 
+## Reserved Attribute Names
+
+A few attribute names are reserved. When a crash report includes an attribute with one of these names, BugSplat uses its value to set the corresponding first-class crash field instead of displaying it as a regular attribute. Reserved names work from any platform that sends attributes.
+
+| Attribute Name         | Crash Field |
+| ---------------------- | ----------- |
+| BugSplatUser           | User        |
+| BugSplatEmail          | Email       |
+| BugSplatApplicationKey | Key         |
+| BugSplatNotes          | Notes       |
+| BugSplatDescription    | Description |
+
 For any issues or inquiries, please reach out to us at support@bugsplat.com. Our team is dedicated to helping you optimize your BugSplat integration and ensuring your application's crash reporting performs seamlessly.
