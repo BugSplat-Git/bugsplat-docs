@@ -318,9 +318,9 @@ static bool IsMobile();
 
 A typical demo wiring binds a button's `OnClicked` to `GenerateHang` and its `Visibility` to a function returning `Visible` when `IsMobile` is true and `Collapsed` otherwise. After a hang, relaunch the app once. The report uploads in the background on init.
 
-#### Xbox and PlayStation
+#### Xbox, PlayStation, and Nintendo Switch 2
 
-BugSplat can provide instructions for implementing Unreal crash reporting on Xbox and PlayStation. Please email us at [support@bugsplat.com](mailto:support@bugsplat.com) for more info.
+BugSplat can provide instructions for implementing Unreal crash reporting on Xbox, PlayStation, and Nintendo Switch 2. Please email us at [support@bugsplat.com](mailto:support@bugsplat.com) for more info.
 
 ### 🏃 Usage
 
