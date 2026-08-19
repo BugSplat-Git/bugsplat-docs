@@ -128,6 +128,10 @@ You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash
 
 You will need to configure [Crashpad](../mobile/android.md) to capture Android crash reports. Additionally, you'll need to generate symbol files from your `.so` files for function names and line numbers to be included in crash reports. Symbol files can be generated and uploaded automatically by invoking [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) with the `-m` flag. Application Not Responding (ANR) events are reported automatically on Android 11+. See the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
 
+## Xbox, PlayStation, and Nintendo Switch 2 🎮
+
+BugSplat can provide instructions for implementing Unreal crash reporting on Xbox, PlayStation, and Nintendo Switch 2. Please email us at [support@bugsplat.com](mailto:support@bugsplat.com) for more info.
+
 ## Check, Verify, and Ensure Reporting ✅
 
 Unreal Engine's `check`, `verify`, and `ensure` macros can all send crash reports to BugSplat. Checks and Verifies report automatically since they terminate the application. Ensures require additional configuration: in Shipping builds, you'll need to set `bUseChecksInShipping = true` in your `*.Target.cs` file to keep them active.
