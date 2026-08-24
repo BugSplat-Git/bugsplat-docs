@@ -1,13 +1,13 @@
 # Quickly Submitting Your First Crash in Under 5 Minutes
 
 {% hint style="success" %}
-This is the **fast lane**: you'll post a _sample_ crash using the in-app onboarding tool, without writing any code, just to see BugSplat in action. When you're ready to send crashes from your own application, follow the full [Getting Started](README.md) guide.
+This is the **fast lane**: you'll post a _sample_ crash using the in-app Onboarding Tool, without writing any code, just to see BugSplat in action. When you're ready to send crashes from your own application, follow the full [Getting Started](README.md) guide.
 {% endhint %}
 
 Submitting a sample crash to your new BugSplat account is a quick and straightforward process that can be completed in under 5 minutes. Follow the steps below to get started easily:
 
 1. [Sign up ](https://app.bugsplat.com/v2/sign-up)for a new account
-2. Use the onboarding tool to create a new database
+2. Use the Onboarding Tool to create a new database
 3. Add tools and team members
 4. Select your first platform or SDK from our list of 25+ SDKs
 5. Select the "Post sample crash" button to skip the full integration process for now and post a sample crash
@@ -21,13 +21,13 @@ First, sign up for a free BugSplat account at [https://app.bugsplat.com/v2/sign-
 
 ### Step 2: Use the Onboarding Tool to Create a New Database
 
-After signing up, you'll be directed to the BugSplat onboarding tool. This tool is designed to make the setup process as seamless as possible. Follow the prompts to create a new database for your application, ensuring you have all the necessary information to set up crash reporting effectively.
+After signing up, you'll be directed to the BugSplat Onboarding Tool. This tool is designed to make the setup process as seamless as possible. Follow the prompts to create a new database for your application, ensuring you have all the necessary information to set up crash reporting effectively.
 
 <figure><img src="../../.gitbook/assets/post_sample_crash-2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Step 3: Add Tools and Team Members
 
-Before selecting a platform or SDK, use the onboarding tool to add your development tools and team members.
+Before selecting a platform or SDK, use the Onboarding Tool to add your development tools and team members.
 
 ### Step 4: Select Your First Platform or SDK
 
@@ -47,7 +47,7 @@ Once you've selected your platform or SDK, you'll be taken to our documentation 
 
 Congratulations! You've successfully submitted a sample crash to your new BugSplat account. Take a moment to explore your BugSplat account and discover the valuable data you can obtain from a crashed application. This data will empower you to identify and resolve issues in your software more efficiently, saving you time and energy in the long run.
 
-Remember, if you want to navigate back to the onboarding flow and complete the full integration process with BugSplat, you can do so at any time by clicking this link --> [https://app.bugsplat.com/v2/welcome](https://app.bugsplat.com/v2/welcome)
+Remember, if you want to navigate back to the Onboarding Tool and complete the full integration process with BugSplat, you can do so at any time by clicking this link --> [https://app.bugsplat.com/v2/welcome](https://app.bugsplat.com/v2/welcome)
 
 <figure><img src="../../.gitbook/assets/post_sample_crash-5.png" alt="" width="563"><figcaption></figcaption></figure>
 
