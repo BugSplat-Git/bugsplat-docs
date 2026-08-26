@@ -3,22 +3,28 @@
 ## Overview 👀
 
 {% hint style="info" %}
-Want to see a sample Electron application integrated with BugSplat? Check out [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)!
+Want to see a sample Electron application integrated with BugSplat? Check out the [example app](https://github.com/BugSplat-Git/bugsplat-electron/tree/main/example) that ships with `@bugsplat/electron`, or [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)!
 {% endhint %}
 
-BugSplat supports the collection of both [electron.crashReporter](https://www.electronjs.org/docs/api/crash-reporter) (native) and [node.js](../web/node.js.md) crash reports. Native crashes are generated via [Crashpad](https://github.com/chromium/crashpad) and BugSplat requires symbol files in order to calculate the call stack.
+BugSplat's [`@bugsplat/electron`](https://github.com/BugSplat-Git/bugsplat-electron) package collects everything an Electron app can fail with, from a single `init()` call in the main process:
 
-BugSplat will automatically resolve Electron framework symbol files when calculating call stacks. However, if your application includes native add-ons or is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you will need to upload application-specific symbol files to see full native call stacks. All symbol files must be uploaded to BugSplat via [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), [symupload](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation), or manually via the [Versions page](https://app.bugsplat.com/v2/versions). More information about uploading symbol files to BugSplat can be found [here](crashpad/how-to-build-google-crashpad.md#uploading-symbols).
+* **Native crashes** in every process (main, renderers, GPU, utility processes and native addons) as [Crashpad](https://github.com/chromium/crashpad) minidumps. BugSplat resolves Electron's own symbol files automatically.
+* **JavaScript errors** in the main process and in every renderer. Renderer reports travel to the main process over IPC, so no Content Security Policy changes are required.
+* **Renderer hangs**, with the JavaScript call stack that was running when the page stopped responding.
+* **Out-of-memory crashes**, with the JavaScript stack, heap statistics and OOM location as searchable attributes (Electron 42.10.1 and later).
+* **One identity everywhere**: the user, email, application key, description and attributes you set in main or in a renderer are applied to native crash keys in every process and to every JavaScript report.
 
-BugSplat-node can also be used to collect [uncaughtException](https://nodejs.org/api/process.html#process\_event\_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process\_event\_unhandledrejection) events in your application's JavaScript code.
+`@bugsplat/electron` supports Electron 35 and later. It replaces the previous two-step integration of `electron.crashReporter` plus [bugsplat-node](../cross-platform/node.js.md); see [Upgrading](#upgrading-from-crashreporter-and-bugsplat-node) below if you use that today.
 
-## Native (C++) Crash Reporting ⚙️&#x20;
+## Installation 🏗
 
-Configure [electron.crashReporter](https://github.com/electron/electron/blob/master/docs/api/crash-reporter.md) to upload crash reports to BugSplat using the following steps. BugSplat will automatically download Electron and Electron Framework symbol files. If your application uses [Native Node Modules](https://www.electronjs.org/docs/latest/tutorial/using-native-node-modules), you will need to generate and upload symbol files to resolve call stacks correctly.
+Install the package:
 
-### Update Package.json
+```bash
+npm i @bugsplat/electron
+```
 
-Add a `database` property with the value of your BugSplat database to `package.json`. Be sure to replace `your-bugsplat-database` with the actual value of your BugSplat database.
+Add a `database` property with the value of your BugSplat database to `package.json`. Be sure to replace `your-bugsplat-database` with the actual value of your BugSplat database:
 
 ```json
 {
@@ -27,185 +33,164 @@ Add a `database` property with the value of your BugSplat database to `package.j
 }
 ```
 
-### Configure Crash Reporter
+## Configuration ⚙️
 
-Next, call `crashReporter.start` as shown in the example below. You may optionally pass globalExtra values for `key`, `email`, `comments`, `notes`, and `ipAddress`.
+### Main process
 
-Note that the `globalExtra` fields will be sent with crashes captured on all processes:
-
-```javascript
-const { crashReporter } = require("electron");
-const { database, name, version } = require("../../package.json");
-crashReporter.start({
-  submitURL: `https://${database}.bugsplat.com/post/electron/v2/crash.php`,
-  ignoreSystemCrashHandler: true,
-  uploadToServer: true,
-  rateLimit: false,
-  globalExtra: {
-    "product": name,
-    "version": version,
-    "key": "en-US",
-    "email": "fred@bugsplat.com",
-    "comments": "BugSplat rocks!",
-  }
-})
-```
-
-For more information on configuring `electron.crashReporter` including adding properties to individual processes, please see the [Electron crashReporter documentation](https://www.electronjs.org/docs/latest/api/crash-reporter).
-
-### Generate a Crash
-
-Generate a crash in one of the Electron processes to test your BugSplat integration:
+Call `init` at the top level of your main script, before `app.whenReady()`:
 
 ```typescript
-process.crash()
+import { init } from '@bugsplat/electron';
+
+const { database, name, version } = require('./package.json');
+
+const bugsplat = init({ database, application: name, version });
+
+bugsplat.setUser('fred@bedrock.com');
+bugsplat.setAttribute('plan', 'pro');
 ```
 
-### View BugSplat Crash Report
+`init` starts Electron's `crashReporter` with BugSplat's submit URL, hooks `uncaughtException` and `unhandledRejection`, registers BugSplat's preload script in every session, and listens for renderer hangs and process exits. It never throws, and it is safe to call once.
 
-Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat. You should see a new crash report for your application. Click the link in the **ID** column to see details about your crash on the [Crash](https://app.bugsplat.com/v2/crash?id=1) page:
+### Renderer
+
+Add one line to your renderer code:
+
+```typescript
+import { init } from '@bugsplat/electron/renderer';
+
+init();
+```
+
+If your renderer has no bundler, load the global build instead and call `BugSplatElectron.init()`:
+
+```html
+<script src="./vendor/renderer.global.js"></script>
+<script>
+    BugSplatElectron.init();
+</script>
+```
+
+Copy `node_modules/@bugsplat/electron/dist/renderer.global.js` next to your page at build time.
+
+### Options
+
+Everything except `database` is optional. The most commonly used options are:
+
+```typescript
+init({
+    database: 'fred',
+    application: 'my-electron-app',      // defaults to app.name
+    version: '1.2.3',                    // defaults to app.getVersion()
+    appKey: 'en-US',                     // sent as `key` on native reports
+    user: 'Fred',
+    email: 'fred@bedrock.com',
+    description: 'Description!',         // sent as `comments` on native reports
+    attributes: { plan: 'pro' },         // searchable attributes on every report
+    additionalFilePaths: ['app.log'],    // attached to main-process JS reports
+    main: { exitOnUncaughtException: true },
+    transport: 'net',                    // send JS reports through Electron's proxy-aware net.fetch
+});
+```
+
+The [README](https://github.com/BugSplat-Git/bugsplat-electron#configuration) documents every option, including `native` (the `crashReporter.start` options), `preload`, `processGone`, `unresponsive` and `beforePost`.
+
+The client returned by `init` exposes the same API in the main process and in renderers:
+
+```typescript
+bugsplat.setAppKey(appKey);           // Additional metadata that can be queried via BugSplat's web application
+bugsplat.setUser(user);               // The name or id of your user
+bugsplat.setEmail(email);             // The email of your user
+bugsplat.setDescription(description); // A description that can be overridden at post time
+bugsplat.setAttribute(key, value);    // Searchable key/value attributes
+bugsplat.post(error, options);        // Posts an arbitrary Error object; resolves { error, response, original }
+bugsplat.postFeedback(title, options); // Posts user feedback
+```
+
+## Generate a Crash 💥
+
+Throw an error in the main process or in a renderer:
+
+```typescript
+throw new Error('BugSplat!');
+```
+
+Generate a native crash in any process:
+
+```typescript
+process.crash();
+```
+
+## View BugSplat Crash Report
+
+Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat. You should see new crash reports for your application. Click the link in the **ID** column to see details about your crash on the [Crash](https://app.bugsplat.com/v2/crash?id=1) page:
 
 <figure><img src="../../../../.gitbook/assets/image (34).png" alt=""><figcaption><p>Electron Native Crashes</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (35).png" alt=""><figcaption><p>Electron Native Crash</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>TypeScript Error in Main Process</p></figcaption></figure>
 
-### Optional: Upload Native Addon Symbols
+## How it works 🔬
 
-If your application uses a [node native addon](https://nodejs.org/api/addons.html), you must generate and upload symbols for each binary and for every build.
+| Failure                                                                                            | Captured by                                                                | Arrives at BugSplat as                                          |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Native crash (main, renderer, GPU, utility, `.node` addon)                                         | Electron `crashReporter` (Crashpad)                                        | Minidump with native call stacks and your crash keys            |
+| JavaScript error in main                                                                           | `uncaughtException` / `unhandledRejection`                                 | JavaScript report                                               |
+| JavaScript error in a renderer                                                                     | `window` `error` / `unhandledrejection` → preload bridge → IPC → main      | JavaScript report with the renderer call stack, URL and title   |
+| Renderer hang                                                                                      | `unresponsive` + `WebFrameMain.collectJavaScriptCallStack()`               | `RendererUnresponsive` report grouped by the hung JS frame      |
+| Renderer out of memory                                                                             | Electron ≥ 42 writes `electron.v8-oom.*` crash keys                        | Minidump with `electron.v8-oom.stack` and heap statistics       |
+| Renderer/child process exit without a minidump (`abnormal-exit`, `launch-failed`, `integrity-failure`) | `render-process-gone` / `child-process-gone`                          | `RenderProcessGone` / `ChildProcessGone` report                 |
 
-Use [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md#improving-upload-speeds-1) and the `-m` argument to generate and upload `.sym` files from your application binaries automatically. You can run symbol-upload without any arguments to view all available options.
+A native crash report contains native frames from the minidump; JavaScript frames come from the hang and OOM mechanisms above or from JavaScript reports. Electron does not provide a single interleaved native + JavaScript stack, so a crash inside a native addon shows the native stack only.
 
-```bash
-npx @bugsplat/symbol-upload -u you@email.com -p password -d ./dist -f "**/*.node" -m
-```
+## Renderer setup 🖥️
 
-Alternatively, you can add a build step to generate and upload `.sym` files for your node native addon using standard Breakpad tools. To generate symbol files, you can run [dump\_syms](crashpad/how-to-build-google-crashpad.md#generating-symbols) with a path to a `.node` file after the Node Native Module build or rebuild step if you're using a tool like [electron-rebuild](https://github.com/electron/electron-rebuild). Once you've generated a `.sym` file for your `.node` native module, the `.sym` file can be uploaded via [symupload](crashpad/how-to-build-google-crashpad.md#uploading-symbols), or manually on the [Versions](https://app.bugsplat.com/v2/versions?database=Fred) page.
-
-Verify that your node native addon `.sym` files show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Be sure to upload symbols for each released version of your application. Integrate [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) or [symupload](crashpad/how-to-build-google-crashpad.md#uploading-symbols) into your build and release processes for best results.
-
-## JavaScript/TypeScript Error Reporting 💥
-
-To configure reporting of JavaScript or TypeScript errors in your main and renderer processes, please see our [node.js](../web/node.js.md) documentation for installing and configuring [bugsplat-node](https://github.com/BugSplat-Git/bugsplat-node).
-
-{% content-ref url="../web/node.js.md" %}
-[node.js.md](../web/node.js.md)
-{% endcontent-ref %}
-
-### Installing bugsplat-node
-
-Install bugsplat-node via the following command:
-
-```bash
-npm i bugsplat-node
-```
-
-### Configuration
-
-Next `import` or `require` BugSplat in both your main and renderer threads.
+* Electron's default sandbox and context isolation are fully supported. BugSplat's preload is registered automatically with `session.registerPreloadScript`; you don't need to change your own preload.
+* No `connect-src` entry in your Content Security Policy is required: renderer reports are posted by the main process.
+* **Hang call stacks** require the page to opt in with the `Document-Policy: include-js-call-stacks-in-crash-reports` response header. Pages loaded with `loadFile` (`file://`) can't set headers, so serve your UI from a custom scheme and add the header with the `withJsCallStackPolicy` helper:
 
 ```typescript
-import { BugSplatNode as BugSplat } from "bugsplat-node"
-const bugsplat = new BugSplat(database, name, version)
+import { withJsCallStackPolicy } from '@bugsplat/electron';
+
+protocol.handle('app', async (request) => {
+    const response = await net.fetch(pathToFileURL(fileFor(request.url)).toString());
+    return new Response(response.body, {
+        headers: withJsCallStackPolicy({ 'content-type': 'text/html' }),
+    });
+});
 ```
 
-In addition to the configuration demonstrated above, there are a few public methods that can be used to customize your BugSplat integration:
+* If your renderer is built with React or Angular, keep using [@bugsplat/react](../web/react.md) or [bugsplat-ng](../web/angular.md) for component-tree errors. The renderer client is a `BugSplat` instance, so `@bugsplat/react`'s `ErrorBoundary` can reuse it via `scope={{ getClient }}`.
 
-```typescript
-bugsplat.setDefaultAppKey(appKey); // Additional metadata that can be queried via BugSplat's web application
-bugsplat.setDefaultUser(user); // The name or id of your user
-bugsplat.setDefaultEmail(email); // The email of your user 
-bugsplat.setDefaultDescription(description); // A description placeholder that can be overridden at crash time
-bugsplat.setDefaultAdditionalFilePaths([paths]); // Paths to files to be sent to BugSplat at post time (limit 10MB) 
-bugsplat.postAndExit(error, options); // Wrapper for post that calls process.exit(1) after posting error to BugSplat
-bugsplat.post(error, options); // Async function that posts an arbitrary Error object to BugSplat
-// If the values options.appKey, options.user, options.email, options.description, options.additionalFilePaths are set the corresponding default values will be overwritten
-// Returns a promise that resolves with properties: error (if there was an error posting to BugSplat), response (the response from the BugSplat crash post API), and original (the error passed by bugsplat.post)
-```
+## Symbols and source maps 🗺️
 
-### Main Thread
+BugSplat automatically resolves Electron and Electron Framework symbol files. Upload symbols for the parts of your application that you build yourself with [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), for every released version.
 
-Create an error handler for `uncaughtExceptions` and `unhandledPromise` rejections. We recommend you quit your application in the event of an `uncaughtException` or `unhandledPromiseRejection`. You may also want to add code to display a message to your user here:
-
-```typescript
-const javaScriptErrorHandler = async (error) => {
-  await bugsplat.post(error);
-  app.quit();
-}
-```
-
-Add the error handler created above to `uncaughtException` and `unhandledPromiseRejection` events:
-
-```typescript
-process.on('unhandledRejection', javaScriptErrorHandler)
-process.on('uncaughtException', javaScriptErrorHandler)
-```
-
-### Renderer Thread
-
-Many Electron applications run multiple node.js processes. For instance, the [electron-quick-start](https://github.com/electron/electron-quick-start) application runs both a [main](https://github.com/electron/electron-quick-start/blob/master/main.js) and a [renderer](https://github.com/electron/electron-quick-start/blob/master/renderer.js) process. You must require `bugsplat` in each process you want to capture errors. To capture errors in the renderer process, add the following to renderer.js:
-
-Reloading or quitting the application is sometimes desirable when an error occurs in the renderer process. The following is an example of how to invoke the main process from the renderer and quit your application in the case of an unhandled exception in the renderer:
-
-[renderer.ts](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/src/renderer.ts)
-
-```typescript
-window.onerror = async (messageOrEvent, source, lineno, colno, error) => {
-await bugsplat.post(error)
-  ipcRenderer.send('rendererCrash')
-}
-```
-
-[main.ts](https://github.com/BugSplat-Git/my-electron-crasher/blob/master/src/main.ts)
-
-```typescript
-import { ipcMain } from "electron";
-ipcMain.on('rendererCrash', function () {
-  // Display an error and reload or quit the app here
-})
-```
-
-Test BugSplat by throwing a new error in either the main or renderer process:
-
-```typescript
-throw new Error("BugSplat!");
-```
-
-You may see the following error in the console:
-
-<pre><code><strong>Refused to connect to 'https://fred.bugsplat.com/post/js/' because it violates the following Content Security Policy directive: "default-src 'self'". 
-</strong></code></pre>
-
-If you see this error, modify your index.html file to allow report upload from the renderer process:
-
-```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' https://your-database.bugsplat.com 'unsafe-eval'"/>
-```
-
-### Uploading Source Maps
-
-If you're using TypeScript or another language that compiles to JavaScript, BugSplat can map uglified and minified JavaScript function names, file names, and line numbers back to their original values via [source maps](../../../development/working-with-symbol-files/source-maps.md).
-
-To upload source maps, add a symbol-upload script that uploads all your build's `.js.map` files:
+Source maps let BugSplat map minified JavaScript function names, file names and line numbers back to their original values:
 
 ```json
 {
-  ...
-  "scripts": {
-    "upload-source-maps": "npx @bugsplat/symbol-upload -u you@email.com -p password -d ./dist -f \"**/*.js.map\""
-  }
+    "scripts": {
+        "upload-source-maps": "npx @bugsplat/symbol-upload -i $SYMBOL_UPLOAD_CLIENT_ID -s $SYMBOL_UPLOAD_CLIENT_SECRET -d ./dist -f \"**/*.js.map\""
+    }
 }
 ```
 
-### Viewing Error Reports
+If your application uses a [node native addon](https://nodejs.org/api/addons.html), generate and upload Breakpad symbols from each binary with the `-m` argument:
 
-Run your application and generate an error report. Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat to view reports for the application you just configured. Click the link in the **ID** column to see details about your crash on the [Crash](https://app.bugsplat.com/v2/crash?id=1) page:
+```bash
+npx @bugsplat/symbol-upload -i $SYMBOL_UPLOAD_CLIENT_ID -s $SYMBOL_UPLOAD_CLIENT_SECRET -d ./dist -f "**/*.node" -m
+```
 
-<figure><img src="../../../../.gitbook/assets/image (36).png" alt=""><figcaption><p>TypeScrpt Error on Crashes Page</p></figcaption></figure>
+Verify that your symbols show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Create client credentials on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page.
 
-<figure><img src="../../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>TypeScript Error in Main Process</p></figcaption></figure>
+## Upgrading from crashReporter and bugsplat-node 📢
 
-That’s it! Your Electron application is now configured to upload crash reports to BugSplat.
+If your app calls `crashReporter.start` and creates `BugSplatNode` clients itself, replace both with `init`:
+
+* Remove your `crashReporter.start({ submitURL: 'https://<database>.bugsplat.com/post/electron/v2/crash.php', globalExtra: { product, version, key, email, comments } })` call: `init` starts the crash reporter with the same endpoint and sends `product`/`version` for you. Move `key`, `email` and `comments` to the `appKey`, `email` and `description` options so they can change at runtime.
+* Remove `bugsplat-node` and your `uncaughtException`/`unhandledRejection` handlers in main; `init` installs them. Set `main: { exitOnUncaughtException: true }` if you quit after an error today.
+* Remove the `bugsplat` client and `window.onerror` handler from each renderer and call `init()` from `@bugsplat/electron/renderer` instead; you can also drop the `connect-src https://<database>.bugsplat.com` CSP entry.
 
 ## Contributing 🤝
 
-BugSplat loves open-source software! If you have suggestions on how we can improve this integration, please reach out to support@bugsplat.com, create an [issue](https://github.com/BugSplat-Git/bugsplat-node/issues) in our [GitHub repo](https://github.com/BugSplat-Git/bugsplat-node) or send us a [pull request](https://github.com/BugSplat-Git/bugsplat-node/pulls).
+BugSplat loves open-source software! If you have suggestions on how we can improve this integration, please reach out to support@bugsplat.com, create an [issue](https://github.com/BugSplat-Git/bugsplat-electron/issues) in our [GitHub repo](https://github.com/BugSplat-Git/bugsplat-electron) or send us a [pull request](https://github.com/BugSplat-Git/bugsplat-electron/pulls).
