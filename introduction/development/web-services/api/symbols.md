@@ -16,7 +16,7 @@ This endpoint returns one row per symbol file. To list symbol stores grouped by 
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/symbols`
 
-Returns the symbol files uploaded to a given database. This query supports paging, filtering, and sorting. All of the property keys in the Rows object can be used as column values for filtering and sorting, e.g., application, version, moduleName, size, etc. Results are sorted by `lastModified` unless a `sortdatafield` is supplied.
+Returns the symbol files uploaded to a given database. This query supports paging, filtering, and sorting. All of the property keys in the rows object can be used as column values for filtering and sorting, e.g., application, version, moduleName, size, etc. Results are sorted by `lastModified` unless a `sortdatafield` is supplied.
 
 #### Query Parameters
 
@@ -28,9 +28,9 @@ Returns the symbol files uploaded to a given database. This query supports pagin
 {% tab title="200 " %}
 ```json
 {
-  "Database": "fred",
-  "PageData": null,
-  "Rows": [
+  "database": "fred",
+  "pageData": [],
+  "rows": [
     {
       "application": "myConsoleCrasher",
       "version": "1.0.0",
@@ -39,7 +39,7 @@ Returns the symbol files uploaded to a given database. This query supports pagin
       "s3Bucket": "bugsplat-symbols",
       "symbolType": "Windows",
       "guid": "1254DF350E094F4582BB32676F926259",
-      "size": "1047851",
+      "size": 1047851,
       "lastModified": "2025-11-01T00:31:20Z",
       "lastAccessed": "2025-11-02T14:07:55Z",
       "moduleName": "myConsoleCrasher.pdb",
@@ -62,7 +62,7 @@ Returns the symbol files uploaded to a given database. This query supports pagin
 | s3Bucket     | string | Storage bucket holding the symbol file. May be null for older uploads.                                   |
 | symbolType   | string | Type of symbol file, for example `Windows`. May be null or `Unknown` if the type could not be determined. |
 | guid         | string | Debug identifier used to match the symbol file to a module in a crash report. May be null.               |
-| size         | string | Size of the symbol file in bytes.                                                                        |
+| size         | number | Size of the symbol file in bytes.                                                                        |
 | lastUploaded | string | Date the symbol file was last uploaded. May be null for older uploads.                                   |
 | lastModified | string | Date the symbol file record was last modified. May be null for older uploads.                             |
 | lastAccessed | string | Date the symbol file was last used to symbolicate a crash. Used to determine [symbol expiry](../../working-with-symbol-files/managing-symbol-storage.md). May be null. |
@@ -86,4 +86,6 @@ curl --location 'https://app.bugsplat.com/api/v2/symbols?database=fred&sortdataf
 #### Deprecation Note
 
 This endpoint was previously available at `https://app.bugsplat.com/api/symbolDetails`. That route still works but is deprecated and may be removed in the future. Use `https://app.bugsplat.com/api/v2/symbols` moving forward.
+
+The deprecated route returns the same rows under a capitalized `Database`, `PageData`, and `Rows` envelope, and returns `size` as a string rather than a number.
 {% endhint %}
