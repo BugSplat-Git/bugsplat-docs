@@ -42,6 +42,10 @@ Most API endpoints support a "database={name}" parameter to specify which BugSpl
 [support-response.md](support-response.md)
 {% endcontent-ref %}
 
+{% content-ref url="symbols.md" %}
+[symbols.md](symbols.md)
+{% endcontent-ref %}
+
 {% content-ref url="user-gdpr.md" %}
 [user-gdpr.md](user-gdpr.md)
 {% endcontent-ref %}

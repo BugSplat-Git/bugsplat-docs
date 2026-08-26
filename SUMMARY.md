@@ -135,6 +135,7 @@
   * [Events](introduction/development/web-services/api/events.md)
   * [Import/Migrate](introduction/development/web-services/api/import-migrate.md)
   * [Support Response](introduction/development/web-services/api/support-response.md)
+  * [Symbols](introduction/development/web-services/api/symbols.md)
   * [User (GDPR)](introduction/development/web-services/api/user-gdpr.md)
   * [Users](introduction/development/web-services/api/users.md)
   * [Versions](introduction/development/web-services/api/versions.md)
