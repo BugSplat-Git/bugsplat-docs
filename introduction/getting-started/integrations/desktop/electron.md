@@ -3,7 +3,7 @@
 ## Overview 👀
 
 {% hint style="info" %}
-Want to see a sample Electron application integrated with BugSplat? Check out the [example app](https://github.com/BugSplat-Git/bugsplat-electron/tree/main/example) that ships with `@bugsplat/electron`, or [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)!
+Want to see a sample Electron application integrated with BugSplat? Check out the [example app](https://github.com/BugSplat-Git/bugsplat-electron/tree/main/example) that ships with `@bugsplat/electron`!
 {% endhint %}
 
 BugSplat's [`@bugsplat/electron`](https://github.com/BugSplat-Git/bugsplat-electron) package collects everything an Electron app can fail with, from a single `init()` call in the main process:
