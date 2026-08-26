@@ -12,11 +12,15 @@ Get a list of the individual symbol files that have been uploaded to a database.
 
 This endpoint returns one row per symbol file. To list symbol stores grouped by application and version, along with their crash counts and retired/full dump flags, use the [Versions](versions.md) endpoint instead.
 
+{% hint style="warning" %}
+Do not confuse this endpoint with the legacy `https://app.bugsplat.com/api/symbols` route. Despite the similar name, `/api/symbols` is a deprecated alias for the [Versions](versions.md) endpoint and returns symbol stores grouped by application and version, not individual symbol files.
+{% endhint %}
+
 ## Get Symbols
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/v2/symbols`
 
-Returns the symbol files uploaded to a given database. This query supports paging, filtering, and sorting. All of the property keys in the rows object can be used as column values for filtering and sorting, e.g., application, version, moduleName, size, etc. Results are sorted by `lastModified` unless a `sortdatafield` is supplied.
+Returns the symbol files uploaded to a given database. This query supports paging, filtering, and sorting. All of the property keys on the row objects returned in `rows` can be used as column values for filtering and sorting, e.g., application, version, moduleName, size, etc. Results are sorted by `lastModified` unless a `sortdatafield` is supplied.
 
 #### Query Parameters
 
