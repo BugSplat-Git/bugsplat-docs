@@ -1,12 +1,14 @@
 ---
-description: How to upload symbol files to BugSplat with symbol-upload, covering CLI usage, authentication, dSYM, self-hosted symbol servers, and GitHub Actions
+description: >-
+  How to upload symbol files to BugSplat with symbol-upload, covering CLI usage,
+  authentication, dSYM, self-hosted symbol servers, and GitHub Actions
 ---
 
 # Upload Symbols with symbol-upload
 
 ## Overview 👀
 
-Symbol-upload is a cross-platform application that automatically uploads [symbol files](README.md) as part of your build process and is the successor of [SendPdbs](sendpdbs-legacy.md). Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
+Symbol-upload is a cross-platform application that automatically uploads [symbol files](./) as part of your build process and is the successor of [SendPdbs](sendpdbs-legacy.md). Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
 
 {% hint style="info" %}
 Uploaded symbols but still seeing missing function names or line numbers? See [Why are crashes missing symbols?](../../../education/faq/why-are-crashes-missing-symbols-function-names-and-or-line-numbers.md) to diagnose.
@@ -71,13 +73,7 @@ Usage
                                          working directory.                                                            
   -v, --version string                   Your application's version. If not provided symbol-upload will attempt to use 
                                          the value of the version field in package.json if it exists in the current    
-                                         working directory.                                                            
-  -u, --user string (optional)           The email address used to log into your BugSplat account. If provided         
-                                         --password must also be provided. This value can also be provided via the     
-                                         SYMBOL_UPLOAD_USER environment variable.                                      
-  -p, --password string (optional)       The password for your BugSplat account. If provided --user must also be       
-                                         provided. This value can also be provided via the SYMBOL_UPLOAD_PASSWORD      
-                                         environment variable.                                                         
+                                         working directory.                                                                                                                   
   -i, --clientId string (optional)       An OAuth2 Client Credentials Client ID for the specified database. If         
                                          provided --clientSecret must also be provided. This value can also be         
                                          provided via the SYMBOL_UPLOAD_CLIENT_ID environment variable.                
@@ -94,11 +90,7 @@ Usage
   -m, --dumpSyms boolean (optional)      Use dump_syms to generate and upload sym files for specified binaries.        
   -l, --localPath string (optional)      Path to a directory to copy symbols to. If provided, the files will be copied   
                                          to the provided path instead of being uploaded to BugSplat. Useful for        
-                                         creating a self-hosted symbol server.                                         
-
-  The -u and -p arguments are not required if you set the environment variables 
-  SYMBOL_UPLOAD_USER and SYMBOL_UPLOAD_PASSWORD, or provide a clientId and      
-  clientSecret.                                                                 
+                                         creating a self-hosted symbol server.                                                                                                       
                                                                                 
   The -i and -s arguments are not required if you set the environment variables 
   SYMBOL_UPLOAD_CLIENT_ID and SYMBOL_UPLOAD_CLIENT_SECRET, or provide a user    
@@ -107,8 +99,7 @@ Usage
 Example
 
   symbol-upload -b your-bugsplat-database -a your-application-name -v your-     
-  version [ -f "*.js.map" -d "/path/to/containing/dir" [ -u your-bugsplat-email 
-  -p your-bugsplat-password ] OR [ -i your-client-id -s your-client-secret] ]   
+  version -f "*.js.map" -d "/path/to/containing/dir" -i your-client-id -s your-client-secret 
 
 Links
 
@@ -124,14 +115,14 @@ Links
 The following is an example of how to invoke symbol-upload and search a directory recursively for `.dll`, `.pdb`, and `.exe` files. Replace the values of `your-bugsplat-database`, `your-email`, and `your-password` with your BugSplat database, email, and password. You can specify a [glob](https://github.com/isaacs/node-glob) for the `-f` argument to match for files based on a pattern.
 
 ```bash
-symbol-upload -b your-bugsplat-database -a my-awesome-app -v 1.0 -u your-email -p your-password -d "/path/to/build -f "**/*.+(exe|dll|pdb)"
+symbol-upload -b your-bugsplat-database -a my-awesome-app -v 1.0 -i your-clientId -s your-clientSecret -d "/path/to/build -f "**/*.+(exe|dll|pdb)"
 ```
 
 You can use the `-r` flag to remove a symbol store instead of uploading. This is helpful when you create a new build but don't want to increment the build number.
 
 ### Authentication
 
-Credentials can be provided to symbol-upload via the `-u` and `-p` command-line arguments. OAuth2 Client ID and Client Secret credentials can also be provided for authentication via the `-i` and `-s` arguments and are created on the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.
+OAuth2 Client ID and Client Secret credentials are required via the `-i` and `-s` arguments and are created on the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.  Note that you only need the 'Symbols' scope.  We no longer accept username/password for symbol uploads.
 
 ### Apple <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
 
