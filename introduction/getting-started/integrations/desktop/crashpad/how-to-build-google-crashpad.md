@@ -166,7 +166,7 @@ bool initializeCrashpad() {
   unique_ptr<CrashReportDatabase> database = CrashReportDatabase::Initialize(reportsDir);
   if (database == NULL) return false;
 
-  // File paths of attachments to be uploaded with the minidump file at crash time - default upload limit is 2MB
+  // File paths of attachments to be uploaded with the minidump file at crash time - default upload limit is 100MB
   vector<FilePath> attachments;
   FilePath attachment(exeDir + "/path/to/attachment.txt");
   attachments.push_back(attachment);

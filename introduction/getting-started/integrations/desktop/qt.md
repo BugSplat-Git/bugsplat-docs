@@ -208,7 +208,7 @@ bool initializeCrashpad(QString dbName, QString appName, QString appVersion)
     if (settings == NULL) return false;
     settings->SetUploadsEnabled(true);
 
-    // Attachments to be uploaded alongside the crash - default bundle size limit is 20MB
+    // Attachments to be uploaded alongside the crash - default bundle size limit is 100MB
     std::vector<FilePath> attachments;
     FilePath attachment(Paths::getPlatformString(crashpadPaths.getAttachmentPath()));
     attachments.push_back(attachment);
