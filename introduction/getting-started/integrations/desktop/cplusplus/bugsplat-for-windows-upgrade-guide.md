@@ -6,9 +6,17 @@ description: Upgrading from versions of BugSplat for Windows prior to 7.0.0
 
 The BugSplat Windows/Xbox SDK underwent a significant upgrade in version 7.0.0. Customers upgrading from earlier versions can use this guide to assist their migration.&#x20;
 
+{% hint style="danger" %}
+**Read [Update your installer](#update-your-installer) before you ship.** The crash dialog now lives in `BugSplatReporter.exe`, a **new file** that did not exist in earlier releases, and `BugSplatRc.dll` no longer exists at all. If you update the SDK binaries without updating your installer, crash reports keep arriving — but **the crash dialog silently stops appearing**, and your users are never asked what they were doing.
+{% endhint %}
+
 ### Architecture Changes
 
-BsSndRpt.exe has been replaced by BugSplatMonitor.exe. When BugSplat is initialized, `BugSplatMonitor.exe` is launched and is responsible for generating minidump files from the primary application process. The monitor executable also displays a dialog prompting the user for additional information related to a crash, and sends the report to BugSplat.
+BsSndRpt.exe has been replaced by BugSplatMonitor.exe. When BugSplat is initialized, `BugSplatMonitor.exe` is launched and is responsible for generating minidump files from the primary application process.
+
+Once the crash is captured, the monitor launches `BugSplatReporter.exe --report <folder>`, which displays the dialog prompting the user for additional information and sends the report to BugSplat. Capture and reporting are separate processes: the monitor owns the minidump, WER integration and hang detection, and the reporter owns the dialog and the upload. See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for the full flow.
+
+Because the reporter reads its appearance from `theme\theme.json` and its text from `theme\strings.en-US.json` at runtime, `BugSplatRc.dll` — the resource-only DLL that used to hold the dialog templates and artwork — has been removed. Customizations that were made by editing `.rc` files and rebuilding that DLL do not carry forward and need to be re-expressed as JSON. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
 
 BugSplat now integrates with the local WER service to capture crashes that cannot be caught by application code.  Crashes that can only be handled via a WER callback include fast-fail errors and certain types of memory overwrites. A new module, `BugSplatWer.dll`, must be installed with your application and configured in the registry to enable WER integration. Note that when WER handles an exception, there is no opportunity for application code to participate in the crash report. As a result, code in the Global Exception Filter is not executed.
 
@@ -45,13 +53,36 @@ Add the `/GS` compiler flag to both Debug and Release configurations to enable c
 
 Link with `BugSplat.lib` .
 
-Copy `BugSplatMonitor.exe`, `BugSplatWer.dll,` and `BugSplatRc.dll` to your executable folder
+Copy `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` to your executable folder.
 
 ### Installer Changes
 
-#### **Redistributable Files**
+#### **Update your installer**
 
-Your installer must install `BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSplatRc.dll`.  There is no longer a `BsSndRpt.exe` to install. These files should all be located in the same directory as your primary executable.
+Your installer must install `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`. These files should all be located in the same directory as your primary executable.
+
+Relative to earlier releases, that means two changes:
+
+| Change | File | Why |
+| --- | --- | --- |
+| ➕ **Add** | `BugSplatReporter.exe` | The crash dialog, the progress window and the upload moved here out of `BugSplatMonitor.exe`. |
+| ➖ **Remove** | `BugSplatRc.dll` | The resource-only DLL is no longer built, and nothing loads it. The dialog's appearance and copy are now JSON, read at runtime. |
+| ➖ **Remove** | `BsSndRpt.exe` | Replaced by `BugSplatMonitor.exe` in 7.0.0. |
+
+Optionally also install the `theme` folder — `theme.json` and `strings.en-US.json` — next to `BugSplatReporter.exe`. It is only needed if you are customizing the dialog; the reporter carries a built-in copy of both files.
+
+{% hint style="danger" %}
+**Adding `BugSplatReporter.exe` is not optional, and forgetting it does not produce an error.** `BugSplatMonitor.exe` links the same uploader the reporter uses, so if the reporter isn't there it posts the report itself and your crashes keep arriving — without the dialog. Nobody is prompted for a description, no support response is shown, and the user is never given the chance to decline. The only signal is a line in the crash folder's `BugSplat.log`:
+
+```
+BugSplatReporter.exe not found next to BugSplatMonitor.exe - uploading in-process
+without the crash dialog. Add BugSplatReporter.exe to your installer.
+```
+
+After upgrading, force a crash on a machine that installed from your installer — not from your build output — and confirm the dialog appears.
+{% endhint %}
+
+No code changes are required for the reporter split. The API is unchanged, and neither executable is named anywhere in your source.
 
 #### **Registry Changes**
 

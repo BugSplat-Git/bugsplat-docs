@@ -1,6 +1,10 @@
 # Localized Support Responses for Windows C++, .NET, and macOS
 
-BugSplat's Support Response feature allows developers to display a localized message to their users at the time of a crash. The Support Response feature is currently supported by our [Windows C++](../../introduction/getting-started/integrations/desktop/cplusplus/), [.NET Framework](../../introduction/getting-started/integrations/desktop/windows-dot-net-framework.md), and [macOS](../../introduction/getting-started/integrations/desktop/macos.md) integrations and support for other platforms is coming soon. The following steps will allow you to create a localized Support Response message for all crashes in your database. These same steps can be applied to create localized [stack key specific Support Response](../../introduction/production/setting-up-custom-support-responses.md#creating-a-crash-specific-support-response) messages as well.
+BugSplat's Support Response feature allows developers to display a localized message to their users at the time of a crash.
+
+{% hint style="info" %}
+**This is about the support message, not the dialog's own text.** The words on the Windows crash dialog itself — labels, buttons, body copy — come from `theme\strings.<bcp47>.json`, and `BugSplatReporter.exe` picks the file matching the end user's own Windows UI language with no configuration at all. The key described below is a separate thing: it is a value **you** choose and set in code, and it selects which support response your database returns. See [Crash Dialog Branding](../how-tos/customize-the-crash-dialog.md#adding-a-language) for translating the dialog.
+{% endhint %} The Support Response feature is currently supported by our [Windows C++](../../introduction/getting-started/integrations/desktop/cplusplus/), [.NET Framework](../../introduction/getting-started/integrations/desktop/windows-dot-net-framework.md), and [macOS](../../introduction/getting-started/integrations/desktop/macos.md) integrations and support for other platforms is coming soon. The following steps will allow you to create a localized Support Response message for all crashes in your database. These same steps can be applied to create localized [stack key specific Support Response](../../introduction/production/setting-up-custom-support-responses.md#creating-a-crash-specific-support-response) messages as well.
 
 ## Step 1
 
@@ -22,8 +26,18 @@ In the code you use to initialize BugSplat, provide the value you used for key f
 
 **Windows C++**
 
-```text
-mpSender = new MiniDmpSender(L"Fred", L"myConsoleCrasher", L"1.0", L"es-ES", MDSF_USEGUARDMEMORY | MDSF_LOGFILE | MDSF_PREVENTHIJACKING);
+The key is set with `SetKey` after the `BugSplat` instance is constructed.
+
+```cpp
+BugSplat g_BugSplat(L"Fred", L"myConsoleCrasher", L"1.0");
+g_BugSplat.SetKey(L"es-ES");
+```
+
+If you're using the dynamic library and the C API, call `BugSplat_SetKey` instead:
+
+```cpp
+BugSplat_Init(L"Fred", L"myConsoleCrasher", L"1.0");
+BugSplat_SetKey(L"es-ES");
 ```
 
 **.NET**
