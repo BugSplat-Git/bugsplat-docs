@@ -9,7 +9,7 @@ Questions? Please get in touch with us via [Discord](https://discord.gg/K4KjjRV5
 | Android       | [my-android-crasher](https://github.com/BugSplat-Git/my-android-crasher)                   |
 | Angular       | [my-angular-crasher](https://github.com/BugSplat-Git/bugsplat-ng)                          |
 | CMake         | [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad)                     |
-| Electron      | [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)                 |
+| Electron      | [bugsplat-electron example](https://github.com/BugSplat-Git/bugsplat-electron/tree/main/example)                 |
 | iOS           | [BugSplatTester](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)    |
 | Java          | [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher) |
 | macOS         | [BugSplatTester](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)    |

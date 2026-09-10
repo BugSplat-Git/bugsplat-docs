@@ -18,7 +18,7 @@
   * [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad)
   * [my-cmake-crasher](https://github.com/BugSplat-Git/my-cmake-crasher)
   * [MyDotnetCrasher (.NET)](introduction/getting-started/posting-a-test-crash/my-dotnet-crasher/README.md)
-  * [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)
+  * [bugsplat-electron example](https://github.com/BugSplat-Git/bugsplat-electron/tree/main/example)
   * [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher)
   * [my-node-crasher](https://github.com/BugSplat-Git/my-node-crasher)
   * [my-qt-crasher](https://github.com/BugSplat-Git/my-qt-crasher)
