@@ -17,12 +17,18 @@ The SDK is organized per platform (`win32`, `x64`, `ARM64`) and configuration (`
 | Folder | Contents |
 | --- | --- |
 | `BugSplat\inc` | `BugSplat.h` (C++ API) and `BugSplatC.h` (C API) |
-| `BugSplat\<platform>\<config>\bin` | Runtime files that ship next to your executable: `BugSplatMonitor.exe`, `BugSplatRc.dll`, `BugSplatWer.dll`, and `BugSplat.dll` |
+| `BugSplat\<platform>\<config>\bin` | Runtime files that ship next to your executable: `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`, plus an optional `theme` folder |
 | `BugSplat\<platform>\<config>\lib\md` | Static `BugSplat.lib` built with `/MD` (dynamic CRT) |
 | `BugSplat\<platform>\<config>\lib\mt` | Static `BugSplat.lib` built with `/MT` (static CRT) |
 | `BugSplat\<platform>\<config>\lib\dll` | Import library for `BugSplat.dll` |
 
 Link exactly one `BugSplat.lib` from the `lib` subfolder that matches your link model and runtime library setting, and ship the contents of `bin` with your application (`BugSplat.dll` is only needed if you link the import library).
+
+The `theme` folder holds `theme.json` and `strings.en-US.json`, which `BugSplatReporter.exe` reads at runtime to decide how the crash dialog looks and what it says. It is optional — the reporter has a built-in copy of both — but ship it if you want to rebrand or reword the dialog. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
+
+{% hint style="info" %}
+Curious how these four files fit together, or debugging a report that arrived without a dialog? See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md).
+{% endhint %}
 
 To get a feel for the BugSplat service before enabling your application, feel free to experiment with the [MyConsoleCrasher sample application](../../../posting-a-test-crash/myconsolecrasher-c-plus-plus/), which is included as part of the software development kit and is also available on [GitHub](https://github.com/BugSplat-Git/Samples/tree/main/Samples/MyConsoleCrasher). For a native desktop application example, see the [MyCrasher sample](https://github.com/BugSplat-Git/Samples/tree/main/Samples/MyCrasher), an ATL/MFC Windows app.
 
@@ -35,13 +41,13 @@ For WinUI 3 applications, BugSplat must be registered as a WER [RuntimeException
 Add BugSplat to your application using the following steps:
 
 1. Link with **`BugSplat.lib`**  by adding an entry to `Linker > Input > Additional Dependencies`, and add the matching folder to `Linker > General > Additional Library Directories`: `lib\md` if your application builds with `/MD` (the Visual Studio default), or `lib\mt` if it builds with `/MT`.
-2. Add **`BugSplatMonitor.exe`**, **`BugSplatWer.dll`**, and **`BugSplatRc.dll`** (from the SDK's `bin` folder) to your application's installer.
+2. Add **`BugSplatMonitor.exe`**, **`BugSplatReporter.exe`**, and **`BugSplatWer.dll`** (from the SDK's `bin` folder) to your application's installer, along with the `theme` folder if you're customizing the dialog.
 3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-for-windows-upgrade-guide.md#registry-changes).
 
 <figure><img src="../../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-BugSplat's runtime files (`BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSplat.dll` if you use the dynamic library) depend on the **Visual C++ 2015–2022 runtime**: `MSVCP140.dll`, `VCRUNTIME140.dll`, and `VCRUNTIME140_1.dll` on x64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. If they're absent, your application will run normally but crash reporting will fail. End users may see a "MSVCP140.dll was not found" error at crash time.
+BugSplat's runtime files (`BugSplatMonitor.exe`, `BugSplatReporter.exe`, `BugSplatWer.dll`, and `BugSplat.dll` if you use the dynamic library) depend on the **Visual C++ 2015–2022 runtime**: `MSVCP140.dll`, `VCRUNTIME140.dll`, and `VCRUNTIME140_1.dll` on x64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. If they're absent, your application will run normally but crash reporting will fail. End users may see a "MSVCP140.dll was not found" error at crash time.
 
 This applies even if your own application doesn't need the Visual C++ runtime (for example, if it's built with `/MT`). Make sure your installer either:
 
@@ -79,7 +85,7 @@ The SDK also ships as a dynamic library, **`BugSplat.dll`**, with a flat C API d
 To integrate the dynamic library, follow the steps above with these differences:
 
 1. Link with the import library **`lib\dll\BugSplat.lib`** instead of a static `BugSplat.lib`, and include **`BugSplatC.h`** instead of `BugSplat.h`.
-2. Ship **`BugSplat.dll`** alongside your executable, in addition to `BugSplatMonitor.exe`, `BugSplatWer.dll`, and `BugSplatRc.dll`.
+2. Ship **`BugSplat.dll`** alongside your executable, in addition to `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`.
 3. Initialize BugSplat with the C API:
 
 ```cpp
@@ -110,7 +116,11 @@ If everything was configured correctly, you should see a crash report that looks
 
 #### Crash Dialog
 
-Instructions for modifying the default crash dialog can be found on the [Windows Dialog Box](../../../../../education/how-tos/customize-the-crash-dialog.md) page.
+The dialog is shown by `BugSplatReporter.exe`, which `BugSplatMonitor.exe` launches once the crash has been captured. It reads its colours, type, layout and copy from the `theme` folder at runtime, so customizing it means editing JSON rather than rebuilding anything. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md), and [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for the process split.
+
+{% hint style="warning" %}
+If crash reports arrive but no dialog ever appears, `BugSplatReporter.exe` is almost certainly missing from your install folder. The monitor uploads the report itself in that case and logs the reason to `BugSplat.log`.
+{% endhint %}
 
 ## User Feedback
 
