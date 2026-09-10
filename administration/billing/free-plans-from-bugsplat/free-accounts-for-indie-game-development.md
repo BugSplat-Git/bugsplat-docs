@@ -28,6 +28,14 @@ If your studio has shipped revenue-generating titles, has outside funding or com
 
 We recognize that indie game projects come with their own set of unique challenges. If your project's demands exceed the resources provided by the Indie Game Plan, we encourage you to reach out to us at hi@bugsplat.com. In special circumstances, we may be able to adjust your crash volume or storage space. Keep in mind, though, that if your needs consistently outstrip the base resources, exploring our paid plans may be the next step to ensuring your project's ongoing support.
 
+#### Get Your Game Featured
+
+One of our favorite parts of supporting indie developers is sharing what they're building. We regularly sit down with Indie Game Plan developers for interviews about their games and how they make them, and share those stories on the BugSplat blog and across our social channels.
+
+It's an easy way to get your game in front of other developers and players, and the community gets a behind-the-scenes look at how real indie games come together. We'll talk about whatever you're excited about: your game, your tools, your team, and the problems you've solved along the way.&#x20;
+
+If you'd like to be featured, mention it when you apply or reach out anytime at [hi@bugsplat.com](mailto:hi@bugsplat.com).
+
 #### **Connect with Us on Discord**
 
 Join our Discord community to engage with a network of fellow indie developers and the BugSplat team. It's a great place to share experiences, seek advice, and find inspiration. Become part of our supportive environment by connecting with us at [BugSplat Discord Community](https://discord.gg/K4KjjRV5ve).
