@@ -1,6 +1,6 @@
 # Free Crash Reporting for Indie Game Development
 
-At BugSplat, we are passionate about empowering indie game developers navigating the complexities of game development on limited budgets. To support your creativity and hard work, we've introduced the Indie Game Plan, offering a free year of our Team Plan features to help you bring your vision to life.
+At BugSplat, we are love helping indie game developers navigating the complexities of game development on limited budgets. To support your creativity and hard work, we've introduced the Indie Game Plan, offering a free year of our Team Plan features to help you bring your vision to life.
 
 **Indie Game Plan: A Year of Free Support**
 
@@ -10,6 +10,19 @@ Tailored for indie developers without the backing of funded studios, the Indie G
 * **Access to key Team Plan features**, like intelligent crash grouping, automated symbol uploads, GitHub integration, and email notifications, all designed to streamline your development process.
 
 This plan is our way of supporting the initial stages of your game development journey, ensuring you have access to essential debugging tools without the financial burden.
+
+#### Who the Indie Game Plan is for
+
+The Indie Game Plan is for independent developers working toward their first commercial release. You're a good fit if:
+
+* You're a solo developer or a small team (generally around 5 people or fewer)
+* Your studio is self-funded, with no publisher, investor, or commercial partner backing
+* You haven't earned revenue from a shipped title yet
+* You're building a game
+
+#### Who it isn't for
+
+If your studio has shipped revenue-generating titles, has outside funding or commercial partners, does client or work-for-hire development, or has a larger team, our paid plans are the right fit. They're built for that stage, and we're happy to help you pick one. \[link to pricing]
 
 #### **Special Circumstances and Resource Expansion**
 
@@ -36,6 +49,6 @@ With the Indie Game Plan, BugSplat is committed to making your game development 
 To get started with the Indie Game Development Free Tier Plan, follow the below steps:
 
 1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up).
-2. Follow the [Gettings Started](../../../introduction/getting-started/) docs to set up your account.
-3. Send us an email at [hi@bugsplat.com](mailto:hi@bugsplat.com) asking for the Education Free Plan. Make sure to include a bit telling us about your game project.
-4. Gain approval and get access to the Indie Game Development Free Plan. 
+2. Follow the [Getting Started](../../../introduction/getting-started/) docs to set up your account.
+3. Email hi@bugsplat.com and ask for the Indie Game Plan. Tell us about your game, your team size, how your studio is funded, and whether you've shipped anything yet.
+4. We'll review your request and follow up. Approval isn't automatic currently.  
