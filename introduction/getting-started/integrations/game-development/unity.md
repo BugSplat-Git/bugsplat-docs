@@ -68,6 +68,8 @@ BugSplat's Unity integration is flexible and can be used in various ways. The ea
 
 Configure fields as appropriate. Note that if Application or Version are left empty, `BugSplat` will default these values to `Application.productName` and `Application.version`, respectively.
 
+Exceptions thrown in the editor are not uploaded by default, so play mode errors never reach the database you ship with. Check **PostExceptionsInEditor** on the options asset (or set `bugsplat.PostExceptionsInEditor = true` in code) while you verify your integration.
+
 <figure><img src="../../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 
 Finally, provide a valid `BugSplatOptions` to `BugSplatManager`.
@@ -348,7 +350,7 @@ The following API methods are available to help you customize BugSplat to fit yo
 | CaptureEditorLog                  | Should BugSplat upload Editor.log when Post is called                                                                                                                                                                                                  |
 | CapturePlayerLog                  | Should BugSplat upload Player.log when Post is called                                                                                                                                                                                                  |
 | CaptureScreenshots                | Should BugSplat a screenshot and upload it when Post is called                                                                                                                                                                                         |
-| PostExceptionsInEditor            | Should BugSplat upload exceptions when in editor                                                                                                                                                                                                       |
+| PostExceptionsInEditor            | Should BugSplat upload exceptions when in editor. Defaults to false so play mode exceptions stay out of your database                                                                                                                                   |
 | PersistentDataFileAttachmentPaths | Paths to files (relative to Application.persistentDataPath) to upload with each report                                                                                                                                                                 |
 | ShouldPostException               | Settable guard function that is called before each BugSplat report is posted                                                                                                                                                                           |
 | SymbolUploadClientId              | An OAuth2 Client ID value used for uploading [symbol files](https://docs.bugsplat.com/introduction/development/working-with-symbol-files) generated via BugSplat's [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page     |
