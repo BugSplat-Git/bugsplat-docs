@@ -73,7 +73,11 @@ Here is that value shown highlighted in the registry editor for one of our sampl
 
 <figure><img src="../../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-By default, WER will stop creating crash dumps after it has seen a few of the same type. To disable this, create the following registry key:&#x20;
+#### **Optional: Suppressing WER Local Dumps**
+
+The `LocalDumps` registry values described in this section are **optional**. BugSplat's WER integration works fully with only the `RuntimeExceptionHelperModules` entry above. BugSplat does not read the dump files that WER writes: when WER hands a crash to `BugSplatWer.dll`, `BugSplatMonitor.exe` writes its own minidump directly from the crashed process, using the minidump type configured via `SetMiniDumpType`, and uploads that file.
+
+If [WER local dump collection](https://learn.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps) is enabled on a machine, WER will also write its own copy of each crash dump, typically under `%LOCALAPPDATA%\CrashDumps`. To prevent this duplicate dump for your application, create the following registry key:&#x20;
 
 ```
 Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\{Application Name}
@@ -81,11 +85,13 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\L
 
 Add the following values under the new key you created:
 
-<table><thead><tr><th width="197.11328125">Registry Key Setting</th><th width="358.19921875">Description</th><th>Value</th></tr></thead><tbody><tr><td>DumpType</td><td>Sets the type of dump to create.</td><td>0</td></tr><tr><td>DumpCount</td><td>Sets the maximum number of dumps.</td><td>0</td></tr></tbody></table>
+<table><thead><tr><th width="197.11328125">Registry Key Setting</th><th width="358.19921875">Description</th><th>Value</th></tr></thead><tbody><tr><td>DumpType</td><td>Sets the type of dump WER creates. <code>0</code> selects a custom dump controlled by <code>CustomDumpFlags</code>.</td><td>0</td></tr><tr><td>DumpCount</td><td>Sets the maximum number of dump files WER keeps for the application. <code>0</code> prevents WER from retaining its own dumps.</td><td>0</td></tr></tbody></table>
 
 Here's an example of this shown in the registry editor:
 
 <figure><img src="../../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-For additional information, see [https://learn.microsoft.com/en-us/windows/win32/wer/wer-settings](https://learn.microsoft.com/en-us/windows/win32/wer/wer-settings)
+If local dump collection is not enabled on the machine, omitting this key has no effect on BugSplat.
+
+For additional information, see [WER Settings](https://learn.microsoft.com/en-us/windows/win32/wer/wer-settings) and [Collecting User-Mode Dumps](https://learn.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps).
 
