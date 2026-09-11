@@ -1,41 +1,48 @@
 ---
 description: >-
   Add crash, hang, and user-feedback reporting to a modern .NET (net8.0 / net10.0)
-  Windows app with the BugSplatDotNet SDK
+  application with the BugSplatDotNet SDK
 ---
 
-# BugSplat for Windows (.NET)
+# BugSplat for .NET
 
 {% hint style="info" %}
-This is the SDK for **modern .NET on Windows** (.NET 8 / .NET 10). For the classic .NET
-Framework SDK see [.NET Framework](windows-dot-net-framework.md); for the cross-platform managed
-transport see [.NET Standard](dot-net-standard.md).
+This is the SDK for **modern .NET** (.NET 8 / .NET 10). For the classic .NET Framework SDK see
+[.NET Framework](windows-dot-net-framework.md); for the cross-platform managed transport this SDK
+builds on, see [.NET Standard](dot-net-standard.md).
 {% endhint %}
 
 ### Overview 👀
 
-`BugSplatDotNet` gives a .NET Windows application the same crash coverage as the native
-[BugSplat for Windows (C++)](cplusplus/README.md) SDK, plus managed exception reporting. It
-combines two complementary layers behind one `BugSplat` class:
+`BugSplatDotNet` combines two complementary layers behind one `BugSplat` class:
 
-* **Native (`BugSplat.dll`)** — installs the native unhandled-exception filter and the WER
-  handler and spawns `BugSplatMonitor.exe` on a genuine hardware/native fault (access violation,
-  fail-fast, stack overflow, corrupted heap, or a crash inside P/Invoke). The CLR never surfaces
-  these as managed exceptions, so a managed-only reporter cannot see them.
 * **Managed (`BugSplatDotNetStandard`)** — posts unhandled managed `Exception`s (with their C#
-  stack traces) that the native filter never receives.
+  stack traces). This layer is **cross-platform**.
+* **Native (`BugSplat.dll`)** — on **Windows**, installs the native unhandled-exception filter
+  and the WER handler and spawns `BugSplatMonitor.exe` on a genuine hardware/native fault (access
+  violation, fail-fast, stack overflow, corrupted heap, or a crash inside P/Invoke) — crashes the
+  CLR never surfaces as managed exceptions. It also captures mixed **C#/C++** crashes as a single,
+  unified stack that crosses the managed/native boundary.
 
-Because the two layers cover different crash classes, a mixed **C#/C++** crash — managed code
-that P/Invokes into native code that faults — is captured as a single, unified call stack that
-crosses the managed/native boundary.
+### Platform support
+
+| Platform | Managed exception reporting | Native crash capture |
+| --- | --- | --- |
+| **Windows (x64)** | ✅ | ✅ full — hard faults, hangs, WER fail-fasts, mixed-mode C#/C++ |
+| **Linux / macOS** | ✅ via [`BugSplatDotNetStandard`](dot-net-standard.md) | 🚧 on the [roadmap](#roadmap) |
+
+Modern .NET runs everywhere, and native crash capture is currently implemented on **Windows**. On
+other platforms you get managed exception reporting today; native capture is tracked on the
+[roadmap](#roadmap) below. The Windows-specific steps in this guide (shipping the native runtime,
+configuring WER) apply only where native capture is available.
 
 ### Getting Started 🚦
 
-The SDK and three sample apps live in the
+The SDK and its Windows sample apps live in the
 [bugsplat-windows](https://github.com/BugSplat-Git/bugsplat-windows) repository under
 `BugSplatDotNet/` and `Samples/`. Reference `BugSplatDotNet.csproj` from your app (or copy the
-files listed in `BugSplatDotNetFiles.txt`). The SDK is **x64** — it links the native
-`BugSplat.dll`, which ships x64.
+files listed in `BugSplatDotNetFiles.txt`). The Windows native layer is **x64** — it links the
+native `BugSplat.dll`, which ships x64.
 
 ### 1. Initialize
 
@@ -54,7 +61,7 @@ In a WinUI 3 / XAML app, also forward UI-thread exceptions:
 UnhandledException += (s, e) => { App.BugSplat.Post(e.Exception).GetAwaiter().GetResult(); };
 ```
 
-### 2. Ship the native runtime
+### 2. Ship the native runtime (Windows)
 
 BugSplat captures crashes **out-of-process**: `BugSplat.dll` spawns `BugSplatMonitor.exe` from
 the application's own directory, so these files **must sit next to your executable** at run time:
@@ -107,6 +114,19 @@ sample's `native-*` / `cpp-throw` modes exercise every boundary-crossing shape a
 | `MiniDumpType` | Dump shape for native captures (defaults to a heap dump). |
 | `IsWerEnabled` | Whether the WER helper is registered (see step 3). |
 | `QuietMode` | Suppress the native crash dialog (still uploads). |
+
+### Roadmap
+
+Native crash capture is implemented on Windows today. Cross-platform support is tracked in
+[bugsplat-windows](https://github.com/BugSplat-Git/bugsplat-windows), where the SDK lives:
+
+* Guard the native P/Invoke by OS + managed-only fallback off Windows — [#173](https://github.com/BugSplat-Git/bugsplat-windows/issues/173)
+* Native crash capture on Linux — [#174](https://github.com/BugSplat-Git/bugsplat-windows/issues/174)
+* Native crash capture on macOS — [#175](https://github.com/BugSplat-Git/bugsplat-windows/issues/175)
+* Ship as a NuGet package with per-RID native assets — [#176](https://github.com/BugSplat-Git/bugsplat-windows/issues/176)
+* Cross-platform sample + CI matrix — [#177](https://github.com/BugSplat-Git/bugsplat-windows/issues/177)
+
+Until those land, use `BugSplat.Post(exception)` for managed exception reporting on Linux/macOS.
 
 ### Sample apps
 

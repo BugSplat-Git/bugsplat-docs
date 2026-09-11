@@ -8,7 +8,7 @@ description: >-
 
 `MyDotNetWinUI3Crasher` is a WinUI 3 (.NET 10) sample that reports crashes, non-fatal errors, and
 user feedback with the
-[BugSplat for Windows (.NET)](../../integrations/desktop/bugsplat-for-windows-dot-net.md)
+[BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md)
 (`BugSplatDotNet`) SDK. It is the GUI companion to the headless
 [MyDotNetCrasher](../mydotnetcrasher-native-managed/README.md).
 
@@ -42,7 +42,7 @@ Add a `REG_DWORD` value **named with the full path** to the `BugSplatWer.dll` ne
 exe (value data `0`) under
 `HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules` (requires
 administrator rights). See the
-[integration guide](../../integrations/desktop/bugsplat-for-windows-dot-net.md) for details.
+[integration guide](../../integrations/desktop/bugsplat-for-dot-net.md) for details.
 
 ### 3. Post a test crash
 

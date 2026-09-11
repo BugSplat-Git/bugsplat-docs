@@ -7,7 +7,7 @@ description: >-
 # MyDotNetCrasher (.NET)
 
 `MyDotNetCrasher` is a headless .NET 10 console sample that reports crashes with the
-[BugSplat for Windows (.NET)](../../integrations/desktop/bugsplat-for-windows-dot-net.md)
+[BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md)
 (`BugSplatDotNet`) SDK. It exercises **both** capture layers — the managed reporter for C#
 exceptions and the native handler for hard faults — including a full set of **mixed-mode C#/C++**
 crashes that cross the managed/native boundary.
@@ -73,7 +73,7 @@ dotnet run -- native-thread         # native background-thread fault
 ```
 
 **WER-class** modes (fail-fasts captured only when WER is configured — see the
-[integration guide](../../integrations/desktop/bugsplat-for-windows-dot-net.md)):
+[integration guide](../../integrations/desktop/bugsplat-for-dot-net.md)):
 
 ```
 dotnet run -- native-fastfail        # __fastfail
