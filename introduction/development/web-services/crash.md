@@ -111,6 +111,7 @@ Commits the uploaded crash file for processing by BugSplat.
 | crashTime                                    | string | Timestamp of when the crash occurred (ISO format). Default: current time                 |
 | attributes                                   | string | JSON string of custom attributes to associate with the crash                             |
 | crashHash                                    | string | Hash of the crash for deduplication purposes                                             |
+| environment                                  | string | OS and hardware the app was running on, e.g. `Windows 11 10.0.26200 x64` or `Android 14 (API 34) arm64-v8a; Google Pixel 8`. Sent automatically by the native SDKs (9.x); up to 255 characters |
 
 {% tabs %}
 {% tab title="200: OK" %}
