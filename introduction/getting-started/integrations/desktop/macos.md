@@ -1,5 +1,9 @@
 # macOS
 
+{% hint style="info" %}
+This is bugsplat-apple 2.x, the shipping macOS SDK. Its successor on the cross-platform, out-of-process core is [BugSplat Native 9.0 for macOS](../native/macos.md) (bugsplat-apple 9.0), currently being brought up.
+{% endhint %}
+
 ### Introduction 👋
 
 BugSplat.xcframework enables posting crash reports from iOS, macOS, and Mac Catalyst applications to BugSplat. Visit [bugsplat.com](https://www.bugsplat.com/) for more information and to sign up for an account.

@@ -1,5 +1,9 @@
 # Android
 
+{% hint style="info" %}
+This is bugsplat-android 1.x, the shipping Android SDK. Its successor on the cross-platform core is [BugSplat Native 9.0 for Android](../native/android.md) (bugsplat-android 9.0), currently being brought up.
+{% endhint %}
+
 ### Introduction 👋
 
 The `bugsplat-android` library enables posting native crash reports, Application Not Responding (ANR) events, and user feedback to BugSplat from Android devices. Visit [bugsplat.com](https://www.bugsplat.com/) for more information and to sign up for an account.

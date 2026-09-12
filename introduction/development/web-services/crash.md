@@ -126,6 +126,20 @@ Commits the uploaded crash file for processing by BugSplat.
 {% endtab %}
 {% endtabs %}
 
+`infoUrl` is returned whenever a [support response](../../production/setting-up-custom-support-responses.md) is configured, even before the crash has been processed: the page shows a processing state and resolves once the stack key is known, so a client can open it as soon as the commit succeeds.
+
+#### Fields sent by BugSplat Native 9.0
+
+The [BugSplat Native](../../getting-started/integrations/native/) SDKs use exactly the three calls above on every platform and send, on the commit call, `appKey`, `user`, `email`, `description`, `notes`, `attributes`, `environment`, `crashSignature` and `crashHash`:
+
+| Field | What it carries |
+| --- | --- |
+| `environment` | The OS and hardware the app ran on, detected by the SDK and overridable (`Windows 11 10.0.26200 x64`, `Android 14 (API 34) arm64-v8a; Google Pixel 8`). Stored on the crash and shown on the crash page; every Crashpad platform posts with `crashTypeId=5`, so this is how platforms are told apart. Up to 255 characters. |
+| `crashSignature` | The crashing thread's application frames as `module:0xrva` joined with `\|` (or `function\|file\|line` per frame for XML/JSON reports), computed before upload. |
+| `crashHash` | SHA-256 of `crashSignature`. When BugSplat has processed the same hash recently for the database, the new crash reuses that stack key and skips the stack analyzer; the empty-input digest (`e3b0c442...b855`) means "no signature". |
+
+Hang reports and non-fatal captures from these SDKs post under the platform's normal crash type; the kind of report (`crash`, `hang`, `capture`) travels inside the dump as the Crashpad annotation `bugsplat.reportKind`, together with `bugsplat.hangDurationMs`.
+
 ### Crash Type Reference
 
 Use the following `crashType` and `crashTypeId` values when committing uploads.

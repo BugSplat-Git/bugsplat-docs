@@ -14,6 +14,14 @@ If you are creating a new account, you'll have an option to access these documen
 
 ### Integrations
 
+{% hint style="success" %}
+**New: BugSplat Native 9.0** is one out-of-process SDK for Windows, macOS, Linux, Android and iOS/tvOS, with the same dialog, upload and support response everywhere. Windows is verified; the other platforms are being brought up. Start at [BugSplat Native](native/).
+{% endhint %}
+
+{% content-ref url="native/" %}
+[native](native/)
+{% endcontent-ref %}
+
 {% content-ref url="desktop/" %}
 [desktop](desktop/)
 {% endcontent-ref %}
