@@ -4,6 +4,10 @@
 Need help upgrading from an older version of BugSplat? Check out our [upgrade guide](bugsplat-for-windows-upgrade-guide.md) to get started.
 {% endhint %}
 
+{% hint style="success" %}
+This is the 8.x SDK. Its successor, [BugSplat Native 9.0](../../native/windows.md), keeps the same concepts and runtime file names on a cross-platform, out-of-process core; see [Migrating to 9.0](../../native/migration.md). 8.x keeps working and receives critical fixes.
+{% endhint %}
+
 ### Overview 👀
 
 This document explains how to modify your Microsoft Visual C++ application to provide full debug information to the BugSplat web application when it crashes.

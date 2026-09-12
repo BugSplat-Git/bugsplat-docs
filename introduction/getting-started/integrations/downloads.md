@@ -10,6 +10,7 @@ description: >-
 
 |                          |                                                                           |
 | ------------------------ | ------------------------------------------------------------------------- |
+| BugSplat Native 9.0 (Windows, macOS, Linux, Android, iOS) | [GitHub releases](https://github.com/BugSplat-Git/bugsplat-native/releases), `BugSplatDotNet` on NuGet; see [platform docs](native/) |
 | Windows (Native C++)     | [Download](https://app.bugsplat.com/browse/download_item.php?item=native) |
 | Windows (.NET Framework) | [Download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) |
 | macOS                    | See platform docs ([here](desktop/macos.md))                              |
