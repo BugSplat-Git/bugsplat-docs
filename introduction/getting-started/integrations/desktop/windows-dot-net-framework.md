@@ -55,6 +55,13 @@ To get a feel for BugSplat before integrating it, try the [MyDotNetFrameworkWpfC
    ```
 
    where `$(BugSplatBin)` points at the SDK's `BugSplat\x64\Release\bin\`. Add the same four files to your installer.
+
+   {% hint style="warning" %}
+   BugSplat's native runtime (`BugSplat.dll`, `BugSplatMonitor.exe`, and `BugSplatWer.dll`) depends on the **x64 Visual C++ 2015–2022 runtime**: `MSVCP140.dll`, `VCRUNTIME140.dll`, and `VCRUNTIME140_1.dll`. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. The .NET Framework doesn't include them either, so without them your application runs normally but crash reporting fails. Make sure your installer either:
+
+   * chains the x64 [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer (`vc_redist.x64.exe`), or
+   * copies `msvcp140.dll`, `vcruntime140.dll`, and `vcruntime140_1.dll` from the redistributable into your application folder alongside the BugSplat runtime files.
+   {% endhint %}
 4. **Initialize BugSplat once, as early as possible** (for example in your `App` constructor or at the top of `Main`), and keep the instance for the life of the process:
 
    ```csharp
