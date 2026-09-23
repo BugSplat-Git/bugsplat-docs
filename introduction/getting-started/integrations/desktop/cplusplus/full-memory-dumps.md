@@ -16,18 +16,13 @@ g_BugSplat->SetMiniDumpType(MINIDUMP_TYPE::MiniDumpWithFullMemory);
 
 **Creating Full Memory Dumps for .NET Apps**
 
-{% hint style="warning" %}
-This applies to BugSplat's legacy .NET Framework SDK (`BugSplatDotNet.dll`), which is pending deprecation. See the [.NET Framework](../windows-dot-net-framework.md) page for details.
-{% endhint %}
-
-To enable full memory dumps in your .NET application, set the MinidumpType to MiniDumpWithFullMemory after initializing BugSplat:
+To enable full memory dumps in an application using [BugSplat for .NET Framework](../windows-dot-net-framework.md), set `MiniDumpType` to `MiniDumpType.WithFullMemory` after initializing BugSplat:
 
 ```csharp
-// BugSplat initialization  
-BugSplat.CrashReporter.Init(Database, App, Version);
-BugSplat.CrashReporter.MinidumpType = 
-                                BugSplat.MinidumpType.MiniDumpWithFullMemory;
- 
+// BugSplat initialization
+var bugsplat = new BugSplat(Database, App, Version);
+bugsplat.MiniDumpType = MiniDumpType.WithFullMemory;
+
 ```
 
 **Collecting Full Memory Dumps**
