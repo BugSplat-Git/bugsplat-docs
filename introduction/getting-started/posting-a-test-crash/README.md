@@ -14,6 +14,8 @@ Questions? Please get in touch with us via [Discord](https://discord.gg/K4KjjRV5
 | Java          | [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher) |
 | macOS         | [BugSplatTester](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)    |
 | .NET          | [MyDotnetCrasher](my-dotnet-crasher/)                                                       |
+| .NET Framework | [MyDotNetFrameworkWpfCrasher](mydotnetframeworkwpfcrasher/)                               |
+| .NET Framework (hosted by C++) | [MyDotNetFrameworkHostCrasher](mydotnetframeworkhostcrasher/)             |
 | Node.js       | [my-node-crasher](https://github.com/BugSplat-Git/my-node-crasher)                         |
 | Python        | [my-python-crasher](https://github.com/BugSplat-Git/my-python-crasher)                     |
 | Qt            | [my-qt-crasher](https://github.com/BugSplat-Git/my-qt-crasher)                             |
