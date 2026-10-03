@@ -8,16 +8,9 @@ description: >-
 
 ### Overview 👀
 
-`BugSplatDotNet` adds crash reporting to .NET Framework 4.7.2+ and .NET 10+ applications on Windows (x64). It's one library built for both runtimes from the same source, with the same API, in the same SDK download. It's built on the BugSplat native SDK: every report is a minidump that BugSplat symbolicates from the symbols you upload, so call stacks show function names, file names, and line numbers for both managed (C#) and native (C++) frames, without shipping `.pdb` files with your application.
+`BugSplatDotNet` adds crash reporting to .NET Framework 4.7.2+ and .NET 10+ applications on Windows. It's one library built for both runtimes from the same source, with the same API, and it's installed from one NuGet package, [`BugSplat`](https://www.nuget.org/packages/BugSplat). It's built on the BugSplat native SDK: every report is a minidump that BugSplat symbolicates from the symbols you upload, so call stacks show function names, file names, and line numbers for both managed (C#) and native (C++) frames, without shipping `.pdb` files with your application.
 
-Pick the build that matches your application:
-
-| Your application targets | Reference |
-| --- | --- |
-| .NET Framework 4.7.2 or later | `BugSplat\dotnet\Release\net472\BugSplatDotNet.dll` |
-| .NET 10 or later | `BugSplat\dotnet\Release\net10.0\BugSplatDotNet.dll` |
-
-Everything else in this guide (the native runtime you ship, initialization, handled exceptions, Windows Error Reporting, and symbols) is the same for both. Where a runtime behaves differently, a note says so.
+The package contains both builds, and NuGet picks the one for your target framework. Everything else in this guide (the native runtime you ship, initialization, handled exceptions, Windows Error Reporting, and symbols) is the same for both. Where a runtime behaves differently, a note says so.
 
 BugSplat reports:
 
@@ -40,7 +33,7 @@ Crashes and handled exceptions alike are reported as minidumps with BugSplat's .
 | .NET 10 and later | Supported, with the `net10.0` build. |
 | .NET 5 through 9, and .NET Core | Not supported by `BugSplatDotNet`. |
 
-`BugSplatDotNet` runs on **Windows x64** only: it loads the native `BugSplat.dll`, which ships for x64, so your application must run as a 64-bit x64 process. Linux and macOS aren't supported.
+`BugSplatDotNet` runs on **Windows** only; Linux and macOS aren't supported. It loads the native `BugSplat.dll`, which must match the architecture your application runs as. The NuGet package includes the native runtime for **x64, x86, and ARM64** and copies the matching one; the SDK download includes x64 only.
 
 {% hint style="info" %}
 **.NET 10:** your application must target .NET 10 or later to reference the `net10.0` build. BugSplat's server can name the managed frames in crashes from .NET 9 and later, but not from .NET 5 through 8 or .NET Core, whose crashes it can't fully symbolicate.
@@ -48,67 +41,36 @@ Crashes and handled exceptions alike are reported as minidumps with BugSplat's .
 
 ### Getting Started 🚦
 
-To begin, [log in](https://app.bugsplat.com/cognito/login) and [download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) the BugSplat SDK for .NET. Unzip it; the parts you need are:
+Install the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package:
 
-| Folder | Contents |
-| --- | --- |
-| `BugSplat\dotnet\Release\net472` and `net10.0` (and `Debug`) | `BugSplatDotNet.dll`, the library your application references, with its `.pdb` and `.xml` documentation |
-| `BugSplat\x64\Release\bin` | The native runtime that ships next to your executable: `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, `BugSplatWer.dll` |
-| `Tools` | `symbol-upload-windows.exe`, which the samples use to upload symbols |
-| `Samples` | The sample applications, with a Visual Studio solution for each |
+```
+dotnet add package BugSplat
+```
 
-To get a feel for BugSplat before integrating it, try one of the [samples](#sample-apps): [MyDotNetFrameworkWpfCrasher](../../posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) for .NET 10.
+or search for **BugSplat** in Visual Studio's NuGet Package Manager. The same package works for .NET Framework 4.7.2+ and .NET 10+ projects.
 
-{% hint style="info" %}
-A NuGet package for `BugSplatDotNet` is coming. Until it's available, reference `BugSplatDotNet.dll` from the SDK download as described below.
-{% endhint %}
+To get a feel for BugSplat before integrating it, [log in](https://app.bugsplat.com/cognito/login), [download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) the BugSplat SDK for .NET, and try one of the [samples](#sample-apps): [MyDotNetFrameworkWpfCrasher](../../posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) for .NET 10. The download also includes `symbol-upload-windows.exe`, which the samples use to upload symbols.
 
 ### Integration 🏗️
 
-1. **Reference `BugSplatDotNet.dll`** from the folder for your target framework (see the table above). In an SDK-style project:
-
-   ```xml
-   <ItemGroup>
-     <Reference Include="BugSplatDotNet" HintPath="$(BugSplatDir)dotnet\Release\net10.0\BugSplatDotNet.dll" />
-   </ItemGroup>
-   ```
-
-   where `$(BugSplatDir)` points at the SDK's `BugSplat\` folder. Use `net472` in place of `net10.0` for .NET Framework.
-2. **Build for x64.** The native runtime is x64 only:
-
-   ```xml
-   <PlatformTarget>x64</PlatformTarget>
-   ```
+1. **Add the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package**, as shown in Getting Started above. It references `BugSplatDotNet.dll` for your target framework and brings BugSplat's native runtime with it.
+2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture and upload crashes, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
 
    {% hint style="info" %}
-   **.NET Framework:** an executable defaults to AnyCPU with *Prefer 32-bit*, which runs as a 32-bit process and can't load the native runtime. Setting `PlatformTarget` to x64 fixes that.
+   **Architecture:** the package copies the runtime for the architecture your application runs as. It uses your runtime identifier or `PlatformTarget` if you set one. Otherwise, a .NET 10 application gets the architecture of the .NET SDK that builds it. A .NET Framework AnyCPU application gets x86 with *Prefer 32-bit* and x64 without it. To choose explicitly, set `<BugSplatNativeArchitecture>` to `x64`, `x86`, or `arm64`.
 
-   **.NET 10:** an AnyCPU application runs as an ARM64 process on ARM64 Windows, where it can't load the native runtime. Set `PlatformTarget` to x64, or use a `win-x64` runtime identifier.
-   {% endhint %}
-3. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture and upload crashes, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll` must be installed alongside your `.exe`. In an SDK-style project, copying them from the SDK looks like this:
+   **Libraries:** the runtime is copied into executables and test projects. A library loaded by another application, such as a plug-in, can set `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`, and the files must then be deployed next to the host application's `.exe`.
 
-   ```xml
-   <ItemGroup>
-     <Content Include="$(BugSplatBin)BugSplat.dll" Link="BugSplat.dll" CopyToOutputDirectory="PreserveNewest" />
-     <Content Include="$(BugSplatBin)BugSplatMonitor.exe" Link="BugSplatMonitor.exe" CopyToOutputDirectory="PreserveNewest" />
-     <Content Include="$(BugSplatBin)BugSplatRc.dll" Link="BugSplatRc.dll" CopyToOutputDirectory="PreserveNewest" />
-     <Content Include="$(BugSplatBin)BugSplatWer.dll" Link="BugSplatWer.dll" CopyToOutputDirectory="PreserveNewest" />
-   </ItemGroup>
-   ```
-
-   where `$(BugSplatBin)` points at the SDK's `BugSplat\x64\Release\bin\`. Add the same four files to your installer.
-
-   {% hint style="info" %}
-   **.NET 10:** `Content` items are copied by both `dotnet build` and `dotnet publish`, and included in an MSIX package. In an MSIX package, `BugSplatMonitor.exe` is a plain file; don't list it as an `<Executable>` in the manifest.
+   **MSIX:** `BugSplatMonitor.exe` is a plain file in the package; don't list it as an `<Executable>` in the manifest.
    {% endhint %}
 
    {% hint style="warning" %}
-   BugSplat's native runtime (`BugSplat.dll`, `BugSplatMonitor.exe`, and `BugSplatWer.dll`) depends on the **x64 Visual C++ 2015–2022 runtime**: `MSVCP140.dll`, `VCRUNTIME140.dll`, and `VCRUNTIME140_1.dll`. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. Neither the .NET Framework nor the .NET runtime includes them, so without them your application runs normally but crash reporting fails. Make sure your installer either:
+   BugSplat's native runtime (`BugSplat.dll`, `BugSplatMonitor.exe`, and `BugSplatWer.dll`) depends on the **Visual C++ 2015–2022 runtime** for your application's architecture: `MSVCP140.dll` and `VCRUNTIME140.dll`, plus `VCRUNTIME140_1.dll` on x64 and ARM64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. Neither the .NET Framework nor the .NET runtime includes them, so without them your application runs normally but crash reporting fails. Make sure your installer either:
 
-   * chains the x64 [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer (`vc_redist.x64.exe`), or
-   * copies `msvcp140.dll`, `vcruntime140.dll`, and `vcruntime140_1.dll` from the redistributable into your application folder alongside the BugSplat runtime files.
+   * chains the [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer for your architecture (`vc_redist.x64.exe`, `vc_redist.x86.exe`, or `vc_redist.arm64.exe`), or
+   * copies those DLLs from the redistributable into your application folder alongside the BugSplat runtime files.
    {% endhint %}
-4. **Initialize BugSplat once, as early as possible** (at the top of `Main` or `Program.cs`, or in your `App` constructor), and keep the instance for the life of the process:
+3. **Initialize BugSplat once, as early as possible** (at the top of `Main` or `Program.cs`, or in your `App` constructor), and keep the instance for the life of the process:
 
    ```csharp
    using BugSplatDotNet;
@@ -122,7 +84,7 @@ A NuGet package for `BugSplatDotNet` is coming. Until it's available, reference 
    ```
 
    That's all it takes to report crashes and hangs. The database is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. No other handler is needed for unhandled exceptions, including WPF dispatcher exceptions, exceptions on a WinUI 3 UI thread, and exceptions on background threads.
-5. **Report handled exceptions** by calling `Post` from inside the `catch` block:
+4. **Report handled exceptions** by calling `Post` from inside the `catch` block:
 
    ```csharp
    try
@@ -136,13 +98,65 @@ A NuGet package for `BugSplatDotNet` is coming. Until it's available, reference 
    ```
 
    `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything. It blocks while the report is written and uploaded.
-6. **Register `BugSplatWer.dll` with Windows Error Reporting** from your installer, so fail-fast crashes are reported too. WinUI 3 applications need it for every crash. See [Windows Error Reporting](#windows-error-reporting) below.
-7. **Upload symbols** for every build you ship, so call stacks show function names, file names, and line numbers. See [Symbols](#symbols) below.
-8. **Test your integration** by forcing a crash with the application running outside the Visual Studio debugger (Ctrl+F5, or `dotnet run`); the debugger intercepts the exceptions BugSplat would report. Verify that symbols were uploaded on the [Versions](https://app.bugsplat.com/v2/versions) page and that the crash appears on the [Crashes](https://app.bugsplat.com/v2/crashes) page with a symbolicated call stack.
+5. **Register `BugSplatWer.dll` with Windows Error Reporting** from your installer, so fail-fast crashes are reported too. WinUI 3 applications need it for every crash. See [Windows Error Reporting](#windows-error-reporting) below.
+6. **Upload symbols** for every build you ship, so call stacks show function names, file names, and line numbers. See [Symbols](#symbols) below.
+7. **Test your integration** by forcing a crash with the application running outside the Visual Studio debugger (Ctrl+F5, or `dotnet run`); the debugger intercepts the exceptions BugSplat would report. Verify that symbols were uploaded on the [Versions](https://app.bugsplat.com/v2/versions) page and that the crash appears on the [Crashes](https://app.bugsplat.com/v2/crashes) page with a symbolicated call stack.
+
+### Using the SDK Download Instead of NuGet
+
+If you can't use NuGet, reference `BugSplatDotNet.dll` from the [SDK download](https://app.bugsplat.com/browse/download_item.php?item=dotnet). Its native runtime is x64 only. Unzip it; the parts you need are:
+
+| Folder | Contents |
+| --- | --- |
+| `BugSplat\dotnet\Release\net472` and `net10.0` (and `Debug`) | `BugSplatDotNet.dll`, the library your application references, with its `.pdb` and `.xml` documentation |
+| `BugSplat\x64\Release\bin` | The native runtime that ships next to your executable: `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, `BugSplatWer.dll` |
+| `Tools` | `symbol-upload-windows.exe`, which the samples use to upload symbols |
+| `Samples` | The sample applications, with a Visual Studio solution for each |
+
+These steps replace steps 1 and 2 of the Integration steps above; the rest are the same.
+
+1. **Reference `BugSplatDotNet.dll`** from the folder for your target framework, `net472` for .NET Framework 4.7.2+ or `net10.0` for .NET 10+. In an SDK-style project:
+
+   ```xml
+   <ItemGroup>
+     <Reference Include="BugSplatDotNet" HintPath="$(BugSplatDir)dotnet\Release\net10.0\BugSplatDotNet.dll" />
+   </ItemGroup>
+   ```
+
+   where `$(BugSplatDir)` points at the SDK's `BugSplat\` folder.
+2. **Build for x64:**
+
+   ```xml
+   <PlatformTarget>x64</PlatformTarget>
+   ```
+
+   {% hint style="info" %}
+   **.NET Framework:** an executable defaults to AnyCPU with *Prefer 32-bit*, which runs as a 32-bit process and can't load the x64 runtime. Setting `PlatformTarget` to x64 fixes that.
+
+   **.NET 10:** an AnyCPU application runs as an ARM64 process on ARM64 Windows, where it can't load the x64 runtime. Set `PlatformTarget` to x64, or use a `win-x64` runtime identifier.
+   {% endhint %}
+3. **Copy the native runtime next to your executable.** In an SDK-style project:
+
+   ```xml
+   <ItemGroup>
+     <Content Include="$(BugSplatBin)BugSplat.dll" Link="BugSplat.dll" CopyToOutputDirectory="PreserveNewest" />
+     <Content Include="$(BugSplatBin)BugSplatMonitor.exe" Link="BugSplatMonitor.exe" CopyToOutputDirectory="PreserveNewest" />
+     <Content Include="$(BugSplatBin)BugSplatRc.dll" Link="BugSplatRc.dll" CopyToOutputDirectory="PreserveNewest" />
+     <Content Include="$(BugSplatBin)BugSplatWer.dll" Link="BugSplatWer.dll" CopyToOutputDirectory="PreserveNewest" />
+   </ItemGroup>
+   ```
+
+   where `$(BugSplatBin)` points at the SDK's `BugSplat\x64\Release\bin\`. `Content` items are copied by both `dotnet build` and `dotnet publish`. Add the same four files to your installer.
 
 ### Symbols
 
-BugSplat symbolicates your crashes from the symbol files you upload, which is why your application doesn't need to ship its `.pdb` files. After each build, upload every `.exe`, `.dll`, and `.pdb` your application ships with [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), using the same database, application name, and version you pass to `new BugSplat(...)`. That includes `BugSplatDotNet.pdb` and the native PDBs of any C++ libraries you call, so mixed C#/C++ call stacks are symbolicated on both sides.
+BugSplat symbolicates your crashes from the symbol files you upload, which is why your application doesn't need to ship its `.pdb` files. After each build, upload every `.exe`, `.dll`, and `.pdb` your application ships with [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), using the same database, application name, and version you pass to `new BugSplat(...)`. That includes `BugSplatDotNet.pdb`, BugSplat's native PDBs, and the native PDBs of any C++ libraries you call, so mixed C#/C++ call stacks are symbolicated on both sides.
+
+The NuGet package copies BugSplat's native PDBs to your build output, but NuGet doesn't copy `BugSplatDotNet.pdb` from a package unless you ask it to:
+
+```xml
+<CopyDebugSymbolFilesFromPackages>true</CopyDebugSymbolFilesFromPackages>
+```
 
 {% hint style="info" %}
 **.NET Framework:** emit full Windows PDBs, the format BugSplat's symbol upload expects:
@@ -178,7 +192,8 @@ When managed code calls native code through P/Invoke and the native code crashes
 
 ### Limitations
 
-* **x64 Windows only.** Build your application for x64 (see step 2).
+* **Windows only.** The NuGet package supports x64, x86, and ARM64; the SDK download supports x64 only.
+* **Start your application with its `.exe`.** `dotnet YourApp.dll` runs your application inside `dotnet.exe`, and BugSplat looks for `BugSplatMonitor.exe` next to `dotnet.exe` instead of your application.
 * **Fail-fast crashes need the WER registry entry.** Without it, heap corruption, `__fastfail`, `/GS` failures, and on .NET 10 runtime fail-fasts and WinUI 3 crashes aren't reported.
 * **Unobserved task exceptions aren't reported.** They don't crash the process, so there's no crash to capture. Observe your tasks and report failures with `Post` from a `catch`.
 * **.NET Framework: stack overflows in managed code aren't reported.** The .NET Framework ends the process on a stack overflow without running any in-process handler, and reports it through its own `CLR20r3` WER event, which doesn't call `BugSplatWer.dll` even when it's registered.
@@ -212,8 +227,9 @@ The previous .NET Framework SDK (`BugSplat.CrashReporter`) has been replaced by 
 | `BugSplat.CrashReporter.Init(database, app, version)` | `new BugSplat(database, app, version)` |
 | Subscribing `AppDomainUnhandledExceptionHandler`, `DispatcherUnhandledExceptionHandler`, and `TaskSchedulerUnobservedTaskExceptionHandler` | Nothing: unhandled exceptions are captured by the constructor |
 | `CrashReporter.createReport(exception)` for handled exceptions | `bugsplat.Post(exception)`, inside the `catch` |
-| Shipping `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRc.dll` | Shipping `BugSplatDotNet.dll` plus `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll` |
-| Any CPU | x64 |
+| Referencing `BugSplatDotNet.dll` from the SDK download | The [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package |
+| Shipping `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRc.dll` | Shipping `BugSplatDotNet.dll` plus `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll`, which the NuGet package copies to your output |
+| Any CPU | Any architecture with the NuGet package, which copies the matching native runtime; x64 with the SDK download |
 | SendPdbs | [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) |
 
 ### Sample Apps
