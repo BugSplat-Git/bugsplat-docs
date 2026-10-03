@@ -13,7 +13,7 @@
     * [Address Sanitizer Reports](introduction/getting-started/posting-a-test-crash/myconsolecrasher-c-plus-plus/address-sanitizer-reports.md)
   * [MyDotNetFrameworkWpfCrasher (.NET Framework)](introduction/getting-started/posting-a-test-crash/mydotnetframeworkwpfcrasher/README.md)
   * [MyDotNetFrameworkHostCrasher (C++ hosting .NET Framework)](introduction/getting-started/posting-a-test-crash/mydotnetframeworkhostcrasher/README.md)
-  * [MyDotNetCrasher (.NET)](introduction/getting-started/posting-a-test-crash/mydotnetcrasher-native-managed/README.md)
+  * [MyDotNetCrasher (.NET)](introduction/getting-started/posting-a-test-crash/mydotnetcrasher/README.md)
   * [MyDotNetWinUI3Crasher (.NET)](introduction/getting-started/posting-a-test-crash/mydotnetwinui3crasher/README.md)
   * [my-dotnet-crasher (.NET Standard)](introduction/getting-started/posting-a-test-crash/my-dotnet-crasher/README.md)
   * [BugSplatTester (macOS)](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)
