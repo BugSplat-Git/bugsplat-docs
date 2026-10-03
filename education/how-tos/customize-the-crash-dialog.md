@@ -2,7 +2,7 @@
 
 Both the Windows and Mac crash report dialogs can be customized. For Mac instructions see our [macOS](broken-reference) guide.
 
-On Windows, we provide the BugSplatRc project as part of the [Native C++](../../introduction/getting-started/integrations/desktop/cplusplus/) and [.NET Framework](../../introduction/getting-started/integrations/desktop/windows-dot-net-framework.md) downloads. This project is used to build the resource-only file BugSplatRc.dll.
+On Windows, we provide the BugSplatRc project as part of the [Native C++](../../introduction/getting-started/integrations/desktop/cplusplus/) download. This project is used to build the resource-only file BugSplatRc.dll, which [.NET Framework](../../introduction/getting-started/integrations/desktop/windows-dot-net-framework.md) applications ship alongside the rest of the BugSplat runtime.
 
 When you update your dialog we would love it if you mention us somewhere in your crash dialog. These mentions really help us continue to grow and develop our company.
 
