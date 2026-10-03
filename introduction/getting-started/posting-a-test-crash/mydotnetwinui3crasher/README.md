@@ -37,7 +37,7 @@ $BUGSPLAT_CLIENT_SECRET = "your-client-secret"
 
 ### Windows Error Reporting
 
-WinUI turns an unhandled exception into a fail-fast that bypasses every in-process handler, so BugSplat captures a WinUI 3 app's crashes through its Windows Error Reporting helper, `BugSplatWer.dll`, which Windows loads only when its path is in the registry. From an elevated prompt, register the copy next to the sample's executable, then restart the sample:
+WinUI turns an unhandled exception into a fail-fast that bypasses the application's exception handlers, so BugSplat captures a WinUI 3 app's crashes through its Windows Error Reporting helper, `BugSplatWer.dll`, which Windows loads only when its path is in the registry. From an elevated prompt, register the copy next to the sample's executable, then restart the sample:
 
 ```
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "<path to the sample's bin folder>\BugSplatWer.dll" /t REG_DWORD /d 0 /f

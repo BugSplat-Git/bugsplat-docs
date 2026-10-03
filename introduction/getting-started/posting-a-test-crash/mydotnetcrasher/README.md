@@ -70,12 +70,12 @@ These call into `MyDotNetCrasherNative.dll`, so the report has one call stack wi
 
 ### Fail-Fast Crashes and Windows Error Reporting
 
-The `native-fastfail`, `native-overrun`, and `native-double-delete` modes fail-fast the process straight through Windows Error Reporting, bypassing every in-process handler, so BugSplat captures them through its Windows Error Reporting helper, `BugSplatWer.dll`, which Windows loads only when its path is in the registry. On .NET, the runtime can also end some access violations and stack overflows with a fail-fast, which only this helper captures. From an elevated prompt, register the copy next to the sample's executable:
+The `native-fastfail`, `native-overrun`, and `native-double-delete` modes fail-fast the process straight through Windows Error Reporting, bypassing the application's exception handlers, so BugSplat captures them through its Windows Error Reporting helper, `BugSplatWer.dll`, which Windows loads only when its path is in the registry. On .NET, the runtime can also end some access violations and stack overflows with a fail-fast, which only this helper captures. From an elevated prompt, register the copy next to the sample's executable:
 
 ```
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "<path to the sample's bin folder>\BugSplatWer.dll" /t REG_DWORD /d 0 /f
 ```
 
-The other modes are normally captured by BugSplat's in-process handler without the entry, but registering it is recommended for every application.
+The other modes are normally captured by BugSplat's application exception handler without the entry, but registering it is recommended for every application.
 
 Finally, explore how each mode is implemented in the sample's `Program.cs`, and see [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.

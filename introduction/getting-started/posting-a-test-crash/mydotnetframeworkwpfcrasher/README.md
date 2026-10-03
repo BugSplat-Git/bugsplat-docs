@@ -38,7 +38,7 @@ $BUGSPLAT_CLIENT_SECRET = "your-client-secret"
 
 ### Heap Corruption and Windows Error Reporting
 
-Heap corruption bypasses every in-process handler, so BugSplat captures it through its Windows Error Reporting helper, `BugSplatWer.dll`, which Windows loads only when its path is in the registry. From an elevated prompt, register the copy next to the sample's executable, then restart the sample:
+Heap corruption bypasses the application's exception handlers, so BugSplat captures it through its Windows Error Reporting helper, `BugSplatWer.dll`, which Windows loads only when its path is in the registry. From an elevated prompt, register the copy next to the sample's executable, then restart the sample:
 
 ```
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "<path to the sample's bin folder>\BugSplatWer.dll" /t REG_DWORD /d 0 /f
