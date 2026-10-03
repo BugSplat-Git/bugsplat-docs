@@ -42,6 +42,6 @@ Add `/Quiet` to skip the crash dialog. Run the program with no arguments to see 
 
 ### How It Works
 
-BugSplat is initialized in the C++ program, before the .NET Framework runtime starts, so its exception handling is in place when the C# code runs. The program calls `SetCrashType(8)`, which tells BugSplat to resolve the managed (C#) frames in its minidumps. To report crashes from your own C++ application that hosts .NET, follow [BugSplat for Windows (C++)](../../integrations/desktop/cplusplus/) and add that same call.
+BugSplat is initialized in the C++ program, before the .NET Framework runtime starts, so its exception handling is in place when the C# code runs. The program calls `SetCrashType(8)`, which tells BugSplat to resolve the managed (C#) frames in its minidumps. To report crashes from your own C++ application that hosts .NET, follow [BugSplat for Windows (C++)](../../integrations/desktop/cplusplus/) and add that same call. If your application is a managed .NET Framework or .NET 10 program instead, use [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md).
 
 A stack overflow in the C# code isn't reported: the .NET Framework ends the process without running any exception handlers, and reports it only through its own Windows Error Reporting event.

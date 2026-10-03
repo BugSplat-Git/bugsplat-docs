@@ -16,7 +16,7 @@ g_BugSplat->SetMiniDumpType(MINIDUMP_TYPE::MiniDumpWithFullMemory);
 
 **Creating Full Memory Dumps for .NET Apps**
 
-To enable full memory dumps in an application using [BugSplat for .NET Framework](../windows-dot-net-framework.md), set `MiniDumpType` to `MiniDumpType.WithFullMemory` after initializing BugSplat:
+To enable full memory dumps in an application using [BugSplat for .NET](../bugsplat-for-dot-net.md), set `MiniDumpType` to `MiniDumpType.WithFullMemory` after initializing BugSplat:
 
 ```csharp
 // BugSplat initialization

@@ -42,7 +42,6 @@
     * [BugSplat for Windows Dependencies](introduction/getting-started/integrations/desktop/cplusplus/dependencies.md)
     * [BugSplat for Windows Upgrade Guide](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md)
     * [BugSplat for Windows API Documentation](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation.md)
-  * [BugSplat for .NET Framework](introduction/getting-started/integrations/desktop/windows-dot-net-framework.md)
   * [BugSplat for .NET](introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md)
   * [.NET Standard](introduction/getting-started/integrations/desktop/dot-net-standard.md)
   * [macOS](introduction/getting-started/integrations/desktop/macos.md)

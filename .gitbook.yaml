@@ -15,6 +15,7 @@ redirects:
   introduction/getting-started/integrations/cross-platform/crashpad/how-to-build-google-crashpad: introduction/getting-started/integrations/desktop/crashpad/how-to-build-google-crashpad.md
   introduction/getting-started/integrations/cross-platform/node.js: introduction/getting-started/integrations/web/node.js.md
   introduction/getting-started/integrations/cross-platform/deno: introduction/getting-started/integrations/web/deno.md
+  introduction/getting-started/integrations/desktop/windows-dot-net-framework: introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md
   administration/introduction: administration/user-management/README.md
   administration/introduction/user-permissions: administration/user-management/user-permissions.md
   administration/introduction/permanently-deleting-a-user-account: administration/user-management/permanently-deleting-a-user-account.md
