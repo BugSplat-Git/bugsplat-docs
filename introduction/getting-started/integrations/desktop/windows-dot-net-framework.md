@@ -6,6 +6,10 @@ description: >-
 
 # BugSplat for .NET Framework
 
+{% hint style="info" %}
+This guide covers .NET Framework 4.x. For modern .NET (.NET 10) applications, see [BugSplat for .NET](bugsplat-for-dot-net.md). Both use the same `BugSplatDotNet` library from the same SDK download.
+{% endhint %}
+
 ### Overview 👀
 
 `BugSplatDotNet` adds crash reporting to .NET Framework 4.7.2+ applications on Windows (x64). It's built on the BugSplat native SDK: every report is a minidump that BugSplat symbolicates from the symbols you upload, so call stacks show function names, file names, and line numbers for both managed (C#) and native (C++) frames, without shipping `.pdb` files with your application.

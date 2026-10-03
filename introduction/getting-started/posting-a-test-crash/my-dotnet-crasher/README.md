@@ -1,4 +1,8 @@
-# MyDotnetCrasher (.NET)
+# my-dotnet-crasher (.NET Standard)
+
+{% hint style="info" %}
+This sample uses [BugSplatDotNetStandard](../../integrations/desktop/dot-net-standard.md). For the Windows .NET 10 SDK, which reports every crash as a minidump with managed and native frames, see [MyDotNetCrasher](../mydotnetcrasher/) and [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md).
+{% endhint %}
 
 [MyDotnetCrasher](https://github.com/BugSplat-Git/my-dotnet-crasher) is a sample .NET 8 console application that demonstrates BugSplat crash reporting. It triggers a variety of .NET exceptions, captures them, and uploads the resulting crash reports so you can see how BugSplat symbolicates and groups them, without changing any of your own code.
 
