@@ -219,7 +219,7 @@ Sizes are in pixels at 100% display scaling, and are scaled up on high-DPI displ
 | `bannerHeight` | `76` | Height of the logo strip, from 0 to 240. `0` hides it. |
 | `descriptionLines` | `4` | Visible lines in the description box, from 1 to 20. It scrolls beyond that and accepts up to 500 characters. |
 
-The dialog is a single column, in this order: banner, headline, body text, description box, name and email, contact note, consent box, and the footer with **View report details** on one side and **Don't send** and **Send report** on the other. You can hide parts with `features`, but you can't reorder them.
+The dialog is a single column, in this order: banner, headline, body text, description box, name and email, contact note, consent box, and the footer with **View report details** on one side and **Don't send** and **Send report** on the other. You can hide parts with `features`, but you can't reorder them. If you need a change a theme can't make, the crash dialog's source is available to Enterprise customers; contact [sales@bugsplat.com](mailto:sales@bugsplat.com).
 
 #### `features`
 

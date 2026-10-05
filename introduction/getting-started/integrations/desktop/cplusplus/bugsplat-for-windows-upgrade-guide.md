@@ -44,7 +44,7 @@ The memory that your application and `BugSplatMonitor.exe` share changed in 9.0.
 
 ### Move Dialog Customizations to the Theme
 
-If you customized the dialog by editing `BugSplatRc.rc` and rebuilding `BugSplatRc.dll`, re-create those changes in the `theme` folder: colours, fonts, layout, logo and which fields appear in `theme.json`, and wording in `strings.en-US.json`. Nothing needs to be compiled, and `BugSplatReporter.exe --preview` shows the result without crashing anything. The defaults have changed too: the dialog has new wording, a new logo, and a light and a dark design that follows the user's Windows setting. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
+If you customized the dialog by editing `BugSplatRc.rc` and rebuilding `BugSplatRc.dll`, re-create those changes in the `theme` folder: colours, fonts, layout, logo and which fields appear in `theme.json`, and wording in `strings.en-US.json`. Nothing needs to be compiled, and `BugSplatReporter.exe --preview` shows the result without crashing anything. The defaults have changed too: the dialog has new wording, a new logo, and a light and a dark design that follows the user's Windows setting. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md). If your changes went further than a theme can, such as a different layout, the crash dialog's source is available to Enterprise customers.
 
 ### Allow Links in the Dialog, If You Want Them
 
