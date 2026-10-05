@@ -38,7 +38,7 @@ Crashes and handled exceptions alike are reported as minidumps with BugSplat's .
 | .NET 10 and later | Supported, with the `net10.0` build. |
 | .NET 5 through 9, and .NET Core | Not supported. |
 
-BugSplat for .NET runs on **Windows** only; Linux and macOS aren't supported. It loads the native `BugSplat.dll`, which must match the architecture your application runs as. The NuGet package includes the native runtime for **x64 and ARM64** and copies the matching one; the SDK download includes x64 only. x86 (32-bit) applications aren't supported yet.
+BugSplat for .NET runs on **Windows** only; Linux and macOS aren't supported. It loads the native `BugSplat.dll`, which must match the architecture your application runs as. The NuGet package includes the native runtime for **x64, x86, and ARM64** and copies the matching one; the SDK download includes x64 only.
 
 {% hint style="info" %}
 **.NET 10:** your application must target .NET 10 or later to reference the `net10.0` build. BugSplat's server can name the managed frames in crashes from .NET 9 and later, but not from .NET 5 through 8 or .NET Core, whose crashes it can't fully symbolicate.
@@ -62,9 +62,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
 2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture and upload crashes, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
 
    {% hint style="info" %}
-   **Architecture:** the package copies the runtime for the architecture your application runs as. It uses your runtime identifier or `PlatformTarget` if you set one. Otherwise, a .NET 10 application gets the architecture of the .NET SDK that builds it. A .NET Framework AnyCPU application gets x64. To choose explicitly, set `<BugSplatNativeArchitecture>` to `x64` or `arm64`.
-
-   **x86:** 32-bit applications aren't supported yet ([#229](https://github.com/BugSplat-Git/bugsplat-windows/issues/229)), so an x86 build stops with an error. A .NET Framework AnyCPU application with *Prefer 32-bit* runs as x86: turn *Prefer 32-bit* off, or set `PlatformTarget` to x64.
+   **Architecture:** the package copies the runtime for the architecture your application runs as. It uses your runtime identifier or `PlatformTarget` if you set one. Otherwise, a .NET 10 application gets the architecture of the .NET SDK that builds it. A .NET Framework AnyCPU application gets x86 with *Prefer 32-bit* and x64 without it. To choose explicitly, set `<BugSplatNativeArchitecture>` to `x64`, `x86`, or `arm64`.
 
    **Libraries:** the runtime is copied into executables and test projects. A library loaded by another application, such as a plug-in, can set `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`, and the files must then be deployed next to the host application's `.exe`.
 
@@ -74,7 +72,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
    {% hint style="warning" %}
    BugSplat's native runtime (`BugSplat.dll`, `BugSplatMonitor.exe`, and `BugSplatWer.dll`) depends on the **Visual C++ 2015–2022 runtime** for your application's architecture: `MSVCP140.dll` and `VCRUNTIME140.dll`, plus `VCRUNTIME140_1.dll` on x64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. Neither the .NET Framework nor the .NET runtime includes them, so without them your application runs normally but crash reporting fails. Make sure your installer either:
 
-   * chains the [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer for your architecture (`vc_redist.x64.exe` or `vc_redist.arm64.exe`), or
+   * chains the [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer for your architecture (`vc_redist.x64.exe`, `vc_redist.x86.exe`, or `vc_redist.arm64.exe`), or
    * copies those DLLs from the redistributable into your application folder alongside the BugSplat runtime files.
    {% endhint %}
 3. **Register `BugSplatWer.dll` with Windows Error Reporting** from your installer. Crashes that go through WER aren't reported without it, and **for a WinUI 3 application that's every crash**. See [Windows Error Reporting](#windows-error-reporting) below for the registry entry.
@@ -106,6 +104,28 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
    ```
 
    `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything. It blocks while the report is written and uploaded.
+
+   {% hint style="info" %}
+   **32-bit .NET Framework:** the runtime unwinds the stack before a `catch` block runs, so `Post` reports where the exception was caught rather than where it was thrown. To keep the throw site, call `Post` from an exception filter, which runs before the stack unwinds:
+
+   ```csharp
+   try
+   {
+       LoadDocument(path);
+   }
+   catch (Exception ex) when (Report(ex))
+   {
+   }
+
+   bool Report(Exception ex)
+   {
+       bugsplat.Post(ex);
+       return true;
+   }
+   ```
+
+   Before version 8.6.2 of the package, `Post` returned `false` there and reported nothing.
+   {% endhint %}
 6. **Upload symbols** for every build you ship, so call stacks show function names, file names, and line numbers. See [Symbols](#symbols) below.
 7. **Test your integration** by forcing a crash with the application running outside the Visual Studio debugger (Ctrl+F5, or `dotnet run`); the debugger intercepts the exceptions BugSplat would report. Verify that symbols were uploaded on the [Versions](https://app.bugsplat.com/v2/versions) page and that the crash appears on the [Crashes](https://app.bugsplat.com/v2/crashes) page with a symbolicated call stack. `BugSplat.IsWerEnabled` tells you whether the WER registration from step 3 is in place.
 
@@ -171,7 +191,7 @@ When managed code calls native code through P/Invoke and the native code crashes
 
 ### Limitations
 
-* **Windows x64 and ARM64 only.** The NuGet package supports x64 and ARM64; the SDK download supports x64 only. x86 (32-bit) applications aren't supported yet ([#229](https://github.com/BugSplat-Git/bugsplat-windows/issues/229)).
+* **Windows only.** The NuGet package supports x64, x86, and ARM64; the SDK download supports x64 only.
 * **Start your application with its `.exe`.** `dotnet YourApp.dll` runs your application inside `dotnet.exe`, and BugSplat looks for `BugSplatMonitor.exe` next to `dotnet.exe` instead of your application.
 * **Crashes that go through WER aren't reported without the registry entry.** That includes heap corruption, `__fastfail`, `/GS` failures, .NET 10 runtime fail-fasts, and every WinUI 3 crash (see [Windows Error Reporting](#windows-error-reporting)).
 * **Unobserved task exceptions aren't reported.** They don't crash the process, so there's no crash to capture. Observe your tasks and report failures with `Post` from a `catch`.
@@ -208,7 +228,7 @@ The previous .NET Framework SDK (`BugSplat.CrashReporter`) has been replaced by 
 | `CrashReporter.createReport(exception)` for handled exceptions | `bugsplat.Post(exception)`, inside the `catch` |
 | Referencing `BugSplatDotNet.dll` from the SDK download | The [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package |
 | Shipping `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRc.dll` | Shipping `BugSplatDotNet.dll` plus `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll`, which the NuGet package copies to your output |
-| Any CPU | x64 or ARM64 (AnyCPU works, without *Prefer 32-bit*); the NuGet package copies the matching native runtime. x64 with the SDK download |
+| Any CPU | Any architecture with the NuGet package, which copies the matching native runtime; x64 with the SDK download |
 | SendPdbs | [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) |
 
 ### Sample Apps
