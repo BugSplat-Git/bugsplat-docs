@@ -1,6 +1,6 @@
 # Windows \(Native C++\) Dependencies
 
-Our redistributable components are built from the Microsoft Visual C++ technology stack. In addition to the Microsoft libraries, the following third-party components are compiled into the BugSplat binaries you ship with your application.
+Our redistributable components are built from the Microsoft Visual C++ technology stack. In addition to the Microsoft libraries, the following third-party components are compiled into BugSplat binaries that you link with or ship with your application.
 
 | Name: | Version: | License: | URL: | Used in: |
 | :--- | :--- | :--- | :--- | :--- |
