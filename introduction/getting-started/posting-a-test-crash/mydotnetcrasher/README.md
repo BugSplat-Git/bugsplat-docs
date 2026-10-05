@@ -76,6 +76,6 @@ The `native-fastfail`, `native-overrun`, and `native-double-delete` modes fail-f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "<path to the sample's bin folder>\BugSplatWer.dll" /t REG_DWORD /d 0 /f
 ```
 
-The other modes are normally captured by BugSplat's application exception handler without the entry, but registering it is recommended for every application.
+The other modes are captured by BugSplat's application exception handler. Your own application should always register `BugSplatWer.dll`, because crashes like these can only be captured through it.
 
 Finally, explore how each mode is implemented in the sample's `Program.cs`, and see [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.

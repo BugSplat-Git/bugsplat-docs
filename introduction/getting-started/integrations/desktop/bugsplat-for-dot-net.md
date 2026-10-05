@@ -12,7 +12,12 @@ BugSplat for .NET adds crash reporting to .NET Framework 4.7.2+ and .NET 10+ app
 
 The package contains both builds, and NuGet picks the one for your target framework. Everything else in this guide (the native runtime you ship, initialization, handled exceptions, Windows Error Reporting, and symbols) is the same for both. Where a runtime behaves differently, a note says so.
 
-BugSplat reports:
+BugSplat captures crashes in two ways, and a complete integration needs both:
+
+* **The application exception handler.** Creating a `BugSplat` instance installs it in your process. It catches unhandled managed exceptions on any thread, including the WPF dispatcher, and crashes in native code your application calls, such as access violations.
+* **Windows Error Reporting (WER).** Some crashes end the process without running any of the application's exception handlers, and Windows hands them to WER instead. That includes heap corruption, `__fastfail`, `/GS` failures, fail-fasts from the .NET 10 runtime, and every unhandled exception in a WinUI 3 app. BugSplat captures these with its WER helper, `BugSplatWer.dll`, which Windows loads only after your installer registers it.
+
+Either way, `BugSplatMonitor.exe` writes the minidump from outside your process and uploads it. BugSplat reports:
 
 | Event | How it's captured |
 | --- | --- |
@@ -70,7 +75,8 @@ To get a feel for BugSplat before integrating it, [log in](https://app.bugsplat.
    * chains the [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer for your architecture (`vc_redist.x64.exe`, `vc_redist.x86.exe`, or `vc_redist.arm64.exe`), or
    * copies those DLLs from the redistributable into your application folder alongside the BugSplat runtime files.
    {% endhint %}
-3. **Initialize BugSplat once, as early as possible** (at the top of `Main` or `Program.cs`, or in your `App` constructor), and keep the instance for the life of the process:
+3. **Register `BugSplatWer.dll` with Windows Error Reporting** from your installer. Crashes that go through WER aren't reported without it, and **for a WinUI 3 application that's every crash**. See [Windows Error Reporting](#windows-error-reporting) below for the registry entry.
+4. **Initialize BugSplat once, as early as possible** (at the top of `Main` or `Program.cs`, or in your `App` constructor), and keep the instance for the life of the process:
 
    ```csharp
    using BugSplatDotNet;
@@ -83,8 +89,8 @@ To get a feel for BugSplat before integrating it, [log in](https://app.bugsplat.
    bugsplat.SetAttribute("channel", "beta");
    ```
 
-   That's all it takes to report crashes and hangs. The database is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. No other handler is needed for unhandled exceptions, including WPF dispatcher exceptions and exceptions on background threads. WinUI 3 applications also need step 5.
-4. **Report handled exceptions** by calling `Post` from inside the `catch` block:
+   The database is created on the [Manage Database](https://app.bugsplat.com/v2/company/databases) page in Settings. Creating the instance installs the application exception handler and hang detection, so you don't need a handler of your own for unhandled exceptions, including WPF dispatcher exceptions and exceptions on background threads. Crashes that bypass the application's exception handlers are captured through the WER registration from step 3.
+5. **Report handled exceptions** by calling `Post` from inside the `catch` block:
 
    ```csharp
    try
@@ -98,9 +104,8 @@ To get a feel for BugSplat before integrating it, [log in](https://app.bugsplat.
    ```
 
    `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything. It blocks while the report is written and uploaded.
-5. **Register `BugSplatWer.dll` with Windows Error Reporting** from your installer, so fail-fast crashes are reported too. **For a WinUI 3 application this is required: it's the only way BugSplat can capture its crashes.** See [Windows Error Reporting](#windows-error-reporting) below.
 6. **Upload symbols** for every build you ship, so call stacks show function names, file names, and line numbers. See [Symbols](#symbols) below.
-7. **Test your integration** by forcing a crash with the application running outside the Visual Studio debugger (Ctrl+F5, or `dotnet run`); the debugger intercepts the exceptions BugSplat would report. Verify that symbols were uploaded on the [Versions](https://app.bugsplat.com/v2/versions) page and that the crash appears on the [Crashes](https://app.bugsplat.com/v2/crashes) page with a symbolicated call stack.
+7. **Test your integration** by forcing a crash with the application running outside the Visual Studio debugger (Ctrl+F5, or `dotnet run`); the debugger intercepts the exceptions BugSplat would report. Verify that symbols were uploaded on the [Versions](https://app.bugsplat.com/v2/versions) page and that the crash appears on the [Crashes](https://app.bugsplat.com/v2/crashes) page with a symbolicated call stack. `BugSplat.IsWerEnabled` tells you whether the WER registration from step 3 is in place.
 
 ### Using the SDK Download Instead of NuGet
 
@@ -172,7 +177,7 @@ symbol-upload authenticates with a Client ID and Client Secret, which you create
 
 ### Windows Error Reporting
 
-Some crashes bypass the application's exception handlers: Windows fail-fasts the process straight through Windows Error Reporting (WER). This happens for heap corruption (for example, a native library freeing the same memory twice), `__fastfail`, and `/GS` stack-cookie failures. BugSplat captures these through its WER helper, `BugSplatWer.dll`, which Windows loads only when its full path is listed in the registry. Your installer should create the entry with administrator rights:
+Some crashes end the process without running any of the application's exception handlers: Windows fail-fasts the process straight through Windows Error Reporting (WER). This happens for heap corruption (for example, a native library freeing the same memory twice), `__fastfail`, and `/GS` stack-cookie failures, as well as the runtime fail-fasts and WinUI 3 crashes described below. WER is the only way BugSplat can capture these crashes. It does so through its WER helper, `BugSplatWer.dll`, which Windows loads only when its full path is listed in the registry. Your installer must create the entry, with administrator rights:
 
 ```
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "C:\Path\To\YourApp\BugSplatWer.dll" /t REG_DWORD /d 0 /f
@@ -181,9 +186,9 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptio
 `BugSplat.IsWerEnabled` tells you at run time whether the entry is in place. See the [upgrade guide](cplusplus/bugsplat-for-windows-upgrade-guide.md#registry-changes) for more about the registry entry.
 
 {% hint style="info" %}
-**.NET Framework:** unhandled managed exceptions and access violations reach BugSplat's application exception handler and don't need the entry.
+**.NET Framework:** unhandled managed exceptions and access violations reach BugSplat's application exception handler. Fail-fasts from native code, such as heap corruption, still go through WER.
 
-**.NET 10:** the runtime ends some access violations and stack overflows with a fail-fast, so only the WER helper captures them.
+**.NET 10:** the runtime also ends some access violations and stack overflows with a fail-fast, so only the WER helper captures them.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -208,7 +213,7 @@ When managed code calls native code through P/Invoke and the native code crashes
 
 * **Windows only.** The NuGet package supports x64, x86, and ARM64; the SDK download supports x64 only.
 * **Start your application with its `.exe`.** `dotnet YourApp.dll` runs your application inside `dotnet.exe`, and BugSplat looks for `BugSplatMonitor.exe` next to `dotnet.exe` instead of your application.
-* **Fail-fast crashes need the WER registry entry.** Without it, heap corruption, `__fastfail`, `/GS` failures, and on .NET 10 runtime fail-fasts and every WinUI 3 crash aren't reported.
+* **Crashes that go through WER aren't reported without the registry entry.** That includes heap corruption, `__fastfail`, `/GS` failures, .NET 10 runtime fail-fasts, and every WinUI 3 crash (see [Windows Error Reporting](#windows-error-reporting)).
 * **Unobserved task exceptions aren't reported.** They don't crash the process, so there's no crash to capture. Observe your tasks and report failures with `Post` from a `catch`.
 * **.NET Framework: stack overflows in managed code aren't reported.** The .NET Framework ends the process on a stack overflow without running any application exception handler, and reports it through its own `CLR20r3` WER event, which doesn't call `BugSplatWer.dll` even when it's registered.
 * **.NET 10: uncaught C++ exceptions** thrown from native code called through P/Invoke are reported from the point where the .NET runtime re-raises them, rather than from the C++ `throw`.
