@@ -1,14 +1,14 @@
 ---
 description: >-
   Report crashes, hangs, and handled exceptions from .NET Framework and .NET 10
-  applications on Windows with BugSplatDotNet.
+  applications on Windows with the BugSplat NuGet package.
 ---
 
 # BugSplat for .NET
 
 ### Overview 👀
 
-`BugSplatDotNet` adds crash reporting to .NET Framework 4.7.2+ and .NET 10+ applications on Windows. It's one library built for both runtimes from the same source, with the same API, and it's installed from one NuGet package, [`BugSplat`](https://www.nuget.org/packages/BugSplat). It's built on the BugSplat native SDK: every report is a minidump that BugSplat symbolicates from the symbols you upload, so call stacks show function names, file names, and line numbers for both managed (C#) and native (C++) frames, without shipping `.pdb` files with your application.
+BugSplat for .NET adds crash reporting to .NET Framework 4.7.2+ and .NET 10+ applications on Windows. It's installed from one NuGet package, [`BugSplat`](https://www.nuget.org/packages/BugSplat), whose library, `BugSplatDotNet.dll`, is built for both runtimes from the same source, with the same API. It's built on the BugSplat native SDK: every report is a minidump that BugSplat symbolicates from the symbols you upload, so call stacks show function names, file names, and line numbers for both managed (C#) and native (C++) frames, without shipping `.pdb` files with your application.
 
 The package contains both builds, and NuGet picks the one for your target framework. Everything else in this guide (the native runtime you ship, initialization, handled exceptions, Windows Error Reporting, and symbols) is the same for both. Where a runtime behaves differently, a note says so.
 
@@ -31,9 +31,9 @@ Crashes and handled exceptions alike are reported as minidumps with BugSplat's .
 | --- | --- |
 | .NET Framework 4.7.2 and later | Supported, with the `net472` build. |
 | .NET 10 and later | Supported, with the `net10.0` build. |
-| .NET 5 through 9, and .NET Core | Not supported by `BugSplatDotNet`. |
+| .NET 5 through 9, and .NET Core | Not supported. |
 
-`BugSplatDotNet` runs on **Windows** only; Linux and macOS aren't supported. It loads the native `BugSplat.dll`, which must match the architecture your application runs as. The NuGet package includes the native runtime for **x64, x86, and ARM64** and copies the matching one; the SDK download includes x64 only.
+BugSplat for .NET runs on **Windows** only; Linux and macOS aren't supported. It loads the native `BugSplat.dll`, which must match the architecture your application runs as. The NuGet package includes the native runtime for **x64, x86, and ARM64** and copies the matching one; the SDK download includes x64 only.
 
 {% hint style="info" %}
 **.NET 10:** your application must target .NET 10 or later to reference the `net10.0` build. BugSplat's server can name the managed frames in crashes from .NET 9 and later, but not from .NET 5 through 8 or .NET Core, whose crashes it can't fully symbolicate.
@@ -215,7 +215,7 @@ When managed code calls native code through P/Invoke and the native code crashes
 
 ### Native Applications That Host .NET
 
-If your application is a native C++ program that loads the .NET Framework and calls into managed code, integrate the native SDK, [BugSplat for Windows (C++)](cplusplus/), in the host program instead of `BugSplatDotNet`, and call `SetCrashType(8)` so BugSplat resolves the managed frames in its minidumps. Crashes in the managed code are captured by the native SDK's handlers, and the call stack shows the managed frames on top of your native ones. The [MyDotNetFrameworkHostCrasher](../../posting-a-test-crash/mydotnetframeworkhostcrasher/) sample demonstrates the setup.
+If your application is a native C++ program that loads the .NET Framework and calls into managed code, integrate the native SDK, [BugSplat for Windows (C++)](cplusplus/), in the host program instead of the `BugSplat` package, and call `SetCrashType(8)` so BugSplat resolves the managed frames in its minidumps. Crashes in the managed code are captured by the native SDK's handlers, and the call stack shows the managed frames on top of your native ones. The [MyDotNetFrameworkHostCrasher](../../posting-a-test-crash/mydotnetframeworkhostcrasher/) sample demonstrates the setup.
 
 ### API Reference 📖
 
@@ -234,9 +234,9 @@ If your application is a native C++ program that loads the .NET Framework and ca
 
 ### Upgrading From the Legacy .NET Framework SDK
 
-The previous .NET Framework SDK (`BugSplat.CrashReporter`) has been replaced by `BugSplatDotNet`. To upgrade:
+The previous .NET Framework SDK (`BugSplat.CrashReporter`) has been replaced by BugSplat for .NET. To upgrade:
 
-| Legacy SDK | BugSplatDotNet |
+| Legacy SDK | BugSplat for .NET |
 | --- | --- |
 | `BugSplat.CrashReporter.Init(database, app, version)` | `new BugSplat(database, app, version)` |
 | Subscribing `AppDomainUnhandledExceptionHandler`, `DispatcherUnhandledExceptionHandler`, and `TaskSchedulerUnobservedTaskExceptionHandler` | Nothing: unhandled exceptions are captured by the constructor |
