@@ -126,7 +126,7 @@ Updating `BugSplat.dll` and `BugSplatMonitor.exe` without adding `BugSplatReport
 
 ### Customizing the dialog 🎨
 
-Colours, fonts, measurements, the logo and which fields appear all come from `theme\theme.json`. Every word the dialog shows comes from `theme\strings.en-US.json`, or from a translation you add. Both are read at run time, and `BugSplatReporter.exe --preview` shows the result without crashing anything or uploading a report.
+Colors, fonts, measurements, the logo and which fields appear all come from `theme\theme.json`. Every word the dialog shows comes from `theme\strings.en-US.json`, or from a translation you add. Both are read at run time, and `BugSplatReporter.exe --preview` shows the result without crashing anything or uploading a report.
 
 See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
 
