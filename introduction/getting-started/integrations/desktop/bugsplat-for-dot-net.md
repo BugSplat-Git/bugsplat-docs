@@ -117,7 +117,7 @@ If you can't use NuGet, you can add BugSplat from the [SDK download](https://app
 
 ### Customize the Crash Dialog
 
-The crash dialog's colours, fonts, layout, logo, and wording come from a theme folder that `BugSplatReporter.exe` reads at run time. To ship your own, add a folder named `BugSplatTheme` next to your project file, holding `theme.json`, `strings.en-US.json`, and any logo or translations, and write only the values you're changing:
+The crash dialog's colors, fonts, layout, logo, and wording come from a theme folder that `BugSplatReporter.exe` reads at run time. To ship your own, add a folder named `BugSplatTheme` next to your project file, holding `theme.json`, `strings.en-US.json`, and any logo or translations, and write only the values you're changing:
 
 ```
 YourApp.csproj

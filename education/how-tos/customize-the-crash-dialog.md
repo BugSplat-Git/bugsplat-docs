@@ -4,7 +4,7 @@ description: Rebrand, reword, and add links to the Windows crash dialog with a t
 
 # Crash Dialog Branding
 
-On Windows, the crash dialog your users see is shown by `BugSplatReporter.exe`. It reads its colours, fonts, layout, logo, and wording from a `theme` folder at run time. Nothing is compiled: edit a file, preview the dialog, and ship the folder with your application.
+On Windows, the crash dialog your users see is shown by `BugSplatReporter.exe`. It reads its colors, fonts, layout, logo, and wording from a `theme` folder at run time. Nothing is compiled: edit a file, preview the dialog, and ship the folder with your application.
 
 {% hint style="warning" %}
 **Upgrading from BugSplat for Windows 8.x?** The theme folder replaces `BugSplatRc.dll`, which no longer exists in 9.0.0. If you customized the dialog by editing `BugSplatRc.rc` and rebuilding the DLL, those changes don't carry forward; re-create them in `theme.json` and `strings.en-US.json` as described below. See the [upgrade guide](../../introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md#upgrading-to-9.0.0).
@@ -20,7 +20,7 @@ The dialog follows the end user's Windows light or dark mode:
 
 <figure><img src="../../.gitbook/assets/windows-crash-dialog-dark.png" alt="The BugSplat crash dialog in dark mode"><figcaption><p>Dark mode</p></figcaption></figure>
 
-A theme can change the colours, type, sizes, logo, and wording. This fictional brand was made entirely with a `theme.json`, a logo PNG, and a string file:
+A theme can change the colors, type, sizes, logo, and wording. This fictional brand was made entirely with a `theme.json`, a logo PNG, and a string file:
 
 <figure><img src="../../.gitbook/assets/windows-crash-dialog-custom-theme.png" alt="A rebranded crash dialog for a fictional product called Nebula Forge"><figcaption><p>A custom theme</p></figcaption></figure>
 
@@ -36,7 +36,7 @@ YourApp\
   BugSplatReporter.exe
   BugSplatWer.dll
   theme\
-    theme.json              colours, type, layout, and switches
+    theme.json              colors, type, layout, and switches
     strings.en-US.json      every word the dialog shows
     logo.png                optional, named by brand.logo
 ```
@@ -76,7 +76,7 @@ The theme is copied whenever the native runtime is: for executables and test pro
 
 ### Previewing Your Changes 🔍
 
-`BugSplatReporter.exe` has a preview mode. It shows the real dialog for a sample crash and **never uploads anything**, so you don't have to crash your application, or fill your database with test crashes, to check a colour. The reporter never uploads in any mode — `BugSplatMonitor.exe` does that — and in preview it doesn't save the dialog's answers either, so it's safe to point at a real crash folder.
+`BugSplatReporter.exe` has a preview mode. It shows the real dialog for a sample crash and **never uploads anything**, so you don't have to crash your application, or fill your database with test crashes, to check a color. The reporter never uploads in any mode — `BugSplatMonitor.exe` does that — and in preview it doesn't save the dialog's answers either, so it's safe to point at a real crash folder.
 
 ```batch
 BugSplatReporter.exe --preview
@@ -94,7 +94,7 @@ BugSplatReporter.exe --preview --theme "C:\work\my-theme" --link-domains "exampl
 
 Before you ship a theme, check:
 
-1. **Both appearances.** Even if you pin `appearance`, switch Windows between light and dark mode and look again. A logo with an opaque background, or a colour you set for only one mode, shows up immediately.
+1. **Both appearances.** Even if you pin `appearance`, switch Windows between light and dark mode and look again. A logo with an opaque background, or a color you set for only one mode, shows up immediately.
 2. **Contrast on the accent.** `accentText` is drawn on `accent`, not on `background`. A light accent needs a dark `accentText`.
 3. **The focus ring.** Tab through every control. `focus` must be visible against `background`.
 4. **Your longest language.** German runs roughly 35% longer than English. The dialog grows to fit, but look at what that means for your `windowWidth`.
@@ -171,7 +171,7 @@ A logo that fails any check is replaced by BugSplat's logo. For best results, us
 
 #### `palette`
 
-Two objects, `light` and `dark`, with the same fifteen keys. Colours are `#RGB`, `#RRGGBB`, or `#RRGGBBAA`; the alpha is accepted but ignored. Colour names and `rgb(...)` aren't accepted. You don't have to set both modes: set only `dark`, and light mode keeps the defaults.
+Two objects, `light` and `dark`, with the same fifteen keys. Colors are `#RGB`, `#RRGGBB`, or `#RRGGBBAA`; the alpha is accepted but ignored. Color names and `rgb(...)` aren't accepted. You don't have to set both modes: set only `dark`, and light mode keeps the defaults.
 
 | Key | Light | Dark | Where it's used |
 | --- | --- | --- | --- |
@@ -183,7 +183,7 @@ Two objects, `light` and `dark`, with the same fifteen keys. Colours are `#RGB`,
 | `textPrimary` | `#1A1A1A` | `#F5F5F5` | The headline, field labels, text in fields, and secondary button captions. |
 | `textSecondary` | `#6B6B6B` | `#ABABAB` | Body text, the contact note, the "optional" hint, and placeholder text in empty fields. |
 | `textDisabled` | `#A3A3A3` | `#6E6E6E` | A disabled button's caption. |
-| `accent` | `#2B74F0` | `#3D82F5` | The **Send report** button, the **View report details** link, a checked consent box, and a focused field's outline. Not the links in `body` and `contactNote`, which use the Windows link colour. |
+| `accent` | `#2B74F0` | `#3D82F5` | The **Send report** button, the **View report details** link, a checked consent box, and a focused field's outline. Not the links in `body` and `contactNote`, which use the Windows link color. |
 | `accentHover` | `#1F64DB` | `#5A96F7` | The primary button and link under the pointer. |
 | `accentPressed` | `#1A55BC` | `#2F6FD8` | The primary button and link while pressed. |
 | `accentText` | `#FFFFFF` | `#FFFFFF` | Text and the check mark drawn on `accent`. |
@@ -191,7 +191,7 @@ Two objects, `light` and `dark`, with the same fifteen keys. Colours are `#RGB`,
 | `borderStrong` | `#A8A6A0` | `#6A6965` | A field or button under the pointer, and an unchecked consent box. |
 | `focus` | `#1A1A1A` | `#FFFFFF` | The keyboard focus ring. |
 
-BugSplat's logo has a transparent background, with a blue wordmark in light mode and a white one in dark mode, and a faint splat is drawn behind it on the banner. The splat is never drawn behind your logo. If your logo has a transparent background too, set `bannerBackground` to anything you like, such as your `background` or a brand colour.
+BugSplat's logo has a transparent background, with a blue wordmark in light mode and a white one in dark mode, and a faint splat is drawn behind it on the banner. The splat is never drawn behind your logo. If your logo has a transparent background too, set `bannerBackground` to anything you like, such as your `background` or a brand color.
 
 #### `type`
 
@@ -345,7 +345,7 @@ A link works only if:
 * It starts with `https://`. `http:`, `mailto:`, `file:`, and `javascript:` links aren't opened.
 * Its host is an allowed domain or one of its subdomains, written as a plain host name: no user name (as in `https://example.com@evil.example`), no port, and no IP address.
 
-A link opens in the user's default browser only when they click it, or tab to it and press Enter, and hovering over it shows its full address. Links use Windows' link colour for light or dark mode, not your `accent`. `{appName}` and `{appVersion}` come from the crash report and can never contain a link. Each link that's opened or refused is written to `BugSplat.log`, and `--check-theme` reports links that could never work.
+A link opens in the user's default browser only when they click it, or tab to it and press Enter, and hovering over it shows its full address. Links use Windows' link color for light or dark mode, not your `accent`. `{appName}` and `{appVersion}` come from the crash report and can never contain a link. Each link that's opened or refused is written to `BugSplat.log`, and `--check-theme` reports links that could never work.
 
 {% hint style="info" %}
 **Why the allow-list is in code.** Anyone who can write to your application's folder can edit the theme folder, and a crash dialog is a convincing place for a phishing link. Keeping the list of allowed domains in your signed executable means a changed theme file can't add a working link to a site you didn't choose.
