@@ -26,9 +26,9 @@ $BUGSPLAT_CLIENT_SECRET = "your-client-secret"
 
 6. Rebuild the project and run it outside of the Visual Studio debugger (Ctrl+F5). This is important since the debugger interferes with the BugSplat library’s exception handling. You should see a dialog such as that shown below:
 
-![BugSplat Crash Dialog](<../../../../.gitbook/assets/bugsplat-crash-dialog (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (3) (2) (1) (2).png>)
+![BugSplat Crash Dialog](../../../../.gitbook/assets/windows-crash-dialog-light.png)
 
-7. Enter some descriptive text to help you identify the crash you are about to upload. Click the `Send Error Report` button, and voilà! The report will be sent! In the BugSplat web app, look for the crash report with the description you entered.
+7. Enter some descriptive text to help you identify the crash you are about to upload. Click the `Send report` button, and voilà! The report will be sent! In the BugSplat web app, look for the crash report with the description you entered.
 8. Navigate to the BugSplat [Dashboard](https://app.bugsplat.com/v2/dashboard) and click the link in the ID column to view details about your crash, including the full symbolicated stack trace and various crash metadata.
 
 Finally, experiment with other features of the library by examining the `MyConsoleCrasher` source code and supplying different command-line arguments.

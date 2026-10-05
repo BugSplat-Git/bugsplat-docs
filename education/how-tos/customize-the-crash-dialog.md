@@ -1,53 +1,136 @@
 ---
-description: Rebrand and reword the Windows crash dialog by editing two JSON files
+description: Rebrand, reword, and add links to the Windows crash dialog with a theme folder
 ---
 
 # Crash Dialog Branding
 
-The Windows crash dialog reads its appearance from `theme\theme.json` and its text from `theme\strings.en-US.json`, both at runtime. Nothing is compiled: edit a file, run the reporter, see the change. There is no Visual Studio project to open and no resource DLL to rebuild.
+On Windows, the crash dialog your users see is shown by `BugSplatReporter.exe`. It reads its colours, fonts, layout, logo, and wording from a `theme` folder at run time. Nothing is compiled: edit a file, preview the dialog, and ship the folder with your application.
 
 {% hint style="warning" %}
-This replaces the old `BugSplatRc.dll` workflow. If you previously customized the dialog by editing `.rc` files and rebuilding a resource-only DLL, that DLL no longer exists and none of that work carries forward — your customizations need to be re-expressed in `theme.json`. See [How the Windows Crash Reporter Works](../../introduction/getting-started/integrations/desktop/cplusplus/how-the-windows-crash-reporter-works.md).
+**Upgrading from BugSplat for Windows 8.x?** The theme folder replaces `BugSplatRc.dll`, which no longer exists in 9.0.0. If you customized the dialog by editing `BugSplatRc.rc` and rebuilding the DLL, those changes don't carry forward; re-create them in `theme.json` and `strings.en-US.json` as described below. See the [upgrade guide](../../introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md#upgrading-to-9.0.0).
 {% endhint %}
 
 For macOS, see the [Crash Reporter Customization](../../introduction/getting-started/integrations/desktop/macos.md#crash-reporter-customization) section of the macOS guide.
 
-### Where the files live 📁
+### The Default Dialog 👀
 
-The theme folder ships in the SDK's `bin` folder and belongs next to `BugSplatReporter.exe`, which is next to your executable:
+The dialog follows the end user's Windows light or dark mode:
+
+<figure><img src="../../.gitbook/assets/windows-crash-dialog-light.png" alt="The BugSplat crash dialog in light mode"><figcaption><p>Light mode</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/windows-crash-dialog-dark.png" alt="The BugSplat crash dialog in dark mode"><figcaption><p>Dark mode</p></figcaption></figure>
+
+A theme can change the colours, type, sizes, logo, and wording. This fictional brand was made entirely with a `theme.json`, a logo PNG, and a string file:
+
+<figure><img src="../../.gitbook/assets/windows-crash-dialog-custom-theme.png" alt="A rebranded crash dialog for a fictional product called Nebula Forge"><figcaption><p>A custom theme</p></figcaption></figure>
+
+### Where the Theme Lives 📁
+
+`BugSplatReporter.exe` reads `theme\theme.json` and `theme\strings.<language>.json` from the folder it's in, which is your application's folder:
 
 ```
 YourApp\
   YourApp.exe
-  BugSplat.dll
+  BugSplat.dll              only if you use the dynamic library
   BugSplatMonitor.exe
   BugSplatReporter.exe
   BugSplatWer.dll
   theme\
-    theme.json            colours, type, layout, switches
-    strings.en-US.json    every word the dialog shows
-    logo.png              optional, referenced by brand.logo
+    theme.json              colours, type, layout, and switches
+    strings.en-US.json      every word the dialog shows
+    logo.png                optional, named by brand.logo
 ```
 
-{% hint style="info" %}
-The whole folder is optional. `BugSplatReporter.exe` carries a built-in copy of both files, and the `theme.json` that ships in the SDK is an exact copy of those built-in values — so deleting it changes nothing, and you can always diff your file against the shipped one to see what you actually changed.
-{% endhint %}
+The whole folder is optional. The reporter has the defaults built in, and the `theme` folder in the SDK's `bin` folder is an exact copy of them, so shipping it unchanged, or not at all, gives the same dialog. Diff your files against the SDK's copy to see what you've changed.
 
-### Seeing your changes without crashing anything 👀
+`BugSplatMonitor.exe` starts the reporter with nothing but the crash folder, so in a shipped application the theme is always the `theme` folder next to `BugSplatReporter.exe`.
 
-`BugSplatReporter.exe` has a preview mode. It renders the real dialog against a sample crash folder and **never uploads anything**, so you don't have to crash an application or pollute your crash database to check a colour.
+#### With the BugSplat NuGet Package
+
+If your .NET application gets BugSplat from the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package, don't copy anything by hand. Put the theme in a folder named `BugSplatTheme` next to your project file:
+
+```
+YourApp\
+  YourApp.csproj
+  BugSplatTheme\
+    theme.json
+    strings.en-US.json
+    logo.png
+```
+
+The package copies the folder's contents, subfolders included, to `theme\` in your build output and `dotnet publish` folder, next to `BugSplatReporter.exe`. A single-file publish leaves it as a loose folder, because the reporter is a separate process that reads it from disk. The package doesn't include a theme folder of its own, so without `BugSplatTheme` the dialog uses its built-in defaults.
+
+To keep the theme somewhere else, set its path, relative to the project file:
+
+```xml
+<PropertyGroup>
+  <BugSplatThemeDirectory>..\Branding\CrashDialog</BugSplatThemeDirectory>
+</PropertyGroup>
+```
+
+If a folder named by `BugSplatThemeDirectory` doesn't exist, the build fails with `BSTHEME000` instead of quietly shipping the default dialog.
+
+Every build on Windows also [checks the theme](#checking-a-theme) and reports each problem as a `BSTHEME001`–`BSTHEME005` warning. Add a code to `<NoWarn>` to silence that kind of warning, or set `<BugSplatCheckTheme>false</BugSplatCheckTheme>` to turn the check off.
+
+The theme is copied whenever the native runtime is: for executables and test projects, and for a library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`. A library loaded by a native host gets the theme in its own output's `theme\` folder; deploy that folder next to the host's executable along with the native files. If you copy BugSplat's files to the host yourself instead, copy your theme folder there as `theme\` too. See [BugSplat for .NET](../../introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md).
+
+### Previewing Your Changes 🔍
+
+`BugSplatReporter.exe` has a preview mode. It shows the real dialog for a sample crash and **never uploads anything**, so you don't have to crash your application, or fill your database with test crashes, to check a colour. Click **Send report** to see the progress window and the thank-you message, also without any network traffic.
 
 ```batch
 BugSplatReporter.exe --preview
 BugSplatReporter.exe --preview --theme "C:\work\my-theme"
-BugSplatReporter.exe --preview --scale 200
+BugSplatReporter.exe --preview --theme "C:\work\my-theme" --scale 200
+BugSplatReporter.exe --preview --theme "C:\work\my-theme" --link-domains "example.com"
 ```
 
-`--theme` accepts either the folder or the `theme.json` file itself, and works in every mode, not just preview. `--scale` renders as though the display were at that percentage, so you can check high-DPI scaling on a 100% monitor.
+| Option | What it does |
+| --- | --- |
+| `--preview` | Shows the dialog for a built-in sample crash. Never uploads. |
+| `--theme <folder>` | Loads `theme.json` and the string files from this folder instead of the `theme` folder next to the reporter. Accepts the folder or the path to its `theme.json`. |
+| `--scale <percent>` | Draws the dialog as if the display were at this scale, from 50 to 400, so you can check 150% and 200% without changing your display settings. Preview only. |
+| `--link-domains <domains>` | Lets the dialog's links work for these domains, separated by semicolons, the way your application allows them in code. See [Links in the Dialog](#links-in-the-dialog). |
 
-### Editing `theme.json` 🎨
+Before you ship a theme, check:
 
-Only write the keys you are changing. Everything you leave out keeps its default. This is a complete, valid theme:
+1. **Both appearances.** Even if you pin `appearance`, switch Windows between light and dark mode and look again. A logo with an opaque background, or a colour you set for only one mode, shows up immediately.
+2. **Contrast on the accent.** `accentText` is drawn on `accent`, not on `background`. A light accent needs a dark `accentText`.
+3. **The focus ring.** Tab through every control. `focus` must be visible against `background`.
+4. **Your longest language.** German runs roughly 35% longer than English. The dialog grows to fit, but look at what that means for your `windowWidth`.
+5. **Display scaling.** Use `--scale 150` and `--scale 200`. A logo drawn at 1× looks soft at 2×.
+6. **Keyboard shortcuts.** Two controls with the same `&` letter means one of them can't be reached from the keyboard.
+
+### Checking a Theme ✅
+
+A theme can change how the crash dialog looks, but it can never stop a crash report from being sent. The reporter ignores anything in a theme it can't use, such as a misspelled key, a colour that isn't a colour, or a logo it can't decode, and uses the default instead. That also makes mistakes easy to miss, so check the folder before you ship it:
+
+```batch
+BugSplatReporter.exe --check-theme "C:\work\my-theme" | more
+```
+
+`--check-theme` reads the folder the same way the dialog does, opens no window, and prints one line for each problem, in the format MSBuild reports as a warning:
+
+```
+C:\work\my-theme\theme.json: warning BSTHEME001: palette.light.accent is not #RGB, #RRGGBB or #RRGGBBAA; using the default
+C:\work\my-theme\theme.json: warning BSTHEME002: layout.widht is not a key this version of the reporter reads; it is ignored
+```
+
+| Code | Problem |
+| --- | --- |
+| `BSTHEME001` | A value, or a whole section, in `theme.json` falls back to its default. |
+| `BSTHEME002` | A key in `theme.json` or a string file that the reporter doesn't read, usually a typo. |
+| `BSTHEME003` | `brand.logo` names a file that's missing, too large, or can't be decoded. |
+| `BSTHEME004` | A string file, or a value in one, that the reporter ignores, including a link that could never work. |
+| `BSTHEME005` | The folder has neither `theme.json` nor a string file. |
+
+The exit code is `0` for any folder that exists, however many warnings it prints, `1` with no folder, and `2` when the folder doesn't exist. The reporter is a Windows program, so a console doesn't wait for its output: pipe it, to `more` in a command prompt or to `Out-Host` in PowerShell.
+
+On an end user's machine, the same problems are written to `BugSplat.log` in the crash folder, prefixed `theme:` or `strings:`.
+
+### Editing theme.json 🎨
+
+Write only the keys you're changing; everything you leave out keeps its default. This is a complete theme:
 
 ```json
 {
@@ -59,156 +142,141 @@ Only write the keys you are changing. Everything you leave out keeps its default
 }
 ```
 
-#### Top level
+The file is plain JSON, up to 256 KB. Comments (`//` and `/* */`) aren't JSON, and a file containing them is ignored entirely. A theme can't name a program, a command, or a web address, so it can't make the reporter run or open anything.
 
-| Key | Type | Default | Notes |
-| --- | --- | --- | --- |
-| `schemaVersion` | integer | `1` | The schema the file was written against. A higher number still loads. |
-| `appearance` | `"system"` \| `"light"` \| `"dark"` | `"system"` | `"system"` follows the end user's Windows app-theme setting. The other two pin it. |
+#### Top Level
 
-`appearance: "system"` is almost always the right answer. The crash dialog appears at the worst moment of someone's day; matching the desktop they're already looking at is one less surprise.
+| Key | Default | Notes |
+| --- | --- | --- |
+| `schemaVersion` | `1` | The version of the format the file was written for. A file written for a newer version still loads; keys the reporter doesn't know are ignored. |
+| `appearance` | `"system"` | `"system"` follows the end user's Windows light or dark mode. `"light"` or `"dark"` pins it. |
 
 #### `brand`
 
-| Key | Type | Default | Effect |
-| --- | --- | --- | --- |
-| `productName` | string | `"BugSplat"` | Available to string files as `{productName}`. Doesn't appear anywhere on its own. |
-| `logo` | string | `""` | Image file in the theme folder, drawn in the banner. `""` means the built-in BugSplat logo. |
-| `logoHeight` | integer, 0–240 | `0` | Height in DIPs to fit the logo into. `0` means "as tall as the banner allows". The logo is never upscaled past its natural size. |
-| `logoAlignment` | `"start"` \| `"center"` \| `"end"` | `"start"` | Horizontal position in the banner. `"start"` is the left edge in a left-to-right language. |
+| Key | Default | Notes |
+| --- | --- | --- |
+| `productName` | `"BugSplat"` | Available to string files as `{productName}`. Not shown on its own. |
+| `logo` | `""` | An image file in the theme folder, drawn in the banner. `""` means BugSplat's logo. |
+| `logoHeight` | `40` | Height, from 0 to 240, to fit the logo into. `0` means as tall as the banner allows. A logo is never enlarged beyond its own size. |
+| `logoAlignment` | `"start"` | `"start"`, `"center"`, or `"end"`. `"start"` is the left edge in a left-to-right language. |
+
+`logo` is the only key that names a file, so it's tightly restricted:
+
+* It must be a plain file name in the theme folder: no `\`, `/`, `..`, drive letter, or network path.
+* It must end in `.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`, `.tif`, or `.tiff`.
+* The file must be 4 MB or smaller, and at most 8192 pixels on each side.
+* It must decode within 3 seconds.
+
+A logo that fails any check is replaced by BugSplat's logo. For best results, use a PNG with a transparent background, about three times the height you want so it stays sharp at 200% and 300% scaling, for example 1200 × 120 for a 40-pixel-high logo. A wide wordmark works better than a square mark, because the banner is a strip.
 
 #### `palette`
 
-Two objects, `light` and `dark`, with the same fifteen keys. Colours are `#RGB`, `#RRGGBB` or `#RRGGBBAA` — names like `red` and `rgb(...)` are rejected. The alpha pair is accepted so a theme round-trips through a web colour picker, but it's ignored; the dialog paints opaque.
+Two objects, `light` and `dark`, with the same sixteen keys. Colours are `#RGB`, `#RRGGBB`, or `#RRGGBBAA`; the alpha is accepted but ignored. Colour names and `rgb(...)` aren't accepted. You don't have to set both modes: set only `dark`, and light mode keeps the defaults.
 
-| Role | Light | Dark | Where it shows |
+| Key | Light | Dark | Where it's used |
 | --- | --- | --- | --- |
-| `background` | `#F3F3F3` | `#202020` | The dialog face. Everything sits on this. |
-| `surface` | `#FFFFFF` | `#2D2D2D` | Text field interiors, the file list body, secondary button fill. |
-| `surfaceAlt` | `#F6F6F6` | `#383838` | A pressed or hovered secondary button, a disabled field, the progress bar's track. |
-| `bannerBackground` | `#FFFFFF` | `#FFFFFF` | The strip the logo sits on. See the note below. |
-| `textPrimary` | `#1A1A1A` | `#FFFFFF` | The headline, field text, list rows, secondary button captions. |
-| `textSecondary` | `#606060` | `#B4B4B4` | Body copy, field labels, the progress dialog's status column. |
-| `textDisabled` | `#A0A0A0` | `#767676` | A disabled button's caption. |
-| `accent` | `#0F6CBD` | `#4C9EEB` | The primary button, the checked consent box, the focused field's outline, the progress bar. |
-| `accentHover` | `#115EA3` | `#60ACF0` | Primary button under the pointer. |
-| `accentPressed` | `#0C4B85` | `#4086C8` | Primary button while held down. |
-| `accentText` | `#FFFFFF` | `#000000` | Text and the check mark drawn **on top of** `accent`. |
-| `border` | `#D1D1D1` | `#424242` | Field outlines, secondary button outlines, horizontal rules. |
-| `borderStrong` | `#8A8A8A` | `#6E6E6E` | A field or button under the pointer; the unchecked consent box's outline. |
-| `focus` | `#1A1A1A` | `#FFFFFF` | The outer half of the keyboard focus ring. |
-| `error` | `#C42B1C` | `#FF99A4` | A failed upload's progress bar. |
+| `background` | `#FFFFFF` | `#1E1E1E` | The dialog itself. |
+| `surface` | `#FFFFFF` | `#262626` | Inside text fields and the file list, and secondary buttons. |
+| `surfaceAlt` | `#F3F2EF` | `#303030` | A hovered or pressed secondary button, a disabled field, the progress bar's track. |
+| `bannerBackground` | `#FBFAF6` | `#242321` | The strip the logo sits on. |
+| `footerBackground` | `#F7F6F2` | `#252422` | The band along the bottom that holds the buttons. If a mode sets `background` but not `footerBackground`, the footer uses that `background`. |
+| `textPrimary` | `#1A1A1A` | `#F5F5F5` | The headline, field labels, text in fields, and secondary button captions. |
+| `textSecondary` | `#6B6B6B` | `#ABABAB` | Body text, the contact note, the "optional" hint, and placeholder text in empty fields. |
+| `textDisabled` | `#A3A3A3` | `#6E6E6E` | A disabled button's caption. |
+| `accent` | `#2B74F0` | `#3D82F5` | The **Send report** button, the **View report details** link, a checked consent box, a focused field's outline, and the progress bar. |
+| `accentHover` | `#1F64DB` | `#5A96F7` | The primary button and link under the pointer. |
+| `accentPressed` | `#1A55BC` | `#2F6FD8` | The primary button and link while pressed. |
+| `accentText` | `#FFFFFF` | `#FFFFFF` | Text and the check mark drawn on `accent`. |
+| `border` | `#D9D7D2` | `#3D3C39` | Field and secondary button outlines, and the dividing lines. |
+| `borderStrong` | `#A8A6A0` | `#6A6965` | A field or button under the pointer, and an unchecked consent box. |
+| `focus` | `#1A1A1A` | `#FFFFFF` | The keyboard focus ring. |
+| `error` | `#C42B1C` | `#FF99A4` | The progress bar when an upload fails. |
 
-You don't have to supply both variants. Supplying only `dark` leaves light mode at the built-in colours.
-
-{% hint style="info" %}
-**`bannerBackground` defaults to white in both variants.** That's a workaround, not a design choice: the BugSplat logo that ships in the reporter has an opaque white background, so in dark mode the banner would otherwise read as a white strip clipped across the top. If you supply **your own logo with a transparent background**, set `bannerBackground` to whatever you like — the banner honours the image's alpha channel and composites correctly.
-{% endhint %}
+BugSplat's logo has a transparent background, with a blue wordmark in light mode and a white one in dark mode, and a faint splat is drawn behind it on the banner. The splat is never drawn behind your logo. If your logo has a transparent background too, set `bannerBackground` to anything you like, such as your `background` or a brand colour.
 
 #### `type`
 
-| Key | Type | Default | Range | Effect |
-| --- | --- | --- | --- | --- |
-| `family` | string | `"Segoe UI"` | ≤ 256 chars | Font family for every control. If it isn't installed, Windows substitutes and the dialog still lays out correctly, because it measures whatever font it actually got. |
-| `baseSize` | integer | `9` | 6–24 | Point size for body text, labels, fields and buttons. |
-| `headingSize` | integer | `13` | 6–48 | Point size for the headline. |
-| `headingWeight` | integer | `600` | 100–900 | `400` normal, `600` semibold, `700` bold. |
-
-Sizes are in **points**, converted to pixels at the window's real DPI, so 9 pt is 9 pt at 100%, 150% and 300%.
+| Key | Default | Notes |
+| --- | --- | --- |
+| `family` | `"Segoe UI"` | The font for the whole dialog. If it isn't installed, Windows substitutes another, and the dialog still lays out correctly. |
+| `baseSize` | `10` | Point size, from 6 to 24, for body text, labels, fields, and buttons. |
+| `headingSize` | `15` | Point size, from 6 to 48, for the headline. |
+| `headingWeight` | `700` | Weight, from 100 to 900, for the headline: `400` is normal, `600` semibold, and `700` bold. |
 
 #### `layout`
 
-Measurements are in DIPs (1 DIP = 1 px at 100% scaling) and are multiplied by the window's DPI scale at runtime.
+Sizes are in pixels at 100% display scaling, and are scaled up on high-DPI displays.
 
-| Key | Type | Default | Range | Effect |
-| --- | --- | --- | --- | --- |
-| `windowWidth` | integer | `440` | 320–1200 | Width of the dialog's client area. |
-| `padding` | integer | `20` | 0–64 | Margin between the dialog edge and its content. |
-| `spacing` | integer | `14` | 0–48 | Vertical gap between blocks. |
-| `controlRadius` | integer | `4` | 0–24 | Corner radius of buttons, fields and the consent box. `0` is square. |
-| `roundedWindow` | boolean | `true` | | Windows 11 rounded window corners. A no-op on Windows 10. |
-| `mica` | boolean | `true` | | Windows 11 Mica backdrop. A no-op on Windows 10. |
-| `banner` | boolean | `true` | | Whether there's a logo strip at all. |
-| `bannerHeight` | integer | `64` | 0–240 | Height of the strip. `0` also hides it. |
-| `descriptionLines` | integer | `5` | 1–20 | Visible lines in the description box. It scrolls beyond that; the field accepts 500 characters regardless. |
+| Key | Default | Notes |
+| --- | --- | --- |
+| `windowWidth` | `500` | Width of the dialog's content, from 320 to 1200. The height isn't settable: the dialog grows to fit its text, so a longer translation is never cut off. |
+| `padding` | `28` | Margin around the content, from 0 to 64. |
+| `spacing` | `16` | Gap between blocks of content, from 0 to 48. |
+| `controlRadius` | `8` | Corner radius of buttons, fields, and the consent box, from 0 to 24. `0` is square. |
+| `roundedWindow` | `true` | Rounded window corners on Windows 11. |
+| `mica` | `true` | The Mica backdrop on Windows 11. |
+| `banner` | `true` | Whether the dialog has a logo strip at all. |
+| `bannerHeight` | `76` | Height of the logo strip, from 0 to 240. `0` hides it. |
+| `descriptionLines` | `4` | Visible lines in the description box, from 1 to 20. It scrolls beyond that and accepts up to 500 characters. |
 
-**Window height is not settable.** It's computed from the text, so a longer translation grows the window instead of being clipped. Per-control positions aren't settable either — the dialog is a single vertical stack (banner, headline, body, description, contact note, name/email, consent, buttons). You can turn blocks off with `features`, but you can't reorder them.
+The dialog is a single column, in this order: banner, headline, body text, description box, name and email, contact note, consent box, and the footer with **View report details** on one side and **Don't send** and **Send report** on the other. You can hide parts with `features`, but you can't reorder them.
 
 #### `features`
 
-| Key | Type | Default | Effect |
-| --- | --- | --- | --- |
-| `showName` | boolean | `true` | Show the optional Name field. Hiding it widens Email to the full content width. |
-| `showEmail` | boolean | `true` | Show the optional Email field. |
-| `showConsent` | boolean | `false` | Show the consent check box. While it's shown and unticked, **Send Error Report** is disabled. |
-| `showDetailsButton` | boolean | `true` | Show **View Report Details**, which lists the files in the report. Hiding it doesn't change what's uploaded. |
-| `requireEmail` | boolean | `false` | **Send Error Report** stays disabled until Email contains something with an `@` that isn't at either end. |
-| `autoCloseSeconds` | integer, 0–3600 | `0` | Send the report and close the dialog after this many seconds. `0` disables it. |
+| Key | Default | Notes |
+| --- | --- | --- |
+| `showName` | `true` | Show the optional Name field. Hiding it widens the Email field. |
+| `showEmail` | `true` | Show the optional Email field. Hiding both fields also hides the contact note, which only explains them. |
+| `showConsent` | `false` | Show a consent check box. While it's unchecked, **Send report** is disabled. Write the consent sentence in your string file's `consent` key. |
+| `showDetailsButton` | `true` | Show the **View report details** link, which lists the files in the report. Hiding it doesn't change what's uploaded. |
+| `requireEmail` | `false` | Keep **Send report** disabled until the Email field contains something with an `@` in the middle. It's ignored if `showEmail` is `false`, so the dialog can always be sent. |
+| `autoCloseSeconds` | `0` | Send the report and close the dialog after this many seconds, up to 3600. `0` turns it off. |
 
-Hiding both `showName` and `showEmail` also hides the paragraph above them, since it exists only to explain those fields.
+`autoCloseSeconds` is for machines with nobody in front of them, such as kiosks, test rigs, and build agents. The countdown always **sends** the report, never discards it, and any key press or click cancels it for good. To show no dialog at all, use [quiet mode](../../introduction/getting-started/integrations/desktop/cplusplus/how-the-windows-crash-reporter-works.md#quiet-mode-and-unattended-machines) instead.
 
-`autoCloseSeconds` is for machines with nobody sitting at them — kiosks, build agents, servers, test rigs. The countdown **sends** the report; it never discards it. Any keystroke, click, tick of the consent box or opening of the details window cancels the countdown permanently.
+### Editing the Text ✍️
 
-### Swapping the logo 🖼️
-
-Put your image in the theme folder and name it in `brand.logo`:
-
-```json
-{ "brand": { "logo": "acme-logo.png", "logoHeight": 40, "logoAlignment": "center" } }
-```
-
-`logo` is the only key that names a file, so it's constrained tightly:
-
-* A **plain file name** only — no `\`, no `/`, no `..`, no drive letter, no UNC path. The file must sit directly in the theme folder.
-* The extension must be `.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`, `.tif` or `.tiff`.
-* The file must be **4 MB or smaller**, and no more than **8192 pixels** on each side.
-* Decoding must finish within 3 seconds.
-
-Anything that fails a check falls back to the built-in logo and logs a line. Nothing about a bad image can delay or prevent a report being sent.
-
-{% hint style="info" %}
-**Recommended asset:** a PNG with a **transparent background**, roughly 3× the height you want so it stays sharp at 200% and 300% scaling — for example 1200 × 120 for a 40 DIP logo. A wide wordmark works better than a square mark, because the banner is a strip.
-{% endhint %}
-
-### Editing the text ✍️
-
-Every word the dialog shows lives in `theme\strings.en-US.json`. To change the English wording, edit that file. To add a language, add a file.
+Every word the dialog shows comes from `theme\strings.en-US.json`. To change the English wording, edit that file. As with `theme.json`, write only the keys you're changing:
 
 ```json
 {
   "locale": "en-US",
-  "direction": "ltr",
-  "fontFamily": "",
-
   "strings": {
     "headline": "{appName} has stopped working.",
-    "send": "&Send Report",
-    "consent": "Allow Acme to store this information for up to one year."
+    "consent": "Allow Acme to store this report for up to one year."
   }
 }
 ```
 
-Save as **UTF-8**. Write the language directly — no escaping needed. Comments aren't accepted; `//` and `/* */` aren't JSON, and a file containing them is rejected whole.
+Save string files as UTF-8, and write accented and non-Latin characters directly. Comments aren't allowed.
 
-The keys, and their English defaults:
+| Key | Default | Notes |
+| --- | --- | --- |
+| `locale` | the file's own language | The language the file is written in, for example `de-DE`. The file name, not this key, decides when the file is used. |
+| `direction` | `"ltr"` | Set `"rtl"` for Arabic, Hebrew, Persian, and Urdu, and the whole dialog mirrors, except the logo. |
+| `fontFamily` | `""` | A font for this language only, for scripts your theme's font doesn't cover. For example, Segoe UI has no Chinese, Japanese, or Korean characters, so a `ja-JP` file might set `"Yu Gothic UI"`. Sizes and weights still come from `theme.json`. |
+| `strings` | | The text, as described below. |
 
-**The crash dialog**
+#### The Crash Dialog
 
 | Key | English |
 | --- | --- |
 | `title` | Crash Report |
-| `headline` | A problem has caused your program to close. |
-| `body` | Reporting this error will help us make our product more reliable… |
-| `descriptionLabel` | Please describe the events just before this dialog appeared: |
-| `contactNote` | Contact information below is optional… |
-| `nameLabel` | Name (optional) |
-| `emailLabel` | Email address (optional) |
+| `headline` | Well, that wasn't supposed to happen. |
+| `body` | The program hit a problem and had to close. Sending this report helps the developers find and fix the exact line that broke. Everything is confidential and only used to fix bugs. |
+| `descriptionLabel` | What were you doing just before this appeared? |
+| `descriptionPlaceholder` | Anything you remember helps — even "I clicked Save." (shown in the empty description box) |
+| `nameLabel` | Name |
+| `emailLabel` | Email |
+| `emailPlaceholder` | you@example.com (shown in the empty Email field) |
+| `optionalHint` | optional (shown after the Name and Email labels, as "Name — optional") |
+| `contactNote` | If you share an email, it's only used to follow up about this crash. It's never sold and never used for marketing. |
 | `consent` | Allow BugSplat to store this information for a period of up to one year. |
-| `send` | `&Send Error Report` |
-| `dontSend` | `&Don't Send` |
-| `details` | `&View Report Details` |
+| `send` | `&Send report` |
+| `dontSend` | `&Don't send` |
+| `details` | `&View report details` |
 
-**The progress dialog**
+#### The Progress Window
 
 | Key | English |
 | --- | --- |
@@ -221,77 +289,120 @@ The keys, and their English defaults:
 | `thankYou` | Thank you for sending this error report. It has been received successfully. |
 | `close` | `&Close` |
 
-**The report details window**
+#### The Report Details Window
 
 | Key | English |
 | --- | --- |
 | `filesTitle` | Report Details |
-| `filesBody` | A crash report has been generated for you, containing the files listed below… |
+| `filesBody` | A crash report has been generated for you, containing the files listed below. The report contains detailed information about the state of the application at the time that it crashed, as well as the information you provided us. |
 | `filesColumnFile` | File |
 | `filesColumnPath` | Path |
 | `ok` | OK |
 | `cancel` | Cancel |
 
-#### Ampersands and placeholders
+#### Keyboard Shortcuts, Placeholders, and Paragraphs
 
-`&` marks the **keyboard mnemonic** — `&Send Error Report` means Alt+S. It isn't drawn; it underlines the following letter when the user presses Alt. Pick a letter that isn't already taken by another control in the same dialog, and one that makes sense in your language rather than copying the English. To show a literal ampersand, write `&&`.
+`&` marks a keyboard shortcut: `&Send report` means Alt+S. The `&` isn't shown. Choose a letter no other control in the same window uses, and one that makes sense in your language. To show an ampersand, write `&&`. In `body` and `contactNote`, `&` is shown as written.
 
-Three placeholders are available in any string:
+These placeholders work in any string:
 
-| Placeholder | Value |
+| Placeholder | Replaced with |
 | --- | --- |
-| `{appName}` | The crashing application's name, from the crash report. |
-| `{appVersion}` | Its version, from the crash report. |
+| `{appName}` | The crashed application's name. |
+| `{appVersion}` | The crashed application's version. |
 | `{productName}` | `brand.productName` from `theme.json`. |
 
-A placeholder the reporter doesn't recognise is left in the text as written, so a typo shows up as `{appNmae}` rather than silently disappearing. `{appName}` and `{appVersion}` can legitimately be empty — don't build a sentence that reads wrong without them.
+A misspelled placeholder is shown as written, for example `{appNmae}`, so it's easy to spot. `{appName}` and `{appVersion}` can be empty, so make sure the sentence still reads well without them.
 
-### Adding a language
+`\n` starts a new line and `\n\n` a new paragraph.
 
-Copy `strings.en-US.json` to `strings.<bcp47>.json`, translate the values, and leave the keys alone. Set `direction` to `"rtl"` for Arabic, Hebrew, Persian or Urdu — the whole dialog mirrors. Set `fontFamily` if your theme's font has no glyphs for the script (Segoe UI has no CJK coverage); the size and weight still come from `theme.json`, so the typographic scale stays consistent.
+### Links in the Dialog 🔗
+
+`body` and `contactNote` can link to your privacy policy or support site:
 
 ```json
-{ "locale": "ja-JP", "fontFamily": "Yu Gothic UI", "strings": { } }
+{
+  "strings": {
+    "body": "Sending this report helps us fix the problem. Read our <a href=\"https://example.com/privacy\">privacy policy</a> to learn how we use it.",
+    "contactNote": "Need help now? Visit our <a href=\"https://support.example.com\">support site</a>."
+  }
+}
 ```
 
-The reporter asks Windows which language to use — there's nothing to configure. This matters more for a crash dialog than for most software: **the person reading it is not the person who installed the SDK.** You can't know that a particular crash will be seen by someone whose Windows is in Portuguese. Ship the files and the right one appears.
+**A string file can't turn a link on by itself.** Your application must allow the link's domain in code, before a crash happens. By default no domain is allowed, and every link is shown as plain text.
 
-Resolution follows RFC 4647 lookup. Each of the end user's preferred languages is tried whole, then with trailing subtags dropped, before moving to the next preference, with `en-US` as the final fallback. A user whose preferences are `pt-BR` then `fr-CA` resolves in this order:
+{% tabs %}
+{% tab title="C++" %}
+```cpp
+g_BugSplat.SetCrashDialogLinkDomains(L"example.com");
+```
+{% endtab %}
+
+{% tab title="C" %}
+```c
+BugSplat_SetCrashDialogLinkDomains(L"example.com");
+```
+{% endtab %}
+
+{% tab title=".NET" %}
+```csharp
+bugsplat.CrashDialogLinkDomains = new[] { "example.com" };
+```
+{% endtab %}
+{% endtabs %}
+
+Separate several domains with semicolons in C++ and C, for example `L"example.com;example.org"`. Allowing a domain also allows its subdomains: `example.com` allows `support.example.com`, but not `badexample.com`.
+
+A link works only if:
+
+* It's in `body` or `contactNote`. In any other string, an `<a>` tag's text is shown without the link. The contact note is hidden when both the Name and Email fields are.
+* It starts with `https://`. `http:`, `mailto:`, `file:`, and `javascript:` links aren't opened.
+* Its host is an allowed domain or one of its subdomains, written as a plain host name: no user name (as in `https://example.com@evil.example`), no port, and no IP address.
+
+A link opens in the user's default browser only when they click it, or tab to it and press Enter, and hovering over it shows its full address. Links use Windows' link colour for light or dark mode, not your `accent`. `{appName}` and `{appVersion}` come from the crash report and can never contain a link. Each link that's opened or refused is written to `BugSplat.log`, and `--check-theme` reports links that could never work.
+
+{% hint style="info" %}
+**Why the allow-list is in code.** Anyone who can write to your application's folder can edit the theme folder, and a crash dialog is a convincing place for a phishing link. Keeping the list of allowed domains in your signed executable means a changed theme file can't add a working link to a site you didn't choose.
+{% endhint %}
+
+To try your links with `--preview`, pass the same domains your application allows:
+
+```batch
+BugSplatReporter.exe --preview --theme "C:\work\my-theme" --link-domains "example.com"
+```
+
+### Adding a Language 🌐
+
+Copy `strings.en-US.json` to `strings.<language>.json`, for example `strings.de-DE.json`, and translate the values without changing the keys. Set `locale`, set `direction` for a right-to-left language, and set `fontFamily` if your font doesn't cover the script. Delete any key you haven't translated yet rather than leaving the English in place: a missing key falls back to English, so the dialog never shows a blank label.
+
+There's nothing to configure in your application. The reporter picks the file for the end user's own Windows display language, because the person who sees the dialog isn't the person who installed the SDK. It tries each of the user's preferred languages in turn, first in full and then without the region, and falls back to `en-US`. For a user whose languages are Brazilian Portuguese, then Canadian French:
 
 ```
-strings.pt-BR.json      exact
+strings.pt-BR.json      exact match
 strings.pt.json         region dropped
-strings.fr-CA.json      next preference
+strings.fr-CA.json      next preferred language
 strings.fr.json         region dropped
 strings.en-US.json      the default
 ```
 
-So a single `strings.pt.json` serves `pt-BR`, `pt-PT` and `pt-AO`.
+So a single `strings.pt.json` covers Portuguese everywhere. Only `en-US` ships with the SDK.
 
-Keys are resolved **per key**, layered over the English compiled into the reporter and then over `strings.en-US.json` from disk. A key your translation hasn't covered yet keeps the value from the layer underneath, so a partial translation shows partly in the user's language and partly in English — it never shows a blank label. Delete a key you haven't translated rather than leaving a copy of the English in place; it's easier to find later.
+To preview a language your machine isn't set to, temporarily name your file for a language your machine resolves to, for example `strings.en.json` on an `en-US` machine.
 
-{% hint style="info" %}
-**`en-US` is the only file that ships today.** Detection, the fallback chain, right-to-left layout, the font override and the measured layout that lets a longer language grow the window are all implemented and tested, so adding a language is adding a file.
-{% endhint %}
+### A Worked Example 💼
 
-### A worked example 💼
-
-A dark, high-contrast theme for a product called Acme Rocket Sled: a custom logo centred on a banner that matches the dialog background, consent required before sending, no name field, and reworded copy.
+A dark theme for a product called Acme Rocket Sled, with a centred logo on a banner that blends into the dialog, a required email address and consent box, no Name field, and a link to Acme's privacy policy.
 
 `theme\theme.json`:
 
 ```json
 {
-  "schemaVersion": 1,
   "appearance": "dark",
-
   "brand": {
     "productName": "Acme Rocket Sled",
     "logo": "acme.png",
-    "logoHeight": 40,
     "logoAlignment": "center"
   },
-
   "palette": {
     "dark": {
       "background": "#12131A",
@@ -300,39 +411,18 @@ A dark, high-contrast theme for a product called Acme Rocket Sled: a custom logo
       "bannerBackground": "#12131A",
       "textPrimary": "#F2F3FF",
       "textSecondary": "#9AA0C0",
-      "textDisabled": "#5A5F78",
       "accent": "#FF6B35",
       "accentHover": "#FF7F4F",
       "accentPressed": "#D9542A",
       "accentText": "#12131A",
       "border": "#333852",
-      "borderStrong": "#6C7392",
-      "focus": "#FFD166",
-      "error": "#FF5D73"
+      "focus": "#FFD166"
     }
   },
-
-  "type": { "family": "Cascadia Mono", "baseSize": 10, "headingSize": 16, "headingWeight": 700 },
-
-  "layout": {
-    "windowWidth": 620,
-    "padding": 32,
-    "spacing": 20,
-    "controlRadius": 14,
-    "mica": false,
-    "bannerHeight": 96,
-    "descriptionLines": 3
-  },
-
-  "features": {
-    "showName": false,
-    "showConsent": true,
-    "requireEmail": true
-  }
+  "layout": { "windowWidth": 560, "controlRadius": 12, "bannerHeight": 96 },
+  "features": { "showName": false, "showConsent": true, "requireEmail": true }
 }
 ```
-
-`bannerBackground` matches `background` because `acme.png` has a transparent background — the strip disappears into the dialog and only the mark is visible.
 
 `theme\strings.en-US.json`:
 
@@ -340,59 +430,33 @@ A dark, high-contrast theme for a product called Acme Rocket Sled: a custom logo
 {
   "locale": "en-US",
   "strings": {
-    "title": "Acme Rocket Sled — Problem Report",
-    "headline": "{appName} {appVersion} has stopped working.",
-    "body": "Sending this report helps us fix the problem. It contains a snapshot of the program at the moment it stopped, and nothing else.",
-    "consent": "I agree that Acme may store this report for up to one year.",
-    "emailLabel": "Email address (required)",
-    "send": "&Send Report"
+    "title": "{productName} - Problem Report",
+    "headline": "{productName} hit a snag and had to close.",
+    "body": "Sending this report helps us fix the problem. See our <a href=\"https://acme.example/privacy\">privacy policy</a> for what it contains.",
+    "consent": "I agree that Acme may store this report for up to one year."
   }
 }
 ```
 
-Then look at it:
+In the application:
 
-```batch
-BugSplatReporter.exe --preview --theme "C:\work\acme-theme"
+```cpp
+g_BugSplat.SetCrashDialogLinkDomains(L"acme.example");
 ```
 
-### Before you ship a theme ✅
+Then check and preview it:
 
-1. **Both appearances.** Even if you pin `appearance`, flip your Windows theme and look — your `bannerBackground` may be the only white thing left.
-2. **Contrast on the accent.** `accentText` sits on `accent`, not on `background`. A light accent needs dark `accentText`.
-3. **The focus ring.** Tab through every control. `focus` has to be visible against `background`, and the ring's inner stroke has to be visible against `accent`.
-4. **Your longest language.** German runs roughly 35% longer than English. The dialog grows to fit, but look at what "grown" means for your `windowWidth`.
-5. **Display scaling.** Try 150% and 200%. Everything is measured, but a logo authored at 1× will look soft at 2×.
-6. **Mnemonics.** Two controls sharing an `&` letter means one of them can't be reached from the keyboard.
-
-### When a change doesn't take effect 🔧
-
-**A theme file can change how the crash dialog looks. It can never stop a crash report being sent.** Everything about how the files are read follows from that:
-
-| Situation | What happens |
-| --- | --- |
-| The file isn't there | Built-in theme. Not an error. |
-| The file isn't JSON, is truncated, or is binary | Built-in theme, and a line in `BugSplat.log`. |
-| The file is larger than 256 KB | Refused without being read. Built-in theme. |
-| A key you wrote isn't in this document | Silently ignored. |
-| `schemaVersion` is newer than the reporter | Loaded anyway; unknown keys ignored. |
-| One value has the wrong type, or is out of range | **That one key** falls back to its default. Everything else in the file still applies. |
-| A whole section has the wrong type | That section is ignored; the rest of the file applies. |
-| `brand.logo` names a file that's missing, huge, or not an image | The built-in logo is used. |
-
-Every fallback is written to the crash folder's `BugSplat.log`, prefixed `theme:` or `strings:`, naming the key and the reason. **If a colour you set isn't showing up, that log line is the first place to look.** Under `--preview` the same lines go to the debugger output.
-
-A couple of combinations are worth calling out:
-
-* `requireEmail: true` with `showEmail: false` would be a dialog nobody could submit. The loader spots it, drops the requirement, and logs it.
-* Encoding. A string file saved as ANSI will have mangled accents; one saved as UTF-16 isn't valid JSON here and falls back to English wholesale.
+```batch
+BugSplatReporter.exe --check-theme "C:\work\acme-theme" | more
+BugSplatReporter.exe --preview --theme "C:\work\acme-theme" --link-domains "acme.example"
+```
 
 ### Compatibility 🔒
 
-`schemaVersion` is `1`, and the promise runs in both directions. A theme written for a newer schema renders on an older reporter, which ignores the keys it doesn't know and logs one line saying so. A theme written for schema 1 keeps working on newer reporters, because every key has a default. Within a major schema version no key will change meaning, change type, or narrow its range.
+`schemaVersion` is `1`. A theme written for a newer version loads on an older reporter, which ignores the keys it doesn't know, and a theme written for version 1 keeps working on newer reporters, because every key has a default. Within a version, no key will change meaning, change type, or narrow its range.
 
 ***
 
-When you update your dialog we'd love it if you mentioned us somewhere in it. Those mentions really help us continue to grow and develop our company — but there's absolutely no requirement, and you're free to make this dialog whatever you want it to be.
+When you update your dialog we'd love it if you mentioned us somewhere in it. Those mentions really help us continue to grow and develop our company, but there's no requirement, and you're free to make the dialog whatever you want it to be.
 
 Check out our [Brand](../../about/who-is-bugsplat/brand-guidelines.md) page for examples and inspiration from our users.

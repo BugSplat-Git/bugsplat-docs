@@ -42,9 +42,9 @@ BugSplat_SetKey(L"es-ES");
 
 **.NET**
 
-```text
-BugSplat.CrashReporter.Init("Fred", "myDotNetCrasher", "1.0");
-BugSplat.CrashReporter.AppIdentifier = "es-ES";
+```csharp
+var bugsplat = new BugSplat("Fred", "myDotNetCrasher", "1.0");
+bugsplat.Key = "es-ES";
 ```
 
 **Mac OS**

@@ -40,11 +40,23 @@ BugSplat(const wchar_t* database,
 void SetQuietMode(bool flag);
 ```
 
-**Description:** Controls whether the crash report dialog is presented to the user (desktop applications only).  QuietMode is off by default.
+**Description:** Controls whether the crash report dialog is presented to the user (desktop applications only).  QuietMode is off by default. In quiet mode, crash reports are still uploaded, with no dialog, progress window, or support response.
 
 **Parameters:**
 
 * `flag` - `true` to suppress the dialog, `false` to show it
+
+#### SetCrashDialogLinkDomains
+
+```cpp
+void SetCrashDialogLinkDomains(const wchar_t* domains);
+```
+
+**Description:** Sets the domains that links in the crash dialog's text may open (desktop applications only). Links come from the `body` and `contactNote` strings in the dialog's [theme](../../../../../education/how-tos/customize-the-crash-dialog.md#links-in-the-dialog), but they only work for these domains and their subdomains, and only as `https://` links; anything else is shown as plain text. By default no domain is allowed, so a theme file on its own can never put a working link in the dialog. Call it at startup, before a crash occurs.
+
+**Parameters:**
+
+* `domains` - Domains separated by semicolons, for example `L"example.com;example.org"`, at most 1023 characters. `example.com` also allows `support.example.com`. Pass `nullptr` or an empty string to allow none again.
 
 #### SetKey
 
@@ -181,7 +193,7 @@ void SetCrashType(int crashTypeId);
 
 ```cpp
 void GenerateDump(LPEXCEPTION_POINTERS const exceptionPointers, 
-                  MINIDUMP_TYPE dumpType = MINIDUMP_TYPE::MiniDumpNormal|MINIDUMP_TYPE::MiniDumpFilterTriage) const;
+                  MINIDUMP_TYPE dumpType = (MINIDUMP_TYPE)(MiniDumpNormal|MiniDumpFilterTriage)) const;
 ```
 
 **Description:** Manually generates a BugSplat crash report with the specified exception information.
@@ -288,10 +300,12 @@ bool PostFeedback(const wchar_t* title,
 #### PostCrash
 
 ```cpp
-void PostCrash();
+bool PostCrash();
 ```
 
 **Description:** Posts a single crash report and removes the folder after successful upload.
+
+**Returns:** `false` if no BugSplat monitor is available
 
 #### PostAllCrashes
 
@@ -365,11 +379,11 @@ const wchar_t* GetCrashFolder();
 void SetSuspendingState(BOOL status);
 ```
 
-**Description:** Sets the suspending state for crash handling.
+**Description:** Tells BugSplat that the application is suspending, for example across system sleep, or has resumed. While it's suspending, the monitor skips hang detection and crash reports are not generated.
 
 **Parameters:**
 
-* `status` - Suspension status flag
+* `status` - `TRUE` while the application is suspending, `FALSE` on resume
 
 #### GetLogFilePath
 
@@ -483,6 +497,7 @@ The remaining functions forward to the equivalent `BugSplat` class methods docum
 | `BugSplat_AddAttachment`            | `AddAttachment`            |
 | `BugSplat_RemoveAttachment`         | `RemoveAttachment`         |
 | `BugSplat_SetQuietMode`             | `SetQuietMode`             |
+| `BugSplat_SetCrashDialogLinkDomains` | `SetCrashDialogLinkDomains` |
 | `BugSplat_SetHangDetectionTimeout`  | `SetHangDetectionTimeout`  |
 | `BugSplat_SetCrashCompletionBehavior` | `SetCrashCompletionBehavior` |
 | `BugSplat_SetCrashType`               | `SetCrashType`               |

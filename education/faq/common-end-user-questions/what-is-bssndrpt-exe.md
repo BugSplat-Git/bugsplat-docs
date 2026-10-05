@@ -10,7 +10,7 @@ A crash reporter is a piece of code that helps developers find when, where, and 
 | --- | --- |
 | `BugSplatReporter.exe` | Shows the crash dialog that asks what you were doing, and sends the report. |
 | `BugSplatMonitor.exe` | Runs quietly alongside the program and collects information about the crash. |
-| `BugSplat.dll`, `BugSplatWer.dll` | Supporting components loaded by the program itself. |
+| `BugSplat.dll`, `BugSplatWer.dll` | Supporting components, loaded by the program itself and by Windows Error Reporting. |
 | `BsSndRpt.exe` | The older name for the crash reporting program. You'll only see it alongside software built with an earlier version of BugSplat. |
 
 These files are part of whichever program you were using when it crashed, so uninstalling them on their own isn't an option — and doing so would only stop that program's developers from hearing about problems you run into.

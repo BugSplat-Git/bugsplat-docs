@@ -116,7 +116,11 @@ If everything was configured correctly, you should see a crash report that looks
 
 #### Crash Dialog
 
-The dialog is shown by `BugSplatReporter.exe`, which `BugSplatMonitor.exe` launches once the crash has been captured. It reads its colours, type, layout and copy from the `theme` folder at runtime, so customizing it means editing JSON rather than rebuilding anything. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md), and [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for the process split.
+The dialog is shown by `BugSplatReporter.exe`, which `BugSplatMonitor.exe` launches once the crash has been captured. It follows the end user's Windows light or dark mode:
+
+<figure><img src="../../../../../.gitbook/assets/windows-crash-dialog-light.png" alt="The BugSplat crash dialog"><figcaption><p>BugSplat Crash Dialog</p></figcaption></figure>
+
+It reads its colours, type, layout and copy from the `theme` folder at run time, so customizing it means editing JSON rather than rebuilding anything. Its text can also link to your privacy policy or support site, for domains you allow with `SetCrashDialogLinkDomains`. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md), and [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for the process split. To upload reports without showing the dialog, call `SetQuietMode(true)`.
 
 {% hint style="warning" %}
 If crash reports arrive but no dialog ever appears, `BugSplatReporter.exe` is almost certainly missing from your install folder. The monitor uploads the report itself in that case and logs the reason to `BugSplat.log`.
