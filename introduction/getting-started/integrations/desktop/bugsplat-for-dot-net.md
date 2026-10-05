@@ -109,49 +109,11 @@ To get a feel for BugSplat before integrating it, [log in](https://app.bugsplat.
 
 ### Using the SDK Download Instead of NuGet
 
-If you can't use NuGet, reference `BugSplatDotNet.dll` from the [SDK download](https://app.bugsplat.com/browse/download_item.php?item=dotnet). Its native runtime is x64 only. Unzip it; the parts you need are:
+If you can't use NuGet, you can add BugSplat from the [SDK download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) instead. Its sample projects show how to wire everything up by hand. In place of steps 1 and 2 above:
 
-| Folder | Contents |
-| --- | --- |
-| `BugSplat\dotnet\Release\net472` and `net10.0` (and `Debug`) | `BugSplatDotNet.dll`, the library your application references, with its `.pdb` and `.xml` documentation |
-| `BugSplat\x64\Release\bin` | The native runtime that ships next to your executable: `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, `BugSplatWer.dll` |
-| `Tools` | `symbol-upload-windows.exe`, which the samples use to upload symbols |
-| `Samples` | The sample applications, with a Visual Studio solution for each |
-
-These steps replace steps 1 and 2 of the Integration steps above; the rest are the same.
-
-1. **Reference `BugSplatDotNet.dll`** from the folder for your target framework, `net472` for .NET Framework 4.7.2+ or `net10.0` for .NET 10+. In an SDK-style project:
-
-   ```xml
-   <ItemGroup>
-     <Reference Include="BugSplatDotNet" HintPath="$(BugSplatDir)dotnet\Release\net10.0\BugSplatDotNet.dll" />
-   </ItemGroup>
-   ```
-
-   where `$(BugSplatDir)` points at the SDK's `BugSplat\` folder.
-2. **Build for x64:**
-
-   ```xml
-   <PlatformTarget>x64</PlatformTarget>
-   ```
-
-   {% hint style="info" %}
-   **.NET Framework:** an executable defaults to AnyCPU with *Prefer 32-bit*, which runs as a 32-bit process and can't load the x64 runtime. Setting `PlatformTarget` to x64 fixes that.
-
-   **.NET 10:** an AnyCPU application runs as an ARM64 process on ARM64 Windows, where it can't load the x64 runtime. Set `PlatformTarget` to x64, or use a `win-x64` runtime identifier.
-   {% endhint %}
-3. **Copy the native runtime next to your executable.** In an SDK-style project:
-
-   ```xml
-   <ItemGroup>
-     <Content Include="$(BugSplatBin)BugSplat.dll" Link="BugSplat.dll" CopyToOutputDirectory="PreserveNewest" />
-     <Content Include="$(BugSplatBin)BugSplatMonitor.exe" Link="BugSplatMonitor.exe" CopyToOutputDirectory="PreserveNewest" />
-     <Content Include="$(BugSplatBin)BugSplatRc.dll" Link="BugSplatRc.dll" CopyToOutputDirectory="PreserveNewest" />
-     <Content Include="$(BugSplatBin)BugSplatWer.dll" Link="BugSplatWer.dll" CopyToOutputDirectory="PreserveNewest" />
-   </ItemGroup>
-   ```
-
-   where `$(BugSplatBin)` points at the SDK's `BugSplat\x64\Release\bin\`. `Content` items are copied by both `dotnet build` and `dotnet publish`. Add the same four files to your installer.
+1. Reference `BugSplatDotNet.dll` from `BugSplat\dotnet\Release\net472` (.NET Framework) or `net10.0` (.NET 10).
+2. Build your application for x64, since the download's native runtime is x64 only.
+3. Copy `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll` from `BugSplat\x64\Release\bin` next to your executable, and include them in your installer.
 
 ### Symbols
 
