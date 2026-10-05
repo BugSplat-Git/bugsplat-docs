@@ -10,7 +10,7 @@ Symbols are files containing information to map the crash report's call stack to
 
 ### Using Symbols
 
-[Windows C++](../../getting-started/integrations/desktop/cplusplus/) and [.NET](../../getting-started/integrations/desktop/windows-dot-net-framework.md) symbol files have **.exe**, **.pdb**, and **.dll** extensions.
+[Windows C++](../../getting-started/integrations/desktop/cplusplus/) and [.NET](../../getting-started/integrations/desktop/bugsplat-for-dot-net.md) symbol files have **.exe**, **.pdb**, and **.dll** extensions.
 
 For [Crashpad](../../getting-started/integrations/desktop/crashpad) applications, symbols files contain **.sym** extensions.
 

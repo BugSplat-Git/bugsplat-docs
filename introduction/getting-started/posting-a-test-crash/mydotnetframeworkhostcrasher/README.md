@@ -12,7 +12,7 @@ To get started, download the BugSplat SDK for .NET by clicking [here](https://ap
 
 1. Open `MyDotNetFrameworkHostCrasher.sln` with Visual Studio 2022+.
 2. Define a value for `BUGSPLAT_DATABASE` in `Samples\MyDotNetFrameworkHostCrasher\MyDotNetFrameworkHostCrasher.h`.
-3. Create a Client ID and Client Secret pair for your BugSplat database on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page.
+3. Create a Client ID and Client Secret pair for your BugSplat database on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.
 4. Create a file `Samples\MyDotNetFrameworkHostCrasher\Scripts\env.ps1` and populate it with the following (being sure to substitute your `your-client-id` and `your-client-secret` values from the previous step):
 
 ```powershell
@@ -42,6 +42,6 @@ Add `/Quiet` to skip the crash dialog. Run the program with no arguments to see 
 
 ### How It Works
 
-BugSplat is initialized in the C++ program, before the .NET Framework runtime starts, so its exception handling is in place when the C# code runs. The program calls `SetCrashType(8)`, which tells BugSplat to resolve the managed (C#) frames in its minidumps. To report crashes from your own C++ application that hosts .NET, follow [BugSplat for Windows (C++)](../../integrations/desktop/cplusplus/) and add that same call.
+BugSplat is initialized in the C++ program, before the .NET Framework runtime starts, so its exception handling is in place when the C# code runs. The program calls `SetCrashType(8)`, which tells BugSplat to resolve the managed (C#) frames in its minidumps. To report crashes from your own C++ application that hosts .NET, follow [BugSplat for Windows (C++)](../../integrations/desktop/cplusplus/) and add that same call. If your application is a managed .NET Framework or .NET 10 program instead, use [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md).
 
 A stack overflow in the C# code isn't reported: the .NET Framework ends the process without running any exception handlers, and reports it only through its own Windows Error Reporting event.

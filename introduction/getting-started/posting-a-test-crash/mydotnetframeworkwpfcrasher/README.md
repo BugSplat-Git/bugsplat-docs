@@ -6,13 +6,13 @@ description: >-
 
 # MyDotNetFrameworkWpfCrasher (.NET Framework)
 
-Before you enable BugSplat in your .NET Framework application, you may want to take a moment to experiment with our `MyDotNetFrameworkWpfCrasher` sample, a WPF (.NET Framework 4.7.2) app with a button for each kind of report [BugSplat for .NET Framework](../../integrations/desktop/windows-dot-net-framework.md) sends.
+Before you enable BugSplat in your .NET Framework application, you may want to take a moment to experiment with our `MyDotNetFrameworkWpfCrasher` sample, a WPF (.NET Framework 4.7.2) app with a button for each kind of report [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) sends.
 
-To get started, download the BugSplat SDK for .NET by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=dotnet), then unzip it.
+To get started, clone [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher), where the sample installs BugSplat from the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package. You can also [download the BugSplat SDK for .NET](https://app.bugsplat.com/browse/download_item.php?item=dotnet) and unzip it.
 
 1. Open `MyDotNetFrameworkWpfCrasher.sln` with Visual Studio 2022+.
 2. Set your database in `Samples\MyDotNetFrameworkWpfCrasher\App.xaml.cs` (`App.Database`), and optionally `App.AppName` and `App.Version`.
-3. Create a Client ID and Client Secret pair for your BugSplat database on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page.
+3. Create a Client ID and Client Secret pair for your BugSplat database on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.
 4. Create a file `Samples\MyDotNetFrameworkWpfCrasher\Scripts\env.ps1` and populate it with the following (being sure to substitute your `your-client-id` and `your-client-secret` values from the previous step):
 
 ```powershell
@@ -38,7 +38,7 @@ $BUGSPLAT_CLIENT_SECRET = "your-client-secret"
 
 ### Heap Corruption and Windows Error Reporting
 
-Heap corruption bypasses every in-process handler, so BugSplat captures it through its Windows Error Reporting helper, `BugSplatWer.dll`, which Windows loads only when its path is in the registry. From an elevated prompt, register the copy next to the sample's executable, then restart the sample:
+Heap corruption bypasses the application's exception handlers, so BugSplat captures it through its Windows Error Reporting helper, `BugSplatWer.dll`, which Windows loads only when its path is in the registry. From an elevated prompt, register the copy next to the sample's executable, then restart the sample:
 
 ```
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "<path to the sample's bin folder>\BugSplatWer.dll" /t REG_DWORD /d 0 /f
@@ -46,4 +46,4 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptio
 
 Until the entry exists, the Heap Corruption button is dimmed, and hovering over it explains why.
 
-Finally, explore how each button is implemented in the sample's source code, and see [BugSplat for .NET Framework](../../integrations/desktop/windows-dot-net-framework.md) to integrate BugSplat into your own application.
+Finally, explore how each button is implemented in the sample's source code, and see [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.

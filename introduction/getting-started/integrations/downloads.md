@@ -11,8 +11,7 @@ description: >-
 |                          |                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------- |
 | Windows (Native C++)     | [Download](https://app.bugsplat.com/browse/download_item.php?item=native)    |
-| Windows (.NET Framework) | [Download](https://app.bugsplat.com/browse/download_item.php?item=dotnet)    |
-| .NET Standard            | See platform docs ([here](desktop/dot-net-standard.md))                      |
+| Windows (.NET)           | [NuGet](https://www.nuget.org/packages/BugSplat) or [Download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) |
 | macOS                    | See platform docs ([here](desktop/macos.md))                                 |
 | Linux                    | See platform docs ([here](desktop/linux.md))                                 |
 | Electron                 | See platform docs ([here](desktop/electron.md))                              |

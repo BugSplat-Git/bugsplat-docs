@@ -11,7 +11,8 @@ Questions? Please get in touch with us via [Discord](https://discord.gg/K4KjjRV5
 | Windows (C++)                  | [my-console-crasher](myconsolecrasher-c-plus-plus/)                                        |
 | .NET Framework                 | [MyDotNetFrameworkWpfCrasher](mydotnetframeworkwpfcrasher/)                                |
 | .NET Framework (hosted by C++) | [MyDotNetFrameworkHostCrasher](mydotnetframeworkhostcrasher/)                              |
-| .NET                           | [MyDotnetCrasher](my-dotnet-crasher/)                                                      |
+| .NET                           | [MyDotNetCrasher](mydotnetcrasher/)                                                        |
+| .NET (WinUI 3)                 | [MyDotNetWinUI3Crasher](mydotnetwinui3crasher/)                                            |
 | macOS                          | [BugSplatTester](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)    |
 | Electron                       | [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)                 |
 | Qt                             | [my-qt-crasher](https://github.com/BugSplat-Git/my-qt-crasher)                             |
