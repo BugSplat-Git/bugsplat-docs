@@ -141,7 +141,6 @@ If you can't use NuGet, you can add BugSplat from the [SDK download](https://app
 
 BugSplat symbolicates your crashes from the symbol files you upload, which is why your application doesn't need to ship its `.pdb` files. After each build, upload every `.exe`, `.dll`, and `.pdb` your application ships with [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), using the same database, application name, and version you pass to `new BugSplat(...)`. That includes `BugSplatDotNet.pdb`, BugSplat's native PDBs, and the native PDBs of any C++ libraries you call, so mixed C#/C++ call stacks are symbolicated on both sides.
 
-The NuGet package copies `BugSplatDotNet.pdb` and BugSplat's native PDBs to your build output, so a symbol upload of that folder covers them. Version 8.6.1 of the package doesn't copy `BugSplatDotNet.pdb`; with it, set `<CopyDebugSymbolFilesFromPackages>true</CopyDebugSymbolFilesFromPackages>` in your project.
 
 {% hint style="info" %}
 **.NET Framework:** emit full Windows PDBs, the format BugSplat's symbol upload expects:
