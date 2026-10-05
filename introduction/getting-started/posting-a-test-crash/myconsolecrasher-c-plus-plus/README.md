@@ -12,7 +12,7 @@ To get started, download the BugSplat SDK for Windows by clicking [here](https:/
 
 1. Open `MyConsoleCrasher.sln` with Visual Studio 2022+
 2. Define values for `BUGSPLAT_DATABASE`, `APPLICATION_NAME`, and `APPLICATION_VERSION` in `Samples\MyConsoleCrasher\MyConsoleCrasher.h`
-3. Create a Client ID and Client Secret pair for your BugSplat database on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page
+3. Create a Client ID and Client Secret pair for your BugSplat database on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page
 4. Create a file `Samples\MyConsoleCrasher\Scripts\env.ps1` and populate it with the following (being sure to substitute your `your-client-id` and `your-client-secret` values from the previous step):
 
 ```powershell
