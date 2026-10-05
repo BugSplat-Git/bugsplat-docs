@@ -181,7 +181,7 @@ void SetCrashType(int crashTypeId);
 
 ```cpp
 void GenerateDump(LPEXCEPTION_POINTERS const exceptionPointers, 
-                  MINIDUMP_TYPE dumpType = MINIDUMP_TYPE::MiniDumpNormal|MINIDUMP_TYPE::MiniDumpFilterTriage) const;
+                  MINIDUMP_TYPE dumpType = (MINIDUMP_TYPE)(MiniDumpNormal|MiniDumpFilterTriage)) const;
 ```
 
 **Description:** Manually generates a BugSplat crash report with the specified exception information.
@@ -281,6 +281,40 @@ bool PostFeedback(const wchar_t* title,
 
 **Note:** Attachments passed via the `attachments` parameter are automatically removed after upload. Attachments added via `AddAttachment()` are not affected.
 
+#### PostFeedbackWithResult
+
+```cpp
+struct FeedbackResult {
+    bool success = false;
+    int crashId = 0;
+    std::wstring infoUrl;
+};
+
+FeedbackResult PostFeedbackWithResult(const wchar_t* title,
+                                      const wchar_t* description = L"",
+                                      const std::vector<const wchar_t*>& attachments = {});
+```
+
+**Description:** Posts user feedback like `PostFeedback`, and also returns the id BugSplat gave the report and its URL, so your feedback UI can show the report id or link to it. `PostFeedback` calls this function and returns only `success`.
+
+The call waits until the upload finishes, so call it from a background thread rather than your UI thread. Hang detection is paused while it runs.
+
+**Parameters:**
+
+* `title` - Feedback title, used as the stack key for grouping
+* `description` - Optional description of the feedback (default: empty string)
+* `attachments` - Optional list of file paths to include with this feedback only (default: empty)
+
+**Returns:** A `FeedbackResult`:
+
+* `success` - `true` if the feedback was posted
+* `crashId` - The BugSplat report id of the feedback
+* `infoUrl` - The URL BugSplat returned for the report
+
+On failure, `success` is `false`, `crashId` is `0`, and `infoUrl` is empty.
+
+**Note:** Added in version 8.0.0.
+
 ***
 
 ### Crash Management
@@ -288,10 +322,12 @@ bool PostFeedback(const wchar_t* title,
 #### PostCrash
 
 ```cpp
-void PostCrash();
+bool PostCrash();
 ```
 
 **Description:** Posts a single crash report and removes the folder after successful upload.
+
+**Returns:** `false` if no BugSplat monitor is available
 
 #### PostAllCrashes
 
@@ -301,7 +337,7 @@ bool PostAllCrashes();
 
 **Description:** Posts all pending crash reports. This method blocks until completion.
 
-**Returns:** `true` if any crashes were posted, `false` otherwise
+**Returns:** `true` once the monitor has finished posting, whether or not there were crashes to post. `false` if no BugSplat monitor is available.
 
 **Note:** Should only be called on a new thread to avoid blocking the main application.
 
@@ -314,6 +350,38 @@ bool PostAllCrashesAsync();
 **Description:** Posts all pending crash reports on a new background thread.
 
 **Returns:** Always returns `true`
+
+#### AttachToProcess
+
+```cpp
+bool AttachToProcess(DWORD pid);
+```
+
+**Description:** For use in a custom Windows Error Reporting (WER) runtime exception module. WER runs the module inside `WerFault.exe`, where a `BugSplat` instance has no monitor of its own. `AttachToProcess` connects the instance to the monitor of the crashed application, so `PostCrash` uploads through that monitor. Most applications don't need this: registering `BugSplatWer.dll` reports fail-fast crashes without any code (see [Registry Changes](bugsplat-for-windows-upgrade-guide.md#registry-changes)).
+
+Get the crashed application's process id from the `hProcess` that WER passes to your module. After a successful attach, write your minidump and any extra files into `GetCrashFolder()`, then call `PostCrash`. Crash fields you set on the instance, such as `SetUserDescription`, are included in the report, along with the files the crashed application registered with `AddAttachment`. The crash dialog follows the crashed application's `SetQuietMode` setting.
+
+```cpp
+DWORD crashedPid = GetProcessId(pExceptionInformation->hProcess);
+if (g_BugSplat.AttachToProcess(crashedPid))
+{
+    // Write your minidump, plus any extra files to attach, into g_BugSplat.GetCrashFolder().
+    g_BugSplat.PostCrash();
+}
+```
+
+**Parameters:**
+
+* `pid` - Process id of the crashed application
+
+**Returns:** `true` if the instance is attached. `false` if `pid` is `0` or the current process, or if that process has no running BugSplat monitor this SDK can talk to. If it returns `false`, decline the crash in your module so WER can pass it to its other handlers.
+
+**Notes:**
+
+* The crashed application must create its own `BugSplat` instance with the same SDK release as your module.
+* Attaching stops the monitor that your instance started. If the attach fails, `PostCrash` and the other upload calls return `false` instead of waiting for a monitor.
+* Don't also list `BugSplatWer.dll` under `RuntimeExceptionHelperModules`. WER gives each crash to whichever registered module claims it.
+* Added in version 8.2.0.
 
 ***
 
@@ -355,9 +423,9 @@ void FreeGuardMemory();
 const wchar_t* GetCrashFolder();
 ```
 
-**Description:** Returns the folder path where current crash artifacts will be stored.
+**Description:** Returns the folder path where current crash artifacts will be stored. BugSplat moves to a new folder after each upload, so copy the string rather than keeping the pointer.
 
-**Returns:** Path string in format `R:\BugSplat\{unique-guid-string}`
+**Returns:** Path string in format `BugSplat\{appName}-{appVersion}\{unique-guid-string}` under the user's temp folder on desktop, or under persistent local storage on Xbox
 
 #### SetSuspendingState
 
@@ -365,11 +433,11 @@ const wchar_t* GetCrashFolder();
 void SetSuspendingState(BOOL status);
 ```
 
-**Description:** Sets the suspending state for crash handling.
+**Description:** Tells BugSplat that the application is suspending, for example across system sleep, or has resumed. While it's suspending, the monitor skips hang detection and crash reports are not generated.
 
 **Parameters:**
 
-* `status` - Suspension status flag
+* `status` - `TRUE` while the application is suspending, `FALSE` on resume
 
 #### GetLogFilePath
 
@@ -515,6 +583,31 @@ int BugSplat_PostFeedback(const wchar_t* title,
 
 **Note:** The C++ `BugSplat::PostFeedback` takes a `std::vector`, which cannot cross the DLL boundary. The C entry point takes an `(array, count)` pair instead so the C ABI stays free of STL types and remains compatible with `/MT` and non-C++ consumers.
 
+#### BugSplat\_PostFeedbackWithResult
+
+```c
+int BugSplat_PostFeedbackWithResult(const wchar_t* title,
+                                    const wchar_t* description,
+                                    const wchar_t* const* attachments,
+                                    int attachmentCount,
+                                    int* outCrashId,
+                                    wchar_t* outInfoUrl,
+                                    int outInfoUrlChars);
+```
+
+**Description:** Posts user feedback like `BugSplat_PostFeedback`, and also returns the id BugSplat gave the report and its URL, so your feedback UI can show the report id or link to it. The C counterpart of `PostFeedbackWithResult`. The call waits until the upload finishes, so call it from a background thread rather than your UI thread.
+
+**Parameters:**
+
+* `title`, `description`, `attachments`, `attachmentCount` - As for `BugSplat_PostFeedback`
+* `outCrashId` - Receives the BugSplat report id. May be `NULL` if you don't need it.
+* `outInfoUrl` - Buffer that receives the URL BugSplat returned for the report, or `NULL` to skip it. The URL is truncated if it doesn't fit and is always null-terminated.
+* `outInfoUrlChars` - Capacity of `outInfoUrl` in wide characters, including the null terminator, or `0` to skip it
+
+**Returns:** `1` on success, `0` on failure, before `BugSplat_Init`, or if `title` is `NULL`. On failure `*outCrashId` is set to `0` and `outInfoUrl` to an empty string.
+
+**Note:** The C++ `BugSplat::PostFeedbackWithResult` returns a `FeedbackResult` that holds a `std::wstring`, which cannot cross the DLL boundary, so this entry point writes the URL into a buffer you supply. Added in version 8.0.0.
+
 #### BugSplat\_GenerateDump
 
 ```c
@@ -527,6 +620,60 @@ void BugSplat_GenerateDump(void* exceptionPointers, int dumpType);
 
 * `exceptionPointers` - An `EXCEPTION_POINTERS*` as provided by the OS inside an SEH `__except` filter (`GetExceptionInformation()`) or an unhandled-exception-filter callback. It is passed as `void*` so the header carries no `<windows.h>` dependency; it is not a value you construct.
 * `dumpType` - A combination of Windows `MINIDUMP_TYPE` flags, or a negative value to use the SDK default.
+
+#### BugSplat\_SetSuspendingState
+
+```c
+void BugSplat_SetSuspendingState(int suspending);
+```
+
+**Description:** Tells BugSplat that the application is suspending or has resumed. The C counterpart of `SetSuspendingState`: while it's suspending, the monitor skips hang detection and crash reports are not generated. Call it with `1` on `WM_POWERBROADCAST` / `PBT_APMSUSPEND` and with `0` on `PBT_APMRESUMEAUTOMATIC` or `PBT_APMRESUMESUSPEND`. It's cheap and safe to call from the UI thread. The monitor also ignores hangs that span system sleep on its own, so calling this is optional for sleep and hibernate.
+
+**Parameters:**
+
+* `suspending` - Non-zero while the application is suspending, `0` on resume
+
+**Note:** Does nothing before `BugSplat_Init`. Added in version 8.3.0.
+
+#### BugSplat\_AttachToProcess
+
+```c
+int BugSplat_AttachToProcess(unsigned long pid);
+```
+
+**Description:** The C counterpart of [`AttachToProcess`](#attachtoprocess), for a custom WER runtime exception module written in C. Call `BugSplat_Init` in the module, attach with the crashed application's process id, write the minidump into `BugSplat_GetCrashFolder()`, then call `BugSplat_PostCrash`.
+
+**Parameters:**
+
+* `pid` - Process id of the crashed application, from `GetProcessId` on the `hProcess` that WER passes to your module
+
+**Returns:** `1` if attached. `0` before `BugSplat_Init`, if `pid` is `0` or the current process, or if that process has no running BugSplat monitor this SDK can talk to.
+
+**Note:** Added in version 8.2.0.
+
+#### BugSplat\_GetCrashFolder
+
+```c
+const wchar_t* BugSplat_GetCrashFolder(void);
+```
+
+**Description:** Returns the folder for the next crash report, the same path as `GetCrashFolder`. Copy the string: the folder changes after each upload.
+
+**Returns:** The folder path, or `NULL` before `BugSplat_Init`.
+
+**Note:** Added in version 8.2.0.
+
+#### BugSplat\_PostCrash
+
+```c
+int BugSplat_PostCrash(void);
+```
+
+**Description:** Uploads the report in the crash folder and removes the folder on success. The C counterpart of `PostCrash`.
+
+**Returns:** `1` once the monitor has handled the upload. `0` before `BugSplat_Init` or if no BugSplat monitor is available.
+
+**Note:** Added in version 8.2.0.
 
 #### C API Example
 
