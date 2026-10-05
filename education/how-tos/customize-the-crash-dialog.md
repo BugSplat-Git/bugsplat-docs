@@ -76,7 +76,7 @@ The theme is copied whenever the native runtime is: for executables and test pro
 
 ### Previewing Your Changes 🔍
 
-`BugSplatReporter.exe` has a preview mode. It shows the real dialog for a sample crash and **never uploads anything**, so you don't have to crash your application, or fill your database with test crashes, to check a colour. Click **Send report** to see the progress window and the thank-you message, also without any network traffic.
+`BugSplatReporter.exe` has a preview mode. It shows the real dialog for a sample crash and **never uploads anything**, so you don't have to crash your application, or fill your database with test crashes, to check a colour. The reporter never uploads in any mode — `BugSplatMonitor.exe` does that — and in preview it doesn't save the dialog's answers either, so it's safe to point at a real crash folder.
 
 ```batch
 BugSplatReporter.exe --preview
@@ -87,7 +87,7 @@ BugSplatReporter.exe --preview --theme "C:\work\my-theme" --link-domains "exampl
 
 | Option | What it does |
 | --- | --- |
-| `--preview` | Shows the dialog for a built-in sample crash. Never uploads. |
+| `--preview` | Shows the dialog for a built-in sample crash. Saves nothing and sends nothing. |
 | `--theme <folder>` | Loads `theme.json` and the string files from this folder instead of the `theme` folder next to the reporter. Accepts the folder or the path to its `theme.json`. |
 | `--scale <percent>` | Draws the dialog as if the display were at this scale, from 50 to 400, so you can check 150% and 200% without changing your display settings. Preview only. |
 | `--link-domains <domains>` | Lets the dialog's links work for these domains, separated by semicolons, the way your application allows them in code. See [Links in the Dialog](#links-in-the-dialog). |
@@ -171,26 +171,25 @@ A logo that fails any check is replaced by BugSplat's logo. For best results, us
 
 #### `palette`
 
-Two objects, `light` and `dark`, with the same sixteen keys. Colours are `#RGB`, `#RRGGBB`, or `#RRGGBBAA`; the alpha is accepted but ignored. Colour names and `rgb(...)` aren't accepted. You don't have to set both modes: set only `dark`, and light mode keeps the defaults.
+Two objects, `light` and `dark`, with the same fifteen keys. Colours are `#RGB`, `#RRGGBB`, or `#RRGGBBAA`; the alpha is accepted but ignored. Colour names and `rgb(...)` aren't accepted. You don't have to set both modes: set only `dark`, and light mode keeps the defaults.
 
 | Key | Light | Dark | Where it's used |
 | --- | --- | --- | --- |
 | `background` | `#FFFFFF` | `#1E1E1E` | The dialog itself. |
 | `surface` | `#FFFFFF` | `#262626` | Inside text fields and the file list, and secondary buttons. |
-| `surfaceAlt` | `#F3F2EF` | `#303030` | A hovered or pressed secondary button, a disabled field, the progress bar's track. |
+| `surfaceAlt` | `#F3F2EF` | `#303030` | A hovered or pressed secondary button, a disabled button or field. |
 | `bannerBackground` | `#FBFAF6` | `#242321` | The strip the logo sits on. |
 | `footerBackground` | `#F7F6F2` | `#252422` | The band along the bottom that holds the buttons. If a mode sets `background` but not `footerBackground`, the footer uses that `background`. |
 | `textPrimary` | `#1A1A1A` | `#F5F5F5` | The headline, field labels, text in fields, and secondary button captions. |
 | `textSecondary` | `#6B6B6B` | `#ABABAB` | Body text, the contact note, the "optional" hint, and placeholder text in empty fields. |
 | `textDisabled` | `#A3A3A3` | `#6E6E6E` | A disabled button's caption. |
-| `accent` | `#2B74F0` | `#3D82F5` | The **Send report** button, the **View report details** link, a checked consent box, a focused field's outline, and the progress bar. |
+| `accent` | `#2B74F0` | `#3D82F5` | The **Send report** button, the **View report details** link, a checked consent box, and a focused field's outline. Not the links in `body` and `contactNote`, which use the Windows link colour. |
 | `accentHover` | `#1F64DB` | `#5A96F7` | The primary button and link under the pointer. |
 | `accentPressed` | `#1A55BC` | `#2F6FD8` | The primary button and link while pressed. |
 | `accentText` | `#FFFFFF` | `#FFFFFF` | Text and the check mark drawn on `accent`. |
 | `border` | `#D9D7D2` | `#3D3C39` | Field and secondary button outlines, and the dividing lines. |
 | `borderStrong` | `#A8A6A0` | `#6A6965` | A field or button under the pointer, and an unchecked consent box. |
 | `focus` | `#1A1A1A` | `#FFFFFF` | The keyboard focus ring. |
-| `error` | `#C42B1C` | `#FF99A4` | The progress bar when an upload fails. |
 
 BugSplat's logo has a transparent background, with a blue wordmark in light mode and a white one in dark mode, and a faint splat is drawn behind it on the banner. The splat is never drawn behind your logo. If your logo has a transparent background too, set `bannerBackground` to anything you like, such as your `background` or a brand colour.
 
@@ -210,7 +209,7 @@ Sizes are in pixels at 100% display scaling, and are scaled up on high-DPI displ
 | Key | Default | Notes |
 | --- | --- | --- |
 | `windowWidth` | `500` | Width of the dialog's content, from 320 to 1200. The height isn't settable: the dialog grows to fit its text, so a longer translation is never cut off. |
-| `padding` | `28` | Margin around the content, from 0 to 64. |
+| `padding` | `28` | Margin around the content, and above the footer, from 0 to 64. |
 | `spacing` | `16` | Gap between blocks of content, from 0 to 48. |
 | `controlRadius` | `8` | Corner radius of buttons, fields, and the consent box, from 0 to 24. `0` is square. |
 | `roundedWindow` | `true` | Rounded window corners on Windows 11. |
@@ -275,19 +274,6 @@ Save string files as UTF-8, and write accented and non-Latin characters directly
 | `send` | `&Send report` |
 | `dontSend` | `&Don't send` |
 | `details` | `&View report details` |
-
-#### The Progress Window
-
-| Key | English |
-| --- | --- |
-| `progressTitle` | Sending error report |
-| `progressContacting` | Contacting server |
-| `progressPackaging` | Generating error report |
-| `progressUploading` | Posting data |
-| `progressDone` | Done |
-| `progressFailed` | Failed |
-| `thankYou` | Thank you for sending this error report. It has been received successfully. |
-| `close` | `&Close` |
 
 #### The Report Details Window
 

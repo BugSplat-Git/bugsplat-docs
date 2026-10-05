@@ -40,7 +40,7 @@ BugSplat(const wchar_t* database,
 void SetQuietMode(bool flag);
 ```
 
-**Description:** Controls whether the crash report dialog is presented to the user (desktop applications only).  QuietMode is off by default. In quiet mode, crash reports are still uploaded, with no dialog, progress window, or support response.
+**Description:** Controls whether the crash report dialog is presented to the user (desktop applications only).  QuietMode is off by default. In quiet mode, crash reports are still uploaded, with no dialog or support response.
 
 **Parameters:**
 

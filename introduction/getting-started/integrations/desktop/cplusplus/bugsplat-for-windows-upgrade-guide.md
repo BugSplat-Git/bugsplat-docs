@@ -8,14 +8,13 @@ This guide covers the two releases of the BugSplat Windows/Xbox SDK that change 
 
 ## Upgrading to 9.0.0
 
-In BugSplat for Windows 9.0.0, the crash dialog, the progress window and the upload moved out of `BugSplatMonitor.exe` into a new program, `BugSplatReporter.exe`. The dialog has a new design, and is customized with a `theme` folder of JSON files instead of by rebuilding `BugSplatRc.dll`, which no longer exists. See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for how the pieces fit together.
+In BugSplat for Windows 9.0.0, the crash dialog moved out of `BugSplatMonitor.exe` into a new program, `BugSplatReporter.exe`. The monitor still captures and uploads the report, and now uploads in the background after the user answers the dialog, so your application can exit sooner; there's no progress window. The dialog has a new design, and is customized with a `theme` folder of JSON files instead of by rebuilding `BugSplatRc.dll`, which no longer exists. See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for how the pieces fit together.
 
 {% hint style="danger" %}
-**Add `BugSplatReporter.exe` to your installer.** Forgetting it doesn't produce an error: `BugSplatMonitor.exe` uploads the report itself when the reporter is missing, so crashes keep arriving, but **the crash dialog silently stops appearing**. Nobody is asked what they were doing, no support response is shown, and nobody can decline to send. The only sign is a line in the crash folder's `BugSplat.log`:
+**Add `BugSplatReporter.exe` to your installer.** Forgetting it doesn't produce an error: `BugSplatMonitor.exe` uploads the report without the dialog when the reporter is missing, so crashes keep arriving, but **the crash dialog silently stops appearing**. Nobody is asked what they were doing, and nobody can decline to send. The only sign is a line in the crash folder's `BugSplat.log`:
 
 ```
-BugSplatReporter.exe not found next to BugSplatMonitor.exe - uploading in-process
-without the crash dialog. Add BugSplatReporter.exe to your installer.
+BugSplatReporter.exe not found next to BugSplatMonitor.exe - uploading without the crash dialog. Add BugSplatReporter.exe to your installer.
 ```
 
 After upgrading, force a crash on a machine that installed your application from your installer, not from your build output, and confirm the dialog appears.
@@ -27,8 +26,8 @@ Ship these files from the SDK's `BugSplat\<platform>\<config>\bin` folder, in th
 
 | File | Change in 9.0.0 |
 | --- | --- |
-| `BugSplatReporter.exe` | ➕ **New.** Shows the crash dialog and uploads the report. |
-| `BugSplatMonitor.exe` | Updated. Captures the crash, then starts `BugSplatReporter.exe`. |
+| `BugSplatReporter.exe` | ➕ **New.** Shows the crash dialog. |
+| `BugSplatMonitor.exe` | Updated. Captures the crash, starts `BugSplatReporter.exe`, then uploads the report. |
 | `BugSplatWer.dll` | Updated. |
 | `BugSplat.dll` | Updated. Only if you link the dynamic library. |
 | `theme\` | ➕ **New, optional.** `theme.json` and `strings.en-US.json`. Ship it if you customize the dialog. |
