@@ -5,7 +5,9 @@ redirects:
   education/faq/how-do-i-remove-symbol-files: introduction/development/working-with-symbol-files/managing-symbol-storage.md
   introduction/development/working-with-symbol-files/automatic-symbol-cleanup: introduction/development/working-with-symbol-files/managing-symbol-storage.md
   introduction/getting-started/integrations/cross-platform: introduction/getting-started/integrations/desktop/README.md
-  introduction/getting-started/integrations/cross-platform/dot-net-standard: introduction/getting-started/integrations/desktop/dot-net-standard.md
+  introduction/getting-started/integrations/cross-platform/dot-net-standard: introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md
+  introduction/getting-started/integrations/desktop/dot-net-standard: introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md
+  introduction/getting-started/posting-a-test-crash/my-dotnet-crasher: introduction/getting-started/posting-a-test-crash/mydotnetcrasher/README.md
   introduction/getting-started/integrations/cross-platform/electron: introduction/getting-started/integrations/desktop/electron.md
   introduction/getting-started/integrations/cross-platform/qt: introduction/getting-started/integrations/desktop/qt.md
   introduction/getting-started/integrations/cross-platform/java: introduction/getting-started/integrations/desktop/java.md

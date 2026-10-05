@@ -13,7 +13,6 @@ Questions? Please get in touch with us via [Discord](https://discord.gg/K4KjjRV5
 | .NET Framework (hosted by C++) | [MyDotNetFrameworkHostCrasher](mydotnetframeworkhostcrasher/)                              |
 | .NET                           | [MyDotNetCrasher](mydotnetcrasher/)                                                        |
 | .NET (WinUI 3)                 | [MyDotNetWinUI3Crasher](mydotnetwinui3crasher/)                                            |
-| .NET Standard                  | [my-dotnet-crasher](my-dotnet-crasher/)                                                    |
 | macOS                          | [BugSplatTester](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)    |
 | Electron                       | [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)                 |
 | Qt                             | [my-qt-crasher](https://github.com/BugSplat-Git/my-qt-crasher)                             |
