@@ -604,7 +604,7 @@ int BugSplat_PostFeedbackWithResult(const wchar_t* title,
 * `outInfoUrl` - Buffer that receives the URL BugSplat returned for the report, or `NULL` to skip it. The URL is truncated if it doesn't fit and is always null-terminated.
 * `outInfoUrlChars` - Capacity of `outInfoUrl` in wide characters, including the null terminator, or `0` to skip it
 
-**Returns:** `1` on success, `0` on failure, before `BugSplat_Init`, or if `title` is `NULL`. On failure `*outCrashId` is set to `0` and `outInfoUrl` to an empty string.
+**Returns:** `1` on success, `0` on failure, before `BugSplat_Init`, or if `title` is `NULL`. On failure, `*outCrashId` is set to `0` when `outCrashId` is non-`NULL`, and `outInfoUrl[0]` is set to the null terminator when `outInfoUrl` is non-`NULL` and `outInfoUrlChars` is greater than `0`.
 
 **Note:** The C++ `BugSplat::PostFeedbackWithResult` returns a `FeedbackResult` that holds a `std::wstring`, which cannot cross the DLL boundary, so this entry point writes the URL into a buffer you supply. Added in version 8.0.0.
 
