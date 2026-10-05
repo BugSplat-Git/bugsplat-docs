@@ -103,7 +103,7 @@ Before you ship a theme, check:
 
 ### Checking a Theme ✅
 
-A theme can change how the crash dialog looks, but it can never stop a crash report from being sent. The reporter ignores anything in a theme it can't use, such as a misspelled key, a colour that isn't a colour, or a logo it can't decode, and uses the default instead. That also makes mistakes easy to miss, so check the folder before you ship it:
+A theme can change how the crash dialog looks, but it can never stop a crash report from being sent. The reporter ignores anything in a theme it can't use, such as a misspelled key, a color that isn't a color, or a logo it can't decode, and uses the default instead. That also makes mistakes easy to miss, so check the folder before you ship it:
 
 ```batch
 BugSplatReporter.exe --check-theme "C:\work\my-theme" | more
