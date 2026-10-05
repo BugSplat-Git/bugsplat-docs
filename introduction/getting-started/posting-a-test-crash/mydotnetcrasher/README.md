@@ -8,7 +8,7 @@ description: >-
 
 Before you enable BugSplat in your .NET application, you may want to take a moment to experiment with our `MyDotNetCrasher` sample, a .NET 10 console app that triggers each kind of crash [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) reports, chosen from the command line. Its mixed-mode crashes call into a small C++ library, `MyDotNetCrasherNative`, so you can see BugSplat report one call stack that crosses from C# into C++.
 
-To get started, download the BugSplat SDK for .NET by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=dotnet), then unzip it. You'll need the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) and Visual Studio with the C++ desktop workload and the `v143` build tools, which build `MyDotNetCrasherNative`.
+To get started, clone [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher), where the sample installs BugSplat from the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package. You can also [download the BugSplat SDK for .NET](https://app.bugsplat.com/browse/download_item.php?item=dotnet) and unzip it. You'll need the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) and Visual Studio with the C++ desktop workload, which builds `MyDotNetCrasherNative`; the SDK download's copy also needs the `v143` build tools.
 
 1. Open `MyDotNetCrasher.sln` with Visual Studio.
 2. Set your database at the top of `Samples\MyDotNetCrasher\Program.cs`, and optionally the application name and version. Keep the line's shape: the symbol upload script reads the three values from it.

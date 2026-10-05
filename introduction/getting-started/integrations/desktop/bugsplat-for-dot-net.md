@@ -54,7 +54,7 @@ dotnet add package BugSplat
 
 or search for **BugSplat** in Visual Studio's NuGet Package Manager. The same package works for .NET Framework 4.7.2+ and .NET 10+ projects.
 
-To get a feel for BugSplat before integrating it, [log in](https://app.bugsplat.com/cognito/login), [download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) the BugSplat SDK for .NET, and try one of the [samples](#sample-apps): [MyDotNetFrameworkWpfCrasher](../../posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) for .NET 10. The download also includes `symbol-upload-windows.exe`, which the samples use to upload symbols.
+To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher) and try one of the [samples](#sample-apps), which install BugSplat from NuGet: [MyDotNetFrameworkWpfCrasher](../../posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) for .NET 10. The samples are also in the [SDK download](https://app.bugsplat.com/browse/download_item.php?item=dotnet).
 
 ### Integration 🏗️
 

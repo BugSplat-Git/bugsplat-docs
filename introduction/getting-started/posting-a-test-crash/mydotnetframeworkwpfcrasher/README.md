@@ -8,7 +8,7 @@ description: >-
 
 Before you enable BugSplat in your .NET Framework application, you may want to take a moment to experiment with our `MyDotNetFrameworkWpfCrasher` sample, a WPF (.NET Framework 4.7.2) app with a button for each kind of report [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) sends.
 
-To get started, download the BugSplat SDK for .NET by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=dotnet), then unzip it.
+To get started, clone [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher), where the sample installs BugSplat from the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package. You can also [download the BugSplat SDK for .NET](https://app.bugsplat.com/browse/download_item.php?item=dotnet) and unzip it.
 
 1. Open `MyDotNetFrameworkWpfCrasher.sln` with Visual Studio 2022+.
 2. Set your database in `Samples\MyDotNetFrameworkWpfCrasher\App.xaml.cs` (`App.Database`), and optionally `App.AppName` and `App.Version`.

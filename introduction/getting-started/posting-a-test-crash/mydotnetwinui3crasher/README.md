@@ -8,7 +8,7 @@ description: >-
 
 Before you enable BugSplat in your .NET application, you may want to take a moment to experiment with our `MyDotNetWinUI3Crasher` sample, a WinUI 3 (.NET 10) app with a button for each kind of report [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) sends. It's the windowed companion of the [MyDotNetCrasher](../mydotnetcrasher/) console sample, and the .NET counterpart of the .NET Framework [MyDotNetFrameworkWpfCrasher](../mydotnetframeworkwpfcrasher/).
 
-To get started, download the BugSplat SDK for .NET by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=dotnet), then unzip it. You'll need the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) and Visual Studio with the WinUI application development workload, plus the C++ desktop workload and the `v143` build tools for the Mixed-Mode Crash button's `MyDotNetCrasherNative` library.
+To get started, clone [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher), where the sample installs BugSplat from the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package. You can also [download the BugSplat SDK for .NET](https://app.bugsplat.com/browse/download_item.php?item=dotnet) and unzip it. You'll need the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) and Visual Studio with the WinUI application development workload, plus the C++ desktop workload for the Mixed-Mode Crash button's `MyDotNetCrasherNative` library; the SDK download's copy also needs the `v143` build tools.
 
 1. Open `MyDotNetWinUI3Crasher.sln` with Visual Studio.
 2. Set your database in `Samples\MyDotNetWinUI3Crasher\App.xaml.cs` (`App.Database`), and optionally `App.Application` and `App.Version`.
