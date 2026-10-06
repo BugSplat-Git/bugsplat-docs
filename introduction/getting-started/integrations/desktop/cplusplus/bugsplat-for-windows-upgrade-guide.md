@@ -8,7 +8,7 @@ This guide covers the two releases of the BugSplat Windows/Xbox SDK that change 
 
 ## Upgrading to 9.0.0
 
-In BugSplat for Windows 9.0.0, the crash dialog moved out of `BugSplatMonitor.exe` into a new program, `BugSplatReporter.exe`. The monitor still captures and uploads the report, and now uploads in the background after the user answers the dialog, so your application can exit sooner; there's no progress window. The dialog has a new design, and is customized with a `BugSplatTheme` folder of JSON files instead of by rebuilding `BugSplatRc.dll`, which no longer exists. See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for how the pieces fit together.
+In BugSplat for Windows 9.0.0, the crash dialog moved out of `BugSplatMonitor.exe` into a new program, `BugSplatReporter.exe`. The monitor still captures and uploads the report, and now uploads in the background after the user answers the dialog, so your application can exit sooner; there's no progress window. The dialog has a new design, and is customized with a theme folder of JSON files instead of by rebuilding `BugSplatRc.dll`, which no longer exists. See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for how the pieces fit together.
 
 {% hint style="info" %}
 **Already on 9.0.0?** In 9.0.1 the theme folder is `BugSplatTheme\`; rename your `theme\` folder, because `theme\` is no longer read. If you use the NuGet package's `BugSplatTheme` project folder, nothing changes for you.
@@ -34,7 +34,7 @@ Ship these files from the SDK's `BugSplat\<platform>\<config>\bin` folder, in th
 | `BugSplatMonitor.exe` | Updated. Captures the crash, starts `BugSplatReporter.exe`, then uploads the report. |
 | `BugSplatWer.dll` | Updated. |
 | `BugSplat.dll` | Updated. Only if you link the dynamic library. |
-| `BugSplatTheme\` | ➕ **New, optional.** `theme.json` and `strings.en-US.json`. Ship it if you customize the dialog. |
+| Theme folder | ➕ **New, optional.** `theme.json` and `strings.en-US.json`, in `BugSplatTheme\` (9.0.1 and later; 9.0.0 used `theme\`). Ship it if you customize the dialog. |
 | `BugSplatRc.dll` | ➖ **Removed.** Delete it from your installer, your copy scripts and post-build steps, and your packaged application. Nothing loads it. |
 
 The [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package copies `BugSplatReporter.exe` to your output with the rest of the native runtime, so a .NET application needs no project changes. If you copy BugSplat's files yourself, for example next to a native host's executable, copy `BugSplatReporter.exe` too. See [BugSplat for .NET](../bugsplat-for-dot-net.md).
