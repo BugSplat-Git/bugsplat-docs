@@ -70,7 +70,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
    {% endhint %}
 
    {% hint style="warning" %}
-   BugSplat's native runtime (`BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`) depends on the **Visual C++ 2015–2022 runtime** for your application's architecture: `MSVCP140.dll` and `VCRUNTIME140.dll`, plus `VCRUNTIME140_1.dll` on x64 and ARM64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. Neither the .NET Framework nor the .NET runtime includes them, so without them your application runs normally but crash reporting fails. Make sure your installer either:
+   BugSplat's native runtime (`BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`) depends on the **Visual C++ 2015–2022 runtime** for your application's architecture: `MSVCP140.dll` and `VCRUNTIME140.dll`, plus `VCRUNTIME140_1.dll` on x64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. Neither the .NET Framework nor the .NET runtime includes them, so without them your application runs normally but crash reporting fails. Make sure your installer either:
 
    * chains the [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer for your architecture (`vc_redist.x64.exe`, `vc_redist.x86.exe`, or `vc_redist.arm64.exe`), or
    * copies those DLLs from the redistributable into your application folder alongside the BugSplat runtime files.
@@ -104,6 +104,28 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
    ```
 
    `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything. It blocks while the report is written and uploaded.
+
+   {% hint style="info" %}
+   **32-bit .NET Framework:** the runtime unwinds the stack before a `catch` block runs, so `Post` reports where the exception was caught rather than where it was thrown. To keep the throw site, call `Post` from an exception filter, which runs before the stack unwinds:
+
+   ```csharp
+   try
+   {
+       LoadDocument(path);
+   }
+   catch (Exception ex) when (Report(ex))
+   {
+   }
+
+   bool Report(Exception ex)
+   {
+       bugsplat.Post(ex);
+       return true;
+   }
+   ```
+
+   Before version 8.6.2 of the package, `Post` returned `false` there and reported nothing.
+   {% endhint %}
 6. **Upload symbols** for every build you ship, so call stacks show function names, file names, and line numbers. See [Symbols](#symbols) below.
 7. **Test your integration** by forcing a crash with the application running outside the Visual Studio debugger (Ctrl+F5, or `dotnet run`); the debugger intercepts the exceptions BugSplat would report. Verify that symbols were uploaded on the [Versions](https://app.bugsplat.com/v2/versions) page and that the crash appears on the [Crashes](https://app.bugsplat.com/v2/crashes) page with a symbolicated call stack. `BugSplat.IsWerEnabled` tells you whether the WER registration from step 3 is in place.
 
@@ -145,11 +167,6 @@ See [Crash Dialog Branding](../../../../education/how-tos/customize-the-crash-di
 
 BugSplat symbolicates your crashes from the symbol files you upload, which is why your application doesn't need to ship its `.pdb` files. After each build, upload every `.exe`, `.dll`, and `.pdb` your application ships with [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), using the same database, application name, and version you pass to `new BugSplat(...)`. That includes `BugSplatDotNet.pdb`, BugSplat's native PDBs, and the native PDBs of any C++ libraries you call, so mixed C#/C++ call stacks are symbolicated on both sides.
 
-The NuGet package copies BugSplat's native PDBs to your build output, but NuGet doesn't copy `BugSplatDotNet.pdb` from a package unless you ask it to:
-
-```xml
-<CopyDebugSymbolFilesFromPackages>true</CopyDebugSymbolFilesFromPackages>
-```
 
 {% hint style="info" %}
 **.NET Framework:** emit full Windows PDBs, the format BugSplat's symbol upload expects:
