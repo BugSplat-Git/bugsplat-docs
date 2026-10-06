@@ -437,6 +437,30 @@ BugSplatReporter.exe --check-theme "C:\work\acme-theme" | more
 BugSplatReporter.exe --preview --theme "C:\work\acme-theme" --link-domains "acme.example"
 ```
 
+### For AI Agents 🤖
+
+To have an AI coding agent theme the dialog for you, point it at this page and give it a prompt like this one:
+
+```
+Create a BugSplat crash dialog theme for <product name>, following
+https://docs.bugsplat.com/education/how-tos/customize-the-crash-dialog
+and starting from the complete theme example on that page.
+
+- Use <brand colors> and the logo at <path>, copied into the theme folder
+  and named by brand.logo.
+- Write theme.json and strings.en-US.json into a folder named theme next
+  to BugSplatReporter.exe (or BugSplatTheme next to the project file if
+  the app uses the BugSplat NuGet package).
+- Keep accentText readable on accent, in both light and dark.
+- Only use keys documented on that page. Plain JSON, no comments.
+- Links are https only, in body and contactNote only. Add every linked
+  domain to SetCrashDialogLinkDomains in the app's BugSplat setup.
+- Run "BugSplatReporter.exe --check-theme <folder> | more" and fix every
+  warning it prints.
+```
+
+Then look at the result yourself with `--preview` in both light and dark mode; `--check-theme` can't tell you whether it looks right.
+
 ### A Complete Theme 📋
 
 A theme for a game called Nebula Forge that sets **every** key, for when you want a full file to start from rather than a few overrides. It pins the dialog to dark mode, turns on the consent box, and links to a privacy policy from the contact note. Both files pass `--check-theme` with no warnings. Replace `nebula-logo.png` with your own image in the same folder.
