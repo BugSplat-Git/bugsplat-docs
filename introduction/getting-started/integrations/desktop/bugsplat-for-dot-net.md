@@ -135,7 +135,7 @@ If you can't use NuGet, you can add BugSplat from the [SDK download](https://app
 
 1. Reference `BugSplatDotNet.dll` from `BugSplat\dotnet\Release\net472` (.NET Framework) or `net10.0` (.NET 10).
 2. Build your application for x64, since the download's native runtime is x64 only.
-3. Copy `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` from `BugSplat\x64\Release\bin` next to your executable, and include them in your installer. Copy the `theme` folder too if you [customize the crash dialog](#customize-the-crash-dialog).
+3. Copy `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` from `BugSplat\x64\Release\bin` next to your executable, and include them in your installer. Copy the `BugSplatTheme` folder too if you [customize the crash dialog](#customize-the-crash-dialog).
 
 ### Customize the Crash Dialog
 
@@ -149,11 +149,11 @@ BugSplatTheme\
   logo.png
 ```
 
-The package copies the folder's contents to `theme\` in your build output and `dotnet publish` folder, next to `BugSplatReporter.exe`, and keeps it a loose folder in a single-file publish. Without a `BugSplatTheme` folder, the dialog uses its built-in defaults.
+The package copies the folder's contents to `BugSplatTheme\` in your build output and `dotnet publish` folder, next to `BugSplatReporter.exe`, and keeps it a loose folder in a single-file publish. Without a `BugSplatTheme` folder, the dialog uses its built-in defaults.
 
 * To keep the theme elsewhere, set `<BugSplatThemeDirectory>` to its path, relative to the project file. If that folder doesn't exist, the build fails with `BSTHEME000`.
 * Every build on Windows checks the theme with `BugSplatReporter.exe --check-theme` and reports each value the dialog would ignore as a warning, `BSTHEME001` to `BSTHEME005`. Add a code to `<NoWarn>` to silence it, or set `<BugSplatCheckTheme>false</BugSplatCheckTheme>` to skip the check.
-* A library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>` gets the theme in its own output's `theme\` folder; deploy it next to the host's executable with the native files. If you copy BugSplat's files to a host yourself, copy your theme folder there as `theme\` too.
+* A library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>` gets the theme in its own output's `BugSplatTheme\` folder; deploy it next to the host's executable with the native files. If you copy BugSplat's files to a host yourself, copy your theme folder there as `BugSplatTheme\` too.
 
 Links in the dialog's text work only for domains you allow in code:
 

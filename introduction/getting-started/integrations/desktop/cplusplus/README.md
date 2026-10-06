@@ -17,14 +17,14 @@ The SDK is organized per platform (`win32`, `x64`, `ARM64`) and configuration (`
 | Folder | Contents |
 | --- | --- |
 | `BugSplat\inc` | `BugSplat.h` (C++ API) and `BugSplatC.h` (C API) |
-| `BugSplat\<platform>\<config>\bin` | Runtime files that ship next to your executable: `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`, plus an optional `theme` folder |
+| `BugSplat\<platform>\<config>\bin` | Runtime files that ship next to your executable: `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`, plus an optional `BugSplatTheme` folder |
 | `BugSplat\<platform>\<config>\lib\md` | Static `BugSplat.lib` built with `/MD` (dynamic CRT) |
 | `BugSplat\<platform>\<config>\lib\mt` | Static `BugSplat.lib` built with `/MT` (static CRT) |
 | `BugSplat\<platform>\<config>\lib\dll` | Import library for `BugSplat.dll` |
 
 Link exactly one `BugSplat.lib` from the `lib` subfolder that matches your link model and runtime library setting, and ship the contents of `bin` with your application (`BugSplat.dll` is only needed if you link the import library).
 
-The `theme` folder holds `theme.json` and `strings.en-US.json`, which `BugSplatReporter.exe` reads at runtime to decide how the crash dialog looks and what it says. It is optional — the reporter has a built-in copy of both — but ship it if you want to rebrand or reword the dialog. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
+The `BugSplatTheme` folder holds `theme.json` and `strings.en-US.json`, which `BugSplatReporter.exe` reads at runtime to decide how the crash dialog looks and what it says. It is optional — the reporter has a built-in copy of both — but ship it if you want to rebrand or reword the dialog. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
 
 {% hint style="info" %}
 Curious how these four files fit together, or debugging a report that arrived without a dialog? See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md).
@@ -41,7 +41,7 @@ For WinUI 3 applications, BugSplat must be registered as a WER [RuntimeException
 Add BugSplat to your application using the following steps:
 
 1. Link with **`BugSplat.lib`**  by adding an entry to `Linker > Input > Additional Dependencies`, and add the matching folder to `Linker > General > Additional Library Directories`: `lib\md` if your application builds with `/MD` (the Visual Studio default), or `lib\mt` if it builds with `/MT`.
-2. Add **`BugSplatMonitor.exe`**, **`BugSplatReporter.exe`**, and **`BugSplatWer.dll`** (from the SDK's `bin` folder) to your application's installer, along with the `theme` folder if you're customizing the dialog.
+2. Add **`BugSplatMonitor.exe`**, **`BugSplatReporter.exe`**, and **`BugSplatWer.dll`** (from the SDK's `bin` folder) to your application's installer, along with the `BugSplatTheme` folder if you're customizing the dialog.
 3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-for-windows-upgrade-guide.md#registry-changes).
 
 <figure><img src="../../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
@@ -120,7 +120,7 @@ The dialog is shown by `BugSplatReporter.exe`, which `BugSplatMonitor.exe` launc
 
 <figure><img src="../../../../../.gitbook/assets/windows-crash-dialog-light.png" alt="The BugSplat crash dialog"><figcaption><p>BugSplat Crash Dialog</p></figcaption></figure>
 
-It reads its colors, type, layout and copy from the `theme` folder at run time, so customizing it means editing JSON rather than rebuilding anything. Its text can also link to your privacy policy or support site, for domains you allow with `SetCrashDialogLinkDomains`. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md), and [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for the process split. To upload reports without showing the dialog, call `SetQuietMode(true)`.
+It reads its colors, type, layout and copy from the `BugSplatTheme` folder at run time, so customizing it means editing JSON rather than rebuilding anything. Its text can also link to your privacy policy or support site, for domains you allow with `SetCrashDialogLinkDomains`. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md), and [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for the process split. To upload reports without showing the dialog, call `SetQuietMode(true)`.
 
 {% hint style="warning" %}
 If crash reports arrive but no dialog ever appears, `BugSplatReporter.exe` is almost certainly missing from your install folder. The monitor uploads the report without the dialog in that case and logs the reason to `BugSplat.log`.

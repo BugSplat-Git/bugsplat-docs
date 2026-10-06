@@ -8,7 +8,11 @@ This guide covers the two releases of the BugSplat Windows/Xbox SDK that change 
 
 ## Upgrading to 9.0.0
 
-In BugSplat for Windows 9.0.0, the crash dialog moved out of `BugSplatMonitor.exe` into a new program, `BugSplatReporter.exe`. The monitor still captures and uploads the report, and now uploads in the background after the user answers the dialog, so your application can exit sooner; there's no progress window. The dialog has a new design, and is customized with a `theme` folder of JSON files instead of by rebuilding `BugSplatRc.dll`, which no longer exists. See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for how the pieces fit together.
+In BugSplat for Windows 9.0.0, the crash dialog moved out of `BugSplatMonitor.exe` into a new program, `BugSplatReporter.exe`. The monitor still captures and uploads the report, and now uploads in the background after the user answers the dialog, so your application can exit sooner; there's no progress window. The dialog has a new design, and is customized with a `BugSplatTheme` folder of JSON files instead of by rebuilding `BugSplatRc.dll`, which no longer exists. See [How the Windows Crash Reporter Works](how-the-windows-crash-reporter-works.md) for how the pieces fit together.
+
+{% hint style="info" %}
+**Already on 9.0.0?** In 9.0.1 the theme folder is `BugSplatTheme\`; rename your `theme\` folder, because `theme\` is no longer read. If you use the NuGet package's `BugSplatTheme` project folder, nothing changes for you.
+{% endhint %}
 
 {% hint style="danger" %}
 **Add `BugSplatReporter.exe` to your installer.** Forgetting it doesn't produce an error: `BugSplatMonitor.exe` uploads the report without the dialog when the reporter is missing, so crashes keep arriving, but **the crash dialog silently stops appearing**. Nobody is asked what they were doing, and nobody can decline to send. The only sign is a line in the crash folder's `BugSplat.log`:
@@ -30,7 +34,7 @@ Ship these files from the SDK's `BugSplat\<platform>\<config>\bin` folder, in th
 | `BugSplatMonitor.exe` | Updated. Captures the crash, starts `BugSplatReporter.exe`, then uploads the report. |
 | `BugSplatWer.dll` | Updated. |
 | `BugSplat.dll` | Updated. Only if you link the dynamic library. |
-| `theme\` | ➕ **New, optional.** `theme.json` and `strings.en-US.json`. Ship it if you customize the dialog. |
+| `BugSplatTheme\` | ➕ **New, optional.** `theme.json` and `strings.en-US.json`. Ship it if you customize the dialog. |
 | `BugSplatRc.dll` | ➖ **Removed.** Delete it from your installer, your copy scripts and post-build steps, and your packaged application. Nothing loads it. |
 
 The [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package copies `BugSplatReporter.exe` to your output with the rest of the native runtime, so a .NET application needs no project changes. If you copy BugSplat's files yourself, for example next to a native host's executable, copy `BugSplatReporter.exe` too. See [BugSplat for .NET](../bugsplat-for-dot-net.md).
@@ -43,7 +47,7 @@ The memory that your application and `BugSplatMonitor.exe` share changed in 9.0.
 
 ### Move Dialog Customizations to the Theme
 
-If you customized the dialog by editing `BugSplatRc.rc` and rebuilding `BugSplatRc.dll`, re-create those changes in the `theme` folder: colors, fonts, layout, logo and which fields appear in `theme.json`, and wording in `strings.en-US.json`. Nothing needs to be compiled, and `BugSplatReporter.exe --preview` shows the result without crashing anything. The defaults have changed too: the dialog has new wording, a new logo, and a light and a dark design that follows the user's Windows setting. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md). If your changes went further than a theme can, such as a different layout, the crash dialog's source is available to Enterprise customers.
+If you customized the dialog by editing `BugSplatRc.rc` and rebuilding `BugSplatRc.dll`, re-create those changes in the `BugSplatTheme` folder: colors, fonts, layout, logo and which fields appear in `theme.json`, and wording in `strings.en-US.json`. Nothing needs to be compiled, and `BugSplatReporter.exe --preview` shows the result without crashing anything. The defaults have changed too: the dialog has new wording, a new logo, and a light and a dark design that follows the user's Windows setting. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md). If your changes went further than a theme can, such as a different layout, the crash dialog's source is available to Enterprise customers.
 
 ### Allow Links in the Dialog, If You Want Them
 
@@ -100,7 +104,7 @@ Copy `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` to you
 
 #### **Redistributable Files**
 
-Your installer must install `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`, plus `BugSplat.dll` if you link the dynamic library. There is no longer a `BsSndRpt.exe` to install, and since 9.0.0 there's no `BugSplatRc.dll` either. These files should all be located in the same directory as your primary executable. See [Update Your Installer](#update-your-installer) for the optional `theme` folder.
+Your installer must install `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`, plus `BugSplat.dll` if you link the dynamic library. There is no longer a `BsSndRpt.exe` to install, and since 9.0.0 there's no `BugSplatRc.dll` either. These files should all be located in the same directory as your primary executable. See [Update Your Installer](#update-your-installer) for the optional `BugSplatTheme` folder.
 
 #### **Registry Changes**
 
