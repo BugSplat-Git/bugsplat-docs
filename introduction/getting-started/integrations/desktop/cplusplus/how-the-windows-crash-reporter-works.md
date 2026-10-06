@@ -20,12 +20,12 @@ BugSplat for Windows is a handful of files that ship next to your executable. Kn
 | `BugSplatMonitor.exe` | Runs in a separate process so it survives the crash. Reads the shared memory your application wrote, calls `MiniDumpWriteDump` against the crashing process, detects hangs, assembles the crash folder, and **uploads the report**. |
 | `BugSplatReporter.exe` | The **crash dialog** your end user sees, and nothing else. It never touches the network; it hands the user's answers back to the monitor. |
 | `BugSplatWer.dll` | The Windows Error Reporting runtime exception module. Catches the failures no in-process filter can see — fast-fail errors, stack buffer overruns, and some heap corruption. Registered in the registry by your installer. |
-| `theme\` (optional) | `theme.json` and `strings.en-US.json`, which `BugSplatReporter.exe` reads to decide how the crash dialog looks and what it says, plus any logo or translations you add. |
+| `BugSplatTheme\` (optional) | `theme.json` and `strings.en-US.json`, which `BugSplatReporter.exe` reads to decide how the crash dialog looks and what it says, plus any logo or translations you add. |
 
 `BugSplatRc.dll`, the resource-only DLL that held the dialog templates and artwork before 9.0.0, no longer exists. Don't ship it.
 
 {% hint style="info" %}
-The `theme` folder in the SDK's `bin` folder is an exact copy of the defaults built into `BugSplatReporter.exe`, so the dialog looks the same with or without it. Ship it when you rebrand or reword the dialog. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
+The `BugSplatTheme` folder in the SDK's `bin` folder is an exact copy of the defaults built into `BugSplatReporter.exe`, so the dialog looks the same with or without it. Ship it when you rebrand or reword the dialog. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
 {% endhint %}
 
 ### The dialog is a separate process 🧩
@@ -78,8 +78,8 @@ The split has three practical consequences:
                               │
                               ▼
                   ┌───────────────────────┐
-                  │ BugSplatReporter.exe  │   reads theme\theme.json
-                  │                       │   and theme\strings.<tag>.json
+                  │ BugSplatReporter.exe  │   reads BugSplatTheme\theme.json
+                  │                       │   and BugSplatTheme\strings.<tag>.json
                   │   the crash dialog    │   6. show the crash dialog
                   └───────────┬───────────┘
                               │
@@ -99,7 +99,7 @@ The split has three practical consequences:
 3. Otherwise, the monitor — a live process, unaffected by the corruption in yours — calls `MiniDumpWriteDump` against the crashing process.
 4. The monitor writes a crash folder under `%TEMP%\BugSplat\<appName>-<appVersion>\<guid>\`, containing the minidump, `BugSplat.log`, any attachments you added, and `BugSplatCrashData.json`.
 5. The monitor spawns `BugSplatReporter.exe --report <folder>` and waits for it. Your application waits too.
-6. The reporter loads `theme\theme.json` and the string file matching the end user's Windows UI language, then shows the crash dialog, prefilled with the name, email and description your application set.
+6. The reporter loads `BugSplatTheme\theme.json` and the string file matching the end user's Windows UI language, then shows the crash dialog, prefilled with the name, email and description your application set.
 7. On **Send report**, the reporter writes what the user entered to `dialog-result.json` and exits with `0`. On **Don't send**, or if the user closes the window, it exits with `2`. Pressing Escape does nothing, so a reflexive key press doesn't throw the report away.
 8. On Send, the monitor saves the answers into `BugSplatCrashData.json` and releases your application, which can now exit. On Don't send, it deletes the crash folder and stops.
 9. The monitor zips the folder and uploads it to BugSplat, then opens your [support response](../../../../production/setting-up-custom-support-responses.md) in the browser, if you have one for this crash.
@@ -137,10 +137,10 @@ Updating `BugSplat.dll` and `BugSplatMonitor.exe` without adding `BugSplatReport
 
 ### Customizing the dialog 🎨
 
-Colors, fonts, measurements, the logo and which fields appear all come from `theme\theme.json`. Every word the dialog shows comes from `theme\strings.en-US.json`, or from a translation you add. Both are read at run time, and `BugSplatReporter.exe --preview` shows the result without crashing anything or uploading a report.
+Colors, fonts, measurements, the logo and which fields appear all come from `BugSplatTheme\theme.json`. Every word the dialog shows comes from `BugSplatTheme\strings.en-US.json`, or from a translation you add. Both are read at run time, and `BugSplatReporter.exe --preview` shows the result without crashing anything or uploading a report.
 
 See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
 
 ### Xbox and GDK 🎮
 
-There is no `BugSplatReporter.exe` or `theme` folder on Xbox, because there is no crash dialog. `BugSplatMonitor.exe` posts the report itself, and quiet mode is always on. Crash folders live under `XPersistentLocalStorageGetPath` rather than `%TEMP%`. See [Xbox](../../game-development/xbox.md).
+There is no `BugSplatReporter.exe` or `BugSplatTheme` folder on Xbox, because there is no crash dialog. `BugSplatMonitor.exe` posts the report itself, and quiet mode is always on. Crash folders live under `XPersistentLocalStorageGetPath` rather than `%TEMP%`. See [Xbox](../../game-development/xbox.md).

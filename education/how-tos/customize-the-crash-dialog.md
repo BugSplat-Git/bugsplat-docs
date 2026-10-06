@@ -4,7 +4,7 @@ description: Rebrand, reword, and add links to the Windows crash dialog with a t
 
 # Crash Dialog Branding
 
-On Windows, the crash dialog your users see is shown by `BugSplatReporter.exe`. It reads its colors, fonts, layout, logo, and wording from a `theme` folder at run time. Nothing is compiled: edit a file, preview the dialog, and ship the folder with your application.
+On Windows, the crash dialog your users see is shown by `BugSplatReporter.exe`. It reads its colors, fonts, layout, logo, and wording from a `BugSplatTheme` folder at run time. Nothing is compiled: edit a file, preview the dialog, and ship the folder with your application.
 
 {% hint style="warning" %}
 **Upgrading from BugSplat for Windows 8.x?** The theme folder replaces `BugSplatRc.dll`, which no longer exists in 9.0.0. If you customized the dialog by editing `BugSplatRc.rc` and rebuilding the DLL, those changes don't carry forward; re-create them in `theme.json` and `strings.en-US.json` as described below. See the [upgrade guide](../../introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md#upgrading-to-9.0.0).
@@ -26,7 +26,7 @@ A theme can change the colors, type, sizes, logo, and wording. This fictional br
 
 ### Where the Theme Lives 📁
 
-`BugSplatReporter.exe` reads `theme\theme.json` and `theme\strings.<language>.json` from the folder it's in, which is your application's folder:
+The theme is a folder named `BugSplatTheme` next to `BugSplatReporter.exe`, which is your application's folder:
 
 ```
 YourApp\
@@ -35,32 +35,22 @@ YourApp\
   BugSplatMonitor.exe
   BugSplatReporter.exe
   BugSplatWer.dll
-  theme\
+  BugSplatTheme\
     theme.json              colors, type, layout, and switches
     strings.en-US.json      every word the dialog shows
     logo.png                optional, named by brand.logo
 ```
 
-The whole folder is optional. The reporter has the defaults built in, and the `theme` folder in the SDK's `bin` folder is an exact copy of them, so shipping it unchanged, or not at all, gives the same dialog. Diff your files against the SDK's copy to see what you've changed.
+The whole folder is optional: without it, the dialog uses its built-in defaults. `BugSplatMonitor.exe` starts the reporter with nothing but the crash folder, so in a shipped application the theme always comes from this folder.
 
-`BugSplatMonitor.exe` starts the reporter with nothing but the crash folder, so in a shipped application the theme is always the `theme` folder next to `BugSplatReporter.exe`.
+How the folder gets there depends on how you get BugSplat:
 
-#### With the BugSplat NuGet Package
+* **The SDK download.** Copy your `BugSplatTheme` folder next to `BugSplatReporter.exe`, in your installer and wherever else you copy BugSplat's files. The `BugSplatTheme` folder in the SDK's `bin` folder is an exact copy of the built-in defaults, so start from it, and diff against it to see what you've changed.
+* **The [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package.** Put the `BugSplatTheme` folder next to your project file instead, and the package copies it, subfolders included, next to `BugSplatReporter.exe` in your build output and `dotnet publish` folder. A single-file publish leaves it as a loose folder, because the reporter is a separate process that reads it from disk.
 
-If your .NET application gets BugSplat from the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package, don't copy anything by hand. Put the theme in a folder named `BugSplatTheme` next to your project file:
+#### NuGet Package Options
 
-```
-YourApp\
-  YourApp.csproj
-  BugSplatTheme\
-    theme.json
-    strings.en-US.json
-    logo.png
-```
-
-The package copies the folder's contents, subfolders included, to `theme\` in your build output and `dotnet publish` folder, next to `BugSplatReporter.exe`. A single-file publish leaves it as a loose folder, because the reporter is a separate process that reads it from disk. The package doesn't include a theme folder of its own, so without `BugSplatTheme` the dialog uses its built-in defaults.
-
-To keep the theme somewhere else, set its path, relative to the project file:
+To keep the theme somewhere other than `BugSplatTheme` next to the project file, set its path, relative to the project file:
 
 ```xml
 <PropertyGroup>
@@ -68,11 +58,11 @@ To keep the theme somewhere else, set its path, relative to the project file:
 </PropertyGroup>
 ```
 
-If a folder named by `BugSplatThemeDirectory` doesn't exist, the build fails with `BSTHEME000` instead of quietly shipping the default dialog.
+It's still copied to `BugSplatTheme\` in the output. If a folder named by `BugSplatThemeDirectory` doesn't exist, the build fails with `BSTHEME000` instead of quietly shipping the default dialog.
 
 Every build on Windows also [checks the theme](#checking-a-theme) and reports each problem as a `BSTHEME001`–`BSTHEME005` warning. Add a code to `<NoWarn>` to silence that kind of warning, or set `<BugSplatCheckTheme>false</BugSplatCheckTheme>` to turn the check off.
 
-The theme is copied whenever the native runtime is: for executables and test projects, and for a library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`. A library loaded by a native host gets the theme in its own output's `theme\` folder; deploy that folder next to the host's executable along with the native files. If you copy BugSplat's files to the host yourself instead, copy your theme folder there as `theme\` too. See [BugSplat for .NET](../../introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md).
+The theme is copied whenever the native runtime is: for executables and test projects, and for a library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`. A library loaded by a native host gets the theme in its own output's `BugSplatTheme\` folder; deploy that folder next to the host's executable along with the native files. See [BugSplat for .NET](../../introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md).
 
 ### Previewing Your Changes 🔍
 
@@ -88,7 +78,7 @@ BugSplatReporter.exe --preview --theme "C:\work\my-theme" --link-domains "exampl
 | Option | What it does |
 | --- | --- |
 | `--preview` | Shows the dialog for a built-in sample crash. Saves nothing and sends nothing. |
-| `--theme <folder>` | Loads `theme.json` and the string files from this folder instead of the `theme` folder next to the reporter. Accepts the folder or the path to its `theme.json`. |
+| `--theme <folder>` | Loads `theme.json` and the string files from this folder instead of the `BugSplatTheme` folder next to the reporter. Accepts the folder or the path to its `theme.json`. |
 | `--scale <percent>` | Draws the dialog as if the display were at this scale, from 50 to 400, so you can check 150% and 200% without changing your display settings. Preview only. |
 | `--link-domains <domains>` | Lets the dialog's links work for these domains, separated by semicolons, the way your application allows them in code. See [Links in the Dialog](#links-in-the-dialog). |
 
@@ -235,7 +225,7 @@ The dialog is a single column, in this order: banner, headline, body text, descr
 
 ### Editing the Text ✍️
 
-Every word the dialog shows comes from `theme\strings.en-US.json`. To change the English wording, edit that file. As with `theme.json`, write only the keys you're changing:
+Every word the dialog shows comes from `BugSplatTheme\strings.en-US.json`. To change the English wording, edit that file. As with `theme.json`, write only the keys you're changing:
 
 ```json
 {
@@ -377,9 +367,9 @@ To preview a language your machine isn't set to, temporarily name your file for 
 
 ### A Worked Example 💼
 
-A dark theme for a product called Acme Rocket Sled, with a centred logo on a banner that blends into the dialog, a required email address and consent box, no Name field, and a link to Acme's privacy policy.
+A dark theme for a product called Acme Rocket Sled, with a centered logo on a banner that blends into the dialog, a required email address and consent box, no Name field, and a link to Acme's privacy policy.
 
-`theme\theme.json`:
+`BugSplatTheme\theme.json`:
 
 ```json
 {
@@ -410,7 +400,7 @@ A dark theme for a product called Acme Rocket Sled, with a centred logo on a ban
 }
 ```
 
-`theme\strings.en-US.json`:
+`BugSplatTheme\strings.en-US.json`:
 
 ```json
 {
@@ -448,9 +438,9 @@ and starting from the complete theme example on that page.
 
 - Use <brand colors> and the logo at <path>, copied into the theme folder
   and named by brand.logo.
-- Write theme.json and strings.en-US.json into a folder named theme next
-  to BugSplatReporter.exe (or BugSplatTheme next to the project file if
-  the app uses the BugSplat NuGet package).
+- Write theme.json and strings.en-US.json into a folder named
+  BugSplatTheme next to BugSplatReporter.exe (or next to the project file
+  if the app uses the BugSplat NuGet package).
 - Keep accentText readable on accent, in both light and dark.
 - Only use keys documented on that page. Plain JSON, no comments.
 - Links are https only, in body and contactNote only. Add every linked
@@ -465,7 +455,7 @@ Then look at the result yourself with `--preview` in both light and dark mode; `
 
 A theme for a game called Nebula Forge that sets **every** key, for when you want a full file to start from rather than a few overrides. It pins the dialog to dark mode, turns on the consent box, and links to a privacy policy from the contact note. Both files pass `--check-theme` with no warnings. Replace `nebula-logo.png` with your own image in the same folder.
 
-`theme\theme.json`:
+`BugSplatTheme\theme.json`:
 
 ```json
 {
@@ -546,7 +536,7 @@ A theme for a game called Nebula Forge that sets **every** key, for when you wan
 }
 ```
 
-`theme\strings.en-US.json`:
+`BugSplatTheme\strings.en-US.json`:
 
 ```json
 {
