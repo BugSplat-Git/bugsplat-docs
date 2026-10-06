@@ -437,6 +437,129 @@ BugSplatReporter.exe --check-theme "C:\work\acme-theme" | more
 BugSplatReporter.exe --preview --theme "C:\work\acme-theme" --link-domains "acme.example"
 ```
 
+### A Complete Theme 📋
+
+A theme for a game called Nebula Forge that sets **every** key, for when you want a full file to start from rather than a few overrides. It pins the dialog to dark mode, turns on the consent box, and links to a privacy policy from the contact note. Both files pass `--check-theme` with no warnings. Replace `nebula-logo.png` with your own image in the same folder.
+
+`theme\theme.json`:
+
+```json
+{
+  "schemaVersion": 1,
+  "appearance": "dark",
+
+  "brand": {
+    "productName": "Nebula Forge",
+    "logo": "nebula-logo.png",
+    "logoHeight": 40,
+    "logoAlignment": "start"
+  },
+
+  "palette": {
+    "light": {
+      "background": "#F6F2FC",
+      "surface": "#FFFFFF",
+      "surfaceAlt": "#EFE7FA",
+      "bannerBackground": "#1B1530",
+      "footerBackground": "#EFE7FA",
+      "textPrimary": "#1B1530",
+      "textSecondary": "#5E5475",
+      "textDisabled": "#A69DB8",
+      "accent": "#7C3AED",
+      "accentHover": "#6D28D9",
+      "accentPressed": "#5B21B6",
+      "accentText": "#FFFFFF",
+      "border": "#D8CDEB",
+      "borderStrong": "#8B7FA6",
+      "focus": "#1B1530"
+    },
+    "dark": {
+      "background": "#14101F",
+      "surface": "#1F1830",
+      "surfaceAlt": "#2A2140",
+      "bannerBackground": "#0B0814",
+      "footerBackground": "#100C1A",
+      "textPrimary": "#F5F0FF",
+      "textSecondary": "#B7ABD1",
+      "textDisabled": "#6E6487",
+      "accent": "#FFB547",
+      "accentHover": "#FFC56E",
+      "accentPressed": "#E09A2E",
+      "accentText": "#1B1530",
+      "border": "#3A2F55",
+      "borderStrong": "#6B5C8F",
+      "focus": "#FFD666"
+    }
+  },
+
+  "type": {
+    "family": "Segoe UI",
+    "baseSize": 9,
+    "headingSize": 14,
+    "headingWeight": 700
+  },
+
+  "layout": {
+    "windowWidth": 460,
+    "padding": 22,
+    "spacing": 14,
+    "controlRadius": 8,
+    "roundedWindow": true,
+    "mica": false,
+    "banner": true,
+    "bannerHeight": 72,
+    "descriptionLines": 5
+  },
+
+  "features": {
+    "showName": true,
+    "showEmail": true,
+    "showConsent": true,
+    "showDetailsButton": true,
+    "requireEmail": false,
+    "autoCloseSeconds": 0
+  }
+}
+```
+
+`theme\strings.en-US.json`:
+
+```json
+{
+  "locale": "en-US",
+  "direction": "ltr",
+  "fontFamily": "",
+  "strings": {
+    "title": "{productName} - Crash Report",
+    "headline": "{productName} hit a snag and had to close.",
+    "body": "Sorry about that! Sending this report helps our team find and fix the problem faster. It includes technical details about the crash, plus anything you choose to add below.",
+    "descriptionLabel": "What were you doing when it happened?",
+    "descriptionPlaceholder": "Anything helps, even \"I opened a level.\"",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "optionalHint": "optional",
+    "contactNote": "Leave your contact details if you'd like us to follow up. See our <a href=\"https://nebulaforge.example/privacy\">privacy policy</a>.",
+    "consent": "I agree to let {productName} store this report for up to one year.",
+    "send": "&Send Report",
+    "dontSend": "&Not Now",
+    "details": "&What's included?",
+    "filesTitle": "Report Details",
+    "filesBody": "These files are included in the crash report. They describe the state of {productName} when it crashed, along with anything you entered.",
+    "filesColumnFile": "File",
+    "filesColumnPath": "Path",
+    "ok": "OK",
+    "cancel": "Cancel"
+  }
+}
+```
+
+The privacy policy link works only if the application allows its domain:
+
+```cpp
+g_BugSplat.SetCrashDialogLinkDomains(L"nebulaforge.example");
+```
+
 ### Compatibility 🔒
 
 `schemaVersion` is `1`. A theme written for a newer version loads on an older reporter, which ignores the keys it doesn't know, and a theme written for version 1 keeps working on newer reporters, because every key has a default. Within a version, no key will change meaning, change type, or narrow its range.
