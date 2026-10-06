@@ -26,7 +26,7 @@ A theme can change the colors, type, sizes, logo, and wording. This fictional br
 
 ### Where the Theme Lives 📁
 
-`BugSplatReporter.exe` reads `BugSplatTheme\theme.json` and `BugSplatTheme\strings.<language>.json` from the folder it's in, which is your application's folder:
+The theme is a folder named `BugSplatTheme` next to `BugSplatReporter.exe`, which is your application's folder:
 
 ```
 YourApp\
@@ -41,26 +41,16 @@ YourApp\
     logo.png                optional, named by brand.logo
 ```
 
-The whole folder is optional. The reporter has the defaults built in, and the `BugSplatTheme` folder in the SDK's `bin` folder is an exact copy of them, so shipping it unchanged, or not at all, gives the same dialog. Diff your files against the SDK's copy to see what you've changed.
+The whole folder is optional: without it, the dialog uses its built-in defaults. `BugSplatMonitor.exe` starts the reporter with nothing but the crash folder, so in a shipped application the theme always comes from this folder.
 
-`BugSplatMonitor.exe` starts the reporter with nothing but the crash folder, so in a shipped application the theme is always the `BugSplatTheme` folder next to `BugSplatReporter.exe`.
+How the folder gets there depends on how you get BugSplat:
 
-#### With the BugSplat NuGet Package
+* **The SDK download.** Copy your `BugSplatTheme` folder next to `BugSplatReporter.exe`, in your installer and wherever else you copy BugSplat's files. The `BugSplatTheme` folder in the SDK's `bin` folder is an exact copy of the built-in defaults, so start from it, and diff against it to see what you've changed.
+* **The [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package.** Put the `BugSplatTheme` folder next to your project file instead, and the package copies it, subfolders included, next to `BugSplatReporter.exe` in your build output and `dotnet publish` folder. A single-file publish leaves it as a loose folder, because the reporter is a separate process that reads it from disk.
 
-If your .NET application gets BugSplat from the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package, don't copy anything by hand. Put the theme in a folder named `BugSplatTheme` next to your project file:
+#### NuGet Package Options
 
-```
-YourApp\
-  YourApp.csproj
-  BugSplatTheme\
-    theme.json
-    strings.en-US.json
-    logo.png
-```
-
-The package copies the folder's contents, subfolders included, to `BugSplatTheme\` in your build output and `dotnet publish` folder, next to `BugSplatReporter.exe`. A single-file publish leaves it as a loose folder, because the reporter is a separate process that reads it from disk. The package doesn't include a theme folder of its own, so without `BugSplatTheme` the dialog uses its built-in defaults.
-
-To keep the theme somewhere else, set its path, relative to the project file:
+To keep the theme somewhere other than `BugSplatTheme` next to the project file, set its path, relative to the project file:
 
 ```xml
 <PropertyGroup>
@@ -68,11 +58,11 @@ To keep the theme somewhere else, set its path, relative to the project file:
 </PropertyGroup>
 ```
 
-If a folder named by `BugSplatThemeDirectory` doesn't exist, the build fails with `BSTHEME000` instead of quietly shipping the default dialog.
+It's still copied to `BugSplatTheme\` in the output. If a folder named by `BugSplatThemeDirectory` doesn't exist, the build fails with `BSTHEME000` instead of quietly shipping the default dialog.
 
 Every build on Windows also [checks the theme](#checking-a-theme) and reports each problem as a `BSTHEME001`–`BSTHEME005` warning. Add a code to `<NoWarn>` to silence that kind of warning, or set `<BugSplatCheckTheme>false</BugSplatCheckTheme>` to turn the check off.
 
-The theme is copied whenever the native runtime is: for executables and test projects, and for a library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`. A library loaded by a native host gets the theme in its own output's `BugSplatTheme\` folder; deploy that folder next to the host's executable along with the native files. If you copy BugSplat's files to the host yourself instead, copy your theme folder there as `BugSplatTheme\` too. See [BugSplat for .NET](../../introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md).
+The theme is copied whenever the native runtime is: for executables and test projects, and for a library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`. A library loaded by a native host gets the theme in its own output's `BugSplatTheme\` folder; deploy that folder next to the host's executable along with the native files. See [BugSplat for .NET](../../introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md).
 
 ### Previewing Your Changes 🔍
 
