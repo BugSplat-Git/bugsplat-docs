@@ -37,6 +37,7 @@
 * [Choose Your Platform](introduction/getting-started/integrations/README.md)
 * [💻 Desktop Software](introduction/getting-started/integrations/desktop/README.md)
   * [BugSplat for Windows (C++)](introduction/getting-started/integrations/desktop/cplusplus/README.md)
+    * [How the Windows Crash Reporter Works](introduction/getting-started/integrations/desktop/cplusplus/how-the-windows-crash-reporter-works.md)
     * [Full Memory Dumps](introduction/getting-started/integrations/desktop/cplusplus/full-memory-dumps.md)
     * [BugSplat for Windows Dependencies](introduction/getting-started/integrations/desktop/cplusplus/dependencies.md)
     * [BugSplat for Windows Upgrade Guide](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md)

@@ -38,7 +38,7 @@ MyDotNetFrameworkHostCrasher.exe /DeepThrow
 
 Add `/Quiet` to skip the crash dialog. Run the program with no arguments to see every option.
 
-7. When the crash dialog appears, click **Send Error Report**, then open the crash from the BugSplat [Dashboard](https://app.bugsplat.com/v2/dashboard) to see the combined C# and C++ call stack with file names and line numbers.
+7. When the crash dialog appears, click **Send report**, then open the crash from the BugSplat [Dashboard](https://app.bugsplat.com/v2/dashboard) to see the combined C# and C++ call stack with file names and line numbers.
 
 ### How It Works
 

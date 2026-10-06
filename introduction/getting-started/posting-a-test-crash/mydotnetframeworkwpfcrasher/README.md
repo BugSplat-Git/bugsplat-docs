@@ -33,7 +33,7 @@ $BUGSPLAT_CLIENT_SECRET = "your-client-secret"
 | **Mixed-Mode Crash** | Calls into C++ code that crashes, so the report has one call stack that crosses from C# into C++. |
 | **Heap Corruption** | Calls into C++ code that frees the same memory twice. Windows fail-fasts the app through Windows Error Reporting, so this button is disabled until `BugSplatWer.dll` is registered (see below). |
 
-8. When the crash dialog appears, enter some descriptive text to help you identify the crash and click **Send Error Report**.
+8. When the crash dialog appears, enter some descriptive text to help you identify the crash and click **Send report**.
 9. Navigate to the BugSplat [Dashboard](https://app.bugsplat.com/v2/dashboard) and click the link in the ID column to view details about your crash, including the full symbolicated call stack and various crash metadata.
 
 ### Heap Corruption and Windows Error Reporting

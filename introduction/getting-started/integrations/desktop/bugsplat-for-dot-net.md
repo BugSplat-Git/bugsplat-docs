@@ -28,7 +28,7 @@ Either way, `BugSplatMonitor.exe` writes the minidump from outside your process 
 | Fail-fast crashes: heap corruption, `__fastfail`, `/GS` failures, and on .NET 10 runtime fail-fasts and unhandled exceptions in WinUI 3 apps | Windows Error Reporting → `BugSplatWer.dll` → minidump (requires a registry entry; see [Windows Error Reporting](#windows-error-reporting)) |
 | User feedback | `BugSplat.PostFeedback(...)` |
 
-Crashes and handled exceptions alike are reported as minidumps with BugSplat's .NET crash type, so the managed frames are named from your symbols. Instructions for modifying the default crash dialog are on the [Windows Dialog Box](../../../../education/how-tos/customize-the-crash-dialog.md) page.
+Crashes and handled exceptions alike are reported as minidumps with BugSplat's .NET crash type, so the managed frames are named from your symbols. To rebrand or reword the crash dialog, see [Customize the Crash Dialog](#customize-the-crash-dialog).
 
 ### Supported Versions
 
@@ -59,7 +59,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
 ### Integration 🏗️
 
 1. **Add the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package**, as shown in Getting Started above. It references `BugSplatDotNet.dll` for your target framework and brings BugSplat's native runtime with it.
-2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture and upload crashes, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
+2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture crashes, and the monitor starts `BugSplatReporter.exe` to show the crash dialog and upload the report, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
 
    {% hint style="info" %}
    **Architecture:** the package copies the runtime for the architecture your application runs as. It uses your runtime identifier or `PlatformTarget` if you set one. Otherwise, a .NET 10 application gets the architecture of the .NET SDK that builds it. A .NET Framework AnyCPU application gets x86 with *Prefer 32-bit* and x64 without it. To choose explicitly, set `<BugSplatNativeArchitecture>` to `x64`, `x86`, or `arm64`.
@@ -70,7 +70,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
    {% endhint %}
 
    {% hint style="warning" %}
-   BugSplat's native runtime (`BugSplat.dll`, `BugSplatMonitor.exe`, and `BugSplatWer.dll`) depends on the **Visual C++ 2015–2022 runtime** for your application's architecture: `MSVCP140.dll` and `VCRUNTIME140.dll`, plus `VCRUNTIME140_1.dll` on x64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. Neither the .NET Framework nor the .NET runtime includes them, so without them your application runs normally but crash reporting fails. Make sure your installer either:
+   BugSplat's native runtime (`BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`) depends on the **Visual C++ 2015–2022 runtime** for your application's architecture: `MSVCP140.dll` and `VCRUNTIME140.dll`, plus `VCRUNTIME140_1.dll` on x64. These DLLs are **not part of Windows** and are missing on machines where no application has installed the redistributable. Neither the .NET Framework nor the .NET runtime includes them, so without them your application runs normally but crash reporting fails. Make sure your installer either:
 
    * chains the [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installer for your architecture (`vc_redist.x64.exe`, `vc_redist.x86.exe`, or `vc_redist.arm64.exe`), or
    * copies those DLLs from the redistributable into your application folder alongside the BugSplat runtime files.
@@ -135,7 +135,33 @@ If you can't use NuGet, you can add BugSplat from the [SDK download](https://app
 
 1. Reference `BugSplatDotNet.dll` from `BugSplat\dotnet\Release\net472` (.NET Framework) or `net10.0` (.NET 10).
 2. Build your application for x64, since the download's native runtime is x64 only.
-3. Copy `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll` from `BugSplat\x64\Release\bin` next to your executable, and include them in your installer.
+3. Copy `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` from `BugSplat\x64\Release\bin` next to your executable, and include them in your installer. Copy the `theme` folder too if you [customize the crash dialog](#customize-the-crash-dialog).
+
+### Customize the Crash Dialog
+
+The crash dialog's colors, fonts, layout, logo, and wording come from a theme folder that `BugSplatReporter.exe` reads at run time. To ship your own, add a folder named `BugSplatTheme` next to your project file, holding `theme.json`, `strings.en-US.json`, and any logo or translations, and write only the values you're changing:
+
+```
+YourApp.csproj
+BugSplatTheme\
+  theme.json
+  strings.en-US.json
+  logo.png
+```
+
+The package copies the folder's contents to `theme\` in your build output and `dotnet publish` folder, next to `BugSplatReporter.exe`, and keeps it a loose folder in a single-file publish. Without a `BugSplatTheme` folder, the dialog uses its built-in defaults.
+
+* To keep the theme elsewhere, set `<BugSplatThemeDirectory>` to its path, relative to the project file. If that folder doesn't exist, the build fails with `BSTHEME000`.
+* Every build on Windows checks the theme with `BugSplatReporter.exe --check-theme` and reports each value the dialog would ignore as a warning, `BSTHEME001` to `BSTHEME005`. Add a code to `<NoWarn>` to silence it, or set `<BugSplatCheckTheme>false</BugSplatCheckTheme>` to skip the check.
+* A library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>` gets the theme in its own output's `theme\` folder; deploy it next to the host's executable with the native files. If you copy BugSplat's files to a host yourself, copy your theme folder there as `theme\` too.
+
+Links in the dialog's text work only for domains you allow in code:
+
+```csharp
+bugsplat.CrashDialogLinkDomains = new[] { "example.com" };
+```
+
+See [Crash Dialog Branding](../../../../education/how-tos/customize-the-crash-dialog.md) for every setting, how to preview a theme, and the rules for links.
 
 ### Symbols
 
@@ -212,6 +238,7 @@ If your application is a native C++ program that loads the .NET Framework and ca
 | `void SetAttribute(string name, string value)` | Adds a custom attribute to every report. |
 | `bool AddAttachment(string filePath)` | Attaches a file to every report. |
 | `bool QuietMode` | Set to `true` to suppress the crash dialog; reports are still uploaded. |
+| `string[] CrashDialogLinkDomains` | The domains, and their subdomains, that links in the crash dialog's text may open, for example `new[] { "example.com" }`. Only `https` links work. By default no domain is allowed, and links are shown as plain text. See [Links in the Dialog](../../../../education/how-tos/customize-the-crash-dialog.md#links-in-the-dialog). |
 | `MiniDumpType MiniDumpType` | The minidump type for crash reports and `Post`. The default, `MiniDumpType.Normal`, is enough for BugSplat to name the managed frames. Larger types, such as `WithPrivateReadWriteMemory` or `WithFullMemory`, are written only when [full memory dumps](cplusplus/full-memory-dumps.md) are enabled for your database; otherwise BugSplat writes a normal minidump. |
 | `bool IsWerEnabled` | Whether `BugSplatWer.dll` is registered with Windows Error Reporting. |
 | `bool IsInitialized` | Whether crash reporting is installed for this process. |
@@ -226,7 +253,8 @@ The previous .NET Framework SDK (`BugSplat.CrashReporter`) has been replaced by 
 | Subscribing `AppDomainUnhandledExceptionHandler`, `DispatcherUnhandledExceptionHandler`, and `TaskSchedulerUnobservedTaskExceptionHandler` | Nothing: unhandled exceptions are captured by the constructor |
 | `CrashReporter.createReport(exception)` for handled exceptions | `bugsplat.Post(exception)`, inside the `catch` |
 | Referencing `BugSplatDotNet.dll` from the SDK download | The [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package |
-| Shipping `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRc.dll` | Shipping `BugSplatDotNet.dll` plus `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatRc.dll`, and `BugSplatWer.dll`, which the NuGet package copies to your output |
+| Shipping `BsSndRpt.exe`, `BugSplatDotNet.dll`, and `BugSplatRc.dll` | Shipping `BugSplatDotNet.dll` plus `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`, which the NuGet package copies to your output |
+| Editing `BugSplatRc.dll` to change the crash dialog | A [`BugSplatTheme` folder](#customize-the-crash-dialog) in your project |
 | Any CPU | Any architecture with the NuGet package, which copies the matching native runtime; x64 with the SDK download |
 | SendPdbs | [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) |
 
