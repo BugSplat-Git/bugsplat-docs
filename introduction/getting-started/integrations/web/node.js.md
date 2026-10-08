@@ -52,6 +52,8 @@ try {
 }
 ```
 
+If the error has a `cause`, bugsplat-node captures the whole chain automatically, including Node.js system error properties such as `code`, `errno`, and `syscall`; see [Error Chains](javascript.md#error-chains) for details.
+
 After posting an error with bugsplat-node, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
 ![Node.js Crashes](../../../../.gitbook/assets/electron-node-js-crashes.png)
