@@ -82,6 +82,8 @@ export default function App() {
 }
 ```
 
+Errors posted by `ErrorBoundary` or `post()` that carry a `cause` are captured as a chain automatically; see [Error Chains](javascript.md#error-chains) for details.
+
 ## Further Integration
 
 Want your error boundary to also handle errors that are not caught by `ErrorBoundary`, such as async errors or event handlers? No problem! `useErrorHandler` to the rescue. Pass your error to the callback returned from `useErrorHandler` in order to propagate the error to the nearest `ErrorBoundary`. You can also pass your error directly to `useErrorHandler` if you manage the error state yourself or get it from another library.

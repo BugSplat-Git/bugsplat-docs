@@ -34,6 +34,8 @@ Use `bugsplat` to post errors from promise rejections:
 Promise.reject(new Error("BugSplat!")).catch(error => bugsplat.post(error, {}));
 ```
 
+If the error has a `cause`, bugsplat captures the whole chain automatically; see [Error Chains](javascript.md#error-chains) for details.
+
 You can also attach a file to your error post by passing a `BugSplatOptions` object containing with a value for `additionalFormDataParams` property.
 
 ```typescript

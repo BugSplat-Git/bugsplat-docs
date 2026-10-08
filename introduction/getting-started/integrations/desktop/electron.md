@@ -122,6 +122,8 @@ bugsplat.post(error, options); // Async function that posts an arbitrary Error o
 // Returns a promise that resolves with properties: error (if there was an error posting to BugSplat), response (the response from the BugSplat crash post API), and original (the error passed by bugsplat.post)
 ```
 
+If the error has a `cause`, bugsplat-node captures the whole chain automatically; see [Error Chains](../web/javascript.md#error-chains) for details.
+
 ### Main Thread
 
 Create an error handler for `uncaughtExceptions` and `unhandledPromise` rejections. We recommend you quit your application in the event of an `uncaughtException` or `unhandledPromiseRejection`. You may also want to add code to display a message to your user here:

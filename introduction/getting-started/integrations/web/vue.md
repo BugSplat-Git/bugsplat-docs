@@ -54,4 +54,6 @@ try {
 }
 ```
 
+If the error has a `cause`, bugsplat captures the whole chain automatically; see [Error Chains](javascript.md#error-chains) for details.
+
 After posting an error, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new error report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page.

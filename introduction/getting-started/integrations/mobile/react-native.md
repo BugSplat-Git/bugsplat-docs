@@ -99,6 +99,8 @@ try {
 }
 ```
 
+If the error has a `cause`, the whole chain is captured automatically; see [Error Chains](../web/javascript.md#error-chains) for details.
+
 #### Error Boundary
 
 Wrap your component tree in `<ErrorBoundary>` to catch React render errors and report them to BugSplat automatically. This works on all platforms: iOS, Android, and Web.
