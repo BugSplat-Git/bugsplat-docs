@@ -59,7 +59,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
 ### Integration 🏗️
 
 1. **Add the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package**, as shown in Getting Started above. It references `BugSplatDotNet.dll` for your target framework and brings BugSplat's native runtime with it.
-2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture crashes, and the monitor starts `BugSplatReporter.exe` to show the crash dialog, then uploads the report itself, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
+2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture crashes, and the monitor starts `BugSplatReporter.exe` to show the crash dialog, then uploads the report once the user has answered it, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
 
    {% hint style="info" %}
    **Architecture:** the package copies the runtime for the architecture your application runs as. It uses your runtime identifier or `PlatformTarget` if you set one. Otherwise, a .NET 10 application gets the architecture of the .NET SDK that builds it. A .NET Framework AnyCPU application gets x86 with *Prefer 32-bit* and x64 without it. To choose explicitly, set `<BugSplatNativeArchitecture>` to `x64`, `x86`, or `arm64`.
@@ -103,7 +103,14 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
    }
    ```
 
-   `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything. It blocks while the report is written and, in quiet mode, uploaded; with the crash dialog it returns once the user has answered it, and the upload finishes in the background.
+   `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything.
+
+   `Post` doesn't return right away. When it returns depends on whether the crash dialog is shown:
+
+   * **Crash dialog shown (the default):** `Post` returns after the user closes the dialog. The monitor uploads the report in the background, so your application doesn't wait for the upload.
+   * **`QuietMode` on:** no dialog is shown, and `Post` returns after the report has been uploaded.
+
+   Either way, call it off the UI thread if you don't want your application to wait.
 
    {% hint style="info" %}
    **32-bit .NET Framework:** the runtime unwinds the stack before a `catch` block runs, so `Post` reports where the exception was caught rather than where it was thrown. To keep the throw site, call `Post` from an exception filter, which runs before the stack unwinds:
@@ -231,7 +238,7 @@ If your application is a native C++ program that loads the .NET Framework and ca
 | Member | Description |
 | --- | --- |
 | `BugSplat(string database, string application, string version)` | Initializes crash reporting. Create one instance, early, and keep it for the life of the process. |
-| `bool Post(Exception exception)` | Reports a handled exception as a minidump and uploads it. Call it inside the `catch` block. Returns whether BugSplat took the report. |
+| `bool Post(Exception exception)` | Reports a handled exception as a minidump and uploads it. Call it inside the `catch` block. Returns `true` if BugSplat's monitor took the report and `false` if nothing was reported. With the crash dialog it returns when the user closes the dialog; with `QuietMode` on, after the upload. |
 | `FeedbackResult PostFeedback(string title, string? description = null, string[]? attachments = null)` | Posts user feedback. The result's `Success`, `CrashId`, and `InfoUrl` describe the report. It blocks while the report is uploaded, so call it off the UI thread. |
 | `string User`, `Email`, `Key`, `Description`, `Notes` | Default values stamped on every report. |
 | `void SetAttribute(string name, string value)` | Adds a custom attribute to every report. |
