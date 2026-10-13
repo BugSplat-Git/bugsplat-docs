@@ -59,7 +59,14 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
 ### Integration 🏗️
 
 1. **Add the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package**, as shown in Getting Started above. It references `BugSplatDotNet.dll` for your target framework and brings BugSplat's native runtime with it.
-2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture crashes, and the monitor starts `BugSplatReporter.exe` to show the crash dialog, then uploads the report once the user has answered it, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
+2. **Ship the native runtime next to your executable.** These four files must be installed alongside your `.exe`:
+
+   * `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory.
+   * `BugSplatMonitor.exe` captures the crash and uploads the report.
+   * `BugSplatReporter.exe` shows the crash dialog. `BugSplatMonitor.exe` starts it and waits for the user to answer before uploading.
+   * `BugSplatWer.dll` captures crashes that go through Windows Error Reporting.
+
+   The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
 
    {% hint style="info" %}
    **Architecture:** the package copies the runtime for the architecture your application runs as. It uses your runtime identifier or `PlatformTarget` if you set one. Otherwise, a .NET 10 application gets the architecture of the .NET SDK that builds it. A .NET Framework AnyCPU application gets x86 with *Prefer 32-bit* and x64 without it. To choose explicitly, set `<BugSplatNativeArchitecture>` to `x64`, `x86`, or `arm64`.
