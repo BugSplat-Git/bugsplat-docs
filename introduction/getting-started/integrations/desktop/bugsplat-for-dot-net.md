@@ -59,7 +59,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
 ### Integration 🏗️
 
 1. **Add the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package**, as shown in Getting Started above. It references `BugSplatDotNet.dll` for your target framework and brings BugSplat's native runtime with it.
-2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture crashes, and the monitor starts `BugSplatReporter.exe` to show the crash dialog and upload the report, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
+2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture crashes, and the monitor starts `BugSplatReporter.exe` to show the crash dialog, then uploads the report itself, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
 
    {% hint style="info" %}
    **Architecture:** the package copies the runtime for the architecture your application runs as. It uses your runtime identifier or `PlatformTarget` if you set one. Otherwise, a .NET 10 application gets the architecture of the .NET SDK that builds it. A .NET Framework AnyCPU application gets x86 with *Prefer 32-bit* and x64 without it. To choose explicitly, set `<BugSplatNativeArchitecture>` to `x64`, `x86`, or `arm64`.
@@ -103,7 +103,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
    }
    ```
 
-   `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything. It blocks while the report is written and uploaded.
+   `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything. It blocks while the report is written and, in quiet mode, uploaded; with the crash dialog it returns once the user has answered it, and the upload finishes in the background.
 
    {% hint style="info" %}
    **32-bit .NET Framework:** the runtime unwinds the stack before a `catch` block runs, so `Post` reports where the exception was caught rather than where it was thrown. To keep the throw site, call `Post` from an exception filter, which runs before the stack unwinds:
@@ -178,7 +178,7 @@ BugSplat symbolicates your crashes from the symbol files you upload, which is wh
 **.NET 10:** the portable PDBs the .NET SDK produces by default work as they are.
 {% endhint %}
 
-symbol-upload authenticates with a Client ID and Client Secret, which you create on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. The samples run it after every build with a `Scripts\SymbolUpload.ps1` post-build step, which reads the credentials from `Scripts\env.ps1` or the `BUGSPLAT_CLIENT_ID` and `BUGSPLAT_CLIENT_SECRET` environment variables. Building with `/p:BugSplatSymbolUpload=false` skips it, and in the .NET 10 samples a failed upload fails the build. Copy the script into your own project, or run symbol-upload from your build pipeline.
+symbol-upload authenticates with a Client ID and Client Secret, which you create on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. The samples run it after every build with a `Scripts\SymbolUpload.ps1` post-build step, which reads the credentials from `Scripts\env.ps1` or the `BUGSPLAT_CLIENT_ID` and `BUGSPLAT_CLIENT_SECRET` environment variables. Building with `/p:BugSplatSymbolUpload=false` skips it, and in the samples a failed upload fails the build. Copy the script into your own project, or run symbol-upload from your build pipeline.
 
 ### Windows Error Reporting
 
@@ -191,7 +191,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptio
 `BugSplat.IsWerEnabled` tells you at run time whether the entry is in place. See the [upgrade guide](cplusplus/bugsplat-for-windows-upgrade-guide.md#registry-changes) for more about the registry entry.
 
 {% hint style="info" %}
-**.NET Framework:** unhandled managed exceptions and access violations reach BugSplat's application exception handler. Fail-fasts from native code, such as heap corruption, still go through WER.
+**.NET Framework:** unhandled managed exceptions and access violations reach BugSplat's application exception handler. Stack overflows and fail-fasts from native code, such as heap corruption, still go through WER.
 
 **.NET 10:** the runtime also ends some access violations and stack overflows with a fail-fast, so only the WER helper captures them.
 {% endhint %}
@@ -220,7 +220,6 @@ When managed code calls native code through P/Invoke and the native code crashes
 * **Start your application with its `.exe`.** `dotnet YourApp.dll` runs your application inside `dotnet.exe`, and BugSplat looks for `BugSplatMonitor.exe` next to `dotnet.exe` instead of your application.
 * **Crashes that go through WER aren't reported without the registry entry.** That includes heap corruption, `__fastfail`, `/GS` failures, .NET 10 runtime fail-fasts, and every WinUI 3 crash (see [Windows Error Reporting](#windows-error-reporting)).
 * **Unobserved task exceptions aren't reported.** They don't crash the process, so there's no crash to capture. Observe your tasks and report failures with `Post` from a `catch`.
-* **.NET Framework: stack overflows in managed code aren't reported.** The .NET Framework ends the process on a stack overflow without running any application exception handler, and reports it through its own `CLR20r3` WER event, which doesn't call `BugSplatWer.dll` even when it's registered.
 * **.NET 10: uncaught C++ exceptions** thrown from native code called through P/Invoke are reported from the point where the .NET runtime re-raises them, rather than from the C++ `throw`.
 
 ### Native Applications That Host .NET
@@ -232,7 +231,7 @@ If your application is a native C++ program that loads the .NET Framework and ca
 | Member | Description |
 | --- | --- |
 | `BugSplat(string database, string application, string version)` | Initializes crash reporting. Create one instance, early, and keep it for the life of the process. |
-| `bool Post(Exception exception)` | Reports a handled exception as a minidump and uploads it. Call it inside the `catch` block. Returns whether the report was uploaded. |
+| `bool Post(Exception exception)` | Reports a handled exception as a minidump and uploads it. Call it inside the `catch` block. Returns whether BugSplat took the report. |
 | `FeedbackResult PostFeedback(string title, string? description = null, string[]? attachments = null)` | Posts user feedback. The result's `Success`, `CrashId`, and `InfoUrl` describe the report. It blocks while the report is uploaded, so call it off the UI thread. |
 | `string User`, `Email`, `Key`, `Description`, `Notes` | Default values stamped on every report. |
 | `void SetAttribute(string name, string value)` | Adds a custom attribute to every report. |
