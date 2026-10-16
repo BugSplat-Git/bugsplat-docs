@@ -82,7 +82,7 @@ export default function App() {
 }
 ```
 
-Errors posted by `ErrorBoundary` or `post()` that carry a `cause` are captured as a chain automatically; see [Error Chains](javascript.md#error-chains) for details.
+Errors posted by `ErrorBoundary` or `post()` that carry a `cause` are captured as a chain automatically (up to 5 linked errors), each shown as a `Caused by:` row; see [Error Chains](javascript.md#error-chains) for details.
 
 ## Further Integration
 

@@ -72,7 +72,7 @@ throw new Error('todo bg');
 
 ### 🔗 Error Chains (`cause`) <a href="#error-chains" id="error-chains"></a>
 
-When you post an error that has a `cause` ([ES2022](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)) or an `AggregateError` with `errors`, bugsplat walks the chain (up to 5 linked errors) and sends each linked error as a structured exception alongside the usual callstack. For each linked error, bugsplat records its type (`name`), message, stack, and its own enumerable properties, such as a Postgres error's `code`, `constraint_name`, and `detail`, or a Node.js system error's `code`, `errno`, and `syscall`. There is nothing to configure.
+When you post an error that has a `cause` ([ES2022](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)) or an `AggregateError` with `errors`, bugsplat walks the chain (up to 5 linked entries total) and sends each linked error as a structured exception alongside the usual callstack. For each linked error, bugsplat records its type (`name`), message, stack, and its own enumerable properties, such as a Postgres error's `code`, `constraint_name`, and `detail`, or a Node.js system error's `code`, `errno`, and `syscall`. There is nothing to configure.
 
 Wrap a low-level error and rethrow it; the `window.onerror` handler above posts the wrapper, and bugsplat captures the cause along with it
 
@@ -89,7 +89,7 @@ On the Crash page, each linked error appears in the callstack as a `Caused by: <
 Grouping is unchanged: BugSplat still keys crashes on function name and line number. When no application frame is present, a `Caused by:` row can become the key.
 
 {% hint style="info" %}
-Error chain capture requires `bugsplat` <!-- TODO: version --> or newer.
+Error chain capture requires `bugsplat` 9.2.0 or newer.
 {% endhint %}
 
 ### 💬 User Feedback
