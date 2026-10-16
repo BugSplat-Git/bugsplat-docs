@@ -122,7 +122,7 @@ bugsplat.post(error, options); // Async function that posts an arbitrary Error o
 // Returns a promise that resolves with properties: error (if there was an error posting to BugSplat), response (the response from the BugSplat crash post API), and original (the error passed by bugsplat.post)
 ```
 
-If the error has a `cause`, bugsplat-node captures the chain automatically (up to 5 linked errors) and shows each as a `Caused by:` row; see [Error Chains](../web/javascript.md#error-chains) for details.
+If the error has a `cause`, bugsplat-node captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](../web/javascript.md#error-chains) for details.
 
 ### Main Thread
 

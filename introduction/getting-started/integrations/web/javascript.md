@@ -72,7 +72,7 @@ throw new Error('todo bg');
 
 ### 🔗 Error Chains (`cause`) <a href="#error-chains" id="error-chains"></a>
 
-When you post an error that has a `cause` ([ES2022](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)) or an `AggregateError` with `errors`, bugsplat walks the chain (up to 5 linked entries total) and sends each linked error as a structured exception alongside the usual callstack. For each linked error, bugsplat records its type (`name`), message, stack, and its own enumerable properties, such as a Postgres error's `code`, `constraint_name`, and `detail`, or a Node.js system error's `code`, `errno`, and `syscall`. There is nothing to configure.
+When you post an error that has a `cause` ([ES2022](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)) or an `AggregateError` with `errors`, bugsplat walks the chain (up to 100 linked errors) and sends the whole chain as the crash report. For each error, bugsplat records its type (`name`), message, stack, and its own enumerable properties, such as a Postgres error's `code`, `constraint_name`, and `detail`, or a Node.js system error's `code`, `errno`, and `syscall`. There is nothing to configure.
 
 Wrap a low-level error and rethrow it; the `window.onerror` handler above posts the wrapper, and bugsplat captures the cause along with it
 
@@ -84,7 +84,7 @@ try {
 }
 ```
 
-On the Crash page, each linked error appears in the callstack as a `Caused by: <type>: <message>` row beneath the frames of the error that wrapped it, and its properties are shown as that row's locals (toggle arguments and locals to see them). The crash's Exception Code and Exception Message come from the innermost error, so a wrapper like `Error: Failed to save` no longer hides `PostgresError: duplicate key value violates unique constraint "idx_records_email"`.
+On the Crash page, the callstack starts with the frames of the error you posted. Each linked error follows as a `Caused by: <type>: <message>` row and then its own stack frames, and its properties are shown as that row's locals (toggle arguments and locals to see them). Properties of the error you posted, such as a request ID you attach before rethrowing, are added to the crash's attributes; attributes you pass to `post()` take precedence. The crash's Exception Code and Exception Message come from the innermost error, so a wrapper like `Error: Failed to save` no longer hides `PostgresError: duplicate key value violates unique constraint "idx_records_email"`.
 
 Grouping is unchanged: BugSplat still keys crashes on function name and line number. When no application frame is present, a `Caused by:` row can become the key.
 
