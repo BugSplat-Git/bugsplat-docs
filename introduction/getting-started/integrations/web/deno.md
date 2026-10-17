@@ -36,6 +36,26 @@ Promise.reject(new Error("BugSplat!")).catch(error => bugsplat.post(error, {}));
 
 If the error has a `cause`, bugsplat captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](javascript.md#error-chains) for details.
 
+Wrap a low-level error and rethrow it; posting the wrapper captures the cause with it:
+
+```typescript
+function loadUserSettings() {
+  try {
+    JSON.parse('{ not valid json');
+  } catch (error) {
+    throw new Error('Failed to load user settings', { cause: error });
+  }
+}
+
+try {
+  loadUserSettings();
+} catch (error) {
+  await bugsplat.post(error);
+}
+```
+
+BugSplat shows `Error: Failed to load user settings` first, then a `Caused by: SyntaxError` row with its own stack frames.
+
 You can also attach a file to your error post by passing a `BugSplatOptions` object containing with a value for `additionalFormDataParams` property.
 
 ```typescript
