@@ -84,6 +84,25 @@ export default function App() {
 
 Errors posted by `ErrorBoundary` or `post()` that carry a `cause` are captured as a chain automatically (up to 100 linked errors), each shown as a `Caused by:` row; see [Error Chains](javascript.md#error-chains) for details.
 
+Wrap a low-level error and rethrow it from a component rendered inside `ErrorBoundary`; the boundary posts the wrapper and its cause together:
+
+```jsx
+function loadUserSettings() {
+  try {
+    JSON.parse('{ not valid json');
+  } catch (error) {
+    throw new Error('Failed to load user settings', { cause: error });
+  }
+}
+
+function Settings() {
+  const settings = loadUserSettings();
+  return <pre>{JSON.stringify(settings)}</pre>;
+}
+```
+
+BugSplat shows `Error: Failed to load user settings` first, then a `Caused by: SyntaxError` row with its own stack frames.
+
 ## Further Integration
 
 Want your error boundary to also handle errors that are not caught by `ErrorBoundary`, such as async errors or event handlers? No problem! `useErrorHandler` to the rescue. Pass your error to the callback returned from `useErrorHandler` in order to propagate the error to the nearest `ErrorBoundary`. You can also pass your error directly to `useErrorHandler` if you manage the error state yourself or get it from another library.

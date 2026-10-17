@@ -69,6 +69,25 @@ Throw a new error in your application to test the bugsplat-ng integration:
 throw new Error("foobar!");
 ```
 
+If the error has a `cause`, bugsplat-ng captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](javascript.md#error-chains) for details.
+
+Wrap a low-level error and rethrow it from a component method bound to `(click)`; Angular's `ErrorHandler` hands the wrapper to bugsplat-ng, which captures the cause with it:
+
+```typescript
+@Component({ ... })
+export class SettingsComponent {
+  loadUserSettings() {
+    try {
+      JSON.parse('{ not valid json');
+    } catch (error) {
+      throw new Error('Failed to load user settings', { cause: error });
+    }
+  }
+}
+```
+
+BugSplat shows `Error: Failed to load user settings` first, then a `Caused by: SyntaxError` row with its own stack frames.
+
 Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat, and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
 <figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

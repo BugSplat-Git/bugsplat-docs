@@ -54,6 +54,22 @@ try {
 
 If the error has a `cause`, bugsplat-node captures the chain automatically (up to 100 linked errors), including Node.js system error properties such as `code`, `errno`, and `syscall`; see [Error Chains](javascript.md#error-chains) for details.
 
+Wrap a low-level error and rethrow it; the `uncaughtException` handler above posts the wrapper and bugsplat-node captures the cause with it:
+
+```typescript
+function loadUserSettings() {
+  try {
+    JSON.parse('{ not valid json');
+  } catch (error) {
+    throw new Error('Failed to load user settings', { cause: error });
+  }
+}
+
+loadUserSettings();
+```
+
+BugSplat shows `Error: Failed to load user settings` first, then a `Caused by: SyntaxError` row with its own stack frames.
+
 After posting an error with bugsplat-node, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
 ![Node.js Crashes](../../../../.gitbook/assets/electron-node-js-crashes.png)

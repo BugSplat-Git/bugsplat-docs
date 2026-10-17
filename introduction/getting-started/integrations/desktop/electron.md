@@ -124,6 +124,22 @@ bugsplat.post(error, options); // Async function that posts an arbitrary Error o
 
 If the error has a `cause`, bugsplat-node captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](../web/javascript.md#error-chains) for details.
 
+Wrap a low-level error and rethrow it in either the main or renderer process; the handlers below post the wrapper and bugsplat-node captures the cause with it:
+
+```typescript
+function loadUserSettings() {
+  try {
+    JSON.parse('{ not valid json');
+  } catch (error) {
+    throw new Error('Failed to load user settings', { cause: error });
+  }
+}
+
+loadUserSettings();
+```
+
+BugSplat shows `Error: Failed to load user settings` first, then a `Caused by: SyntaxError` row with its own stack frames.
+
 ### Main Thread
 
 Create an error handler for `uncaughtExceptions` and `unhandledPromise` rejections. We recommend you quit your application in the event of an `uncaughtException` or `unhandledPromiseRejection`. You may also want to add code to display a message to your user here:
