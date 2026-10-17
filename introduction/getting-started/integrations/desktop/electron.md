@@ -10,7 +10,7 @@ BugSplat supports the collection of both [electron.crashReporter](https://www.el
 
 BugSplat will automatically resolve Electron framework symbol files when calculating call stacks. However, if your application includes native add-ons or is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you will need to upload application-specific symbol files to see full native call stacks. All symbol files must be uploaded to BugSplat via [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md), [symupload](https://github.com/google/breakpad/blob/master/docs/getting\_started\_with\_breakpad.md#build-process-specificssymbol-generation), or manually via the [Versions page](https://app.bugsplat.com/v2/versions). More information about uploading symbol files to BugSplat can be found [here](crashpad/how-to-build-google-crashpad.md#uploading-symbols).
 
-BugSplat-node can also be used to collect [uncaughtException](https://nodejs.org/api/process.html#process\_event\_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process\_event\_unhandledrejection) events in your application's JavaScript code.
+The bugsplat package's Node entry point, `bugsplat/node`, can also be used to collect [uncaughtException](https://nodejs.org/api/process.html#process\_event\_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process\_event\_unhandledrejection) events in your application's JavaScript code.
 
 ## Native (C++) Crash Reporting ⚙️&#x20;
 
@@ -85,26 +85,30 @@ Verify that your node native addon `.sym` files show up on the [Versions](https:
 
 ## JavaScript/TypeScript Error Reporting 💥
 
-To configure reporting of JavaScript or TypeScript errors in your main and renderer processes, please see our [node.js](../web/node.js.md) documentation for installing and configuring [bugsplat-node](https://github.com/BugSplat-Git/bugsplat-node).
+To configure reporting of JavaScript or TypeScript errors in your main and renderer processes, please see our [node.js](../web/node.js.md) documentation for installing and configuring the [bugsplat](https://github.com/BugSplat-Git/bugsplat-js) package's Node entry point, `bugsplat/node`.
 
 {% content-ref url="../web/node.js.md" %}
 [node.js.md](../web/node.js.md)
 {% endcontent-ref %}
 
-### Installing bugsplat-node
+### Installing bugsplat
 
-Install bugsplat-node via the following command:
+Install bugsplat via the following command:
 
 ```bash
-npm i bugsplat-node
+npm i bugsplat
 ```
+
+{% hint style="info" %}
+Upgrading from `bugsplat-node`? Change the import to `bugsplat/node` and replace the `bugsplat-node` dependency with `bugsplat` 9.3.0 or newer; the API is unchanged.
+{% endhint %}
 
 ### Configuration
 
 Next `import` or `require` BugSplat in both your main and renderer threads.
 
 ```typescript
-import { BugSplatNode as BugSplat } from "bugsplat-node"
+import { BugSplatNode as BugSplat } from "bugsplat/node"
 const bugsplat = new BugSplat(database, name, version)
 ```
 
@@ -122,7 +126,7 @@ bugsplat.post(error, options); // Async function that posts an arbitrary Error o
 // Returns a promise that resolves with properties: error (if there was an error posting to BugSplat), response (the response from the BugSplat crash post API), and original (the error passed by bugsplat.post)
 ```
 
-If the error has a `cause`, bugsplat-node captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](../web/javascript.md#error-chains) for details.
+If the error has a `cause`, bugsplat captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](../web/javascript.md#error-chains) for details.
 
 ### Main Thread
 
@@ -210,4 +214,4 @@ That’s it! Your Electron application is now configured to upload crash reports
 
 ## Contributing 🤝
 
-BugSplat loves open-source software! If you have suggestions on how we can improve this integration, please reach out to support@bugsplat.com, create an [issue](https://github.com/BugSplat-Git/bugsplat-node/issues) in our [GitHub repo](https://github.com/BugSplat-Git/bugsplat-node) or send us a [pull request](https://github.com/BugSplat-Git/bugsplat-node/pulls).
+BugSplat loves open-source software! If you have suggestions on how we can improve this integration, please reach out to support@bugsplat.com, create an [issue](https://github.com/BugSplat-Git/bugsplat-js/issues) in our [GitHub repo](https://github.com/BugSplat-Git/bugsplat-js) or send us a [pull request](https://github.com/BugSplat-Git/bugsplat-js/pulls).
