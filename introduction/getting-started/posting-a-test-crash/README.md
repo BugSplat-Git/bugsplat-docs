@@ -40,4 +40,4 @@ Questions? Please get in touch with us via [Discord](https://discord.gg/K4KjjRV5
 | -------- | ------------------------------------------------------------------ |
 | Angular  | [my-angular-crasher](https://github.com/BugSplat-Git/bugsplat-ng)  |
 | React    | [bugsplat-react](https://github.com/BugSplat-Git/bugsplat-react)   |
-| Node.js  | [my-node-crasher](https://github.com/BugSplat-Git/my-node-crasher) |
+| Node.js  | [my-node-crasher](https://github.com/BugSplat-Git/bugsplat-js/tree/master/examples/my-node-crasher) |

@@ -55,16 +55,16 @@ function getAdditionalOptionsWithLogFile() {
 
 ## 🧪 Sample
 
-Clone the [my-deno-crasher](https://github.com/BugSplat-Git/my-deno-crasher) repository:
+Clone the [bugsplat-js](https://github.com/BugSplat-Git/bugsplat-js) repository, which contains the [my-deno-crasher](https://github.com/BugSplat-Git/bugsplat-js/tree/master/examples/my-deno-crasher) sample:
 
 ```bash
-git clone https://github.com/BugSplat-Git/my-deno-crasher
+git clone https://github.com/BugSplat-Git/bugsplat-js
 ```
 
-Set your current directory to `my-deno-crasher`.
+Set your current directory to `examples/my-deno-crasher`.
 
 ```bash
-cd my-deno-crasher
+cd bugsplat-js/examples/my-deno-crasher
 ```
 
 Run the sample with the `--allow-net` and `--allow-read` flags to allow BugSplat to post an error to our backend and read the log file respectively.
