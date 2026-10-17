@@ -84,9 +84,9 @@ try {
 }
 ```
 
-On the Crash page, the callstack starts with the frames of the error you posted. Each linked error follows as a `Caused by: <type>: <message>` row and then its own stack frames, and its properties are shown as that row's locals (toggle arguments and locals to see them). Properties of the error you posted, such as a request ID you attach before rethrowing, are added to the crash's attributes; attributes you pass to `post()` take precedence. The crash's Exception Code and Exception Message come from the innermost error, so a wrapper like `Error: Failed to save` no longer hides `PostgresError: duplicate key value violates unique constraint "idx_records_email"`.
+On the Crash page, the callstack starts with the frames of the error you posted. Each linked error follows as a `Caused by: <type>` row and then its own stack frames. Its message and properties are shown as that row's locals (toggle arguments and locals to see them). Properties of the error you posted, such as a request ID you attach before rethrowing, are added to the crash's attributes; attributes you pass to `post()` take precedence. The crash's Exception Code and Exception Message come from the innermost error, so a wrapper like `Error: Failed to save` no longer hides `PostgresError: duplicate key value violates unique constraint "idx_records_email"`.
 
-Grouping is unchanged: BugSplat still keys crashes on function name and line number. When no application frame is present, a `Caused by:` row can become the key.
+Grouping is unchanged: BugSplat still keys crashes on the function name and line number of the error you posted. A linked error's message is never part of a group's name, so causes that differ only in their message, such as a different address or ID, group together. If an auto-grouping rule ignores every frame of the error you posted, such as frames from `node_modules`, grouping continues into the linked errors' stacks and skips the `Caused by:` rows. If the error you posted has no stack, its first `Caused by: <type>` row becomes the key.
 
 {% hint style="info" %}
 Error chain capture requires `bugsplat` 9.2.0 or newer.
