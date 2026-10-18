@@ -42,7 +42,7 @@ Import [bugsplat](https://github.com/BugSplat-Git/bugsplat-js) from [esm.sh](htt
 
 ```html
 <script type="module">
-    import { BugSplat } from 'https://esm.sh/bugsplat@8.0.1';
+    import { BugSplat } from 'https://esm.sh/bugsplat@9';
 </script>
 ```
 
