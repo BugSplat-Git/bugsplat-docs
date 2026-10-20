@@ -30,7 +30,7 @@ Follow the links below for instructions on how to configure BugSplat in your app
 [node.js.md](node.js.md)
 {% endcontent-ref %}
 
-If a platform or framework your team is leveraging is not listed above, never fear! You can leverage our bugsplat [npm package](https://www.npmjs.com/package/bugsplat) to add error reporting to any browser-based app or [bugsplat-node](https://www.npmjs.com/package/bugsplat-node) to add error reporting to any Node.js based app.
+If a platform or framework your team is leveraging is not listed above, never fear! You can leverage our bugsplat [npm package](https://www.npmjs.com/package/bugsplat) to add error reporting to any browser-based app or its [`bugsplat/node`](node.js.md) entry point to add error reporting to any Node.js based app.
 
 ## 🌐 Browsers
 
@@ -118,16 +118,16 @@ await bugsplat.postFeedback('UI rendering issue', {
 
 ### 🧪 Sample
 
-Clone the [my-javascript-crasher](https://github.com/BugSplat-Git/my-javascript-crasher) repository
+Clone the [bugsplat-js](https://github.com/BugSplat-Git/bugsplat-js) repository, which contains the [my-javascript-crasher](https://github.com/BugSplat-Git/bugsplat-js/tree/master/examples/my-javascript-crasher) sample
 
 ```sh
-git clone https://github.com/BugSplat-Git/my-javascript-crasher
+git clone https://github.com/BugSplat-Git/bugsplat-js
 ```
 
 Install the dependencies
 
 ```sh
-cd my-javascript-crasher
+cd bugsplat-js/examples/my-javascript-crasher
 npm i
 ```
 
