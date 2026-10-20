@@ -12,19 +12,7 @@ To start using BugSplat in your React application, run the following command at 
 npm i @bugsplat/react --save
 ```
 
-In addition to standard `package.json` properties `name` and `version`, include a `database` property to your `package.json` file with the value of your BugSplat database. Make sure to replace `{{YOUR_DATABASE_NAME}}` with your actual database name.
-
-```
-// package.json
-{
-  "name": "my-app",
-  "version": "1.2.0",
-  "database": "{{YOUR_DATABASE_NAME}}"
-  // ...
-}
-```
-
-In the root of your project, import your project's `package.json`. Use it's `name`, `database`, and `version` properties to initialize the BugSplat client for sending crashes. This will instantiate a new client instance and store it internally.
+In the root of your project, call `init` with your BugSplat database, your application's name, and its version. This creates a client instance and stores it internally.
 
 ```jsx
 // src/index.tsx
@@ -32,18 +20,21 @@ In the root of your project, import your project's `package.json`. Use it's `nam
 import { createRoot } from 'react-dom/client';
 import { init } from '@bugsplat/react';
 import App from './App';
-import * as packageJson from '../package.json';
 
 init({
-  database: packageJson.database,
-  application: packageJson.name,
-  version: packageJson.version,
+  database: 'your-bugsplat-database',
+  application: 'my-app',
+  version: '1.2.0',
 });
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(<App />);
 ```
+
+{% hint style="info" %}
+The `application` and `version` values must match the ones you upload source maps with. Rather than hard-coding them, you can supply them at build time, for example from environment variables such as Vite's `import.meta.env.VITE_APP_VERSION`. If you upload source maps with [@bugsplat/symbol-upload](../../../development/working-with-symbol-files/source-maps.md) and don't pass `-a` and `-v`, it reads `name` and `version` from `package.json`, so use those same values here.
+{% endhint %}
 
 You can now wrap your component trees with `ErrorBoundary` to capture rendering errors and automatically post them to BugSplat with the internal client instance we initialized earlier.
 

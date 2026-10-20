@@ -30,7 +30,7 @@ Set the bugsplat.post function as an event handler for uncaught exceptions:
 process.on('uncaughtException', async (error) => await bugsplat.postAndExit(error));
 ```
 
-You will also want to listen for unhandled promise rejections. Please note that this will only work for native promises:
+You will also want to listen for unhandled promise rejections:
 
 ```typescript
 process.on('unhandledRejection', async (error) => await bugsplat.postAndExit(error))
@@ -128,11 +128,9 @@ await bugsplat.postFeedback('UI rendering issue', {
 
 ### Additional Considerations
 
-It is recommended that you exit and restart your application after an uncaughtException or unhandledRejection occurs. Packages such as [pm2](https://www.npmjs.com/package/pm2) and [forever](https://www.npmjs.com/package/forever) can be configured to restart your application.
+After an `uncaughtException` the process is in an undefined state, and the Node.js [documentation](https://nodejs.org/api/process.html#warning-using-uncaughtexception-correctly) recommends exiting rather than resuming. `postAndExit` posts the error to BugSplat and then calls `process.exit(1)`, so use it in your `uncaughtException` and `unhandledRejection` handlers and let a process manager or your container platform restart the application. [pm2](https://www.npmjs.com/package/pm2), a systemd service with `Restart=on-failure`, or a container restart policy all work.
 
-Additionally you can use [domains](https://nodejs.org/api/domain.html#domain\_warning\_don\_t\_ignore\_errors) to handle errors differently across various parts of your application. Domains are pending deprecation according the the Node.js [documentation](https://nodejs.org/api/domain.html), however a suitable replacement has not been added yet.
-
-More information regarding domain deprecation can be found [here](https://github.com/nodejs/node/issues/10843).
+For errors you can recover from, catch them where they happen and call `bugsplat.post(error)` without exiting, as shown above.
 
 ## Contributing
 

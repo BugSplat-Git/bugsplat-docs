@@ -8,40 +8,43 @@ To begin integrating your app with BugSplat, install the bugsplat package via np
 npm i bugsplat
 ```
 
-Import or require BugSplat at the entry point of your application.
+Create a BugSplat instance at the entry point of your application (usually `main.js` or `main.ts`), replacing the database, application, and version with the values for your application.
 
 ```typescript
+import { createApp } from 'vue';
 import { BugSplat } from 'bugsplat';
+import App from './App.vue';
+
+const bugsplat = new BugSplat('your-bugsplat-database', 'my-vue-app', '1.0.0');
 ```
 
-Add a database property to your package.json.
+Post errors from Vue components with [`app.config.errorHandler`](https://vuejs.org/api/application.html#app-config-errorhandler). Vue calls it for errors thrown during rendering, in lifecycle hooks, watchers, event handlers, and `setup()`, and passes an `info` string that says where the error came from. Errors Vue handles this way don't reach `window.onerror`.
 
 ```typescript
-{
-  "name": "my-vue-crasher",
-  "version": "1.0.0",
-  "database": "{{ your database here}}",
-  ...
-}
+const app = createApp(App);
+
+app.config.errorHandler = (error, instance, info) => {
+  console.error(error);
+  bugsplat.post(error as Error, { attributes: { vueInfo: info } });
+};
+
+app.mount('#app');
 ```
 
-In index.js, create a new instance of BugSplat passing the constructor values for database, application, and version from your package.json.
+{% hint style="info" %}
+Setting `errorHandler` replaces Vue's default logging, so call `console.error` yourself if you still want errors in the browser console.
+{% endhint %}
+
+Also listen for errors and unhandled promise rejections that happen outside of Vue, such as in timers or code that runs before the app mounts.
 
 ```typescript
-const packageJson = require('../package.json');
-const bugsplat = new BugSplat(packageJson.database, packageJson.name, packageJson.version);
-```
+window.addEventListener('error', (event) => {
+  bugsplat.post(event.error);
+});
 
-Add event handlers to window.onunhandledrejection and window.onerror so that errors are posted to BugSplat.
-
-```typescript
-window.onunhandledrejection = async (rejection) => {
-  await bugsplat.post(rejection.reason);
-}
-
-window.onerror = async (event, source, lineno, colno, error) => {
-  await bugsplat.post(error);
-}
+window.addEventListener('unhandledrejection', (event) => {
+  bugsplat.post(event.reason);
+});
 ```
 
 You can also use BugSplat to capture errors in catch blocks.
@@ -54,9 +57,13 @@ try {
 }
 ```
 
+{% hint style="info" %}
+The `application` and `version` values must match the ones you upload source maps with. See [Source Maps](../../../development/working-with-symbol-files/source-maps.md) to map minified stack traces back to your original code.
+{% endhint %}
+
 If the error has a `cause`, bugsplat captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](javascript.md#error-chains) for details.
 
-Wrap a low-level error and rethrow it; the `window.onerror` handler above posts the wrapper and bugsplat captures the cause with it.
+Wrap a low-level error and rethrow it; the handlers above post the wrapper and bugsplat captures the cause with it.
 
 ```typescript
 function loadUserSettings() {
