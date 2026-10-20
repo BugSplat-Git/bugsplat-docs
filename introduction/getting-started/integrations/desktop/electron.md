@@ -109,6 +109,24 @@ bugsplat.post(error, options);        // Posts an arbitrary Error object; resolv
 bugsplat.postFeedback(title, options); // Posts user feedback
 ```
 
+### Error chains
+
+If an error has a `cause`, `@bugsplat/electron` posts the whole chain (up to 100 linked errors) from the main process and from renderers. Wrap a low-level error and rethrow it, and the handlers `init()` installs post the wrapper with its cause:
+
+```typescript
+function loadUserSettings() {
+  try {
+    JSON.parse('{ not valid json');
+  } catch (error) {
+    throw new Error('Failed to load user settings', { cause: error });
+  }
+}
+
+loadUserSettings();
+```
+
+BugSplat shows `Error: Failed to load user settings` first, then a `Caused by: SyntaxError` row with its own stack frames. See [Error Chains](../web/javascript.md#error-chains) for details.
+
 ## Generate a Crash 💥
 
 Throw an error in the main process or in a renderer:

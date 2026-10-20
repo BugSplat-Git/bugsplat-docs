@@ -42,7 +42,7 @@ Import [bugsplat](https://github.com/BugSplat-Git/bugsplat-js) from [esm.sh](htt
 
 ```html
 <script type="module">
-    import { BugSplat } from 'https://esm.sh/bugsplat@8.0.1';
+    import { BugSplat } from 'https://esm.sh/bugsplat@9';
 </script>
 ```
 
@@ -77,11 +77,15 @@ When you post an error that has a `cause` ([ES2022](https://developer.mozilla.or
 Wrap a low-level error and rethrow it; the `window.onerror` handler above posts the wrapper, and bugsplat captures the cause along with it
 
 ```javascript
-try {
-    saveRecord(record);
-} catch (err) {
-    throw new Error('Failed to save', { cause: err });
+function loadUserSettings() {
+    try {
+        JSON.parse('{ not valid json');
+    } catch (error) {
+        throw new Error('Failed to load user settings', { cause: error });
+    }
 }
+
+loadUserSettings();
 ```
 
 On the Crash page, the callstack starts with the frames of the error you posted. Each linked error follows as a `Caused by: <type>` row and then its own stack frames. Its message and properties are shown as that row's locals (toggle arguments and locals to see them). Properties of the error you posted, such as a request ID you attach before rethrowing, are added to the crash's attributes; attributes you pass to `post()` take precedence. The crash's Exception Code and Exception Message come from the innermost error, so a wrapper like `Error: Failed to save` no longer hides `PostgresError: duplicate key value violates unique constraint "idx_records_email"`.

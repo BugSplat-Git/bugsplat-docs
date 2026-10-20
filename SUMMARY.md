@@ -73,7 +73,6 @@
   * [React](introduction/getting-started/integrations/web/react.md)
   * [Vue](introduction/getting-started/integrations/web/vue.md)
   * [Node.js](introduction/getting-started/integrations/web/node.js.md)
-  * [Deno](introduction/getting-started/integrations/web/deno.md)
 * [⌛ Downloads](introduction/getting-started/integrations/downloads.md)
 
 ## 📖 Guides

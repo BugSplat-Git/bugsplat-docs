@@ -48,7 +48,6 @@ description: >-
 | React      | See platform docs ([here](web/react.md))      |
 | Vue        | See platform docs ([here](web/vue.md))        |
 | Node.js    | See platform docs ([here](web/node.js.md))    |
-| Deno       | See platform docs ([here](web/deno.md))       |
 
 ### Symbols
 
