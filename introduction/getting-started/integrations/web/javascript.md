@@ -30,7 +30,7 @@ Follow the links below for instructions on how to configure BugSplat in your app
 [node.js.md](node.js.md)
 {% endcontent-ref %}
 
-If a platform or framework your team is leveraging is not listed above, never fear! You can leverage our bugsplat [npm package](https://www.npmjs.com/package/bugsplat) to add error reporting to any browser-based app or [bugsplat-node](https://www.npmjs.com/package/bugsplat-node) to add error reporting to any Node.js based app.
+If a platform or framework your team is leveraging is not listed above, never fear! You can leverage our bugsplat [npm package](https://www.npmjs.com/package/bugsplat) to add error reporting to any browser-based app or its [`bugsplat/node`](node.js.md) entry point to add error reporting to any Node.js based app.
 
 ## 🌐 Browsers
 
@@ -70,6 +70,28 @@ Trigger an error to see it reported in BugSplat
 throw new Error('todo bg');
 ```
 
+### 🔗 Error Chains (`cause`) <a href="#error-chains" id="error-chains"></a>
+
+When you post an error that has a `cause` ([ES2022](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)) or an `AggregateError` with `errors`, bugsplat walks the chain (up to 100 linked errors) and sends the whole chain as the crash report. For each error, bugsplat records its type (`name`), message, stack, and its own enumerable properties, such as a Postgres error's `code`, `constraint_name`, and `detail`, or a Node.js system error's `code`, `errno`, and `syscall`. There is nothing to configure.
+
+Wrap a low-level error and rethrow it; the `window.onerror` handler above posts the wrapper, and bugsplat captures the cause along with it
+
+```javascript
+try {
+    saveRecord(record);
+} catch (err) {
+    throw new Error('Failed to save', { cause: err });
+}
+```
+
+On the Crash page, the callstack starts with the frames of the error you posted. Each linked error follows as a `Caused by: <type>` row and then its own stack frames. Its message and properties are shown as that row's locals (toggle arguments and locals to see them). Properties of the error you posted, such as a request ID you attach before rethrowing, are added to the crash's attributes; attributes you pass to `post()` take precedence. The crash's Exception Code and Exception Message come from the innermost error, so a wrapper like `Error: Failed to save` no longer hides `PostgresError: duplicate key value violates unique constraint "idx_records_email"`.
+
+Grouping is unchanged: BugSplat still keys crashes on the function name and line number of the error you posted. A linked error's message is never part of a group's name, so causes that differ only in their message, such as a different address or ID, group together. If an auto-grouping rule ignores every frame of the error you posted, such as frames from `node_modules`, grouping continues into the linked errors' stacks and skips the `Caused by:` rows. If the error you posted has no stack, its first `Caused by: <type>` row becomes the key.
+
+{% hint style="info" %}
+Error chain capture requires `bugsplat` 9.2.0 or newer.
+{% endhint %}
+
 ### 💬 User Feedback
 
 In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
@@ -96,16 +118,16 @@ await bugsplat.postFeedback('UI rendering issue', {
 
 ### 🧪 Sample
 
-Clone the [my-javascript-crasher](https://github.com/BugSplat-Git/my-javascript-crasher) repository
+Clone the [bugsplat-js](https://github.com/BugSplat-Git/bugsplat-js) repository, which contains the [my-javascript-crasher](https://github.com/BugSplat-Git/bugsplat-js/tree/master/examples/my-javascript-crasher) sample
 
 ```sh
-git clone https://github.com/BugSplat-Git/my-javascript-crasher
+git clone https://github.com/BugSplat-Git/bugsplat-js
 ```
 
 Install the dependencies
 
 ```sh
-cd my-javascript-crasher
+cd bugsplat-js/examples/my-javascript-crasher
 npm i
 ```
 

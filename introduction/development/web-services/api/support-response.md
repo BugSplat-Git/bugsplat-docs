@@ -4,7 +4,7 @@ description: API Documentation for the BugSplat Support Response Endpoints
 
 # Support Response
 
-Get or set the contents of the end-user [Support Response page](../../../production/setting-up-custom-support-responses.md) that is loaded by the BugSplat [Windows Native C++](../../../getting-started/integrations/desktop/cplusplus/) and [Windows .NET Framework](../../../getting-started/integrations/desktop/windows-dot-net-framework.md) SDKs.
+Get or set the contents of the end-user [Support Response page](../../../production/setting-up-custom-support-responses.md) that is loaded by the BugSplat [Windows Native C++](../../../getting-started/integrations/desktop/cplusplus/) and [Windows .NET](../../../getting-started/integrations/desktop/bugsplat-for-dot-net.md) SDKs.
 
 ## Get Message
 

@@ -11,5 +11,5 @@ Then, you'll be presented with a screen welcoming you to BugSplat. Here you can 
 ![](../../.gitbook/assets/welcome-to-bugsplat.png)
 
 {% hint style="info" %}
-🤝 **Looking to get access to an existing team?** You can request access from a team member using this form [here](https://app.bugsplat.com/v2/sign-up/team-access). Learn more about requesting access [here](../../administration/user-management/requesting-access-to-your-teams-accounts.md).
+🤝 **Looking to join an existing team?** See our [Requesting Access](../../administration/user-management/requesting-access-to-your-teams-accounts.md) page.
 {% endhint %}

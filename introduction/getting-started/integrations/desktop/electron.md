@@ -10,11 +10,12 @@ BugSplat's [`@bugsplat/electron`](https://github.com/BugSplat-Git/bugsplat-elect
 
 * **Native crashes** in every process (main, renderers, GPU, utility processes and native addons) as [Crashpad](https://github.com/chromium/crashpad) minidumps. BugSplat resolves Electron's own symbol files automatically.
 * **JavaScript errors** in the main process and in every renderer. Renderer reports travel to the main process over IPC, so no Content Security Policy changes are required.
+* **Error chains**: an error's `cause` (and an `AggregateError`'s `errors`) is posted with it from main and from renderers, and BugSplat shows each linked error as a `Caused by:` row with its own stack. See [Error Chains](../web/javascript.md#error-chains).
 * **Renderer hangs**, with the JavaScript call stack that was running when the page stopped responding.
 * **Out-of-memory crashes**, with the JavaScript stack, heap statistics and OOM location as searchable attributes (Electron 42.10.1 and later).
 * **One identity everywhere**: the user, email, application key, description and attributes you set in main or in a renderer are applied to native crash keys in every process and to every JavaScript report.
 
-`@bugsplat/electron` supports Electron 35 and later. It replaces the previous two-step integration of `electron.crashReporter` plus [bugsplat-node](../cross-platform/node.js.md); see [Upgrading](#upgrading-from-crashreporter-and-bugsplat-node) below if you use that today.
+`@bugsplat/electron` supports Electron 35 and later. It replaces the previous two-step integration of `electron.crashReporter` plus `BugSplatNode` from [`bugsplat/node`](../web/node.js.md) (formerly the `bugsplat-node` package); see [Upgrading](#upgrading) below if you use that today.
 
 ## Installation 🏗
 
@@ -183,12 +184,12 @@ npx @bugsplat/symbol-upload -i $SYMBOL_UPLOAD_CLIENT_ID -s $SYMBOL_UPLOAD_CLIENT
 
 Verify that your symbols show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Create client credentials on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page.
 
-## Upgrading from crashReporter and bugsplat-node 📢
+## Upgrading from crashReporter and BugSplatNode 📢 <a href="#upgrading" id="upgrading"></a>
 
-If your app calls `crashReporter.start` and creates `BugSplatNode` clients itself, replace both with `init`:
+If your app calls `crashReporter.start` and creates `BugSplatNode` clients itself, from `bugsplat/node` or the deprecated `bugsplat-node` package, replace both with `init`:
 
 * Remove your `crashReporter.start({ submitURL: 'https://<database>.bugsplat.com/post/electron/v2/crash.php', globalExtra: { product, version, key, email, comments } })` call: `init` starts the crash reporter with the same endpoint and sends `product`/`version` for you. Move `key`, `email` and `comments` to the `appKey`, `email` and `description` options so they can change at runtime.
-* Remove `bugsplat-node` and your `uncaughtException`/`unhandledRejection` handlers in main; `init` installs them. Set `main: { exitOnUncaughtException: true }` if you quit after an error today.
+* Remove your `BugSplatNode` client and your `uncaughtException`/`unhandledRejection` handlers in main; `init` installs them. Set `main: { exitOnUncaughtException: true }` if you quit after an error today. If you depend on `bugsplat-node`, remove it from `package.json`; `@bugsplat/electron` uses `bugsplat` for you.
 * Remove the `bugsplat` client and `window.onerror` handler from each renderer and call `init()` from `@bugsplat/electron/renderer` instead; you can also drop the `connect-src https://<database>.bugsplat.com` CSP entry.
 
 ## Contributing 🤝
