@@ -16,7 +16,7 @@
   * [MyDotNetCrasher (.NET)](introduction/getting-started/posting-a-test-crash/mydotnetcrasher/README.md)
   * [MyDotNetWinUI3Crasher (.NET)](introduction/getting-started/posting-a-test-crash/mydotnetwinui3crasher/README.md)
   * [BugSplatTester (macOS)](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)
-  * [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)
+  * [bugsplat-electron example](https://github.com/BugSplat-Git/bugsplat-electron/tree/main/example)
   * [my-qt-crasher](https://github.com/BugSplat-Git/my-qt-crasher)
   * [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher)
   * [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad)

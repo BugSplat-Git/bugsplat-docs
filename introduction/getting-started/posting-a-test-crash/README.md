@@ -14,7 +14,7 @@ Questions? Please get in touch with us via [Discord](https://discord.gg/K4KjjRV5
 | .NET                           | [MyDotNetCrasher](mydotnetcrasher/)                                                        |
 | .NET (WinUI 3)                 | [MyDotNetWinUI3Crasher](mydotnetwinui3crasher/)                                            |
 | macOS                          | [BugSplatTester](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)    |
-| Electron                       | [my-electron-crasher](https://github.com/BugSplat-Git/my-electron-crasher)                 |
+| Electron                       | [bugsplat-electron example](https://github.com/BugSplat-Git/bugsplat-electron/tree/main/example) |
 | Qt                             | [my-qt-crasher](https://github.com/BugSplat-Git/my-qt-crasher)                             |
 | Java                           | [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher) |
 | Python                         | [my-python-crasher](https://github.com/BugSplat-Git/my-python-crasher)                     |
