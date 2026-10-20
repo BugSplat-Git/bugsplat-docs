@@ -27,7 +27,7 @@
   * [BugSplatTester (iOS)](https://github.com/BugSplat-Git/bugsplat-apple/tree/main/Example_Apps)
   * [my-angular-crasher](https://github.com/BugSplat-Git/bugsplat-ng)
   * [my-react-crasher](https://github.com/BugSplat-Git/my-react-crasher)
-  * [my-node-crasher](https://github.com/BugSplat-Git/my-node-crasher)
+  * [my-node-crasher](https://github.com/BugSplat-Git/bugsplat-js/tree/master/examples/my-node-crasher)
 * [Inviting Team Members](introduction/getting-started/adding-uses-to-your-account.md)
 * [Importing Crashes](introduction/getting-started/migrating-crashes-from-another-tool.md)
 * [Troubleshooting](introduction/getting-started/troubleshooting.md)

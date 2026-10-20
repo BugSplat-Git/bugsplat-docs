@@ -5,13 +5,17 @@
 To add the bugsplat package to your application, run the following shell command at the root of your project’s directory:
 
 ```bash
-npm i bugsplat-node --save
+npm i bugsplat --save
 ```
+
+{% hint style="info" %}
+Upgrading from `bugsplat-node`? Change the import to `bugsplat/node` and replace the `bugsplat-node` dependency with `bugsplat` 9.3.0 or newer; the API is unchanged.
+{% endhint %}
 
 Require bugsplat at the entry point of your application (usually main.js) by adding the following code snippet:
 
 ```typescript
-const { BugSplatNode } = require('bugsplat-node');
+const { BugSplatNode } = require('bugsplat/node');
 ```
 
 Create a new instance of the BugSplat class being sure to replace the database, application, and version with the correct values for your application:
@@ -38,7 +42,7 @@ Throw an exception after the event handler has been added:
 throw new Error('BugSplat!');
 ```
 
-You can also use bugsplat-node to post errors from non-fatal promise rejections and errors that originate inside of try-catch blocks:
+You can also use bugsplat to post errors from non-fatal promise rejections and errors that originate inside of try-catch blocks:
 
 ```typescript
 Promise.reject(new Error('BugSplat!')).catch(async (error) => await bugsplat.post(error, options));
@@ -52,9 +56,9 @@ try {
 }
 ```
 
-If the error has a `cause`, bugsplat-node captures the chain automatically (up to 100 linked errors), including Node.js system error properties such as `code`, `errno`, and `syscall`; see [Error Chains](javascript.md#error-chains) for details.
+If the error has a `cause`, bugsplat captures the chain automatically (up to 100 linked errors), including Node.js system error properties such as `code`, `errno`, and `syscall`; see [Error Chains](javascript.md#error-chains) for details.
 
-Wrap a low-level error and rethrow it; the `uncaughtException` handler above posts the wrapper and bugsplat-node captures the cause with it:
+Wrap a low-level error and rethrow it; the `uncaughtException` handler above posts the wrapper and bugsplat captures the cause with it:
 
 ```typescript
 function loadUserSettings() {
@@ -70,7 +74,7 @@ loadUserSettings();
 
 BugSplat shows `Error: Failed to load user settings` first, then a `Caused by: SyntaxError` row with its own stack frames.
 
-After posting an error with bugsplat-node, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
+After posting an error with bugsplat, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
 ![Node.js Crashes](../../../../.gitbook/assets/electron-node-js-crashes.png)
 
@@ -132,4 +136,4 @@ More information regarding domain deprecation can be found [here](https://github
 
 ## Contributing
 
-BugSplat loves open source software! Please check out our project on [GitHub](https://github.com/BugSplat-Git/bugsplat-node) and send us a pull request.
+BugSplat loves open source software! Please check out our project on [GitHub](https://github.com/BugSplat-Git/bugsplat-js) and send us a pull request.
