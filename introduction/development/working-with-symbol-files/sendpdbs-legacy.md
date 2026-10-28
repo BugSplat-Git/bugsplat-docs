@@ -16,9 +16,7 @@ BugSplat will automatically remove unreferenced symbols in large symbol sets. If
 
 Older versions of SendPdbs (prior to version 4.0.0.0) required the application name and version used with SendPdbs to match the application name and version used to initialize BugSplat in your code. This restriction has been lifted, and any symbols uploaded to your database are now available to all crash reports in that database. In addition, older versions of SendPdbs limited the maximum size of a symbol store. This limit is no longer enforced. Instead, customers now have a storage quota size associated with their subscriptions.
 
-Credentials can be provided to SendPdbs via the /u and /p command-line arguments. Alternatively, you can save these credentials in the Windows Credentials Manager. To use values from Windows Credential Manager, create a new Generic Credentials entry and provide the entry name as the value for the /credentials argument.
-
-Credentials can also be provided using an OAuth2 client id/client secret created on our [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. Just supply these values as the username/password.
+SendPdbs authenticates with an OAuth2 Client ID and Client Secret created on our [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. BugSplat no longer accepts an email and password. Supply the Client ID as the value for /u and the Client Secret as the value for /p. Alternatively, you can save these credentials in the Windows Credentials Manager. To use values from Windows Credential Manager, create a new Generic Credentials entry with the Client ID as the user name and the Client Secret as the password, and provide the entry name as the value for the /credentials argument.
 
 Running SendPdbs.exe in a command window without any arguments shows the following usage information:
 

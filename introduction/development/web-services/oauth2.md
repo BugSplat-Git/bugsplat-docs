@@ -1,12 +1,12 @@
 # OAuth2
 
-BugSplat supports authenticating via OAuth 2.0 in addition to the username/password authentication described in our API documentation. Currently, only the OAuth2 client credentials flow is supported. If you are interested in exploring other OAuth 2.0 authentication methods, please contact [support@bugsplat.com](mailto:support@bugsplat.com).
+BugSplat's API authenticates via OAuth 2.0. Username and password authentication is no longer supported. Currently, only the OAuth2 client credentials flow is supported. If you are interested in exploring other OAuth 2.0 authentication methods, please contact [support@bugsplat.com](mailto:support@bugsplat.com).
 
-A reference client implementation can be found in our [@bugsplat/js-api-client](https://github.com/BugSplat-Git/bugsplat-js-api-client/blob/1ebf36453d275ed62d6e5a4bb4249ef17efbc929/src/common/client/oauth-client-credentials-api-client/oauth-client-credentials-api-client.ts) repo.
+A reference client implementation can be found in our [@bugsplat/js-api-client](https://github.com/BugSplat-Git/bugsplat-js-api-client/blob/main/src/common/client/oauth-client-credentials-api-client/oauth-client-credentials-api-client.ts) repo.
 
 ### Client Credentials
 
-To authenticate via OAuth2 client credentials, you will need to create a Client ID and Client Secret pair on the OAuth Integrations page. When prompted, enter an application name and choose a desired scope.
+To authenticate via OAuth2 client credentials, you will need to create a Client ID and Client Secret pair on the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. When prompted, enter an application name and choose a desired scope.
 
 BugSplat scopes are hierarchical (not composable), and the available choices are either **symbols** or **restricted**. The only operation allowed by the **symbols** scope is [symbol upload](../working-with-symbol-files/upload-symbols-with-symbol-upload.md). The **restricted** scope provides read-only access to the [Charting](api/charting.md), [Crash](api/crash.md), [Crashes](api/crashes.md), [Summary](api/crash-groups.md#summary), [Versions](api/versions.md), and [Key Crash](api/crash-groups.md#key-crash) APIs
 
@@ -32,10 +32,17 @@ Exchange a Client Id and Client Secret for a bearer token.
 
 | Name           | Type   | Description                                                                       |
 | -------------- | ------ | --------------------------------------------------------------------------------- |
-| scope          | string | OAuth2 scope, supported options include **symbols**, and **restricted**.          |
+| scope          | string | Optional. Defaults to the scope the client was created with (**symbols** or **restricted**). |
 | client\_secret | string | The Client Secret created above                                                   |
 | client\_id     | string | The Client Id created above                                                       |
 | grant\_type    | string | <p>OAuth2 grant type, in this case,</p><p><strong>client_credentials</strong></p> |
+
+```bash
+curl https://app.bugsplat.com/oauth2/authorize \
+  -F grant_type=client_credentials \
+  -F client_id="$BUGSPLAT_CLIENT_ID" \
+  -F client_secret="$BUGSPLAT_CLIENT_SECRET"
+```
 
 {% tabs %}
 {% tab title="200 " %}

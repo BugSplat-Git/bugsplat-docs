@@ -179,14 +179,14 @@ BugSplat will parse the `annotations` fields as attributes that can be configure
 
 You will need to generate and upload `.sym` files to BugSplat to generate function names and line numbers in the stack traces of your crash reports. BugSplat's [symbol-upload](https://github.com/BugSplat-Git/symbol-upload) tool can be used conveniently to generate and upload `.sym` files with a single terminal command. Download a copy of symbol-upload from [GitHub](https://github.com/BugSplat-Git/symbol-upload) or install it via [npm](https://npmjs.com/package/@bugsplat/symbol-upload).
 
-Once you have symbol-upload downloaded or installed, modify the following command to suit your needs.
+Once you have symbol-upload downloaded or installed, create a Client ID and Client Secret on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page and modify the following command to suit your needs.
 
 ```bash
 symbol-upload-windows -b "your-database-here" ^
     -a "your-application-here" ^
     -v "1.2.3-etc" ^
-    -u "you@company.com" ^
-    -p "*******" ^
+    -i "your-client-id" ^
+    -s "your-client-secret" ^
     -d "C:\\path\\to\\build\\output" ^
     -f "*.{pdb,exe,dll}" ^
     --dumpSyms

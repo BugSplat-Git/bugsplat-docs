@@ -40,7 +40,7 @@ Returns information about the queried company by companyId.
 
 ```bash
 curl --location 'https://app.bugsplat.com/api/company?database=fred' \
---header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA'
+--header 'Authorization: Bearer ••••••'
 ```
 
 ## Update Company

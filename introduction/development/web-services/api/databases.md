@@ -48,7 +48,7 @@ Returns databases for the current user or a company specified by companyId.
 
 ```bash
 curl --location 'https://app.bugsplat.com/api/databases' \
---header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA'
+--header 'Authorization: Bearer ••••••'
 ```
 
 ## Create Database
@@ -78,8 +78,7 @@ Create a new database for the current user. Default values for the new database 
 
 ```bash
 curl --location 'https://app.bugsplat.com/api/databases' \
---header 'xsrf-token: ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
---header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
+--header 'Authorization: Bearer ••••••' \
 --form 'database="postman-4f17b3f4-7ff0-497c-b3ec-94b333c05bd6"'
 ```
 

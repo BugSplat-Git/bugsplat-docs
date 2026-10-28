@@ -80,8 +80,7 @@ Adds a new user to the specified database. `PUT` is also accepted at this same e
 
 ```bash
 curl --location 'https://app.bugsplat.com/api/user/users' \
---header 'xsrf-token: ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
---header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
+--header 'Authorization: Bearer ••••••' \
 --form 'database="fred"' \
 --form 'username="name@test.com"'
 ```
@@ -114,6 +113,5 @@ Removes a user from the specified database. The authenticated user must not be r
 
 ```bash
 curl --location --request DELETE 'https://app.bugsplat.com/api/user/users?database=fred&username=name%40test.com' \
---header 'xsrf-token: ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA' \
---header 'Cookie: user=fred%40bugsplat.com; PHPSESSID=4g3pr9rdtehoddac9ohrt1qrc3cehg54; xsrf-token=ajKqRF12QJJ3IlLFdCEH0RhMjpuD5scz86mul3zdjTYA'
+--header 'Authorization: Bearer ••••••'
 ```
