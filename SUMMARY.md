@@ -220,7 +220,6 @@
     * [Updates to BugSplat Pricing Plans - October 2026](administration/billing/plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-october-2026.md)
     * [Updates to BugSplat Pricing Plans - March 2024](administration/billing/plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-march-2024.md)
     * [Using Coupons and Promotions at BugSplat](administration/billing/plans-upgrades-and-payments-faq/using-coupons-and-promotions-at-bugsplat.md)
-    * [What is 'High Volume Fractional Crash Processing'?](administration/billing/plans-upgrades-and-payments-faq/what-is-high-volume-fractional-crash-processing.md)
 * [Account](administration/account-managment/README.md)
   * [Migrating Databases](administration/account-managment/how-to-migrate-databases-between-users-and-accounts.md)
   * [Deleting Databases](administration/account-managment/deleting-databases.md)
