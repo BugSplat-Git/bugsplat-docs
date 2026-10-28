@@ -4,11 +4,11 @@ At BugSplat, we're dedicated to supporting initiatives that drive positive chang
 
 #### **Free Plan for Good Causes**
 
-To empower non-profit organizations and projects making significant impacts in their fields, BugSplat offers a Free Plan for Good Causes. This plan mirrors the benefits of our Education Plan, providing the base features of our Team Plan at no cost to support the technological needs of your mission-driven projects.
+To empower non-profit organizations and projects making significant impacts in their fields, BugSplat offers a Free Plan for Good Causes. This plan mirrors the benefits of our Education Plan, providing the base features of our Starter plan at no cost to support the technological needs of your mission-driven projects.
 
-* **Eligibility:** If you're part of an organization working towards advancements in human rights, combating world poverty, promoting environmental sustainability, or tackling underrepresentation in tech, you may qualify for our Extended Free Tier Plan. This plan offers an annual allowance of 25,000 monthly crashes and 250GB of storage, along with access to our suite of debugging tools.
+* **Eligibility:** If you're part of an organization working towards advancements in human rights, combating world poverty, promoting environmental sustainability, or tackling underrepresentation in tech, you may qualify for our Extended Free Tier Plan. This plan offers an annual allowance of 25,000 monthly crashes and 50 GB of storage, along with access to our suite of debugging tools.
 * **Yearly Renewal:** We understand the ongoing nature of good causes, which is why we offer the possibility of extending this plan year by year, provided your project continues to meet our non-profit criteria.
-* **Support for Pledge 1% Members:** In addition, we're proud to support companies participating in the Pledge 1% movement by offering a 10% discount on our monthly and annually paid Team and Business plans. This offer does not apply to Enterprise plans but signifies our support for businesses committed to giving back.
+* **Support for Pledge 1% Members:** In addition, we're proud to support companies participating in the Pledge 1% movement by offering a 10% discount on our monthly and annually paid Starter, Pro, and Studio plans. This offer does not apply to Enterprise plans but signifies our support for businesses committed to giving back.
 
 #### **How to Apply**
 

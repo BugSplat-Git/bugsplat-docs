@@ -1,13 +1,13 @@
 # Free Crash Reporting for Indie Game Development
 
-At BugSplat, we are love helping indie game developers navigating the complexities of game development on limited budgets. To support your creativity and hard work, we've introduced the Indie Game Plan, offering a free year of our Team Plan features to help you bring your vision to life.
+At BugSplat, we love helping indie game developers navigate the complexities of limited-budget game development. To support your creativity and hard work, we've introduced the Indie Game Plan, offering a free year of our Starter plan features to help you bring your vision to life.
 
 **Indie Game Plan: A Year of Free Support**
 
-Tailored for indie developers without the backing of funded studios, the Indie Game Plan provides the same benefits as our Team Plan for an entire year, at no cost. This includes:
+Tailored for indie developers without the backing of funded studios, the Indie Game Plan provides the same benefits as our Starter plan for an entire year, at no cost. This includes:
 
 * **A set allowance of 25,000 monthly crashes and errors**, enabling you to efficiently track and fix issues.
-* **Access to key Team Plan features**, like intelligent crash grouping, automated symbol uploads, GitHub integration, and email notifications, all designed to streamline your development process.
+* **Access to key Starter plan features**, like intelligent crash grouping, automated symbol uploads, GitHub integration, and email notifications, all designed to streamline your development process.
 
 This plan is our way of supporting the initial stages of your game development journey, ensuring you have access to essential debugging tools without the financial burden.
 

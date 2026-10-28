@@ -30,3 +30,5 @@ redirects:
   administration/introduction/multi-factor-authentication-mfa: administration/user-management/multi-factor-authentication-mfa.md
   administration/introduction/enforce-mfa: administration/user-management/enforce-mfa.md
   administration/introduction/adding-new-users-in-companies-with-multiple-databases: administration/user-management/adding-new-users-in-companies-with-multiple-databases.md
+  administration/billing/upgrading-changing-or-canceling-your-plan/adding-additional-users-and-apps-to-your-plan: administration/billing/upgrading-changing-or-canceling-your-plan/adding-users-crashes-and-storage-to-your-plan.md
+  administration/billing/plans-upgrades-and-payments-faq/what-is-high-volume-fractional-crash-processing: administration/billing/plans-and-billing-guide.md
