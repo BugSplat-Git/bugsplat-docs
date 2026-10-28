@@ -1,6 +1,6 @@
 # Updating Credit Card and Billing Information and Viewing Billing History
 
-Current account holders interested in updating their plan to a different level (Team or Business), adjusting the number of monthly reports, or adding/subtracting users and databases, should navigate to the [Billing](https://app.bugsplat.com/v2/company/billing) page in Settings and click on the button that says Change Plan (or Upgrade, for free/trial plans).
+Current account holders interested in updating their plan to a different level (Starter, Pro, or Studio), or adding or removing user logins, crashes, or storage, should navigate to the [Billing](https://app.bugsplat.com/v2/company/billing) page in Settings and click on the button that says Change Plan (or Upgrade, for free/trial plans).
 
 Note that if you do not see an option to navigate to the Billing page it's likely because you are a Restricted Users. Please contact a [Non-Restricted](../../user-management/user-permissions.md) user on your team to gain access to [Billing](../).
 

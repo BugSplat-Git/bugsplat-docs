@@ -5,7 +5,7 @@ The [Billing](https://app.bugsplat.com/v2/company/billing) page allows users to 
 If you have any questions or want further confirmation, please email [sales](mailto:sales@bugsplat.com).
 
 {% hint style="warning" %}
-We've made a few changes to how we structure pricing.  These changes went live on March 28th, 2024.  To learn more, please read more here -> [updates-to-bugsplat-pricing-plans-march-2024.md](plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-march-2024.md "mention")
+BugSplat published new plans in October 2026, and Team and Business are now legacy plans. To learn more, please read more here -> [updates-to-bugsplat-pricing-plans-october-2026.md](plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-october-2026.md "mention")
 {% endhint %}
 
 ### Quick Links
@@ -30,8 +30,8 @@ We've made a few changes to how we structure pricing.  These changes went live o
 [upgrading-or-downgrading-your-plan.md](upgrading-changing-or-canceling-your-plan/upgrading-or-downgrading-your-plan.md)
 {% endcontent-ref %}
 
-{% content-ref url="upgrading-changing-or-canceling-your-plan/adding-additional-users-and-apps-to-your-plan.md" %}
-[adding-additional-users-and-apps-to-your-plan.md](upgrading-changing-or-canceling-your-plan/adding-additional-users-and-apps-to-your-plan.md)
+{% content-ref url="upgrading-changing-or-canceling-your-plan/adding-users-crashes-and-storage-to-your-plan.md" %}
+[adding-users-crashes-and-storage-to-your-plan.md](upgrading-changing-or-canceling-your-plan/adding-users-crashes-and-storage-to-your-plan.md)
 {% endcontent-ref %}
 
 {% content-ref url="free-plans-from-bugsplat/" %}
@@ -62,4 +62,4 @@ Yes! All plans are governed by our [Fair-Refund Policy](plans-upgrades-and-payme
 
 #### What is a Legacy plan?
 
-BugSplat released new pricing plans on March 15th, 2022. If you were an account holder before then, please review this [document](plans-upgrades-and-payments-faq/legacy-plans-guide.md) for information on your plan.  These plans began transitioning to regular pricing on March 29th, 2024.  To learn more see -> [legacy-plans-guide.md](plans-upgrades-and-payments-faq/legacy-plans-guide.md "mention")
+Team and Business became legacy plans in October 2026. You can stay on them for as long as you like, but once you switch to Starter, Pro, Studio, or Enterprise you can't switch back. Plans from before March 15th, 2022 are also legacy plans. To learn more see -> [legacy-plans-guide.md](plans-upgrades-and-payments-faq/legacy-plans-guide.md "mention")
