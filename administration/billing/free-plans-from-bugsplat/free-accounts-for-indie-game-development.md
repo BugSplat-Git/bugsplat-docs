@@ -1,6 +1,6 @@
 # Free Crash Reporting for Indie Game Development
 
-At BugSplat, we are love helping indie game developers navigating the complexities of game development on limited budgets. To support your creativity and hard work, we've introduced the Indie Game Plan, offering a free year of our Starter plan features to help you bring your vision to life.
+At BugSplat, we love helping indie game developers navigate the complexities of limited-budget game development. To support your creativity and hard work, we've introduced the Indie Game Plan, offering a free year of our Starter plan features to help you bring your vision to life.
 
 **Indie Game Plan: A Year of Free Support**
 
