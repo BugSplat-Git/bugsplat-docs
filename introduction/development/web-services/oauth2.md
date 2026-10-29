@@ -63,7 +63,7 @@ curl https://app.bugsplat.com/oauth2/authorize \
 These endpoints do the same work as the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. Use them to list, create, and delete clients from a script, for example to create one client for each of your databases.
 
 {% hint style="info" %}
-Managing clients requires a signed-in BugSplat user with admin (unrestricted) rights on the database. An OAuth2 access token can't create or delete clients. Sign in once with your email and password, then send the session cookie and the `xsrf-token` header with each request, as shown in the example at the end of this section. Single sign-on (SSO) accounts can't sign in this way. Use the OAuth Integrations page instead.
+Managing clients requires a signed-in BugSplat user with admin (unrestricted) rights on the database. An OAuth2 access token can't create or delete clients. Sign in once with your email and password, then send the session cookie and the `xsrf-token` header with each request, as shown in the example at the end of this section. Single sign-on (SSO) accounts can't sign in this way. Use the OAuth Integrations page instead.  This is the only situation where we recommend passing a username/password to the BugSplat API.
 {% endhint %}
 
 ### List Clients
