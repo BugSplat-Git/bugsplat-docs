@@ -25,7 +25,7 @@ Questions? Please get in touch with us via [Discord](https://discord.gg/K4KjjRV5
 | Platform | Sample                                                                 |
 | -------- | ---------------------------------------------------------------------- |
 | Unreal   | [my-unreal-crasher](https://github.com/BugSplat-Git/my-unreal-crasher) |
-| Unity    | [my-unity-crasher](https://github.com/BugSplat-Git/my-unity-crasher)   |
+| Unity    | [my-unity-crasher](https://github.com/BugSplat-Git/bugsplat-unity/tree/main/Samples~/my-unity-crasher) |
 
 ### 📱 Mobile Apps
 
