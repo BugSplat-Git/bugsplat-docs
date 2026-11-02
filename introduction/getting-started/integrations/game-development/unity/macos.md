@@ -8,7 +8,7 @@ When native crash reporting is enabled, the post-build step also copies `bugspla
 
 ### macOS Symbols
 
-To upload symbols, set `UploadDebugSymbolsForMac` to `true` on your options asset and provide [symbol upload credentials](symbol-upload.md). For IL2CPP builds, BugSplat uploads dSYMs and `LineNumberMappings.json` for full symbolication. The upload is skipped when the build is an Xcode project export.
+To upload symbols, set `UploadDebugSymbolsForMac` to `true` on your options asset and provide [symbol upload credentials](symbol-upload.md). For IL2CPP builds, BugSplat uploads dSYMs and `LineNumberMappings.json` for full symbolication. Unity only writes `LineNumberMappings.json` when **Player Settings > Other Settings > IL2CPP Stacktrace Information** is set to **Method Name, File Name, and Line Number**. At the default, **Method Name**, there's no file to upload, crash reports show IL2CPP's generated C++ instead of your C# files and lines, and the build log warns and names the setting. The upload is skipped when the build is an Xcode project export.
 
 ### Player Log
 

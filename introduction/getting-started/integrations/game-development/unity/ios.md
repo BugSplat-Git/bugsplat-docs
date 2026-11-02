@@ -8,7 +8,7 @@ When native crash reporting is enabled, BugSplat automatically disables Unity's 
 
 ### iOS Symbols
 
-To upload symbols, set `UploadDebugSymbolsForIos` to `true` on your options asset and provide [symbol upload credentials](symbol-upload.md). BugSplat adds a build phase to the generated Xcode project that uploads dSYMs during the Xcode build. For IL2CPP builds, it also uploads `LineNumberMappings.json`, which maps IL2CPP-generated C++ symbols back to the original C# method names, file names, and line numbers.
+To upload symbols, set `UploadDebugSymbolsForIos` to `true` on your options asset and provide [symbol upload credentials](symbol-upload.md). BugSplat adds a build phase to the generated Xcode project that uploads dSYMs during the Xcode build. For IL2CPP builds, it also uploads `LineNumberMappings.json`, which maps IL2CPP-generated C++ symbols back to the original C# method names, file names, and line numbers. Unity only writes `LineNumberMappings.json` when **Player Settings > Other Settings > IL2CPP Stacktrace Information** is set to **Method Name, File Name, and Line Number**. At the default, **Method Name**, there's no file to upload, crash reports show IL2CPP's generated C++ instead of your C# files and lines, and the build log warns and names the setting.
 
 When credentials are missing, the upload is skipped with an Xcode build warning and the build still succeeds.
 
