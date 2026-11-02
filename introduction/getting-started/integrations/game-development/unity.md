@@ -1,6 +1,10 @@
 # Unity
 
-BugSplat's `com.bugsplat.unity` package provides crash and exception reporting for Unity projects. It captures C# exceptions on every platform, native crashes and hangs on Windows, macOS, iOS, and Android, and attaches log files and screenshots so you can fix bugs and deliver a better user experience.
+BugSplat's `com.bugsplat.unity` package reports native crashes, C# exceptions, log files, and screenshots from Unity games on Windows, macOS, Linux, iOS, Android, WebGL, Xbox, PlayStation 5, and Nintendo Switch 2. See **Platform Support** below for what each platform captures.
+
+{% hint style="info" %}
+Console support is available to licensed platform developers. See [Xbox](xbox.md), [PlayStation](playstation.md), and [Nintendo Switch 2](nintendo.md) for how to get access; the Unity setup instructions are on the Gaming Consoles tab of the [Integrations](https://app.bugsplat.com/v2/database/integrations) page.
+{% endhint %}
 
 Before you proceed, please make sure you have completed the following checklist:
 
