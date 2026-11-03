@@ -1,0 +1,177 @@
+---
+description: >-
+  How to upload symbol files to BugSplat with symbol-upload, covering CLI usage,
+  authentication, dSYM, self-hosted symbol servers, and GitHub Actions
+---
+
+# Upload Symbols with symbol-upload
+
+## Overview 👀
+
+Symbol-upload is a cross-platform application that automatically uploads [symbol files](./) as part of your build process and is the successor of [SendPdbs](sendpdbs-legacy.md). Each build of your product that sends crash reports must have an exact set of matching symbol files uploaded to BugSplat.
+
+{% hint style="info" %}
+Uploaded symbols but still seeing missing function names or line numbers? See [Why are crashes missing symbols?](../../education/faq/why-are-crashes-missing-symbols-function-names-and-or-line-numbers.md) to diagnose.
+{% endhint %}
+
+The symbol-upload tool can be installed by [npm](https://npmjs.com/package/@bugsplat/symbol-upload) and used as a [CLI tool](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#command-line) or a [javascript library](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#api). We also provide a [GitHub Action](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#action) that can be added to your build workflow.
+
+```bash
+npm i -g @bugsplat/symbol-upload
+```
+
+Alternatively, you can use one of the following terminal commands to download prebuilt binaries of [symbol-upload](https://github.com/BugSplat-Git/symbol-upload), or download with your web browser via the [GitHub releases page](https://github.com/BugSplat-Git/symbol-upload/releases).
+
+{% hint style="warning" %}
+If you download symbol-upload-macos via a web browser, Gatekeeper will block the application from running. To add the application to the system's allow list, run the following command in terminal
+
+```bash
+xattr -r -d com.apple.quarantine ./symbol-upload-macos
+```
+{% endhint %}
+
+#### Windows
+
+```powershell
+Invoke-WebRequest -Uri "https://app.bugsplat.com/download/symbol-upload-windows.exe" -OutFile "symbol-upload-windows.exe"
+```
+
+#### macOS
+
+```bash
+curl -sL -O "https://app.bugsplat.com/download/symbol-upload-macos" && chmod +x symbol-upload-macos
+```
+
+#### Linux
+
+```bash
+curl -sL -O  "https://app.bugsplat.com/download/symbol-upload-linux" && chmod +x symbol-upload-linux
+```
+
+A group of symbols identified by their application name and version is called a **symbol store**. Symbol-upload automatically creates a new symbol store each time you upload symbols to a unique application and version combination. Send symbols to BugSplat for every build on your build/integration server. There is no limit on the number of symbols you can post to BugSplat. By default, each symbol file must be smaller than **25 GB**, and each symbol store is limited to **100 GB**. Both limits are configurable per database. BugSplat automatically removes symbols that haven't been referenced recently; see [Managing Symbol Storage](managing-symbol-storage.md) for the cleanup rules and how to remove symbols manually.
+
+## Using symbol-upload 🧑‍💻
+
+Running symbol-upload in a command window without any arguments shows the following usage information:
+
+```bash
+bobby@BugSplat % ~ % symbol-upload -h
+
+@bugsplat/symbol-upload v10.5.0
+
+  symbol-upload contains a command-line utility and a set of libraries to help  
+  you upload symbol files to BugSplat.                                          
+
+Usage
+
+  -h, --help                             Print this usage guide.                                                       
+  -b, --database string                  Your BugSplat database name. The value of database must match the value used  
+                                         to post crash reports. This value can also be provided via the                
+                                         BUGSPLAT_DATABASE environment variable.                                       
+  -a, --application string               The name of your application. If not provided symbol-upload will attempt to   
+                                         use the value of the name field in package.json if it exists in the current   
+                                         working directory.                                                            
+  -v, --version string                   Your application's version. If not provided symbol-upload will attempt to use 
+                                         the value of the version field in package.json if it exists in the current    
+                                         working directory.                                                                                                                   
+  -i, --clientId string (optional)       An OAuth2 Client Credentials Client ID for the specified database. If         
+                                         provided --clientSecret must also be provided. This value can also be         
+                                         provided via the SYMBOL_UPLOAD_CLIENT_ID environment variable.                
+  -s, --clientSecret string (optional)   An OAuth2 Client Credentials Client Secret for the specified database. If     
+                                         provided --clientId must also be provided. This value can also be provided    
+                                         via the SYMBOL_UPLOAD_CLIENT_SECRET environment variable.                     
+  -r, --remove                           Removes symbols for a specified database, application, and version. If this   
+                                         option is provided no other actions are taken.                                
+  -f, --files string (optional)          Glob pattern that specifies a set of files to upload. For example,            
+                                         **/*.{pdb,exe,dll} will recursively search for .pdb, .exe, and .dll files.    
+                                         Defaults to "*.js.map"                                                        
+  -d, --directory string (optional)      Path of the base directory used to search for symbol files. This value will   
+                                         be combined with the --files glob. Defaults to '.'                            
+  -m, --dumpSyms boolean (optional)      Use dump_syms to generate and upload sym files for specified binaries.        
+  -l, --localPath string (optional)      Path to a directory to copy symbols to. If provided, the files will be copied   
+                                         to the provided path instead of being uploaded to BugSplat. Useful for        
+                                         creating a self-hosted symbol server.                                                                                                       
+                                                                                
+  The -i and -s arguments are not required if you set the environment variables 
+  SYMBOL_UPLOAD_CLIENT_ID and SYMBOL_UPLOAD_CLIENT_SECRET.                      
+
+Example
+
+  symbol-upload -b your-bugsplat-database -a your-application-name -v your-     
+  version -f "*.js.map" -d "/path/to/containing/dir" -i your-client-id -s your-client-secret 
+
+Links
+
+  🐛 https://bugsplat.com                          
+                                                   
+  💻 https://github.com/BugSplat-Git/symbol-upload 
+                                                   
+  💌 support@bugsplat.com 
+```
+
+### Example
+
+The following is an example of how to invoke symbol-upload and search a directory recursively for `.dll`, `.pdb`, and `.exe` files. Replace the values of `your-bugsplat-database`, `your-clientId`, and `your-clientSecret` with your BugSplat database and the Client ID and Client Secret you created on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. You can specify a [glob](https://github.com/isaacs/node-glob) for the `-f` argument to match for files based on a pattern.
+
+```bash
+symbol-upload -b your-bugsplat-database -a my-awesome-app -v 1.0 -i your-clientId -s your-clientSecret -d "/path/to/build -f "**/*.+(exe|dll|pdb)"
+```
+
+You can use the `-r` flag to remove a symbol store instead of uploading. This is helpful when you create a new build but don't want to increment the build number.
+
+### Authentication
+
+OAuth2 Client ID and Client Secret credentials are required via the `-i` and `-s` arguments and are created on the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. Note that you only need the 'Symbols' scope. We no longer accept username/password for symbol uploads.
+
+### Apple <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
+
+MacOS and iOS builds typically generate `.app` or `.xcarchive` files. To upload bundled `.dSYM` files, point symbol-upload at the `.app` or `.xcarchive` file, and use a glob that instructs symbol-upload to search for `.dSYM` files recursively.
+
+```bash
+symbol-upload ... -d "/path/to/build.xcarchive -f "**/*.dSYM"
+```
+
+### Dump Syms <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
+
+BugSplat can generate [Crashpad symbol files](https://github.com/google/breakpad/blob/master/docs/symbol_files.md) as part of the upload process. The Crashpad symbol files have a `.sym` format and are useful for cross-platform applications. BugSplat has integrated [Mozilla's dump-syms](https://github.com/mozilla/dump_syms) into symbol-upload, which allows developers to skip building Breakpad. To generate a `.sym` file at upload time, specify the `-m` flag when invoking symbol-upload.
+
+### Self-Hosted Symbol Servers
+
+The symbol-upload tool can be used to create a [SymSrv](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure for Windows and Xbox symbols that is compatible with both BugSplat and [Microsoft Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2022#configure-location-of-symbol-files-and-loading-options). Additionally, symbol-upload can also create a SymSrv directory structure for macOS/iOS, Linux/Android (Crashpad), PlayStation, and Nintendo Switch 2 symbols that is compatible with BugSplat.
+
+To upload symbols to a local directory, provide the `-l` flag and a path where the symbols will be copied.
+
+```powershell
+symbol-upload -f "**/*.{pdb,exe,dll}" -l "C:\path\to\output"
+```
+
+Next, use a sync tool to upload the directory to a cloud services provider. The following is an example that uses `s3 sync` via the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).
+
+```bash
+aws s3 sync . s3://your-bucket-name-here
+```
+
+To connect BugSplat to your self-hosted symbol server, please refer to our Symbol Server [documentation](symbol-servers.md).
+
+### GitHub Actions
+
+The symbol-upload repo also includes a GitHub Action that's compatible with the default Windows, macOS, and Linux images. Here's a snippet you can add to your workflow:
+
+```yaml
+- name: Symbols 📦
+      uses: BugSplat-Git/symbol-upload@main
+      with:
+        clientId: "${{ secrets.SYMBOL_UPLOAD_CLIENT_ID }}"
+        clientSecret: "${{ secrets.SYMBOL_UPLOAD_CLIENT_SECRET }}"
+        database: "${{ secrets.BUGSPLAT_DATABASE }}"
+        application: "MyConsoleCrasher"
+        version: "1.0.0"
+        files: "*.{pdb,exe,dll}"
+        directory: "BugSplat\\Win32\\release"
+```
+
+We have also created an [example repo](https://github.com/BugSplat-Git/github-action-example) demonstrating how to use the @bugsplat/symbol-upload action to upload symbols to BugSplat.
+
+### Improving Upload Speeds <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
+
+Customers located far away from our US-East hosting location, especially those with high-latency and high-bandwidth connections, sometimes report slow upload speeds. We have several reports of significantly faster uploads after following the advice in the Microsoft technical note: [https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/tcpip-performance-known-issues](https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/tcpip-performance-known-issues)

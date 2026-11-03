@@ -1,0 +1,154 @@
+# JavaScript
+
+## 🧩 SPA Integrations
+
+{% hint style="info" %}
+BugSplat supports unwinding uglified and minified JavaScript stack traces via source maps. More information about configuring your application to upload source maps to BugSplat is available [here](../../guides/working-with-symbol-files/source-maps.md).
+{% endhint %}
+
+BugSplat supports JavaScript and TypeScript error reporting in a variety of environments. We offer platform-specific integrations for [Angular](https://angular.dev/), [React](https://react.dev/), and [Node.js](https://nodejs.org/en) for your convenience.
+
+Follow the links below for instructions on how to configure BugSplat in your application:
+
+{% content-ref url="angular.md" %}
+[angular.md](angular.md)
+{% endcontent-ref %}
+
+{% content-ref url="react.md" %}
+[react.md](react.md)
+{% endcontent-ref %}
+
+{% content-ref url="vue.md" %}
+[vue.md](vue.md)
+{% endcontent-ref %}
+
+{% content-ref url="../desktop/electron.md" %}
+[electron.md](../desktop/electron.md)
+{% endcontent-ref %}
+
+{% content-ref url="node.js.md" %}
+[node.js.md](node.js.md)
+{% endcontent-ref %}
+
+If a platform or framework your team is leveraging is not listed above, never fear! You can leverage our bugsplat [npm package](https://www.npmjs.com/package/bugsplat) to add error reporting to any browser-based app or its [`bugsplat/node`](node.js.md) entry point to add error reporting to any Node.js based app.
+
+## 🌐 Browsers
+
+Using the browser directly is awesome! BugSplat fully supports applications that don't use SPA frameworks. Follow the directions below to integrate with bugsplat in a browser-based JavaScript application.
+
+### ⚙️ Integrating
+
+Import [bugsplat](https://github.com/BugSplat-Git/bugsplat-js) from [esm.sh](https://esm.sh/)
+
+```html
+<script type="module">
+    import { BugSplat } from 'https://esm.sh/bugsplat@9';
+</script>
+```
+
+Create a new instance of BugSplat with your database, application, and version
+
+```javascript
+const bugsplat = new BugSplat('fred', 'my-javascript-crasher', '1.0.0');
+```
+
+Configure bugsplat to listen to `window.onerror` and `window.onunhandledrejection` events
+
+```javascript
+window.onerror = function (message, source, lineno, colno, error) {
+    bugsplat.post(error);
+};
+
+window.addEventListener('unhandledrejection', function (event) {
+    bugsplat.post(event.reason);
+});
+```
+
+Trigger an error to see it reported in BugSplat
+
+```javascript
+throw new Error('todo bg');
+```
+
+### 🔗 Error Chains (`cause`) <a href="#error-chains" id="error-chains"></a>
+
+When you post an error that has a `cause` ([ES2022](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)) or an `AggregateError` with `errors`, bugsplat walks the chain (up to 100 linked errors) and sends the whole chain as the crash report. For each error, bugsplat records its type (`name`), message, stack, and its own enumerable properties, such as a Postgres error's `code`, `constraint_name`, and `detail`, or a Node.js system error's `code`, `errno`, and `syscall`. There is nothing to configure.
+
+Wrap a low-level error and rethrow it; the `window.onerror` handler above posts the wrapper, and bugsplat captures the cause along with it
+
+```javascript
+function loadUserSettings() {
+    try {
+        JSON.parse('{ not valid json');
+    } catch (error) {
+        throw new Error('Failed to load user settings', { cause: error });
+    }
+}
+
+loadUserSettings();
+```
+
+On the Crash page, the callstack starts with the frames of the error you posted. Each linked error follows as a `Caused by: <type>` row and then its own stack frames. Its message and properties are shown as that row's locals (toggle arguments and locals to see them). Properties of the error you posted, such as a request ID you attach before rethrowing, are added to the crash's attributes; attributes you pass to `post()` take precedence. The crash's Exception Code and Exception Message come from the innermost error, so a wrapper like `Error: Failed to save` no longer hides `PostgresError: duplicate key value violates unique constraint "idx_records_email"`.
+
+Grouping is unchanged: BugSplat still keys crashes on the function name and line number of the error you posted. A linked error's message is never part of a group's name, so causes that differ only in their message, such as a different address or ID, group together. If an auto-grouping rule ignores every frame of the error you posted, such as frames from `node_modules`, grouping continues into the linked errors' stacks and skips the `Caused by:` rows. If the error you posted has no stack, its first `Caused by: <type>` row becomes the key.
+
+{% hint style="info" %}
+Error chain capture requires `bugsplat` 9.2.0 or newer.
+{% endhint %}
+
+### 💬 User Feedback
+
+In addition to crash reporting, BugSplat supports collecting non-crashing user feedback such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
+
+```javascript
+await bugsplat.postFeedback('Login button broken', {
+    description: 'Nothing happens when I tap it',
+    email: 'jane@example.com',
+});
+```
+
+You can also attach files such as screenshots:
+
+```javascript
+const screenshot = document.querySelector('input[type="file"]').files[0];
+
+await bugsplat.postFeedback('UI rendering issue', {
+    description: 'The sidebar overlaps the main content.',
+    attachments: [
+        { filename: 'screenshot.png', data: screenshot },
+    ],
+});
+```
+
+### 🧪 Sample
+
+Clone the [bugsplat-js](https://github.com/BugSplat-Git/bugsplat-js) repository, which contains the [my-javascript-crasher](https://github.com/BugSplat-Git/bugsplat-js/tree/master/examples/my-javascript-crasher) sample
+
+```sh
+git clone https://github.com/BugSplat-Git/bugsplat-js
+```
+
+Install the dependencies
+
+```sh
+cd bugsplat-js/examples/my-javascript-crasher
+npm i
+```
+
+Start the server
+
+```shell
+npm start
+```
+
+Open your browser and navigate to [http://localhost:8080](http://localhost:8080/), then click the button to trigger an error.
+
+### 📈 Viewing Reports
+
+Navigate to the BugSplat [Crashes](https://app.bugsplat.com/v2/crashes?database=Fred\&c0=appName\&f0=CONTAINS\&v0=my-javascript-crasher) page to view your report
+
+<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption><p>BugSplat Crashes Page</p></figcaption></figure>
+
+Click on the ID of the most recent error to view the details of your report
+
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>BugSplat Crash Page</p></figcaption></figure>

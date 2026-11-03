@@ -1,0 +1,71 @@
+---
+description: API Documentation for the BugSplat Company Endpoint
+---
+
+# Company
+
+Get or set information about your company in BugSplat for Billing purposes.
+
+## Get Company
+
+<mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/company`
+
+Returns information about the queried company by companyId.
+
+#### Query Parameters
+
+| Name      | Type   | Description                                                      |
+| --------- | ------ | ------------------------------------------------------------------ |
+| companyId | number | ID of the company to query. Required if `database` is not provided. |
+| database  | string | Name of the database to resolve the company from. Required if `companyId` is not provided. |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
+{
+  companyId: 545,
+  companyName: "BugSplat Public Testing",
+  subscriptionId: 1732,
+  birthdate: "0000-00-00 00:00:00",
+  mfaRequired: false,
+  upgradePageShown: false,
+  licensedLimitExceededCount: 0,
+  licensedLimitExceededDate: null,
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Curl Example
+
+```bash
+curl --location 'https://app.bugsplat.com/api/company?database=fred' \
+--header 'Authorization: Bearer ••••••'
+```
+
+## Update Company
+
+<mark style="color:orange;">`PUT`</mark> `https://app.bugsplat.com/api/company`
+
+Set the name of the specified company by companyId.
+
+#### Query Parameters
+
+| Name      | Type   | Description                                                        |
+| --------- | ------ | -------------------------------------------------------------------- |
+| companyId | number | ID of the company to update. Required if `database` is not provided. |
+| database  | string | Name of the database to resolve the company from. Required if `companyId` is not provided. |
+
+#### Request Body
+
+| Name                                          | Type   | Description                            |
+| --------------------------------------------- | ------ | -------------------------------------- |
+| companyName<mark style="color:red;">\*</mark> | string | Updated name for the specified company |
+
+{% tabs %}
+{% tab title="200 " %}
+```json
+true
+```
+{% endtab %}
+{% endtabs %}
