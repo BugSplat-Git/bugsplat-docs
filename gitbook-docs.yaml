@@ -1,0 +1,11 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: BugSplat
+  structure:
+    - type: space
+      key: space-1
+      title: BugSplat
+      path: docs
+      default: true
+      content:
+        directory: ./docs
