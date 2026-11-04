@@ -25,7 +25,7 @@ The Unity package doesn't have a setting for a custom theme yet: every Windows b
 
 ### Windows Symbols
 
-Symbol upload is on by default for Windows (`UploadDebugSymbolsForWindows`) and runs as a post-build step. It needs [symbol upload credentials](symbol-upload.md), generated on the BugSplat [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page.
+Symbol upload is on by default for Windows (`UploadDebugSymbolsForWindows`) and runs as a post-build step. It needs [symbol upload credentials](symbol-upload.md), generated on the BugSplat [Integrations](https://app.bugsplat.com/v2/database/integrations) page.
 
 BugSplat uploads the `.pdb`, `.dll`, and `.exe` files in your build folder, including the `.dll` and `.pdb` files of any native C++ plugins in `Assets/Plugins/x86` and `Assets/Plugins/x86_64`. For IL2CPP builds, BugSplat also uploads `LineNumberMappings.json`, so IL2CPP-generated C++ frames symbolicate back to C# method names, file names, and line numbers. Unity only writes `LineNumberMappings.json` when **Player Settings > Other Settings > IL2CPP Stacktrace Information** is set to **Method Name, File Name, and Line Number**. At the default, **Method Name**, there's no file to upload, crash reports show IL2CPP's generated C++ instead of your C# files and lines, and the build log warns and names the setting.
 
