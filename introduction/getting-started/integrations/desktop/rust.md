@@ -43,19 +43,19 @@ Call `bugsplat::init` first thing in `main`, so crashes during startup are repor
 ```rust
 fn main() {
     let _bugsplat = bugsplat::init(
-        bugsplat::Options::new("fred", "my-rust-app", env!("CARGO_PKG_VERSION")),
+        bugsplat::Options::new("your-bugsplat-database", "my-rust-app", env!("CARGO_PKG_VERSION")),
     )
     .expect("BugSplat failed to start");
 
-    bugsplat::set_user("Fred").ok();
-    bugsplat::set_email("fred@bedrock.com").ok();
+    bugsplat::set_user("Jane").ok();
+    bugsplat::set_email("jane@example.com").ok();
     bugsplat::set_attribute("plan", Some("pro")).ok();
 
     // ...
 }
 ```
 
-Replace `fred` with the name of your BugSplat database. The application name and version must match the values you use when uploading symbols.
+Replace `your-bugsplat-database` with the name of your BugSplat database. The application name and version must match the values you use when uploading symbols.
 
 `Options` is a builder. Everything after `new` is optional:
 
@@ -63,12 +63,12 @@ Replace `fred` with the name of your BugSplat database. The application name and
 use std::time::Duration;
 use bugsplat::{DumpType, HangPolicy, Options, UploadPolicy};
 
-let options = Options::new("fred", "my-rust-app", env!("CARGO_PKG_VERSION"))
+let options = Options::new("your-bugsplat-database", "my-rust-app", env!("CARGO_PKG_VERSION"))
     .upload_policy(UploadPolicy::Dialog)        // or Quiet (no UI), or Manual
     .dump_type(DumpType::Normal)                // or Heap, or Full
     .key("en-US")                               // application key
-    .user("Fred")
-    .email("fred@bedrock.com")
+    .user("Jane")
+    .email("jane@example.com")
     .description("Description!")
     .attribute("plan", "pro")                   // searchable key/value attributes
     .attachment("app.log")                      // copied into every report
@@ -108,7 +108,7 @@ Initialize `bugsplat` at the top of `main`, before Tauri starts, then register t
 ```rust
 fn main() {
     let _bugsplat = bugsplat::init(
-        bugsplat::Options::new("fred", "my-tauri-app", env!("CARGO_PKG_VERSION")),
+        bugsplat::Options::new("your-bugsplat-database", "my-tauri-app", env!("CARGO_PKG_VERSION")),
     )
     .expect("BugSplat failed to start");
 
@@ -171,7 +171,7 @@ Then upload the debug information for every released version with [@bugsplat/sym
 | Windows | `target/release/my-rust-app.pdb` | Always written by MSVC |
 
 ```bash
-npx @bugsplat/symbol-upload -i $SYMBOL_UPLOAD_CLIENT_ID -s $SYMBOL_UPLOAD_CLIENT_SECRET -b fred -a my-rust-app -v 1.2.3 -d target/release -f "my-rust-app.dSYM" -m
+npx @bugsplat/symbol-upload -i $SYMBOL_UPLOAD_CLIENT_ID -s $SYMBOL_UPLOAD_CLIENT_SECRET -b your-bugsplat-database -a my-rust-app -v 1.2.3 -d target/release -f "my-rust-app.dSYM" -m
 ```
 
 Verify that your symbols show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Create client credentials on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page.
