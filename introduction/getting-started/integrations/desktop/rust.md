@@ -3,10 +3,10 @@
 ## Overview 👀
 
 {% hint style="info" %}
-Want to see a Rust application integrated with BugSplat? Check out the [crasher example](https://github.com/BugSplat-Git/bugsplat-rs/tree/main/examples/crasher) in `bugsplat-rs`!
+`bugsplat-rs` is published on crates.io as [`bugsplat`](https://crates.io/crates/bugsplat), [`tauri-plugin-bugsplat`](https://crates.io/crates/tauri-plugin-bugsplat) and [`bugsplat-sys`](https://crates.io/crates/bugsplat-sys). API documentation is on [docs.rs](https://docs.rs/bugsplat).
 {% endhint %}
 
-[`bugsplat-rs`](https://github.com/BugSplat-Git/bugsplat-rs) brings BugSplat crash reporting to Rust applications on Windows, macOS and Linux. It is built on [bugsplat-native](https://github.com/BugSplat-Git/bugsplat-native), BugSplat's out-of-process crash reporter, which uses [Crashpad](https://chromium.googlesource.com/crashpad/crashpad) to capture crashes:
+`bugsplat-rs` brings BugSplat crash reporting to Rust applications on Windows, macOS and Linux. It is built on bugsplat-native, BugSplat's out-of-process crash reporter, which uses [Crashpad](https://chromium.googlesource.com/crashpad/crashpad) to capture crashes:
 
 * **Native crashes**: segfaults, illegal instructions, `abort()`, stack overflows, and crashes in C or C++ libraries you link, captured as minidumps by a separate monitor process. The crashing process doesn't have to do any work to report itself.
 * **Rust panics**: a panic hook captures a minidump of the live process with the panicking thread on top, plus the panic message, source location and thread name as searchable attributes.
@@ -192,13 +192,6 @@ let p: *mut u32 = std::hint::black_box(std::ptr::null_mut());
 unsafe { p.write_volatile(0xdead) };
 ```
 
-Or run the example, which covers every kind of failure:
-
-```bash
-git clone --recursive https://github.com/BugSplat-Git/bugsplat-rs && cd bugsplat-rs
-BUGSPLAT_DATABASE=fred cargo run -p crasher -- panic   # also: segv, abort, stack-overflow, panic-thread, panic-ffi, capture, js
-```
-
 ## View BugSplat Crash Report
 
 Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat. You should see new crash reports for your application. Click the link in the **ID** column to see details about your crash on the [Crash](https://app.bugsplat.com/v2/crash?id=1) page. Panic reports show the panic message, location and thread in the `rust.panic.*` attributes.
@@ -216,8 +209,8 @@ A panic isn't a crash as far as the operating system is concerned. It either unw
 
 ## Third-party licenses 📜
 
-`BugSplatMonitor` and `BugSplatReporter` include third-party code (Crashpad, mini_chromium, and on Windows zlib and WTL, among others). If you ship them, include those notices with your app. The [bugsplat-rs README](https://github.com/BugSplat-Git/bugsplat-rs#third-party-licenses) lists each component, its license and where to find the text.
+`BugSplatMonitor` and `BugSplatReporter` include third-party code (Crashpad, mini_chromium, and on Windows zlib and WTL, among others). If you ship them, include those notices with your app. The **Third-party licenses** section of the [`bugsplat` README on crates.io](https://crates.io/crates/bugsplat) lists each component, its license and where to find the text.
 
 ## Contributing 🤝
 
-BugSplat loves open-source software! If you have suggestions on how we can improve this integration, please reach out to support@bugsplat.com, create an [issue](https://github.com/BugSplat-Git/bugsplat-rs/issues) in our [GitHub repo](https://github.com/BugSplat-Git/bugsplat-rs) or send us a [pull request](https://github.com/BugSplat-Git/bugsplat-rs/pulls).
+BugSplat loves open-source software! If you have suggestions on how we can improve this integration, please reach out to support@bugsplat.com.
