@@ -188,6 +188,12 @@ let first = settings[0]; // index out of bounds
 Crash natively:
 
 ```rust
+std::process::abort();
+```
+
+Or, to test an access violation (`SIGSEGV` on macOS and Linux), write through a null pointer. This is deliberately undefined behavior, so keep it to crash tests:
+
+```rust
 let p: *mut u32 = std::hint::black_box(std::ptr::null_mut());
 unsafe { p.write_volatile(0xdead) };
 ```
