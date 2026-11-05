@@ -49,6 +49,7 @@
   * [Qt](introduction/getting-started/integrations/desktop/qt.md)
   * [Java](introduction/getting-started/integrations/desktop/java.md)
   * [Python](introduction/getting-started/integrations/desktop/python.md)
+  * [Rust and Tauri](introduction/getting-started/integrations/desktop/rust.md)
   * [Crashpad](introduction/getting-started/integrations/desktop/crashpad/README.md)
     * [How to Build Google Crashpad](introduction/getting-started/integrations/desktop/crashpad/how-to-build-google-crashpad.md)
   * [Breakpad (Deprecated)](introduction/getting-started/integrations/desktop/breakpad.md)

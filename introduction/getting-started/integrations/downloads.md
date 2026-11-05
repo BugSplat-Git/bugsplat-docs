@@ -18,6 +18,7 @@ description: >-
 | Qt                       | See platform docs ([here](desktop/qt.md))                                    |
 | Java                     | [Download](https://app.bugsplat.com/browse/download_item.php/?item=java)     |
 | Python                   | See platform docs ([here](desktop/python.md))                                |
+| Rust and Tauri           | See platform docs ([here](desktop/rust.md))                                  |
 | Crashpad                 | [Download](https://app.bugsplat.com/browse/download_item.php/?item=crashpad) |
 
 ### 🎮 Game Development

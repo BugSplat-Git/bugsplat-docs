@@ -1,6 +1,6 @@
 # 💻 Desktop Software
 
-BugSplat provides best-in-class support for desktop software: native Windows [C++](cplusplus/) and [.NET and .NET Framework](bugsplat-for-dot-net.md) applications, [macOS](macos.md) 11.5+ (including ARM Macs), and [Linux](linux.md). It also covers cross-platform desktop frameworks and languages ([Electron](electron.md), [Qt](qt.md), [Java](java.md), and [Python](python.md)), plus the native [Crashpad](crashpad) and [Breakpad](breakpad.md) crash handlers. Take a look at the guides below to configure crash reporting in your app.
+BugSplat provides best-in-class support for desktop software: native Windows [C++](cplusplus/) and [.NET and .NET Framework](bugsplat-for-dot-net.md) applications, [macOS](macos.md) 11.5+ (including ARM Macs), and [Linux](linux.md). It also covers cross-platform desktop frameworks and languages ([Electron](electron.md), [Qt](qt.md), [Java](java.md), [Python](python.md), and [Rust and Tauri](rust.md)), plus the native [Crashpad](crashpad) and [Breakpad](breakpad.md) crash handlers. Take a look at the guides below to configure crash reporting in your app.
 
 {% page-ref page="cplusplus/" %}
 
@@ -17,6 +17,8 @@ BugSplat provides best-in-class support for desktop software: native Windows [C+
 {% page-ref page="java.md" %}
 
 {% page-ref page="python.md" %}
+
+{% page-ref page="rust.md" %}
 
 {% page-ref page="crashpad" %}
 
