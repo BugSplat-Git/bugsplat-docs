@@ -58,6 +58,8 @@ The sample needs the Unity UI (`com.unity.ugui`) and Input System (`com.unity.in
 
 Click **Play** and run a scenario from the **Crash Scenarios** menu to send an error report to BugSplat. Scenarios are grouped by the mechanism that captures them, and the menu is platform-aware — each platform lists only what it can capture. Native scenarios are disabled in the editor and need a built player; see the [sample's README](https://github.com/BugSplat-Git/bugsplat-unity/blob/main/Samples~/my-unity-crasher/README.md) for the full scenario matrix.
 
+<figure><img src="../../../../.gitbook/assets/unity-sample-crash-scenarios.png" alt="The my-unity-crasher Crash Scenarios menu in a Windows player"><figcaption></figcaption></figure>
+
 To view the error report, navigate to the BugSplat [Dashboard](https://app.bugsplat.com/v2/dashboard) and ensure you have selected the correct database. Navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page, and click the value in the ID column to see the details of your report, including the call stack, log file, and screenshot of your app when the error occurred.
 
 <figure><img src="../../../../.gitbook/assets/image (62).png" alt="A Unity crash report in BugSplat"><figcaption></figcaption></figure>

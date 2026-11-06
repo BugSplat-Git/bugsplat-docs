@@ -21,6 +21,8 @@ The native library depends on the Microsoft Visual C++ Redistributable (`vcrunti
 
 The dialog reads its colors, fonts, layout, logo, and wording at run time from the `BugSplatTheme` folder next to `BugSplatReporter.exe`. Nothing is compiled, so rebranding it means editing files, not rebuilding anything. [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md) documents the theme format, how to preview a theme with `BugSplatReporter.exe --preview` without crashing anything, and how to check one with `--check-theme`. Both commands work against the copy of the reporter in your build folder.
 
+<figure><img src="../../../../../.gitbook/assets/unity-windows-crash-dialog.png" alt="The BugSplat crash dialog on Windows"><figcaption></figcaption></figure>
+
 The Unity package doesn't have a setting for a custom theme yet: every Windows build copies the default theme from the package, replacing whatever is in the build folder's `BugSplatTheme`. To ship your own, put your theme in that folder in your installer, after the build.
 
 ### Windows Symbols
@@ -56,6 +58,8 @@ reg delete "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExcep
 The value name must match the installed path exactly, using backslashes. Moving or reinstalling the game to a different folder silently disarms it.
 
 For local builds, use **BugSplat > Windows > Register WER Handler** in the editor. It asks for the `BugSplatWer.dll` in your build folder, writes the value elevated, and reads it back to confirm. **Check WER Handler Registration** reports the current state, and **Unregister WER Handler** removes it.
+
+<figure><img src="../../../../../.gitbook/assets/unity-sample-wer-not-armed.png" alt="The sample's status line when the WER handler is not registered for the build"><figcaption><p>The sample's status line says whether WER is armed for the build it runs from.</p></figcaption></figure>
 
 At runtime, `bugsplat.WindowsWerEnabled` tells you whether the handler registered. When it hasn't, BugSplat logs what will be missed and how to fix it — as a warning in development builds and an informational message otherwise, since end users can't act on it. All other crashes are reported normally either way.
 
