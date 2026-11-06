@@ -230,6 +230,8 @@ This is on by default. Uncheck **Capture Unobserved Task Exceptions** on your op
 
 In addition to crash reporting, BugSplat supports collecting non-crashing [user feedback](../../../development/web-services/user-feedback.md) such as bug reports and feature requests. Feedback reports appear in BugSplat with the "User Feedback" type, grouped by title.
 
+<figure><img src="../../../../.gitbook/assets/unity-sample-feedback.png" alt="The sample's Leave Feedback dialog"><figcaption><p>The sample's <strong>Leave feedback</strong> scenario collects a title and description and posts them with <code>PostFeedback</code>.</p></figcaption></figure>
+
 ```csharp
 StartCoroutine(BugSplat.Instance.PostFeedback("Login button broken", "Nothing happens when I tap it"));
 ```
