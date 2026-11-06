@@ -10,7 +10,7 @@ Configure the scripting backend to use **IL2CPP**, target **ARM64**, and set the
 
 ### Android Symbols
 
-To upload symbols, set `UploadDebugSymbolsForAndroid` to `true` on your options asset and provide [symbol upload credentials](symbol-upload.md). When you build your app, set **Create symbols.zip** to **Debugging**. BugSplat uploads the generated symbols archive after the build; the upload is skipped when **Export Project** is enabled or **Debug Symbols** is **None**.
+To upload symbols, set `UploadDebugSymbolsForAndroid` to `true` on your options asset and provide [symbol upload credentials](symbol-upload.md). When you build your app, set **Create symbols.zip** to **Debugging**. BugSplat uploads the generated symbols archive after the build; the upload is skipped when **Export Project** is enabled or **Debug Symbols** is **None**. The archive holds native `.so` symbols only; IL2CPP's `LineNumberMappings.json` is not uploaded for Android.
 
 <figure><img src="../../../../../.gitbook/assets/image (71).png" alt="Android Build Settings with Create symbols.zip set to Debugging"><figcaption></figcaption></figure>
 

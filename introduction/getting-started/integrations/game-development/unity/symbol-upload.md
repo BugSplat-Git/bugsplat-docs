@@ -2,6 +2,8 @@
 
 BugSplat for Unity uploads [symbol files](../../../../development/working-with-symbol-files/README.md) as a post-build step, so crash reports symbolicate to function names, file names, and line numbers. Which files are uploaded, and the option that turns the upload on, is covered on each platform's page: [Windows](windows.md#windows-symbols), [macOS](macos.md#macos-symbols), [iOS](ios.md#ios-symbols), and [Android](android.md#android-symbols).
 
+The upload runs the [symbol-upload](../../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) CLI, pinned to v11.1.0. The post-build step and the iOS Xcode build phase download it from GitHub and check its SHA-256 before running it; a binary that doesn't match fails the upload with an error.
+
 ### Credentials
 
 The upload authenticates with an OAuth2 [Client ID and Client Secret](../../../../development/web-services/oauth2.md#client-credentials), generated on BugSplat's [Integrations](https://app.bugsplat.com/v2/database/integrations) page. Credentials are **specific to one database** and are never stored in your project — an asset carrying them would end up in version control and inside shipped builds. They resolve in this order:

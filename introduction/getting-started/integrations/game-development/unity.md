@@ -68,6 +68,8 @@ For best results, BugSplat recommends building with the `IL2CPP` backend. The `M
 
 To optimize your game for crash reporting, open **Edit > Project Settings > Player** and navigate to the **Configuration** section. For **Scripting Backend** choose `IL2CPP`, and for **IL2CPP Stacktrace Information** choose `Method Name, File Name, and Line Number`.
 
+Unity writes `LineNumberMappings.json`, which maps IL2CPP's generated C++ frames back to C# names, files, and line numbers, only at that setting. At the default, **Method Name**, IL2CPP crash reports show generated C++ files and lines, and the build log warns and names the setting. BugSplat uploads the file on Windows, macOS, and iOS; the Android symbol upload sends native `.so` symbols alone.
+
 <figure><img src="../../../../.gitbook/assets/image (63).png" alt="Unity Player Settings with IL2CPP selected"><figcaption></figcaption></figure>
 
 ### ⚙️ Configuration
@@ -160,7 +162,7 @@ catch (Exception ex)
 }
 ```
 
-The default values specified on the instance of `BugSplat` can be overridden in the call to `Post`. Additionally, you can provide a `callback` to `Post` that will be invoked with the result once the upload is complete.
+The default values specified on the instance of `BugSplat` can be overridden in the call to `Post`. Additionally, you can provide a `callback` to `Post` that will be invoked with the result once the upload is complete. `ExceptionReporterPostResult` is in the `BugSplatUnity.Runtime.Reporter` namespace. When the upload fails, its `Message` says why — for example, that there was no network.
 
 ```csharp
 var options = new ReportPostOptions()
@@ -216,7 +218,7 @@ This is on by default. Uncheck **Capture Exceptions On Background Threads** on y
 
 #### Unobserved Task Exceptions
 
-A `Task` that faults with nobody awaiting it never writes to the Unity log at all. BugSplat subscribes to `TaskScheduler.UnobservedTaskException` and posts these through the same main-thread queue, reporting each exception inside the `AggregateException` separately.
+A `Task` that faults with nobody awaiting it never writes to the Unity log at all. BugSplat subscribes to `TaskScheduler.UnobservedTaskException` and posts each exception inside the `AggregateException` as its own report, from the main thread, the same way `Post(exception)` does.
 
 This is on by default. Uncheck **Capture Unobserved Task Exceptions** on your options asset to disable it. The runtime raises this event only when a garbage collection notices the faulted `Task`, so reports arrive well after the failure, and a `Task` that is never collected is never reported. BugSplat does **not** call `SetObserved()` on these, so reporting never changes what your project does with the exception.
 
@@ -307,7 +309,7 @@ When an exception occurs, a page similar to the following will open in the user'
 
 #### Testing Native Crashes
 
-Native crash reporters are compiled out of the editor, so native crashes can only be tested in a built player.
+Native crash reporters are compiled out of the editor, so native crashes can only be tested in a built player. On macOS and iOS, a crash under the Xcode debugger never reaches BugSplat — see [Testing Without the Debugger](unity/macos.md#testing-without-the-debugger) and [Testing on Device](unity/ios.md#testing-on-device).
 
 {% hint style="warning" %}
 `Utils.ForceCrash` goes through Unity's internal crash pipeline and will **not** be captured by the native crash reporters on iOS, macOS, or Android. Use a real native crash, such as a null pointer dereference in native code, to test crash reporting. The **my-unity-crasher** sample uses real native crashes for every platform.
