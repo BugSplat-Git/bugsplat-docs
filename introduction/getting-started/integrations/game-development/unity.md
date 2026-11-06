@@ -53,7 +53,7 @@ In the Project Assets browser, open the **Sample** scene from `Samples > BugSpla
 Next, open **Edit > Project Settings > BugSplat**, click **Create** (or pick your project's existing options asset), and enter the name of a database from your BugSplat account. The sample ships no options asset of its own, so it always reports to your database. To exercise everything it offers, also check **Post Exceptions In Editor** and every platform under **Upload Debug Symbols For** — see the [sample's README](https://github.com/BugSplat-Git/bugsplat-unity/blob/main/Samples~/my-unity-crasher/README.md).
 
 {% hint style="info" %}
-The sample's UI labels use TextMeshPro. If the button text appears blank, import TMP Essentials via **Window > TextMeshPro > Import TMP Essential Resources**.
+The sample needs the Unity UI (`com.unity.ugui`) and Input System (`com.unity.inputsystem`) packages, with **Edit > Project Settings > Player > Active Input Handling** set to **Input System Package (New)** or **Both**; otherwise its buttons don't respond. Its labels use TextMeshPro: if the button text appears blank, import TMP Essentials via **Window > TextMeshPro > Import TMP Essential Resources**.
 {% endhint %}
 
 Click **Play** and run a scenario from the **Crash Scenarios** menu to send an error report to BugSplat. Scenarios are grouped by the mechanism that captures them, and the menu is platform-aware — each platform lists only what it can capture. Native scenarios are disabled in the editor and need a built player; see the [sample's README](https://github.com/BugSplat-Git/bugsplat-unity/blob/main/Samples~/my-unity-crasher/README.md) for the full scenario matrix.

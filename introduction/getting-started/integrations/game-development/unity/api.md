@@ -121,11 +121,13 @@ Every option below is a field on the `BugSplatOptions` asset, edited in **Edit >
 
 `CapturePlayerLog` is **enabled by default** — a new options asset and a `BugSplat` created in code both start with it on — because `Player.log` is the most useful attachment on a crash report. WebGL has no `Player.log`, so the setting has no effect there.
 
-Unity writes `Player.log` under the user's profile directory on every desktop platform, and it records file system paths that contain the operating system username. If you would rather not collect that, uncheck **Capture Player Log** on your options asset, or set the property in code:
+Unity writes `Player.log` under the user's profile directory on every desktop platform, and it records file system paths that contain the operating system username. If you would rather not collect that, uncheck **Capture Player Log** on your options asset. If you initialize from code, with **Initialize Automatically** off, you can turn it off there instead:
 
 ```csharp
-bugsplat.CapturePlayerLog = false;
+BugSplat.Initialize(o => o.CapturePlayerLog = false);
 ```
+
+On macOS and iOS, native crash reports left by the previous session gather their attachments while BugSplat initializes. Setting `BugSplat.Instance.CapturePlayerLog = false` afterwards stops the log being attached from then on, but a pending report already has it, so turn the option off before initialization.
 
 {% hint style="info" %}
 **Upgrading from 4.x:** options assets created before 5.0.0 keep whatever value is already saved in them; only newly created assets pick up the new default. Check the field on your existing asset if you want the new behavior.

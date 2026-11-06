@@ -11,6 +11,8 @@ The upload authenticates with an OAuth2 [Client ID and Client Secret](../../../.
 1. **`SYMBOL_UPLOAD_CLIENT_ID` / `SYMBOL_UPLOAD_CLIENT_SECRET` environment variables** — use these in CI. They are the names the [symbol-upload](../../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) CLI reads, so the same pair works whether Unity runs the upload or your CI runs `xcodebuild` itself.
 2. **`~/.bugsplat/credentials/<database>.sh`** — for local development. Set it from **BugSplat > Symbol Upload > Set Credentials**, which writes one file per database, so a machine can hold credentials for as many databases as you work with.
 
+On iOS the upload runs in the Xcode build phase, which reads `~/.bugsplat/credentials/<database>.sh` on the machine running Xcode, if it exists, and its values replace any already in the environment. A CI job that supplies the environment variables for an iOS build must not also have a credentials file for that database.
+
 **Clear Credentials** deletes the current project's file, and **Check Credentials** reports which source a build would use. When neither source supplies both values, symbol upload is skipped with a warning and the build still succeeds — on iOS as an Xcode build warning, since that upload runs during the Xcode build rather than the Unity one.
 
 Because the file lives in your home directory rather than the project, there is nothing to add to `.gitignore` and nothing to strip out of a build.
@@ -19,8 +21,8 @@ Because the file lives in your home directory rather than the project, there is 
 
 | Variable                      | Description                                                                                                          |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `SYMBOL_UPLOAD_CLIENT_ID`     | OAuth2 Client ID from the [Integrations](https://app.bugsplat.com/v2/database/integrations) page. Takes precedence over `~/.bugsplat/credentials/<database>.sh`. |
-| `SYMBOL_UPLOAD_CLIENT_SECRET` | OAuth2 Client Secret from the [Integrations](https://app.bugsplat.com/v2/database/integrations) page. Takes precedence over `~/.bugsplat/credentials/<database>.sh`. |
+| `SYMBOL_UPLOAD_CLIENT_ID`     | OAuth2 Client ID from the [Integrations](https://app.bugsplat.com/v2/database/integrations) page. Takes precedence over `~/.bugsplat/credentials/<database>.sh`, except in the iOS Xcode build phase, where the file wins. |
+| `SYMBOL_UPLOAD_CLIENT_SECRET` | OAuth2 Client Secret from the [Integrations](https://app.bugsplat.com/v2/database/integrations) page. Takes precedence over `~/.bugsplat/credentials/<database>.sh`, except in the iOS Xcode build phase, where the file wins. |
 
 {% hint style="warning" %}
 **Upgrading from 4.x:** `SymbolUploadClientId` and `SymbolUploadClientSecret` have been removed from `BugSplatOptions`, and the environment variables are renamed from `BUGSPLAT_CLIENT_ID`/`BUGSPLAT_CLIENT_SECRET`. Move your credentials to the menu or the new variables. **If an options asset holding credentials has ever been committed, rotate them** — prior versions serialized both values into player builds and into the generated `project.pbxproj`.
