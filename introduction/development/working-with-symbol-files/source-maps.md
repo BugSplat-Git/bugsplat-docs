@@ -16,7 +16,7 @@ If BugSplat can't map a stack trace back to the original source, the **Debugger 
 
 ## Credentials
 
-symbol-upload authenticates with an OAuth2 client ID and secret. Create a pair on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page in BugSplat, then provide them through the `SYMBOL_UPLOAD_CLIENT_ID` and `SYMBOL_UPLOAD_CLIENT_SECRET` environment variables (or the `-i` and `-s` arguments). Your database can be provided with `-b` or the `BUGSPLAT_DATABASE` environment variable. Keep these values in your CI secrets rather than in source control.
+symbol-upload authenticates with an OAuth2 client ID and secret. Create a pair on the [Integrations](https://app.bugsplat.com/v2/database/integrations) page in BugSplat, then provide them through the `SYMBOL_UPLOAD_CLIENT_ID` and `SYMBOL_UPLOAD_CLIENT_SECRET` environment variables (or the `-i` and `-s` arguments). Your database can be provided with `-b` or the `BUGSPLAT_DATABASE` environment variable. Keep these values in your CI secrets rather than in source control.
 
 ## Uploading
 

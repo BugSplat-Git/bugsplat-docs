@@ -201,7 +201,7 @@ If your application uses a [node native addon](https://nodejs.org/api/addons.htm
 npx @bugsplat/symbol-upload -i $SYMBOL_UPLOAD_CLIENT_ID -s $SYMBOL_UPLOAD_CLIENT_SECRET -d ./dist -f "**/*.node" -m
 ```
 
-Verify that your symbols show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Create client credentials on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page.
+Verify that your symbols show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Create client credentials on the [Integrations](https://app.bugsplat.com/v2/database/integrations) page.
 
 ## Upgrading from crashReporter and BugSplatNode 📢 <a href="#upgrading" id="upgrading"></a>
 
