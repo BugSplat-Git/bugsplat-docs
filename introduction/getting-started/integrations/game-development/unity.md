@@ -78,6 +78,8 @@ Unity writes `LineNumberMappings.json`, which maps IL2CPP's generated C++ frames
 
 Open **Edit > Project Settings > BugSplat** (also available from **BugSplat > Settings...**) and click **Create**, or select an existing `BugSplatOptions` asset, then enter the name of a database from your BugSplat account ([sign up](https://app.bugsplat.com/v2/sign-up) if you don't have one). That is the whole setup: BugSplat initializes itself from that asset before the first scene loads, in the editor and in every player, and nothing needs to be placed in a scene.
 
+<figure><img src="../../../../.gitbook/assets/unity-options.png" alt="The BugSplat page in Unity Project Settings"><figcaption></figcaption></figure>
+
 <!-- TODO: screenshot of Edit > Project Settings > BugSplat -->
 
 If **Application** or **Version** are left empty, BugSplat defaults them to `Application.productName` and `Application.version`. Every other option is described in the [Options Reference](unity/api.md).
