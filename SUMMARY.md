@@ -19,6 +19,7 @@
   * [bugsplat-electron example](https://github.com/BugSplat-Git/bugsplat-electron/tree/main/example)
   * [my-qt-crasher](https://github.com/BugSplat-Git/my-qt-crasher)
   * [my-java-crasher](https://github.com/BugSplat-Git/bugsplat-java/tree/main/my-java-crasher)
+  * [my-tauri-crasher](https://github.com/BugSplat-Git/bugsplat-rs/tree/main/examples/my-tauri-crasher)
   * [bugsplat-crashpad](https://github.com/BugSplat-Git/bugsplat-crashpad)
   * [my-cmake-crasher](https://github.com/BugSplat-Git/my-cmake-crasher)
   * [my-unreal-crasher](https://github.com/BugSplat-Git/my-unreal-crasher)

@@ -4,6 +4,8 @@
 
 {% hint style="info" %}
 `bugsplat-rs` is published on crates.io as [`bugsplat`](https://crates.io/crates/bugsplat), [`tauri-plugin-bugsplat`](https://crates.io/crates/tauri-plugin-bugsplat) and [`bugsplat-sys`](https://crates.io/crates/bugsplat-sys). API documentation is on [docs.rs](https://docs.rs/bugsplat).
+
+Want to see a sample Tauri application integrated with BugSplat? Check out [my-tauri-crasher](https://github.com/BugSplat-Git/bugsplat-rs/tree/main/examples/my-tauri-crasher), which reports a native crash, a Rust panic and JavaScript errors from its webview.
 {% endhint %}
 
 `bugsplat-rs` brings BugSplat crash reporting to Rust applications on Windows, macOS and Linux. It is built on bugsplat-native, BugSplat's out-of-process crash reporter, which uses [Crashpad](https://chromium.googlesource.com/crashpad/crashpad) to capture crashes:
@@ -197,6 +199,8 @@ Or, to test an access violation (`SIGSEGV` on macOS and Linux), write through a 
 let p: *mut u32 = std::hint::black_box(std::ptr::null_mut());
 unsafe { p.write_volatile(0xdead) };
 ```
+
+To try every kind of failure from buttons in a window, run [my-tauri-crasher](https://github.com/BugSplat-Git/bugsplat-rs/tree/main/examples/my-tauri-crasher).
 
 ## View BugSplat Crash Report
 
