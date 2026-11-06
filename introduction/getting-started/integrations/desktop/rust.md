@@ -176,7 +176,7 @@ Then upload the debug information for every released version with [@bugsplat/sym
 npx @bugsplat/symbol-upload -i $SYMBOL_UPLOAD_CLIENT_ID -s $SYMBOL_UPLOAD_CLIENT_SECRET -b your-bugsplat-database -a my-rust-app -v 1.2.3 -d target/release -f "my-rust-app.dSYM" -m
 ```
 
-Verify that your symbols show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Create client credentials on the [Integrations](https://app.bugsplat.com/v2/settings/database/integrations) page.
+Verify that your symbols show up on the [Versions](https://app.bugsplat.com/v2/versions) page. Create client credentials on the [Integrations](https://app.bugsplat.com/v2/database/integrations) page.
 
 ## Generate a Crash 💥
 
