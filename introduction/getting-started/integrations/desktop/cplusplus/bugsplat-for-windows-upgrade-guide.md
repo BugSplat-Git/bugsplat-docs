@@ -73,7 +73,7 @@ Here is that value shown highlighted in the registry editor for one of our sampl
 
 <figure><img src="../../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-#### **Optional: Suppressing WER Local Dumps**
+##### **Optional: Suppressing WER Local Dumps**
 
 The `LocalDumps` registry values described in this section are **optional**. BugSplat's WER integration works fully with only the `RuntimeExceptionHelperModules` entry above. BugSplat does not read the dump files that WER writes: when WER hands a crash to `BugSplatWer.dll`, `BugSplatMonitor.exe` writes its own minidump directly from the crashed process, using the minidump type configured via `SetMiniDumpType`, and uploads that file.
 
