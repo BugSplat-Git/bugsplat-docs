@@ -44,9 +44,9 @@ BugSplat recommends building with the IL2CPP backend for the best crash reportin
 
 The package ships a sample, **my-unity-crasher**, to help you get started. If you'd rather skip it, go straight to the Configuration section below.
 
-To import the sample, open **Window > Package Manager**, select **BugSplat**, and click the caret next to **Samples** to reveal **my-unity-crasher**. Click **Import** to add the sample to your project.
+To import the sample, open **Window > Package Manager**, select **BugSplat**, open the **Samples** tab, and click **Import** next to **my-unity-crasher**.
 
-<figure><img src="../../../../.gitbook/assets/image (58).png" alt="Importing the my-unity-crasher sample from Package Manager"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/unity-package-manager-import-sample.png" alt="Importing the my-unity-crasher sample from Package Manager"><figcaption></figcaption></figure>
 
 In the Project Assets browser, open the **Sample** scene from `Samples > BugSplat > Version > my-unity-crasher > Scenes`.
 
