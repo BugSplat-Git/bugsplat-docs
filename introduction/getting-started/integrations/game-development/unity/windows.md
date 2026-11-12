@@ -57,7 +57,7 @@ reg delete "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExcep
 
 The value name must match the installed path exactly, using backslashes. Moving or reinstalling the game to a different folder silently disarms it.
 
-For local builds, use **BugSplat > Windows > Register WER Handler** in the editor. It asks for the `BugSplatWer.dll` in your build folder, writes the value elevated, and reads it back to confirm. **Check WER Handler Registration** reports the current state, and **Unregister WER Handler** removes it.
+For local builds, use **Tools > BugSplat > Windows > Register WER Handler** in the editor. It asks for the `BugSplatWer.dll` in your build folder, writes the value elevated, and reads it back to confirm. **Check WER Handler Registration** reports the current state, and **Unregister WER Handler** removes it.
 
 <figure><img src="../../../../../.gitbook/assets/unity-sample-wer-not-armed.png" alt="The sample's status line when the WER handler is not registered for the build"><figcaption><p>The sample's status line says whether WER is armed for the build it runs from.</p></figcaption></figure>
 

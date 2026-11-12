@@ -9,7 +9,7 @@ The upload runs the [symbol-upload](../../../../development/working-with-symbol-
 The upload authenticates with an OAuth2 [Client ID and Client Secret](../../../../development/web-services/oauth2.md#client-credentials), generated on BugSplat's [Integrations](https://app.bugsplat.com/v2/database/integrations) page. Credentials are **specific to one database** and are never stored in your project — an asset carrying them would end up in version control and inside shipped builds. They resolve in this order:
 
 1. **`SYMBOL_UPLOAD_CLIENT_ID` / `SYMBOL_UPLOAD_CLIENT_SECRET` environment variables** — use these in CI. They are the names the [symbol-upload](../../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) CLI reads, so the same pair works whether Unity runs the upload or your CI runs `xcodebuild` itself.
-2. **`~/.bugsplat/credentials/<database>.sh`** — for local development. Set it from **BugSplat > Symbol Upload > Set Credentials**, which writes one file per database, so a machine can hold credentials for as many databases as you work with.
+2. **`~/.bugsplat/credentials/<database>.sh`** — for local development. Set it from **Tools > BugSplat > Symbol Upload > Set Credentials**, which writes one file per database, so a machine can hold credentials for as many databases as you work with.
 
 **Clear Credentials** deletes the current project's file, and **Check Credentials** reports which source a build would use. When neither source supplies both values, symbol upload is skipped with a warning and the build still succeeds — on iOS as an Xcode build warning, since that upload runs during the Xcode build rather than the Unity one.
 

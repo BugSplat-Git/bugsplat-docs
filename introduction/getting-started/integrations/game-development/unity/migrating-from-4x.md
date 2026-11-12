@@ -22,7 +22,7 @@ Version 5.0.0 replaces the Unity crash-folder minidump flow with native crash re
 
 ### Symbol Upload Credentials
 
-* `SymbolUploadClientId` and `SymbolUploadClientSecret` have been removed from `BugSplatOptions`. Storing them there put the secret in version control and inside shipped builds. Set them per database from **BugSplat > Symbol Upload > Set Credentials**, or with environment variables in CI.
+* `SymbolUploadClientId` and `SymbolUploadClientSecret` have been removed from `BugSplatOptions`. Storing them there put the secret in version control and inside shipped builds. Set them per database from **Tools > BugSplat > Symbol Upload > Set Credentials**, or with environment variables in CI.
 * Those environment variables are renamed from `BUGSPLAT_CLIENT_ID`/`BUGSPLAT_CLIENT_SECRET` to `SYMBOL_UPLOAD_CLIENT_ID`/`SYMBOL_UPLOAD_CLIENT_SECRET`. The old names are no longer read. See [Symbol Upload](symbol-upload.md).
 
 {% hint style="danger" %}
