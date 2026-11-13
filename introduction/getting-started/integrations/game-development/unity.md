@@ -1,6 +1,6 @@
 # Unity
 
-BugSplat's `com.bugsplat.unity` package reports native crashes, C# exceptions, log files, and screenshots from Unity games on Windows, macOS, Linux, iOS, Android, WebGL, Xbox, PlayStation 5, and Nintendo Switch 2. See **Platform Support** below for what each platform captures.
+BugSplat's `com.bugsplat.sdk` package reports native crashes, C# exceptions, log files, and screenshots from Unity games on Windows, macOS, Linux, iOS, Android, WebGL, Xbox, PlayStation 5, and Nintendo Switch 2. See **Platform Support** below for what each platform captures.
 
 {% hint style="info" %}
 Console support is available to licensed platform developers. See [Xbox](xbox.md), [PlayStation](playstation.md), and [Nintendo Switch 2](nintendo.md) for how to get access; the Unity setup instructions are on the Gaming Consoles tab of the [Integrations](https://app.bugsplat.com/v2/database/integrations) page.
@@ -18,14 +18,18 @@ Upgrading from 4.x? Version 5.0.0 no longer needs anything placed in a scene and
 
 ### 🏗 Installation
 
-BugSplat's `com.bugsplat.unity` package can be added to your project via [OpenUPM](https://openupm.com/packages/com.bugsplat.unity/) or a URL to our git [repository](https://github.com/BugSplat-Git/bugsplat-unity.git).
+BugSplat's `com.bugsplat.sdk` package can be added to your project via [OpenUPM](https://openupm.com/packages/com.bugsplat.sdk/) or a URL to our git [repository](https://github.com/BugSplat-Git/bugsplat-unity.git).
+
+{% hint style="info" %}
+BugSplat 5.0.1 and earlier were published as `com.bugsplat.unity`. To upgrade, remove `com.bugsplat.unity` from your project's `Packages/manifest.json`, then add `com.bugsplat.sdk` using one of the options below. Your Project Settings > BugSplat configuration is kept.
+{% endhint %}
 
 #### OpenUPM
 
 Information on installing OpenUPM can be found [here](https://openupm.com/). After installing OpenUPM, run the following command to add BugSplat to your project.
 
 ```sh
-openupm add com.bugsplat.unity
+openupm add com.bugsplat.sdk
 ```
 
 #### Git
