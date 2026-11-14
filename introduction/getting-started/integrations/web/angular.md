@@ -2,10 +2,10 @@
 
 ### ⚙️ Integration
 
-To collect errors and crashes in your Angular application, run the following command in the terminal at the root of your project to install [bugsplat-ng](https://github.com/BugSplat-Git/bugsplat-ng):
+To collect errors and crashes in your Angular application, run the following command in the terminal at the root of your project to install [@bugsplat/angular](https://www.npmjs.com/package/@bugsplat/angular):
 
 ```bash
-npm i bugsplat-ng --save
+npm i @bugsplat/angular --save
 ```
 
 Add a `database` property in your package.json that corresponds to your BugSplat database:
@@ -37,7 +37,7 @@ For Angular applications using standalone components, import and configure BugSp
 [main.ts](https://github.com/BugSplat-Git/bugsplat-ng/blob/22fa88dc642294f1a6240a0a1bf4b4acd16f727d/projects/my-angular-crasher/src/main.ts#L6-L29)
 
 ```typescript
-import { BugSplatModule } from 'bugsplat-ng';
+import { BugSplatModule } from '@bugsplat/angular';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -52,7 +52,7 @@ bootstrapApplication(AppComponent, {
 Alternatively, add an import for `BugSplatModule` to your `AppModule`:
 
 ```typescript
-import { BugSplatModule } from 'bugsplat-ng';
+import { BugSplatModule } from '@bugsplat/angular';
 
 @NgModule({
   imports: [
@@ -61,7 +61,7 @@ import { BugSplatModule } from 'bugsplat-ng';
 })
 ```
 
-Throw a new error in your application to test the bugsplat-ng integration:
+Throw a new error in your application to test the @bugsplat/angular integration:
 
 [app.component.ts](https://github.com/BugSplat-Git/bugsplat-ng/blob/8c12d9b3544f2b618491467e6c40d84b6139eb2a/src/app/app.component.ts#L37)
 
@@ -69,9 +69,9 @@ Throw a new error in your application to test the bugsplat-ng integration:
 throw new Error("foobar!");
 ```
 
-If the error has a `cause`, bugsplat-ng captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](javascript.md#error-chains) for details.
+If the error has a `cause`, @bugsplat/angular captures the chain automatically (up to 100 linked errors) and shows each as a `Caused by:` row; see [Error Chains](javascript.md#error-chains) for details.
 
-Wrap a low-level error and rethrow it from a component method bound to `(click)`; Angular's `ErrorHandler` hands the wrapper to bugsplat-ng, which captures the cause with it:
+Wrap a low-level error and rethrow it from a component method bound to `(click)`; Angular's `ErrorHandler` hands the wrapper to @bugsplat/angular, which captures the cause with it:
 
 ```typescript
 @Component({ ... })
@@ -151,7 +151,7 @@ You can post additional information by creating a service that implements ErrorH
 
 ```
 import { ErrorHandler, Injectable } from '@angular/core';
-import { BugSplat } from 'bugsplat-ng';
+import { BugSplat } from '@bugsplat/angular';
 
 @Injectable()
 export class MyAngularErrorHandler implements ErrorHandler {
@@ -185,7 +185,7 @@ In either `bootstrapApplication` or `NgModule`, add a provider for your new `Err
 [main.ts](https://github.com/BugSplat-Git/bugsplat-ng/blob/22fa88dc642294f1a6240a0a1bf4b4acd16f727d/projects/my-angular-crasher/src/main.ts#L6-L29)
 
 ```typescript
-import { BugSplatModule } from 'bugsplat-ng';
+import { BugSplatModule } from '@bugsplat/angular';
 import { MyAngularErrorHandler } from './app/my-angular-error-handler';
 
 bootstrapApplication(AppComponent, {
@@ -207,7 +207,7 @@ You can also configure BugSplat's logging preferences and provide your own loggi
 [main.ts](https://github.com/BugSplat-Git/bugsplat-ng/blob/22fa88dc642294f1a6240a0a1bf4b4acd16f727d/projects/my-angular-crasher/src/main.ts#L6-L29)
 
 ```typescript
-import { BugSplatLogger, BugSplatLogLevel, BugSplatModule } from 'bugsplat-ng';
+import { BugSplatLogger, BugSplatLogLevel, BugSplatModule } from '@bugsplat/angular';
 import { MyAngularErrorHandler } from './app/my-angular-error-handler';
 
 bootstrapApplication(AppComponent, {
@@ -236,7 +236,7 @@ Inject the `BugSplat` service and call `postFeedback`:
 
 ```typescript
 import { Component } from '@angular/core';
-import { BugSplat } from 'bugsplat-ng';
+import { BugSplat } from '@bugsplat/angular';
 
 @Component({ ... })
 export class FeedbackComponent {
