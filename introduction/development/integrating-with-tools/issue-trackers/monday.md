@@ -19,7 +19,7 @@ BugSplat allows your team to create items on [Monday.com](https://monday.com/) w
 
 ### Push a new Item to Monday.com
 
-1. Use the **Create Defect** button to create a new item on the crashes page or a crash group page to push a new item to Monday.com.
+1. Use the **Create Defect** button on the crash page or a Crash Group page to push a crash group to Monday.com as a new item.
 2. Enter relevant details and click the **Submit** button to create the defect.&#x20;
 3. Click the link to view the new Monday.com item created by BugSplat.
 4. View the items' updates to see that stack trace and other valuable info from BugSplat.
