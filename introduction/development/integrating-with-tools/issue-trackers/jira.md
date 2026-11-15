@@ -34,7 +34,7 @@ BugSplat supports both **classic (unscoped)** Atlassian API tokens and the newer
 
 ### Creating an Issue in Jira
 
-1\. Create a new defect from the crashes page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the **Create Defect** button.
+1\. Create a new defect from the crashes page or a [Crash Group](../../using-the-app.md#crash-group-page) page by using the **Create Defect** button.
 
 2\. Enter relevant details and click the **Submit** button to create the defect. You can also enter an existing **Defect ID** if you'd like to associate a crash or stack key with an existing defect from Jira.
 
