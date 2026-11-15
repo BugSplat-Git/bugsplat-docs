@@ -1,9 +1,5 @@
 # GitLab
 
-{% hint style="info" %}
-BugSplat's GitLab integration is in beta. Please message us if you want to request a feature or report a bug.
-{% endhint %}
-
 BugSplat allows your team to create issues in [GitLab](https://gitlab.com) with a few clicks. Our integration adds valuable crash data to your GitLab issues and links to the BugSplat dashboard so your team can quickly switch between looking at BugSplat and your GitLab repos.
 
 #### Integrating GitLab and BugSplat
