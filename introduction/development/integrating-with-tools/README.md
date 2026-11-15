@@ -26,7 +26,7 @@ BugSplat provides tools for teams to get alerted the instant something changes i
 
 ### Issue Trackers
 
-BugSplat connects with popular defect trackers allowing users to create new issues with a couple of clicks for a [crash group](../../../education/bugsplat-terminology.md#crash-group), directly from the crash page or a Crash Group page.
+BugSplat connects with popular defect trackers allowing users to create new issues with a couple of clicks for a [crash group](../../../education/bugsplat-terminology.md#crash-group), directly from the Crash page or a Crash Group page.
 
 {% content-ref url="issue-trackers/jira.md" %}
 [jira.md](issue-trackers/jira.md)
