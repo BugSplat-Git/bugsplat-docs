@@ -63,6 +63,7 @@
     * [Unreal Assert, Check, and Ensure Reporting](introduction/getting-started/integrations/game-development/unreal-engine/unreal-assert-check-and-ensure-reporting.md)
   * [Unity](introduction/getting-started/integrations/game-development/unity.md)
     * [Unity on Windows](introduction/getting-started/integrations/game-development/unity/windows.md)
+    * [Unity CoreCLR](introduction/getting-started/integrations/game-development/unity/coreclr.md)
     * [Unity on macOS](introduction/getting-started/integrations/game-development/unity/macos.md)
     * [Unity on iOS](introduction/getting-started/integrations/game-development/unity/ios.md)
     * [Unity on Android](introduction/getting-started/integrations/game-development/unity/android.md)
