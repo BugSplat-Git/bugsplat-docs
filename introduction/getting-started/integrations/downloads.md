@@ -10,16 +10,16 @@ description: >-
 
 |                          |                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------- |
-| Windows (Native C++)     | [Download](https://app.bugsplat.com/browse/download_item.php?item=native)    |
-| Windows (.NET)           | [NuGet](https://www.nuget.org/packages/BugSplat) or [Download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) |
+| Windows (Native C++)     | [Download](https://app.bugsplat.com/download/bugsplat-windows.zip) |
+| Windows (.NET)           | [NuGet](https://www.nuget.org/packages/BugSplat) or [Download](https://app.bugsplat.com/download/bugsplat-dotnet.zip) |
 | macOS                    | See platform docs ([here](desktop/macos.md))                                 |
 | Linux                    | See platform docs ([here](desktop/linux.md))                                 |
 | Electron                 | See platform docs ([here](desktop/electron.md))                              |
 | Qt                       | See platform docs ([here](desktop/qt.md))                                    |
-| Java                     | [Download](https://app.bugsplat.com/browse/download_item.php/?item=java)     |
+| Java                     | [Maven Central](https://search.maven.org/artifact/com.bugsplat/bugsplat-java) |
 | Python                   | See platform docs ([here](desktop/python.md))                                |
 | Rust and Tauri           | See platform docs ([here](desktop/rust.md))                                  |
-| Crashpad                 | [Download](https://app.bugsplat.com/browse/download_item.php/?item=crashpad) |
+| Crashpad                 | [GitHub releases](https://github.com/BugSplat-Git/bugsplat-crashpad/releases) |
 
 ### 🎮 Game Development
 

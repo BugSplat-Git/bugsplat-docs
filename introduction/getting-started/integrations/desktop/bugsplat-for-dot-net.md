@@ -54,7 +54,7 @@ dotnet add package BugSplat
 
 or search for **BugSplat** in Visual Studio's NuGet Package Manager. The same package works for .NET Framework 4.7.2+ and .NET 10+ projects.
 
-To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher) and try one of the [samples](#sample-apps), which install BugSplat from NuGet: [MyDotNetFrameworkWpfCrasher](../../posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) for .NET 10. The samples are also in the [SDK download](https://app.bugsplat.com/browse/download_item.php?item=dotnet).
+To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher) and try one of the [samples](#sample-apps), which install BugSplat from NuGet: [MyDotNetFrameworkWpfCrasher](../../posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) for .NET 10. The samples are also in the [SDK download](https://app.bugsplat.com/download/bugsplat-dotnet.zip).
 
 ### Integration 🏗️
 
@@ -145,7 +145,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
 
 ### Using the SDK Download Instead of NuGet
 
-If you can't use NuGet, you can add BugSplat from the [SDK download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) instead. Its sample projects show how to wire everything up by hand. In place of steps 1 and 2 above:
+If you can't use NuGet, you can add BugSplat from the [SDK download](https://app.bugsplat.com/download/bugsplat-dotnet.zip) instead. Its sample projects show how to wire everything up by hand. In place of steps 1 and 2 above:
 
 1. Reference `BugSplatDotNet.dll` from `BugSplat\dotnet\Release\net472` (.NET Framework) or `net10.0` (.NET 10).
 2. Build your application for x64, since the download's native runtime is x64 only.
