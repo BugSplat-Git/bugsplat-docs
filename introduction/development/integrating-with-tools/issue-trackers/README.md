@@ -14,6 +14,10 @@ This allows teams to build issues that contain full crash information, like symb
 [azure-devops.md](azure-devops.md)
 {% endcontent-ref %}
 
+{% content-ref url="clickup.md" %}
+[clickup.md](clickup.md)
+{% endcontent-ref %}
+
 {% content-ref url="github-issues.md" %}
 [github-issues.md](github-issues.md)
 {% endcontent-ref %}
