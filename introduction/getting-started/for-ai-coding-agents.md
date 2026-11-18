@@ -38,7 +38,7 @@ Most SDKs install from a package manager; the platform's page names the package.
 | [BugSplat for Windows (C++)](integrations/desktop/cplusplus/) | `https://app.bugsplat.com/download/bugsplat-windows.zip` |
 | [BugSplat for .NET](integrations/desktop/bugsplat-for-dot-net.md) | The [BugSplat](https://www.nuget.org/packages/BugSplat) NuGet package, or `https://app.bugsplat.com/download/bugsplat-dotnet.zip` |
 
-Each zip URL returns the latest release. To pin a release, add `?version=` and the version, for example `https://app.bugsplat.com/download/bugsplat-windows.zip?version=9.2.0`. An unknown version returns a 404.
+Each zip URL returns the latest release. Releases after 9.2.0 can also be pinned: add `?version=` and the release's version number. A version that isn't available returns a 404.
 
 ```powershell
 Invoke-WebRequest -Uri "https://app.bugsplat.com/download/bugsplat-windows.zip" -OutFile BugSplat.zip

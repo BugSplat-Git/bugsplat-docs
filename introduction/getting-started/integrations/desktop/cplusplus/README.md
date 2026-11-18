@@ -18,7 +18,7 @@ Expand-Archive BugSplat.zip -DestinationPath "$env:TEMP\BugSplatSdk"
 Copy-Item -Recurse "$env:TEMP\BugSplatSdk\BugSplat" third_party\BugSplat
 ```
 
-The URL returns the latest release. To pin a release, add `?version=` and the version, for example `?version=9.2.0`.
+The URL returns the latest release. Releases after 9.2.0 can also be pinned: add `?version=` and the release's version number.
 
 {% hint style="info" %}
 Setting BugSplat up with a coding agent? [For AI Coding Agents](../../../for-ai-coding-agents.md) lists what the agent needs from you and how it can confirm a test crash arrived.
