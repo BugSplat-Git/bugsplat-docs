@@ -111,6 +111,7 @@
     * [Webhook](introduction/development/integrating-with-tools/messanger-apps/webhook.md)
   * [Issue Trackers](introduction/development/integrating-with-tools/issue-trackers/README.md)
     * [Azure DevOps](introduction/development/integrating-with-tools/issue-trackers/azure-devops.md)
+    * [ClickUp](introduction/development/integrating-with-tools/issue-trackers/clickup.md)
     * [Favro](introduction/development/integrating-with-tools/issue-trackers/favro.md)
     * [Jira](introduction/development/integrating-with-tools/issue-trackers/jira.md)
     * [GitHub Issues](introduction/development/integrating-with-tools/issue-trackers/github-issues.md)
