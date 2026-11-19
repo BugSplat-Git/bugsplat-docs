@@ -8,7 +8,7 @@ description: >-
 
 `MyDotNetFrameworkHostCrasher` is for applications that are native C++ programs which load the .NET Framework and call into C# code. The sample's C++ program initializes the [BugSplat native SDK](../../integrations/desktop/cplusplus/), starts the .NET Framework 4.7.2 runtime, and calls into a C# library that crashes. The report's call stack shows the C# frames on top of the C++ program's own frames.
 
-To get started, download the BugSplat SDK for .NET by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=dotnet), then unzip it.
+To get started, download the BugSplat SDK for .NET by clicking [here](https://app.bugsplat.com/download/bugsplat-dotnet.zip), then unzip it.
 
 1. Open `MyDotNetFrameworkHostCrasher.sln` with Visual Studio 2022+.
 2. Define a value for `BUGSPLAT_DATABASE` in `Samples\MyDotNetFrameworkHostCrasher\MyDotNetFrameworkHostCrasher.h`.

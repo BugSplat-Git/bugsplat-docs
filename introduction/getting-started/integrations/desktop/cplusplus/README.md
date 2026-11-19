@@ -10,7 +10,19 @@ This document explains how to modify your Microsoft Visual C++ application to pr
 
 ### Getting Started 🚦&#x20;
 
-To begin, [download](https://app.bugsplat.com/browse/download_item.php?item=native) and unzip the BugSplat SDK for Microsoft Visual C++.
+To begin, download and unzip the BugSplat SDK for Microsoft Visual C++ from `https://app.bugsplat.com/download/bugsplat-windows.zip`. The download doesn't need a login, so a build script or a coding agent can fetch it too:
+
+```powershell
+Invoke-WebRequest -Uri "https://app.bugsplat.com/download/bugsplat-windows.zip" -OutFile BugSplat.zip
+Expand-Archive BugSplat.zip -DestinationPath "$env:TEMP\BugSplatSdk"
+Copy-Item -Recurse "$env:TEMP\BugSplatSdk\BugSplat" third_party\BugSplat
+```
+
+The URL returns the latest release. Releases after 9.2.0 can also be pinned: add `?version=` and the release's version number.
+
+{% hint style="info" %}
+Setting BugSplat up with a coding agent? [For AI Coding Agents](../../../for-ai-coding-agents.md) lists what the agent needs from you and how it can confirm a test crash arrived.
+{% endhint %}
 
 The SDK is organized per platform (`win32`, `x64`, `ARM64`) and configuration (`Release`, `Debug`):
 
@@ -65,15 +77,42 @@ BugSplat g_BugSplat(BUGSPLAT_DATABASE, APPLICATION_NAME, APPLICATION_VERSION);
 ```
 
 6. Modify your build settings so that symbol files are created for release builds. Set `C/C++ > General > Debug Information Format` to `Program Database /Zi`. Be sure to also set `Linker > Debugging > Generate Debug Info` to `Yes (/DEBUG)`.
-7. Configure a Post-Build step to upload your application's [symbol files](../../../../development/working-with-symbol-files/). Your script should authenticate using OAuth Client Credentials. You can create credentials on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page under the OAuth tab.
+7. Configure a Post-Build step to upload your application's [symbol files](../../../../development/working-with-symbol-files/). Your script should authenticate using OAuth Client Credentials. You can create credentials on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page under the OAuth tab. Set them as `SYMBOL_UPLOAD_CLIENT_ID` and `SYMBOL_UPLOAD_CLIENT_SECRET` in the build environment so the secret stays out of your project file.
 
 ```batch
-symbol-upload-windows.exe -b your-database -a your-app -v your-version -i your-client-id -s your-client-secret -d "$(OutputDir)\"
+symbol-upload-windows.exe -b your-database -a your-app -v your-version -d "$(OutDir)\" -f "*.{pdb,exe,dll}"
 ```
+
+`-f` defaults to `*.js.map`, so leave it out and nothing from a C++ build is uploaded.
 
 {% hint style="info" %}
 To get complete symbolicated call stacks and variable names for each crash, you should upload all **`.exe`**, **`.dll`**, and **`.pdb`** files for your product every time you build a release version of your application for distribution or internal testing.
 {% endhint %}
+
+### CMake 🧱
+
+With CMake and the MSVC compiler, link the static library and copy the runtime files next to your executable after each build. This example assumes the SDK's `BugSplat` folder is at `third_party/BugSplat`, that your target is `MyApp`, and that it uses CMake's default runtime library, `/MD` (or `/MDd` in Debug):
+
+```cmake
+set(BUGSPLAT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/third_party/BugSplat")
+
+if(CMAKE_CXX_COMPILER_ARCHITECTURE_ID STREQUAL "X86")
+  set(BUGSPLAT_PLATFORM Win32)
+else()
+  set(BUGSPLAT_PLATFORM ${CMAKE_CXX_COMPILER_ARCHITECTURE_ID})
+endif()
+set(BUGSPLAT_CONFIG_DIR "${BUGSPLAT_DIR}/${BUGSPLAT_PLATFORM}/$<IF:$<CONFIG:Debug>,Debug,Release>")
+
+target_include_directories(MyApp PRIVATE "${BUGSPLAT_DIR}/inc")
+target_link_libraries(MyApp PRIVATE "${BUGSPLAT_CONFIG_DIR}/lib/md/BugSplat.lib")
+
+add_custom_command(TARGET MyApp POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_directory "${BUGSPLAT_CONFIG_DIR}/bin" "$<TARGET_FILE_DIR:MyApp>")
+```
+
+`CMAKE_CXX_COMPILER_ARCHITECTURE_ID` is `x64`, `ARM64` or `X86` for MSVC, which matches the SDK's folder names except for `Win32`. If your target sets `MSVC_RUNTIME_LIBRARY` to a static runtime (`/MT`), link `lib/mt/BugSplat.lib` instead. Install the same files from `bin` with your application, as in step 2.
+
+To produce `.pdb` files for Release builds, use the `RelWithDebInfo` configuration, or add `/Zi` to the compiler flags and `/DEBUG` to the linker flags for Release.
 
 ### Dynamic Library 🔗
 
@@ -125,6 +164,17 @@ It reads its colors, type, layout and copy from the `BugSplatTheme` folder at ru
 {% hint style="warning" %}
 If crash reports arrive but no dialog ever appears, `BugSplatReporter.exe` is almost certainly missing from your install folder. The monitor uploads the report without the dialog in that case and logs the reason to `BugSplat.log`.
 {% endhint %}
+
+### When Crashes Don't Arrive 🔍
+
+None of these problems shows an error in your application. Check them in this order:
+
+* **A debugger is attached.** The debugger handles the exception before BugSplat does. Run the application without debugging (Ctrl+F5 in Visual Studio) when you test.
+* **The runtime files aren't next to the executable.** `BugSplatMonitor.exe` has to be in the same folder as your application, along with `BugSplatReporter.exe` and `BugSplatWer.dll`.
+* **The Visual C++ runtime is missing** on the machine that crashed. See the warning under step 3.
+* **The upload failed.** The monitor keeps the report in `%TEMP%\BugSplat\<appName>-<appVersion>\<guid>\` and tries again the next time your application starts, up to three times. `BugSplat.log` in that folder says why the upload failed.
+* **Only some crashes arrive.** Stack buffer overruns, heap corruption and other fail-fast crashes skip the unhandled exception filter, so BugSplat reports them only when `BugSplatWer.dll` is registered. `IsWerEnabled()` (`BugSplat_IsWerEnabled()` in C) returns `false` until it is; see [Registry Changes](bugsplat-for-windows-upgrade-guide.md#registry-changes).
+* **Call stacks show addresses, such as `MyApp+0x12b5`.** The symbols for that application name and version weren't uploaded, or came from a different build. Re-run the upload from step 7 for the build that crashed.
 
 ## User Feedback
 

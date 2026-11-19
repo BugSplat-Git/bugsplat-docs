@@ -8,7 +8,7 @@ description: >-
 
 Before you enable BugSplat in your Windows C++ application, you may want to take a moment to experiment with our `MyConsoleCrasher` sample application.
 
-To get started, download the BugSplat SDK for Windows by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=native). Download and unzip the contents of `BugSplat.zip`. After extracting the downloaded SDK, open the `MyConsoleCrasher.sln` file with Visual Studio.
+To get started, download the BugSplat SDK for Windows by clicking [here](https://app.bugsplat.com/download/bugsplat-windows.zip). Download and unzip the contents of `BugSplat.zip`. After extracting the downloaded SDK, open the `MyConsoleCrasher.sln` file with Visual Studio.
 
 1. Open `MyConsoleCrasher.sln` with Visual Studio 2022+
 2. Define values for `BUGSPLAT_DATABASE`, `APPLICATION_NAME`, and `APPLICATION_VERSION` in `Samples\MyConsoleCrasher\MyConsoleCrasher.h`

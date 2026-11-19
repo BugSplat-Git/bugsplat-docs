@@ -6,6 +6,7 @@
 
 * [👀 Full Setup Guide](introduction/getting-started/README.md)
 * [🚀 Post Your First Crash in Five Minutes](introduction/getting-started/quickly-submitting-your-first-crash-in-under-5-minutes.md)
+* [🤖 For AI Coding Agents](introduction/getting-started/for-ai-coding-agents.md)
 * [Signing Up](introduction/getting-started/signing-up-for-an-account-with-bugsplat.md)
 * [Creating a Database](introduction/getting-started/create-a-new-database-in-bugsplat.md)
 * [Platform Samples](introduction/getting-started/posting-a-test-crash/README.md)
