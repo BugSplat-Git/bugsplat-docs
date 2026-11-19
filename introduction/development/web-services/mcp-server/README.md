@@ -17,7 +17,7 @@ Add the address to Claude Code, Claude, ChatGPT, or any other MCP client that co
 
 The first time your assistant connects, your browser opens BugSplat's sign-in page. After you sign in, the server works with your own BugSplat permissions: the assistant can read every database your login can open. You don't create a Client ID and Client Secret for each database the way you do for the [REST API](../oauth2.md), where each pair belongs to one database.
 
-The server is read-only. Its seven tools list and read crash reports, crash groups, versions, and symbol files, and none of them change your data. [MCP Tools](tools.md) lists each tool's arguments, the filter syntax, and example questions.
+The server's tools list and read crash reports, crash groups, versions, and symbol files, and three tools file a crash group as a defect in your connected issue tracker or manage that link. [MCP Tools](tools.md) lists each tool's arguments, the filter syntax, and example questions.
 
 {% hint style="info" %}
 API and MCP access is included on every plan. On the Free plan, access is rate limited. See [Plans and Billing Overview](../../../../administration/billing/plans-and-billing-guide.md).
@@ -80,4 +80,4 @@ To use BugSplat in a conversation, type `@` in the prompt box and select BugSpla
 
 ## The bugsplat-mcp package
 
-The [bugsplat-mcp](https://github.com/BugSplat-Git/bugsplat-mcp) package is an MCP server that runs on your own computer. Each configuration reads one database with that database's [Client ID and Client Secret](../oauth2.md). The package also has three tools the hosted server doesn't: `create-defect`, `add-defect-link`, and `remove-defect-link`. Its README covers setup.
+The [bugsplat-mcp](https://github.com/BugSplat-Git/bugsplat-mcp) package is an MCP server that runs on your own computer. Each configuration reads one database with that database's [Client ID and Client Secret](../oauth2.md). Its README covers setup.

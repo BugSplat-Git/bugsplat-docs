@@ -1,12 +1,12 @@
 ---
 description: >-
-  The seven read-only tools of BugSplat's hosted MCP server, their arguments,
+  The tools of BugSplat's hosted MCP server, their arguments,
   and the filter syntax the list tools share.
 ---
 
 # MCP Tools
 
-BugSplat's [MCP server](README.md) has seven tools, and every tool only reads data. Your assistant picks a tool and fills in its arguments from your question, so you rarely type these yourself. This page shows what each tool can answer and how to check the arguments your assistant chose.
+BugSplat's [MCP server](README.md) has ten tools. Seven read crash data, and three file defects in your connected issue tracker. Your assistant picks a tool and fills in its arguments from your question, so you rarely type these yourself. This page shows what each tool can answer and how to check the arguments your assistant chose.
 
 Every tool except `list-databases` takes a `database` argument. Leave it out and the tool reads your default database.
 
@@ -154,6 +154,38 @@ Lists the symbol files uploaded to a database, most recently modified first. Eac
 | page | integer | Page to return, starting at 1 |
 | sortBy | string | `modified`: most recently modified first (default). `uploaded`: most recently uploaded first. `lastUsed`: most recently used first. `size`: largest first. `name`: file name A to Z. |
 | sortOrder | string | `asc` or `desc`, to reverse the direction `sortBy` implies |
+
+## create-defect
+
+Files a crash group as a new defect in the issue tracker connected to its database, such as Jira, GitHub, or Azure DevOps, and links the group to the defect. The defect gets the crash group's details, an example call stack, links back to BugSplat, and your notes. The tool returns the defect's id and URL. Your assistant should ask you before it files a defect, because BugSplat can't delete the defect from your tracker afterwards. A crash group that already has a linked defect is refused.
+
+| Argument | Type | Description |
+| -------- | ---- | ----------- |
+| stackKeyId | integer, required | Crash group to file |
+| notes | string | Text to add to the defect's description |
+| database | string | Database the crash group is in |
+
+## add-defect-link
+
+Links a crash group to a defect that already exists in the connected issue tracker. Most trackers also add the group's details and your notes to the defect. A crash group that already has a linked defect is refused.
+
+| Argument | Type | Description |
+| -------- | ---- | ----------- |
+| stackKeyId | integer, required | Crash group to link |
+| defectId | string, required | The defect's id or key as your tracker shows it, for example `PROJ-123` or `45` |
+| notes | string | Text to add to the defect along with the group's details |
+| database | string | Database the crash group is in |
+
+## remove-defect-link
+
+Removes the link between a crash group and its defect. The defect stays in your tracker unchanged, and `add-defect-link` can link it again.
+
+| Argument | Type | Description |
+| -------- | ---- | ----------- |
+| stackKeyId | integer, required | Crash group to unlink |
+| database | string | Database the crash group is in |
+
+If no issue tracker is connected to the database, `create-defect` and `add-defect-link` return an error that points to the Integrations page, where you connect one.
 
 ## Filters
 
