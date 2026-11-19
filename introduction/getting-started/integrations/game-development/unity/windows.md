@@ -1,6 +1,6 @@
 # Unity on Windows
 
-BugSplat for Unity captures native crashes on Windows with [BugSplat for Windows](../../desktop/cplusplus/README.md). Native Windows crash reporting works with both the **Mono** and **IL2CPP** scripting backends, on x86 (32-bit), x64, and Windows-on-ARM (ARM64) players. It is on by default (`UseNativeCrashReportingForWindows`).
+BugSplat for Unity captures native crashes on Windows with [BugSplat for Windows](../../desktop/windows/README.md). Native Windows crash reporting works with both the **Mono** and **IL2CPP** scripting backends, on x86 (32-bit), x64, and Windows-on-ARM (ARM64) players. It is on by default (`UseNativeCrashReportingForWindows`).
 
 When native crash reporting is enabled:
 

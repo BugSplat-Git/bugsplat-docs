@@ -202,7 +202,7 @@ Some crashes end the process without running any of the application's exception 
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "C:\Path\To\YourApp\BugSplatWer.dll" /t REG_DWORD /d 0 /f
 ```
 
-`BugSplat.IsWerEnabled` tells you at run time whether the entry is in place. See the [upgrade guide](cplusplus/bugsplat-for-windows-upgrade-guide.md#registry-changes) for more about the registry entry.
+`BugSplat.IsWerEnabled` tells you at run time whether the entry is in place. See the [upgrade guide](windows/bugsplat-for-windows-upgrade-guide.md#registry-changes) for more about the registry entry.
 
 {% hint style="info" %}
 **.NET Framework:** unhandled managed exceptions and access violations reach BugSplat's application exception handler. Stack overflows and fail-fasts from native code, such as heap corruption, still go through WER.
@@ -238,7 +238,7 @@ When managed code calls native code through P/Invoke and the native code crashes
 
 ### Native Applications That Host .NET
 
-If your application is a native C++ program that loads the .NET Framework and calls into managed code, integrate the native SDK, [BugSplat for Windows (C++)](cplusplus/), in the host program instead of the `BugSplat` package, and call `SetCrashType(8)` so BugSplat resolves the managed frames in its minidumps. Crashes in the managed code are captured by the native SDK's handlers, and the call stack shows the managed frames on top of your native ones. The [MyDotNetFrameworkHostCrasher](../../posting-a-test-crash/mydotnetframeworkhostcrasher/) sample demonstrates the setup.
+If your application is a native C++ program that loads the .NET Framework and calls into managed code, integrate the native SDK, [BugSplat for Windows (C++)](windows/), in the host program instead of the `BugSplat` package, and call `SetCrashType(8)` so BugSplat resolves the managed frames in its minidumps. Crashes in the managed code are captured by the native SDK's handlers, and the call stack shows the managed frames on top of your native ones. The [MyDotNetFrameworkHostCrasher](../../posting-a-test-crash/mydotnetframeworkhostcrasher/) sample demonstrates the setup.
 
 ### API Reference 📖
 
@@ -252,7 +252,7 @@ If your application is a native C++ program that loads the .NET Framework and ca
 | `bool AddAttachment(string filePath)` | Attaches a file to every report. |
 | `bool QuietMode` | Set to `true` to suppress the crash dialog; reports are still uploaded. |
 | `string[] CrashDialogLinkDomains` | The domains, and their subdomains, that links in the crash dialog's text may open, for example `new[] { "example.com" }`. Only `https` links work. By default no domain is allowed, and links are shown as plain text. See [Links in the Dialog](../../../../education/how-tos/customize-the-crash-dialog.md#links-in-the-dialog). |
-| `MiniDumpType MiniDumpType` | The minidump type for crash reports and `Post`. The default, `MiniDumpType.Normal`, is enough for BugSplat to name the managed frames. Larger types, such as `WithPrivateReadWriteMemory` or `WithFullMemory`, are written only when [full memory dumps](cplusplus/full-memory-dumps.md) are enabled for your database; otherwise BugSplat writes a normal minidump. |
+| `MiniDumpType MiniDumpType` | The minidump type for crash reports and `Post`. The default, `MiniDumpType.Normal`, is enough for BugSplat to name the managed frames. Larger types, such as `WithPrivateReadWriteMemory` or `WithFullMemory`, are written only when [full memory dumps](windows/full-memory-dumps.md) are enabled for your database; otherwise BugSplat writes a normal minidump. |
 | `bool IsWerEnabled` | Whether `BugSplatWer.dll` is registered with Windows Error Reporting. |
 | `bool IsInitialized` | Whether crash reporting is installed for this process. |
 
