@@ -138,6 +138,8 @@
 ## 🔌 API Reference
 
 * [Using the API](introduction/development/web-services/README.md)
+* [MCP Server](introduction/development/web-services/mcp-server/README.md)
+  * [MCP Tools](introduction/development/web-services/mcp-server/tools.md)
 * [Web Application Endpoints](introduction/development/web-services/api/README.md)
   * [Company](introduction/development/web-services/api/company.md)
   * [Crash](introduction/development/web-services/api/crash.md)
