@@ -43,7 +43,7 @@ Xbox titles are unaffected: there's no crash dialog on Xbox, so there's no `BugS
 
 ### Update Every BugSplat Binary Together
 
-The memory that your application and `BugSplatMonitor.exe` share changed in 9.0.0. Update `BugSplat.lib` or `BugSplat.dll`, `BugSplatMonitor.exe`, and `BugSplatWer.dll` together, all from the same release. A mixed set is detected and refused, so crashes aren't reported until every file matches.
+The memory that your application and `BugSplatMonitor.exe` share changed in 9.0.0, and changes again in some later releases. Every time you update, update `BugSplat.lib` or `BugSplat.dll`, `BugSplatMonitor.exe`, and `BugSplatWer.dll` together, all from the same release. A mixed set is detected and refused, so crashes aren't reported until every file matches. The monitor shows "Failed to initialize shared memory" when it refuses one.
 
 ### Move Dialog Customizations to the Theme
 
@@ -128,7 +128,7 @@ Here is that value shown highlighted in the registry editor for one of our sampl
 
 ##### **Optional: Suppressing WER Local Dumps**
 
-The `LocalDumps` registry values described in this section are **optional**. BugSplat's WER integration works fully with only the `RuntimeExceptionHelperModules` entry above. BugSplat does not read the dump files that WER writes: when WER hands a crash to `BugSplatWer.dll`, `BugSplatMonitor.exe` writes its own minidump directly from the crashed process, using the minidump type configured via `SetMiniDumpType`, and uploads that file.
+The `LocalDumps` registry values described in this section are **optional**. BugSplat's WER integration works fully with only the `RuntimeExceptionHelperModules` entry above. BugSplat does not read the dump files that WER writes: when WER hands a crash to `BugSplatWer.dll`, `BugSplatWer.dll` writes its own minidump of the crashed process into the crash folder, using the minidump type configured via `SetMiniDumpType`, and `BugSplatMonitor.exe` uploads that file.
 
 If [WER local dump collection](https://learn.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps) is enabled on a machine, WER will also write its own copy of each crash dump, typically under `%LOCALAPPDATA%\CrashDumps`. To prevent this duplicate dump for your application, create the following registry key:&#x20;
 

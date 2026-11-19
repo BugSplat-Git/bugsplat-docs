@@ -58,7 +58,7 @@ Add BugSplat to your application using the following steps:
 
 1. Link with **`BugSplat.lib`**  by adding an entry to `Linker > Input > Additional Dependencies`, and add the matching folder to `Linker > General > Additional Library Directories`: `lib\md` if your application builds with `/MD` (the Visual Studio default), or `lib\mt` if it builds with `/MT`.
 2. Add **`BugSplatMonitor.exe`**, **`BugSplatReporter.exe`**, and **`BugSplatWer.dll`** (from the SDK's `bin` folder) to your application's installer, along with the `BugSplatTheme` folder if you're customizing the dialog.
-3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-for-windows-upgrade-guide.md#registry-changes).
+3. Ensure your installer runs with Administrator privileges and creates a `RuntimeExceptionHelperModules` registry key with a name containing the full path to `BugSplatWer.dll`. For more information about configuring WER see this [doc](bugsplat-for-windows-upgrade-guide.md#registry-changes). If your application's manifest sets `uiAccess="true"`, this step is required: every crash and hang is captured through WER (see [Apps with uiAccess](how-the-windows-crash-reporter-works.md#apps-with-uiaccess)).
 
 <figure><img src="../../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
 
@@ -198,6 +198,7 @@ None of these problems shows an error in your application. Check them in this or
 * **The Visual C++ runtime is missing** on the machine that crashed. See the warning under step 3.
 * **The upload failed.** The monitor keeps the report in `%TEMP%\BugSplat\<appName>-<appVersion>\<guid>\` and tries again the next time your application starts, up to three times. `BugSplat.log` in that folder says why the upload failed.
 * **Only some crashes arrive.** Stack buffer overruns, heap corruption and other fail-fast crashes skip the unhandled exception filter, so BugSplat reports them only when `BugSplatWer.dll` is registered. `IsWerEnabled()` (`BugSplat_IsWerEnabled()` in C) returns `false` until it is; see [Registry Changes](bugsplat-for-windows-upgrade-guide.md#registry-changes).
+* **No crashes arrive from an app with `uiAccess="true"`.** The monitor runs below the app's integrity level and can't write its dumps, so they're captured through WER, which needs `BugSplatWer.dll` registered. `BugSplat.log` says `BugSplat monitor runs at integrity level 0x2000, below this application's 0x3000` when this applies. Reports you send yourself with `GenerateDump` and `PostCrash` aren't captured in such an app; see [Apps with uiAccess](how-the-windows-crash-reporter-works.md#apps-with-uiaccess).
 * **Call stacks show addresses, such as `MyApp+0x12b5`.** The symbols for that application name and version weren't uploaded, or came from a different build. Re-run the upload from step 7 for the build that crashed.
 
 ## User Feedback

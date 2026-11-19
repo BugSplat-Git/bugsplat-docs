@@ -155,6 +155,8 @@ void SetHangDetectionTimeout(int ms);
 
 * `ms` - Timeout in milliseconds (default: 5000). Use 0 to disable hang detection.
 
+In an app with `uiAccess="true"`, a hang is captured through Windows Error Reporting once the user agrees to close the app, and reported with exception `0xCFFFFFFF`. This needs `BugSplatWer.dll` registered; see [Apps with uiAccess](how-the-windows-crash-reporter-works.md#apps-with-uiaccess).
+
 #### SetCrashCompletionBehavior
 
 ```cpp
@@ -168,6 +170,8 @@ void SetCrashCompletionBehavior(BugSplatCrashCompletion behavior);
 * `Exit` (default) - calls `exit()`, which runs full C-runtime shutdown.
 * `Terminate` - calls `TerminateProcess`, a hard termination that avoids CRT-shutdown hangs in complex hosts (for example, a Unity standalone player whose process can hang on `exit()` after the report is sent).
 * `ContinueSearch` - returns `EXCEPTION_CONTINUE_SEARCH` from the unhandled-exception filter, handing control to the operating system's default unhandled-exception handling (Windows Error Reporting, or an attached debugger) instead of ending the process itself.
+
+In an app with `uiAccess="true"`, crashes are captured through Windows Error Reporting, which has to capture the crashing process itself. `Exit` and `Terminate` then both end the process through WER: CRT shutdown doesn't run, and the exit code is the exception code. `ContinueSearch` still returns `EXCEPTION_CONTINUE_SEARCH`, and WER captures the crash if nothing else handles it first. See [Apps with uiAccess](how-the-windows-crash-reporter-works.md#apps-with-uiaccess).
 
 **Parameters:**
 
@@ -196,7 +200,7 @@ void GenerateDump(LPEXCEPTION_POINTERS const exceptionPointers,
                   MINIDUMP_TYPE dumpType = (MINIDUMP_TYPE)(MiniDumpNormal|MiniDumpFilterTriage)) const;
 ```
 
-**Description:** Manually generates a BugSplat crash report with the specified exception information.
+**Description:** Manually generates a BugSplat crash report with the specified exception information. The monitor writes the dump, so this doesn't work in an app with `uiAccess="true"`, whose monitor can't read its memory; see [Apps with uiAccess](how-the-windows-crash-reporter-works.md#apps-with-uiaccess).
 
 **Parameters:**
 
@@ -405,7 +409,7 @@ if (g_BugSplat.AttachToProcess(crashedPid))
 bool IsWerEnabled();
 ```
 
-**Description:** Checks if Windows Error Reporting integration is currently enabled.
+**Description:** Checks if Windows Error Reporting integration is currently enabled. In an app with `uiAccess="true"`, every crash and hang is captured through WER, so check this at startup and warn when it's `false`.
 
 **Returns:** `true` if WER integration is enabled, `false` otherwise
 
@@ -542,7 +546,7 @@ int BugSplat_IsInitialized(void);
 int BugSplat_IsWerEnabled(void);
 ```
 
-**Description:** Returns `1` if BugSplat's Windows Error Reporting runtime exception module is registered for this process, `0` otherwise. Fail-fast terminations — stack buffer overrun (`0xC0000409`), heap corruption (`0xC0000374`), and `__fastfail` — bypass the unhandled exception filter, so they are reported only when this returns `1`.
+**Description:** Returns `1` if BugSplat's Windows Error Reporting runtime exception module is registered for this process, `0` otherwise. Fail-fast terminations — stack buffer overrun (`0xC0000409`), heap corruption (`0xC0000374`), and `__fastfail` — bypass the unhandled exception filter, so they are reported only when this returns `1`. In an app with `uiAccess="true"`, every crash and hang is reported only when this returns `1`; see [Apps with uiAccess](how-the-windows-crash-reporter-works.md#apps-with-uiaccess).
 
 Registration requires `BugSplatWer.dll` beside the host executable and a value naming its full path under `RuntimeExceptionHelperModules` (see [Registry Changes](bugsplat-for-windows-upgrade-guide.md#registry-changes)). It fails silently when either is missing, so check this at startup and warn during development.
 

@@ -19,7 +19,7 @@ BugSplat for Windows is a handful of files that ship next to your executable. Kn
 | `BugSplat.dll` | The crash reporting engine that loads into your application. Installs the exception filter, allocates guard memory, holds the user, notes and attributes you set, and signals the monitor when something goes wrong. Only needed if you link the import library rather than a static `BugSplat.lib`, or use BugSplat for .NET. |
 | `BugSplatMonitor.exe` | Runs in a separate process so it survives the crash. Reads the shared memory your application wrote, calls `MiniDumpWriteDump` against the crashing process, detects hangs, assembles the crash folder, and **uploads the report**. |
 | `BugSplatReporter.exe` | The **crash dialog** your end user sees, and nothing else. It never touches the network; it hands the user's answers back to the monitor. |
-| `BugSplatWer.dll` | The Windows Error Reporting runtime exception module. Catches the failures no in-process filter can see — fast-fail errors, stack buffer overruns, and some heap corruption. Registered in the registry by your installer. |
+| `BugSplatWer.dll` | The Windows Error Reporting runtime exception module. Catches the failures no in-process filter can see — fast-fail errors, stack buffer overruns, and some heap corruption — and writes the dump for every crash and hang in an [app with uiAccess](#apps-with-uiaccess). Registered in the registry by your installer. |
 | `BugSplatTheme\` (optional) | `theme.json` and `strings.en-US.json`, which `BugSplatReporter.exe` reads to decide how the crash dialog looks and what it says, plus any logo or translations you add. |
 
 `BugSplatRc.dll`, the resource-only DLL that held the dialog templates and artwork before 9.0.0, no longer exists. Don't ship it.
@@ -95,7 +95,7 @@ The split has three practical consequences:
 ```
 
 1. Your application constructs `BugSplat` (or calls `BugSplat_Init`). The SDK launches `BugSplatMonitor.exe` and hands it a shared memory block and a pair of events.
-2. Your application crashes, or hangs past `SetHangDetectionTimeout`. The exception filter fills in the shared memory and signals the monitor. If the failure is one no in-process filter can see, Windows Error Reporting loads `BugSplatWer.dll`, which writes the minidump into the crash folder itself and then asks the monitor to send it.
+2. Your application crashes, or hangs past `SetHangDetectionTimeout`. The exception filter fills in the shared memory and signals the monitor. If the failure is one no in-process filter can see, Windows Error Reporting loads `BugSplatWer.dll`, which writes the minidump into the crash folder itself and then asks the monitor to send it. An [app with uiAccess](#apps-with-uiaccess) takes that route for every crash and hang.
 3. Otherwise, the monitor — a live process, unaffected by the corruption in yours — calls `MiniDumpWriteDump` against the crashing process.
 4. The monitor writes a crash folder under `%TEMP%\BugSplat\<appName>-<appVersion>\<guid>\`, containing the minidump, `BugSplat.log`, any attachments you added, and `BugSplatCrashData.json`.
 5. The monitor spawns `BugSplatReporter.exe --report <folder>` and waits for it. Your application waits too.
@@ -110,6 +110,28 @@ Because the answers are saved before the upload starts, an upload cut short — 
 {% hint style="info" %}
 `BugSplatCrashData.json` and `dialog-result.json` are deliberately **excluded** from the uploaded zip. They're the monitor's working state, not part of the report; the user's name, email and description are sent in the fields they belong in.
 {% endhint %}
+
+### Apps with uiAccess 🔐
+
+An app whose manifest sets `uiAccess="true"` runs at a higher integrity level than the `BugSplatMonitor.exe` it starts: High when the user is an administrator, while Windows starts the monitor at Medium. A lower-level process can't read the app's memory, so the monitor can't write its dump. BugSplat checks for this when it starts the monitor, and has Windows Error Reporting write the dump instead:
+
+* **Crashes:** BugSplat's exception filter passes the crash to WER with its original exception and context, and `BugSplatWer.dll` writes the dump. The monitor shows the crash dialog and uploads the report, as for any other crash. The report groups with the same crash from an app the monitor can dump.
+* **Hangs:** the monitor detects the hang and asks the user whether to close the app, as usual. The app then reports the hung thread through WER, and `BugSplatWer.dll` writes the dump. The report's exception is `0xCFFFFFFF` (Application hang), and its stack starts where the hung thread is stuck.
+* **The monitor:** it opens the app with limited access, which is enough to watch it, name it in the hang prompt and close it. It never tries a dump it can't write.
+
+Every app without uiAccess is unaffected: the monitor opens it with full access and writes its dumps, as above.
+
+**`BugSplatWer.dll` must be registered.** See [Registry Changes](bugsplat-for-windows-upgrade-guide.md#registry-changes). Without the registration, an app with uiAccess has no crashes or hangs reported, and `BugSplat.log` says so when the app starts:
+
+```
+BugSplat monitor runs at integrity level 0x2000, below this application's 0x3000, so it can't write crash dumps. List C:\Program Files\MyApp\BugSplatWer.dll under HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules so crashes can be captured through WER
+```
+
+Some things work differently on this path:
+
+* **Crash completion:** WER has to capture the crashing process itself, so with [`SetCrashCompletionBehavior`](bugsplat-for-windows-api-documentation.md#setcrashcompletionbehavior) set to `Exit` or `Terminate`, the process ends through WER. CRT shutdown doesn't run, and the exit code is the exception code. `ContinueSearch` still returns `EXCEPTION_CONTINUE_SEARCH`, and WER captures the crash if nothing else handles it first.
+* **Windows records the crash.** It shows up in the Application event log (Application Error, event ID 1000) and in Reliability Monitor, as any crash handled by WER does.
+* **Reports you send yourself aren't captured.** A custom exception filter, an `__except` block that carries on, and BugSplat for .NET's `Post` all call `GenerateDump` and `PostCrash`, which ask the monitor for the dump. The monitor logs that it can't write it, and nothing is uploaded, although `PostCrash` still returns `true`. Crashes that reach BugSplat's own exception filter, fail-fasts and hangs are captured.
 
 ### Quiet mode and unattended machines 🤫
 
