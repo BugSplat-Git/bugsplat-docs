@@ -20,6 +20,8 @@ Copy-Item -Recurse "$env:TEMP\BugSplatSdk\BugSplat" third_party\BugSplat
 
 The URL returns the latest release. Releases after 9.2.0 can also be pinned: add `?version=` and the release's version number.
 
+In a Visual Studio project, you can install the `BugSplat` NuGet package instead of downloading the zip. See [NuGet](#nuget).
+
 {% hint style="info" %}
 Setting BugSplat up with a coding agent? [For AI Coding Agents](../../../for-ai-coding-agents.md) lists what the agent needs from you and how it can confirm a test crash arrived.
 {% endhint %}
@@ -28,13 +30,15 @@ The SDK is organized per platform (`win32`, `x64`, `ARM64`) and configuration (`
 
 | Folder | Contents |
 | --- | --- |
-| `BugSplat\inc` | `BugSplat.h` (C++ API) and `BugSplatC.h` (C API) |
+| `BugSplat\inc` | `BugSplat.h` (C++ API), `BugSplatC.h` (C API) and `BugSplatVersion.h` (the SDK's version) |
 | `BugSplat\<platform>\<config>\bin` | Runtime files that ship next to your executable: `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll`, plus an optional `BugSplatTheme` folder |
 | `BugSplat\<platform>\<config>\lib\md` | Static `BugSplat.lib` built with `/MD` (dynamic CRT) |
 | `BugSplat\<platform>\<config>\lib\mt` | Static `BugSplat.lib` built with `/MT` (static CRT) |
 | `BugSplat\<platform>\<config>\lib\dll` | Import library for `BugSplat.dll` |
 
 Link exactly one `BugSplat.lib` from the `lib` subfolder that matches your link model and runtime library setting, and ship the contents of `bin` with your application (`BugSplat.dll` is only needed if you link the import library).
+
+`BugSplatVersion.h`, added in 9.3.0, defines `BUGSPLAT_VERSION` (for example `"9.3.0"`) and `BUGSPLAT_VERSION_MAJOR`, `BUGSPLAT_VERSION_MINOR` and `BUGSPLAT_VERSION_PATCH`, so you can tell which release a project was built against. `BugSplat.h` and `BugSplatC.h` include it.
 
 The `BugSplatTheme` folder holds `theme.json` and `strings.en-US.json`, which `BugSplatReporter.exe` reads at runtime to decide how the crash dialog looks and what it says. It is optional — the reporter has a built-in copy of both — but ship it if you want to rebrand or reword the dialog. See [Crash Dialog Branding](../../../../../education/how-tos/customize-the-crash-dialog.md).
 
@@ -138,6 +142,26 @@ BugSplat_SetAttribute(L"branch", L"main");
 {% hint style="info" %}
 The C API is also available to static library consumers: define `BUGSPLAT_STATIC` before including `BugSplatC.h`. See the [API documentation](bugsplat-for-windows-api-documentation.md#c-api-bugsplatc.h) for the full list of `BugSplat_*` functions.
 {% endhint %}
+
+### NuGet 📦
+
+From 9.3.0, the [BugSplat](https://www.nuget.org/packages/BugSplat) NuGet package also works in C and C++ projects (`.vcxproj`), and sets up the dynamic library for you. Install it from Visual Studio's NuGet package manager, or run this in the Package Manager Console:
+
+```powershell
+Install-Package BugSplat
+```
+
+The package:
+
+* adds `BugSplatC.h` and `BugSplatVersion.h` to the include path
+* links `BugSplat.dll`'s import library for the project's platform: `Win32`, `x64` or `ARM64`
+* in an Application project, copies `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, `BugSplatWer.dll` and their `.pdb` files to the output folder after each build, with the `BugSplatTheme` folder if there's one next to the `.vcxproj`
+
+Initialize BugSplat with the C API, as in step 3 above. The package doesn't contain the static library, so the C++ `BugSplat` class needs the SDK download.
+
+In a DLL or static library project, the package adds the header and the import library but copies nothing. To copy the runtime files there too, set `BugSplatCopyNativeFiles` to `true` in the project.
+
+Your installer still has to ship the runtime files, register `BugSplatWer.dll` and provide the Visual C++ runtime, as in steps 2 and 3 of [Integration](#integration).
 
 ### Verification ✅
 

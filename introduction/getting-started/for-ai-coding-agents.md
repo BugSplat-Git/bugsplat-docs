@@ -31,11 +31,11 @@ Keep the Client Secret out of the repository. Read it from the environment, or f
 
 ## Downloading the SDK
 
-Most SDKs install from a package manager; the platform's page names the package. The Windows SDKs are zip files you can download without a login:
+Most SDKs install from a package manager; the platform's page names the package. The Windows SDKs are also zip files you can download without a login:
 
 | SDK | Download |
 | --- | --- |
-| [BugSplat for Windows (C++)](integrations/desktop/cplusplus/) | `https://app.bugsplat.com/download/bugsplat-windows.zip` |
+| [BugSplat for Windows (C++)](integrations/desktop/cplusplus/) | `https://app.bugsplat.com/download/bugsplat-windows.zip`, or in a `.vcxproj`, the [BugSplat](https://www.nuget.org/packages/BugSplat) NuGet package, which gives the project the C API (see [NuGet](integrations/desktop/cplusplus/#nuget)) |
 | [BugSplat for .NET](integrations/desktop/bugsplat-for-dot-net.md) | The [BugSplat](https://www.nuget.org/packages/BugSplat) NuGet package, or `https://app.bugsplat.com/download/bugsplat-dotnet.zip` |
 
 Each zip URL returns the latest release. Releases after 9.2.0 can also be pinned: add `?version=` and the release's version number. A version that isn't available returns a 404.
@@ -47,6 +47,8 @@ Copy-Item -Recurse "$env:TEMP\BugSplatSdk\BugSplat" third_party\BugSplat
 ```
 
 The zip also contains the sample applications. The `BugSplat` folder is the only part an app needs.
+
+To find which release a repository already has, read `BUGSPLAT_VERSION` in `BugSplat\inc\BugSplatVersion.h`. Releases before 9.3.0 don't have that file.
 
 ## Uploading symbols
 
