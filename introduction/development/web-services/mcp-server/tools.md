@@ -6,7 +6,7 @@ description: >-
 
 # MCP Tools
 
-BugSplat's [MCP server](README.md) has ten tools. Seven read crash data, and three file defects in your connected issue tracker. Your assistant picks a tool and fills in its arguments from your question, so you rarely type these yourself. This page shows what each tool can answer and how to check the arguments your assistant chose.
+BugSplat's [MCP server](README.md) has eleven tools. Seven read crash data, three file defects in your connected issue tracker, and one sets a crash group's status. Your assistant picks a tool and fills in its arguments from your question, so you rarely type these yourself. This page shows what each tool can answer and how to check the arguments your assistant chose.
 
 Every tool except `list-databases` takes a `database` argument. Leave it out and the tool reads your default database.
 
@@ -186,6 +186,16 @@ Removes the link between a crash group and its defect. The defect stays in your 
 | database | string | Database the crash group is in |
 
 If no issue tracker is connected to the database, `create-defect` and `add-defect-link` return an error that points to the Integrations page, where you connect one.
+
+## set-group-status
+
+Sets a crash group's status: `open`, `fixed`, `regression`, or `ignored`. The web app shows a fixed crash group as Closed. Ask your assistant to mark a crash group fixed once the fix is merged or shipped. If the crash group is linked to a Jira issue, the issue moves to the matching Jira status too, except when the new status is `ignored`. If a fixed crash group crashes again in a newer version, BugSplat marks it Regression; see [Regression Alerts](https://docs.bugsplat.com/guides/production/regression-alerts).
+
+| Argument | Type | Description |
+| -------- | ---- | ----------- |
+| stackKeyId | integer, required | Crash group to update |
+| status | string, required | `open`, `fixed`, `regression`, or `ignored` |
+| database | string | Database the crash group is in |
 
 ## Filters
 
