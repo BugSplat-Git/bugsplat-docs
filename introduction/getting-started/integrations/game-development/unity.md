@@ -72,7 +72,9 @@ To view the error report, navigate to the BugSplat [Dashboard](https://app.bugsp
 
 For best results, BugSplat recommends building with the `IL2CPP` backend. The `Mono` backend is supported, but has several limitations. With `IL2CPP`, BugSplat can capture fully symbolicated C# exception traces in production, as well as native crashes that contain call stacks mapped back to their original C# function names, file names, and line numbers.
 
-To optimize your game for crash reporting, open **Edit > Project Settings > Player** and navigate to the **Configuration** section. For **Scripting Backend** choose `IL2CPP`, and for **IL2CPP Stacktrace Information** choose `Method Name, File Name, and Line Number`.
+To optimize your game for crash reporting, open **Edit > Project Settings > Player** and navigate to the **Configuration** section. For **Scripting Backend** choose `IL2CPP`, and for **IL2CPP Stacktrace Information** choose `Method Name, File Name, and Line Number`. In Unity 7 this setting is named **Managed Stack Trace Information**.
+
+Building with Unity 7's CoreCLR backend? See [Unity CoreCLR Crash Reporting](unity/coreclr.md) instead.
 
 Unity writes `LineNumberMappings.json`, which maps IL2CPP's generated C++ frames back to C# names, files, and line numbers, only at that setting. At the default, **Method Name**, IL2CPP crash reports show generated C++ files and lines, and the build log warns and names the setting. BugSplat uploads the file on Windows, macOS, and iOS; the Android symbol upload sends native `.so` symbols alone.
 
@@ -344,12 +346,14 @@ What BugSplat captures on each platform:
 * **Offline retry** covers native reports only: they are written to disk when the crash happens and uploaded on a later launch. Managed exception posts are never persisted — if that upload fails, the report is gone.
 * **Automatic symbol upload** runs as a post-build step and needs [symbol upload credentials](unity/symbol-upload.md). The platform pages below cover what each platform uploads.
 * `Post(FileInfo minidump)` posts your own minidump files on every platform except WebGL.
+* **CoreCLR** players (Unity 7) are supported on Windows. See [Unity CoreCLR Crash Reporting](unity/coreclr.md).
 
 ### 📚 More Documentation
 
 | Page                                             | What's in it                                                                                                  |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | [Windows](unity/windows.md)                      | Native crash reporting, the crash dialog, plugin and IL2CPP symbols, hang detection, Windows Error Reporting  |
+| [CoreCLR](unity/coreclr.md)                      | Unity 7's CoreCLR backend: what's captured, C# file names and line numbers, troubleshooting                   |
 | [macOS](unity/macos.md)                          | Native crash reporting, dSYM upload, attachments, hang detection                                              |
 | [iOS](unity/ios.md)                              | Native crash reporting, dSYM upload, attachments, hang detection                                              |
 | [Android](unity/android.md)                      | Native crash reporting, player settings, `symbols.zip`, ANR reporting                                         |
