@@ -86,6 +86,8 @@ Lists crash reports, newest first. Each report shows its id, crash time, applica
 
 Returns one crash report in full: its metadata, platform, exception, crash group and the group's status, linked defects, comments, custom attributes, the stack frames of the crashing thread (up to 100), and the report's event history.
 
+The **Crash Archive** line is a download link to the zip your app uploaded for the report, which holds the minidump and any files you attached, such as logs. The link expires 15 minutes after the call, so your assistant should download it right away or call `get-report` again for a new link. Your assistant downloads and opens the zip itself; `get-report` doesn't list the files inside it.
+
 | Argument | Type | Description |
 | -------- | ---- | ----------- |
 | id<mark style="color:red;">\*</mark> | integer | Crash id, from `list-reports` or `get-group` |
