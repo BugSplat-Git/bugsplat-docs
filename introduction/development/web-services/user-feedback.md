@@ -48,7 +48,7 @@ Special XML characters in title and description (`&`, `<`, `>`, `"`, `'`) must b
 
 ## From the SDKs
 
-You do not need to speak this protocol yourself when you use a BugSplat SDK: [BugSplat Native 9.0](../../getting-started/integrations/native/user-feedback.md) (`bugsplat_post_feedback`, C++ `PostFeedback`, .NET `PostFeedback`), [macOS and iOS](../../getting-started/integrations/desktop/macos.md#user-feedback) (`postFeedback`) and [BugSplat for Windows](../../getting-started/integrations/desktop/cplusplus/#user-feedback) (`PostFeedback`) build and upload the report for you and return the crash id and support-response URL.
+You do not need to speak this protocol yourself when you use a BugSplat SDK: [BugSplat Native 9.0](../../getting-started/integrations/native/user-feedback.md) (`bugsplat_post_feedback`, C++ `PostFeedback`, .NET `PostFeedback`), [macOS and iOS](../../getting-started/integrations/desktop/macos.md#user-feedback) (`postFeedback`) and [BugSplat for Windows](../../getting-started/integrations/desktop/windows/#user-feedback) (`PostFeedback`) build and upload the report for you and return the crash id and support-response URL.
 
 ## Uploading via Presigned URL
 

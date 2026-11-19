@@ -1,9 +1,5 @@
 # GitLab
 
-{% hint style="info" %}
-BugSplat's GitLab integration is in beta. Please message us if you want to request a feature or report a bug.
-{% endhint %}
-
 BugSplat allows your team to create issues in [GitLab](https://gitlab.com) with a few clicks. Our integration adds valuable crash data to your GitLab issues and links to the BugSplat dashboard so your team can quickly switch between looking at BugSplat and your GitLab repos.
 
 #### Integrating GitLab and BugSplat
@@ -17,7 +13,7 @@ BugSplat allows your team to create issues in [GitLab](https://gitlab.com) with 
 
 #### Push a New Item to GitLab
 
-1. Use the **Create Defect** button to create a new item on the crashes page or a crash group page to push a new item to GitLab.
+1. Use the **Create Defect** button on the Crash page or a Crash Group page to push a crash group to GitLab as a new item.
 2. Enter relevant details and click the **Submit** button to create the defect.
 3. Click the link to view the new GitLab issue created by BugSplat.
 4. View the items' updates to see that stack trace and other valuable info from BugSplat.

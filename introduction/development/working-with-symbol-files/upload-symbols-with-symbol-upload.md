@@ -93,8 +93,7 @@ Usage
                                          creating a self-hosted symbol server.                                                                                                       
                                                                                 
   The -i and -s arguments are not required if you set the environment variables 
-  SYMBOL_UPLOAD_CLIENT_ID and SYMBOL_UPLOAD_CLIENT_SECRET, or provide a user    
-  and password.                                                                 
+  SYMBOL_UPLOAD_CLIENT_ID and SYMBOL_UPLOAD_CLIENT_SECRET.                      
 
 Example
 
@@ -112,7 +111,7 @@ Links
 
 ### Example
 
-The following is an example of how to invoke symbol-upload and search a directory recursively for `.dll`, `.pdb`, and `.exe` files. Replace the values of `your-bugsplat-database`, `your-email`, and `your-password` with your BugSplat database, email, and password. You can specify a [glob](https://github.com/isaacs/node-glob) for the `-f` argument to match for files based on a pattern.
+The following is an example of how to invoke symbol-upload and search a directory recursively for `.dll`, `.pdb`, and `.exe` files. Replace the values of `your-bugsplat-database`, `your-clientId`, and `your-clientSecret` with your BugSplat database and the Client ID and Client Secret you created on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. You can specify a [glob](https://github.com/isaacs/node-glob) for the `-f` argument to match for files based on a pattern.
 
 ```bash
 symbol-upload -b your-bugsplat-database -a my-awesome-app -v 1.0 -i your-clientId -s your-clientSecret -d "/path/to/build -f "**/*.+(exe|dll|pdb)"
@@ -138,7 +137,7 @@ BugSplat can generate [Crashpad symbol files](https://github.com/google/breakpad
 
 ### Self-Hosted Symbol Servers
 
-The symbol-upload tool can be used to create a [SymSrv](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure for Windows symbols that is compatible with both BugSplat and [Microsoft Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2022#configure-location-of-symbol-files-and-loading-options). Additionally, symbol-upload can also create a SymSrv directory structure for macOS and Crashpad symbols that is compatible with BugSplat.
+The symbol-upload tool can be used to create a [SymSrv](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure for Windows and Xbox symbols that is compatible with both BugSplat and [Microsoft Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2022#configure-location-of-symbol-files-and-loading-options). Additionally, symbol-upload can also create a SymSrv directory structure for macOS/iOS, Linux/Android (Crashpad), PlayStation, and Nintendo Switch 2 symbols that is compatible with BugSplat.
 
 To upload symbols to a local directory, provide the `-l` flag and a path where the symbols will be copied.
 

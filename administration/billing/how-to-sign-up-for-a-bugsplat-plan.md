@@ -15,7 +15,7 @@ When your trial ends you'll be shown a screen asking for options about the futur
 <figure><img src="../../.gitbook/assets/choose-plan-page.png" alt=""><figcaption></figcaption></figure>
 
 * **Continue with the Free Plan:** If you're still exploring or if your project is small-scale, our Free Plan might be just what you need.
-* **Upgrade to a Paid Plan:** Ready for more? You can jump straight into selecting a Team or Business plan tailored to your project's scale.
+* **Upgrade to a Paid Plan:** Ready for more? You can jump straight into selecting a Starter, Pro, or Studio plan tailored to your project's scale.
 * **Request More Time:** Sometimes, you need a bit more time to decide. We get it. Let us know, and we can extend your trial.
 
 **Upgrading Anytime: A Step-by-Step Guide**
@@ -28,7 +28,7 @@ Whether you're still in your trial or using the Free Plan, upgrading is a breeze
 
 
     <figure><img src="../../.gitbook/assets/billing1.png" alt=""><figcaption></figcaption></figure>
-3.  **Choose Your Plan:** A payment modal will pop up, allowing you to select between the Team or Business plans. Not sure which to choose? Our [Plans page](https://www.bugsplat.com/pricing/) details the differences.
+3.  **Choose Your Plan:** A payment modal will pop up, allowing you to select Starter, Pro, or Studio. Not sure which to choose? Our [Plans and Billing Overview](plans-and-billing-guide.md) details the differences.
 
 
 

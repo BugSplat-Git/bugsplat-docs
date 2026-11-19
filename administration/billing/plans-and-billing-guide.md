@@ -1,132 +1,194 @@
 # Plans and Billing Overview
 
 {% hint style="warning" %}
-**BugSplat published new pricing as of March 28th, 2024**:  Read about what changed, how it can affect you and your account, and more here -> [updates-to-bugsplat-pricing-plans-march-2024.md](plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-march-2024.md "mention")&#x20;
+**BugSplat published new plans in October 2026.** Team and Business are now legacy plans. Read about what changed and how it affects your account here -> [updates-to-bugsplat-pricing-plans-october-2026.md](plans-upgrades-and-payments-faq/updates-to-bugsplat-pricing-plans-october-2026.md "mention")
 {% endhint %}
 
 ## Introduction
 
-BugSplat offers a variety of plan types built to cover everyone from individual developers to large businesses managing many teams. Plans come in several different levels, allowing users to customize what they purchase to fit their specific needs.
+BugSplat offers five plans: Free, Starter, Pro, Studio, and Enterprise. Every plan includes the full crash reporting product, including full crash data, intelligent grouping, automated symbol upload, and API and MCP access. Higher plans raise your limits and unlock the controls that larger teams need.
 
-Check out our full Plans Page here -> [https://www.bugsplat.com/pricing/](https://www.bugsplat.com/pricing/)
+On Starter, Pro, and Studio, you can add extra user logins, crashes, and storage at checkout. Pro and Studio teams can also add console platforms, and Pro teams can add SSO and self-hosted symbol servers. There's no overage billing: when you reach a limit, you choose whether to add more.
 
-This guide is for users interested in upgrading to a paid account and BugSplat account holders looking to upgrade to a larger plan or manage their current one.
-
-Note that only [non-restricted users](../user-management/user-permissions.md) can change billing settings. If you cannot view these pages, please request access from a non-restricted team member.
-
-Do you have questions about plans and billing? Please contact sales at [sales@bugsplat.com](mailto:sales@bugsplat.com), via our in-app chat, or ask us a question on [Discord](https://discord.com/invite/K4KjjRV5ve).
+This page will help you pick the right plan and compare what each one includes.
 
 ## Choosing a plan
 
-At BugSplat, we offer a range of plans tailored to meet the needs of projects and teams of all sizes, from small startups to large enterprises. Here's a detailed look at what each plan offers:
+### Free
 
-**Free Plan**
+Free is for one developer working on prototypes, playtests, or a first integration. It's a no-cost way to get crashes flowing and to see how BugSplat fits your workflow before you bring in a team.
 
-Designed to support small projects that are just getting off the ground, our Free Plan offers an accessible entry point with essential features to manage crashes and errors effectively. This plan allows for up to three user logins and includes one user group, ensuring your team can collaborate efficiently from the start. With 100GB of included storage and a 1-month data retention policy, small teams can monitor and address up to 15,000 crashes and errors per month. This plan also provides full data on crash and error events, intelligent crash grouping, automated symbol uploads, GitHub integration, and email notifications, laying a solid foundation for initial project development and debugging processes.
+**Good fit if:** you're working solo, still evaluating BugSplat, or haven't shipped yet.
 
-**Team Plan**
+### Starter
 
-Our Team Plan is best suited for growing apps and teams at any size company, enhancing everything offered in the Free Plan with additional capabilities to support expansion. It accommodates up to 10 user logins and maintains the structure of one user group, with a significant increase in storage to 250GB. Furthermore, this plan allows teams to add additional storage as needed and extends data retention to 3 months. Starting at 25,000 monthly crashes and errors, teams have the flexibility to add more crash volume anytime.&#x20;
+Starter is for small teams of up to 5 with a title or app in the wild. It adds the tools a shipping team needs every day: issue tracker and chat integrations, webhooks, custom grouping rules, a branded crash dialog, PII obfuscation, and email support.
 
-The Team Plan also introduces defect tracker integrations (including Jira, Azure DevOps, Assembla, and YouTrack), notifications and alerts via platforms like Slack, Microsoft Teams, and Discord, customizable rules for crash grouping, and responsive email support. For teams looking to scale, both crashes can be increased up to 100,000 per month, and storage can be expanded up to 1,000GB.
+**Good fit if:** you have real users, a small team, and moderate crash volume.
 
-**Business Plan**
+### Pro
 
-Tailored for teams with larger apps and/or more than one project, the Business Plan builds upon the Team Plan with advanced features for comprehensive management. It offers 20 user logins and three user groups, along with a 500GB storage capacity that can also be increased as needed. Data retention is extended up to 6 months, starting at 50,000 monthly crashes and errors with the option to add more.&#x20;
+Pro is for teams of up to 10 that need more control. It adds admin-enforced MFA, internal IP address capture, priority support, and in-app chat support. Pro is also the first plan that can add console platforms, SSO, and self-hosted symbol servers.
 
-This plan introduces advanced user management tools, PII obfuscation, API access, optional fractional crash and error processing, in-app chat and email support, and MFA enforcement, addressing the needs of more complex projects and larger teams.
+**Good fit if:** your team is growing, you need stronger security controls, or you're starting to ship on console.
 
-**Enterprise Plan**
+### Studio
 
-Our Enterprise Plan is designed for companies managing big apps and/or multiple projects and teams, providing the most extensive support and customization options. It includes unlimited users and logins, unlimited user groups, and 1TB of storage, with the ability to add more as needed. Data retention is extended up to 1 year, with custom monthly crash and error limits tailored to your company's specific needs.&#x20;
+Studio is for studios of up to 25 shipping a real game. It includes one console platform (Xbox, PlayStation, or Nintendo Switch), with up to three available, and it includes SSO and self-hosted symbol servers.
 
-Additionally, this plan offers game console support (Xbox, PlayStation, and Nintendo Switch 2), tiered discounts, custom agreements, support for full memory crash dumps, SSO integration with custom authentication providers, a private support channel (Discord or Slack), and much more, ensuring that enterprises have all the tools and support necessary for managing large-scale software projects efficiently.
+**Good fit if:** you ship on at least one console and need higher crash volume across a larger team.
 
-Each of our plans is designed with flexibility in mind, allowing you to scale up as your projects grow. Whether you're just starting out or managing multiple large-scale applications, BugSplat has a plan that can meet your needs.
+### Enterprise
 
-## Paying for your plan
+Enterprise is for organizations running multiple teams under one account. Each team gets its own Team Space, with users, crash volume, and storage pooled across teams under one org bill. Enterprise also offers custom agreements and invoicing, plus optional add-ons like an SLA, a private support channel, full memory crash dumps, and longer retention.
 
-Upgrading your BugSplat plan is straightforward. Simply visit the Billing section under Company Settings in your account. Here, the "Change Plan" button allows you to choose between our Business or Team plans, set your desired monthly crash volume and storage, and select a billing frequency: monthly or yearly. After customizing your plan, click "Update" to review and enter your payment details.
+**Good fit if:** you have several teams or studios, need security reviews or custom terms, or need limits beyond Studio.
 
-For Team and Business plans, we accept all major credit cards, and choosing an annual payment option provides a saving equivalent to two months, compared to monthly billing. Enterprise plans can be paid annually via bank transfer or check, offering flexibility for larger organizations.
+Not sure which plan fits? [Talk to our team](mailto:sales@bugsplat.com) and we'll help you choose.
 
-This streamlined process ensures you can easily tailor BugSplat to your project's needs, with payment options designed for convenience and scalability.
+## Compare plans
 
-### Modifying Your Plan
+Prices are shown per month, billed yearly. Add-ons are priced at $10/mo per extra user login, $20/mo per 25,000 extra crashes, and $25/mo per 25 GB of extra storage. There's no overage billing.
 
-Team and Business account holders at BugSplat can adjust their plan anytime during their billing cycle for added flexibility. To initiate changes, navigate to the Billing page in your account and select the "Change Plan" button. This feature empowers you to modify key aspects of your plan, including the plan type and monthly crash & error volume. Notably, you can now opt to increase your storage space to better suit your project needs. Additionally, there's the convenience of choosing to pay on an annual basis.
+### Price and limits
 
-All plan modifications are seamlessly integrated into your current billing cycle, with adjustments pro-rated to ensure fairness and accuracy in billing.
+|                              | Free      | Starter                        | Pro                             | Studio                           | Enterprise                            |
+| ---------------------------- | --------- | ------------------------------ | ------------------------------- | -------------------------------- | ------------------------------------- |
+| Price                        | $0        | $24/mo ($290 billed yearly)    | $124/mo ($1,490 billed yearly)  | $624/mo ($7,490 billed yearly)   | Custom, quoted annually               |
+| User logins                  | 1         | 5, plus up to 5 more           | 10, plus up to 15 more          | 25, plus up to 25 more           | Unlimited, with 50 per team included  |
+| Crashes and errors per month | 10,000    | 25,000, plus up to 25,000 more | 50,000, plus up to 100,000 more | 150,000, plus up to 100,000 more | 250,000 per team, pooled; more quoted |
+| Crash data retention         | 60 days   | 180 days                       | 365 days                        | 365 days                         | 365 days; longer as an add-on         |
+| Included storage             | 10 GB     | 50 GB, plus up to 200 GB more  | 250 GB, plus up to 250 GB more  | 500 GB, plus up to 1.5 TB more   | 2 TB per team, pooled; more quoted    |
+| Applications and projects    | Unlimited | Unlimited                      | Unlimited                       | Unlimited                        | Unlimited                             |
+| Team Spaces                  | 1         | 1                              | 1                               | 1                                | Priced per team                       |
 
-Interested in transitioning to an Enterprise plan for even more comprehensive features? Reach out directly to our team by emailing sales@bugsplat.com. We're here to facilitate your upgrade and ensure your plan aligns perfectly with your project's scale and complexity.
+### Crash reporting and debugging
+
+|                                                      | Free                                  | Starter                       | Pro                           | Studio                                    | Enterprise                             |
+| ---------------------------------------------------- | ------------------------------------- | ----------------------------- | ----------------------------- | ----------------------------------------- | -------------------------------------- |
+| Full crash and error event data                      | ✓                                     | ✓                             | ✓                             | ✓                                         | ✓                                      |
+| Intelligent crash grouping                           | ✓                                     | ✓, plus custom grouping rules | ✓, plus custom grouping rules | ✓, plus custom grouping rules             | ✓, plus custom grouping rules          |
+| Automated symbol upload                              | ✓                                     | ✓                             | ✓                             | ✓                                         | ✓                                      |
+| Crash expiry controls                                | ✓                                     | ✓                             | ✓                             | ✓                                         | ✓                                      |
+| Crash dialog                                         | BugSplat link; editor in preview only | Your branding                 | Your branding                 | Your branding                             | Your branding                          |
+| Additional and self-hosted symbol servers            | —                                     | —                             | $50/mo add-on                 | ✓                                         | ✓                                      |
+| Console support (Xbox, PlayStation, Nintendo Switch) | —                                     | —                             | Up to three, $299/mo each     | One included; up to three at $299/mo each | One per team included; more as add-ons |
+| Full memory crash dumps                              | —                                     | —                             | —                             | —                                         | Add-on                                 |
+
+### Integrations and alerts
+
+|                                                           | Free         | Starter | Pro | Studio | Enterprise     |
+| --------------------------------------------------------- | ------------ | ------- | --- | ------ | -------------- |
+| GitHub and GitHub Issues                                  | ✓            | ✓       | ✓   | ✓      | ✓              |
+| Email alerts                                              | ✓            | ✓       | ✓   | ✓      | ✓              |
+| API and MCP access                                        | Rate limited | ✓       | ✓   | ✓      | Highest limits |
+| Jira, Azure DevOps, GitLab, YouTrack, Monday.com, ClickUp | —            | ✓       | ✓   | ✓      | ✓              |
+| Slack, Microsoft Teams, and Discord alerts                | —            | ✓       | ✓   | ✓      | ✓              |
+| Webhooks                                                  | —            | ✓       | ✓   | ✓      | ✓              |
+
+### Security and privacy
+
+|                                  | Free                | Starter | Pro           | Studio | Enterprise |
+| -------------------------------- | ------------------- | ------- | ------------- | ------ | ---------- |
+| SOC 2 Type II and GDPR compliant | ✓                   | ✓       | ✓             | ✓      | ✓          |
+| Per-database access controls     | ✓                   | ✓       | ✓             | ✓      | ✓          |
+| Multi-factor authentication      | With Google sign-in | ✓       | ✓             | ✓      | ✓          |
+| PII obfuscation                  | —                   | ✓       | ✓             | ✓      | ✓          |
+| Internal IP address capture      | —                   | —       | ✓             | ✓      | ✓          |
+| Company-wide MFA enforcement     | —                   | —       | ✓             | ✓      | ✓          |
+| SSO with your identity provider  | —                   | —       | $75/mo add-on | ✓      | ✓          |
+
+### Support and terms
+
+|                                     | Free | Starter | Pro | Studio | Enterprise |
+| ----------------------------------- | ---- | ------- | --- | ------ | ---------- |
+| Documentation and community support | ✓    | ✓       | ✓   | ✓      | ✓          |
+| Fair refund policy                  | ✓    | ✓       | ✓   | ✓      | ✓          |
+| Email support                       | —    | ✓       | ✓   | ✓      | ✓          |
+| Priority support                    | —    | —       | ✓   | ✓      | ✓          |
+| In-app chat support                 | —    | —       | ✓   | ✓      | ✓          |
+| Support SLA                         | —    | —       | —   | —      | Add-on     |
+| Private support channel             | —    | —       | —   | —      | Add-on     |
+| Custom agreements and invoicing     | —    | —       | —   | —      | ✓          |
+
+## Upgrading your plan
+
+Upgrading your BugSplat plan is straightforward. In your account, go to the [Billing](https://app.bugsplat.com/v2/company/billing) section under Company Settings and click **Change Plan**. From there you can choose Starter, Pro, or Studio, add any add-ons you need, and choose to be billed monthly or yearly. After you customize your plan, click **Update** to review it and enter your payment details.
+
+All paid plans can add extra user logins, crashes, and storage. Pro and Studio can also add console platforms, and Pro can add SSO and self-hosted symbol servers.
+
+We accept all major credit cards for Starter, Pro, and Studio. Choosing yearly billing saves the equivalent of two months compared to monthly billing. Enterprise plans are billed annually and can be paid by bank transfer or check, which gives larger organizations more flexibility.
+
+This process makes it easy to tailor BugSplat to your project's needs, with payment options designed for convenience and growth.
+
+### Modifying your plan
+
+If you're on Starter, Pro, or Studio, you can adjust your plan at any time during your billing cycle. Go to the [Billing](https://app.bugsplat.com/v2/company/billing) page in your account and click **Change Plan**. From there you can switch plans, add or remove add-ons for user logins, crashes, and storage, or switch to yearly billing. Pro and Studio teams can also adjust console platforms, and Pro teams can add or remove SSO and self-hosted symbol servers.
+
+All plan changes apply to your current billing cycle and are prorated, so you're billed fairly and accurately.
+
+Thinking about moving to Enterprise for multiple teams, pooled volume, or custom terms? Email us at [sales@bugsplat.com](mailto:sales@bugsplat.com). We'll help with the upgrade and make sure your plan fits your organization's scale and complexity.
 
 ## General questions on plans and billing
 
 #### What is a crash or error?
 
-BugSplat client libraries integrate with your code to capture exception information and send it to the BugSplat website. That package of information is called a crash or error report. Each report equals one crash or error.
+BugSplat client libraries integrate with your code to capture exception information and send it to the BugSplat website. That package of information is called a crash or error report. Each report counts as one crash or error.
 
 #### How many crashes do I need?
 
-Choose the lowest volume plan that will cover your current annual crash rate. If you don’t know how many crashes you’re likely to post in a year, don't hesitate to get in touch with [sales@bugsplat.com](mailto:sales@bugsplat.com), and we can assist with an estimate.
+Choose the plan that covers your typical monthly crash volume. If you're close to a plan's limit, you can add more crashes to Starter, Pro, or Studio instead of moving up a plan. If you're not sure how many crashes you'll send each month, email [sales@bugsplat.com](mailto:sales@bugsplat.com) and we'll help you estimate.
+
+#### What happens when I send more crashes or errors than my plan includes?
+
+BugSplat collects every crash and error your applications send, up to your plan's monthly limit. After you reach that limit, any further reports are rejected for the rest of the month. There are no overage charges.
+
+If you regularly reach your limit, you can add more crashes to Starter, Pro, or Studio, or upgrade to a higher plan at any time, so you don't miss the crashes that matter.
 
 #### How do I integrate BugSplat?
 
-Adding BugSplat to your application is a straightforward and well-documented process detailed in full in the [Getting Started](https://docs.bugsplat.com/introduction/getting-started) section of our docs. After you sign up for a free trial, BugSplat will walk you through the process of configuring your app or game to send crash and error data to BugSplat.
+Adding BugSplat to your application is a straightforward process, and it's covered in full in the [Getting Started](../../introduction/getting-started/README.md) section of our docs. After you sign up, BugSplat walks you through configuring your app or game to send crash and error data.
 
 #### Are prices for individual projects?
 
-No, BugSplat encourages using your account for multiple projects or games. Each project should be managed under a different "app", and if your account run's out of "apps", then it's easy and economical to add more to your plan.
+No. Every plan includes unlimited applications and projects, so you can use one account for all of your apps and games.
 
 #### Can I pay yearly?
 
-Absolutely. You can see the annual prices by toggling the button above the pricing table to "Annual". There’s a two-month discount if you choose to pay upfront for your plan.
+Yes. Paid plans can be billed monthly or yearly, and yearly billing saves the equivalent of two months compared to paying monthly.
 
 #### What currency are plans listed in?
 
-All amounts listed in BugSplat and our documentation are in U.S. Dollars (USD).
+All amounts in BugSplat and our documentation are in U.S. dollars (USD).
 
 #### What payment methods are supported?
 
-We support payments by all major credit cards and bank transfers. For Enterprise Plans, users are free to pay by check.
+Starter, Pro, and Studio can be paid by any major credit card. Enterprise plans can also be paid by bank transfer or check.
 
 #### I'm part of a non-profit or charitable cause. Is there a discount?
 
-BugSplat provides discounted and free plans for non-profit and charitable causes. It's our way of supporting the community and giving back to people doing great things online. If you think you qualify, please see our docs.
+BugSplat offers discounted and free plans for non-profit and charitable causes. It's our way of giving back to people doing great things. If you think you qualify, please see our [Free and Discounted Plans](free-plans-from-bugsplat/README.md) docs.
 
-#### Can I collect more crashes or errors than are listed above?
+#### Can I collect more crashes or errors than my plan includes?
 
-Yes, our Enterprise plan can cover any level of crash or error volume you need. Please get in touch with [sales@bugsplat.com](https://mailtio:sales@bugsplat.com) to learn more.
+Yes. Starter can add up to 25,000 more crashes per month, and Pro and Studio can each add up to 100,000 more. If you need more than that, Enterprise covers any volume you need. Email [sales@bugsplat.com](mailto:sales@bugsplat.com) to learn more.
+
+#### Which plans support console platforms?
+
+Console support for Xbox, PlayStation, and Nintendo Switch is available on Pro, Studio, and Enterprise. Studio includes one console platform, and Enterprise includes one per team. Pro and Studio can add up to three platforms in total, and Enterprise can add more.
 
 #### What is a User Group?
 
-At BugSplat, User Groups are designed to offer a flexible and efficient way to manage and organize teams within your organization. This feature allows for seamless project and error monitoring, catering to the dynamic needs of large organizations. By establishing User Groups, administrators can assign specific databases and set unique permissions for different teams. This ensures tailored access for team members and facilitates the efficient management of multiple projects simultaneously.
+User Groups let administrators organize the people in their account and control what each team can see. You can assign specific databases to a User Group and set permissions for its members. For example, you can separate access for front-end and back-end developers, or give your QA team its own permissions.
 
-User Groups are pivotal in simplifying permission settings across expansive teams and can be aligned to mirror your organization's structure. Whether it’s segregating access between front-end and back-end development groups or creating distinct permissions for quality assurance teams, User Groups enhance collaboration and project oversight.
+#### What is a Team Space?
+
+A Team Space is a team with its own users, crash volume, and settings. Starter, Pro, and Studio each include one Team Space. Enterprise lets you run multiple Team Spaces under one organization, with users, crashes, and storage pooled across teams and one org bill. Enterprise is priced per team.
 
 #### Can I manage more than one project, application, or game with my plan?
 
-Absolutely. At BugSplat, we've designed our plans with flexibility in mind, allowing you to manage various projects efficiently through User Groups instead of limiting you to a specific number of "apps." Each plan tier accommodates a different volume of projects, reflecting the diverse needs of our users:
-
-* **Free Plan:** This tier is perfect for small teams or individuals just starting out, offering essential tools and features to manage a limited number of projects.
-* **Team Plan:** Ideal for growing teams, this plan provides enhanced User Group functionalities and is designed to support an increased number of projects, fostering collaboration and efficient error monitoring.
-* **Business Plan:** Aimed at larger teams with more complex needs, the Business Plan allows for comprehensive project management across numerous initiatives, with advanced User Group capabilities for detailed access control and oversight.
-* **Enterprise Plan:** The ultimate solution for large organizations managing multiple large-scale projects, offering the highest level of customization, unlimited User Groups, and the ability to tailor the platform to match extensive project portfolios.
-
-It's important to note that there are no limits on databases, versions, or "apps" within BugSplat. Our platform is built to ensure that you have the flexibility to manage and monitor crashes and errors across all your projects without any restrictions. Whether you're working on a single project or overseeing multiple initiatives, BugSplat's scalable solutions are designed to adapt to your specific requirements, facilitating efficient and effective project management.
+Yes. There are no limits on applications, projects, databases, or versions on any plan, including Free. You can organize your projects with User Groups. On Enterprise, you can also split work across multiple Team Spaces.
 
 #### Can I add more users to my account?
 
-Yup! Both the Team and Business plans allow you to add additional users whenever you want. Learn more in the doc '[Adding Additional Users and Apps to Your Plan](upgrading-changing-or-canceling-your-plan/adding-additional-users-and-apps-to-your-plan.md)'.
-
-#### Do I have to process all my crashes and errors, or can I process some fraction of them?
-
-Users on the Business and Enterprise plan have the option to process a percentage of their crash volume using the [High Volume Fractional Crash Processing](plans-upgrades-and-payments-faq/what-is-high-volume-fractional-crash-processing.md) tool.
-
-#### What happens when I post more crashes or errors than are in my plan?
-
-By default, BugSplat collects all crashes and errors submitted from an application. When a plan's level is exceeded, upgrading to a larger plan could be advisable.
-
-For **Business plans**, BugSplat can distribute a collection of crashes over high volume times to collect crash data more economically via a Fractional Crash Collection process.
-
-For **Team plans**, crashes are rejected once an account surpasses 100,000 crashes or errors per month. If those additional crashes are critical, users can upgrade at any point to the Business plan and continue tracking those crashes.
+Yes. Starter, Pro, and Studio can add user logins at checkout or whenever you change your plan. Starter can add up to 5, Pro up to 15, and Studio up to 25. Enterprise includes unlimited users. Learn more in the doc '[Adding Users, Crashes, and Storage to Your Plan](upgrading-changing-or-canceling-your-plan/adding-users-crashes-and-storage-to-your-plan.md)'.

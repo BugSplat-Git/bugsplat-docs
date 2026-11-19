@@ -40,7 +40,7 @@ Need help setting up your integration?  See the following instructions for some 
 * OneLogin: [How do I set up OneLogin as a SAML identity provider with an Amazon Cognito user pool?](https://aws.amazon.com/premiumsupport/knowledge-center/cognito-saml-onelogin/)
 * PingFederate: [PingOne for Enterprise Administration Guide: Add or update a SAML application](https://docs.pingidentity.com/pingoneforenterprise/pingone_for_enterprise/p14e_add_update_saml_application.html)
 
-Note:  SSO integration is a premium feature that requires a BugSplat Enterprise subscription.
+Note:  SSO integration is included on the Studio and Enterprise plans, and Pro teams can add it for $75/mo. See the [Plans and Billing Overview](../billing/plans-and-billing-guide.md) for details.
 
 ## SSO Authorization
 

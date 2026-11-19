@@ -4,13 +4,11 @@
 Starting a new Windows, macOS or Linux integration? [BugSplat Native 9.0](../native/) is the successor to the Windows C++ and macOS SDKs below: one out-of-process crash reporter with the same dialog and support response on every desktop platform.
 {% endhint %}
 
-BugSplat provides best-in-class support for desktop software: native Windows [C++](cplusplus/) and [.NET Framework](windows-dot-net-framework.md) applications, [.NET Standard](dot-net-standard.md), [macOS](macos.md) 11.5+ (including ARM Macs), and [Linux](linux.md). It also covers cross-platform desktop frameworks and languages ([Electron](electron.md), [Qt](qt.md), [Java](java.md), and [Python](python.md)), plus the native [Crashpad](crashpad) and [Breakpad](breakpad.md) crash handlers. Take a look at the guides below to configure crash reporting in your app.
+BugSplat provides best-in-class support for desktop software: native Windows [C++](windows/) and [.NET and .NET Framework](bugsplat-for-dot-net.md) applications, [macOS](macos.md) 11.5+ (including ARM Macs), and [Linux](linux.md). It also covers cross-platform desktop frameworks and languages ([Electron](electron.md), [Qt](qt.md), [Java](java.md), [Python](python.md), and [Rust and Tauri](rust.md)), plus the native [Crashpad](crashpad) and [Breakpad](breakpad.md) crash handlers. Take a look at the guides below to configure crash reporting in your app.
 
-{% page-ref page="cplusplus/" %}
+{% page-ref page="windows/" %}
 
-{% page-ref page="windows-dot-net-framework.md" %}
-
-{% page-ref page="dot-net-standard.md" %}
+{% page-ref page="bugsplat-for-dot-net.md" %}
 
 {% page-ref page="macos.md" %}
 
@@ -23,6 +21,8 @@ BugSplat provides best-in-class support for desktop software: native Windows [C+
 {% page-ref page="java.md" %}
 
 {% page-ref page="python.md" %}
+
+{% page-ref page="rust.md" %}
 
 {% page-ref page="crashpad" %}
 

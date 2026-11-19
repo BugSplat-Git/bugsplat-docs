@@ -12,9 +12,9 @@ The support response can also provide a default message used in the absence of a
 
 ## Creating a Crash-specific Support Response
 
-Navigate to the desired **Key Crash** page by clicking a [stack key](../../education/bugsplat-terminology.md#stack-key) link from any crash report or from the **Summary** page.
+Navigate to the desired [**Crash Group**](../development/using-the-app.md#crash-group-page) page by clicking a [stack key](../../education/bugsplat-terminology.md#stack-key) link from any crash report or from the **Summary** page.
 
-Once on the desired **Key Crash** page, click the **Support Response** button. This will bring you to the **Support Response** page. Here you can craft your crash-specific support response.
+Once on the desired **Crash Group** page, click the **Support Response** button. This will bring you to the **Support Response** page. Here you can craft your crash-specific support response.
 
 <figure><img src="../../.gitbook/assets/support-response-2023.png" alt=""><figcaption></figcaption></figure>
 

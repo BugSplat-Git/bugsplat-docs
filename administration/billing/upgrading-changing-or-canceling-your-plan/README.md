@@ -8,8 +8,8 @@ The below linked documents serve as your roadmap to customizing your BugSplat pl
 [upgrading-or-downgrading-your-plan.md](upgrading-or-downgrading-your-plan.md)
 {% endcontent-ref %}
 
-{% content-ref url="adding-additional-users-and-apps-to-your-plan.md" %}
-[adding-additional-users-and-apps-to-your-plan.md](adding-additional-users-and-apps-to-your-plan.md)
+{% content-ref url="adding-users-crashes-and-storage-to-your-plan.md" %}
+[adding-users-crashes-and-storage-to-your-plan.md](adding-users-crashes-and-storage-to-your-plan.md)
 {% endcontent-ref %}
 
 {% content-ref url="managing-payment-details.md" %}

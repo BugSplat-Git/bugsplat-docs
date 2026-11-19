@@ -5,7 +5,9 @@ redirects:
   education/faq/how-do-i-remove-symbol-files: introduction/development/working-with-symbol-files/managing-symbol-storage.md
   introduction/development/working-with-symbol-files/automatic-symbol-cleanup: introduction/development/working-with-symbol-files/managing-symbol-storage.md
   introduction/getting-started/integrations/cross-platform: introduction/getting-started/integrations/desktop/README.md
-  introduction/getting-started/integrations/cross-platform/dot-net-standard: introduction/getting-started/integrations/desktop/dot-net-standard.md
+  introduction/getting-started/integrations/cross-platform/dot-net-standard: introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md
+  introduction/getting-started/integrations/desktop/dot-net-standard: introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md
+  introduction/getting-started/posting-a-test-crash/my-dotnet-crasher: introduction/getting-started/posting-a-test-crash/mydotnetcrasher/README.md
   introduction/getting-started/integrations/cross-platform/electron: introduction/getting-started/integrations/desktop/electron.md
   introduction/getting-started/integrations/cross-platform/qt: introduction/getting-started/integrations/desktop/qt.md
   introduction/getting-started/integrations/cross-platform/java: introduction/getting-started/integrations/desktop/java.md
@@ -14,7 +16,9 @@ redirects:
   introduction/getting-started/integrations/cross-platform/crashpad: introduction/getting-started/integrations/desktop/crashpad/README.md
   introduction/getting-started/integrations/cross-platform/crashpad/how-to-build-google-crashpad: introduction/getting-started/integrations/desktop/crashpad/how-to-build-google-crashpad.md
   introduction/getting-started/integrations/cross-platform/node.js: introduction/getting-started/integrations/web/node.js.md
-  introduction/getting-started/integrations/cross-platform/deno: introduction/getting-started/integrations/web/deno.md
+  introduction/getting-started/integrations/cross-platform/deno: introduction/getting-started/integrations/web/README.md
+  introduction/getting-started/integrations/web/deno: introduction/getting-started/integrations/web/README.md
+  introduction/getting-started/integrations/desktop/windows-dot-net-framework: introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md
   administration/introduction: administration/user-management/README.md
   administration/introduction/user-permissions: administration/user-management/user-permissions.md
   administration/introduction/permanently-deleting-a-user-account: administration/user-management/permanently-deleting-a-user-account.md
@@ -26,3 +30,17 @@ redirects:
   administration/introduction/multi-factor-authentication-mfa: administration/user-management/multi-factor-authentication-mfa.md
   administration/introduction/enforce-mfa: administration/user-management/enforce-mfa.md
   administration/introduction/adding-new-users-in-companies-with-multiple-databases: administration/user-management/adding-new-users-in-companies-with-multiple-databases.md
+  administration/billing/upgrading-changing-or-canceling-your-plan/adding-additional-users-and-apps-to-your-plan: administration/billing/upgrading-changing-or-canceling-your-plan/adding-users-crashes-and-storage-to-your-plan.md
+  administration/billing/plans-upgrades-and-payments-faq/what-is-high-volume-fractional-crash-processing: administration/billing/plans-and-billing-guide.md
+  integrations/desktop/cplusplus: introduction/getting-started/integrations/desktop/windows/README.md
+  introduction/getting-started/integrations/desktop/cplusplus: introduction/getting-started/integrations/desktop/windows/README.md
+  integrations/desktop/cplusplus/how-the-windows-crash-reporter-works: introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md
+  introduction/getting-started/integrations/desktop/cplusplus/how-the-windows-crash-reporter-works: introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md
+  integrations/desktop/cplusplus/full-memory-dumps: introduction/getting-started/integrations/desktop/windows/full-memory-dumps.md
+  introduction/getting-started/integrations/desktop/cplusplus/full-memory-dumps: introduction/getting-started/integrations/desktop/windows/full-memory-dumps.md
+  integrations/desktop/cplusplus/dependencies: introduction/getting-started/integrations/desktop/windows/dependencies.md
+  introduction/getting-started/integrations/desktop/cplusplus/dependencies: introduction/getting-started/integrations/desktop/windows/dependencies.md
+  integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide: introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-upgrade-guide.md
+  introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide: introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-upgrade-guide.md
+  integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation: introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-api-documentation.md
+  introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation: introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-api-documentation.md

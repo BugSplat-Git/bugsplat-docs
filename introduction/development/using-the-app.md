@@ -58,7 +58,7 @@ The **Report Details** panel contains information about the crash and the user w
 
 ### Active Thread
 
-The **Method** column contains a list of functions in the stack trace of the thread that caused the program to crash. Depending on the [platform](../getting-started/integrations/) you may see methods that don't match your source code. This is because platforms such as [Windows Native](../getting-started/integrations/desktop/cplusplus/), [.NET Framework](../getting-started/integrations/desktop/windows-dot-net-framework.md), [Crashpad](../getting-started/integrations/desktop/crashpad), [Breakpad](../getting-started/integrations/desktop/breakpad.md), [macOS](../getting-started/integrations/desktop/macos.md), [Unity Native](../getting-started/integrations/game-development/unity.md), and [Unreal](../getting-started/integrations/game-development/unreal-engine.md) require you to upload [symbols](working-with-symbol-files/) for each version you release in order to calculate the correct method names. For more information on how to upload symbols please see the documentation for your [platform](../getting-started/integrations/).
+The **Method** column contains a list of functions in the stack trace of the thread that caused the program to crash. Depending on the [platform](../getting-started/integrations/) you may see methods that don't match your source code. This is because platforms such as [Windows Native](../getting-started/integrations/desktop/windows/), [.NET](../getting-started/integrations/desktop/bugsplat-for-dot-net.md), [Crashpad](../getting-started/integrations/desktop/crashpad), [Breakpad](../getting-started/integrations/desktop/breakpad.md), [macOS](../getting-started/integrations/desktop/macos.md), [Unity Native](../getting-started/integrations/game-development/unity.md), and [Unreal](../getting-started/integrations/game-development/unreal-engine.md) require you to upload [symbols](working-with-symbol-files/) for each version you release in order to calculate the correct method names. For more information on how to upload symbols please see the documentation for your [platform](../getting-started/integrations/).
 
 ![](../../.gitbook/assets/active-thread-july-21.png)
 
@@ -66,7 +66,7 @@ Clicking the **>** (greater than symbol) in the left-most column will expand the
 
 The **Row Details** view will display the **Group Rules**, **Ignore Function**, and **Ignore File** buttons that will allow you to [modify the way your reports are grouped](grouping-crashes.md). Grouping at a different level of the call stack is called [subkeying](../../education/bugsplat-terminology.md#subkey) and is useful in cases such as a crash that occurs in a 3rd party library, or when additional stack frames are added by a crash reporter.
 
-Additionally, for [Windows Native](../getting-started/integrations/desktop/cplusplus/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments.](https://blog.bugsplat.com/local-variables-function-arguments/)
+Additionally, for [Windows Native](../getting-started/integrations/desktop/windows/) crashes the **Row Details** view will show a table of [Local Variables and Function Arguments.](https://blog.bugsplat.com/local-variables-function-arguments/)
 
 The Crash page includes valuable information like crash time, environment, corresponding function name and line number, containing [stack key](../../education/bugsplat-terminology.md#stack-key), and much more.
 
@@ -100,4 +100,4 @@ The Summary page has a line chart at the top of the page which shows the top sta
 
 The **Crash Group** page shows a more in-depth view of all crashes found in a [stack key](../../education/bugsplat-terminology.md#stack-key) and allows users to explore individual crashes, leave comments for team members, create defects based on the crash group, and more.
 
-Companies that are using BugSplat's [Windows C++ SDK](../getting-started/integrations/desktop/cplusplus/) can create [Custom Support Responses](../production/setting-up-custom-support-responses.md) to alert their end-users to known issues identified with BugSplat. Support responses are a valuable tool for communicating with end-users about known fixes or pointing them toward specific helpful docs.
+Companies that are using BugSplat's [Windows C++ SDK](../getting-started/integrations/desktop/windows/) can create [Custom Support Responses](../production/setting-up-custom-support-responses.md) to alert their end-users to known issues identified with BugSplat. Support responses are a valuable tool for communicating with end-users about known fixes or pointing them toward specific helpful docs.

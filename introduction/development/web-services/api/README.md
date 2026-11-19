@@ -60,29 +60,27 @@ Most API endpoints support a "database={name}" parameter to specify which BugSpl
 
 ### Curl Example
 
-You can access the web services with a variety of tools. Here’s an example using Curl to connect to the Fred database:
+You can access the web services with a variety of tools. The API authenticates with an [OAuth2](../oauth2.md) Client ID and Client Secret, which you can create on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. Here’s an example using Curl to exchange them for an access token and query the Fred database:
 
-```
-rm cookies.txt
-curl -b cookies.txt -c cookies.txt --data "email=fred@bugsplat.com&password=Flintstone" https://app.bugsplat.com/api/authenticatev3
-curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/allCrash?database=Fred"
-curl -b cookies.txt -c cookies.txt "https://app.bugsplat.com/api/crash/data?id=58464&database=Fred"
+```bash
+token=$(curl -s https://app.bugsplat.com/oauth2/authorize \
+  -F grant_type=client_credentials \
+  -F client_id="$BUGSPLAT_CLIENT_ID" \
+  -F client_secret="$BUGSPLAT_CLIENT_SECRET" \
+  | jq -r .access_token)
+
+curl -H "Authorization: Bearer $token" "https://app.bugsplat.com/api/crashes?database=Fred"
+curl -H "Authorization: Bearer $token" "https://app.bugsplat.com/api/crash/data?id=58464&database=Fred"
 ```
 
-Escaping special characters in email and password fields can be challenging.  If your authentication isn't working, try posting to [httpbin.org/post](https://httpbin.org/post) and check the parameters that are returned.  You may need to URL-encode the email and password values.  For example:
-
-```
-curl --data "email=test+app@bugsplat.com&password=ABCHi&898S$QQ" https://httpbin.org/post
-```
+Access tokens expire after 24 hours. Request a new one with the same Client ID and Client Secret when yours expires.
 
 ### Postman Collection
 
 Several of our API endpoints can be tested via our public [Postman collection](https://www.postman.com/bugsplat/bugsplat-public-workspace/overview).
 
-First, click the top-level `BugSplat` collection folder, select the `Variables` tab, and input variables as necessary. You can make most requests automatically by providing values for `client_id`and `client_secret` generated on our Integrations page.
-
-For requests requiring additional permissions, you'll need to run the `Admin/Authenticate` request. Clear your Postman cookies before switching from OAuth2 to Admin/Authenticate.
+First, click the top-level `BugSplat` collection folder, select the `Variables` tab, and input variables as necessary. Requests authenticate automatically when you provide values for `client_id` and `client_secret` generated on our [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.
 
 ## Special Rules for POST Requests
 
-When POSTing data to BugSplat endpoints, additional steps are required to meet our Cross-Site Request Forgery (XSRF) safety checks. After authenticating, you will receive a cookie named `xsrf-token`. Send the xsrf-token key/value as a **header** in all POST requests.
+Requests authenticated with an OAuth2 bearer token don't need an XSRF token. The `Authorization` header is all a POST request needs.
