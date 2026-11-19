@@ -23,7 +23,7 @@ The **Crash Dialog** box is the end-user, customer-facing aspect of BugSplat. Th
 
 ### Crash Group
 
-Similar crashes are grouped together by the stack frame where the error occurred and identify the root cause of multiple crash reports. The [**Summary**](https://app.bugsplat.com/v2/summary) page displays a list of crash groups. The **Key Crash** page displays a single crash group with a list of all the individual crashes belonging to the group.
+Similar crashes are grouped together by the stack frame where the error occurred and identify the root cause of multiple crash reports. The [**Summary**](https://app.bugsplat.com/v2/summary) page displays a list of crash groups. The [**Crash Group**](../introduction/development/using-the-app.md#crash-group-page) page displays a single crash group with a list of all the individual crashes belonging to the group.
 
 By default, a Crash Group is identified by the function name and line number at the top of the stack of the crashing thread. However, you can [specify a list of rules](../introduction/development/grouping-crashes.md) that will automatically skip or group at specific [stack frames](bugsplat-terminology.md#stack-frame). Crash Grouping is useful for regrouping crashes that would otherwise be grouped by uninteresting stack frames such as system calls or third-party code. For more information about creating Crash Groups, please see [grouping crashes](https://docs.bugsplat.com/introduction/development/grouping-crashes).
 

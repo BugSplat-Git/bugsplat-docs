@@ -7,7 +7,7 @@ description: Rebrand, reword, and add links to the Windows crash dialog with a t
 On Windows, the crash dialog your users see is shown by `BugSplatReporter.exe`. It reads its colors, fonts, layout, logo, and wording from a `BugSplatTheme` folder at run time. Nothing is compiled: edit a file, preview the dialog, and ship the folder with your application.
 
 {% hint style="warning" %}
-**Upgrading from BugSplat for Windows 8.x?** The theme folder replaces `BugSplatRc.dll`, which no longer exists in 9.0.0. If you customized the dialog by editing `BugSplatRc.rc` and rebuilding the DLL, those changes don't carry forward; re-create them in `theme.json` and `strings.en-US.json` as described below. See the [upgrade guide](../../introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md#upgrading-to-9.0.0).
+**Upgrading from BugSplat for Windows 8.x?** The theme folder replaces `BugSplatRc.dll`, which no longer exists in 9.0.0. If you customized the dialog by editing `BugSplatRc.rc` and rebuilding the DLL, those changes don't carry forward; re-create them in `theme.json` and `strings.en-US.json` as described below. See the [upgrade guide](../../introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-upgrade-guide.md#upgrading-to-9.0.0).
 {% endhint %}
 
 For macOS, see the [Crash Reporter Customization](../../introduction/getting-started/integrations/desktop/macos.md#crash-reporter-customization) section of the macOS guide.
@@ -221,7 +221,7 @@ The dialog is a single column, in this order: banner, headline, body text, descr
 | `requireEmail` | `false` | Keep **Send report** disabled until the Email field contains something with an `@` in the middle. It's ignored if `showEmail` is `false`, so the dialog can always be sent. |
 | `autoCloseSeconds` | `0` | Send the report and close the dialog after this many seconds, up to 3600. `0` turns it off. |
 
-`autoCloseSeconds` is for machines with nobody in front of them, such as kiosks, test rigs, and build agents. The countdown always **sends** the report, never discards it, and any key press or click cancels it for good. To show no dialog at all, use [quiet mode](../../introduction/getting-started/integrations/desktop/cplusplus/how-the-windows-crash-reporter-works.md#quiet-mode-and-unattended-machines) instead.
+`autoCloseSeconds` is for machines with nobody in front of them, such as kiosks, test rigs, and build agents. The countdown always **sends** the report, never discards it, and any key press or click cancels it for good. To show no dialog at all, use [quiet mode](../../introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md#quiet-mode-and-unattended-machines) instead.
 
 ### Editing the Text ✍️
 

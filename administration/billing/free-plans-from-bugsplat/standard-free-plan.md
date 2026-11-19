@@ -1,6 +1,6 @@
 # Free Plan Overview
 
-BugSplat wants to help all hackers, those getting started, and do-it-yourselfers to have access to world-class crash reporting. Because of that, we provide a Free Plan that covers 3 users, one user group, up to 15,000 monthly errors and crashes and a suite of key features to help your project succeed.
+BugSplat wants to help all hackers, those getting started, and do-it-yourselfers to have access to world-class crash reporting. Because of that, we provide a Free Plan that covers 1 user, up to 10,000 monthly errors and crashes, 10 GB of storage, and a suite of key features to help your project succeed.
 
 #### How long does the free plan last?
 
@@ -16,4 +16,4 @@ To get started with the Standard Free Plan, follow the below steps:
 
 1. Sign up for an account [here](https://app.bugsplat.com/v2/sign-up).
 2. Follow the [Getting Started](../../../introduction/getting-started/) docs to set up your account.
-3. Use BugSplat normally and stay within the plan's guidelines (3 users,  1 User Group, and less than 15,000 monthly errors and crashes).  Will have the chance to select the Free plan at the end of the [Free Trial](../free-trial.md).
+3. Use BugSplat normally and stay within the plan's guidelines (1 user, 10 GB of storage, and less than 10,000 monthly errors and crashes).  Will have the chance to select the Free plan at the end of the [Free Trial](../free-trial.md).

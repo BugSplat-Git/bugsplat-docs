@@ -6,9 +6,9 @@ description: >-
 
 # MyDotNetFrameworkHostCrasher (C++ hosting .NET Framework)
 
-`MyDotNetFrameworkHostCrasher` is for applications that are native C++ programs which load the .NET Framework and call into C# code. The sample's C++ program initializes the [BugSplat native SDK](../../integrations/desktop/cplusplus/), starts the .NET Framework 4.7.2 runtime, and calls into a C# library that crashes. The report's call stack shows the C# frames on top of the C++ program's own frames.
+`MyDotNetFrameworkHostCrasher` is for applications that are native C++ programs which load the .NET Framework and call into C# code. The sample's C++ program initializes the [BugSplat native SDK](../../integrations/desktop/windows/), starts the .NET Framework 4.7.2 runtime, and calls into a C# library that crashes. The report's call stack shows the C# frames on top of the C++ program's own frames.
 
-To get started, download the BugSplat SDK for .NET by clicking [here](https://app.bugsplat.com/browse/download_item.php?item=dotnet), then unzip it.
+To get started, clone the [Samples](https://github.com/BugSplat-Git/Samples) repository, or [download the BugSplat SDK for .NET](https://app.bugsplat.com/download/bugsplat-dotnet.zip) and unzip it.
 
 1. Open `MyDotNetFrameworkHostCrasher.sln` with Visual Studio 2022+.
 2. Define a value for `BUGSPLAT_DATABASE` in `Samples\MyDotNetFrameworkHostCrasher\MyDotNetFrameworkHostCrasher.h`.
@@ -42,6 +42,6 @@ Add `/Quiet` to skip the crash dialog. Run the program with no arguments to see 
 
 ### How It Works
 
-BugSplat is initialized in the C++ program, before the .NET Framework runtime starts, so its exception handling is in place when the C# code runs. The program calls `SetCrashType(8)`, which tells BugSplat to resolve the managed (C#) frames in its minidumps. To report crashes from your own C++ application that hosts .NET, follow [BugSplat for Windows (C++)](../../integrations/desktop/cplusplus/) and add that same call. If your application is a managed .NET Framework or .NET 10 program instead, use [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md).
+BugSplat is initialized in the C++ program, before the .NET Framework runtime starts, so its exception handling is in place when the C# code runs. The program calls `SetCrashType(8)`, which tells BugSplat to resolve the managed (C#) frames in its minidumps. To report crashes from your own C++ application that hosts .NET, follow [BugSplat for Windows (C++)](../../integrations/desktop/windows/) and add that same call. If your application is a managed .NET Framework or .NET 10 program instead, use [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md).
 
-A stack overflow in the C# code isn't reported: the .NET Framework ends the process without running any exception handlers, and reports it only through its own Windows Error Reporting event.
+A stack overflow in the C# code ends the process without running any exception handlers, so the native SDK's handlers never see it. The .NET Framework reports it through Windows Error Reporting (WER) instead, and BugSplat captures it there when `BugSplatWer.dll` is registered with WER, as described in [Windows Error Reporting](../../integrations/desktop/bugsplat-for-dot-net.md#windows-error-reporting): `BugSplat.dll` places the .NET Framework's own WER helper, which files `CLR20r3` reports, behind `BugSplatWer.dll`, so `BugSplatWer.dll` claims the crash first. The sample doesn't have a stack overflow mode.

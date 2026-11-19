@@ -2,7 +2,7 @@
 
 To register an account with BugSplat, visit the [Sign Up](https://app.bugsplat.com/v2/sign-up) page and enter your first name, last name, company email (or another email you wish to be associated with your account), and a password. Passwords must be 14-64 characters and include an uppercase letter, a lowercase letter, a number, and a symbol. You'll be asked to re-enter your password to confirm it.
 
-![](<../../.gitbook/assets/Screen Shot 2021-08-24 at 9.55.33 AM.png>)
+<figure><img src="../../.gitbook/assets/image (44).png" alt="" width="563"><figcaption></figcaption></figure>
 
 Once you've hit **Sign Up** you'll be a registered user of BugSplat.
 

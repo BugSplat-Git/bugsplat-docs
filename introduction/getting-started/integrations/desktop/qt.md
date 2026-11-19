@@ -31,15 +31,15 @@ INCLUDEPATH += $$PWD/Crashpad/Include/crashpad/third_party/mini_chromium/mini_ch
 INCLUDEPATH += $$PWD/Crashpad/Include/crashpad/out/Default/gen
 ```
 
-Add values corresponding to your BugSplat database, application name, and version. Note these values, as they will be used to configure Crashpad later in the configuration process.
+Add values corresponding to your BugSplat database, application name, and version. Note these values, as they will be used to configure Crashpad later in the configuration process. To upload symbols, you'll also need a Client ID and Client Secret, which you can create on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.
 
 ```
 # BugSplat configuration options
 BUGSPLAT_DATABASE = fred            # Replace with your BugSplat database
 BUGSPLAT_APPLICATION = myQtCrasher  # Replace with the name of your app
 BUGSPLAT_VERSION = 1.1              # Replace with your apps version
-BUGSPLAT_USER = fred@bugsplat.com   # Your BugSplat email (for uploading symbols)
-BUGSPLAT_PASSWORD = Flintstone      # Your BugSplat password (for uploading symbols)
+BUGSPLAT_CLIENT_ID = your-client-id         # Your OAuth2 Client ID (for uploading symbols)
+BUGSPLAT_CLIENT_SECRET = your-client-secret # Your OAuth2 Client Secret (for uploading symbols)
 ```
 
 Next, link your app with the Crashpad libraries. Linking with the Crashpad libraries is platform-dependent.
@@ -327,10 +327,10 @@ app="${4}"
 version="${5}"
 dir="${2}"
 file="${4}.app.dSYM"
-user="${6}"
-password="${7}"
+client_id="${6}"
+client_secret="${7}"
 
-eval "${symbol_upload} -b ${database} -a \"${app}\" -v \"${version}\" -d \"${dir}\" -f \"${file}\" -u \"${user}\" -p \"${password}\" -m"
+eval "${symbol_upload} -b ${database} -a \"${app}\" -v \"${version}\" -d \"${dir}\" -f \"${file}\" -i \"${client_id}\" -s \"${client_secret}\" -m"
 ```
 
 Call `symbols.sh` from your `QMAKE_POST_LINK` step:
@@ -342,7 +342,7 @@ macx {
     # Copy crashpad_handler, attachment.txt to build directory, and upload symbols
     QMAKE_POST_LINK += "mkdir -p $$OUT_PWD/crashpad"
     QMAKE_POST_LINK += "&& cp $$PWD/Crashpad/Bin/MacOS/crashpad_handler $$OUT_PWD/crashpad"
-    QMAKE_POST_LINK += "&& bash $$PWD/Crashpad/Tools/MacOS/symbols.sh $$PWD $$OUT_PWD $$BUGSPLAT_DATABASE $$BUGSPLAT_APPLICATION $$BUGSPLAT_VERSION $$BUGSPLAT_USER $$BUGSPLAT_PASSWORD"
+    QMAKE_POST_LINK += "&& bash $$PWD/Crashpad/Tools/MacOS/symbols.sh $$PWD $$OUT_PWD $$BUGSPLAT_DATABASE $$BUGSPLAT_APPLICATION $$BUGSPLAT_VERSION $$BUGSPLAT_CLIENT_ID $$BUGSPLAT_CLIENT_SECRET"
 }
 ```
 
@@ -353,7 +353,7 @@ After each build, you must re-upload symbol files. For best results, you should 
 To generate and upload `.sym` files as part of your build, create a `symbols.bat` script that calls `symbol-upload-windows.exe`:
 
 ```batch
-%1\Crashpad\Tools\Windows\symbol-upload-windows.exe -b %3 -a "%4" -v "%5" -d "%2" -f "%4.exe" -u "%6" -p "%7" -m
+%1\Crashpad\Tools\Windows\symbol-upload-windows.exe -b %3 -a "%4" -v "%5" -d "%2" -f "%4.exe" -i "%6" -s "%7" -m
 ```
 
 Call `symbols.bat` from your `QMAKE_POST_LINK` step:
@@ -365,7 +365,7 @@ win32 {
     # Copy crashpad_handler, attachment.txt to build directory, and upload symbols
     QMAKE_POST_LINK += "mkdir $$shell_path($$OUT_PWD)\crashpad"
     QMAKE_POST_LINK += "& copy /y $$shell_path($$PWD)\Crashpad\Bin\Windows\crashpad_handler.exe $$shell_path($$OUT_PWD)\crashpad\crashpad_handler.exe"
-    QMAKE_POST_LINK += "&& $$shell_path($$PWD)\Crashpad\Tools\Windows\symbols.bat $$shell_path($$PWD) $$shell_path($$EXEDIR) $$BUGSPLAT_DATABASE $$BUGSPLAT_APPLICATION $$BUGSPLAT_VERSION $$BUGSPLAT_USER $$BUGSPLAT_PASSWORD"
+    QMAKE_POST_LINK += "&& $$shell_path($$PWD)\Crashpad\Tools\Windows\symbols.bat $$shell_path($$PWD) $$shell_path($$EXEDIR) $$BUGSPLAT_DATABASE $$BUGSPLAT_APPLICATION $$BUGSPLAT_VERSION $$BUGSPLAT_CLIENT_ID $$BUGSPLAT_CLIENT_SECRET"
     QMAKE_POST_LINK += "&& copy /y $$shell_path($$PWD)\Crashpad\attachment.txt $$shell_path($$OUT_PWD)\attachment.txt"
 }
 ```
@@ -384,10 +384,10 @@ app="${4}"
 version="${5}"
 dir="${2}"
 file="${4}.debug"
-user="${6}"
-password="${7}"
+client_id="${6}"
+client_secret="${7}"
 
-eval "${symbol_upload} -b ${database} -a \"${app}\" -v \"${version}\" -d \"${dir}\" -f \"${file}\" -u \"${user}\" -p \"${password}\" -m"
+eval "${symbol_upload} -b ${database} -a \"${app}\" -v \"${version}\" -d \"${dir}\" -f \"${file}\" -i \"${client_id}\" -s \"${client_secret}\" -m"
 ```
 
 Call `symbols.sh` from your `QMAKE_POST_LINK` step:
@@ -397,7 +397,7 @@ linux {
 <strong>    ...
 </strong>    # Copy crashpad_handler, attachment.txt to build directory, and upload symbols
     QMAKE_POST_LINK += "mkdir -p $$OUT_PWD/crashpad &#x26;&#x26; cp $$PWD/Crashpad/Bin/Linux/crashpad_handler $$OUT_PWD/crashpad/crashpad_handler"
-    QMAKE_POST_LINK += "&#x26;&#x26; $$PWD/Crashpad/Tools/Linux/symbols.sh $$PWD $$OUT_PWD $$BUGSPLAT_DATABASE $$BUGSPLAT_APPLICATION $$BUGSPLAT_VERSION $$BUGSPLAT_USER $$BUGSPLAT_PASSWORD"
+    QMAKE_POST_LINK += "&#x26;&#x26; $$PWD/Crashpad/Tools/Linux/symbols.sh $$PWD $$OUT_PWD $$BUGSPLAT_DATABASE $$BUGSPLAT_APPLICATION $$BUGSPLAT_VERSION $$BUGSPLAT_CLIENT_ID $$BUGSPLAT_CLIENT_SECRET"
     QMAKE_POST_LINK += "&#x26;&#x26; cp $$PWD/Crashpad/attachment.txt $$OUT_PWD/attachment.txt"
 }
 </code></pre>

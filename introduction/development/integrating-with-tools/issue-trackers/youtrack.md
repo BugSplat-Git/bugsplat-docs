@@ -17,9 +17,9 @@ You can find **Username**, **API Token**, and **URL** on the YouTrack Hub Integr
 
 ### Creating a defect in YouTrack from a BugSplat crash report
 
-1\. Create a new defect from the crash page or a [stack key](../../../../education/bugsplat-terminology.md#stack-key) page by using the **Create Defect** button.
+1\. Create a new defect for a crash group by using the **Create Defect** button on the Crash page or a [Crash Group](../../using-the-app.md#crash-group-page) page.
 
-2\. Enter relevant details and click the **Submit** button to create the defect. You can also enter an existing **Defect ID** if you'd like to associate a crash or stack key with an existing issue from YouTrack.
+2\. Enter relevant details and click the **Submit** button to create the defect. You can also enter an existing **Defect ID** if you'd like to associate the crash group with an existing issue from YouTrack.
 
 3\. Click the link to view the new YouTrack defect created by BugSplat.
 

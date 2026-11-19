@@ -18,7 +18,7 @@ BugSplat allows your team to create cards in [Favro](https://favro.com/) with a 
 
 #### Push a New Item to Favro
 
-1. To push a new card to Favro, use the **Create Defect** button on the **Crashes** or **Crash Group** pages.
+1. To push a crash group to Favro as a new card, use the **Create Defect** button on the Crash page or a **Crash Group** page.
 2. Enter relevant details and click the **Submit** button to create the defect.
 3. Click the link to view the new Favro card created by BugSplat.
 4. View the card in Favro to see that stack trace and other valuable info from BugSplat.

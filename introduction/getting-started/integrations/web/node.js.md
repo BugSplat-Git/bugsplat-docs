@@ -5,13 +5,17 @@
 To add the bugsplat package to your application, run the following shell command at the root of your project’s directory:
 
 ```bash
-npm i bugsplat-node --save
+npm i bugsplat --save
 ```
+
+{% hint style="info" %}
+Upgrading from `bugsplat-node`? Change the import to `bugsplat/node` and replace the `bugsplat-node` dependency with `bugsplat` 9.3.0 or newer; the API is unchanged.
+{% endhint %}
 
 Require bugsplat at the entry point of your application (usually main.js) by adding the following code snippet:
 
 ```typescript
-const { BugSplatNode } = require('bugsplat-node');
+const { BugSplatNode } = require('bugsplat/node');
 ```
 
 Create a new instance of the BugSplat class being sure to replace the database, application, and version with the correct values for your application:
@@ -26,7 +30,7 @@ Set the bugsplat.post function as an event handler for uncaught exceptions:
 process.on('uncaughtException', async (error) => await bugsplat.postAndExit(error));
 ```
 
-You will also want to listen for unhandled promise rejections. Please note that this will only work for native promises:
+You will also want to listen for unhandled promise rejections:
 
 ```typescript
 process.on('unhandledRejection', async (error) => await bugsplat.postAndExit(error))
@@ -38,7 +42,7 @@ Throw an exception after the event handler has been added:
 throw new Error('BugSplat!');
 ```
 
-You can also use bugsplat-node to post errors from non-fatal promise rejections and errors that originate inside of try-catch blocks:
+You can also use bugsplat to post errors from non-fatal promise rejections and errors that originate inside of try-catch blocks:
 
 ```typescript
 Promise.reject(new Error('BugSplat!')).catch(async (error) => await bugsplat.post(error, options));
@@ -52,7 +56,25 @@ try {
 }
 ```
 
-After posting an error with bugsplat-node, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
+If the error has a `cause`, bugsplat captures the chain automatically (up to 100 linked errors), including Node.js system error properties such as `code`, `errno`, and `syscall`; see [Error Chains](javascript.md#error-chains) for details.
+
+Wrap a low-level error and rethrow it; the `uncaughtException` handler above posts the wrapper and bugsplat captures the cause with it:
+
+```typescript
+function loadUserSettings() {
+  try {
+    JSON.parse('{ not valid json');
+  } catch (error) {
+    throw new Error('Failed to load user settings', { cause: error });
+  }
+}
+
+loadUserSettings();
+```
+
+BugSplat shows `Error: Failed to load user settings` first, then a `Caused by: SyntaxError` row with its own stack frames.
+
+After posting an error with bugsplat, navigate to the [Crashes](https://app.bugsplat.com/v2/crashes) page in BugSplat and you should see a new crash report for the application you just configured. Click the link in the ID column to see details about your crash on the Crash page:
 
 ![Node.js Crashes](../../../../.gitbook/assets/electron-node-js-crashes.png)
 
@@ -106,12 +128,10 @@ await bugsplat.postFeedback('UI rendering issue', {
 
 ### Additional Considerations
 
-It is recommended that you exit and restart your application after an uncaughtException or unhandledRejection occurs. Packages such as [pm2](https://www.npmjs.com/package/pm2) and [forever](https://www.npmjs.com/package/forever) can be configured to restart your application.
+After an `uncaughtException` the process is in an undefined state, and the Node.js [documentation](https://nodejs.org/api/process.html#warning-using-uncaughtexception-correctly) recommends exiting rather than resuming. `postAndExit` posts the error to BugSplat and then calls `process.exit(1)`, so use it in your `uncaughtException` and `unhandledRejection` handlers and let a process manager or your container platform restart the application. [pm2](https://www.npmjs.com/package/pm2), a systemd service with `Restart=on-failure`, or a container restart policy all work.
 
-Additionally you can use [domains](https://nodejs.org/api/domain.html#domain\_warning\_don\_t\_ignore\_errors) to handle errors differently across various parts of your application. Domains are pending deprecation according the the Node.js [documentation](https://nodejs.org/api/domain.html), however a suitable replacement has not been added yet.
-
-More information regarding domain deprecation can be found [here](https://github.com/nodejs/node/issues/10843).
+For errors you can recover from, catch them where they happen and call `bugsplat.post(error)` without exiting, as shown above.
 
 ## Contributing
 
-BugSplat loves open source software! Please check out our project on [GitHub](https://github.com/BugSplat-Git/bugsplat-node) and send us a pull request.
+BugSplat loves open source software! Please check out our project on [GitHub](https://github.com/BugSplat-Git/bugsplat-js) and send us a pull request.

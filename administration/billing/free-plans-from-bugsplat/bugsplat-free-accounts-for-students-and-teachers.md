@@ -4,9 +4,9 @@ At BugSplat, we’re committed to nurturing the educational landscape by providi
 
 #### **Education Plan: Empowering Learning and Development**
 
-The Education Plan is crafted for students and educators involved in academic projects or courses that require in-depth software debugging and crash analysis. Reflecting the structure of our Indie Game Plan, the Education Plan offers the base features of our Team Plan, ensuring educational endeavors are supported with the full suite of debugging tools needed for a comprehensive learning experience.
+The Education Plan is crafted for students and educators involved in academic projects or courses that require in-depth software debugging and crash analysis. Reflecting the structure of our Indie Game Plan, the Education Plan offers the base features of our Starter plan, ensuring educational endeavors are supported with the full suite of debugging tools needed for a comprehensive learning experience.
 
-* **Annual Allowance:** Participants in the Education Plan receive an annual allowance of 25,000 monthly crashes and 250GB of storage, designed to cater to the demands of educational projects and coursework.
+* **Annual Allowance:** Participants in the Education Plan receive an annual allowance of 25,000 monthly crashes and 50 GB of storage, designed to cater to the demands of educational projects and coursework.
 * **Eligibility and Renewal:** This plan is available to both students and educators who intend to use BugSplat within an educational setting, whether for classroom instruction, workshops, or school projects. We encourage educators to use BugSplat for class projects, understanding that there is no expectation for them to transition to a paid plan. However, projects that evolve beyond the academic environment into commercial endeavors may need to consider upgrading after the first year.
   * To continue enjoying the benefits of the Education Plan, we ask that you reach out to us at hi@bugsplat.com at the end of each academic year. This simple step ensures we can renew your access for another year, keeping your teaching and learning resources uninterrupted. Teachers utilizing BugSplat in their curriculum are invited to renew annually to maintain access, while projects transitioning to a commercial phase should discuss their plans with us for appropriate guidance.
 

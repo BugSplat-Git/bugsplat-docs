@@ -131,7 +131,7 @@ Commits the uploaded crash file for processing by BugSplat.
 Use the following `crashType` and `crashTypeId` values when committing uploads.
 
 {% hint style="warning" %}
-The `crashType` string field only recognizes the following values (case-insensitive): `Windows.Native`, `Windows.NET`, `Unity.Native`, `Xml.Report`, `Asan.Report`, `unity`, `User.Feedback`, and `Android.ANR`. Any other `crashType` string (e.g. `Java`, `Electron`, `UnityNative`, `XmlReport`) is silently treated as `Windows.Native`. For all other platforms listed below, pass the numeric `crashTypeId` instead.
+The `crashType` string field only recognizes the following values (case-insensitive): `Windows.Native`, `Windows.NET`, `Unity.Native`, `Xml.Report`, `Asan.Report`, `unity`, `User.Feedback`, `Android.ANR`, and `Android.Tombstone`. Any other `crashType` string (e.g. `Java`, `Electron`, `UnityNative`, `XmlReport`) is silently treated as `Windows.Native`. For all other platforms listed below, pass the numeric `crashTypeId` instead.
 {% endhint %}
 
 | Platform              | crashType             | crashTypeId | Description                                      |
@@ -160,6 +160,8 @@ The `crashType` string field only recognizes the following values (case-insensit
 | Nintendo Switch 2     | `Nintendo`            | 35          | Nintendo Switch 2 crash reports                  |
 | XML                   | `XmlReport`           | 21          | Custom XML-formatted crash reports               |
 | User Feedback         | `User.Feedback`       | 36          | User-submitted feedback and bug reports          |
+| Android               | `Android.ANR`         | 37          | Android ANR traces (Android 11+)                 |
+| Android               | `Android.Tombstone`   | 38          | Android native crash tombstones (Android 12+)    |
 
 ---
 

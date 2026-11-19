@@ -54,12 +54,19 @@ dotnet add package BugSplat
 
 or search for **BugSplat** in Visual Studio's NuGet Package Manager. The same package works for .NET Framework 4.7.2+ and .NET 10+ projects.
 
-To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](https://github.com/BugSplat-Git/my-dotnet-crasher) and try one of the [samples](#sample-apps), which install BugSplat from NuGet: [MyDotNetFrameworkWpfCrasher](../../posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) for .NET 10. The samples are also in the [SDK download](https://app.bugsplat.com/browse/download_item.php?item=dotnet).
+To get a feel for BugSplat before integrating it, clone the [Samples](https://github.com/BugSplat-Git/Samples) repository and try one of the [samples](#sample-apps): [MyDotNetFrameworkWpfCrasher](../../posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) for .NET 10. The samples are also in the [SDK download](https://app.bugsplat.com/download/bugsplat-dotnet.zip).
 
 ### Integration 🏗️
 
 1. **Add the [`BugSplat`](https://www.nuget.org/packages/BugSplat) NuGet package**, as shown in Getting Started above. It references `BugSplatDotNet.dll` for your target framework and brings BugSplat's native runtime with it.
-2. **Ship the native runtime next to your executable.** `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory to capture crashes, and the monitor starts `BugSplatReporter.exe` to show the crash dialog and upload the report, so `BugSplat.dll`, `BugSplatMonitor.exe`, `BugSplatReporter.exe`, and `BugSplatWer.dll` must be installed alongside your `.exe`. The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
+2. **Ship the native runtime next to your executable.** These four files must be installed alongside your `.exe`:
+
+   * `BugSplat.dll` starts `BugSplatMonitor.exe` from your application's directory.
+   * `BugSplatMonitor.exe` captures the crash and uploads the report.
+   * `BugSplatReporter.exe` shows the crash dialog. `BugSplatMonitor.exe` starts it and waits for the user to answer before uploading.
+   * `BugSplatWer.dll` captures crashes that go through Windows Error Reporting.
+
+   The package copies them to your build and `dotnet publish` output as content files; make sure your installer includes them.
 
    {% hint style="info" %}
    **Architecture:** the package copies the runtime for the architecture your application runs as. It uses your runtime identifier or `PlatformTarget` if you set one. Otherwise, a .NET 10 application gets the architecture of the .NET SDK that builds it. A .NET Framework AnyCPU application gets x86 with *Prefer 32-bit* and x64 without it. To choose explicitly, set `<BugSplatNativeArchitecture>` to `x64`, `x86`, or `arm64`.
@@ -103,7 +110,14 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
    }
    ```
 
-   `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything. It blocks while the report is written and uploaded.
+   `Post` writes a minidump of the exception being handled and uploads it; your application keeps running. Call it inside the `catch`, while the frames of the code that threw are still on the stack, so the report shows where the exception came from. Called anywhere else, there is no exception in flight and `Post` returns `false` without reporting anything.
+
+   `Post` doesn't return right away. When it returns depends on whether the crash dialog is shown:
+
+   * **Crash dialog shown (the default):** `Post` returns after the user closes the dialog. The monitor uploads the report in the background, so your application doesn't wait for the upload.
+   * **`QuietMode` on:** no dialog is shown, and `Post` returns after the report has been uploaded.
+
+   Either way, call it off the UI thread if you don't want your application to wait.
 
    {% hint style="info" %}
    **32-bit .NET Framework:** the runtime unwinds the stack before a `catch` block runs, so `Post` reports where the exception was caught rather than where it was thrown. To keep the throw site, call `Post` from an exception filter, which runs before the stack unwinds:
@@ -131,7 +145,7 @@ To get a feel for BugSplat before integrating it, clone [my-dotnet-crasher](http
 
 ### Using the SDK Download Instead of NuGet
 
-If you can't use NuGet, you can add BugSplat from the [SDK download](https://app.bugsplat.com/browse/download_item.php?item=dotnet) instead. Its sample projects show how to wire everything up by hand. In place of steps 1 and 2 above:
+If you can't use NuGet, you can add BugSplat from the [SDK download](https://app.bugsplat.com/download/bugsplat-dotnet.zip) instead. Its sample projects show how to wire everything up by hand. In place of steps 1 and 2 above:
 
 1. Reference `BugSplatDotNet.dll` from `BugSplat\dotnet\Release\net472` (.NET Framework) or `net10.0` (.NET 10).
 2. Build your application for x64, since the download's native runtime is x64 only.
@@ -178,7 +192,7 @@ BugSplat symbolicates your crashes from the symbol files you upload, which is wh
 **.NET 10:** the portable PDBs the .NET SDK produces by default work as they are.
 {% endhint %}
 
-symbol-upload authenticates with a Client ID and Client Secret, which you create on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. The samples run it after every build with a `Scripts\SymbolUpload.ps1` post-build step, which reads the credentials from `Scripts\env.ps1` or the `BUGSPLAT_CLIENT_ID` and `BUGSPLAT_CLIENT_SECRET` environment variables. Building with `/p:BugSplatSymbolUpload=false` skips it, and in the .NET 10 samples a failed upload fails the build. Copy the script into your own project, or run symbol-upload from your build pipeline.
+symbol-upload authenticates with a Client ID and Client Secret, which you create on the [Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page. The samples run it after every build with a `Scripts\SymbolUpload.ps1` post-build step, which reads the credentials from `Scripts\env.ps1` or the `BUGSPLAT_CLIENT_ID` and `BUGSPLAT_CLIENT_SECRET` environment variables. Building with `/p:BugSplatSymbolUpload=false` skips it, and in the samples a failed upload fails the build. Copy the script into your own project, or run symbol-upload from your build pipeline.
 
 ### Windows Error Reporting
 
@@ -188,10 +202,10 @@ Some crashes end the process without running any of the application's exception 
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules" /v "C:\Path\To\YourApp\BugSplatWer.dll" /t REG_DWORD /d 0 /f
 ```
 
-`BugSplat.IsWerEnabled` tells you at run time whether the entry is in place. See the [upgrade guide](cplusplus/bugsplat-for-windows-upgrade-guide.md#registry-changes) for more about the registry entry.
+`BugSplat.IsWerEnabled` tells you at run time whether the entry is in place. See the [upgrade guide](windows/bugsplat-for-windows-upgrade-guide.md#registry-changes) for more about the registry entry.
 
 {% hint style="info" %}
-**.NET Framework:** unhandled managed exceptions and access violations reach BugSplat's application exception handler. Fail-fasts from native code, such as heap corruption, still go through WER.
+**.NET Framework:** unhandled managed exceptions and access violations reach BugSplat's application exception handler. Stack overflows and fail-fasts from native code, such as heap corruption, still go through WER.
 
 **.NET 10:** the runtime also ends some access violations and stack overflows with a fail-fast, so only the WER helper captures them.
 {% endhint %}
@@ -220,26 +234,25 @@ When managed code calls native code through P/Invoke and the native code crashes
 * **Start your application with its `.exe`.** `dotnet YourApp.dll` runs your application inside `dotnet.exe`, and BugSplat looks for `BugSplatMonitor.exe` next to `dotnet.exe` instead of your application.
 * **Crashes that go through WER aren't reported without the registry entry.** That includes heap corruption, `__fastfail`, `/GS` failures, .NET 10 runtime fail-fasts, and every WinUI 3 crash (see [Windows Error Reporting](#windows-error-reporting)).
 * **Unobserved task exceptions aren't reported.** They don't crash the process, so there's no crash to capture. Observe your tasks and report failures with `Post` from a `catch`.
-* **.NET Framework: stack overflows in managed code aren't reported.** The .NET Framework ends the process on a stack overflow without running any application exception handler, and reports it through its own `CLR20r3` WER event, which doesn't call `BugSplatWer.dll` even when it's registered.
 * **.NET 10: uncaught C++ exceptions** thrown from native code called through P/Invoke are reported from the point where the .NET runtime re-raises them, rather than from the C++ `throw`.
 
 ### Native Applications That Host .NET
 
-If your application is a native C++ program that loads the .NET Framework and calls into managed code, integrate the native SDK, [BugSplat for Windows (C++)](cplusplus/), in the host program instead of the `BugSplat` package, and call `SetCrashType(8)` so BugSplat resolves the managed frames in its minidumps. Crashes in the managed code are captured by the native SDK's handlers, and the call stack shows the managed frames on top of your native ones. The [MyDotNetFrameworkHostCrasher](../../posting-a-test-crash/mydotnetframeworkhostcrasher/) sample demonstrates the setup.
+If your application is a native C++ program that loads the .NET Framework and calls into managed code, integrate the native SDK, [BugSplat for Windows (C++)](windows/), in the host program instead of the `BugSplat` package, and call `SetCrashType(8)` so BugSplat resolves the managed frames in its minidumps. Crashes in the managed code are captured by the native SDK's handlers, and the call stack shows the managed frames on top of your native ones. The [MyDotNetFrameworkHostCrasher](../../posting-a-test-crash/mydotnetframeworkhostcrasher/) sample demonstrates the setup.
 
 ### API Reference 📖
 
 | Member | Description |
 | --- | --- |
 | `BugSplat(string database, string application, string version)` | Initializes crash reporting. Create one instance, early, and keep it for the life of the process. |
-| `bool Post(Exception exception)` | Reports a handled exception as a minidump and uploads it. Call it inside the `catch` block. Returns whether the report was uploaded. |
+| `bool Post(Exception exception)` | Reports a handled exception as a minidump and uploads it. Call it inside the `catch` block. Returns `true` if BugSplat's monitor took the report and `false` if nothing was reported. With the crash dialog it returns when the user closes the dialog; with `QuietMode` on, after the upload. |
 | `FeedbackResult PostFeedback(string title, string? description = null, string[]? attachments = null)` | Posts user feedback. The result's `Success`, `CrashId`, and `InfoUrl` describe the report. It blocks while the report is uploaded, so call it off the UI thread. |
 | `string User`, `Email`, `Key`, `Description`, `Notes` | Default values stamped on every report. |
 | `void SetAttribute(string name, string value)` | Adds a custom attribute to every report. |
 | `bool AddAttachment(string filePath)` | Attaches a file to every report. |
 | `bool QuietMode` | Set to `true` to suppress the crash dialog; reports are still uploaded. |
 | `string[] CrashDialogLinkDomains` | The domains, and their subdomains, that links in the crash dialog's text may open, for example `new[] { "example.com" }`. Only `https` links work. By default no domain is allowed, and links are shown as plain text. See [Links in the Dialog](../../../../education/how-tos/customize-the-crash-dialog.md#links-in-the-dialog). |
-| `MiniDumpType MiniDumpType` | The minidump type for crash reports and `Post`. The default, `MiniDumpType.Normal`, is enough for BugSplat to name the managed frames. Larger types, such as `WithPrivateReadWriteMemory` or `WithFullMemory`, are written only when [full memory dumps](cplusplus/full-memory-dumps.md) are enabled for your database; otherwise BugSplat writes a normal minidump. |
+| `MiniDumpType MiniDumpType` | The minidump type for crash reports and `Post`. The default, `MiniDumpType.Normal`, is enough for BugSplat to name the managed frames. Larger types, such as `WithPrivateReadWriteMemory` or `WithFullMemory`, are written only when [full memory dumps](windows/full-memory-dumps.md) are enabled for your database; otherwise BugSplat writes a normal minidump. |
 | `bool IsWerEnabled` | Whether `BugSplatWer.dll` is registered with Windows Error Reporting. |
 | `bool IsInitialized` | Whether crash reporting is installed for this process. |
 
