@@ -32,3 +32,15 @@ redirects:
   administration/introduction/adding-new-users-in-companies-with-multiple-databases: administration/user-management/adding-new-users-in-companies-with-multiple-databases.md
   administration/billing/upgrading-changing-or-canceling-your-plan/adding-additional-users-and-apps-to-your-plan: administration/billing/upgrading-changing-or-canceling-your-plan/adding-users-crashes-and-storage-to-your-plan.md
   administration/billing/plans-upgrades-and-payments-faq/what-is-high-volume-fractional-crash-processing: administration/billing/plans-and-billing-guide.md
+  integrations/desktop/cplusplus: introduction/getting-started/integrations/desktop/windows/README.md
+  introduction/getting-started/integrations/desktop/cplusplus: introduction/getting-started/integrations/desktop/windows/README.md
+  integrations/desktop/cplusplus/how-the-windows-crash-reporter-works: introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md
+  introduction/getting-started/integrations/desktop/cplusplus/how-the-windows-crash-reporter-works: introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md
+  integrations/desktop/cplusplus/full-memory-dumps: introduction/getting-started/integrations/desktop/windows/full-memory-dumps.md
+  introduction/getting-started/integrations/desktop/cplusplus/full-memory-dumps: introduction/getting-started/integrations/desktop/windows/full-memory-dumps.md
+  integrations/desktop/cplusplus/dependencies: introduction/getting-started/integrations/desktop/windows/dependencies.md
+  introduction/getting-started/integrations/desktop/cplusplus/dependencies: introduction/getting-started/integrations/desktop/windows/dependencies.md
+  integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide: introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-upgrade-guide.md
+  introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide: introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-upgrade-guide.md
+  integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation: introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-api-documentation.md
+  introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation: introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-api-documentation.md

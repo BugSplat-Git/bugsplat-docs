@@ -38,12 +38,12 @@
 
 * [Choose Your Platform](introduction/getting-started/integrations/README.md)
 * [💻 Desktop Software](introduction/getting-started/integrations/desktop/README.md)
-  * [BugSplat for Windows (C++)](introduction/getting-started/integrations/desktop/cplusplus/README.md)
-    * [How the Windows Crash Reporter Works](introduction/getting-started/integrations/desktop/cplusplus/how-the-windows-crash-reporter-works.md)
-    * [Full Memory Dumps](introduction/getting-started/integrations/desktop/cplusplus/full-memory-dumps.md)
-    * [BugSplat for Windows Dependencies](introduction/getting-started/integrations/desktop/cplusplus/dependencies.md)
-    * [BugSplat for Windows Upgrade Guide](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide.md)
-    * [BugSplat for Windows API Documentation](introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation.md)
+  * [BugSplat for Windows (C++)](introduction/getting-started/integrations/desktop/windows/README.md)
+    * [How the Windows Crash Reporter Works](introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md)
+    * [Full Memory Dumps](introduction/getting-started/integrations/desktop/windows/full-memory-dumps.md)
+    * [BugSplat for Windows Dependencies](introduction/getting-started/integrations/desktop/windows/dependencies.md)
+    * [BugSplat for Windows Upgrade Guide](introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-upgrade-guide.md)
+    * [BugSplat for Windows API Documentation](introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-api-documentation.md)
   * [BugSplat for .NET](introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md)
   * [macOS](introduction/getting-started/integrations/desktop/macos.md)
   * [Linux](introduction/getting-started/integrations/desktop/linux.md)
@@ -160,7 +160,7 @@
 * [Defect Tracker Options](introduction/development/web-services/defect-tracker-options.md)
 * [Paging, Filtering, and Grouping](introduction/development/web-services/paging-filtering-and-grouping.md)
 * [Platform Specific API's](introduction/development/web-services/platform-specific-apis/README.md)
-  * [C++ Native API](https://www.bugsplat.com/platforms/cpp/api/)
+  * [Windows C++ API](https://docs.bugsplat.com/integrations/desktop/windows/bugsplat-for-windows-api-documentation)
   * [.NET API](https://www.bugsplat.com/platforms/net/api/)
 
 ## 🍎 Education
