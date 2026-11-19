@@ -2,7 +2,7 @@
 
 Here is the current BugSplat API documentation
 
-{% embed url="https://docs.bugsplat.com/introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-api-documentation" %}
+{% embed url="https://docs.bugsplat.com/integrations/desktop/windows/bugsplat-for-windows-api-documentation" %}
 Latest version
 {% endembed %}
 
