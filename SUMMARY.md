@@ -37,6 +37,17 @@
 ## 🧩 Integrations
 
 * [Choose Your Platform](introduction/getting-started/integrations/README.md)
+* [🧬 BugSplat Native (9.0)](introduction/getting-started/integrations/native/README.md)
+  * [Windows](introduction/getting-started/integrations/native/windows.md)
+  * [macOS](introduction/getting-started/integrations/native/macos.md)
+  * [Linux](introduction/getting-started/integrations/native/linux.md)
+  * [Android](introduction/getting-started/integrations/native/android.md)
+  * [iOS and tvOS](introduction/getting-started/integrations/native/ios.md)
+  * [Hang Detection](introduction/getting-started/integrations/native/hang-detection.md)
+  * [Structured Reports](introduction/getting-started/integrations/native/structured-reports.md)
+  * [User Feedback](introduction/getting-started/integrations/native/user-feedback.md)
+  * [Crash Data Format](introduction/getting-started/integrations/native/crash-data-format.md)
+  * [Migrating to 9.0](introduction/getting-started/integrations/native/migration.md)
 * [💻 Desktop Software](introduction/getting-started/integrations/desktop/README.md)
   * [BugSplat for Windows (C++)](introduction/getting-started/integrations/desktop/windows/README.md)
     * [How the Windows Crash Reporter Works](introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md)

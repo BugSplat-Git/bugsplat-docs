@@ -2,6 +2,10 @@
 
 Mobile is the most popular software development platform and continues to grow. In a ruthlessly competitive environment, your team cannot ship buggy code. Your mobile developers need a crash reporting solution to ensure the utmost quality in your application. BugSplat has you covered for all your mobile crash reporting needs.
 
+{% hint style="info" %}
+[BugSplat Native 9.0](../native/) brings the Android and iOS/tvOS SDKs onto the same core as desktop (bugsplat-android 9.0 and bugsplat-apple 9.0). Those releases are being brought up; the guides below are the shipping SDKs today.
+{% endhint %}
+
 {% content-ref url="android.md" %}
 [android.md](android.md)
 {% endcontent-ref %}
