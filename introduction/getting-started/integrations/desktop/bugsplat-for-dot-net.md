@@ -224,6 +224,10 @@ if (!bugsplat.IsWerEnabled)
 ```
 {% endhint %}
 
+{% hint style="warning" %}
+**Applications whose manifest sets `uiAccess="true"` must register `BugSplatWer.dll` too.** Such an app runs above the integrity level of `BugSplatMonitor.exe`, which therefore can't write its dumps, so every crash and hang is captured through WER. `Post` asks the monitor for the dump, so it reports nothing in these apps, although it still returns `true`. See [Apps with uiAccess](windows/how-the-windows-crash-reporter-works.md#apps-with-uiaccess).
+{% endhint %}
+
 ### Mixed C#/C++ Crashes
 
 When managed code calls native code through P/Invoke and the native code crashes, BugSplat reports one call stack that interleaves the C# and C++ frames, symbolicated from both the managed and the native PDBs you upload. This covers native code that faults when called from C#, native code that calls back into C# code that throws, and crashes on native threads with no managed frames at all. The [MyDotNetCrasher](../../posting-a-test-crash/mydotnetcrasher/) sample's `native-*` and `cpp-throw` modes demonstrate each of these, and the Mixed-Mode buttons of the WPF and WinUI 3 samples show the simplest case.
@@ -233,6 +237,7 @@ When managed code calls native code through P/Invoke and the native code crashes
 * **Windows only.** The NuGet package supports x64, x86, and ARM64; the SDK download supports x64 only.
 * **Start your application with its `.exe`.** `dotnet YourApp.dll` runs your application inside `dotnet.exe`, and BugSplat looks for `BugSplatMonitor.exe` next to `dotnet.exe` instead of your application.
 * **Crashes that go through WER aren't reported without the registry entry.** That includes heap corruption, `__fastfail`, `/GS` failures, .NET 10 runtime fail-fasts, and every WinUI 3 crash (see [Windows Error Reporting](#windows-error-reporting)).
+* **Apps with `uiAccess="true"`:** every crash and hang goes through WER, so none is reported without the registry entry, and `Post` reports nothing (see [Windows Error Reporting](#windows-error-reporting)).
 * **Unobserved task exceptions aren't reported.** They don't crash the process, so there's no crash to capture. Observe your tasks and report failures with `Post` from a `catch`.
 * **.NET 10: uncaught C++ exceptions** thrown from native code called through P/Invoke are reported from the point where the .NET runtime re-raises them, rather than from the C++ `throw`.
 
