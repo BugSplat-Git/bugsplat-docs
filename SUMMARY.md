@@ -62,6 +62,7 @@
   * [Unreal Engine](introduction/getting-started/integrations/game-development/unreal-engine.md)
     * [Unreal Engine Plugin](introduction/getting-started/integrations/game-development/unreal-engine/unreal-engine-plugin.md)
     * [Unreal Assert, Check, and Ensure Reporting](introduction/getting-started/integrations/game-development/unreal-engine/unreal-assert-check-and-ensure-reporting.md)
+    * [Customizing the Crash Report Client](introduction/getting-started/integrations/game-development/unreal-engine/customizing-the-crash-report-client.md)
   * [Unity](introduction/getting-started/integrations/game-development/unity.md)
     * [Unity on Windows](introduction/getting-started/integrations/game-development/unity/windows.md)
     * [Unity on macOS](introduction/getting-started/integrations/game-development/unity/macos.md)

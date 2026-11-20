@@ -109,7 +109,7 @@ Run your game. For testing, a crash can be forced from the console using the com
 
 The default CrashReportClient contains text explaining to the user that the crash reports are being sent to Epic. However, by overwriting the CrashReportClient configuration settings, crash reports are instead sent to BugSplat. It is a good idea to change the text and rebuild CrashReportClient. Customizing CrashReportClient requires rebuilding the engine source.
 
-Please see our [blog](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/) for more information on how to [customize Unreal's CrashReportClient](https://blog.bugsplat.com/customizing-the-unreal-engine-crash-report-client/).
+See [Customizing the Crash Report Client](unreal-engine/customizing-the-crash-report-client.md) for a step-by-step guide to branding the dialog, removing Epic-specific text, and distributing your customized engine.
 
 ## Linux Servers 🐧
 
