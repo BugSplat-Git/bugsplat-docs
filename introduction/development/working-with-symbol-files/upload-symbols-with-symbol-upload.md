@@ -123,7 +123,7 @@ You can use the `-r` flag to remove a symbol store instead of uploading. This is
 
 OAuth2 Client ID and Client Secret credentials are required via the `-i` and `-s` arguments and are created on the [OAuth Integrations](https://app.bugsplat.com/v2/database/integrations#oauth) page.  Note that you only need the 'Symbols' scope.  We no longer accept username/password for symbol uploads.
 
-### Apple <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
+### Apple <a href="#apple" id="apple"></a>
 
 MacOS and iOS builds typically generate `.app` or `.xcarchive` files. To upload bundled `.dSYM` files, point symbol-upload at the `.app` or `.xcarchive` file, and use a glob that instructs symbol-upload to search for `.dSYM` files recursively.
 
@@ -131,7 +131,7 @@ MacOS and iOS builds typically generate `.app` or `.xcarchive` files. To upload 
 symbol-upload ... -d "/path/to/build.xcarchive -f "**/*.dSYM"
 ```
 
-### Dump Syms <a href="#improving-upload-speeds" id="improving-upload-speeds"></a>
+### Dump Syms <a href="#dump-syms" id="dump-syms"></a>
 
 BugSplat can generate [Crashpad symbol files](https://github.com/google/breakpad/blob/master/docs/symbol_files.md) as part of the upload process. The Crashpad symbol files have a `.sym` format and are useful for cross-platform applications. BugSplat has integrated [Mozilla's dump-syms](https://github.com/mozilla/dump_syms) into symbol-upload, which allows developers to skip building Breakpad. To generate a `.sym` file at upload time, specify the `-m` flag when invoking symbol-upload.
 

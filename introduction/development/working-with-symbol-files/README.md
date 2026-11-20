@@ -18,7 +18,7 @@ For [macOS](../../getting-started/integrations/desktop/macos.md) applications, s
 
 For TypeScript and [JavaScript](../../getting-started/integrations/web/javascript.md) applications, symbols are files with a **.js.map** extension.
 
-Symbol files can be uploaded via [symbol-upload](upload-symbols-with-symbol-upload.md). Additionally, Crashpad **.sym** files can be [generated automatically](upload-symbols-with-symbol-upload.md#improving-upload-speeds-1) by invoking symbol-upload with the `-m` argument.
+Symbol files can be uploaded via [symbol-upload](upload-symbols-with-symbol-upload.md). Additionally, Crashpad **.sym** files can be [generated automatically](upload-symbols-with-symbol-upload.md#dump-syms) by invoking symbol-upload with the `-m` argument.
 
 <figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption><p>BugSplat Versions Page</p></figcaption></figure>
 
