@@ -135,6 +135,16 @@ symbol-upload ... -d "/path/to/build.xcarchive -f "**/*.dSYM"
 
 BugSplat can generate [Crashpad symbol files](https://github.com/google/breakpad/blob/master/docs/symbol_files.md) as part of the upload process. The Crashpad symbol files have a `.sym` format and are useful for cross-platform applications. BugSplat has integrated [Mozilla's dump-syms](https://github.com/mozilla/dump_syms) into symbol-upload, which allows developers to skip building Breakpad. To generate a `.sym` file at upload time, specify the `-m` flag when invoking symbol-upload.
 
+{% hint style="warning" %}
+`-m` needs the native dump_syms module from the [node-dump-syms](https://github.com/BugSplat-Git/node-dump-syms) package, which downloads it in an install script. The prebuilt binaries above and the GitHub Action include it. If you add `@bugsplat/symbol-upload` to a project and install it with a package manager that skips dependency install scripts, the module is never downloaded and `-m` fails with `Can't import dump_syms!`. Let node-dump-syms run its install script:
+
+* **Bun:** add `"trustedDependencies": ["node-dump-syms"]` to `package.json` and reinstall.
+* **pnpm 10 and later:** add `"pnpm": { "onlyBuiltDependencies": ["node-dump-syms"] }` to `package.json`, or run `pnpm approve-builds`.
+* **npm:** don't install with `--ignore-scripts`.
+
+If symbol-upload runs in CI with errors allowed (for example, `continue-on-error` in GitHub Actions), a failed `-m` upload won't fail the build. Check the step's output to confirm the `.sym` files were uploaded.
+{% endhint %}
+
 ### Self-Hosted Symbol Servers
 
 The symbol-upload tool can be used to create a [SymSrv](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure for Windows and Xbox symbols that is compatible with both BugSplat and [Microsoft Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2022#configure-location-of-symbol-files-and-loading-options). Additionally, symbol-upload can also create a SymSrv directory structure for macOS/iOS, Linux/Android (Crashpad), PlayStation, and Nintendo Switch 2 symbols that is compatible with BugSplat.
