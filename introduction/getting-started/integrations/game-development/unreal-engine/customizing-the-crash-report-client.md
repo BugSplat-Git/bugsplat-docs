@@ -1,7 +1,7 @@
 # Customizing the Crash Report Client
 
 {% hint style="info" %}
-This guide was checked against the Unreal Engine 5.8.4 source. File names and code are the same in nearby 5.x releases, but line numbers shift between versions.
+We tested this guide with Unreal Engine 5.8.4. File names and code are the same in nearby 5.x releases, but line numbers shift between versions.
 {% endhint %}
 
 ## Overview
@@ -40,9 +40,9 @@ These options work in packaged games because the game copies its `[CrashReportCl
 
 The banner image, window size and call stack panel can only be changed in the Crash Report Client source. Unreal Engine is source-available, and the changes below are small. Most of the effort is getting the engine to build.
 
-After completing this section your Crash Report Client dialog will look similar to this (screenshot from Unreal Engine 4):
+After completing this section, and the configuration changes above, your Crash Report Client dialog will look like this:
 
-<figure><img src="../../../../../.gitbook/assets/ue4-customized-crash-reporter.png" alt="Crash Report Client dialog with a BugSplat banner above the crash description box"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/crash-report-client-customized.png" alt="Crash Report Client dialog with a BugSplat banner, the heading My Game has crashed, a custom message, a large description box, no call stack, and a checkbox that names My Studio"><figcaption></figcaption></figure>
 
 ### Prerequisites
 
@@ -95,9 +95,19 @@ The slot is added to the dialog's top-level `SVerticalBox`, sizes itself to its 
 
 In Visual Studio, keep the Development Editor configuration selected, then right-click `CrashReportClientEditor` and select Build. Do the same for `CrashReportClient` so that packaged games get the change too.
 
-To show the dialog, start the editor from Visual Studio and open any project. Our sample project [my-unreal-crasher](https://github.com/BugSplat-Git/my-unreal-crasher) works well. Click Play, press the backtick key (`` ` ``) to open the console, and enter `debug crash`. The editor crashes and Crash Report Client opens with your banner.
+On Windows, the editor looks for `CrashReportClientEditor.exe` (the Shipping build) first, then `CrashReportClientEditor-Win64-Development.exe`. If you've built the Shipping configuration at any point, rebuild that one too, or the editor keeps showing the old dialog.
 
-<figure><img src="../../../../../.gitbook/assets/ue4-customized-crash-reporter-dev-mode.png" alt="Crash Report Client dialog with a banner, where the text boxes are squeezed because the window is too short"><figcaption></figcaption></figure>
+To show the dialog, start the editor from Visual Studio and open any project. Our sample project [my-unreal-crasher](https://github.com/BugSplat-Git/my-unreal-crasher) works well. Click Play, press the backtick key (`` ` ``) to open the console, and enter `debug crash`. The editor crashes and Crash Report Client opens with your banner. To skip the clicking, start the editor with `-ExecCmds="debug crash"` and it crashes as soon as the project loads.
+
+{% hint style="info" %}
+**macOS:** the editor only launches `CrashReportClientEditor.app`, which is the Shipping build, so build that configuration:
+
+```bash
+Engine/Build/BatchFiles/Mac/Build.sh CrashReportClientEditor Mac Shipping
+```
+
+If the build fails with `The selected platform is no longer supported by libc++`, your Xcode no longer supports the macOS 10.9 deployment target that Crash Report Client asks for. Set `bEnableOSX109Support = false` in `Engine/Source/Programs/CrashReportClient/CrashReportClient.Target.cs` and build again.
+{% endhint %}
 
 #### Resize the window
 
@@ -118,11 +128,13 @@ The configuration options above replace the main message and the contact checkbo
 LOCTEXT( "CrashedAppUnreal", "My Game has crashed: " );
 ```
 
+The name after the heading comes from the crash's `GameName` property, which Unreal Engine prefixes with `UE-`, for example `UE-MyUnrealCrasher`. To leave the name out, delete the second `+SHorizontalBox::Slot()` in the heading, the one that displays `CrashedAppName`.
+
 If you can't change your project's configuration, you can also edit the default message in code. The default message is the `CrashDetailed` string in `SCrashReportClient::Construct` ([line 56](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/SCrashReportClient.cpp#L56) in 5.8.4). `CrashReportClientRichText` overrides this string when it's set.
 
 #### Hide the call stack
 
-The lower half of the dialog shows the crash's call stack. In a released game the call stack usually has no function names, and it confuses players more than it helps them. To remove it, find the `SSplitter` in `ConstructDetailedDialog` ([lines 192 to 281](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/SCrashReportClient.cpp#L192-L281) in 5.8.4). The splitter's first slot holds the description box, and its second slot holds the call stack. Replace the whole `+SVerticalBox::Slot()` that contains the splitter with these two slots. The description box keeps the remaining space, and the link to the crash's files stays below it:
+The lower half of the dialog shows the crash's call stack. In a released game the call stack usually has no function names, and it confuses players more than it helps them. To remove it, find the `SSplitter` in `ConstructDetailedDialog` ([lines 192 to 281](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/SCrashReportClient.cpp#L192-L281) in 5.8.4). The splitter's first slot holds the description box, and its second slot holds the call stack. Replace the whole `+SVerticalBox::Slot()` that contains the splitter with these two slots. The description box takes the remaining space, and a link to the crash's files sits below it. Epic's text for that link ends with "and the following summary information:", which no longer makes sense once the summary is gone, so the second slot uses its own wording:
 
 ```cpp
 +SVerticalBox::Slot()
@@ -160,7 +172,7 @@ The lower half of the dialog shows the crash's call stack. In a released game th
 	SNew(SRichTextBlock)
 	.Margin(FMargin(4, 2, 0, 8))
 	.TextStyle(&FCrashReportClientStyle::Get().GetWidgetStyle<FTextBlockStyle>("CrashReportDataStyle"))
-	.Text(CrashReportDataText)
+	.Text(FText::Format(LOCTEXT("CrashReportFiles", "Crash reports include diagnostics files (<a id=\"browser\" href=\"{0}\" style=\"Richtext.Hyperlink\">click here to view directory</>)."), FText::FromString(CrashReportClient->GetCrashDirectory())))
 	.AutoWrapText(true)
 	.DecoratorStyleSet(&FCrashReportClientStyle::Get())
 	+ SRichTextBlock::HyperlinkDecorator(TEXT("browser"), FSlateHyperlinkRun::FOnClick::CreateStatic(&OnViewCrashDirectory))
@@ -177,7 +189,7 @@ While you test on your own machine, the call stack is useful, especially for edi
 #endif
 ```
 
-`UE_BUILD_SHIPPING` refers to the configuration Crash Report Client was compiled in. Your game's build configuration has no effect on it. Building from Visual Studio in the Development Editor configuration produces a Development build, so you see the call stack. An installed build (see [Distribution](#distribution)) compiles both Crash Report Client targets in the Shipping configuration, so everyone who uses that engine sees the shorter dialog, for game crashes and editor crashes alike.
+`UE_BUILD_SHIPPING` refers to the configuration Crash Report Client was compiled in. Your game's build configuration has no effect on it. Building from Visual Studio in the Development Editor configuration produces a Development build, so you see the call stack. An installed build (see [Distribution](#distribution)) compiles both Crash Report Client targets in the Shipping configuration, so everyone who uses that engine sees the shorter dialog, for game crashes and editor crashes alike. On macOS the editor always runs the Shipping build, so editor crashes show the shorter dialog there too.
 
 Your players now see your studio's name, logo and wording when your game crashes. Happy splattin'.
 
