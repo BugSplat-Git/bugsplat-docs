@@ -93,9 +93,9 @@ The slot is added to the dialog's top-level `SVerticalBox`, sizes itself to its 
 
 #### Test your changes
 
-In Visual Studio, keep the Development Editor configuration selected, then right-click `CrashReportClientEditor` and select Build. Do the same for `CrashReportClient` so that packaged games get the change too.
+In Visual Studio, keep the Development Editor configuration selected, then right-click `CrashReportClientEditor` and select Build. You don't need to build `CrashReportClient` yourself. When you package a game from a source build with Include Crash Reporter enabled, Unreal Engine builds `CrashReportClient` in the Shipping configuration and copies it into the package.
 
-On Windows, the editor looks for `CrashReportClientEditor.exe` (the Shipping build) first, then `CrashReportClientEditor-Win64-Development.exe`. If you've built the Shipping configuration at any point, rebuild that one too, or the editor keeps showing the old dialog.
+On Windows, the editor looks for `CrashReportClientEditor.exe` (the Shipping build) first, then `CrashReportClientEditor-Win64-Development.exe`. If you've built the Shipping configuration at any point, rebuild that one too, or the editor keeps showing the old dialog. To rebuild it, change the solution configuration to Shipping and build `CrashReportClientEditor` again.
 
 To show the dialog, start the editor from Visual Studio and open any project. Our sample project [my-unreal-crasher](https://github.com/BugSplat-Git/my-unreal-crasher) works well. Click Play, press the backtick key (`` ` ``) to open the console, and enter `debug crash`. The editor crashes and Crash Report Client opens with your banner. To skip the clicking, start the editor with `-ExecCmds="debug crash"` and it crashes as soon as the project loads.
 
@@ -197,7 +197,7 @@ While you test on your own machine, the call stack is useful, especially for edi
 #endif
 ```
 
-`UE_BUILD_SHIPPING` refers to the configuration Crash Report Client was compiled in. Your game's build configuration has no effect on it. Building from Visual Studio in the Development Editor configuration produces a Development build, so you see the call stack. An installed build (see [Distribution](#distribution)) compiles both Crash Report Client targets in the Shipping configuration, so everyone who uses that engine sees the shorter dialog, for game crashes and editor crashes alike. On macOS the editor always runs the Shipping build, so editor crashes show the shorter dialog there too.
+`UE_BUILD_SHIPPING` refers to the configuration Crash Report Client was compiled in. Your game's build configuration has no effect on it. Building from Visual Studio in the Development Editor configuration produces a Development build of `CrashReportClientEditor`, so you see the call stack when the editor crashes. Packaged games always get a Shipping build of `CrashReportClient`, so players see the shorter dialog. An installed build (see [Distribution](#distribution)) compiles both Crash Report Client targets in the Shipping configuration, so everyone who uses that engine sees the shorter dialog, for game crashes and editor crashes alike. On macOS the editor always runs the Shipping build, so editor crashes show the shorter dialog there too.
 
 Your players now see your studio's name, logo and wording when your game crashes. Happy splattin'.
 
