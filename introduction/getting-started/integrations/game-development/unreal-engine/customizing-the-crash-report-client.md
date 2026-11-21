@@ -21,16 +21,16 @@ Add the following to your project's `Config/DefaultEngine.ini`, in the same file
 
 ```ini
 [CrashContextProperties]
-CrashReportClientRichText=INVTEXT("Sorry, My Game crashed. Please tell us what you were doing when it happened so we can find and fix the problem.")
+CrashReportClientRichText=INVTEXT("We saved a report about this crash. Send it to us and we'll use it to find and fix the problem.")
 
 [CrashReportClient]
-CompanyName=My Studio
+CompanyName=BugSplat Studios
 bHideLogFilesOption=false
 bHideAllowToBeContactedOption=false
 ```
 
 * `CrashReportClientRichText` replaces Epic's default message, including the link to Epic's bug submission form. The game reads this value when it starts, so it applies to packaged builds.
-* `CompanyName` sets the name in the contact checkbox: "I agree to be contacted by My Studio via email if additional information about this crash would help fix it." Without it, the checkbox doesn't name a company.
+* `CompanyName` sets the name in the contact checkbox: "I agree to be contacted by BugSplat Studios via email if additional information about this crash would help fix it." Without it, the checkbox doesn't name a company.
 * `bHideLogFilesOption=true` hides the "Include log files with submission" checkbox.
 * `bHideAllowToBeContactedOption=true` hides the contact checkbox.
 
@@ -42,7 +42,7 @@ The banner image, window size and call stack panel can only be changed in the Cr
 
 After completing this section, and the configuration changes above, your Crash Report Client dialog will look like this:
 
-<figure><img src="../../../../../.gitbook/assets/crash-report-client-customized.png" alt="Crash Report Client dialog with a BugSplat banner, the heading My Game has crashed, a custom message, a large description box, no call stack, and a checkbox that names My Studio"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/crash-report-client-customized.png" alt="Crash Report Client dialog with a pixel-art GAME OVER banner, the heading Sorry, MyUnrealCrasher has crashed, a custom message, a large description box, no call stack, and a checkbox that names BugSplat Studios"><figcaption></figcaption></figure>
 
 ### Prerequisites
 
@@ -67,15 +67,15 @@ Both targets compile the same source files in `Engine/Source/Programs/CrashRepor
 
 #### Add a banner image
 
-The dialog is built with Unreal Engine's [Slate UI framework](https://dev.epicgames.com/documentation/en-us/unreal-engine/slate-user-interface-programming-framework-for-unreal-engine), and its styles are defined in `CrashReportClientStyle.cpp`. Crash Report Client loads style images from `Engine/Content/Slate`. Create a directory named `Engine/Content/Slate/CrashReportClient` and save your banner there as `Brand.png`. A banner about 600px wide and 264px high fits the default dialog width.
+The dialog is built with Unreal Engine's [Slate UI framework](https://dev.epicgames.com/documentation/en-us/unreal-engine/slate-user-interface-programming-framework-for-unreal-engine), and its styles are defined in `CrashReportClientStyle.cpp`. Crash Report Client loads style images from `Engine/Content/Slate`. Create a directory named `Engine/Content/Slate/CrashReportClient` and save your banner there as `Brand.png`. The dialog is 740 points wide, so a banner 720 points wide fits with a small margin.
 
 Next, register the image as a brush in the style set. In `CrashReportClientStyle.cpp`, inside `FCrashReportClientStyle::Create`, add the following line just before `return StyleRef;` ([line 130](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/CrashReportClientStyle.cpp#L130) in 5.8.4):
 
 ```cpp
-Style.Set("Brand", new IMAGE_BRUSH("CrashReportClient/Brand", FVector2D(600, 264)));
+Style.Set("Brand", new IMAGE_BRUSH("CrashReportClient/Brand", FVector2D(720, 248)));
 ```
 
-This line defines an image brush for `Engine/Content/Slate/CrashReportClient/Brand.png` with a size of 600px by 264px, stored in the style set under the key `Brand`. In our experience, a brush declared directly in the dialog code doesn't load at runtime.
+This line defines an image brush for `Engine/Content/Slate/CrashReportClient/Brand.png`, drawn at 720 by 248 points and stored in the style set under the key `Brand`. The image file can be larger than the brush. Save it at twice the brush size or more (1440 by 496 pixels here) so that it stays sharp on high-DPI displays. For pixel art, scale it up with nearest-neighbor resampling so the edges stay crisp. In our experience, a brush declared directly in the dialog code doesn't load at runtime.
 
 Now add the image to the dialog. In `SCrashReportClient.cpp`, find `SCrashReportClient::ConstructDetailedDialog` and add the following slot just under the comment `// Stuff anchored to the top` ([line 157](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/SCrashReportClient.cpp#L157) in 5.8.4):
 
@@ -99,6 +99,8 @@ On Windows, the editor looks for `CrashReportClientEditor.exe` (the Shipping bui
 
 To show the dialog, start the editor from Visual Studio and open any project. Our sample project [my-unreal-crasher](https://github.com/BugSplat-Git/my-unreal-crasher) works well. Click Play, press the backtick key (`` ` ``) to open the console, and enter `debug crash`. The editor crashes and Crash Report Client opens with your banner. To skip the clicking, start the editor with `-ExecCmds="debug crash"` and it crashes as soon as the project loads.
 
+If Send and Close and Send and Restart are grayed out, Crash Report Client has nowhere to send the report. Set `DataRouterUrl` as described in [Unreal Engine](../unreal-engine.md#configuring-crash-report-client).
+
 {% hint style="info" %}
 **macOS:** the editor only launches `CrashReportClientEditor.app`, which is the Shipping build, so build that configuration:
 
@@ -111,24 +113,30 @@ If the build fails with `The selected platform is no longer supported by libc++`
 
 #### Resize the window
 
-The banner takes up space that the text boxes used to have, so they're squeezed. To make the dialog taller, change the default window size in `CrashReportClientApp.cpp` ([line 55](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/CrashReportClientApp.cpp#L55) in 5.8.4). The default is 740 by 560. Adding the banner's height gives roughly:
+The banner takes up space that the text boxes used to have, so they're squeezed. To make the dialog taller, change the default window size in `CrashReportClientApp.cpp` ([line 55](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/CrashReportClientApp.cpp#L55) in 5.8.4). The default is 740 by 560. With the 248-point banner and the call stack removed (see [Hide the call stack](#hide-the-call-stack)), 770 points leaves a comfortable description box:
 
 ```cpp
 /** Default main window size */
-const FVector2D InitialWindowDimensions(740, 850);
+const FVector2D InitialWindowDimensions(740, 770);
 ```
 
 If your game attaches a screenshot to its crash reports, the dialog uses `InitialWindowDimensionsWithScreenshot` (740 by 1000) a few lines below. Increase that value as well.
 
 #### Change the remaining Epic text
 
-The configuration options above replace the main message and the contact checkbox. The heading above the message is set in code. In `SCrashReportClient.cpp`, `ConstructDetailedDialog` shows "An Unreal process has crashed: " followed by the game's name ([line 87](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/SCrashReportClient.cpp#L87) in 5.8.4). Change the text of the `CrashedAppUnreal` string to your own wording:
+The configuration options above replace the main message and the contact checkbox. The heading above the message is set in code. By default it reads "An Unreal process has crashed: UE-MyUnrealCrasher". The name comes from the crash's `GameName` property, which Unreal Engine prefixes with `UE-`.
+
+To show a friendlier heading, such as "Sorry, MyUnrealCrasher has crashed", make two changes in `SCrashReportClient::ConstructDetailedDialog`. First, replace the `CrashedAppText` definition ([lines 85 to 87](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/SCrashReportClient.cpp#L85-L87) in 5.8.4) with a version that removes the prefix and puts the name in the sentence:
 
 ```cpp
-LOCTEXT( "CrashedAppUnreal", "My Game has crashed: " );
+FString DisplayName = CrashedAppName;
+DisplayName.RemoveFromStart(TEXT("UE-"));
+const FText CrashedAppText = CrashedAppName.IsEmpty() ?
+	LOCTEXT( "CrashedAppNotFound", "An unknown process has crashed" ) :
+	FText::Format( LOCTEXT( "CrashedAppUnreal", "Sorry, {0} has crashed" ), FText::FromString( DisplayName ) );
 ```
 
-The name after the heading comes from the crash's `GameName` property, which Unreal Engine prefixes with `UE-`, for example `UE-MyUnrealCrasher`. To leave the name out, delete the second `+SHorizontalBox::Slot()` in the heading, the one that displays `CrashedAppName`.
+Second, the heading shows the name a second time in its own text block. Delete the second `+SHorizontalBox::Slot()` in the heading, the one that displays `FText::FromString(CrashedAppName)` ([lines 171 to 177](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/SCrashReportClient.cpp#L171-L177) in 5.8.4).
 
 If you can't change your project's configuration, you can also edit the default message in code. The default message is the `CrashDetailed` string in `SCrashReportClient::Construct` ([line 56](https://github.com/EpicGames/UnrealEngine/blob/5.8.4-release/Engine/Source/Programs/CrashReportClient/Private/SCrashReportClient.cpp#L56) in 5.8.4). `CrashReportClientRichText` overrides this string when it's set.
 
@@ -215,7 +223,7 @@ The following steps create an installed build on Windows:
    Engine\Build\BatchFiles\RunUAT.bat BuildGraph -script=Engine/Build/InstalledEngineBuild.xml -target="Make Installed Build Win64" -set:HostPlatformOnly=true
    ```
 
-   `HostPlatformOnly=true` builds for Windows only, so you don't need the SDKs for Android, Linux or other platforms. Add the `-set:` option for each extra platform your game targets, for example `-set:WithAndroid=true`. To make BugSplat the default destination for crash reports from games built with this engine, also add `-set:CrashReporterURL=https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}` and `-set:CrashReporterCompanyName="My Studio"`, replacing the values in braces with your own. A `DataRouterUrl` or `CompanyName` in a project's `DefaultEngine.ini` still overrides these defaults.
+   `HostPlatformOnly=true` builds for Windows only, so you don't need the SDKs for Android, Linux or other platforms. Add the `-set:` option for each extra platform your game targets, for example `-set:WithAndroid=true`. To make BugSplat the default destination for crash reports from games built with this engine, also add `-set:CrashReporterURL=https://{database}.bugsplat.com/post/ue4/{appName}/{appVersion}` and `-set:CrashReporterCompanyName="BugSplat Studios"`, replacing the values in braces with your own. A `DataRouterUrl` or `CompanyName` in a project's `DefaultEngine.ini` still overrides these defaults.
 8. The installed engine is saved to `LocalBuilds\Engine\Windows`. Copy that folder to each machine that needs it, and run `Engine\Binaries\Win64\UnrealEditor.exe` from inside it to create games with your customized engine.
 9. To open existing projects with your customized engine, edit the `.uproject` file and change the `EngineAssociation` field. After the editor has been launched once on a machine, you can find the value by opening `regedit` and navigating to `HKEY_CURRENT_USER\Software\Epic Games\Unreal Engine\Builds`. Use the name of the entry whose value is the path to your installed engine folder.
 
