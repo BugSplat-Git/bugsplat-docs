@@ -1,8 +1,8 @@
 ---
 description: >-
   What a coding agent needs to add BugSplat to an app: the values to ask the
-  developer for, SDK downloads that don't need a login, symbol upload, and how
-  to confirm a test crash arrived.
+  developer for, SDK downloads that don't need a login, symbol upload, how to
+  confirm a test crash arrived, and reading crashes through the MCP server.
 ---
 
 # For AI Coding Agents
@@ -80,3 +80,9 @@ Invoke-RestMethod -Uri "https://app.bugsplat.com/api/crashes?database=$env:BUGSP
 3. Find the row whose `appName`, `appVersion` and `crashTime` match the test. If its `stackKey` is a module and an offset, such as `MyApp+0x12b5`, the symbols for that version weren't uploaded or don't match the build. The [Crashes](../development/web-services/api/crashes.md) API page shows how to filter the list.
 
 If no row appears, each platform's page lists the usual causes. For Windows C++, see [When crashes don't arrive](integrations/desktop/windows/#when-crashes-dont-arrive).
+
+## Reading crashes through the MCP server
+
+Once crashes are arriving, the agent can work with them through BugSplat's hosted [MCP server](../development/web-services/mcp-server/) at `https://api.bugsplat.com/mcp`. The developer adds that address to their agent and signs in with their own BugSplat account in the browser, so ask them to connect it. The agent then has the same access as the developer's login, in every database they can open, with no Client ID or Client Secret to manage.
+
+The server's tools list and read crash reports, crash groups, versions and symbol files, file a crash group as a defect in the database's connected issue tracker, and mark a group fixed. To confirm a test crash with it, ask for the latest reports in the database and match the application, version and crash time as in step 3 above. [MCP Server](../development/web-services/mcp-server/) has the setup steps for each client, and [MCP Tools](../development/web-services/mcp-server/tools.md) lists every tool and its arguments.
