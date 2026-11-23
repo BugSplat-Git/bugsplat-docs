@@ -1,8 +1,8 @@
 ---
 description: >-
-  Connect Claude Code, Claude, or ChatGPT to BugSplat's hosted MCP server and
-  ask questions about your crashes. You sign in with your BugSplat account, so
-  there is no Client ID or Client Secret to manage.
+  Connect BugSplat to Claude Code, Claude, ChatGPT, Codex, and more. BugSplat's
+  hosted MCP server can query all your crash data via plain-english without
+  package installs or credential management.
 ---
 
 # MCP Server
@@ -25,17 +25,17 @@ API and MCP access is included on every plan. On the Free plan, access is rate l
 
 ## Claude Code
 
-1. Add the server:
+1.  Add the server:
 
-   ```bash
-   claude mcp add --transport http bugsplat https://api.bugsplat.com/mcp
-   ```
+    ```bash
+    claude mcp add --transport http bugsplat https://api.bugsplat.com/mcp
+    ```
 
-   The command adds the server to the current project. To use BugSplat in every project, add `--scope user`:
+    The command adds the server to the current project. To use BugSplat in every project, add `--scope user`:
 
-   ```bash
-   claude mcp add --scope user --transport http bugsplat https://api.bugsplat.com/mcp
-   ```
+    ```bash
+    claude mcp add --scope user --transport http bugsplat https://api.bugsplat.com/mcp
+    ```
 2. Start Claude Code and run `/mcp`.
 3. Select **bugsplat**, then choose **Authenticate**.
 4. Sign in to BugSplat in the browser window that opens, then return to Claude Code.
