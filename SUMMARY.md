@@ -41,6 +41,7 @@
   * [BugSplat for Windows (C++)](introduction/getting-started/integrations/desktop/windows/README.md)
     * [How the Windows Crash Reporter Works](introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md)
     * [Full Memory Dumps](introduction/getting-started/integrations/desktop/windows/full-memory-dumps.md)
+    * [Easy Anti-Cheat](introduction/getting-started/integrations/desktop/windows/easy-anti-cheat.md)
     * [BugSplat for Windows Dependencies](introduction/getting-started/integrations/desktop/windows/dependencies.md)
     * [BugSplat for Windows Upgrade Guide](introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-upgrade-guide.md)
     * [BugSplat for Windows API Documentation](introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-api-documentation.md)
