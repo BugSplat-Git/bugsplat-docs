@@ -12,10 +12,10 @@ BugSplat supports user-defined metadata, also known as Custom Crash Attributes, 
 **Implementation:**
 
 * Custom Crash Attributes are supported on all BugSplat crash platforms
-* For **Windows** and **Xbox**, refer to the [BugSplat for Windows C++ documentation](../../introduction/getting-started/integrations/desktop/windows/);
+* For **Windows** and **Xbox**, refer to the [BugSplat for Windows C++ documentation](../../sdks/desktop/windows/);
 * For **PlayStation**, please refer to the documentation in the download found on the [Gaming Consoles](https://app.bugsplat.com/v2/database/integrations#consoles) tab on the Integrations page.
-* For **Apple** platforms, refer to the [macOS](../../introduction/getting-started/integrations/desktop/macos.md)/[iOS](../../introduction/getting-started/integrations/mobile/ios.md#attributes) documentation.
-* For **Linux**, **Crashpad**, **Qt**, **CMake**, and **Android,** BugSplat parses annotations as attributes. See the [Crashpad documentation](../../introduction/getting-started/integrations/desktop/crashpad#initialization) for more info on how to add annotations.
+* For **Apple** platforms, refer to the [macOS](../../sdks/desktop/macos.md)/[iOS](../../sdks/mobile/ios.md#attributes) documentation.
+* For **Linux**, **Crashpad**, **Qt**, **CMake**, and **Android,** BugSplat parses annotations as attributes. See the [Crashpad documentation](../../sdks/desktop/crashpad#initialization) for more info on how to add annotations.
 
 ## Reserved Attribute Names
 

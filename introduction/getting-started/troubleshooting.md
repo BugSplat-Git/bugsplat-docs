@@ -38,7 +38,7 @@ In order to get call stacks that match the function names, file names, and line 
 
 ### Missing Symbols
 
-You may see a red warning on certain crashes that indicate a crash is missing symbols. C++, .NET, Crashpad, macOS, iOS, and some JavaScript crashes might display this warning. For more information about uploading symbols please see the documentation that corresponds to your application's [platform](integrations/).
+You may see a red warning on certain crashes that indicate a crash is missing symbols. C++, .NET, Crashpad, macOS, iOS, and some JavaScript crashes might display this warning. For more information about uploading symbols please see the documentation that corresponds to your application's [platform](../../sdks/).
 
 **Code Signing**
 
@@ -57,7 +57,7 @@ BugSplat may automatically delete your symbols under certain circumstances. If y
 Older versions of symbol-upload and SendPdbs upload symbols to a location with size limits and will throw errors when these limits are exceeded. For Windows and Crashpad symbols, newer versions of symbol-upload and SendPdbs do not have this restriction and an update that lifts the restriction for macOS symbols is coming soon.
 
 {% hint style="info" %}
-Newer versions of symbol-upload and SendPdbs can be found on our [Downloads](integrations/downloads.md#symbols) page.
+Newer versions of symbol-upload and SendPdbs can be found on our [Downloads](../../sdks/downloads.md#symbols) page.
 {% endhint %}
 
 ### Max File Size Limit Exceeded

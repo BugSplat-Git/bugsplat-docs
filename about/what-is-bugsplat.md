@@ -18,7 +18,7 @@ Overall, applications that use BugSplat are more stable, crash less often, and b
 
 BugSplat is built on AWS’s scalable infrastructure which provides a secure and reliable service to developers and their end-users.
 
-BugSplat supports all kinds of [platforms and languages ](../introduction/getting-started/integrations/)as well as [third-party tools integrations](../introduction/development/integrating-with-tools/).
+BugSplat supports all kinds of [platforms and languages ](../sdks/)as well as [third-party tools integrations](../integrations/).
 
 If you're not sure if BugSplat is right for your application or game, please send us a note so we can understand your needs better!
 

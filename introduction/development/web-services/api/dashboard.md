@@ -10,7 +10,7 @@ Get a consolidated summary of report data for the dashboard page. This endpoint 
 
 <mark style="color:blue;">`GET`</mark> `https://app.bugsplat.com/api/dashboard`
 
-Returns a consolidated dashboard summary for the specified database and time range, including report volume, report history chart data, recent reports, status counts, and top report groups. Reports are counted as they are ingested and may have occurred on different dates (e.g. sent at next launch). For accurate accounting of reports by date please use the [Crashes](crashes.md) endpoint or [webhook](../../integrating-with-tools/messanger-apps/webhook.md).
+Returns a consolidated dashboard summary for the specified database and time range, including report volume, report history chart data, recent reports, status counts, and top report groups. Reports are counted as they are ingested and may have occurred on different dates (e.g. sent at next launch). For accurate accounting of reports by date please use the [Crashes](crashes.md) endpoint or [webhook](../../../../integrations/messanger-apps/webhook.md).
 
 #### Query Parameters
 

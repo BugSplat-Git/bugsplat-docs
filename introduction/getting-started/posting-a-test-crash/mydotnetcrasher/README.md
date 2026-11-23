@@ -6,7 +6,7 @@ description: >-
 
 # MyDotNetCrasher (.NET)
 
-Before you enable BugSplat in your .NET application, you may want to take a moment to experiment with our `MyDotNetCrasher` sample, a .NET 10 console app that triggers each kind of crash [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) reports, chosen from the command line. Its mixed-mode crashes call into a small C++ library, `MyDotNetCrasherNative`, so you can see BugSplat report one call stack that crosses from C# into C++.
+Before you enable BugSplat in your .NET application, you may want to take a moment to experiment with our `MyDotNetCrasher` sample, a .NET 10 console app that triggers each kind of crash [BugSplat for .NET](../../../../sdks/desktop/bugsplat-for-dot-net.md) reports, chosen from the command line. Its mixed-mode crashes call into a small C++ library, `MyDotNetCrasherNative`, so you can see BugSplat report one call stack that crosses from C# into C++.
 
 To get started, clone the [Samples](https://github.com/BugSplat-Git/Samples) repository, or [download the BugSplat SDK for .NET](https://app.bugsplat.com/download/bugsplat-dotnet.zip) and unzip it. You'll need the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) and Visual Studio with the C++ desktop workload and `v143` build tools, which build `MyDotNetCrasherNative`.
 
@@ -78,4 +78,4 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptio
 
 The other modes are captured by BugSplat's application exception handler. Your own application should always register `BugSplatWer.dll`, because crashes like these can only be captured through it.
 
-Finally, explore how each mode is implemented in the sample's `Program.cs`, and see [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.
+Finally, explore how each mode is implemented in the sample's `Program.cs`, and see [BugSplat for .NET](../../../../sdks/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.
