@@ -52,6 +52,8 @@ BugSplat will cache missed lookups to external symbol servers for 6 hours. If yo
 
 BugSplat's [symbol-upload](https://docs.bugsplat.com/introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload) tool can be used to create a [SymSrv-compatible](https://learn.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) directory structure that can be [self-hosted](../../introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md#self-hosted-symbol-servers). BugSplat supports connecting to external symbols via HTTP (including Azure Blob Storage) or AWS S3. Our backend will access the external symbols and cache them locally for faster lookup.
 
+For Windows games running under Proton (Steam Deck, Steam Play), see [How do I get symbols for Proton / Wine frames?](proton-symbol-server.md)
+
 ### Tools
 
 We offer a few tools that you can use to verify the GUIDs of symbols on your local system.

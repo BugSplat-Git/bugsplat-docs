@@ -189,6 +189,7 @@
   * [Add Custom Branding to Support Response](education/faq/add-custom-branding-to-support-response.md)
   * [Finding Missing Reports](education/faq/finding-missing-reports.md)
   * [Using Dark Mode](education/faq/using-dark-mode.md)
+  * [How do I get symbols for Proton / Wine frames?](education/faq/proton-symbol-server.md)
   * [What If My App or Game Grows Quickly?](education/faq/what-if-my-app-or-game-grows-quickly.md)
   * [Does BugSplat have an effect on application performance?](education/faq/does-bugsplat-have-an-effect-on-application-performance.md)
   * [Manually Upload Crash Reports to BugSplat](education/faq/manually-post-crash-reports-to-bugsplat.md)

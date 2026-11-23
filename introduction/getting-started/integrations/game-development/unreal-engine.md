@@ -120,6 +120,16 @@ Special instructions for Linux servers:
 
 Symbolic call stacks are resolved if you deploy symbols on your server. This is the typical case. However, if symbols aren't available locally, upload the Unreal Linux custom symbol files (`.psym` extension) using [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md).
 
+## Windows games running under Proton (Steam Deck / Steam Play)
+
+If your Windows Unreal Engine build is run under Proton (Steam Deck, Steam Play on Linux, etc.), add Valve’s public Proton symbol server so Wine/Proton frames resolve:
+
+1. Go to the [Symbols](https://app.bugsplat.com/v2/database/symbols) page
+2. Click **+ Add Server**
+3. Set the Host to `https://proton-archive.steamos.cloud/`
+
+Available for Proton 9+. After adding the server, [reprocess](../../../../education/how-tos/reprocessing-crashes.md) any existing crashes if needed.
+
 ## iOS 🍎
 
 You will need to configure [bugsplat-ios](../mobile/ios.md) to capture iOS crash reports. Additionally, you'll need to upload `.dSYM` files for function names and line numbers to be included in crash reports. Symbol files can be uploaded automatically by invoking [symbol-upload](../../../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md). The BugSplat Unreal plugin also reports fatal main-thread hangs on iOS. See the plugin's [Hang Detection](unreal-engine/unreal-engine-plugin.md#hang-detection-ios-and-android) section for details.
