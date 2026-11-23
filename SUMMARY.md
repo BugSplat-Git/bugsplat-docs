@@ -34,7 +34,7 @@
 * [Importing Crashes](introduction/getting-started/migrating-crashes-from-another-tool.md)
 * [Troubleshooting](introduction/getting-started/troubleshooting.md)
 
-## 🧩 Integrations
+## 🧩 SDKs
 
 * [Choose Your Platform](introduction/getting-started/integrations/README.md)
 * [💻 Desktop Software](introduction/getting-started/integrations/desktop/README.md)
@@ -88,23 +88,8 @@
   * [Node.js](introduction/getting-started/integrations/web/node.js.md)
 * [⌛ Downloads](introduction/getting-started/integrations/downloads.md)
 
-## 📖 Guides
+## 🔗 Integrations
 
-* [Using BugSplat](introduction/development/README.md)
-* [Using the App](introduction/development/using-the-app.md)
-* [Symbol Files](introduction/development/working-with-symbol-files/README.md)
-  * [Upload Symbols with symbol-upload](introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md)
-  * [How to Manually Upload Symbols](introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md)
-  * [Managing Symbol Storage](introduction/development/working-with-symbol-files/managing-symbol-storage.md)
-  * [Symbol Servers](introduction/development/working-with-symbol-files/symbol-servers.md)
-  * [Working with Symbol Files in Windows Environments](introduction/development/working-with-symbol-files/working-with-windows-symbols-in-bugsplat.md)
-  * [Source Maps](introduction/development/working-with-symbol-files/source-maps.md)
-  * [SendPdbs (Legacy)](introduction/development/working-with-symbol-files/sendpdbs-legacy.md)
-* [Searching](introduction/development/searching/README.md)
-  * [Table Filtering](introduction/development/searching/search.md)
-  * [Table Grouping](introduction/development/searching/grouping.md)
-* [Grouping Crashes](introduction/development/grouping-crashes.md)
-* [Commenting](introduction/development/commenting.md)
 * [Alerts & Issue Trackers](introduction/development/integrating-with-tools/README.md)
   * [Configurable Alerts](introduction/development/integrating-with-tools/messanger-apps/README.md)
     * [Slack](introduction/development/integrating-with-tools/messanger-apps/slack.md)
@@ -122,6 +107,24 @@
     * [Monday.com](introduction/development/integrating-with-tools/issue-trackers/monday.md)
     * [YouTrack](introduction/development/integrating-with-tools/issue-trackers/youtrack.md)
     * [Automatic Issue Creation for Defect Tracker Integrations](introduction/development/integrating-with-tools/issue-trackers/automatic-issue-creation.md)
+
+## 📖 Guides
+
+* [Using BugSplat](introduction/development/README.md)
+* [Using the App](introduction/development/using-the-app.md)
+* [Symbol Files](introduction/development/working-with-symbol-files/README.md)
+  * [Upload Symbols with symbol-upload](introduction/development/working-with-symbol-files/upload-symbols-with-symbol-upload.md)
+  * [How to Manually Upload Symbols](introduction/development/working-with-symbol-files/how-to-manually-upload-symbols.md)
+  * [Managing Symbol Storage](introduction/development/working-with-symbol-files/managing-symbol-storage.md)
+  * [Symbol Servers](introduction/development/working-with-symbol-files/symbol-servers.md)
+  * [Working with Symbol Files in Windows Environments](introduction/development/working-with-symbol-files/working-with-windows-symbols-in-bugsplat.md)
+  * [Source Maps](introduction/development/working-with-symbol-files/source-maps.md)
+  * [SendPdbs (Legacy)](introduction/development/working-with-symbol-files/sendpdbs-legacy.md)
+* [Searching](introduction/development/searching/README.md)
+  * [Table Filtering](introduction/development/searching/search.md)
+  * [Table Grouping](introduction/development/searching/grouping.md)
+* [Grouping Crashes](introduction/development/grouping-crashes.md)
+* [Commenting](introduction/development/commenting.md)
 * [Production](introduction/production/README.md)
   * [Versions](introduction/production/managing-versions.md)
   * [🆕 Regression Alerts](introduction/production/regression-alerts.md)

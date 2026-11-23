@@ -12,7 +12,7 @@ BugSplat works in a wide range of environments and languages to give developers 
 
 If you are creating a new account, you'll have an option to access these documents through the Onboarding Tool, which assists in the configuration and setup of new accounts.
 
-### Integrations
+### SDKs
 
 {% content-ref url="desktop/" %}
 [desktop](desktop/)
