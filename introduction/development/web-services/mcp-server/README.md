@@ -13,7 +13,7 @@ Ask your AI assistant which crash groups showed up in your latest build, and it 
 https://api.bugsplat.com/mcp
 ```
 
-Add the address to Claude Code, Claude, ChatGPT, or any other MCP client that connects to remote servers and signs in with OAuth.
+Add the address to Claude Code, Codex, Cursor, Claude, ChatGPT, or any other MCP client that connects to remote servers and signs in with OAuth.
 
 The first time your assistant connects, your browser opens BugSplat's sign-in page. After you sign in, the server works with your own BugSplat permissions: the assistant can read every database your login can open. You don't create a Client ID and Client Secret for each database the way you do for the [REST API](../oauth2.md), where each pair belongs to one database.
 
@@ -41,6 +41,39 @@ API and MCP access is included on every plan. On the Free plan, access is rate l
 4. Sign in to BugSplat in the browser window that opens, then return to Claude Code.
 
 Claude Code's [MCP documentation](https://code.claude.com/docs/en/mcp) describes the other options of `claude mcp add`.
+
+## Codex
+
+1.  Add the server:
+
+    ```bash
+    codex mcp add bugsplat --url https://api.bugsplat.com/mcp
+    ```
+
+    Codex saves the server in `~/.codex/config.toml`, so it is available in every project, and opens BugSplat's sign-in page in your browser.
+2. Sign in to BugSplat, then return to the terminal. Codex prints `Successfully logged in.`
+
+To sign in again, or to switch to a different BugSplat account, run `codex mcp logout bugsplat` and then `codex mcp login bugsplat`. `codex mcp list` shows the server and its sign-in method.
+
+## Cursor
+
+1.  Add the server to `~/.cursor/mcp.json` to use it in every project, or to `.cursor/mcp.json` in a project folder to use it in that project only:
+
+    ```json
+    {
+      "mcpServers": {
+        "bugsplat": {
+          "url": "https://api.bugsplat.com/mcp"
+        }
+      }
+    }
+    ```
+
+    If the file already lists other servers, add the `bugsplat` entry inside the existing `mcpServers` object.
+2. In Cursor, open **Settings > Tools & MCP**.
+3. Click **Connect** next to **bugsplat**, then sign in to BugSplat in the browser window that opens.
+
+Cursor's [MCP documentation](https://cursor.com/docs/mcp) describes the other options in `mcp.json`.
 
 ## Claude and Claude Desktop
 
