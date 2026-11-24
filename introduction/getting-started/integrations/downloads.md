@@ -10,7 +10,7 @@ description: >-
 
 |                          |                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------- |
-| Windows (Native C++)     | [Download](https://app.bugsplat.com/download/bugsplat-windows.zip) |
+| Windows (Native C++)     | [Download](https://app.bugsplat.com/download/bugsplat-windows.zip), or [NuGet](https://www.nuget.org/packages/BugSplat) for `.vcxproj` projects ([details](desktop/windows/#nuget)) |
 | Windows (.NET)           | [NuGet](https://www.nuget.org/packages/BugSplat) or [Download](https://app.bugsplat.com/download/bugsplat-dotnet.zip) |
 | macOS                    | See platform docs ([here](desktop/macos.md))                                 |
 | Linux                    | See platform docs ([here](desktop/linux.md))                                 |
