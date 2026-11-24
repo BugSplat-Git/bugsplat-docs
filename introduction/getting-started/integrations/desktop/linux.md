@@ -1,5 +1,9 @@
 # Linux
 
+{% hint style="info" %}
+This guide integrates Crashpad by hand. [BugSplat Native 9.0 for Linux](../native/linux.md) packages the same capture with a monitor, a dialog, attachments, hang detection and the support response, and is being brought up now.
+{% endhint %}
+
 ## Overview
 
 BugSplat recommends using [Crashpad](https://chromium.googlesource.com/crashpad/crashpad) for Linux crash reporting. Crashpad is Google's latest open-source crash reporting tool. It is the successor to the popular Breakpad crash reporter and allows you to submit minidumps to a configured URL after a crash occurs in your product.

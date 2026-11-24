@@ -27,6 +27,10 @@ Ready to wire up your own application? The **Full Setup Guide** walks you throug
 
 Pick your platform and follow its SDK guide. (Each guide assumes you've already [created a database](introduction/getting-started/create-a-new-database-in-bugsplat.md), which takes about 30 seconds.)
 
+{% content-ref url="introduction/getting-started/integrations/native/" %}
+[native](introduction/getting-started/integrations/native/)
+{% endcontent-ref %}
+
 {% content-ref url="introduction/getting-started/integrations/desktop/" %}
 [desktop](introduction/getting-started/integrations/desktop/)
 {% endcontent-ref %}
