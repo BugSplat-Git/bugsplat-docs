@@ -141,6 +141,11 @@
 
 * [Using the API](introduction/development/web-services/README.md)
 * [MCP Server](introduction/development/web-services/mcp-server/README.md)
+  * [Connect Claude to BugSplat](introduction/development/web-services/mcp-server/claude.md)
+  * [Connect Claude Code to BugSplat](introduction/development/web-services/mcp-server/claude-code.md)
+  * [Connect Cursor to BugSplat](introduction/development/web-services/mcp-server/cursor.md)
+  * [Connect Codex to BugSplat](introduction/development/web-services/mcp-server/codex.md)
+  * [Connect ChatGPT to BugSplat](introduction/development/web-services/mcp-server/chatgpt.md)
   * [MCP Tools](introduction/development/web-services/mcp-server/tools.md)
 * [Web Application Endpoints](introduction/development/web-services/api/README.md)
   * [Company](introduction/development/web-services/api/company.md)
