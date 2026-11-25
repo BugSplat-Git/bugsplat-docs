@@ -14,7 +14,7 @@ Symbol-upload is a cross-platform application that automatically uploads [symbol
 Uploaded symbols but still seeing missing function names or line numbers? See [Why are crashes missing symbols?](../../../education/faq/why-are-crashes-missing-symbols-function-names-and-or-line-numbers.md) to diagnose.
 {% endhint %}
 
-The symbol-upload tool can be installed by [npm](https://npmjs.com/package/@bugsplat/symbol-upload) and used as a [CLI tool](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#command-line) or a [javascript library](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#api). We also provide a [GitHub Action](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#action) that can be added to your build workflow.
+The symbol-upload tool can be installed by [npm](https://npmjs.com/package/@bugsplat/symbol-upload) and used as a [CLI tool](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#command-line) or a [javascript library](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#api). We also provide a [GitHub Action](https://github.com/BugSplat-Git/symbol-upload?tab=readme-ov-file#action) that can be added to your build workflow. The [BugSplat CLI](../web-services/bugsplat-cli.md)'s `bugsplat symbols upload` command takes the same options; [Coming from symbol-upload](../web-services/bugsplat-cli.md#coming-from-symbol-upload) maps each one.
 
 ```bash
 npm i -g @bugsplat/symbol-upload

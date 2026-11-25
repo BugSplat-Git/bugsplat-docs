@@ -60,6 +60,8 @@ npx @bugsplat/symbol-upload -a MyApp -v 1.0.0 -d build/Release -f "*.{pdb,exe,dl
 
 `-f` defaults to `*.js.map`, so a native build has to pass its own pattern. Without Node.js, use the standalone binary, for example `https://app.bugsplat.com/download/symbol-upload-windows.exe`. See [Upload Symbols with symbol-upload](../development/working-with-symbol-files/upload-symbols-with-symbol-upload.md) for the full list of options.
 
+The [BugSplat CLI](../development/web-services/bugsplat-cli.md) uploads symbols too. `bugsplat symbols upload` takes the same `-a`, `-v`, `-d`, and `-f` options and reads the same environment variables, and `bugsplat symbols upload --dry-run` lists what a pattern selects without uploading anything.
+
 ## Confirming a crash arrived
 
 1. Make the app crash. Each platform's page ends with a verification step that shows how. On Windows, run the app without a debugger attached, and call `SetQuietMode(true)` for the test so the report uploads without waiting for someone to answer the crash dialog. Turn quiet mode back off before you ship, unless the developer wants no dialog.
@@ -86,3 +88,5 @@ If no row appears, each platform's page lists the usual causes. For Windows C++,
 Once crashes are arriving, the agent can work with them through BugSplat's hosted [MCP server](../development/web-services/mcp-server/) at `https://api.bugsplat.com/mcp`. The developer adds that address to their agent and signs in with their own BugSplat account in the browser, so ask them to connect it. The agent then has the same access as the developer's login, in every database they can open, with no Client ID or Client Secret to manage.
 
 The server's tools list and read crash reports, crash groups, versions and symbol files, file a crash group as a defect in the database's connected issue tracker, and mark a group fixed. To confirm a test crash with it, ask for the latest reports in the database and match the application, version and crash time as in step 3 above. [MCP Server](../development/web-services/mcp-server/) has the setup steps for each client, and [MCP Tools](../development/web-services/mcp-server/tools.md) lists every tool and its arguments.
+
+An agent that can't connect to an MCP server can run the [BugSplat CLI](../development/web-services/bugsplat-cli.md), whose commands call the same tools: `bugsplat reports list` lists the latest reports, and `bugsplat reports get <id>` shows one in full. Where no browser can open, the CLI signs in with the Client ID and Client Secret from the environment variables above.
