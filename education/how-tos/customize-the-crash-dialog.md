@@ -7,10 +7,10 @@ description: Rebrand, reword, and add links to the Windows crash dialog with a t
 On Windows, the crash dialog your users see is shown by `BugSplatReporter.exe`. It reads its colors, fonts, layout, logo, and wording from a `BugSplatTheme` folder at run time. Nothing is compiled: edit a file, preview the dialog, and ship the folder with your application.
 
 {% hint style="warning" %}
-**Upgrading from BugSplat for Windows 8.x?** The theme folder replaces `BugSplatRc.dll`, which no longer exists in 9.0.0. If you customized the dialog by editing `BugSplatRc.rc` and rebuilding the DLL, those changes don't carry forward; re-create them in `theme.json` and `strings.en-US.json` as described below. See the [upgrade guide](../../introduction/getting-started/integrations/desktop/windows/bugsplat-for-windows-upgrade-guide.md#upgrading-to-9.0.0).
+**Upgrading from BugSplat for Windows 8.x?** The theme folder replaces `BugSplatRc.dll`, which no longer exists in 9.0.0. If you customized the dialog by editing `BugSplatRc.rc` and rebuilding the DLL, those changes don't carry forward; re-create them in `theme.json` and `strings.en-US.json` as described below. See the [upgrade guide](../../sdks/desktop/windows/bugsplat-for-windows-upgrade-guide.md#upgrading-to-9.0.0).
 {% endhint %}
 
-For macOS, see the [Crash Reporter Customization](../../introduction/getting-started/integrations/desktop/macos.md#crash-reporter-customization) section of the macOS guide.
+For macOS, see the [Crash Reporter Customization](../../sdks/desktop/macos.md#crash-reporter-customization) section of the macOS guide.
 
 ### The Default Dialog 👀
 
@@ -62,7 +62,7 @@ It's still copied to `BugSplatTheme\` in the output. If a folder named by `BugSp
 
 Every build on Windows also [checks the theme](#checking-a-theme) and reports each problem as a `BSTHEME001`–`BSTHEME005` warning. Add a code to `<NoWarn>` to silence that kind of warning, or set `<BugSplatCheckTheme>false</BugSplatCheckTheme>` to turn the check off.
 
-The theme is copied whenever the native runtime is: for executables and test projects, and for a library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`. A library loaded by a native host gets the theme in its own output's `BugSplatTheme\` folder; deploy that folder next to the host's executable along with the native files. See [BugSplat for .NET](../../introduction/getting-started/integrations/desktop/bugsplat-for-dot-net.md).
+The theme is copied whenever the native runtime is: for executables and test projects, and for a library that sets `<BugSplatCopyNativeFiles>true</BugSplatCopyNativeFiles>`. A library loaded by a native host gets the theme in its own output's `BugSplatTheme\` folder; deploy that folder next to the host's executable along with the native files. See [BugSplat for .NET](../../sdks/desktop/bugsplat-for-dot-net.md).
 
 ### Previewing Your Changes 🔍
 
@@ -221,7 +221,7 @@ The dialog is a single column, in this order: banner, headline, body text, descr
 | `requireEmail` | `false` | Keep **Send report** disabled until the Email field contains something with an `@` in the middle. It's ignored if `showEmail` is `false`, so the dialog can always be sent. |
 | `autoCloseSeconds` | `0` | Send the report and close the dialog after this many seconds, up to 3600. `0` turns it off. |
 
-`autoCloseSeconds` is for machines with nobody in front of them, such as kiosks, test rigs, and build agents. The countdown always **sends** the report, never discards it, and any key press or click cancels it for good. To show no dialog at all, use [quiet mode](../../introduction/getting-started/integrations/desktop/windows/how-the-windows-crash-reporter-works.md#quiet-mode-and-unattended-machines) instead.
+`autoCloseSeconds` is for machines with nobody in front of them, such as kiosks, test rigs, and build agents. The countdown always **sends** the report, never discards it, and any key press or click cancels it for good. To show no dialog at all, use [quiet mode](../../sdks/desktop/windows/how-the-windows-crash-reporter-works.md#quiet-mode-and-unattended-machines) instead.
 
 ### Editing the Text ✍️
 

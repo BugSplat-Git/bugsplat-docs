@@ -6,7 +6,7 @@ description: >-
 
 # MyDotNetFrameworkWpfCrasher (.NET Framework)
 
-Before you enable BugSplat in your .NET Framework application, you may want to take a moment to experiment with our `MyDotNetFrameworkWpfCrasher` sample, a WPF (.NET Framework 4.7.2) app with a button for each kind of report [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) sends.
+Before you enable BugSplat in your .NET Framework application, you may want to take a moment to experiment with our `MyDotNetFrameworkWpfCrasher` sample, a WPF (.NET Framework 4.7.2) app with a button for each kind of report [BugSplat for .NET](../../../../sdks/desktop/bugsplat-for-dot-net.md) sends.
 
 To get started, clone the [Samples](https://github.com/BugSplat-Git/Samples) repository, or [download the BugSplat SDK for .NET](https://app.bugsplat.com/download/bugsplat-dotnet.zip) and unzip it.
 
@@ -46,4 +46,4 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptio
 
 Until the entry exists, the Heap Corruption button is dimmed, and hovering over it explains why.
 
-Finally, explore how each button is implemented in the sample's source code, and see [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.
+Finally, explore how each button is implemented in the sample's source code, and see [BugSplat for .NET](../../../../sdks/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.
