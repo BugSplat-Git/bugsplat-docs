@@ -73,7 +73,7 @@ except Exception as e:
 
 Once you've posted a crash, navigate to the Crashes page and click the link in the ID column to see the crash's details
 
-![](../../introduction/getting-started/.gitbook/assets/image (5).png>)
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ### User Feedback
 
