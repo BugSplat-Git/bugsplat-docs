@@ -9,8 +9,3 @@ site:
       default: true
       content:
         directory: ./
-  api-reference/mcp-server/claude: introduction/development/web-services/mcp-server/claude.md
-  api-reference/mcp-server/claude-code: introduction/development/web-services/mcp-server/claude-code.md
-  api-reference/mcp-server/cursor: introduction/development/web-services/mcp-server/cursor.md
-  api-reference/mcp-server/codex: introduction/development/web-services/mcp-server/codex.md
-  api-reference/mcp-server/chatgpt: introduction/development/web-services/mcp-server/chatgpt.md
