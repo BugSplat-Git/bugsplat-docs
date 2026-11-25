@@ -13,7 +13,7 @@ If you are an agent, work through the sections in order, and ask the developer f
 
 ## Reading these docs
 
-Every page is available as Markdown: add `.md` to its URL, for example `https://docs.bugsplat.com/integrations/desktop/windows.md`. [llms.txt](https://docs.bugsplat.com/llms.txt) lists every page with a one-line description.
+Every page is available as Markdown: add `.md` to its URL, for example `https://docs.bugsplat.com/sdks/desktop/windows.md`. [llms.txt](https://docs.bugsplat.com/llms.txt) lists every page with a one-line description.
 
 ## Values to get from the developer
 

@@ -8,6 +8,10 @@ redirects:
   introduction/getting-started/integrations/cross-platform/dot-net-standard: sdks/desktop/bugsplat-for-dot-net.md
   introduction/getting-started/integrations/desktop/dot-net-standard: sdks/desktop/bugsplat-for-dot-net.md
   introduction/getting-started/posting-a-test-crash/my-dotnet-crasher: introduction/getting-started/posting-a-test-crash/mydotnetcrasher/README.md
+  introduction/getting-started/posting-a-test-crash/mydotnetframeworkwpfcrasher: introduction/getting-started/posting-a-test-crash/mydotnetframeworkwpfcrasher/README.md
+  introduction/getting-started/posting-a-test-crash/mydotnetframeworkhostcrasher: introduction/getting-started/posting-a-test-crash/mydotnetframeworkhostcrasher/README.md
+  introduction/getting-started/posting-a-test-crash/mydotnetcrasher: introduction/getting-started/posting-a-test-crash/mydotnetcrasher/README.md
+  introduction/getting-started/posting-a-test-crash/mydotnetwinui3crasher: introduction/getting-started/posting-a-test-crash/mydotnetwinui3crasher/README.md
   introduction/getting-started/integrations/cross-platform/electron: sdks/desktop/electron.md
   introduction/getting-started/integrations/cross-platform/qt: sdks/desktop/qt.md
   introduction/getting-started/integrations/cross-platform/java: sdks/desktop/java.md

@@ -6,7 +6,7 @@ BugSplat integrates with popular defect tracking tools and allows users to creat
 
 Follow this [link](../../integrations/issue-trackers/) to learn more about integrating your defect tracker with BugSplat, as well as creating defects for crash groups.
 
-{% page-ref page="../../introduction/development/integrating-with-tools/issue-trackers/" %}
+{% page-ref page="../../integrations/issue-trackers/" %}
 
 
 
