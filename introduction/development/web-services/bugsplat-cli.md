@@ -136,7 +136,7 @@ Commands print plain text by default. Add `--json` to any command to print JSON 
 bugsplat groups list --status open --json
 ```
 
-For the commands that call an MCP tool, `--json` prints the JSON document the tool returns. Its field names follow the tool's argument names, such as `stackKeyId`, `application`, and `version`. A list command's document has the `database`, an array named for what the command lists (`reports`, `groups`, `versions`, or `symbols`), `page`, `pageSize`, and `hasMore`, which is `true` when there may be another page.
+For the commands that call an MCP tool, `--json` prints the JSON document the tool returns. Its field names follow the tool's argument names, such as `stackKeyId`, `application`, and `version`. A list command's document has the `database`, an array named for what the command lists (`reports`, `groups`, `versions`, or `symbols`), `page`, `pageSize`, and `hasMore`, which is `true` when there may be another page. [Output format](mcp-server/tools.md#output-format) on the MCP Tools page describes the documents.
 
 Results go to stdout, and errors go to stderr. `--quiet` prints only results and errors, and `--verbose` prints more detail about what the command is doing.
 
