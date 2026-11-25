@@ -6,7 +6,7 @@ description: >-
 
 # MyDotNetWinUI3Crasher (.NET)
 
-Before you enable BugSplat in your .NET application, you may want to take a moment to experiment with our `MyDotNetWinUI3Crasher` sample, a WinUI 3 (.NET 10) app with a button for each kind of report [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) sends. It's the windowed companion of the [MyDotNetCrasher](../mydotnetcrasher/) console sample, and the .NET counterpart of the .NET Framework [MyDotNetFrameworkWpfCrasher](../mydotnetframeworkwpfcrasher/).
+Before you enable BugSplat in your .NET application, you may want to take a moment to experiment with our `MyDotNetWinUI3Crasher` sample, a WinUI 3 (.NET 10) app with a button for each kind of report [BugSplat for .NET](../../../../sdks/desktop/bugsplat-for-dot-net.md) sends. It's the windowed companion of the [MyDotNetCrasher](../mydotnetcrasher/) console sample, and the .NET counterpart of the .NET Framework [MyDotNetFrameworkWpfCrasher](../mydotnetframeworkwpfcrasher/).
 
 To get started, clone the [Samples](https://github.com/BugSplat-Git/Samples) repository, or [download the BugSplat SDK for .NET](https://app.bugsplat.com/download/bugsplat-dotnet.zip) and unzip it. You'll need the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) and Visual Studio with the WinUI application development workload, plus the C++ desktop workload and `v143` build tools for the Mixed-Mode Crash button's `MyDotNetCrasherNative` library.
 
@@ -49,4 +49,4 @@ The app checks `BugSplat.IsWerEnabled` at startup and shows a warning until the 
 
 To package the app instead, remove `<WindowsPackageType>None</WindowsPackageType>` and `<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>` from the project file and add a Windows Application Packaging Project. The project declares the BugSplat runtime files as `Content` items, so they're included in the package unchanged; `BugSplatMonitor.exe` is packaged as a plain file, not listed as an `<Executable>` in the manifest.
 
-Finally, explore how each button is implemented in the sample's source code (`MainWindow.xaml.cs` and `Crashers.cs`), and see [BugSplat for .NET](../../integrations/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.
+Finally, explore how each button is implemented in the sample's source code (`MainWindow.xaml.cs` and `Crashers.cs`), and see [BugSplat for .NET](../../../../sdks/desktop/bugsplat-for-dot-net.md) to integrate BugSplat into your own application.

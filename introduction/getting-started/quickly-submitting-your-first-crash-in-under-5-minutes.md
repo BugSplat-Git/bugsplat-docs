@@ -31,7 +31,7 @@ Before selecting a platform or SDK, use the Onboarding Tool to add your developm
 
 ### Step 4: Select Your First Platform or SDK
 
-BugSplat supports [a wide range of platforms and SDKs](integrations/), providing comprehensive crash reporting capabilities. Choose your platform or SDK from our extensive list of over 25 options. Select the one that matches your application's development environment.
+BugSplat supports [a wide range of platforms and SDKs](../../sdks/), providing comprehensive crash reporting capabilities. Choose your platform or SDK from our extensive list of over 25 options. Select the one that matches your application's development environment.
 
 
 
@@ -53,6 +53,6 @@ Remember, if you want to navigate back to the Onboarding Tool and complete the f
 
 ### Additional Resources
 
-If you want to learn more about integrating your application fully with BugSplat, we recommend visiting our SDK integration documentation on our [Platforms and SDK's page](integrations/). These resources provide in-depth guides and step-by-step instructions to help you seamlessly integrate BugSplat into your development workflow.
+If you want to learn more about integrating your application fully with BugSplat, we recommend visiting our SDK integration documentation on our [Platforms and SDK's page](../../sdks/). These resources provide in-depth guides and step-by-step instructions to help you seamlessly integrate BugSplat into your development workflow.
 
 If you ever hit a bump - please reach out to our responsive support team at [support@bugsplat.com](mailto:support@bugsplat.com)
