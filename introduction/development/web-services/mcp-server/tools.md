@@ -6,9 +6,9 @@ description: >-
 
 # MCP Tools
 
-BugSplat's [MCP server](README.md) has eleven tools. Seven read crash data, three file defects in your connected issue tracker, and one sets a crash group's status. Your assistant picks a tool and fills in its arguments from your question, so you rarely type these yourself. This page shows what each tool can answer and how to check the arguments your assistant chose.
+BugSplat's [MCP server](README.md) has twelve tools. Seven read crash data, one asks BugSplat to process a crash report again, three file defects in your connected issue tracker, and one sets a crash group's status. Your assistant picks a tool and fills in its arguments from your question, so you rarely type these yourself. This page shows what each tool can answer and how to check the arguments your assistant chose.
 
-Every tool except `list-databases` takes a `database` argument. Leave it out and the tool reads your default database.
+Every tool except `list-databases` takes a `database` argument. Leave it out and the tool reads your default database. Every tool also takes a `format` argument, described under [Output format](#output-format).
 
 ## Example questions
 
@@ -88,10 +88,28 @@ Returns one crash report in full: its metadata, platform, exception, crash group
 
 The **Crash Archive** line is a download link to the zip your app uploaded for the report, which holds the minidump and any files you attached, such as logs. The link expires 15 minutes after the call, so your assistant should download it right away or call `get-report` again for a new link. Your assistant downloads and opens the zip itself; `get-report` doesn't list the files inside it.
 
+The **Processing** line says how far the report has been processed: still processing, processed for the crashing thread only, or fully processed. If the report is still processing, your assistant calls `get-report` again shortly. If the report was processed for the crashing thread only, [`reprocess-report`](#reprocess-report) requests full processing.
+
 | Argument | Type | Description |
 | -------- | ---- | ----------- |
 | id<mark style="color:red;">\*</mark> | integer | Crash id, from `list-reports` or `get-group` |
 | database | string | Database to read |
+
+## reprocess-report
+
+Asks BugSplat to process one crash report again. Use it after you upload symbols for a report whose stack frames have no function names, or when the Processing line of `get-report` says the report isn't fully processed. The request is queued, so your assistant calls `get-report` again shortly afterward to see the new stack. A reprocessed report can move to a different crash group.
+
+The report keeps its current stack and crash group until the new result replaces them. With `force`, the stack and crash group are cleared first, as the **Reprocess** button on the Crash page does, and `get-report` shows the report as still processing until the new result is ready.
+
+A report whose version's symbols were deleted is reprocessed only with `force`. Its new stack has no function names and the old stack can't be recovered, so your assistant should ask you before it sets `force`.
+
+A database can queue 60 reports in 30 minutes.
+
+| Argument | Type | Description |
+| -------- | ---- | ----------- |
+| id<mark style="color:red;">\*</mark> | integer | Crash id, from `list-reports` or `get-group` |
+| force | boolean | Clear the report's stack and crash group before processing. Defaults to `false`. |
+| database | string | Database the report is in |
 
 ## list-groups
 
@@ -270,3 +288,16 @@ The list tools return one page at a time. Set the page length with `pageSize` (1
 Each list tool has its own `sortBy` values, listed in its table. Every `sortBy` value implies a direction, such as newest first, and `sortOrder` (`asc` or `desc`) overrides it.
 
 `startDate` and `endDate` take an ISO 8601 date such as `2026-11-01`, or a date and time such as `2026-11-01T12:00:00Z`. A time without a UTC offset is read as UTC.
+
+## Output format
+
+Every tool takes an optional `format` argument: `text`, the default, or `json`. With `json`, a tool returns the same data as one JSON document that a script can parse. `reprocess-report` called with `"format": "json"` returns:
+
+```json
+{"database":"fred","id":5,"queued":true,"force":false}
+```
+
+* Field names follow the tools' argument names, such as `stackKeyId`, `application`, and `version`, and a crash group's `status` is the word `set-group-status` takes.
+* `list-reports`, `list-groups`, `list-versions`, and `list-symbols` return `database`, an array named for what they list (`reports`, `groups`, `versions`, or `symbols`), `page`, `pageSize`, and `hasMore`, which is `true` when there may be another page.
+* A value the text leaves out is `null`.
+* An error is the same text in either format.

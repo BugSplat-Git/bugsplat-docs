@@ -17,7 +17,7 @@ Add the address to Claude Code, Codex, Cursor, Claude, ChatGPT, or any other MCP
 
 The first time your assistant connects, your browser opens BugSplat's sign-in page. After you sign in, the server works with your own BugSplat permissions: the assistant can read every database your login can open. You don't create a Client ID and Client Secret for each database the way you do for the [REST API](../oauth2.md), where each pair belongs to one database.
 
-The server's tools list and read crash reports, crash groups, versions, and symbol files, three tools file a crash group as a defect in your connected issue tracker or manage that link, and one marks a crash group fixed or sets its other statuses. [MCP Tools](tools.md) lists each tool's arguments, the filter syntax, and example questions.
+The server's tools list and read crash reports, crash groups, versions, and symbol files. One tool asks BugSplat to process a crash report again after you upload its symbols, three file a crash group as a defect in your connected issue tracker or manage that link, and one marks a crash group fixed or sets its other statuses. [MCP Tools](tools.md) lists each tool's arguments, the filter syntax, the JSON output format, and example questions.
 
 {% hint style="info" %}
 API and MCP access is included on every plan. On the Free plan, access is rate limited. See [Plans and Billing Overview](../../../../administration/billing/plans-and-billing-guide.md).
