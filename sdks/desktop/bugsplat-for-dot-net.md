@@ -54,7 +54,7 @@ dotnet add package BugSplat
 
 or search for **BugSplat** in Visual Studio's NuGet Package Manager. The same package works for .NET Framework 4.7.2+ and .NET 10+ projects.
 
-To get a feel for BugSplat before integrating it, clone the [Samples](https://github.com/BugSplat-Git/Samples) repository and try one of the [samples](#sample-apps): [MyDotNetFrameworkWpfCrasher](../../introduction/getting-started/posting-a-test-crash/mydotnetframeworkwpfcrasher/) for .NET Framework, or [MyDotNetWinUI3Crasher](../../introduction/getting-started/posting-a-test-crash/mydotnetwinui3crasher/) and [MyDotNetCrasher](../../introduction/getting-started/posting-a-test-crash/mydotnetcrasher/) for .NET 10. The samples are also in the [SDK download](https://app.bugsplat.com/download/bugsplat-dotnet.zip).
+To get a feel for BugSplat before integrating it, clone the [Samples](https://github.com/BugSplat-Git/Samples) repository and try one of the [samples](#sample-apps): [MyDotNetFrameworkWpfCrasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetframeworkwpfcrasher) for .NET Framework, or [MyDotNetWinUI3Crasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetwinui3crasher) and [MyDotNetCrasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetcrasher) for .NET 10. The samples are also in the [SDK download](https://app.bugsplat.com/download/bugsplat-dotnet.zip).
 
 ### Integration 🏗️
 
@@ -213,7 +213,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptio
 {% hint style="warning" %}
 **WinUI 3 applications must register `BugSplatWer.dll`.** WinUI turns every unhandled exception into a fail-fast, which ends the process without running the application's exception handlers, so the WER helper is the only way BugSplat can capture a WinUI 3 app's crashes. Without the registry entry, none of its crashes are reported.
 
-Check `IsWerEnabled` at startup and warn when the entry is missing, as the [MyDotNetWinUI3Crasher](../../introduction/getting-started/posting-a-test-crash/mydotnetwinui3crasher/) sample does:
+Check `IsWerEnabled` at startup and warn when the entry is missing, as the [MyDotNetWinUI3Crasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetwinui3crasher) sample does:
 
 ```csharp
 if (!bugsplat.IsWerEnabled)
@@ -230,7 +230,7 @@ if (!bugsplat.IsWerEnabled)
 
 ### Mixed C#/C++ Crashes
 
-When managed code calls native code through P/Invoke and the native code crashes, BugSplat reports one call stack that interleaves the C# and C++ frames, symbolicated from both the managed and the native PDBs you upload. This covers native code that faults when called from C#, native code that calls back into C# code that throws, and crashes on native threads with no managed frames at all. The [MyDotNetCrasher](../../introduction/getting-started/posting-a-test-crash/mydotnetcrasher/) sample's `native-*` and `cpp-throw` modes demonstrate each of these, and the Mixed-Mode buttons of the WPF and WinUI 3 samples show the simplest case.
+When managed code calls native code through P/Invoke and the native code crashes, BugSplat reports one call stack that interleaves the C# and C++ frames, symbolicated from both the managed and the native PDBs you upload. This covers native code that faults when called from C#, native code that calls back into C# code that throws, and crashes on native threads with no managed frames at all. The [MyDotNetCrasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetcrasher) sample's `native-*` and `cpp-throw` modes demonstrate each of these, and the Mixed-Mode buttons of the WPF and WinUI 3 samples show the simplest case.
 
 ### Limitations
 
@@ -243,7 +243,7 @@ When managed code calls native code through P/Invoke and the native code crashes
 
 ### Native Applications That Host .NET
 
-If your application is a native C++ program that loads the .NET Framework and calls into managed code, integrate the native SDK, [BugSplat for Windows (C++)](windows/), in the host program instead of the `BugSplat` package, and call `SetCrashType(8)` so BugSplat resolves the managed frames in its minidumps. Crashes in the managed code are captured by the native SDK's handlers, and the call stack shows the managed frames on top of your native ones. The [MyDotNetFrameworkHostCrasher](../../introduction/getting-started/posting-a-test-crash/mydotnetframeworkhostcrasher/) sample demonstrates the setup.
+If your application is a native C++ program that loads the .NET Framework and calls into managed code, integrate the native SDK, [BugSplat for Windows (C++)](windows/), in the host program instead of the `BugSplat` package, and call `SetCrashType(8)` so BugSplat resolves the managed frames in its minidumps. Crashes in the managed code are captured by the native SDK's handlers, and the call stack shows the managed frames on top of your native ones. The [MyDotNetFrameworkHostCrasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetframeworkhostcrasher) sample demonstrates the setup.
 
 ### API Reference 📖
 
@@ -280,7 +280,7 @@ The previous .NET Framework SDK (`BugSplat.CrashReporter`) has been replaced by 
 
 | Sample | Runtime | What it shows |
 | --- | --- | --- |
-| [MyDotNetFrameworkWpfCrasher](../../introduction/getting-started/posting-a-test-crash/mydotnetframeworkwpfcrasher/) | .NET Framework 4.7.2 | A WPF app with a button for each kind of report |
-| [MyDotNetFrameworkHostCrasher](../../introduction/getting-started/posting-a-test-crash/mydotnetframeworkhostcrasher/) | .NET Framework 4.7.2, hosted by C++ | A native C++ program that crashes in the C# code it calls |
-| [MyDotNetWinUI3Crasher](../../introduction/getting-started/posting-a-test-crash/mydotnetwinui3crasher/) | .NET 10 | A WinUI 3 app with a button for each kind of report |
-| [MyDotNetCrasher](../../introduction/getting-started/posting-a-test-crash/mydotnetcrasher/) | .NET 10 | A console app with a mode for every crash, including mixed C#/C++ crashes |
+| [MyDotNetFrameworkWpfCrasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetframeworkwpfcrasher) | .NET Framework 4.7.2 | A WPF app with a button for each kind of report |
+| [MyDotNetFrameworkHostCrasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetframeworkhostcrasher) | .NET Framework 4.7.2, hosted by C++ | A native C++ program that crashes in the C# code it calls |
+| [MyDotNetWinUI3Crasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetwinui3crasher) | .NET 10 | A WinUI 3 app with a button for each kind of report |
+| [MyDotNetCrasher](https://docs.bugsplat.com/getting-started/posting-a-test-crash/mydotnetcrasher) | .NET 10 | A console app with a mode for every crash, including mixed C#/C++ crashes |
