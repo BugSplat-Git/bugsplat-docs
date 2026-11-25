@@ -13,7 +13,7 @@ If you are an agent, work through the sections in order, and ask the developer f
 
 ## Reading these docs
 
-Every page is available as Markdown: add `.md` to its URL, for example `https://docs.bugsplat.com/integrations/desktop/windows.md`. [llms.txt](https://docs.bugsplat.com/llms.txt) lists every page with a one-line description.
+Every page is available as Markdown: add `.md` to its URL, for example `https://docs.bugsplat.com/sdks/desktop/windows.md`. [llms.txt](https://docs.bugsplat.com/llms.txt) lists every page with a one-line description.
 
 ## Values to get from the developer
 
@@ -35,8 +35,8 @@ Most SDKs install from a package manager; the platform's page names the package.
 
 | SDK | Download |
 | --- | --- |
-| [BugSplat for Windows (C++)](integrations/desktop/windows/) | `https://app.bugsplat.com/download/bugsplat-windows.zip`, or in a `.vcxproj`, the [BugSplat](https://www.nuget.org/packages/BugSplat) NuGet package, which gives the project the C API (see [NuGet](integrations/desktop/windows/#nuget)) |
-| [BugSplat for .NET](integrations/desktop/bugsplat-for-dot-net.md) | The [BugSplat](https://www.nuget.org/packages/BugSplat) NuGet package, or `https://app.bugsplat.com/download/bugsplat-dotnet.zip` |
+| [BugSplat for Windows (C++)](../../sdks/desktop/windows/) | `https://app.bugsplat.com/download/bugsplat-windows.zip`, or in a `.vcxproj`, the [BugSplat](https://www.nuget.org/packages/BugSplat) NuGet package, which gives the project the C API (see [NuGet](../../sdks/desktop/windows/#nuget)) |
+| [BugSplat for .NET](../../sdks/desktop/bugsplat-for-dot-net.md) | The [BugSplat](https://www.nuget.org/packages/BugSplat) NuGet package, or `https://app.bugsplat.com/download/bugsplat-dotnet.zip` |
 
 Each zip URL returns the latest release. Releases after 9.2.0 can also be pinned: add `?version=` and the release's version number. A version that isn't available returns a 404.
 
@@ -81,7 +81,7 @@ Invoke-RestMethod -Uri "https://app.bugsplat.com/api/crashes?database=$env:BUGSP
 
 3. Find the row whose `appName`, `appVersion` and `crashTime` match the test. If its `stackKey` is a module and an offset, such as `MyApp+0x12b5`, the symbols for that version weren't uploaded or don't match the build. The [Crashes](../development/web-services/api/crashes.md) API page shows how to filter the list.
 
-If no row appears, each platform's page lists the usual causes. For Windows C++, see [When crashes don't arrive](integrations/desktop/windows/#when-crashes-dont-arrive).
+If no row appears, each platform's page lists the usual causes. For Windows C++, see [When crashes don't arrive](../../sdks/desktop/windows/#when-crashes-dont-arrive).
 
 ## Reading crashes through the MCP server
 

@@ -15,7 +15,7 @@ BugSplat is designed to handle the needs of growing applications and games, whet
    * **No Overage Charges**: BugSplat rejects further crash reports for the rest of the month instead of billing you for them.
    * **Easy Upgrades**: Add more crashes to Starter, Pro, or Studio, or upgrade to a higher plan at any time, so you don't miss the crashes that matter.
 3. **Real-Time Alerts**\
-   BugSplat’s [**alerting suite**](../../introduction/development/integrating-with-tools/messanger-apps/) keeps you informed of crash rates and limits with customizable notifications. This ensures you’re always aware of your application’s crash performance and usage.
+   BugSplat’s [**alerting suite**](../../integrations/messanger-apps/) keeps you informed of crash rates and limits with customizable notifications. This ensures you’re always aware of your application’s crash performance and usage.
 4. **Scalable Plans for Any Size**\
    BugSplat [plans are designed to grow with you](../../administration/billing/plans-and-billing-guide.md):
    * Our free plan is ideal for small-scale projects or early development stages.

@@ -29,7 +29,7 @@ Crash reporters often remove the need to review every crash manually as they int
 
 This means crash reporters can decrease the time and energy a team has to spend on support while also ensuring that they are improving the performance and stability of their application for their users. &#x20;
 
-Crash reporters also serve the critical role of an early warning system for critical issues that users may encounter while using an application.  Many tools have the ability automatiaclly send customized alerts to via email or to messaging tools (e.g., [Slack](../../introduction/development/integrating-with-tools/messanger-apps/slack.md), [Teams](../../introduction/development/integrating-with-tools/messanger-apps/microsoft-teams.md), [Discord](../../introduction/development/integrating-with-tools/messanger-apps/discord.md)) that let developers know about critical issues before users can report them.
+Crash reporters also serve the critical role of an early warning system for critical issues that users may encounter while using an application.  Many tools have the ability automatiaclly send customized alerts to via email or to messaging tools (e.g., [Slack](../../integrations/messanger-apps/slack.md), [Teams](../../integrations/messanger-apps/microsoft-teams.md), [Discord](../../integrations/messanger-apps/discord.md)) that let developers know about critical issues before users can report them.
 
 ### A Boost to Development&#x20;
 
@@ -37,7 +37,7 @@ As crash reporters have become increasingly common as support tools, they have a
 
 Teams that take advantage of crash reporting during development can effectively identify and address defects in their code pre-launch. &#x20;
 
-Crash reporters help teams automate identifying, logging, and fixing more crashes during testing. Often crash reporter tools - like [BugSplat](https://www.bugsplat.com) - integrate directly with a team's defect tracking tool (e.g., [Jira](../../introduction/development/integrating-with-tools/issue-trackers/jira.md) or [Github Issues](../../introduction/development/integrating-with-tools/issue-trackers/github-issues.md)) to further streamline the process of fixing bugs pre-launch. &#x20;
+Crash reporters help teams automate identifying, logging, and fixing more crashes during testing. Often crash reporter tools - like [BugSplat](https://www.bugsplat.com) - integrate directly with a team's defect tracking tool (e.g., [Jira](../../integrations/issue-trackers/jira.md) or [Github Issues](../../integrations/issue-trackers/github-issues.md)) to further streamline the process of fixing bugs pre-launch. &#x20;
 
 Because bugs are cheaper and easier to fix during development, leveraging a crash reporter to help identify and fix bugs before they're shipped effectively lowers development costs and improves the stability of shipped software.&#x20;
 
@@ -50,7 +50,7 @@ Developers and support teams use crash reports like [BugSplat](https://www.bugsp
 * Get early warnings when there's an issue that needs their attention&#x20;
 * Spend less time and energy fixing defects&#x20;
 
-Start using [BugSplat for free](../../administration/billing/free-trial.md). BugSplat works cross-platform ([25+ SDKs](../../introduction/getting-started/integrations/)), is [simple to setup](../../introduction/getting-started/) and configure, and our [support team](../../administration/contact-us.md) is top-notch.&#x20;
+Start using [BugSplat for free](../../administration/billing/free-trial.md). BugSplat works cross-platform ([25+ SDKs](../../sdks/)), is [simple to setup](../../introduction/getting-started/) and configure, and our [support team](../../administration/contact-us.md) is top-notch.&#x20;
 
 
 

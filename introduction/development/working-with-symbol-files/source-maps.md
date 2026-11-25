@@ -130,10 +130,10 @@ npx symbol-upload -d .next/static -f "**/*.js.map"
 
 ### Expo and React Native
 
-The `@bugsplat/expo` config plugin uploads JavaScript source maps, iOS dSYMs, and Android native symbols for you during release builds when `enableSymbolUpload` is set. For manual uploads or CI, the [React Native](../../getting-started/integrations/mobile/react-native.md) guide's **Symbol Upload** section shows the commands, including uploading source maps after `npx expo export --source-maps`.
+The `@bugsplat/expo` config plugin uploads JavaScript source maps, iOS dSYMs, and Android native symbols for you during release builds when `enableSymbolUpload` is set. For manual uploads or CI, the [React Native](../../../sdks/mobile/react-native.md) guide's **Symbol Upload** section shows the commands, including uploading source maps after `npx expo export --source-maps`.
 
-{% content-ref url="../../getting-started/integrations/mobile/react-native.md" %}
-[react-native.md](../../getting-started/integrations/mobile/react-native.md)
+{% content-ref url="../../../sdks/mobile/react-native.md" %}
+[react-native.md](../../../sdks/mobile/react-native.md)
 {% endcontent-ref %}
 
 ## Serving Source Maps
