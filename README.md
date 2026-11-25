@@ -70,8 +70,12 @@ Once crashes are flowing, learn to triage them, group them, and route them to yo
 [using-the-app.md](introduction/development/using-the-app.md)
 {% endcontent-ref %}
 
-{% content-ref url="integrations/" %}
-[integrating-with-tools](integrations/)
+{% content-ref url="integrations/messanger-apps/" %}
+[messanger-apps](integrations/messanger-apps/)
+{% endcontent-ref %}
+
+{% content-ref url="integrations/issue-trackers/" %}
+[issue-trackers](integrations/issue-trackers/)
 {% endcontent-ref %}
 
 {% content-ref url="introduction/production/" %}

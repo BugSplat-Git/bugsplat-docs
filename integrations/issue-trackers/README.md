@@ -48,3 +48,10 @@ This allows teams to build issues that contain full crash information, like symb
 [automatic-issue-creation.md](automatic-issue-creation.md)
 {% endcontent-ref %}
 
+### Request an Integration
+
+We take user requests for new tool integrations seriously. Contact us via the methods listed in the link below, and let us know which tool you'd like to see next!
+
+{% content-ref url="../../administration/contact-us.md" %}
+[contact-us.md](../../administration/contact-us.md)
+{% endcontent-ref %}

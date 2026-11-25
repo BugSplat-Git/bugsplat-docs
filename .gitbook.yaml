@@ -44,7 +44,7 @@ redirects:
   introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-upgrade-guide: sdks/desktop/windows/bugsplat-for-windows-upgrade-guide.md
   integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation: sdks/desktop/windows/bugsplat-for-windows-api-documentation.md
   introduction/getting-started/integrations/desktop/cplusplus/bugsplat-for-windows-api-documentation: sdks/desktop/windows/bugsplat-for-windows-api-documentation.md
-  introduction/development/integrating-with-tools: integrations/README.md
+  introduction/development/integrating-with-tools: integrations/messanger-apps/README.md
   introduction/development/integrating-with-tools/issue-trackers: integrations/issue-trackers/README.md
   introduction/development/integrating-with-tools/issue-trackers/automatic-issue-creation: integrations/issue-trackers/automatic-issue-creation.md
   introduction/development/integrating-with-tools/issue-trackers/azure-devops: integrations/issue-trackers/azure-devops.md
@@ -112,3 +112,5 @@ redirects:
   introduction/getting-started/integrations/web/node.js: sdks/web/node.js.md
   introduction/getting-started/integrations/web/react: sdks/web/react.md
   introduction/getting-started/integrations/web/vue: sdks/web/vue.md
+  guides/integrating-with-tools: integrations/messanger-apps/README.md
+  integrations/integrations: integrations/messanger-apps/README.md
