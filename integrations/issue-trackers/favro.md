@@ -25,4 +25,4 @@ BugSplat allows your team to create cards in [Favro](https://favro.com/) with a 
 
 #### Automated Defect Creation <a href="#automated-defect-creation" id="automated-defect-creation"></a>
 
-Want to create cards in Favro automatically for each new crash or crash group? Check out the document on auto-creating defects in your third-party defect tracker tool [here](https://docs.bugsplat.com/integrations/issue-trackers/auto-creating-defects-from-bugsplat-databases-in-attached-third-party-trackers).
+Want to create cards in Favro automatically for each new crash or crash group? Check out the document on auto-creating defects in your third-party defect tracker tool [here](automatic-issue-creation.md).

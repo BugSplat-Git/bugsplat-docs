@@ -10,7 +10,7 @@ When a group's status is set to Closed, BugSplat notes the latest version of the
 
 ### Alerts
 
-BugSplat can be configured to send a [notification](../../integrations/) via [Discord](../../integrations/messanger-apps/discord.md), [Teams](../../integrations/messanger-apps/microsoft-teams.md), or [Slack](../../integrations/messanger-apps/slack.md) when a regression occurs. Follow the links in the notifications documentation and choose the Regression Alerts option once you've connected to your favorite messaging platform.
+BugSplat can be configured to send a [notification](../../integrations/messanger-apps/) via [Discord](../../integrations/messanger-apps/discord.md), [Teams](../../integrations/messanger-apps/microsoft-teams.md), or [Slack](../../integrations/messanger-apps/slack.md) when a regression occurs. Follow the links in the notifications documentation and choose the Regression Alerts option once you've connected to your favorite messaging platform.
 
 ### Defect Tracker Sync
 

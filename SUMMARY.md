@@ -90,23 +90,22 @@
 
 ## 🔗 Integrations
 
-* [Alerts & Issue Trackers](integrations/README.md)
-  * [Configurable Alerts](integrations/messanger-apps/README.md)
-    * [Slack](integrations/messanger-apps/slack.md)
-    * [Microsoft Teams](integrations/messanger-apps/microsoft-teams.md)
-    * [Discord](integrations/messanger-apps/discord.md)
-    * [Email](integrations/messanger-apps/email.md)
-    * [Webhook](integrations/messanger-apps/webhook.md)
-  * [Issue Trackers](integrations/issue-trackers/README.md)
-    * [Azure DevOps](integrations/issue-trackers/azure-devops.md)
-    * [ClickUp](integrations/issue-trackers/clickup.md)
-    * [Favro](integrations/issue-trackers/favro.md)
-    * [Jira](integrations/issue-trackers/jira.md)
-    * [GitHub Issues](integrations/issue-trackers/github-issues.md)
-    * [GitLab](integrations/issue-trackers/gitlab.md)
-    * [Monday.com](integrations/issue-trackers/monday.md)
-    * [YouTrack](integrations/issue-trackers/youtrack.md)
-    * [Automatic Issue Creation for Defect Tracker Integrations](integrations/issue-trackers/automatic-issue-creation.md)
+* [Configurable Alerts](integrations/messanger-apps/README.md)
+  * [Slack](integrations/messanger-apps/slack.md)
+  * [Microsoft Teams](integrations/messanger-apps/microsoft-teams.md)
+  * [Discord](integrations/messanger-apps/discord.md)
+  * [Email](integrations/messanger-apps/email.md)
+  * [Webhook](integrations/messanger-apps/webhook.md)
+* [Issue Trackers](integrations/issue-trackers/README.md)
+  * [Azure DevOps](integrations/issue-trackers/azure-devops.md)
+  * [ClickUp](integrations/issue-trackers/clickup.md)
+  * [Favro](integrations/issue-trackers/favro.md)
+  * [Jira](integrations/issue-trackers/jira.md)
+  * [GitHub Issues](integrations/issue-trackers/github-issues.md)
+  * [GitLab](integrations/issue-trackers/gitlab.md)
+  * [Monday.com](integrations/issue-trackers/monday.md)
+  * [YouTrack](integrations/issue-trackers/youtrack.md)
+  * [Automatic Issue Creation for Defect Tracker Integrations](integrations/issue-trackers/automatic-issue-creation.md)
 
 ## 📖 Guides
 
@@ -172,7 +171,7 @@
 * [Defect Tracker Options](introduction/development/web-services/defect-tracker-options.md)
 * [Paging, Filtering, and Grouping](introduction/development/web-services/paging-filtering-and-grouping.md)
 * [Platform Specific API's](introduction/development/web-services/platform-specific-apis/README.md)
-  * [Windows C++ API](https://docs.bugsplat.com/integrations/desktop/windows/bugsplat-for-windows-api-documentation)
+  * [Windows C++ API](https://docs.bugsplat.com/sdks/desktop/windows/bugsplat-for-windows-api-documentation)
   * [.NET API](https://www.bugsplat.com/platforms/net/api/)
 
 ## 🍎 Education
