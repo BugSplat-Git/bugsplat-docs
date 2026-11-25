@@ -27,20 +27,20 @@ Ready to wire up your own application? The **Full Setup Guide** walks you throug
 
 Pick your platform and follow its SDK guide. (Each guide assumes you've already [created a database](introduction/getting-started/create-a-new-database-in-bugsplat.md), which takes about 30 seconds.)
 
-{% content-ref url="introduction/getting-started/integrations/desktop/" %}
-[desktop](introduction/getting-started/integrations/desktop/)
+{% content-ref url="sdks/desktop/" %}
+[desktop](sdks/desktop/)
 {% endcontent-ref %}
 
-{% content-ref url="introduction/getting-started/integrations/game-development/" %}
-[game-development](introduction/getting-started/integrations/game-development/)
+{% content-ref url="sdks/game-development/" %}
+[game-development](sdks/game-development/)
 {% endcontent-ref %}
 
-{% content-ref url="introduction/getting-started/integrations/mobile/" %}
-[mobile](introduction/getting-started/integrations/mobile/)
+{% content-ref url="sdks/mobile/" %}
+[mobile](sdks/mobile/)
 {% endcontent-ref %}
 
-{% content-ref url="introduction/getting-started/integrations/web/" %}
-[web](introduction/getting-started/integrations/web/)
+{% content-ref url="sdks/web/" %}
+[web](sdks/web/)
 {% endcontent-ref %}
 
 ## 🛠️ Fix a problem
@@ -70,8 +70,12 @@ Once crashes are flowing, learn to triage them, group them, and route them to yo
 [using-the-app.md](introduction/development/using-the-app.md)
 {% endcontent-ref %}
 
-{% content-ref url="introduction/development/integrating-with-tools/" %}
-[integrating-with-tools](introduction/development/integrating-with-tools/)
+{% content-ref url="integrations/messanger-apps/" %}
+[messanger-apps](integrations/messanger-apps/)
+{% endcontent-ref %}
+
+{% content-ref url="integrations/issue-trackers/" %}
+[issue-trackers](integrations/issue-trackers/)
 {% endcontent-ref %}
 
 {% content-ref url="introduction/production/" %}

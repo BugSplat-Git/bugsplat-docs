@@ -1,6 +1,6 @@
 # How Do I Download Crash Attachments in Bulk?
 
-BugSplat stores each crash report as a zip file that contains the crash file, such as a minidump, along with every attachment that was posted with it. If you need those files outside of BugSplat, you can grab them a row at a time from the app, fetch them programmatically with the API, or have BugSplat push every crash to you as it arrives with a [Webhook](../../introduction/development/integrating-with-tools/messanger-apps/webhook.md).
+BugSplat stores each crash report as a zip file that contains the crash file, such as a minidump, along with every attachment that was posted with it. If you need those files outside of BugSplat, you can grab them a row at a time from the app, fetch them programmatically with the API, or have BugSplat push every crash to you as it arrives with a [Webhook](../../integrations/messanger-apps/webhook.md).
 
 ## Download from the app
 
@@ -23,7 +23,7 @@ If you only need one file rather than the whole zip, open the crash and use the 
 
 **One request per second is a hard ceiling.** Put a delay between requests and never fan them out in parallel. Scripts that hammer the Crash endpoint will be throttled.
 
-**Need more than one crash per second?** Do not raise the rate. Use the [Webhook](../../introduction/development/integrating-with-tools/messanger-apps/webhook.md) instead, as described [below](#get-every-crash-with-a-webhook).
+**Need more than one crash per second?** Do not raise the rate. Use the [Webhook](../../integrations/messanger-apps/webhook.md) instead, as described [below](#get-every-crash-with-a-webhook).
 {% endhint %}
 
 To pull attachments for a set of crashes, script it against BugSplat's API:
@@ -38,7 +38,7 @@ API access requires an [OAuth2](../../introduction/development/web-services/oaut
 
 ## Get every crash with a webhook
 
-If you want a copy of every crash BugSplat receives, don't poll the API for it. Configure a [Webhook](../../introduction/development/integrating-with-tools/messanger-apps/webhook.md) instead. BugSplat calls your webhook once per new report, and the payload includes a `crashFileUrl` pre-signed URL you can use to download the crash file. Webhook notifications have no maximum throughput limitation, so this scales with your crash volume in a way that polling does not.
+If you want a copy of every crash BugSplat receives, don't poll the API for it. Configure a [Webhook](../../integrations/messanger-apps/webhook.md) instead. BugSplat calls your webhook once per new report, and the payload includes a `crashFileUrl` pre-signed URL you can use to download the crash file. Webhook notifications have no maximum throughput limitation, so this scales with your crash volume in a way that polling does not.
 
 {% hint style="warning" %}
 Your endpoint receives one call per crash and **BugSplat does not retry failed deliveries**. Anything your webhook drops, rejects, or times out on is not sent again. Make sure it can handle your peak crash volume, and prefer acknowledging the request immediately and downloading `crashFileUrl` from a background queue.
