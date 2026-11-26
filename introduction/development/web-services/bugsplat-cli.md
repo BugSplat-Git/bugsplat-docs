@@ -31,12 +31,12 @@ bugsplat login
 
 `bugsplat login` opens your browser so you can sign in to BugSplat. With `--no-browser`, it prints the sign-in URL and leaves opening it to you. `bugsplat whoami` shows who is signed in, and `bugsplat logout` deletes the stored session.
 
-The CLI stores your session in your operating system's keychain. On a machine without a keychain, such as a container, it stores the session in a file that only your user can read. The file is in the `bugsplat` folder of your user configuration directory: `~/.config/bugsplat` on Linux, `~/Library/Application Support/bugsplat` on macOS, and `%APPDATA%\bugsplat` on Windows. Two environment variables change where the session goes:
+The CLI stores your session in your operating system's keychain. On a machine without a keychain, such as a container, it stores the session in a file. On macOS and Linux, only your user can read that file. On Windows, the file has its folder's permissions, and the default folder is inside your user profile. The file is in the `bugsplat` folder of your user configuration directory: `~/.config/bugsplat` on Linux, `~/Library/Application Support/bugsplat` on macOS, and `%APPDATA%\bugsplat` on Windows. Two environment variables change where the session goes:
 
 | Environment variable | Value |
 | --- | --- |
 | `BUGSPLAT_TOKEN_STORE` | `file` stores the session in the file. `keychain` stores it in the keychain. `auto`, the default, uses the keychain when the machine has one and the file when it doesn't. |
-| `BUGSPLAT_CONFIG_DIR` | A folder to use in place of the `bugsplat` folder above |
+| `BUGSPLAT_CONFIG_DIR` | A folder to use in place of the `bugsplat` folder above. On Windows, choose a folder that only your user can read. |
 
 ## Sign in from CI
 
