@@ -12,4 +12,4 @@ Sometimes, you may want to manually reprocess a crash if you recently uploaded n
 
 The **Reprocess** button will be disabled if the platform type does not support reprocessing.
 
-BugSplat limits the concurrent reprocess operations for any given database to 50. If necessary, you can contact [support@bugsplat.com](mailto:support@bugsplat.com), and our support team can assist you with deleting bulk sets of crashes larger than 50.
+BugSplat limits reprocessing to 60 crash reports per database in any 30 minutes. If you need to reprocess more, contact [support@bugsplat.com](mailto:support@bugsplat.com).
