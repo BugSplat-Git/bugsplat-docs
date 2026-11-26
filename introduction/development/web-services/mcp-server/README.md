@@ -35,6 +35,10 @@ Each page has the setup steps for one client:
 | Codex | [Connect Codex to BugSplat](codex.md) |
 | ChatGPT | [Connect ChatGPT to BugSplat](chatgpt.md) |
 
+## The BugSplat CLI
+
+The [BugSplat CLI](../bugsplat-cli.md) runs the same tools from a terminal or a script: `bugsplat groups list` returns what the `list-groups` tool returns. Use it where there is no MCP client, such as a build script or a CI job.
+
 ## The bugsplat-mcp package
 
 The [bugsplat-mcp](https://github.com/BugSplat-Git/bugsplat-mcp) package is an MCP server that runs on your own computer. Each configuration reads one database with that database's [Client ID and Client Secret](../oauth2.md). Its README covers setup.

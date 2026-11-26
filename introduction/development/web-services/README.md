@@ -16,6 +16,10 @@ We try hard to keep this documentation up to date, however, if you find any issu
 [mcp-server](mcp-server/)
 {% endcontent-ref %}
 
+{% content-ref url="bugsplat-cli.md" %}
+[bugsplat-cli.md](bugsplat-cli.md)
+{% endcontent-ref %}
+
 {% content-ref url="oauth2.md" %}
 [oauth2.md](oauth2.md)
 {% endcontent-ref %}
